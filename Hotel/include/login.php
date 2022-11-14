@@ -2,8 +2,8 @@
 
 <head>
     <title>Pack2Paradise</title>
-    <link rel="stylesheet" href="../css/hotel/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/hotel/login.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/login.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 
   <div class="form">
     <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">LOGIN</div>
-    <form class="login-form" method="POST" action="../controller/hotelController.php">
+    <form class="login-form" method="POST" action="../api/loginapi.php">
       <label style="font-size:15px;padding:10px;" class="text">Username</label>
       <input type="text" class="field" name="username" placeholder="Enter your username"/>
        <label style="font-size:15px;padding:10px;" class="text">Password</label>
