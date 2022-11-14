@@ -4,6 +4,6 @@
         <div class="header-right">
             <a href="#home">HOME</a>
             <a href="#contact" style="margin-left:60px;">SIGNUP</a>
-            <a class="active" href="#about" style="padding:10px;margin-left:60px;">LOGIN</a>
+            <a class="active" href="login.php" style="padding:10px;margin-left:60px;">LOGIN</a>
         </div>
 </header>
