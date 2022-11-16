@@ -15,7 +15,7 @@
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Reservations/div>
+        <div class="text">Reservations</div>
 
     </section>
 

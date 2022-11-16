@@ -28,7 +28,7 @@ class hotelController extends db_connection
 						$_SESSION['username'] = $result['username'];
 						$_session['hotelID'] = $result['hotelID'];
 
-						header("Location: ../include/recoverPwd.php");
+						header("Location: ../view/recoverPwd.php");
 						exit();
 					}
 					else{

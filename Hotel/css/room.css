@@ -1,4 +1,4 @@
-.model1 {
+.model-container .model {
   height: 400px;
   width: 425px;
   background-color: white;
@@ -7,8 +7,20 @@
   left: 50%;
   margin-top: -180px;
   margin-left: -200px;
-  /* transform: translate(-50%, -50%); */
+  display: none;
+   
 }
+.model-container {
+  /* position: fixed;
+  display: none; */
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6); }
+
 .heading {
   text-align: center;
   color: rgba(37, 53, 81, 1);
@@ -24,7 +36,7 @@
   margin-top: 12px;
 }
 .subcontent {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
   font-size: 10px;
   margin-left: 90px;
   margin-top: 12px;
@@ -65,4 +77,7 @@ th {
   font-weight: bold;
   cursor: pointer;
   margin-top:30px;
+}
+i{
+  cursor: pointer;
 }
