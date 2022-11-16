@@ -11,44 +11,55 @@ class hotelController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function userLogin($username, $password){
-		$hotel = new hotel();
-		session_start();
+    public function userLogin($username, $password)
+    {
+        $hotel = new hotel();
+        session_start();
 
-			$res = $hotel->validate($username, $password);
+        $res = $hotel->validate($username, $password);
 
-			if(mysqli_num_rows($res)>0){
-				// echo "print";
+        if (mysqli_num_rows($res) > 0) {
+            // echo "print";
 
-				$result = mysqli_fetch_assoc($res);
-				
+            $result = mysqli_fetch_assoc($res);
 
-				if($result['username']==$username && $result['password'] == $password){
-					if($result['status']==1){
-						$_SESSION['username'] = $result['username'];
-						$_session['hotelID'] = $result['hotelID'];
+            if ($result['username'] == $username && $result['password'] == $password) {
+                if ($result['status'] == 1) {
+                    $_SESSION['username'] = $result['username'];
+                    $_session['hotelID'] = $result['hotelID'];
 
-						header("Location: ../view/recoverPwd.php");
-						exit();
-					}
-					else{
-						echo "<script type='text/javascript'>alert('Try again shortly');</script>";
-					}
-				}
-				else{
-					exit();
-				}
-			} else {
-				//header("Location: ../include/login.php?error=The username is taken try another");
-				echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
-				//header("Location: ../include/login.php");
-				exit();
+                    header("Location: ../view/dashboard.php");
+                    exit();
+                } else {
+                    echo "<script type='text/javascript'>alert('Try again shortly');</script>";
+                }
+            } else {
+                exit();
+            }
+        } else {
+            //header("Location: ../include/login.php?error=The username is taken try another");
+            echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
+            //header("Location: ../include/login.php");
+            exit();
 
-			}
+        }
+
+    }
+    public function addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password ,$mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    {
+        $user = new hotel();
+
+        $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+
+        if (!$result) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+            echo "<script>alert('Your form was successfully submitted');
+        window.location.href = '../view/login.php';
+        </script>";
+        }
+
+    }
 
 }
-
-
-
-}
-
