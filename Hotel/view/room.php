@@ -28,7 +28,7 @@
                 <div class="close"> <i class="fa-sharp fa-solid fa-circle-xmark"
                         style="float:right;margin-top:-35px;font-size:25px;margin-left:395px;"></i>
                 </div>
-                <form action="#" method="post">
+                <form action="../api/addroomapi.php" method="post">
                     <table>
                         <tr class="row">
                             <td>
@@ -81,35 +81,22 @@
                     <input type="submit" class="btn" style="padding:10px;margin-left:150px;" value="ADD ROOM"
                         name="add">
                 </form>
-                <?php
-include '../controller/roomController.php';
 
-if (isset($_POST['add'])) {
-    $hotelPkgId = $_POST['hotelPkgId'];
-    $roomNo = $_POST['roomNo'];
-    $type = $_POST['type'];
-    $beds = $_POST['beds'];
-    $status = $_POST['status'];
-
-    $roomcon = new roomController();
-    $roomcon->addRoom($roomNo, $type, $beds, $status, $hotelPkgId);
-}
-?>
             </div>
         </div>
     </section>
     <script>
-        var model = $('.model');
+    var model = $('.model');
 
-        $('.add').click(function() {
-            model.show();
-        })
-        $('.close').click(function() {
-            model.hide();
-        })
-        // $('.btn').click(function() {
-        //     model.hide();
-        // })
+    $('.add').click(function() {
+        model.show();
+    })
+    $('.close').click(function() {
+        model.hide();
+    })
+    // $('.btn').click(function() {
+    //     model.hide();
+    // })
     </script>
 </body>
 

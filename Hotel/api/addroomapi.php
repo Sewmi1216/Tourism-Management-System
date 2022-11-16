@@ -8,6 +8,7 @@ if (isset($_POST['add'])) {
     $beds = $_POST['beds'];
     $status = $_POST['status'];
 
-$roomcon = new roomController();
-$roomcon->addRoom($roomNo,$type,$beds,$status,$hotelPkgId);
+    $roomcon = new roomController();
+    $roomcon->addRoom($roomNo, $type, $beds, $status, $hotelPkgId);
 }
+?>
