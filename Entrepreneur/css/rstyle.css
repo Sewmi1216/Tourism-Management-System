@@ -1,0 +1,185 @@
+body{
+  background-color: #034666;
+  margin: 0;
+  padding: 0;
+  height: 1350px;
+}
+.registerForm{
+  background-color:rgba(37, 53, 81, 1);
+  height:1300px;
+  width: 1335px;
+  padding: 10px;
+  margin-left: 66px;
+  margin-top: 22px;
+  margin-right: 50px;
+}
+/* header */
+
+header {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+header a {
+  float: left;
+  color: rgba(37, 53, 81, 1);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 15px; 
+  line-height: 25px;
+  border-radius: 4px;
+  font-family:sans-serif;
+  font-weight: bold;
+}
+
+header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+header a.active {
+  background-color: rgba(37, 53, 81, 1);
+  color: white;
+}
+
+.header-right {
+  float: right;
+  margin-top: -37px;
+  padding-right:30px;
+}
+
+.registerForm {
+  padding: 50px;
+  background-color: #022535;
+  color: white;
+  font-family:  Montserrat;
+  margin-top: 22px;
+  margin-bottom: 0px;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 22px;
+  resize: vertical;
+  border-color: #0789C6;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 55%;
+  margin-top: 6px;
+  border-color: #0789C6;
+  margin-left: -60px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 5px;
+  background: #f1f1f1;
+  border-color: black;
+  border-width: 5px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+.registerbtn {
+  background-color:rgb(41, 65, 138);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: #022535;
+  border-width: 20px;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+  text-decoration: none;
+
+}
+p {
+  margin-top: -130px;
+  text-align:center ;
+  text-decoration: none;
+}
