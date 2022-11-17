@@ -5,30 +5,31 @@ body{
 }
 .registerForm{
     background-color:rgba(37, 53, 81, 1);
-margin-bottom: 20px;
-    width: 1335px;
+    width: 885px;
     padding: 10px;
-    margin-left: 66px;
+    margin-left: 210px;
     margin-top: 25px;
     display: table;
+    margin-bottom: 30px;
+    /* height: 200px; */
 }
 .heading{
     font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-    color:  white;
+    color:  rgb(0, 0, 0);
     font-weight: bold;
-    font-size: 23px;
+    font-size: 17px;
 }
 .subheading{
     font-style: "helvetica neue", helvetica, tahoma, sans-serif;
     color:  white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 13px;
 }
 .content{
     font-style: "helvetica neue", helvetica, tahoma, sans-serif;
     color:  white;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 15px;
     color:white;
     margin-left:80px;
     margin-top:12px;
@@ -52,43 +53,86 @@ margin-bottom: 20px;
 .subfield {
   font-family:sans-serif;
   background: #cfcaff;
-  width: 565px;
-  height:30px;
+  width: 400px;
+  height:40px;
   padding: 5px;
   box-sizing: border-box;
   font-size: 14px;
   border: 5px solid rgba(0, 0, 0, 0.25);
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
   border-radius: 36px;
-  margin-top:5px;
+  margin-top:20px;
 }
 
-
-.row{
-    display: table-row;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 table{
     width: 100%;
+    margin-top:40px;
 }
 th {
   text-align: left;
 }
 .btn{
-  background-color: #0789C6;
-  border: none;
-  color: white;
-  padding: 14px 32px;
+  background-color:white;
+  border: 5px solid #0789C6;
+  color: black;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 35px 280px;
+  margin: 60px 100px;
   cursor: pointer;
   border-radius: 5px;
-  width: 50%;
+  width: 15%;
   }
+  .btn1{
+  background-color: #0789C6;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 360px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 15%;
+  }
+.bg{
+  height:auto;
+  width: 500px;
+  background-color:white;
+    padding: 10px;
+    margin-left: 210px;
+    margin-top: 25px;
+    display: table;
+  
+}
+.tblh{
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.tblrw{
+  background-color: rgba(37, 53, 81, 1);
+  text-align: center;
+
+}
+.tbld{
+    padding: 10px;
+}
+.status{
+  background-color:red;
+  padding:10px;
+  border-radius: 20px;
+  color:white;
+}
+.art{
+  font-size: 17px;
+  color: white;
+}
+i{
+  cursor:pointer;
+}
