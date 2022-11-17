@@ -10,9 +10,9 @@ class hotel extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function validate($username, $password)
+    public function validate($username)
     {
-        $query = "SELECT * FROM hotel where username='$username' and password='$password'";
+        $query = "SELECT * FROM hotel where username='$username'";
         //echo "print";
         $stmt = mysqli_query($this->conn, $query);
         //$stmt = $this->conn->prepare($query);

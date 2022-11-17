@@ -1,3 +1,12 @@
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+    $id = $_SESSION["hotelID"];
+} else {
+    header("location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

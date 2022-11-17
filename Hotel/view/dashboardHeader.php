@@ -8,6 +8,6 @@
                 height="40px" width="40px" style="padding-right:0px;border-radius:50%;"></a>
         <a href="#contact" style="margin-left:60px;"><i class="fa-solid fa-message fa-lg"
                 style="font-size:28px;"></i></a>
-        <a class="active" href="login.php" style="padding:10px;margin-left:60px;">LOGOUT</a>
+        <a class="active" href="../api/logout.php" style="padding:10px;margin-left:60px;">LOGOUT</a>
     </div>
 </header>
