@@ -34,13 +34,15 @@ class hotelController extends db_connection
                     echo "<script type='text/javascript'>alert('Try again shortly');</script>";
                 }
             } else {
-                exit();
+                $_SESSION["error"] = "Password does not match";
+
             }
         } else {
             //header("Location: ../include/login.php?error=The username is taken try another");
-            echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
+           // echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
             //header("Location: ../include/login.php");
-            exit();
+            //exit();
+            $_SESSION["error"] = "Username does not match";
 
         }
 
@@ -55,11 +57,14 @@ class hotelController extends db_connection
             echo 'There was a error';
             // echo "<script>console.log(res)</script>";
         } else {
+            // include "../api/addhotelapi.php";
+            // move_uploaded_file($ptempname, $folderImg);
+            // move_uploaded_file($dtempname, $folderDoc);
+
             echo "<script>alert('Your form was successfully submitted');
         window.location.href = '../view/login.php';
         </script>";
         }
-
     }
 
 }

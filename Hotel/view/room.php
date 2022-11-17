@@ -20,6 +20,43 @@
         <div class="text">Rooms
             <div class="add"><i class="fa-regular fa-square-plus" style="font-size:30px;margin-left:950px;"></i>
             </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Room Number</th>
+                        <th>Hotel Package ID</th>
+                        <th>Guest Name</th>
+                        <th>Room type</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr><?php
+                    include "../controller/roomController.php";
+                    $roomControl =  new roomController();
+                    $res = $roomControl->viewAllRooms();
+if ($res->num_rows > 0) {
+    while ($row = mysqli_fetch_array($res)) {
+        ?>
+                    <tr>
+                        <td><?php echo $row["roomNo"] ?></td>
+                        <td><?php echo $row["hotelPkgID"] ?></td>
+                        <td><?php echo $row["guestName"] ?></td>
+                        <td><?php echo $row["type"] ?></td>
+                        <td><?php echo $row["occupied_from"] ?></td>
+                        <td><?php echo $row["occupied_to"] ?></td>
+                        <td><?php echo $row["status"] ?></td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                    <?php }
+} else {
+    echo "No results";
+}
+?>
+                </table>
+            </div>
         </div>
 
         <div class="model-container">
