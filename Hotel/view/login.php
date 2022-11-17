@@ -16,6 +16,9 @@
             <input type="text" class="field" name="username" placeholder="Enter your username" />
             <label style="font-size:15px;padding:10px;" class="text">Password</label>
             <input type="password" class="field" name="password" placeholder="********" />
+            <?php if(isset($_SESSION["error"])){?>
+                <p style="color:red;"><?php $_SESSION["error"]; ?></p>
+                <?php unset($_SESSION["error"]);}?>
             <a href="recoverPwd.php" style="float:right;text-decoration:none;margin-bottom:10px;" class="message">Forgot
                 password</a>
             <input type="submit" class="btn" value="Sign In" name="signIn">

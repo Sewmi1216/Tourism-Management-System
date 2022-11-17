@@ -20,6 +20,6 @@ if (isset($_POST['signup'])) {
     $folderImg = "../images/" . $fileImg;
     $folderDoc = "../images/doc" . $fileDoc;
 
-    $hotelcon = new hotelController();
-    $hotelcon->addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+    $hotelconnection = new hotelController();
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
 }
