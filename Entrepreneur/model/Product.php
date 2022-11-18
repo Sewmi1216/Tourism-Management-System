@@ -19,18 +19,4 @@ class product extends db_connection
         $stmt->execute();
         return $stmt;
     }
-    public function viewAll()
-    {
-        $query = "Select * from product p, entrepreneurID E where p.entrepreneurID=e.entrepreneurID";
-
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-        // $stmt = $this->conn->prepare($query);
-
-        // $stmt->execute();
-        // echo 'sql';
-
-        // return $stmt;
-
-    }
 }

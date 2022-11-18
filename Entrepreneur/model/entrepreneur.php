@@ -18,10 +18,11 @@ class entrepreneur extends db_connection
         //$stmt->execute();
         return $stmt;
     }
-    public function insertentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+    public function insertentrepreneur($bussinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
     {
-        $query = "INSERT INTO entrepreneur (name, address, email, phone, profileImg, username, password, entrepreneurName, entrepreneurNic,  entrepreneurPhone, entrepreneurEmail, document, status) VALUES ('$businessName', '$address','$email','$phone', '$fileImg', '$username', '$password', '$eName', '$eNic','$ePhone', '$eEmail',  '$fileDoc', 0)";
+        $query = "INSERT INTO entrepreneur (name, address, email, phone, profileImg, username, password, entreName, entreNic,  entrePhone, entreEmail, document, status) VALUES ('$bussinessName, $address,$email,$phone, $fileImg, $username, $password, $eName, $eNic,$ePhone, $eEmail,  $fileDoc, 0')";
 
+        
         // $stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
          $stmt->execute();

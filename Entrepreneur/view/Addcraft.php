@@ -9,22 +9,20 @@
 
 <body>
 <header>
-        <a href="#default" class="logo"><img src="../Images/Travel and Tourism Logo.png" alt="Logo" height="40px"
-                width="90px" style="margin-left:45px;padding-right:0px;"></a>
+        <a href="#default" class="logo"><img src="../Images/Travel and Tourism Logo.png" alt="Logo" height="40px" width="90px" style="margin-left:45px;padding-right:0px;"></a>
         <div style="font-size: 25px;line-height: 40px;color: rgba(37, 53, 81, 1);margin-top:10px;">Pack2Paradise</div>
-        <div class="header-right" style="float:right">
-        <a href="#home">HOME</a>
-        <a href="#contact" style="margin-left:60px;margin-top:-8px;"><img src="../Images/Profile.jpg" alt="Logo"
-                height="40px" width="40px" style="padding-right:0px;border-radius:50%;"></a>
-        <a class="active" href="login.php" style="padding:10px;margin-left:60px;">LOGOUT</a>
+        <div class="header-right">
+            <a href="#home">HOME</a>
+            <a href="#contact" style="margin-left:60px;">SIGNUP</a>
+            <a class="active" href="#about" style="padding:10px;margin-left:60px;">LOGIN</a>
         </div>
-    </header>
+</header>
 
 <section id="menu">
             <h3>WELCOME</h3>
             <div class="items">
             <li><i class="fas fa-chart-pie"></i><a href="#">DASHBOARD</a></li>
-            <li><i class="fas fa-star"></i><a href="#">CRAFT PRODUCTS</a></li>
+            <li><i class="fas fa-acorn"></i><a href="#">CRAFT PRODUCTS</a></li>
             <li><i class="fas fa-shopping-cart"></i><a href="#">CRAFT ORDERS</a></li>
             <li><i class="fas fa-file-invoice-dollar"></i><a href="#">PAYMENTS</a></li>
        </div>
@@ -50,10 +48,15 @@
                 </tr>
                 <tr class="row">
                     <td>
-                        <div class="content">Product Category</div>
+                        <div class="custom-select">Product Category</div>
                     </td>
                     <td>
-                    <input type="text" class="subfield" name="pCategory" required />
+                        <select id="crafts" class="subfield" name="pCategory" form="carform" >
+                            <option value="0">Cane Products</option>
+                            <option value="1">TrditionalMasks</option>
+                            <option value="2">CoconutProducts</option>
+                            <option value="3">Home Decor</option>
+                        </select>
                         <div class="subcontent">Room Number is required</div>
                     </td>
                 </tr>
