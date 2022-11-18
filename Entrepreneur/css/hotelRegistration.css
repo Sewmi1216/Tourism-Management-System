@@ -1,0 +1,94 @@
+body{
+    background-color: #0789C6;
+    margin: 0;
+    padding: 0;
+}
+.registerForm{
+    background-color:rgba(37, 53, 81, 1);
+margin-bottom: 20px;
+    width: 1335px;
+    padding: 10px;
+    margin-left: 66px;
+    margin-top: 25px;
+    display: table;
+}
+.heading{
+    font-style: "helvetica neue", helvetica, tahoma, sans-serif;
+    color:  white;
+    font-weight: bold;
+    font-size: 23px;
+}
+.subheading{
+    font-style: "helvetica neue", helvetica, tahoma, sans-serif;
+    color:  white;
+    font-weight: bold;
+    font-size: 18px;
+}
+.content{
+    font-style: "helvetica neue", helvetica, tahoma, sans-serif;
+    color:  white;
+    font-weight: bold;
+    font-size: 13px;
+    color:white;
+    margin-left:80px;
+    margin-top:12px;
+}
+.field {
+  font-family:sans-serif;
+  background: #cfcaff;
+  width: 75%;
+  height:30px;
+  margin: 0 0 15px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 5px solid rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  border-radius: 36px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #4169E1;
+}
+.subfield {
+  font-family:sans-serif;
+  background: #cfcaff;
+  width: 565px;
+  height:30px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 5px solid rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  border-radius: 36px;
+  margin-top:5px;
+}
+
+
+.row{
+    display: table-row;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+table{
+    width: 100%;
+}
+th {
+  text-align: left;
+}
+.btn{
+  background-color: #0789C6;
+  border: none;
+  color: white;
+  padding: 14px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 280px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 50%;
+  }

@@ -1,0 +1,144 @@
+.model-container .model {
+  height: 400px;
+  width: 425px;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -180px;
+  margin-left: -200px;
+  display: none;
+  border:2px black;
+   
+}
+.model-container {
+  /* position: fixed;
+  display: none; */
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6); 
+}
+
+.heading {
+  text-align: center;
+  color: rgba(37, 53, 81, 1);
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 5px;
+}
+.content {
+  color: rgba(37, 53, 81, 1);
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+.subcontent {
+  color: rgb(255, 0, 0);
+  font-size: 10px;
+  margin-left: 90px;
+  margin-top: 12px;
+  display: none;
+}
+.subfield {
+  font-family: sans-serif;
+  background: #cfcaff;
+  width: 200px;
+  height: 32px;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 5px solid rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  border-radius: 36px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+table {
+  width: 100%;
+  margin-top: 40px;
+}
+th {
+  text-align: left;
+}
+.btn {
+  float: left;
+  background-color: rgba(37, 53, 81, 1);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid rgba(37, 53, 81, 1);
+  font-size: 15px;
+  line-height: 25px;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top:30px;
+}
+i{
+  cursor: pointer;
+}
+.bg{
+  height:auto;
+  width: 500px;
+  background-color:white;
+    padding: 10px;
+    margin-left: 210px;
+    margin-top: 25px;
+    display: table;
+  
+}
+.tblh{
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.tblrw{
+  background-color: rgba(37, 53, 81, 1);
+  text-align: center;
+
+}
+.tbld{
+    padding: 10px;
+}
+.status{
+  background-color:red;
+  padding:10px;
+  border-radius: 20px;
+  color:white;
+}
+.art{
+  font-size: 17px;
+  color: white;
+}
+.heading{
+    font-style: "helvetica neue", helvetica, tahoma, sans-serif;
+    color:  rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 17px;
+}
+.subheading{
+    font-style: "helvetica neue", helvetica, tahoma, sans-serif;
+    color:  white;
+    font-weight: bold;
+    font-size: 13px;
+}
+.search {
+  font-family:sans-serif;
+  background: #cfcaff;
+  width: 400px;
+  height:40px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 5px solid rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  border-radius: 36px;
+  margin-top:20px;
+}
