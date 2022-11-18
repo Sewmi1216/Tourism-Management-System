@@ -2,7 +2,7 @@
 include '../controller/productController.php';
 if (isset($_POST['addproduct'])) {
     $pName = $_POST['pName'];
-    $Category = $_POST['pCategory'];
+    $pCategory = $_POST['pCategory'];
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
     $fileImg = $_FILES['Img']['name'];

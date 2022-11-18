@@ -27,7 +27,20 @@ public function addproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
 	</script>";
 	}
 }
+public function viewAll()
+    {
+        
 
+        $product = new product();
 
+        $result = $product->viewAll();
+
+        // include "../view/product.php";
+        return $result;
+
+    }
 
 }
+
+
+
