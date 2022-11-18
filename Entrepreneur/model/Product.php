@@ -12,7 +12,7 @@ class product extends db_connection
 
     public function insertproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
     {
-        $query = "INSERT INTO product (productName, category, quantity,price, productImg) VALUES ('$pName, $pCategory,$avaquantity, $price,$fileImg')";
+        $query = "INSERT INTO product (productName, category, quantity,price, productImg) VALUES ('$pName', '$pCategory','$avaquantity', '$price','$fileImg')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);

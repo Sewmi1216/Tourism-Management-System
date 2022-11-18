@@ -1,4 +1,11 @@
-</div>
+<html>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" href="../css/stylenew.css?v=<?php echo time(); ?>">
+	</head>
+	<body>
+		
+	
 			<div class="loginbox">
 				<h1>LOGIN</h1>
 				<h5>Welcome back! Please enter your details.</h3>
@@ -18,3 +25,5 @@
 				
 				
 			</div>
+			</body>
+			</html>
