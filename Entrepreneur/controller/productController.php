@@ -23,11 +23,24 @@ public function addproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
 		// echo "<script>console.log(res)</script>";
 	} else {
 		echo "<script>alert('Your form was successfully submitted');
-	window.location.href = '../view/login.php';
+        window.location.href = '../view/product.php';
 	</script>";
 	}
 }
+public function viewAll()
+    {
+        
 
+        $product = new product();
 
+        $result = $product->viewAll();
+
+        // include "../view/product.php";
+        return $result;
+
+    }
 
 }
+
+
+
