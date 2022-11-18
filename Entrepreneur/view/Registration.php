@@ -26,6 +26,7 @@
         <input type="text" placeholder="Enter Bussiness Name" name="bussinessName" required>
         <h4>CONTACT ENTREPRENURE DETAILS</h4>
 
+
    <div class="row">
       <div class="col-25">
         <label for="fname"> Name</label>
