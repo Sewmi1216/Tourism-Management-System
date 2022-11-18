@@ -60,7 +60,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <td>
                     <div class="content">Price</div>
                 </td>
-                <td> <input type="number" min="100" class="subfield" name="price" /></td>
+                <td> <input type="number" min="0" class="subfield" name="price" /></td>
             </tr>
             
             
