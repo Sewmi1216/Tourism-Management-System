@@ -31,7 +31,8 @@ class hotelPkg extends db_connection
     public function viewAllPkgs()
     {
         // $query = "Select * from hotelpackage p, room r, hotel h where p.packageID=r.hotelPkgID and p.hotelID=h.hotelID";
-        $query = "Select * from hotelpackage p, room r, hotel h where p.packageID=r.hotelPkgID or p.hotelID=h.hotelID";
+       // $query = "Select * from hotelpackage p, room r, hotel h where p.packageID=r.hotelPkgID or p.hotelID=h.hotelID";
+            $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;

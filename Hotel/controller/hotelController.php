@@ -34,17 +34,16 @@ class hotelController extends db_connection
                 }
             } else {
                 // $_SESSION["error"] = "Password does not match";
-                // $_SESSION["attempts"]+= 1;
+                $_SESSION["attempts"] += 1;
                 echo "<script type='text/javascript'>alert('Password does not match');</script>";
-
 
             }
         } else {
             //header("Location: ../include/login.php?error=The username is taken try another");
-           // echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
+            // echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
             //header("Location: ../include/login.php");
             //exit();
-            // $_SESSION["attempts"] += 1;
+            $_SESSION["attempts"] += 1;
             echo "<script type='text/javascript'>alert('Username does not match');</script>";
 
             // $_SESSION["error"] = "Username does not match";
@@ -52,7 +51,7 @@ class hotelController extends db_connection
         }
 
     }
-    public function addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password ,$mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    public function addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
         $user = new hotel();
 
