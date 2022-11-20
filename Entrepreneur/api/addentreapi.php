@@ -1,6 +1,6 @@
 <?php
 include '../controller/entrepreneurController.php';
-if (isset($_POST['register'])) {
+if (isset($_POST['signup'])) {
     $bussinessName = $_POST['bussinessName'];
     $eName = $_POST['eName'];
     $eNic = $_POST['eNic'];
