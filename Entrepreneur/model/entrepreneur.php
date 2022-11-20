@@ -10,8 +10,8 @@ class entrepreneur extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function validate($username,$password){
-        $query = "SELECT * FROM entrepreneur where username='$username' and password='$password'";
+    public function validate($username){
+        $query = "SELECT * FROM entrepreneur where username='$username'";
         //echo "print";
         $stmt = mysqli_query($this->conn, $query);
         //$stmt = $this->conn->prepare($query);

@@ -14,14 +14,15 @@ class productController extends db_connection
     
 public function addproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
 {
-	$user = new product();
+	$product = new product();
 
-	$result = $user->insertproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
+	$result = $product->insertproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
 
 	if (!$result) {
 		echo 'There was a error';
 		// echo "<script>console.log(res)</script>";
 	} else {
+        
 		echo "<script>alert('Your form was successfully submitted');
         window.location.href = '../view/product.php';
 	</script>";
