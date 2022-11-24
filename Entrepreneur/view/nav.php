@@ -1,7 +1,7 @@
   <div class="sidebar">
       <div class="logo-details">
           <div class="logo_name">WELCOME !!!</div>
-          <i class="fa-solid fa-bars" style="color:black;" id="btn"></i>
+          <i class="fa-solid fa-bars" style="color:white;" id="btn"></i>
       </div>
       <ul class="nav-list">
           <li>

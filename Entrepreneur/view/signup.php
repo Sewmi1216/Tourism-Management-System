@@ -9,7 +9,7 @@
 
 <body>
     <?php include "header.php"?>
-    <div class="heading" style="color:white;margin-left:70px;margin-top:15px;">ENTREPRENEUR REGISTRATION</div>
+    <div class="heading" style="color:black;margin-left:70px;margin-top:15px;">ENTREPRENEUR REGISTRATION</div>
     <div class="registerForm">
         <form method="post" action="../api/addentreapi.php" enctype="multipart/form-data">
         <div class="subheading" style="color:white;margin-left:70px;margin-top:15px;">BUSSINESS NAME*</div>
@@ -89,7 +89,7 @@
                     <div class="content">PROFILE IMAGE</div>
                 </td>
                 <td> <input type="file"
-                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border: 5px solid rgba(0, 0, 0, 0.25);border-radius: 36px;"
+                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border-radius: 36px;"
                         name="proImg" /></td>
             </tr>
             <tr class="row">
@@ -97,7 +97,7 @@
                     <div class="content">BUSINESS CERTIFICATE</div>
                 </td>
                 <td> <input type="file"
-                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border: 5px solid rgba(0, 0, 0, 0.25);border-radius: 36px;"
+                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;;border-radius: 36px;"
                         name="doc" /></td>
             </tr>
         </table>

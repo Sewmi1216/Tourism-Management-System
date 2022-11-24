@@ -18,7 +18,7 @@
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Craft Products</div>
+        <div class="text">Craft Orders</div>
         <div class="bg">
             <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;"name="pName" />
             <button style="cursor:pointer;margin-top:5px;margin-left:16px;border:0px white;background-color:white;"><i class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
