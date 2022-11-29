@@ -13,8 +13,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -29,7 +28,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <div class="text">Add Hotel Packages</div>
 
         <div class="registerForm">
-        <form method="post" action="../api/addpkgapi.php" enctype="multipart/form-data">
+        <form method="post" action="../api/addpkg.php" enctype="multipart/form-data">
         
         <table>
             <tr class="row">

@@ -12,7 +12,7 @@ if (isset($_POST['save'])) {
 
     $tempname = $_FILES["file"]["tmp_name"];
 
-    $folder = "../image/" . $filename;
+    $folder = "../images/" . $filename;
 
     $pkgcon = new hotelPkgController();
     $pkgcon->addHotelPkg($pkgName, $price, $desc, $filename, $status);

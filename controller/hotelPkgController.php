@@ -21,11 +21,11 @@ class hotelPkgController extends db_connection
             echo 'There was a error';
             // echo "<script>console.log(res)</script>";
         } else {
-            include "../view/addPkg.php";
-            move_uploaded_file($tempname, $folder);
+
             echo "<script>alert('Your form was successfully submitted');
         window.location.href = '../view/hotelPkg.php';
         </script>";
+
         }
 
     }

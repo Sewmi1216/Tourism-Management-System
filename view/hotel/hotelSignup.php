@@ -2,18 +2,18 @@
 
 <head>
     <title>Pack2Paradise</title>
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
+    <!-- <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>"> -->
     <link rel="stylesheet" href="../css/hotelRegistration.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
     <?php include "header.php"?>
-    <div class="heading" style="color:white;margin-left:70px;margin-top:15px;">HOTEL REGISTRATION</div>
+    <div class="heading" style="color:black;margin-left:70px;margin-top:15px;">HOTEL REGISTRATION</div>
     <div class="registerForm">
-        <form method="post" action="../api/addhotelapi.php" enctype="multipart/form-data">
-        <div class="subheading" style="color:white;margin-left:70px;margin-top:15px;">HOTEL NAME*</div>
+        <form method="post" action="../api/addhotel.php" enctype="multipart/form-data">
+        <div class="subheading" style="color:black;margin-left:-1100px;margin-top:15px;">HOTEL NAME*</div>
         <input type="text" class="field" style="margin-left:63px;margin-top:12px;" name="hotelName"/>
-        <div class="subheading" style="color:white;margin-left:70px;margin-top:15px;">CONTACT PERSON DETAILS</div>
+        <div class="subheading" style="color:black;margin-left:70px;margin-top:15px;">CONTACT PERSON DETAILS</div>
 
         <table>
             <tr class="row">
@@ -62,7 +62,7 @@
             </tr>
         </table>
 
-        <div class="subheading" style="color:white;margin-left:70px;margin-top:30px;">HOTEL DETAILS</div>
+        <div class="subheading" style="color:black;margin-left:70px;margin-top:30px;">HOTEL DETAILS</div>
 
         <table>
             <tr class="row">
@@ -88,7 +88,7 @@
                     <div class="content">PROFILE IMAGE</div>
                 </td>
                 <td> <input type="file"
-                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border: 5px solid rgba(0, 0, 0, 0.25);border-radius: 36px;"
+                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border: 1px solid rgba(0, 0, 0, 0.25);border-radius: 36px;"
                         name="proImg" /></td>
             </tr>
             <tr class="row">
@@ -96,7 +96,7 @@
                     <div class="content">BUSINESS CERTIFICATE</div>
                 </td>
                 <td> <input type="file"
-                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border: 5px solid rgba(0, 0, 0, 0.25);border-radius: 36px;"
+                        style="margin-top:5px;background: #cfcaff;  box-sizing: border-box;border: 1px solid rgba(0, 0, 0, 0.25);border-radius: 36px;"
                         name="doc" /></td>
             </tr>
         </table>

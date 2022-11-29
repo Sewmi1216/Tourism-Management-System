@@ -24,7 +24,6 @@ if (isset($_POST['signIn'])) {
 
 <head>
     <title>Pack2Paradise</title>
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/login.css?v=<?php echo time(); ?>">
 </head>
 
@@ -35,12 +34,14 @@ if (isset($_POST['signIn'])) {
         <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">LOGIN</div>
         <form class="login-form" method="POST">
             <label style="font-size:15px;padding:10px;" class="text">Username</label>
-            <input type="text" class="field" name="username" placeholder="Enter your username" />
+            <input type="text" class="field" onfocus="this.placeholder=''" name="username"
+                placeholder="Enter your username" />
             <label style="font-size:15px;padding:10px;" class="text">Password</label>
-            <input type="password" class="field" name="password" placeholder="********" />
+            <input type="password" class="field" name="password" placeholder="********" onfocus="this.placeholder=''" />
 
 
-            <a href="recoverPwd.php" style="float:right;text-decoration:none;margin-bottom:10px;" class="message">Forgot
+            <a href="recoverPwd.php" style="float:right;text-decoration:none;margin-bottom:10px;"
+                class="message text">Forgot
                 password</a>
             <?php
 
@@ -56,11 +57,13 @@ if ($_SESSION["attempts"] > 2) {
 
 
 
-            <input type="submit" class="btn" value="Sign In" name="signIn">
+            <input type="submit" class="btn text" value="Sign In" name="signIn">
+
             <?php }?>
 
 
-            <p class="message">Don't have an account <a href="hotelSignup.php" style="text-decoration:none;">Sign up for
+            <p class="message text">Don't have an account <a href="hotelSignup.php" class="text"
+                    style="text-decoration:none;">Sign up for
                     free</a></p>
         </form>
     </div>
