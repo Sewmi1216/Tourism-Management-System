@@ -1,11 +1,11 @@
 body{
-    background-color: #0789C6;
+    background-color: #DDE8F0;
     margin: 0;
     padding: 0;
 }
 .registerForm{
-    background-color:rgba(37, 53, 81, 1);
-margin-bottom: 20px;
+    background-color:rgb(255, 255, 255);
+    margin-bottom: 20px;
     width: 1335px;
     padding: 10px;
     margin-left: 66px;
@@ -14,41 +14,40 @@ margin-bottom: 20px;
 }
 .heading{
     font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-    color:  white;
+    color:  rgb(0, 0, 0);
     font-weight: bold;
     font-size: 23px;
 }
 .subheading{
     font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-    color:  white;
+    color:  rgb(0, 0, 0);
     font-weight: bold;
     font-size: 18px;
 }
 .content{
     font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-    color:  white;
+    color:  rgb(0, 0, 0);
     font-weight: bold;
     font-size: 13px;
-    color:white;
     margin-left:80px;
     margin-top:12px;
 }
 .field {
   font-family:sans-serif;
-  background: #cfcaff;
+  background: #ffffff;
   width: 75%;
   height:30px;
   margin: 0 0 15px;
   padding: 5px;
   box-sizing: border-box;
   font-size: 14px;
-  border: 5px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.25);
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
-  border-radius: 36px;
+  border-radius: 10px;
 }
-.form button:hover,.form button:active,.form button:focus {
+/* .form button:hover,.form button:active,.form button:focus {
   background: #4169E1;
-}
+} */
 .subfield {
   font-family:sans-serif;
   background: #cfcaff;
@@ -57,10 +56,13 @@ margin-bottom: 20px;
   padding: 5px;
   box-sizing: border-box;
   font-size: 14px;
-  border: 5px solid rgba(0, 0, 0, 0.25);
-  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
-  border-radius: 36px;
+  /* border: 1px solid rgba(0, 0, 0, 0.25); */
+  /* filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25)); */
+  border-radius: 10px;
   margin-top:5px;
+}
+.subfield:focus{
+   border: 1px solid rgba(255, 0, 0, 0.25);
 }
 
 
@@ -79,7 +81,7 @@ th {
   text-align: left;
 }
 .btn{
-  background-color: #0789C6;
+  background-color: #004581;
   border: none;
   color: white;
   padding: 14px 32px;

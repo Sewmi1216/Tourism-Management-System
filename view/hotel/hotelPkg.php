@@ -13,8 +13,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -36,8 +35,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <div>
             <table>
                 <tr class="heading tblrw">
-                    <th class="tblh">Hotel Package ID</th>
                     <th class="tblh">Hotel Package</th>
+                    <th class="tblh">Hotel Package Name</th>
                     <th class="tblh">Room Type</th>
                     <th class="tblh">Status</th>
                     <th class="tblh">View</th>
@@ -51,7 +50,10 @@ if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
         ?>
                 <tr class="subheading tblrw">
-                    <td class="tbld"><?php echo $row["packageID"] ?></td>
+                    <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
+                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?>
+                </td>
                     <td class="tbld"><?php echo $row["packageName"] ?></td>
                     <td class="tbld"><?php echo $row["type"] ?></td>
                     <td class="tbld"><button  class="status">

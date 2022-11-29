@@ -13,7 +13,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
