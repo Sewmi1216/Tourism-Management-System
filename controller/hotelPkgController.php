@@ -23,7 +23,7 @@ class hotelPkgController extends db_connection
         } else {
 
             echo "<script>alert('Your form was successfully submitted');
-        window.location.href = '../view/hotelPkg.php';
+        window.location.href = '../view-hotel/hotelPkg.php';
         </script>";
 
         }

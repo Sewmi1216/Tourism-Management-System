@@ -22,7 +22,7 @@ class roomController extends db_connection
             // echo "<script>console.log(res)</script>";
         } else {
             echo "<script>alert('Your form was successfully submitted');
-        window.location.href = '../view/room.php';
+        window.location.href = '../view-hotel/room.php';
         </script>";
         }
 

@@ -26,7 +26,7 @@ class hotelController extends db_connection
                     $_SESSION['username'] = $result['username'];
                     $_SESSION['hotelID'] = $result['hotelID'];
 
-                    header("Location: ../view/dashboard.php");
+                    header("Location: ../view-hotel/dashboard.php");
                     exit();
                 } else {
                     echo "<script type='text/javascript'>alert('Try again shortly');</script>";
@@ -66,7 +66,7 @@ class hotelController extends db_connection
             // move_uploaded_file($dtempname, $folderDoc);
 
             echo "<script>alert('Your form was successfully submitted');
-        window.location.href = '../view/login.php';
+        window.location.href = '../view-hotel/hotelLogin.php';
         </script>";
         }
     }
