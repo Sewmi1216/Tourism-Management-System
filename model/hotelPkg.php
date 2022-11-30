@@ -19,7 +19,7 @@ class hotelPkg extends db_connection
 
     public function insertHotelPkg($pkgName, $price, $desc, $filename, $status)
     {
-        require_once "../view/addHotelPkg.php";
+        require_once "../view-hotel/addHotelPkg.php";
 
         $query = "INSERT INTO hotelpackage(packageName, price, description, image, status, hotelID) VALUES ('$pkgName','$price','$desc','$filename','$status', 1)";
 
