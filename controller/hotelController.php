@@ -125,12 +125,7 @@ class hotelController extends db_connection
 
         if (!$result) {
             echo 'There was a error';
-            // echo "<script>console.log(res)</script>";
         } else {
-            // include "../api/addhotelapi.php";
-            // move_uploaded_file($ptempname, $folderImg);
-            // move_uploaded_file($dtempname, $folderDoc);
-
             echo "<script>alert('Your form was successfully submitted');
         window.location.href = '../view-hotel/hotelLogin.php';
         </script>";
