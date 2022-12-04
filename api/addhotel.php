@@ -14,12 +14,18 @@ if (isset($_POST['signup'])) {
     $fileImg = $_FILES['proImg']['name'];
     $fileDoc = $_FILES['doc']['name'];
 
+    $fileImgname = $_FILES['proImg']['name'];
+    $fileDocname = $_FILES['doc']['name'];
+
     $ptempname = $_FILES["proImg"]["tmp_name"];
     $dtempname = $_FILES["doc"]["tmp_name"];
 
-    $folderImg = "../images/" . $fileImg;
-    $folderDoc = "../images/doc" . $fileDoc;
+    $pfolder = "../images/" . $fileImgname;
+    $dfolder = "../images/" . $fileDocname;
 
     $hotelconnection = new hotelController();
-    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+    move_uploaded_file($ptempname, $pfolder);
+    move_uploaded_file($dtempname, $dfolder);
+
 }
