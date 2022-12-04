@@ -12,7 +12,7 @@ if (isset($_SESSION["locked"])) {
 //}
 
 if (isset($_POST['signIn'])) {
-   // session_start();
+    // session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hotelcon = new hotelController();
@@ -40,18 +40,17 @@ if (isset($_POST['signIn'])) {
             <input type="password" class="field" name="password" placeholder="********" onfocus="this.placeholder=''" />
 
 
-            <a href="recoverPwd.php" style="float:right;text-decoration:none;margin-bottom:10px;"
-                class="message text">Forgot
+            <a href="recoverPwd.php" style="float:right;text-decoration:none;margin-bottom:10px;" class="text">Forgot
                 password</a>
             <?php
 
-if(!isset($_SESSION["attempts"])){
-    $_SESSION["attempts"]=null;
+if (!isset($_SESSION["attempts"])) {
+    $_SESSION["attempts"] = null;
 }
 
 if ($_SESSION["attempts"] > 2) {
     $_SESSION["locked"] = time();
-    echo "plz wait for 5 sec";
+    echo "<p class='text' style='color:red;margin-left:3px;padding:20px;'>Try again after 30 seconds</p>";
 } else {
     ?>
 
