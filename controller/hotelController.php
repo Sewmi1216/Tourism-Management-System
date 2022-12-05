@@ -16,37 +16,103 @@ class hotelController extends db_connection
         $hoteluser = new hotel();
         $res = $hoteluser->validate($username);
 
-        if (mysqli_num_rows($res) > 0) {
-            // echo "print";
+        if (mysqli_num_rows($res[0]) > 0) {
 
-            $result = mysqli_fetch_assoc($res);
+            $result1 = mysqli_fetch_assoc($res[0]);
 
-            if ($result['password'] == $password) {
-                if ($result['status'] == 1) {
-                    $_SESSION['username'] = $result['username'];
-                    $_SESSION['hotelID'] = $result['hotelID'];
+            if ($result1['password'] == $password) {
+                if ($result1['status'] == 1) {
+                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['hotelID'] = $result1['hotelID'];
 
                     header("Location: ../view-hotel/dashboard.php");
                     exit();
                 } else {
-                    echo "<script type='text/javascript'>alert('Try again shortly');</script>";
+                    echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
 
                 }
             } else {
                 // $_SESSION["error"] = "Password does not match";
                 $_SESSION["attempts"] += 1;
-                echo "<script type='text/javascript'>alert('Password does not match');</script>";
+                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+
+            }
+        } else if (mysqli_num_rows($res[1]) > 0) {
+
+            $result1 = mysqli_fetch_assoc($res[1]);
+            if ($result1['password'] == $password) {
+
+                $_SESSION['username'] = $result1['username'];
+                $_SESSION['touristID'] = $result1['touristID'];
+
+                // header("Location: ../view-hotel/home.php");
+                exit();
+
+            } else {
+                $_SESSION["attempts"] += 1;
+                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+
+            }
+        } else if (mysqli_num_rows($res[2]) > 0) {
+
+            $result1 = mysqli_fetch_assoc($res[2]);
+            if ($result1['password'] == $password) {
+
+                $_SESSION['username'] = $result1['username'];
+                $_SESSION['adminID'] = $result1['adminID'];
+
+                header("Location: ../view-hotel/resetPwd.php");
+                exit();
+
+            } else {
+                $_SESSION["attempts"] += 1;
+                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+
+            }
+        } else if (mysqli_num_rows($res[3]) > 0) {
+
+            $result1 = mysqli_fetch_assoc($res[3]);
+
+            if ($result1['password'] == $password) {
+                if ($result1['status'] == 1) {
+                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['entID'] = $result1['entID'];
+
+                    // header("Location: ../view-hotel/dashboard.php");
+                    exit();
+                } else {
+                    echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
+
+                }
+            } else {
+                $_SESSION["attempts"] += 1;
+                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+
+            }
+        }
+        else if (mysqli_num_rows($res[4]) > 0) {
+
+            $result1 = mysqli_fetch_assoc($res[4]);
+
+            if ($result1['password'] == $password) {
+                if ($result1['status'] == 1) {
+                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['tourguideID'] = $result1['tourguideID'];
+
+                    // header("Location: ../view-hotel/dashboard.php");
+                    exit();
+                } else {
+                    echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
+
+                }
+            } else {
+                $_SESSION["attempts"] += 1;
+                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
         } else {
-            //header("Location: ../include/login.php?error=The username is taken try another");
-            // echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
-            //header("Location: ../include/login.php");
-            //exit();
             $_SESSION["attempts"] += 1;
-            echo "<script type='text/javascript'>alert('Username does not match');</script>";
-
-            // $_SESSION["error"] = "Username does not match";
+            echo "<script type='text/javascript'>alert('Username is incorrect');</script>";
 
         }
 
@@ -59,12 +125,7 @@ class hotelController extends db_connection
 
         if (!$result) {
             echo 'There was a error';
-            // echo "<script>console.log(res)</script>";
         } else {
-            // include "../api/addhotelapi.php";
-            // move_uploaded_file($ptempname, $folderImg);
-            // move_uploaded_file($dtempname, $folderDoc);
-
             echo "<script>alert('Your form was successfully submitted');
         window.location.href = '../view-hotel/hotelLogin.php';
         </script>";
