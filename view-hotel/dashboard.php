@@ -26,7 +26,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="text">Dashboard Overview</div>
 
-        <div style="margin-top:20px;margin-left:10px;" class="heading">
+        <div style="margin-top:20px;margin-left:10px;" class="dashheading">
             <span class="b">
                 All Reservations
             </span>
@@ -49,18 +49,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 Sales Revenue
             </span>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
     </section>
 

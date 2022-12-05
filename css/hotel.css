@@ -69,14 +69,16 @@ span.c {
   background-color: rgba(37, 53, 81, 1);
   margin-bottom: 10px;
 }
-.heading {
+.dashheading {
   font-style: "helvetica neue", helvetica, tahoma, sans-serif;
   color: rgba(37, 53, 81, 1);
   font-weight: bold;
   font-size: 17px;
   text-align: center;
 }
-.chart {
+
+.chart 
+{
   font-style: "helvetica neue", helvetica, tahoma, sans-serif;
   color: rgb(255, 255, 255);
   font-weight: bold;

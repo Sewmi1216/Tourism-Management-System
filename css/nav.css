@@ -159,6 +159,11 @@
     display: none;
   }
 }
+@media (max-width: 420px) {
+  .sidebar div .desc{
+    display: none;
+  }
+}
 hr{
   margin-top:200px;
 }
