@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/add.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -30,9 +29,11 @@
             <div>
                 <table>
                     <tr class="heading tblrw">
+                    <th class="tblh">Product</th>
                         <th class="tblh">Product ID</th>
                         <th class="tblh">Product Name</th>
                         <th class="tblh">Category</th>
+                        <th class="tblh">Price</th>
                         <th class="tblh">Available Quantity</th>
                         <th class="tblh">View</th>
                         <th class="tblh">Edit</th>
@@ -45,49 +46,51 @@ if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
         ?>
                     <tr class="subheading tblrw">
+                        <td class="tbld"><?php echo "<img src='../Images/" . $row['Image'] . "' style=
+                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
                         <td class="tbld"><?php echo $row["productID"] ?></td>
                         <td class="tbld"><?php echo $row["productName"] ?></td>
                         <td class="tbld"><?php echo $row["category"] ?></td>
                         <td class="tbld"><?php echo $row["quantity"] ?></td>
+                        <td class="tbld"><?php echo $row["price"] ?></td>
                         <td class="tbld"><button id="myBtn"><i class="fa-sharp fa-solid fa-bars art"
                                     style="color:black;"></i></button></td>
-                                    <div id="modal" class="mmodal">
+                        <div id="modal" class="mmodal">
 
-<!-- Modal content -->
-<div class="mmodal-content">
-  <span class="close">&times;</span>
-  <p>Some text in the Modal..</p>
-</div>
+                            <!-- Modal content -->
+                            <div class="mmodal-content">
+                            </div>
 
-</div>
+                        </div>
 
-<script>
-// Get the modal
-var mmodal = document.getElementById("modal");
+                        <script>
+                        // Get the modal
+                        var mmodal = document.getElementById("modal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-mmodal.style.display = "block";
-}
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                            mmodal.style.display = "block";
+                        }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-mmodal.style.display = "none";
-}
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                            mmodal.style.display = "none";
+                        }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-if (event.target == mmodal) {
-  mmodal.style.display = "none";
-}
-}
-</script>
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == mmodal) {
+                                mmodal.style.display = "none";
+                            }
+                        }
+                        </script>
 
 
 
