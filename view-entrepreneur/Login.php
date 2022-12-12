@@ -13,7 +13,7 @@ if (isset($_POST['signIn'])) {
 
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="../css/stylenew.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/entrepreneur_login.css?v=<?php echo time(); ?>">
 </head>
 
 <body>

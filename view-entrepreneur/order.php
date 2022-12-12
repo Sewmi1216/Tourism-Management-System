@@ -5,8 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/add.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -44,7 +43,7 @@ if ($res->num_rows > 0) {
                     <td class="tbld"><?php echo $row["productID"] ?></td>
                     <td class="tbld"><?php echo $row["productName"] ?></td>
                     <td class="tbld"><?php echo $row["category"] ?></td>
-                    <td class="tbld"><?php echo $row["qunatity"] ?></td>
+                    <td class="tbld"><?php echo $row["quantity"] ?></td>
                     
                 </tr>
                 <?php }
