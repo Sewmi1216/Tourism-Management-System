@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/add.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -27,13 +26,12 @@
         <div>
             <table>
                 <tr class="heading tblrw">
-                    <th class="tblh">Product ID</th>
-                    <th class="tblh">Product Name</th>
-                    <th class="tblh">Category</th>
-                    <th class="tblh">Available Quantity</th>
-                    <th class="tblh">View</th>
-                    <th class="tblh">Edit</th>
-                    <th class="tblh">Delete</th>
+                    <th class="tblh">Payment ID</th>
+                    <th class="tblh">Date</th>
+                    <th class="tblh">Order ID</th>
+                    <th class="tblh">Type</th>
+                    <th class="tblh">Price</th>
+                    <th class="tblh">Status</th>
                 </tr><?php
 include "../controller/productController.php";
 $productcont = new productController();
@@ -45,10 +43,8 @@ if ($res->num_rows > 0) {
                     <td class="tbld"><?php echo $row["productID"] ?></td>
                     <td class="tbld"><?php echo $row["productName"] ?></td>
                     <td class="tbld"><?php echo $row["category"] ?></td>
-                    <td class="tbld"><?php echo $row["qunatity"] ?></td>
-                    <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                    <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                    <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                    <td class="tbld"><?php echo $row["quantity"] ?></td>
+                    
                 </tr>
                 
                 <?php }
