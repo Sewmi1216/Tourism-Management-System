@@ -44,6 +44,25 @@ if (isset($_POST['signIn'])) {
                 password</a>
             <?php
 
+if (!isset($_SESSION["pwderror"])) {
+    $_SESSION["pwderror"] = null;
+} else {
+                echo "<p class='text' style='color:red;margin-left:3px;padding:13px;'>";
+                echo $_SESSION["pwderror"];
+                echo "</p>";
+                unset($_SESSION["pwderror"]);
+}
+if (!isset($_SESSION["usernameerror"])) {
+    $_SESSION["usernameerror"] = null;
+} else {
+    echo "<p class='text' style='color:red;margin-left:3px;padding:13px;'>";
+    echo $_SESSION["usernameerror"];
+    echo "</p>";
+    unset($_SESSION["usernameerror"]);
+}
+
+
+
 if (!isset($_SESSION["attempts"])) {
     $_SESSION["attempts"] = null;
 }
