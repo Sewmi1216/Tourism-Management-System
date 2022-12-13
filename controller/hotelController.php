@@ -32,9 +32,9 @@ class hotelController extends db_connection
 
                 }
             } else {
-                // $_SESSION["error"] = "Password does not match";
+                 $_SESSION["pwderror"] = "Password does not match";
                 $_SESSION["attempts"] += 1;
-                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+                // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
         } else if (mysqli_num_rows($res[1]) > 0) {
@@ -50,7 +50,8 @@ class hotelController extends db_connection
 
             } else {
                 $_SESSION["attempts"] += 1;
-                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+                $_SESSION["pwderror"] = "Password does not match";
+                // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
         } else if (mysqli_num_rows($res[2]) > 0) {
@@ -66,7 +67,9 @@ class hotelController extends db_connection
 
             } else {
                 $_SESSION["attempts"] += 1;
-                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+                $_SESSION["pwderror"] = "Password does not match";
+
+                // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
         } else if (mysqli_num_rows($res[3]) > 0) {
@@ -86,7 +89,9 @@ class hotelController extends db_connection
                 }
             } else {
                 $_SESSION["attempts"] += 1;
-                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+                $_SESSION["pwderror"] = "Password does not match";
+
+                // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
         }
@@ -107,12 +112,15 @@ class hotelController extends db_connection
                 }
             } else {
                 $_SESSION["attempts"] += 1;
-                echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
+                $_SESSION["pwderror"] = "Password does not match";
+                // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
         } else {
             $_SESSION["attempts"] += 1;
-            echo "<script type='text/javascript'>alert('Username is incorrect');</script>";
+            $_SESSION["usernameerror"] = "Username does not exist";
+
+            // echo "<script type='text/javascript'>alert('Username is incorrect');</script>";
 
         }
 

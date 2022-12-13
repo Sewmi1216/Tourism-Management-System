@@ -8,6 +8,7 @@ if (isset($_POST['signup'])) {
     $mNic = $_POST['mNic'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $hpassword = md5($password);
     $address = $_POST['address'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -24,7 +25,7 @@ if (isset($_POST['signup'])) {
     $dfolder = "../images/" . $fileDocname;
 
     $hotelconnection = new hotelController();
-    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $username, $hpassword, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
     move_uploaded_file($ptempname, $pfolder);
     move_uploaded_file($dtempname, $dfolder);
 

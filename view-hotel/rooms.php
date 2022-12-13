@@ -95,7 +95,7 @@ span.psw {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -265,23 +265,62 @@ if ($res->num_rows > 0) {
             
     <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="../api/addroomapi.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <label for="room"><b>Add Room</b></label>
     </div>
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+      <table>
+                            <tr class="row">
+                                <td>
+                                    <div class="content">Hotel Package Name</div>
+                                </td>
+                                <td>
+                                    <select id="cars" class="subfield" name="carlist" form="carform">
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                                    <input type="text" class="subfield" name="hotelPkgId" required />
+                                    <div class="subcontent">Room Number is required</div>
+                                </td>
+                            </tr>
+                            <tr class="row">
+                                <td>
+                                    <div class="content">Room Number</div>
+                                </td>
+                                <td><input type="text" class="subfield" name="roomNo" required />
+                                    <div class="subcontent">Room Number is required</div>
+                                </td>
+                            </tr>
+                            <tr class="row">
+                                <td>
+                                    <div class="content">Room Type</div>
+                                </td>
+                                <td> <input type="text" class="subfield" name="type" required />
+                                    <div class="subcontent">Room Number is required</div>
+                                </td>
+                            </tr>
+                            <tr class="row">
+                                <td>
+                                    <div class="content">Number of beds</div>
+                                </td>
+                                <td> <input type="number" class="subfield" name="beds" required />
+                                    <div class="subcontent">Room Number is required</div>
+                                </td>
+                            </tr>
+                            <tr class="row">
+                                <td>
+                                    <div class="content">Status</div>
+                                </td>
+                                <td> <input type="text" class="subfield" name="status" required />
+                                    <div class="subcontent">Room Number is required</div>
+                                </td>
+                            </tr>
+                        </table>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
