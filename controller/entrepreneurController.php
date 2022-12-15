@@ -17,14 +17,14 @@ class entrepreneurController extends db_connection
         $res = $entrepreneuruser->validate($username);
 
         if (mysqli_num_rows($res) > 0) {
-            // echo "print";
+           
 
-            $result = mysqli_fetch_assoc($res);
+            $result1 = mysqli_fetch_assoc($res);
 
-            if ($result['password'] == $password) {
-                if ($result['status'] == 1) {
-                    $_SESSION['username'] = $result['username'];
-                    $_SESSION['enrepreneurID'] = $result['entrepreneurID'];
+            if ($result1['password'] == $password) {
+                if ($result1['status'] == 1) {
+                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['userID'] = $result1['userID'];
 
                     header("Location: ../view/dashboard.php");
                     exit();
@@ -34,29 +34,21 @@ class entrepreneurController extends db_connection
                 }
             } else {
                 // $_SESSION["error"] = "Password does not match";
-                // $_SESSION["attempts"]+= 1;
-                echo "<script type='text/javascript'>alert('Password does not match');</script>";
-
+                $_SESSION["pwderror"] = "Password does not match";
+                $_SESSION["attempts"]+= 2;
+               
 
             }
-        } else {
-            //header("Location: ../include/Login.php?error=The username is taken try another");
-           // echo "<script type='text/javascript'>alert('Incorrect Password');</script>";
-            //header("Location: ../include/Login.php");
-            //exit();
-            // $_SESSION["attempts"] += 1;
-            echo "<script type='text/javascript'>alert('Username does not match');</script>";
-
-            // $_SESSION["error"] = "Username does not match";
-
         }
+        
+               
 
     }
-public function addentrepreneur($bussinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
 {
 	$user = new entrepreneur();
 
-	$result = $user->insertentrepreneur($bussinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+	$result = $user->insertentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
 
 	if (!$result) {
 		echo 'There was a error';

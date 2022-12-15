@@ -1,7 +1,7 @@
 <?php
 include '../controller/entrepreneurController.php';
 if (isset($_POST['signup'])) {
-    $bussinessName = $_POST['bussinessName'];
+    $bussinessName = $_POST['businessName'];
     $eName = $_POST['eName'];
     $eNic = $_POST['eNic'];
     $ePhone = $_POST['ePhone'];
@@ -17,9 +17,14 @@ if (isset($_POST['signup'])) {
     $ptempname = $_FILES["proImg"]["tmp_name"];
     $dtempname = $_FILES["doc"]["tmp_name"];
 
+    $ptempname = $_FILES["proImg"]["tmp_name"];
+    $dtempname = $_FILES["doc"]["tmp_name"];
+
     $folderImg = "../Images/" . $fileImg;
     $folderDoc = "../Images/doc" . $fileDoc;
 
     $entrepreneurcon = new entrepreneurController();
-    $entrepreneurcon->addentrepreneur($bussinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+    $entrepreneurcon->addentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+    move_uploaded_file($ptempname, $pfolder);
+    move_uploaded_file($dtempname, $dfolder);
 }

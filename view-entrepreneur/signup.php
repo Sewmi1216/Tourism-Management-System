@@ -12,29 +12,29 @@
             <div class="heading" style="margin-top:0px;">Entrepreneur Registration</div>
             <hr>
             <div class="subheading" style="margin-top:15px;">Business Name*</div>
-            <input type="text" class="field" style=";margin-top:12px;" name="hotelName" />
+            <input type="text" class="field" style=";margin-top:12px;" name="businessName" />
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
                 <tr>
                     <td>
                         <div class="content">Name</div>
-                        <input type="text" class="subfield" name="mName" />
+                        <input type="text" class="subfield" name="eName" />
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Email Address</div>
-                        <input type="text" class="subfield" name="mEmail"
+                        <input type="text" class="subfield" name="eEmail"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
                     <td>
                         <div class="content">NIC</div>
-                        <input type="text" class="subfield" id="nic" name="mNic" pattern="[0-9]{9}[Vv0-9]{1,3}"
+                        <input type="text" class="subfield" id="nic" name="eNic" pattern="[0-9]{9}[Vv0-9]{1,3}"
                             required />
                     </td>
                 </tr>
