@@ -25,7 +25,7 @@
                 <td>
                     <div class="content">Product Name</div>
                 </td>
-                <td> <input type="text" class="subfield" name="pName"style="color:black;" /></td>
+                <td> <input type="text" class="subfield" name="pName" style="color:black;" /></td>
             </tr>
             <tr class="row">
                 <td>

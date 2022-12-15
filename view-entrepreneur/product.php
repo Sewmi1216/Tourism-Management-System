@@ -50,7 +50,7 @@ if ($res->num_rows > 0) {
                     <tr class="subheading tblrw">
                         
                         <td class="tbld"><?php echo $row["productID"] ?></td>
-                        <td class="tbld"><?php echo "<img src='../Images/" . $row['image'] . "' style=
+                        <td class="tbld"><?php echo "<img src='../images/" . $row['productImg'] . "' style=
                     'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
                     background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
                         <td class="tbld"><?php echo $row["productName"] ?></td>
