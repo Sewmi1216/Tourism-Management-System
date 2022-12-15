@@ -22,16 +22,13 @@ public function addproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
 		echo 'There was a error';
 		// echo "<script>console.log(res)</script>";
 	} else {
-        
 		echo "<script>alert('Your form was successfully submitted');
-        window.location.href = '../view/product.php';
+        window.location.href = '../view-entrepreneur/Product.php';
 	</script>";
 	}
 }
 public function viewAll()
     {
-        
-
         $product = new product();
 
         $result = $product->viewAll();

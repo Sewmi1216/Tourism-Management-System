@@ -7,9 +7,11 @@ if (isset($_POST['save'])) {
     $price = $_POST['price'];
     $fileImg = $_FILES['fileImg']['name'];
 
+    $filename = $_FILES["fileImg"]["name"];
+
     $tempname = $_FILES["fileImg"]["tmp_name"];
    
-    $folder = "../Images/" . $filename;
+    $folder = "../images/" . $filename;
     
     $productcon = new productController();
     $productcon->addproduct($pName, $pCategory,$avaquantity, $price,$filename);

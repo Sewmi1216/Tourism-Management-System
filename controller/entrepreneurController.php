@@ -48,7 +48,7 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 {
 	$user = new entrepreneur();
 
-	$result = $user->insertentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+	$result = $user->insertentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
 
 	if (!$result) {
 		echo 'There was a error';
