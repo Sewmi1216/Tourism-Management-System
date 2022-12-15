@@ -20,10 +20,6 @@
         <div class="text">Craft Orders</div>
         <div class="bg">
             <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;"name="pName" />
-            <button style="cursor:pointer;margin-top:5px;margin-left:16px;border:0px white;background-color:white;"><i class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
-        <a href="addcraft.php"><i class="fa-regular fa-square-plus"
-                style="font-size:30px;margin-left:950px;color:black;"></i></a>
-
         <div>
             <table>
                 <tr class="heading tblrw">
@@ -39,13 +35,6 @@ $res = $productcont->viewAll();
 if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
         ?>
-                <tr class="subheading tblrw">
-                    <td class="tbld"><?php echo $row["productID"] ?></td>
-                    <td class="tbld"><?php echo $row["productName"] ?></td>
-                    <td class="tbld"><?php echo $row["category"] ?></td>
-                    <td class="tbld"><?php echo $row["quantity"] ?></td>
-                    
-                </tr>
                 <?php }
 } else {
     echo "No results";

@@ -7,13 +7,12 @@ if (isset($_POST['save'])) {
     $price = $_POST['price'];
     $fileImg = $_FILES['fileImg']['name'];
 
-    $ptempname = $_FILES["fileImg"]["tmp_name"];
+    $tempname = $_FILES["fileImg"]["tmp_name"];
    
-    $folderImg = "../Images/" . $fileImg;
+    $folder = "../Images/" . $filename;
     
-
     $productcon = new productController();
-    $productcon->addproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
+    $productcon->addproduct($pName, $pCategory,$avaquantity, $price,$filename);
     move_uploaded_file($tempname, $folder);
 }
 ?>
