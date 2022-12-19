@@ -54,7 +54,7 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 		echo 'There was a error';
 	} else {
 		echo "<script>alert('Your form was successfully submitted');
-	window.location.href = '../view/Login.php';
+	window.location.href = '../view-entrepreneur/Login.php';
 	</script>";
 	}
 }

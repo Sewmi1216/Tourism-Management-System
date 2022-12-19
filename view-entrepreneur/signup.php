@@ -12,7 +12,7 @@
             <div class="heading" style="margin-top:0px;">Entrepreneur Registration</div>
             <hr>
             <div class="subheading" style="margin-top:15px;">Business Name*</div>
-            <input type="text" class="field" style=";margin-top:12px;" name="businessName" />
+            <input type="text" class="field" style=";margin-top:12px;" name="bName" />
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
