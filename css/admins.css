@@ -1,0 +1,159 @@
+.booked-packages-list{
+    margin-top: 20px;
+  }
+  
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+  body{
+    background-color: #beebff;
+  }
+  
+  .add{
+    display: inline;
+    margin-top: 1%;
+  }
+  .add>h3{
+    color: #022535 ;
+  }
+  
+  .add>a{
+    background-color: #ffffff;
+    float: right;
+    
+    margin-right: 2%;
+    margin-bottom: 10px;
+    height: 24px;
+    padding: 5px 10px;
+    color: #0789c6;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .booked-packages{
+    margin-top: 1%;
+  
+    
+    border-left: 3px solid black;
+    padding-left: 20px;
+  }
+  
+  .booked-packages>h3{
+    color: white;
+  }
+  
+  .booked-packages-list{
+    margin-left: 2%;
+    margin-top: 1%;
+  }
+  
+  .booked-packages-list>.booked-packages-card{
+    background-color: #1c1f37;
+    display: flex;
+    
+    color: white;
+    padding: 5px 5px;
+    width:90%;
+    height: 10% ;
+    margin-bottom: 10px;
+    border-radius: 18.2357px;
+    
+  
+  }
+  
+  .booked-packages-list>.booked-packages-card>a > img{
+    width: 20%;
+    height: 9%;
+    border-radius: 18.46px;
+    
+  }
+  
+  .booked-packages-list>.booked-packages-card>.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 11%;
+    margin-top: -20px;
+  }
+  
+  
+  
+  .active{
+    background-color: #0789c6;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .booked-packages-list>.booked-packages-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  }
+  
+  
+  
+  .btn{
+    
+  
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: -20px;
+    
+  }
+  .viewbtn{
+    
+    position: absolute;
+  width: 130px;
+  height: 33px;
+  left: 60%;
+  vertical-align: middle;
+  
+  background: #D9D9D9;
+  border-radius: 8px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  
+  color: #000000;
+  }
+
+  .editbtn{
+    
+    position: absolute;
+  width: 130px;
+  height: 33px;
+  left: 70%;
+  vertical-align: middle;
+  
+  background: #D9D9D9;
+  border-radius: 8px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  
+  color: #000000;
+  }
+  
+  .deletebtn{
+    position: absolute;
+  width: 130px;
+  height: 33px;
+  left: 80%;
+  
+  
+  background: #D9D9D9;
+  border-radius: 8px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  
+  color: #FF0000;
+  }

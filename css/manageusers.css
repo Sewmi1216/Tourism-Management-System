@@ -1,0 +1,166 @@
+*{
+
+  font-style: "helvetica neue", helvetica, tahoma, sans-serif;
+
+}
+
+
+.booked-packages-list{
+  margin-top: 20px;
+}
+
+
+body{
+  background-color: #beebff;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Arvo', serif;
+  font-family: 'Days One', sans-serif;
+}
+
+.add{
+  display: inline;
+  margin-top: 1%;
+}
+.add>h3{
+  color: #022535 ;
+}
+
+.add>a{
+  background-color: #ffffff;
+  float: right;
+  
+  margin-right: 2%;
+  margin-bottom: 10px;
+  height: 24px;
+  padding: 5px 10px;
+  color: #0789c6;
+  border-radius: 10px;
+  text-decoration: none;
+ 
+}
+
+.booked-packages{
+  margin-top: 1%;
+
+  
+  border-left: 3px solid black;
+  padding-left: 20px;
+}
+
+.booked-packages>h3{
+  color: white;
+  font-family: 'Arvo', serif;
+  font-family: 'Days One', sans-serif;
+}
+
+.booked-packages-list{
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+.booked-packages-list>.booked-packages-card{
+  background-color: #1c1f37;
+  display: flex;
+  
+  color: white;
+  padding: 5px 5px;
+  width:90%;
+  height: 10% ;
+  margin-bottom: 10px;
+  border-radius: 18.2357px;
+  
+}
+
+.booked-packages-list>.booked-packages-card>a > img{
+  width: 100px;
+  height: 110px;
+  border-radius: 18.46px;
+  
+}
+
+.booked-packages-list>.booked-packages-card>.details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 11%;
+  margin-top: -20px;
+}
+
+
+
+.active{
+  background-color: #0789c6;
+  color: white;
+  cursor: pointer;
+}
+
+.booked-packages-list>.booked-packages-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+
+
+.btn{
+  
+
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: -20px;
+  
+}
+
+.editbtn{
+  
+  position: absolute;
+width: 130px;
+height: 33px;
+left: 70%;
+vertical-align: middle;
+
+background: #D9D9D9;
+border-radius: 8px;
+font-family: 'Arvo', serif;
+font-family: 'Days One', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 20px;
+
+color: #000000;
+}
+
+.deletebtn{
+  position: absolute;
+width: 130px;
+height: 33px;
+left: 80%;
+
+
+background: #D9D9D9;
+border-radius: 8px;
+
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 20px;
+font-family: 'Arvo', serif;
+font-family: 'Days One', sans-serif;
+color: #FF0000;
+}
+
+
+.details{
+  font-family: 'Arvo', serif;
+  font-family: 'Days One', sans-serif;
+
+}
+ *{
+  font-family: 'Arvo', serif;
+  font-family: 'Days One', sans-serif;
+ }
+ td{
+  margin-left: 10%;
+ }
