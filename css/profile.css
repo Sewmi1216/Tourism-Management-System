@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(205, 216, 220);
+}
+
+.active {
+    background-color: #41ccfb;
+}
+
+div.navbar {
+    align: right;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-color: #0789C6;
+    background-size: cover;
+}
+
+div.heading {
+    padding: 20px 20px 20px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+.home-btn {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    vertical-align: middle;
+    gap: 10px;
+    width: 9vw;
+    height: 5vh;
+    background: #ffffff;
+    box-shadow: 4px 4px 4px #0FB088;
+    border-radius: 10px;
+    margin-left: 85vw;
+    margin-top: 30px;
+}
+
+.home-img {
+    position: flex;
+    width: 4vh;
+    height: 4vh;
+    order: 0;
+    margin-left: 5px;
+    border-radius: 15px;
+}
+
+.home-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    line-height: 29px;
+    color: #0FB088;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+
+/* Style the tab */
+
+.tab {
+    float: left;
+    border: 5px solid ffffff;
+    border-radius: 15px;
+    background-color: #f1f1f1;
+    width: 90%;
+    height: 300px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.vl {
+    border-left: 2px solid black;
+    height: 300px;
+    align: center;
+    position: absolute;
+    left: 35%;
+    margin-left: -15px;
+}
+
+.centered {
+    position: absolute;
+    top: 35%;
+    left: 26.5%;
+    transform: translate(-90%, -35%);
+    text-align: center;
+}
+
+.centered img {
+    margin-top: -55px;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.ldetails {
+    margin-left: 20px;
+    font-family: 'Montserrat';
+}
+
+.rdetails {
+    margin-left: 500px;
+    margin-top: -310px;
+}
+
+.orl {
+    margin-left: 600px;
+    margin-top: 400px;
+    color: #f1f1f1;
+}
+
+.wl {
+    margin-left: 1100px;
+    margin-top: -39px;
+    color: #f1f1f1;
+}

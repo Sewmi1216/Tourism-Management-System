@@ -1,0 +1,141 @@
+body {margin:0;}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    
+  }
+  
+  li {
+    float: left;
+  }
+  
+  .navbar button{
+    background: #0789C6;
+    box-shadow: 4px 4px 4px #0fb088;
+    border-radius: 10px;
+    position: absolute;
+    width: 99px;
+    height: 35.120000000000005px;
+    left: 1374px;
+    top: 3px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 00;
+    line-height: 29px;
+    color: #FFFCFC;
+  }
+  li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: rgb(205, 216, 220);
+  }
+  
+  .active {
+    background-color: #41ccfb;
+  }
+
+  body {
+    background-repeat: no-repeat;
+    background-color: #034666;
+    background-size: cover;
+}
+
+.back-text{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 29px;
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 3%;
+  margin-top: 5px;
+  
+
+}
+
+.h { 
+  font-family: Montserrat;
+  color: #ffffff;
+  text-align: center;
+}
+
+table, td, th {
+  border: 3px solid;
+}
+
+table,td,th {
+  width: 120vh;
+  height: 15vh;
+  border-collapse: collapse;
+  color: #ffffff;
+  margin-left: 20%;
+  font-size: large;
+  font-family: Montserrat;
+  text-align: center;
+}
+
+
+.ctotal{ 
+  font-family: Montserrat;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 38%;
+  margin-top: 1%;
+  padding-top: 10px;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.stotal{ 
+  font-family: Montserrat;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 38.5%;
+  margin-top: 1.5%;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.checkout{ 
+  display: flex;
+  position: absolute;
+  align-items: center;
+  vertical-align: middle;
+  gap: 10px;
+  width: 35vw;
+  height: 5vh;
+  background: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-left: 45vw;
+  margin-top: 20px;
+ 
+}
+
+.co-text{
+  padding-left: 10px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 31px;
+  line-height: 38px;
+  color: #000000;
+  text-decoration: none;
+  margin-left: 12%;
+}
+
+
+
