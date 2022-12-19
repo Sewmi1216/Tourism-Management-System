@@ -1,3 +1,12 @@
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
+} else {
+    header("location:Login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -24,15 +33,15 @@
 
 <script>
 function myFunction() {
-  var input, filter, table, tr, tdh, i, txtValue;
+  var input, filter, table, tr, th, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
-  table = document.getElementById("Table");
+  table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
+    th = tr[i].getElementsByTagName("th")[0];
+    if (th) {
+      txtValue = th.textContent || th.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
       } else {
@@ -52,7 +61,7 @@ function myFunction() {
             
 
             <div>
-                <table >
+                <table id = myTable>
                     <tr class="heading tblrw">
                     
                         <th class="tblh">Product ID</th>
@@ -75,7 +84,7 @@ if ($res->num_rows > 0) {
                         
                         <td class="tbld"><?php echo $row["productID"] ?></td>
                         <td class="tbld"><?php echo "<img src='../images/" . $row['productImg'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    'border-radius: 50%;width:40px;height: 40px;background-size: 100%;
                     background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
                         <td class="tbld"><?php echo $row["productName"] ?></td>
                         <td class="tbld"><?php echo $row["category"] ?></td>
