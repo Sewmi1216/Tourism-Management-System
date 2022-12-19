@@ -25,8 +25,15 @@ if (isset($_POST['signup'])) {
     $dfolder = "../images/" . $fileDocname;
 
     $hotelconnection = new hotelController();
-    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $username, $hpassword, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
     move_uploaded_file($ptempname, $pfolder);
     move_uploaded_file($dtempname, $dfolder);
 
 }
+
+if (isset($_POST['recover'])) {
+    $email = $_POST['email'];
+    $recover = new hotelController();
+    $recover->recoverPwd($email);
+}
+

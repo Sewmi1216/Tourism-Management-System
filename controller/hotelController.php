@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 
 include '../model/hotel.php';
 
@@ -29,7 +30,6 @@ class hotelController extends db_connection
                     exit();
                 } else {
                     echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
-
                 }
             } else {
                  $_SESSION["pwderror"] = "Password does not match";
@@ -139,5 +139,70 @@ class hotelController extends db_connection
         </script>";
         }
     }
+    public function recoverPwd($email)
+    {
+        $recover = new hotel();
 
-}
+        $rs = $recover->recPwd($email);
+
+        if (!$rs) {
+           echo "<script>alert('Sorry, no emails exists');
+        </script>";
+
+        } else {
+            // generate token by binaryhexa 
+            $token = bin2hex(random_bytes(50));
+
+            //session_start ();
+            $_SESSION['token'] = $token;
+            $_SESSION['email'] = $email;
+
+            require "../libs/PHPMailer/PHPMailerAutoload.php";
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();
+            $mail->Host='smtp.gmail.com';
+            $mail->Port=587;
+            $mail->SMTPAuth=true;
+            $mail->SMTPSecure='tls';
+
+            // h-hotel account
+            $mail->Username='pksthimaya@gmail.com';
+            $mail->Password='ymjkeiefakvzmrwr';
+
+            // send by h-hotel email
+            $mail->setFrom('pksthimaya@gmail.com', 'Password Reset');
+            // get email from input
+            $mail->addAddress($_POST["email"]);
+            //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
+            // HTML body
+            $mail->isHTML(true);
+            $mail->Subject="Recover your password";
+            $mail->Body="<b>Dear User</b>
+            <h3>We received a request to reset your password.</h3>
+            <p>Kindly click the below link to reset your password</p>
+            http://localhost/pack2paradise/view-hotel/resetPwd.php
+            <br><br>
+            <p>With regrads,</p>
+            <b>Programming with Lam</b>";
+
+            if(!$mail->send()){
+                ?>
+                    <script>
+                        alert("<?php echo " Invalid Email "?>");
+                    </script>
+                <?php
+            }else{
+                ?>
+                    <script>
+                        window.location.replace("notification.html");
+                        
+                    </script>
+                <?php
+            }
+        }
+        }
+    }
+
+
