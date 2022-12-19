@@ -18,8 +18,32 @@
         <?php include "dashboardHeader.php"?>
         <div class="text">Craft Products</div>
         <div class="bg">
-        <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
                 title="Type in a name" style="width:1000px;margin-bottom:30px;">
+               
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, tdh, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("Table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
             <span>
                 <a href="addcraft.php"><i class="fa-regular fa-square-plus"
                         style="font-size:30px;color:black;float:right; margin-left:-50px;"></i></a>
@@ -28,7 +52,7 @@
             
 
             <div>
-                <table>
+                <table >
                     <tr class="heading tblrw">
                     
                         <th class="tblh">Product ID</th>

@@ -26,7 +26,7 @@ class entrepreneurController extends db_connection
                     $_SESSION['username'] = $result1['username'];
                     $_SESSION['userID'] = $result1['userID'];
 
-                    header("Location: ../view/dashboard.php");
+                    header("Location: ../view-entrepreneur/dashboard.php");
                     exit();
                 } else {
                     echo "<script type='text/javascript'>alert('Try again shortly');</script>";

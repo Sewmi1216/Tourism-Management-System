@@ -18,7 +18,8 @@
         <?php include "dashboardHeader.php"?>
         <div class="text">Craft Products</div>
         <div class="bg">
-            <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;"name="pName" />
+        <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
+                title="Type in a name" style="width:1000px;margin-bottom:30px;">
         <div>
             <table>
                 <tr class="heading tblrw">
