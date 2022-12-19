@@ -30,14 +30,14 @@
         </div>
 
        <div class="right1">
-       <button class="btns" >ENTREPRENEUR</button>
+        <a href="../view-entrepreneur/signup.php"><button class="btns" >ENTREPRENEUR</button></a>
        </div>
 
     
 
    
       <div class="left2">
-      <button class="btns" >HOTEL MANGER</button>
+      <a href="../view-hotel/hotelSignup.php"><button class="btns" >HOTEL</button></a>
       </div>
 
       <div class="right2">

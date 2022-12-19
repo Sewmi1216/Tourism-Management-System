@@ -2,7 +2,7 @@
 <html>
 <head>
   <title> Log In</title>
-  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/tlogin.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
@@ -24,7 +24,7 @@
       </div>
 
 
-      <form action="../api/loginapi.php" method="POST">
+      <form action="../api/touristloginapi.php" method="POST">
   
 
         <div class="container">

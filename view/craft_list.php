@@ -30,7 +30,7 @@ $res2 = $tourist->getallproducts();
     
 
           <div class="login-btn">
-          <a class="login-text" href="../api/logout.php">LOG OUT</a>
+          <a class="login-text" href="../api/tlogout.php">LOG OUT</a>
           </div>
        
         </ul>
@@ -89,44 +89,44 @@ $res2 = $tourist->getallproducts();
   
   ?>
       <div class="gown">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/></a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/></a>
         <p>Batik Dress<br><br>View  &nbsp; &nbsp; &nbsp; price</p>
       </div>
 
       <?php $result = mysqli_fetch_assoc($res2); ?>
 
       <div class="bag">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/> </a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/> </a>
         <p>Batik Bag<br><br>View</p>
       </div>
       <?php $result = mysqli_fetch_assoc($res2); ?>
       <div class="showl">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"> <img src="../img/<?php echo $result['product_img'] ?>"/> </a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"> <img src="../img/<?php echo $result['productImg'] ?>"/> </a>
         <p>Batik Printed Scarf<br><br>View</p>
       </div>
 <?php $result = mysqli_fetch_assoc($res2); ?>
       <div class="gold">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/> </a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/> </a>
         <p>Decorative Clay Pot<br><br>View</p>
       </div>
 <?php $result = mysqli_fetch_assoc($res2); ?>
       <div class="gold-elephant">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/></a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/></a>
         <p>Elephant<br><br>View</p>
       </div>
 <?php $result = mysqli_fetch_assoc($res2); ?>
       <div class="clay-pot">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/></a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/></a>
         <p>Clay Pots<br><br>View</p>
       </div>
 <?php $result = mysqli_fetch_assoc($res2); ?>
       <div class="art">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/></a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/></a>
         <p>Art Handicraft<br><br>View</p>
       </div>
 <?php $result = mysqli_fetch_assoc($res2); ?>
       <div class="perahera">
-        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['product_img'] ?>"/></a>
+        <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/></a>
         <p>Perahera Art<br><br>View</p>
       </div>
 
