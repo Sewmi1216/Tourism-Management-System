@@ -1,24 +1,34 @@
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+    $id = $_SESSION["hotelID"];
+} else {
+    header("location:login.php");
+}
+?>
 <!DOCTYPE html>
+<html lang="en" dir="ltr">
 
 <head>
-    <title>Pack2Paradise</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+
+    <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="margin-left:45px;padding-right:0px;"></a>
-        <!-- <div style="font-size: 25px;line-height: 40px;color: rgba(37, 53, 81, 1);margin-top:10px;">Pack2Paradise</div> -->
-        <div class="header-right">
-            <a href="home.php">HOME</a>
-            <a href="hotelLogin.php" style="margin-left:60px;">LOGIN</a>
-        </div>
-    </header>
-    <div class="registerForm">
+    <?php include "nav.php"?>
+
+    <section class="home-section">
+        <?php include "dashboardHeader.php"?>
+        <div class="registerForm">
         <form method="post" action="../api/addhotel.php" enctype="multipart/form-data">
-            <div class="heading" style="margin-top:0px;">Hotel Registration</div>
-            <hr>
+            <div class="heading" style="margin-top:0px;">Update Hotel Profile</div>
             <div class="subheading" style="margin-top:15px;">Hotel Name*</div>
             <input type="text" class="field" style=";margin-top:12px;" name="hotelName" />
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
@@ -90,60 +100,10 @@
                     </td>
                 </tr>
             </table>
-            <input type="submit" class="btnRegister" value="Sign Up" name="signup" />
-            <p style="margin-top:-32px;text-align:center;">Already have an account <a href="hotelLogin.php"
-                    style="text-decoration:none;color: #004581;" class="text">Login</a></p>
+            <input type="submit" class="btnRegister" value="Update Profile" name="signup" />
         </form>
-
-
-    </div>
-
-    <script>
-    var nic = document.getElementById("nic");
-
-    nic.addEventListener('input', () => {
-        nic.setCustomValidity('');
-        nic.checkValidity();
-    });
-
-    nic.addEventListener('invalid', () => {
-        if (nic.value === '') {
-            nic.setCustomValidity('Enter nic!');
-        } else {
-            nic.setCustomValidity('Enter nic in 200056789123 or 123456789V format');
-        }
-    });
-    var pwd = document.getElementById("password");
-
-    pwd.addEventListener('input', () => {
-        pwd.setCustomValidity('');
-        pwd.checkValidity();
-    });
-
-    pwd.addEventListener('invalid', () => {
-        if (pwd.value === '') {
-            pwd.setCustomValidity('Enter password!');
-        } else {
-            pwd.setCustomValidity(
-                'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
-            );
-        }
-    });
-
-    // function validatePwd(){
-    //     var pwd = document.getElementById("password");
-    //     var msg = document.getElementById("msg");
-    //     var condition = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    //     if(!pwd.match(condition)){
-    //         msg.innerHTML="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters";
-    //     }
-    //     else{
-    //         msg.innerHTML="";
-    //     }
-    // }
-    </script>
-
-
+</div>
+</section>
 </body>
 
 </html>

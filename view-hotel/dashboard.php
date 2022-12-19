@@ -12,7 +12,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -29,24 +29,32 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <div style="margin-top:20px;margin-left:10px;" class="dashheading">
             <span class="b">
                 All Reservations
+                <div style="margin-top:60px;font-size:40px;">20</div>
             </span>
             <span class="b">
                 Cancelled Reservations
+                <div style="margin-top:60px;font-size:40px;">2</div>
             </span>
             <span class="b">
                 Reserved Rooms
+                <div style="margin-top:60px;font-size:40px;">4</div>
             </span>
             <span class="b">
                 Today's Revenue
+                <div style="margin-top:60px;font-size:40px;">$250</div>
             </span>
         </div>
 
         <div style="margin-top:20px;margin-left:10px;" class="chart">
             <span class="c">
                 Room Booking Chart
+                <br>
+                <img src="../images/pie.png" height="300px" width="300px" class="chartimg" />
             </span>
             <span class="c">
                 Sales Revenue
+                <br>
+                <img src="../images/bar.png" alt="" height="300px" width="350px" class="chartimg" />
             </span>
         </div>
 

@@ -16,7 +16,7 @@
             <input type="password" class="field" name="username" />
             <label style="font-size:15px;padding:10px;" class="text">Re-enter new password</label>
             <input type="password" class="field" name="username" />
-            <input type="submit" class="btn" value="Reset" style="margin-top:42px;" name="signIn">
+            <input type="submit" class="btn" value="Reset" style="margin-top:42px;" name="reset">
         </form>
     </div>
 

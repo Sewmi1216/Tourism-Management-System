@@ -12,7 +12,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,30 +20,27 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
-    <script>
+    <script type="text/javascript">
 	$(document).ready(function(){
-		load_data();
-		function load_data(query)
+	
+		$('#search').keyup(function(){
+		var input = $(this).val();
+        //alert(input);
+		if(search != '')
 		{
 			$.ajax({
-			url:"searchresult.php",
+			url:"addpkg.php",
 			method:"POST",
-			data:{query:query},
+			data:{input:input},
 			success:function(data)
 			{
 				$('#result').html(data);
 			}
 			});
 		}
-		$('#search').keyup(function(){
-		var search = $(this).val();
-		if(search != '')
-		{
-			load_data(search);
-		}
 		else
 		{
-			load_data();
+			$('#results').html(data);
 		}
 		});
 	});
@@ -66,6 +63,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
             <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
                 title="Type in a name">
+                
             <span>
                 <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus"
                         style="font-size:30px;color:black;"></i></a>
@@ -112,6 +110,42 @@ if ($res->num_rows > 0) {
 ?>
                 </table>
             </div>
+        
+         <!-- <div id="results">
+                <table>
+                    <tr class="subtext tblrw">
+                        <th class="tblh">Hotel Package</th>
+                        <th class="tblh">Hotel Package Name</th>
+                        <th class="tblh">Room Type</th>
+                        <th class="tblh">Status</th>
+                        <th class="tblh">View</th>
+                        <th class="tblh">Edit</th>
+                        <th class="tblh">Delete</th>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
+                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    background-repeat: no-repeat;'>"; ?>
+                        </td>
+                        <td class="tbld"><?php echo $row["packageName"] ?></td>
+                        <td class="tbld"><?php echo $row["price"] ?></td>
+                        <td class="tbld"><button class="status">
+                                <?php if ($row["status"] == 0) {
+                                    echo "Unavailable";
+                                } else {
+                                    echo "Available";
+                                }
+                                ?></button>
+                        </td>
+                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                    </tr>
+                
+                </table>
+            </div>
+         -->
+        
         </div>
         </div>
 

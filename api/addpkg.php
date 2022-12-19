@@ -5,7 +5,15 @@ if (isset($_POST['save'])) {
     $pkgName = $_POST['pName'];
     $price = $_POST['price'];
     $desc = $_POST['desc'];
-    $status = $_POST['status'];
+    // $st = $_POST['status'];
+$status = $_POST['status'];
+    // if ($st) {
+    //     if ($st == "Available") {
+    //         $status = 1;
+    //     } else {
+    //         $status = 0;
+    //     }
+    // }
     $file = $_FILES['file']['name'];
 
     $filename = $_FILES["file"]["name"];
@@ -19,3 +27,10 @@ if (isset($_POST['save'])) {
     move_uploaded_file($tempname, $folder);
 
 }
+if (isset($_POST['input'])) {
+//     $input = $_POST['input'];
+//    $hotelpkgsearch = new hotelPkgController();
+// $res = $hotelpkgsearch->search($input);
+
+}
+
