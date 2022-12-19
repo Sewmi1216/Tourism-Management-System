@@ -1,8 +1,8 @@
 <?php
 include '../controller/entrepreneurController.php';
 if (isset($_POST['signup'])) {
-    $businessName = $_POST['eName'];
-    // $eName = $_POST['eName'];
+    $businessName = $_POST['bName'];
+    $eName = $_POST['eName'];
     $eNic = $_POST['eNic'];
     $ePhone = $_POST['ePhone'];
     $eEmail = $_POST['eEmail'];
