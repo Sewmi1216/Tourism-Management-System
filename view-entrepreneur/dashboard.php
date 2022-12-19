@@ -1,4 +1,12 @@
-
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
+} else {
+    header("location:Login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
