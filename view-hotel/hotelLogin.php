@@ -80,7 +80,7 @@ if ($_SESSION["attempts"] > 2) {
             <?php }?>
 
 
-            <p class="message text">Don't have an account <a href="hotelSignup.php" class="text"
+            <p class="message text">Don't have an account <a href="../view/initiate.php" class="text"
                     style="text-decoration:none;">Sign up for
                     free</a></p>
         </form>

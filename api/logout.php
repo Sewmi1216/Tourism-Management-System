@@ -1,11 +1,3 @@
-
-<?php
-include '../controller/touristController.php';
-
-$touristcon = new touristController();
-$touristcon->userLogout();
-
-
 <?php
 session_start();
 session_unset();    //remove all session variables
