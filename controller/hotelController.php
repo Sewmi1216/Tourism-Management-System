@@ -81,7 +81,7 @@ class hotelController extends db_connection
                     $_SESSION['username'] = $result1['username'];
                     $_SESSION['entID'] = $result1['entID'];
 
-                    // header("Location: ../view-hotel/dashboard.php");
+                    header("Location: ../view-entrepreneur/dashboard.php");
                     exit();
                 } else {
                     echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
