@@ -43,25 +43,25 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 <body>
     <?php include "nav.php"?>
 
-    <section class="home-section">
+     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Rooms</div>
-        <div class="bg">
-            <!-- <div class="search">
-                <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;" name="pName" />
-                <button
-                    style="cursor:pointer;margin-top:5px;margin-left:16px;border:0px white;background-color:white;"><i
-                        class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
-            </div> -->
+        <!-- <div class="text">Hotel Packages</div> -->
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title"> Rooms</div>
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Search for rooms" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                </div>
+                <button type="submit" class="btns">View All</button>
+                <span style="margin-left: 8px;">
+                    <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
+;"></i></a>
+                </span>
+            </div>
 
-            <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for rooms.."
-                title="Type in a name">
-                
-            <span>
-                <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus"
-                        style="font-size:30px;color:black;"></i></a>
-            </span>
-            <div id="result">
+        </div>
+            <div class="bg">
                 <table>
                     <tr class="subtext tblrw">
                         <th class="tblh">Room No</th>
