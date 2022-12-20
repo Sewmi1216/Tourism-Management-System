@@ -25,20 +25,17 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Reserve Rooms</div>
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title"> Reserve Rooms</div>
+
+            </div>
+
+        </div>
+
         <div class="bg">
-            <!-- <div class="search">
-                <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;" name="pName" />
-                <button
-                    style="cursor:pointer;margin-top:5px;margin-left:16px;border:0px white;background-color:white;"><i
-                        class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
-            </div> -->
-
-            <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for reservations.."
-                title="Type in a name">
-
-            
-            <div id="result">
+            <div class="side">
+                <div class="page-title"> Rooms</div>
                 <table>
                     <tr class="subtext tblrw">
                         <th class="tblh">Reservation ID</th>
@@ -47,14 +44,104 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                         <th class="tblh">Price</th>
                         <th class="tblh">Check-in</th>
                         <th class="tblh">Check-out</th>
-                        <th class="tblh">Payment</th>
-                        <th class="tblh">Status</th>
-
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
                 </table>
             </div>
+            <div class="side">
+                <div class="page-title"> Reservations</div>
+                <table>
+                    <tr class="subtext tblrw">
+                        <th class="tblh">Reservation ID</th>
+                        <th class="tblh">Guest ID</th>
+                        <th class="tblh">Date</th>
+                        <th class="tblh">Price</th>
+                        <th class="tblh">Check-in</th>
+                        <th class="tblh">Check-out</th>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">R101</td>
+                        <td class="tbld">P111</td>
+                        <td class="tbld">Tom</td>
+                        <td class="tbld">Single</td>
+                        <td class="tbld">2022/02/14</td>
+                        <td class="tbld">2022/02/16</td>
+                    </tr>
+                </table>
             </div>
         </div>
+        </div>
+        </div>
 
+        <div class="bg">
+            <table>
+                <tr>
+                    <td>
+                        <div class="content">Room ID</div>
+                        <input type="text" class="subfield" name="mName" required/>
+                    </td>
+                    <td>
+                        <div class="content">Reservation ID</div>
+                        <input type="text" class="subfield" name="mPhone" required /> </td>
+                </tr>
+            </table>
+            <button type="submit" class="btns" style="margin-top:50px; margin-left:600px;">Reserve</button>
+        </div>
     </section>
 </body>
 

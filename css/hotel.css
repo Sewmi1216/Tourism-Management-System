@@ -210,7 +210,7 @@ table {
 } */
 .bg{
     border-radius: 0.5rem;
-    margin: 0 1vw;
+    margin: 2vw 1vw;
     padding: 0.2vh 1vw;
     background-color: white;
     box-shadow: 0 1px 10px 0 rgb(255, 255, 255);
@@ -454,3 +454,22 @@ i {
 .gridSearch {
     grid-area: search;
 }
+/* side-by-side-table */
+/* .bg {
+  margin-left:-5px;
+  margin-right:-5px;
+} */
+  
+.side {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.bg::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+

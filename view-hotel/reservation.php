@@ -25,34 +25,147 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Reservations</div>
-        <div class="bg">
-            <!-- <div class="search">
-                <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;" name="pName" />
-                <button
-                    style="cursor:pointer;margin-top:5px;margin-left:16px;border:0px white;background-color:white;"><i
-                        class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
-            </div> -->
+        <!-- <div class="text">Hotel Packages</div> -->
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title"> Guest Reservations</div>
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Search for guest reservations" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                </div>
+                <button type="submit" class="btns">View All</button>
 
-            <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for reservations.."
-                title="Type in a name">
-                
-          
-            <div id="result">
-                <table>
-                    <tr class="subtext tblrw">
-                        <th class="tblh">Reservation ID</th>
-                        <th class="tblh">Guest ID</th>
-                        <th class="tblh">Date</th>
-                        <th class="tblh">Price</th>
-                        <th class="tblh">Check-in</th>
-                        <th class="tblh">Check-out</th>
-                        <th class="tblh">Payment</th>
-                        <th class="tblh">Status</th>
-  
-                </table>
             </div>
+
+        </div>
+
+        <div class="bg">
+            <table>
+                <tr class="subtext tblrw">
+                    <th class="tblh">Reservation ID</th>
+                    <th class="tblh">Guest ID</th>
+                    <th class="tblh">Date</th>
+                    <th class="tblh">Price</th>
+                    <th class="tblh">Check-in</th>
+                    <th class="tblh">Check-out</th>
+                    <th class="tblh">Payment</th>
+                    <th class="tblh">Status</th>
+                </tr>
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        </div>
+
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title"> Admin Reservations</div>
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Search for admin reservations" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                </div>
+                <button type="submit" class="btns">View All</button>
+
             </div>
+
+        </div>
+
+        <div class="bg">
+            <table>
+                <tr class="subtext tblrw">
+                    <th class="tblh">Reservation ID</th>
+                    <th class="tblh">Guest ID</th>
+                    <th class="tblh">Date</th>
+                    <th class="tblh">Price</th>
+                    <th class="tblh">Check-in</th>
+                    <th class="tblh">Check-out</th>
+                    <th class="tblh">Payment</th>
+                    <th class="tblh">Status</th>
+                </tr>
+
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+                <tr>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                    <td class="tbld">R102</td>
+                </tr>
+            </table>
+        </div>
+        </div>
         </div>
 
     </section>
