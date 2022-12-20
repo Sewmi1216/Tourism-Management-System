@@ -198,14 +198,29 @@ table {
   border-radius: 5px;
   width: 15%;
 }
-.bg {
+
+/* .bg {
   height: auto;
   width: 100%;
   background-color: white;
   padding: 10px;
-  margin-left: 0px;
+  margin-left: 10px;
   margin-top: 25px;
   display: table;
+} */
+.bg{
+    border-radius: 0.5rem;
+    margin: 0 1vw;
+    padding: 0.2vh 1vw;
+    background-color: white;
+    box-shadow: 0 1px 10px 0 rgb(255, 255, 255);
+    grid-area: search;
+}
+.se{
+    border-radius: 0.5rem;
+    margin: 2vw 1vw;
+    padding: 0.2vh 1vw;
+    grid-area: search;
 }
 .tblh {
   background-color: white;
@@ -352,3 +367,90 @@ i {
     margin-top: 10px;
     border-radius: 10px;
   }
+/* search */
+  .searchSec {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0.5vh 1vw;
+    position: relative;
+    justify-content: start;
+}
+
+.input-container {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: flex;
+    width: 350px;
+    /*border: 0.5px solid var(--mainColor);*/
+    background-color: rgb(255, 255, 255);
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.page-title {
+    flex-grow: 1;
+    font-size: 1.3rem;
+    font-weight: 900px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 50px;
+    text-align: center;
+    color: var(--mainColor);
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    outline: none !important;
+    border: 0 !important;
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+}
+
+.btns {
+    border: 2px solid var(--mainColor);
+    color: var(--mainColor);
+    background-color: #004581;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: .5rem;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    color: white;
+    font-size: 16px;
+}
+/* .button {
+    background-color: #004581;
+    border: none;
+    
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+  } */
+
+.searchimage:hover {
+    background-color: var(--mainColor);
+    color: white;
+}
+.gridSearch{
+    border-radius: 0.5rem;
+    margin: 0 1vw;
+    padding: 0.2vh 1vw;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.gridSearch {
+    grid-area: search;
+}

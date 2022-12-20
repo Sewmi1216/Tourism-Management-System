@@ -21,30 +21,28 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
     <script type="text/javascript">
-	$(document).ready(function(){
-	
-		$('#search').keyup(function(){
-		var input = $(this).val();
-        //alert(input);
-		if(search != '')
-		{
-			$.ajax({
-			url:"addpkg.php",
-			method:"POST",
-			data:{input:input},
-			success:function(data)
-			{
-				$('#result').html(data);
-			}
-			});
-		}
-		else
-		{
-			$('#results').html(data);
-		}
-		});
-	});
-	</script>
+    $(document).ready(function() {
+
+        $('#search').keyup(function() {
+            var input = $(this).val();
+            //alert(input);
+            if (search != '') {
+                $.ajax({
+                    url: "addpkg.php",
+                    method: "POST",
+                    data: {
+                        input: input
+                    },
+                    success: function(data) {
+                        $('#result').html(data);
+                    }
+                });
+            } else {
+                $('#results').html(data);
+            }
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -52,7 +50,22 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Hotel Packages</div>
+        <!-- <div class="text">Hotel Packages</div> -->
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title"> Hotel Packages </div>
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Search for packages" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                </div>
+                <button type="submit" class="btns">View All</button>
+                <span style="margin-left: 8px;">
+                    <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
+;"></i></a>
+                </span>
+            </div>
+
+        </div>
         <div class="bg">
             <!-- <div class="search">
                 <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;" name="pName" />
@@ -61,13 +74,10 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                         class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
             </div> -->
 
-            <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
-                title="Type in a name">
-                
-            <span>
-                <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus"
-                        style="font-size:30px;color:black;"></i></a>
-            </span>
+            <!-- <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
+                title="Type in a name"> -->
+
+
             <div id="result">
                 <table>
                     <tr class="subtext tblrw">
@@ -110,8 +120,8 @@ if ($res->num_rows > 0) {
 ?>
                 </table>
             </div>
-        
-         <!-- <div id="results">
+
+            <!-- <div id="results">
                 <table>
                     <tr class="subtext tblrw">
                         <th class="tblh">Hotel Package</th>
@@ -145,7 +155,7 @@ if ($res->num_rows > 0) {
                 </table>
             </div>
          -->
-        
+
         </div>
         </div>
 
