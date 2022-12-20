@@ -1,0 +1,177 @@
+.booked-packages-list{
+    margin-top: 20px;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background-color: #0789c6;
+}
+
+.add{
+    display: flex;
+}
+.add>h3{
+    color: white;
+}
+
+.add>a{
+    background-color: #ffffff;
+    float: right;
+    margin-top: 0px;
+   
+    margin-left: 1300;
+    
+    height: 28px;
+    padding: 5px 10px;
+    color: #0789c6;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.booked-packages{
+    margin-top: 40px;
+    margin-right: 17px;
+    float: auto;
+    border-left: 3px solid black;
+    padding-left: 20px;
+  }
+
+  .booked-packages>h3{
+    color: white;
+  }
+
+  .booked-packages-list{
+    margin-top: 20px;
+  }
+
+  .booked-packages-list>.booked-packages-card{
+    background-color: #1c1f37;
+    display: flex;
+    color: white;
+    padding: 5px 5px;
+    width:1069pxpx;
+    height: 93.12px; ;
+    margin-bottom: 10px;
+    border-radius: 18.2357px;
+  }
+
+  .booked-packages-list>.booked-packages-card>img{
+    width: 120px;
+    height: 87px;
+    border-radius: 18.46px;
+    
+  }
+
+  .booked-packages-list>.booked-packages-card>.ul{
+    display: flex;
+    margin-left: 10px;
+    padding: 20px;
+    justify-content: space-between;
+  }
+
+  .booked-packages-list>.booked-packages-card>.details>.tour-dates{
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .booked-packages-list>.booked-packages-card>.details>ul{
+    display: flex;
+    margin-top: 10px;
+    padding: 10px;
+    justify-content: space-between;
+
+
+  }
+
+  .booked-packages-list>.booked-packages-card>.details>ul li{
+list-style: none;
+display: inline-block;
+font-size: 20px;
+
+  }
+
+
+  .booked-packages-list>.booked-packages-card>.details>.tour-dates>i{
+    padding-right: 15px;
+  }
+
+.active{
+    background-color: #0789c6;
+    color: white;
+    cursor: pointer;
+}
+
+.booked-packages-list>.booked-packages-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  }
+ 
+/*  .editbtn{
+    background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+  border-radius: 8px;
+  font-style: bold;
+  
+}
+  
+.deletebtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+
+    color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+  border-radius: 8px;
+  font-style: bold;
+  
+  }
+  .editbtn, .deletebtn {
+    float: left;
+    width: 0%;
+  }
+  
+
+.btn::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  */
+
+  .btn{
+    margin-left: 1300px;
+    padding: 14px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    font-family: 'Arvo', serif;
+font-family: 'Days One', sans-serif;
+    
+  }
+
+  .editbtn{
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    color: green;
+  }
+
+  .deletebtn{
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    color: red;
+  }
