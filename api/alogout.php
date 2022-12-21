@@ -2,5 +2,5 @@
 session_start();
 session_unset();    //remove all session variables
 session_destroy();  //destroy the session
-header("location:../view/Login2.php");
+header("location:../view-admin/Login2.php");
 ?>

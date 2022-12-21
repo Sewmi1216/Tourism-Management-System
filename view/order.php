@@ -1,10 +1,10 @@
 <?php 
 
 session_start();
-include '../model/tourist.php';
+require '../model/tourist.php';
 $tourist = new tourist();
 $res2 = $tourist->getproduct($_GET['product']);
-$result = mysqli_fetch_assoc($res2); 
+$result = mysqli_fetch_assoc($res2);
 
 
 ?>
@@ -34,7 +34,7 @@ $result = mysqli_fetch_assoc($res2);
 
     <form action="../api/addcart.php?product=<?php echo $_GET['product'] ?>" method="POST">
 
-    <img class="o1" src="../img/<?php echo $result['product_img']?>" alt="">
+    <img class="o1" src="../img/<?php echo $result['productImg']?>" alt="">
 
     
     <div class="info">
