@@ -62,7 +62,7 @@ class hotelController extends db_connection
                 $_SESSION['username'] = $result1['username'];
                 $_SESSION['adminID'] = $result1['adminID'];
 
-                header("Location: ../view-hotel/resetPwd.php");
+                header("Location: ../view-admin/dashboard.php");
                 exit();
 
             } else {
