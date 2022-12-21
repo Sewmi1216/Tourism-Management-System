@@ -21,7 +21,7 @@ class hotelPkg extends db_connection
     {
         require_once "../view-hotel/hotelPkg.php";
 
-        $sql= "INSERT INTO hotelpackage(packageName, price, description, image, status, hotelID) VALUES ('$pkgName','$price','$desc','$filename','$status', '$id')";
+        $sql= "INSERT INTO hotelpackage(packageName, price, description, image, pkg_status, hotelID) VALUES ('$pkgName','$price','$desc','$filename','$status', '$id')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmts = $this->conn->prepare($sql);

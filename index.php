@@ -1,5 +1,5 @@
 <?php 
-header ("Location: view-hotel/hotelLogin.php");
+header ("Location: view/home.php");
 
 
 ?>

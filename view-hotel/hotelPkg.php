@@ -81,12 +81,12 @@ if ($res->num_rows > 0) {
                         </td>
                         <td class="tbld"><?php echo $row["packageName"] ?></td>
                         <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if($row["status"]==0){
-                            echo "Unavailable";}
-                            else{
-                             echo "Available";}
-                             ?></button>
+                        <td class="tbld">
+                            <?php if ($row["pkg_status"] == "Available") { ?>
+                                <button class="status1"><?php echo $row["pkg_status"]; ?></button>
+                            <?php } else { ?>
+                             <button class="status2"><?php echo $row["pkg_status"]; ?></button>
+                             <?php } ?>
                         </td>
                         <td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>
@@ -136,12 +136,12 @@ if ($res->num_rows > 0) {
                             <td>
                                 <div class="content">Status</div>
                             </td>
-                            <td><input type="text" class="subfield" name="status" /></td>
-                            <!-- <td> <select class="subfield" name="status" form="carform">
+                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
+                            <td> <select class="subfield" name="status">
                                 <option value="" selected>---Choose availability---</option>
                                 <option value="Available">Available</option>
                                 <option value="Unavailable">Unavailable</option>
-                            </select></td> -->
+                            </select></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -226,12 +226,12 @@ if ($res->num_rows > 0) {
                             <td>
                                 <div class="content">Status</div>
                             </td>
-                            <td><input type="text" class="subfield" name="status" /></td>
-                            <!-- <td> <select class="subfield" name="status" form="carform">
+                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
+                            <td> <select class="subfield" name="status">
                                 <option value="" selected>---Choose availability---</option>
                                 <option value="Available">Available</option>
                                 <option value="Unavailable">Unavailable</option>
-                            </select></td> -->
+                            </select></td>
                         </tr>
                         <tr class="row">
                             <td>
