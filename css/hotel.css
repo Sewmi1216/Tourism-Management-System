@@ -253,8 +253,14 @@ table {
 /* th, td{
     border-bottom: 1px solid #ddd;
 } */
-.status {
-  background-color: red;
+.status1 {
+  background-color: rgb(121, 9, 9);
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+}
+.status2 {
+  background-color: rgb(17, 88, 17);
   padding: 10px;
   border-radius: 20px;
   color: white;
