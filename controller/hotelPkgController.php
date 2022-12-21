@@ -1,6 +1,6 @@
 <?php
 
-include '../model/hotelPkg.php';
+include_once('../model/hotelPkg.php');
 
 class hotelPkgController extends db_connection
 {
@@ -13,9 +13,9 @@ class hotelPkgController extends db_connection
 
      public function addHotelPkg($pkgName,$price,$desc,$filename,$status)
     {
-        $pkg = new hotelPkg();
+        $hpkgs = new hotelPkg();
 
-        $res = $pkg->insertHotelPkg($pkgName,$price,$desc,$filename,$status);
+        $res = $hpkgs->insertHotelPkg($pkgName,$price,$desc,$filename,$status);
 
         if (!$res) {
             echo 'There was a error';
@@ -39,16 +39,16 @@ class hotelPkgController extends db_connection
         return $result;
 
     }
-     public function search($input)
-    {
-        $hpkg = new hotelPkg();
+    //  public function search($input)
+    // {
+    //     $hpkg = new hotelPkg();
 
-        $results = $hpkg->searchPkg($input);
+    //     $results = $hpkg->searchPkg($input);
 
-        // include "../view/room.php";
-        return $results;
+    //     // include "../view/room.php";
+    //     return $results;
 
-    }
+    // }
 
 
 }

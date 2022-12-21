@@ -24,7 +24,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Dashboard Overview</div>
+        <div class="page-title" style="margin:2vw 3vw;">Dashboard Overview</div>
 
         <div style="margin-top:20px;margin-left:10px;" class="dashheading">
             <span class="b">

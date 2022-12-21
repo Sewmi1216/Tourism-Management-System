@@ -19,14 +19,14 @@ class hotelPkg extends db_connection
 
     public function insertHotelPkg($pkgName, $price, $desc, $filename, $status)
     {
-        require_once "../view-hotel/addHotelPkg.php";
+        require_once "../view-hotel/hotelPkg.php";
 
-        $query = "INSERT INTO hotelpackage(packageName, price, description, image, status, hotelID) VALUES ('$pkgName','$price','$desc','$filename','$status', 1)";
+        $sql= "INSERT INTO hotelpackage(packageName, price, description, image, status, hotelID) VALUES ('$pkgName','$price','$desc','$filename','$status', '$id')";
 
         //$stmt = mysqli_query($this->conn, $query);
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+        $stmts = $this->conn->prepare($sql);
+        $stmts->execute();
+        return $stmts;
     }
     public function viewAllPkgs()
     {

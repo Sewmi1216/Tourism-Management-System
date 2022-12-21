@@ -158,8 +158,25 @@ body {
   border: 2px solid rgba(34, 50, 194, 0.25);
   border-radius: 10px;
 }
+.subtextfield {
+  font-family: sans-serif;
+  background: #dde8f0;
+  width: 90%;
+  margin: 10px 0 0;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 2px solid rgba(34, 50, 194, 0.25);
+  border-radius: 10px;
+  resize: none;
+}
 .subfield:hover,
 .subfield:focus {
+  outline: none;
+  border: 3px solid rgba(1, 6, 56, 0.25);
+}
+.subtextfield:hover,
+.subtextfield:focus {
   outline: none;
   border: 3px solid rgba(1, 6, 56, 0.25);
 }
