@@ -1,12 +1,4 @@
-<?php
-session_start();
-$user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
-} else {
-    header("location:Login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -25,44 +17,25 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Craft Products</div>
-        <div class="bg">
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
-                title="Type in a name" style="width:1000px;margin-bottom:30px;">
-               
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title"> Craft Products </div>
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Search for packages" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                </div>
+                <button type="submit" class="btns">View All</button>
+                <span style="margin-left: 8px;">
+                    <a href="addcraft.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
+;"></i></a>
+                </span>
+            </div>
 
-<script>
-function myFunction() {
-  var input, filter, table, tr, th, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    th = tr[i].getElementsByTagName("th")[0];
-    if (th) {
-      txtValue = th.textContent || th.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+        </div>
 
-
-            <span>
-                <a href="addcraft.php"><i class="fa-regular fa-square-plus"
-                        style="font-size:30px;color:black;float:right; margin-left:-50px;"></i></a>
-            </span>
-
-            
-
-            <div>
-                <table id = myTable>
-                    <tr class="heading tblrw">
+            <div class="bg">
+                <table>
+                    <tr class="subtext tblrw">
                     
                         <th class="tblh">Product ID</th>
                         <th class="tblh">Product</th>
@@ -80,7 +53,7 @@ $res = $productcont->viewAll();
 if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
         ?>
-                    <tr class="subheading tblrw">
+                    <tr class="subtext tblrw">
                         
                         <td class="tbld"><?php echo $row["productID"] ?></td>
                         <td class="tbld"><?php echo "<img src='../images/" . $row['productImg'] . "' style=

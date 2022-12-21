@@ -1,12 +1,4 @@
-<?php
-session_start();
-$user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
-} else {
-    header("location:Login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -29,24 +21,32 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
         <div style="margin-top:20px;margin-left:10px;" class="heading">
             <span class="b">
                New Users 
+               <div style="margin-top:60px;font-size:30px;">50</div>
             </span>
             <span class="b">
                 Total Orders
+                <div style="margin-top:60px;font-size:30px;">100</div>
             </span>
             <span class="b">
                Products Sell
+               <div style="margin-top:60px;font-size:30px;">500</div>
             </span>
             <span class="b">
                 Today's Revenue
+                <div style="margin-top:60px;font-size:30px;">$250</div>
             </span>
         </div>
 
         <div style="margin-top:20px;margin-left:10px;" class="chart">
             <span class="c">
                 Craft Ordering Chart
+                <br>
+                <img src="../images/pie.png" height="300px" width="300px" class="chartimg" />
             </span>
             <span class="c">
                 Sales Revenue
+                <br>
+                <img src="../images/bar.png" alt="" height="300px" width="350px" class="chartimg" />
             </span>
         </div>
 

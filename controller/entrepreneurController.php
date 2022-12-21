@@ -35,7 +35,7 @@ class entrepreneurController extends db_connection
             } else {
                 // $_SESSION["error"] = "Password does not match";
                 $_SESSION["pwderror"] = "Password does not match";
-                $_SESSION["attempts"]+= 2;
+                $_SESSION["attempts"]+= 1;
                
 
             }
