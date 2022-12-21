@@ -1,12 +1,4 @@
-<?php
-session_start();
-$user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
-} else {
-    header("location:Login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -25,20 +17,37 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Craft Products</div>
+        <div class="se" style="margin-top: 20px;">
+            <div class="searchSec">
+                <div class="page-title">Payments </div>
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Search for products" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                </div>
+                <button type="submit" class="btns">View All</button>
+                
+            </div>
+
+        </div>
         <div class="bg">
-        <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
-                title="Type in a name" style="width:1000px;margin-bottom:30px;">
-        <div>
             <table>
-                <tr class="heading tblrw">
+                <tr class="subtext tblrw">
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
                     <th class="tblh">Order ID</th>
                     <th class="tblh">Type</th>
                     <th class="tblh">Price</th>
                     <th class="tblh">Status</th>
-                </tr><?php
+                </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tblh">Completed</td>
+                </tr>
+                <?php
 include "../controller/productController.php";
 $productcont = new productController();
 $res = $productcont->viewAll();
