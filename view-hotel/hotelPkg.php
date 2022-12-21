@@ -14,157 +14,13 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        $('#search').keyup(function() {
-            var input = $(this).val();
-            //alert(input);
-            if (search != '') {
-                $.ajax({
-                    url: "addpkg.php",
-                    method: "POST",
-                    data: {
-                        input: input
-                    },
-                    success: function(data) {
-                        $('#result').html(data);
-                    }
-                });
-            } else {
-                $('#results').html(data);
-            }
-        });
-    });
-    </script>
-        <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  /* width: 100%; */
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
 </head>
 
 <body>
@@ -212,7 +68,7 @@ span.psw {
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr><?php
-include "../controller/hotelPkgController.php";
+require_once("../controller/hotelPkgController.php") ;
 $hotelPkgcont = new hotelPkgController();
 $res = $hotelPkgcont->viewAllPkgs();
 if ($res->num_rows > 0) {
@@ -232,8 +88,10 @@ if ($res->num_rows > 0) {
                              echo "Available";}
                              ?></button>
                         </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
+                                    class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+                                    class="fa-solid fa-pen-to-square art"></i></a></td>
                         <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
                     </tr>
                     <?php }
@@ -244,64 +102,18 @@ if ($res->num_rows > 0) {
                 </table>
             </div>
 
-            <!-- <div id="results">
-                <table>
-                    <tr class="subtext tblrw">
-                        <th class="tblh">Hotel Package</th>
-                        <th class="tblh">Hotel Package Name</th>
-                        <th class="tblh">Room Type</th>
-                        <th class="tblh">Status</th>
-                        <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
-                        <th class="tblh">Delete</th>
-                    </tr>
-                    <tr class="subtext tblrw">
-                        <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
-                        </td>
-                        <td class="tbld"><?php echo $row["packageName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if ($row["status"] == 0) {
-                                    echo "Unavailable";
-                                } else {
-                                    echo "Available";
-                                }
-                                ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-                
-                </table>
-            </div>
-         -->
 
         </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" action="../api/addroomapi.php" method="post">
+            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b></label>
+                    <label for="room"><b>Add Hotel Package</b></label>
                 </div>
 
                 <div class="container">
@@ -310,56 +122,148 @@ if ($res->num_rows > 0) {
                             <td>
                                 <div class="content">Hotel Package Name</div>
                             </td>
-                            <td>
-                                <select id="cars" class="subfield" name="carlist" form="carform">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
-                                </select>
-                                <input type="text" class="subfield" name="hotelPkgId" required />
-                                <div class="subcontent">Room Number is required</div>
-                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
                         </tr>
                         <tr class="row">
                             <td>
-                                <div class="content">Room Number</div>
+                                <div class="content">Description</div>
                             </td>
-                            <td><input type="text" class="subfield" name="roomNo" required />
-                                <div class="subcontent">Room Number is required</div>
-                            </td>
-                        </tr>
-                        <tr class="row">
                             <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="type" required />
-                                <div class="subcontent">Room Number is required</div>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Number of beds</div>
-                            </td>
-                            <td> <input type="number" class="subfield" name="beds" required />
-                                <div class="subcontent">Room Number is required</div>
+                                <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
                             </td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Status</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="status" required />
-                                <div class="subcontent">Room Number is required</div>
-                            </td>
+                            <td><input type="text" class="subfield" name="status" /></td>
+                            <!-- <td> <select class="subfield" name="status" form="carform">
+                                <option value="" selected>---Choose availability---</option>
+                                <option value="Available">Available</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select></td> -->
                         </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Price</div>
+                            </td>
+                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                        </tr>
+
+
+                        <tr class="row">
+                            <td>
+                                <div class="content">Upload Image</div>
+                            </td>
+                            <td> <input type="file" class="subfield" name="file" /></td>
+                        </tr>
+                        <!-- <tr>
+                <td>
+                     <input type="submit" class="btn1" value="Save" name="signup"/>
+                </td>
+                <td> <input type="reset" class="btn" value="Clear" name="reset"/></td>
+            </tr> -->
+
+
                     </table>
+
                 </div>
 
-                <div class="container" style="background-color:#f1f1f1">
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'"
                         class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
+                    <button type="submit" class="btns" value="Save" name="save" style="margin-left:75px;">Save</button>
+                </div>
+            </form>
+        </div>
+        <!-- view pkg -->
+        <div id="id03" class="modal">
+
+            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Family Package</b></label>
+                </div>
+
+                <div class="container">
+
+
+                </div>
+
+
+            </form>
+        </div>
+
+
+        <!-- update pkg -->
+        <div id="id02" class="modal">
+
+            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Update Hotel Package</b></label>
+                </div>
+
+                <div class="container">
+                    <table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Hotel Package Name</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Description</div>
+                            </td>
+                            <td>
+                                <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Status</div>
+                            </td>
+                            <td><input type="text" class="subfield" name="status" /></td>
+                            <!-- <td> <select class="subfield" name="status" form="carform">
+                                <option value="" selected>---Choose availability---</option>
+                                <option value="Available">Available</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select></td> -->
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Price</div>
+                            </td>
+                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                        </tr>
+
+
+                        <tr class="row">
+                            <td>
+                                <div class="content">Upload Image</div>
+                            </td>
+                            <td> <input type="file" class="subfield" name="file" /></td>
+                        </tr>
+                        <!-- <tr>
+                <td>
+                     <input type="submit" class="btn1" value="Save" name="signup"/>
+                </td>
+                <td> <input type="reset" class="btn" value="Clear" name="reset"/></td>
+            </tr> -->
+
+
+                    </table>
+
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="btns" value="Save" name="save"
+                        style="margin-left:75px;">Update</button>
                 </div>
             </form>
         </div>
