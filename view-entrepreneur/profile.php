@@ -1,12 +1,4 @@
-<?php
-session_start();
-$user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
-} else {
-    header("location:Login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -83,6 +75,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 
                 </div>
                 <br>
+                
                 <a href="proedit.php" class="button">Edit</a>
 
 

@@ -288,7 +288,7 @@ margin-bottom: 20px;
   font-style: sans-serif;
   color:  rgb(0, 0, 0);
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1px;
 }
 .content{
   font-style: sans-serif;
@@ -396,154 +396,136 @@ span.c {
     text-align: center;
 }
 
-/*Add crafts*/
-body{
-  background-color: #DDE8F0;
-  margin: 0;
-  padding: 0;
+/*product*/
 
-}
-/*Search button*/
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+
+.se{
+    border-radius: 0.5rem;
+    margin: 2vw 1vw;
+    padding: 0.2vh 1vw;
+    grid-area: search;
 }
 
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
 
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
 
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-
-.registerForm{
-  background-color:white;
-  width: 885px;
+ th, td{
+    border-bottom: 1px solid #ddd;
+    align-content: center;
+} 
+.status {
+  background-color: red;
   padding: 10px;
-  margin-left: 210px;
-  margin-top: 25px;
-  display: table;
-  margin-bottom: 30px;
-  /* height: 200px; */
+  border-radius: 20px;
+  color: white;
 }
-.heading{
-  font-family: sans-serif;
-  color:  rgb(0, 0, 0);
-  font-weight: bold;
+.art {
   font-size: 17px;
+  color: rgb(0, 0, 0);
 }
-.subheading{
-  font-style: sans-serif;
-  color: black;
-  font-weight: bold;
-  font-size: 13px;
+i {
+  cursor: pointer;
 }
-.content{
-  font-style:sans-serif;
-  color: black;
-  font-weight: bold;
-  font-size: 15px;
-  margin-left:80px;
-  margin-top:12px;
+/* search */
+.searchSec {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0.5vh 1vw;
+  position: relative;
+  justify-content: start;
 }
-.field {
-font-family:sans-serif;
-background:white;
-width: 75%;
-height:30px;
-margin: 0 0 15px;
+
+.input-container {
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  width: 350px;
+  /*border: 0.5px solid var(--mainColor);*/
+  background-color: rgb(255, 255, 255);
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.page-title {
+  flex-grow: 1;
+  font-size: 1.3rem;
+  font-weight: 900px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 50px;
+  text-align: center;
+  color: var(--mainColor);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  outline: none !important;
+  border: 0 !important;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.btns {
+  border: 2px solid var(--mainColor);
+  color: var(--mainColor);
+  background-color: #004581;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  color: white;
+  font-size: 16px;
+}
+
+
+.searchimage:hover {
+  background-color: var(--mainColor);
+  color: white;
+}
+.gridSearch{
+  border-radius: 0.5rem;
+  margin: 0 1vw;
+  padding: 0.2vh 1vw;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.gridSearch {
+  grid-area: search;
+}
+/* side-by-side-table */
+/* .bg {
+margin-left:-5px;
+margin-right:-5px;
+} */
+
+.side {
+float: left;
+width: 50%;
 padding: 5px;
-box-sizing: border-box;
-font-size: 14px;
-border: 5px solid rgba(0, 0, 0, 0.25);
-filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
-border-radius: 36px;
-}
-.form button:hover,.form button:active,.form button:focus {
-background: #4169E1;
-}
-.subfield {
-font-family:sans-serif;
-background: white;
-width: 400px;
-height:40px;
-padding: 5px;
-box-sizing: border-box;
-font-size: 14px;
-filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
-border-radius: 10px;
-margin-top:20px;
 }
 
- 
-.btn{
-background-color:white;
-border: 5px solid #004581;
-color: black;
-padding: 10px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 60px 100px;
-cursor: pointer;
-border-radius: 5px;
-width: 15%;
+/* Clearfix (clear floats) */
+.bg::after {
+content: "";
+clear: both;
+display: table;
 }
-.btn1{
-background-color: #0789C6;
-border: none;
-color: white;
-padding: 10px 10px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 35px 360px;
-cursor: pointer;
-border-radius: 5px;
-width: 15%;
-}
-
-
-
 
 .tblrw{
 background-color: white;
 text-align: center;
-width: 75%;
+width: 60%;
+border-radius: 15px;
 
 }
-.tbld{
-  padding: 10px;
-}
 
-.art{
-font-size: 17px;
-color: white;
-}
-i{
-cursor:pointer;
-}
 .modal {
 display: none; /* Hidden by default */
 position: fixed; /* Stay in place */
@@ -673,79 +655,8 @@ td {
   vertical-align: bottom;
 }
 
-/*chat*/
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
 
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
 
-/* The popup chat - hidden by default */
-.chat-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/send button */
-.form-container .btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
 
 
 
