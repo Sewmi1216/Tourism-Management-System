@@ -23,23 +23,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
-    <script type="text/javascript">
-    $(function() {
-        $("btn-add").click(function() {
-            $("mo").dialog({
-                title: "Add new room",
-                width: 430,
-                height: 200,
-                modal: true,
-                buttons: {
-                    Close: function() {
-                        $(this).dialog('close');
-                    }
-                }
-            });
-        });
-    })
-    </script>
 </head>
 
 <body>
@@ -57,7 +40,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 </div>
                 <button type="submit" class="btns">View All</button>
                 <span style="margin-left: 8px;">
-                    <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
+                    <a onclick="document.getElementById('id01').style.display='block'"><i
+                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
                 </span>
             </div>
@@ -84,8 +68,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <td class="tbld">2022/02/14</td>
                     <td class="tbld">2022/02/16</td>
                     <td class="tbld">Occupied</td>
-                    <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                    <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                   <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+                                    class="fa-solid fa-pen-to-square art"></i></a></td>
+                    <td class="tbld"><a onclick="document.getElementById('id03').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
                 </tr>
                 <tr class="subtext tblrw">
                     <td class="tbld">R102</td>
@@ -145,7 +130,148 @@ if ($res->num_rows > 0) {
         </div>
 
 
+ <!-- add room -->
+        <div id="id01" class="modal">
 
+            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Add Room</b></label>
+                </div>
+
+                <div class="container">
+                    <table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Hotel Package Name</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Room Number</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Room Type</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">No.of beds</div>
+                            </td>
+                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Status</div>
+                            </td>
+                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
+                            <td> <select class="subfield" name="status">
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
+                        </tr>
+                    
+                    </table>
+
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="btns" value="Save" name="save" style="margin-left:75px;">Save</button>
+                </div>
+            </form>
+        </div>
+
+
+       <!-- update room -->
+        <div id="id02" class="modal">
+
+            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Updates Room</b></label>
+                </div>
+
+                <div class="container">
+                    <table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Hotel Package Name</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Room Number</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Room Type</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">No.of beds</div>
+                            </td>
+                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Status</div>
+                            </td>
+                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
+                            <td> <select class="subfield" name="status">
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
+                        </tr>
+                    
+                    </table>
+
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="btns" value="Save" name="save" style="margin-left:75px;">Update</button>
+                </div>
+            </form>
+        </div>
+<div id="id03" class="modal">
+
+            <form class="modal-content animate" style="width:45%;" method="post" action="#" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+
+                <div class="container">
+                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete this room?</p>
+
+                    <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                            class="cancelbtn" style="margin-left:11rem;">Yes</button>
+                        <button type="submit" class="btns" value="Save" name="save"
+                            style="margin-left:75px;">No</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
         <!-- chat box -->
         <div class="form-popup" id="myForm">
             <form action="#" class="form-container">
