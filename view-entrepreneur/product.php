@@ -1,4 +1,12 @@
-
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
+} else {
+    header("location:Login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -6,6 +14,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
+    
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -63,119 +72,11 @@ if ($res->num_rows > 0) {
                         <td class="tbld"><?php echo $row["category"] ?></td>
                         <td class="tbld"><?php echo $row["quantity"] ?></td>
                         <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button id="myBtn"><i class="fa-sharp fa-solid fa-bars art"
-                                    style="color:black;"></i></button></td>
-
-
-                        <td class="tbld"><button id="Btn"><i class="fa-solid fa-pen-to-square art"
-                                    style="color:black;"></i></button></td>
-                        <div id="myModal" class="modal">
-
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h3>Update Product Details</h3>
-                                <div class="container">
-                                    <form action="/action_page.php">
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="fname">Product Name</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="text" id="fname" name="firstname">
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="country">Category</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <select id="country" name="country">
-                                                    <option value="Bathik ">Bathik Dresses</option>
-                                                    <option value="cane">Cane Products</option>
-                                                    <option value="coco">Coconut Products</option>
-                                                    <option value="pot">Pottery Items</option>
-                                                    
-                                                </select>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="fname">Available Quantity</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="number" id="fname" name="quntity" min="10">
-
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="fname">Price</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="text" id="fname" name="firstname">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="fname">Image</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="file" id="fname" name="firstname" style="margin-left:83px; ">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <input type="submit" value="Update">
-                                        </div>
-                                    </form>
-                                </div>
-
-
-                            </div>
-                            <script>
-                            var modal = document.getElementById("myModal");
-
-                            // Get the button that opens the modal
-                            var btn = document.getElementById("Btn");
-
-                            // Get the <span> element that closes the modal
-                            var span = document.getElementsByClassName("close")[0];
-
-                            // When the user clicks the button, open the modal 
-                            btn.onclick = function() {
-                                modal.style.display = "block";
-                            }
-
-                            // When the user clicks on <span> (x), close the modal
-                            span.onclick = function() {
-                                modal.style.display = "none";
-                            }
-
-                            // When the user clicks anywhere outside of the modal, close it
-                            window.onclick = function(event) {
-                                if (event.target == modal) {
-                                    modal.style.display = "none";
-                                }
-                            }
-
-
-                            var model = $('.model');
-
-                            $('.add').click(function() {
-                                model.show();
-                            })
-                            $('.close').click(function() {
-                                model.hide();
-                            })
-                            // $('.btn').click(function() {
-                            //     model.hide();
-                            // })
-                            </script>
-                            <td class="tbld"><button id="mybtn"><i class="fa-solid fa-trash art"
-                                        style="color:black;"></i></button></td>
+                        <td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
+                                    class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+                                    class="fa-solid fa-pen-to-square art"></i></a></td>
+                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
 
                     </tr>
 
@@ -187,6 +88,47 @@ if ($res->num_rows > 0) {
                 </table>
             </div>
         </div>
+        </div>
+     
+        <!-- view pkg -->
+        <div id="id03" class="modal">
+
+            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Product Details</b></label>
+                </div>
+                <div>
+                <img src="../images/bathik saree.jpg" height="300px" width="350px" class="chartimg" />
+                </div>
+                <div class="content">Saree
+
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- update product -->
+        <div id="id02" class="modal">
+
+            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Update Product</b></label>
+                </div>
+
+                
+                
+       
+
+
+                
+                    
+                
+            </form>
         </div>
 
     </section>
