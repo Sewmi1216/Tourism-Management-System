@@ -21,15 +21,15 @@
         <div style="margin-top:20px;margin-left:10px;" class="heading">
             <span class="b">
                New Users 
-               <div style="margin-top:60px;font-size:30px;">50</div>
+               <div style="margin-top:60px;font-size:20px;">50</div>
             </span>
             <span class="b">
                 Total Orders
-                <div style="margin-top:60px;font-size:30px;">100</div>
+                <div style="margin-top:60px;font-size:20px;">100</div>
             </span>
             <span class="b">
                Products Sell
-               <div style="margin-top:60px;font-size:30px;">500</div>
+               <div style="margin-top:60px;font-size:20px;">500</div>
             </span>
             <span class="b">
                 Today's Revenue
@@ -41,12 +41,12 @@
             <span class="c">
                 Craft Ordering Chart
                 <br>
-                <img src="../image/ent-pie.png" height="300px" width="300px" class="chartimg" />
+                <img src="../images/ent-pie.png" height="300px" width="450px" class="chartimg" />
             </span>
             <span class="c">
                 Sales Revenue
                 <br>
-                <img src="../image/ent-bar.png" alt="" height="300px" width="350px" class="chartimg" />
+                <img src="../images/ent-bar.png" alt="" height="300px" width="400px" class="chartimg" />
             </span>
         </div>
 
