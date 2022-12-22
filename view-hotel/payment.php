@@ -34,8 +34,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns">View All</button>
-                <span style="margin-left: 8px;">
-                    <a href="addHotelPkg.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
+                 <span style="margin-left: 8px;">
+                    <a onclick="document.getElementById('id01').style.display='block'"><i
+                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
                 </span>
             </div>
@@ -93,7 +94,76 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         </div>
         </div>
 
+ <!-- add hotel package -->
+        <div id="id01" class="modal">
 
+            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="room"><b>Add Hotel Package</b></label>
+                </div>
+
+                <div class="container">
+                    <table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Hotel Package Name</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Description</div>
+                            </td>
+                            <td>
+                                <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Status</div>
+                            </td>
+                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
+                            <td> <select class="subfield" name="status">
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Price</div>
+                            </td>
+                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                        </tr>
+
+
+                        <tr class="row">
+                            <td>
+                                <div class="content">Upload Image</div>
+                            </td>
+                            <td> <input type="file" class="subfield" name="file" /></td>
+                        </tr>
+                        <!-- <tr>
+                <td>
+                     <input type="submit" class="btn1" value="Save" name="signup"/>
+                </td>
+                <td> <input type="reset" class="btn" value="Clear" name="reset"/></td>
+            </tr> -->
+
+
+                    </table>
+
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="btns" value="Save" name="save" style="margin-left:75px;">Save</button>
+                </div>
+            </form>
+        </div>
         <!-- chat box -->
         <div class="form-popup" id="myForm">
             <form action="#" class="form-container">
