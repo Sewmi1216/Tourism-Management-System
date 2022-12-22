@@ -18,12 +18,7 @@
 .sidebar.open{
   width: 250px;
 }
-.sidebar .intro{
-  height: 60px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
+
 
 .sidebar .intro .welcome{
   color: rgb(255, 255, 255);
@@ -36,18 +31,7 @@
 .sidebar.open .intro .welcome{
   opacity: 1;
 }
-.sidebar .intro #btn{
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  transition: all 0.4s ease;
-  font-size: 23px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
+
 .sidebar.open .intro #btn{
   text-align: right;
 }

@@ -1,4 +1,12 @@
-
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
+} else {
+    header("location:Login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -57,7 +65,7 @@ if ($res->num_rows > 0) {
                         
                         <td class="tbld"><?php echo $row["productID"] ?></td>
                         <td class="tbld"><?php echo "<img src='../images/" . $row['productImg'] . "' style=
-                    'border-radius: 50%;width:40px;height: 40px;background-size: 100%;
+                    'border-radius: 50%;width:30px;height: 30px;background-size: 100%;
                     background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
                         <td class="tbld"><?php echo $row["productName"] ?></td>
                         <td class="tbld"><?php echo $row["category"] ?></td>
