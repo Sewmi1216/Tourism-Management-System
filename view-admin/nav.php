@@ -26,7 +26,7 @@
               <span class="desc">Tour Bookings</span>
           </li>
           <li>
-              <a href="manageusers.php">
+              <a href="manageusers2.php">
                   <i class="fa-sharp fa-solid fa-calendar-days"></i>
                   <span class="link">Manage Users</span>
               </a>
@@ -40,7 +40,7 @@
               <span class="desc">Tourist Guides</span>
           </li>
           <li>
-              <a href="admins.php">
+              <a href="admins2.php">
                   <i class="fa-solid fa-receipt"></i>
                   <span class="link">Administration</span>
               </a>
@@ -49,7 +49,7 @@
 
           <hr>
           <div>
-              <a href="../api/alogout.php">
+              <a href="../api/logout.php">
                   <i class="fa-solid fa-right-from-bracket"></i>
                   <span class="link">Sign-out</span>
               </a>

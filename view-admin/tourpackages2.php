@@ -8,7 +8,7 @@ $rows = $_SESSION['c'];
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/tourpackage.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -35,7 +35,7 @@ $rows = $_SESSION['c'];
 
 <div class="booked-packages">
   <div class="add">  
-    <h3>TOUR PACKAGES</h3> 
+    <div class="text">TOUR PACKAGES</div>
     <a href="addpackage.php"> <b> ADD PACKAGES </b></a>
 </div>
     <?php
@@ -45,11 +45,11 @@ $rows = $_SESSION['c'];
             <img src="../images/available packages/package1.png" alt="images">
             <span class="details">
             <tr>
-                <td>  '.$row['package_name'].'</td>
-                <td>  '.$row['package_id'].'</td>
+                <td>  '.$row['packageName'].'</td>
+                <td>  '.$row['packageID'].'</td>
 
                 <span class="btn">
-                <a href="editpackage.php?package_id='.$row['package_id'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
+                <a href="editpackage.php?package_id='.$row['packageID'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
                 <button type="button" class="deletebtn">DELETE</button>
                 </span>
             </tr>

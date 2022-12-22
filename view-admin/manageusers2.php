@@ -3,13 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">
+     <link rel="stylesheet" href="../css/manageusers.css">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
- 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Days+One&display=swap" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Days+One&family=Montserrat:wght@500&display=swap');
+</style>
+
 </head>
 
 <body>
@@ -17,33 +24,125 @@
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">DASHBOARD OVERVIEW</div>
+        <div class="text">MANAGE USERS</div>
+        <div class="content">
 
-        <div style="margin-top:20px;margin-left:10px;" class="dashheading">
-            <span class="b">
-                User Requests
-
-                <h1> 20 </h1>
-            </span>
-            <span class="b">
-                Tour Bookings
-            </span>
-            <span class="b">
-                Tour guides
-            </span>
-            <span class="b">
-                Today's Revenue
-            </span>
+        <div class="booked-packages">
+          <div class="add">  
+            <a href="addentrepreneur.php"><i class=""></i> ADD ENTREPRENEURS</a>
+            <a href="view-entrepreneur.php"><i class=""></i> VIEW ENTREPRENEURS</a>
         </div>
 
-        <div style="margin-top:20px;margin-left:10px;" class="chart">
-            <span class="c">
-                Room Booking Chart
-            </span>
-            <span class="c">
-                Sales Revenue
-            </span>
+            <div class="booked-packages-list">
+                <div class="booked-packages-card">
+                  <a href=""> <img src="../images/admin/admin.png" alt="images"></a> 
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="booked-packages-card">
+                 <a href="">  <img src="../images/admin/admin.png" alt="images"></a> 
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="booked-packages-card">
+                   <a href=""><img src="../images/admin/admin.png" alt="images"></a> 
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="booked-packages-card">
+                   <a href=""><img src="../images/admin/admin.png" alt="images"></a> 
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="add">  
+                    <h3>HOTEL MANAGER APPROVAL</h3> 
+                    <a href="addentrepreneur.php"><i class=""></i> ADD HOTEL MANAGERS</a>
+                 <a href="view-hotelmanager.php"><i class=""></i> VIEW HOTEL MANAGERS</a>
+                </div>
+                <div class="booked-packages-card">
+                  <a href="">  <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i>
+
+
+                          <div class="btn">
+                            <button type="button" class="editbtn">APPROVE</button>
+                            <button type="button" class="deletebtn">DELETE</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
 
     </section>
