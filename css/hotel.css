@@ -495,4 +495,8 @@ i {
   clear: both;
   display: table;
 }
+p{
+  margin:10px;
+  padding:10px;
+}
 

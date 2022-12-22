@@ -52,8 +52,9 @@
                     </td>
                     <td>
                         <div class="content">Password</div>
-                        <input type="password" class="subfield" name="password" id="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+                        <input type="password" class="subfield" name="password" id="password" required />
+                            <!-- <input type="password" class="subfield" name="password" id="password"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required /> -->
                         <div id="msg" style="color:red;"></div>
                     </td>
                 </tr>
