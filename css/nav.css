@@ -1,8 +1,10 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Poppins" , sans-serif;
 }
 .sidebar{
   position: fixed;
@@ -18,21 +20,40 @@
 .sidebar.open{
   width: 250px;
 }
-
-
-.sidebar .intro .welcome{
-  color: rgb(255, 255, 255);
+.sidebar .logo-details{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.sidebar .logo-details .icon{
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.sidebar .logo-details .logo_name{
+  color: white;
   font-size: 20px;
   font-weight: 600;
   opacity: 0;
   transition: all 0.5s ease;
 }
-.sidebar.open .intro,
-.sidebar.open .intro .welcome{
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name{
   opacity: 1;
 }
-
-.sidebar.open .intro #btn{
+.sidebar .logo-details #btn{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.sidebar.open .logo-details #btn{
   text-align: right;
 }
 .sidebar i{
@@ -43,7 +64,7 @@
   text-align: center;
   line-height: 60px;
 }
-.sidebar .nav{
+.sidebar .nav-list{
   margin-top: 50px;
   height: 100%;
 }
@@ -52,7 +73,7 @@
   margin: 8px 0;
   list-style: none;
 }
-.sidebar li .desc{
+.sidebar li .tooltip{
   position: absolute;
   top: -20px;
   left: calc(100% + 15px);
@@ -68,15 +89,49 @@
   pointer-events: none;
   transition: 0s;
 }
-.sidebar li:hover .desc{
+.sidebar li:hover .tooltip{
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
   top: 50%;
   transform: translateY(-50%);
 }
-.sidebar.open li .desc{
+.sidebar.open li .tooltip{
   display: none;
+}
+.sidebar input{
+  font-size: 15px;
+  color: #FFF;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: rgba(37, 53, 81, 1);
+}
+.sidebar.open input{
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+.sidebar .bx-search{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: white;
+  color: #FFF;
+}
+.sidebar.open .bx-search:hover{
+  background: rgba(37, 53, 81, 1);
+  color: #FFF;
+}
+.sidebar .bx-search:hover{
+  background: #FFF;
+  color: rgba(37, 53, 81, 1);
 }
 .sidebar li a{
   display: flex;
@@ -88,11 +143,10 @@
   transition: all 0.4s ease;
   background: rgba(37, 53, 81, 1);
 }
-
 .sidebar li a:hover{
   background: #FFF;
 }
-.sidebar li a .link{
+.sidebar li a .links_name{
   color: #fff;
   font-size: 15px;
   font-weight: 400;
@@ -101,11 +155,11 @@
   pointer-events: none;
   transition: 0.4s;
 }
-.sidebar.open li a .link{
+.sidebar.open li a .links_name{
   opacity: 1;
   pointer-events: auto;
 }
-.sidebar li a:hover .link,
+.sidebar li a:hover .links_name,
 .sidebar li a:hover i{
   transition: all 0.5s ease;
   color: rgba(37, 53, 81, 1);
@@ -139,22 +193,14 @@
   margin: 18px
 }
 @media (max-width: 420px) {
-  .sidebar li .desc{
-    display: none;
-  }
-}
-@media (max-width: 420px) {
-  .sidebar div .desc{
+  .sidebar li .tooltip{
     display: none;
   }
 }
 hr{
   margin-top:200px;
 }
-
-
-
-.sidebar div .desc{
+.sidebar div .tooltip{
   position: absolute;
   top: 120px;
   left: calc(100% + 15px);
@@ -170,7 +216,7 @@ hr{
   pointer-events: none;
   transition: 0s;
 }
-.sidebar div:hover .desc{
+.sidebar div:hover .tooltip{
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
@@ -178,7 +224,7 @@ hr{
   left:100%;
   transform: translateY(-50%);
 }
-.sidebar.open div .desc{
+.sidebar.open div .tooltip{
   display: none;
 }
 .sidebar div a{
