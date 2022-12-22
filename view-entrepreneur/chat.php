@@ -1,12 +1,4 @@
-<?php
-session_start();
-$user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
-} else {
-    header("location:Login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -60,7 +52,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 				<h2>Chat with Malindu Perera</h2>
 				<h3>already 1902 messages</h3>
 			</div>
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_star.png" alt="">
+			
 		</header>
 		<ul id="chat">
 			<li class="me">
@@ -88,8 +80,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 		</ul>
 		<footer>
 			<textarea placeholder="Type your message"></textarea>
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png" alt="">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png" alt="">
+			
 			<a href="#">Send</a>
 		</footer>
 	</main>
