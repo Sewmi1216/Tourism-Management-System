@@ -1,0 +1,437 @@
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    background: #CBDDE1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 90px;
+    background-color: #CBDDE1;
+    border-color: rgb(255, 255, 255);
+}
+
+ul img {
+    position: relative;
+    height: auto;
+    top: 20px;
+    height: 139px;
+    width: 83px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(205, 216, 220);
+}
+
+body {
+    background-repeat: no-repeat;
+    background-color: #CBDDE1;
+    font-family: Montserrat;
+    color: #ffffff;
+    background-size: cover;
+}
+
+.home {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-left: 4vw;
+}
+
+.package {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-left: 3vw;
+}
+
+.craft {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-left: 3vw;
+}
+
+.hotel {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-left: 3vw;
+}
+
+.about {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-left: 3vw;
+}
+
+.contact {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-left: 3vw;
+}
+
+.login-btn {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    vertical-align: middle;
+    gap: 10px;
+    width: 6vw;
+    height: 3.5vh;
+    background: #0789C6;
+    box-shadow: 4px 4px 4px #0FB088;
+    border-radius: 10px;
+    margin-left: 80vw;
+    margin-top: -28px;
+}
+
+.login-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 29px;
+    margin-left: 1vw;
+    color: #FFFCFC;
+    text-decoration: none;
+}
+
+.search input {
+    position: absolute;
+    width: 70vw;
+    height: 3vw;
+    left: 8vw;
+    top: 8vw;
+    padding-left: 15px;
+    background: #EADFDF;
+    border-radius: 19px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: rgba(0, 0, 0, 0.32);
+}
+
+.search img {
+    position: absolute;
+    width: 21.64px;
+    height: 21.95px;
+    top: 140px;
+    left: 1150px;
+}
+
+.text-box {
+    position: absolute;
+    width: 684px;
+    height: 587px;
+    left: 40px;
+    top: 250px;
+    background: #253551;
+    border-radius: 18px;
+}
+
+.text-1 {
+    position: absolute;
+    top: 5px;
+    width: 567px;
+    height: 146px;
+    padding-left: 40px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 73px;
+    border: #FFFFFF;
+    border-width: 100px;
+    color: #FFFFFF;
+}
+
+.text-2 {
+    position: absolute;
+    width: 615px;
+    height: 143px;
+    top: 250px;
+    padding-left: 40px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 37px;
+    color: #FFFFFF;
+}
+
+.text-3 {
+    position: absolute;
+    width: 615px;
+    height: 29px;
+    top: 480px;
+    padding-left: 40px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    color: #FFCC00;
+}
+
+.lankan-img {
+    position: relative;
+    float: right;
+    right: 250px;
+    top: 155px;
+    width: 321px;
+    height: 587px;
+}
+
+.silverpot {
+    position: relative;
+    float: left;
+    left: 40px;
+    top: 800px;
+    width: 669.6px;
+    height: 648px;
+}
+
+.silverpot p {
+    position: absolute;
+    width: 648px;
+    height: 53.73px;
+    left: -335px;
+    top: 270px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+    transform: rotate(-90deg);
+}
+
+.elephant-statue img {
+    position: relative;
+    width: 322.4px;
+    height: 312px;
+    left: 100px;
+    top: 800px;
+}
+
+.saree img {
+    position: relative;
+    width: 323px;
+    height: 312px;
+    left: 455px;
+    top: 485px;
+}
+
+.elephant {
+    position: relative;
+    width: 322.4px;
+    height: 312px;
+    left: 770px;
+    top: 500px;
+}
+
+.palmyrah {
+    position: relative;
+    width: 322.4px;
+    height: 312px;
+    left: 1126px;
+    top: 203.5px;
+}
+
+.mid-text p {
+    position: absolute;
+    width: 343.07px;
+    height: 53px;
+    left: 537.33px;
+    top: 1619px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 53px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.navbar-2 a {
+    position: relative;
+    top: 430px;
+    left: 50px;
+    padding-left: 10px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.gown img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 60px;
+    top: 480px;
+}
+
+.gown p {
+    position: relative;
+    color: #000000;
+    top: 500px;
+    left: 60px;
+}
+
+.bag img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 415px;
+    top: -14px;
+}
+
+.bag p {
+    position: relative;
+    color: #000000;
+    top: 5px;
+    left: 415px;
+}
+
+.showl img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 776px;
+    top: -506px;
+}
+
+.showl p {
+    position: relative;
+    color: #000000;
+    top: -488px;
+    left: 776px;
+}
+
+.gold img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 1140px;
+    top: -1000px;
+}
+
+.gold p {
+    position: relative;
+    color: #000000;
+    top: -980px;
+    left: 1140px;
+}
+
+.gold-elephant img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 60px;
+    top: -930px;
+}
+
+.gold-elephant p {
+    position: relative;
+    color: #000000;
+    top: -920px;
+    left: 60px;
+}
+
+.clay-pot img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 415px;
+    top: -1423px;
+}
+
+.clay-pot p {
+    position: relative;
+    color: #000000;
+    top: -1410px;
+    left: 415px;
+}
+
+.art img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 774px;
+    top: -1917px;
+}
+
+.art p {
+    position: relative;
+    color: #000000;
+    top: -1906px;
+    left: 774px;
+}
+
+.perahera img {
+    position: relative;
+    width: 322.4px;
+    height: 400px;
+    left: 1136px;
+    top: -2412px;
+}
+
+.perahera p {
+    position: relative;
+    color: #000000;
+    margin-top: -2400px;
+    left: 1136px;
+}

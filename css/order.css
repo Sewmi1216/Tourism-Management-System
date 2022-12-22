@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(205, 216, 220);
+}
+
+body {
+    background-repeat: no-repeat;
+    background-color: #034666;
+    font-family: Montserrat;
+    color: #ffffff;
+    background-size: cover;
+}
+
+.home-btn {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    vertical-align: middle;
+    gap: 10px;
+    width: 9vw;
+    height: 3.5vh;
+    background: #0789C6;
+    box-shadow: 4px 4px 4px #0FB088;
+    border-radius: 10px;
+    margin-left: 88vw;
+    margin-top: -40px;
+}
+
+.home-img {
+    position: flex;
+    width: 3vh;
+    height: 3vh;
+    order: 0;
+    margin-left: 5px;
+    border-radius: 15px;
+}
+
+.home-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFCFC;
+    text-decoration: none;
+}
+
+.back-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFCFC;
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+.back-text a {
+    text-decoration: none;
+    color: white;
+}
+
+.o1 {
+    margin-left: 3%;
+    margin-top: 0.8%;
+}
+
+.info {
+    margin-left: 48%;
+    margin-top: -63.75vh;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 12%;
+    padding: 12px;
+    border: 4px solid #ccc;
+    background-color: #034666;
+    resize: vertical;
+    font-family: Montserrat;
+    font-size: medium;
+    color: #ffffff;
+}
+
+button {
+    padding: 12px;
+    border: 4px solid #ccc;
+    background-color: #034666;
+    resize: vertical;
+    font-family: Montserrat;
+    font-size: medium;
+    color: #ffffff;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.quantity {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.qbox {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+.price {
+    margin-top: 6px;
+}
+
+.shipping {
+    margin-top: -14vh;
+    margin-left: 26vh;
+}
+
+.buy-buttons {
+    margin-left: 11vh;
+}
+
+.buy {
+    background-color: #ffffff;
+    border: none;
+    font-family: Montserrat;
+    font-weight: bold;
+    border-radius: 8px;
+    color: green;
+    padding: 12px 243px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 45%;
+}
+
+.cart {
+    background-color: #ffffff;
+    border: none;
+    font-family: Montserrat;
+    font-weight: bold;
+    border-radius: 8px;
+    color: green;
+    padding: 12px 237px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 45%;
+}
+
+.watch {
+    background-color: #ffffff;
+    border: none;
+    font-family: Montserrat;
+    font-weight: bold;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    padding: 12px 200px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 45%;
+}
+
+.similar {
+    margin-left: 6.5vh;
+    margin-top: 6vh;
+    font-size: x-large;
+}
+
+div.gallery {
+    border: none;
+}
+
+div.gallery img {
+    width: 50%;
+    height: auto;
+    margin-left: 5.5vh;
+}
+
+div.desc {
+    padding: 25px;
+    margin-left: 8vh;
+    background-color: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}

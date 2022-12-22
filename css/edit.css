@@ -1,0 +1,129 @@
+ 
+
+body {margin:0;}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: rgb(205, 216, 220);
+  }
+  
+  .active {
+    background-color: #41ccfb;
+  }
+
+  div.navbar{
+    align: right;
+  }
+
+
+  body {
+    background-repeat: no-repeat;
+    background-color: #0789C6;
+    background-size: cover;
+}
+
+div.heading{ 
+  padding: 20px 20px 20px;
+
+}
+
+
+
+* {
+    box-sizing: border-box;
+   
+  }
+  
+  input[type=text]{
+    width: 50%;
+    padding: 12px;
+    background-color:#c5dae4;
+    color:white;
+    border: 12px white ;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 15px 15px 15px 0;
+    display: inline-block;
+    color: #ffffff;
+  }
+  
+  input[type=submit] {
+    background-color: ffffff;
+    color: black;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: rgb(205, 216, 220);;
+  }
+  
+  .container {
+    background-color:  #0789C6;
+    padding: 40px 86px 40px ;
+    width: 100%;
+
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  .cancel{
+    margin-right: -80px;
+    margin-bottom: 50px;
+  }
+
+  .save{
+    margin-left: 200px;
+    margin-bottom: 50px;
+  }

@@ -1,0 +1,72 @@
+body,
+button {
+  background-color: #0a375c;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  background-image: url(../images/Admin/login.jpg);
+  background-size: cover;
+}
+
+.background {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
+}
+
+.screen {
+  position: relative;
+  background: #022535;
+  border-radius: 20px;
+  
+}
+
+.screen-body {
+  display: flex;
+}
+
+.formmain {
+  flex: 1;
+  padding: 50px;
+}
+
+.app-title {
+  position: relative;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.app-form-group {
+  margin-bottom: 15px;
+}
+
+.app-form-group.message {
+  margin-top: 40px;
+}
+
+.form.buttons {
+  margin-bottom: 5;
+  text-align: center;
+}
+
+.app-form-control {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  outline: none;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: #6db1ff;
+  font-size: 15px;
+  cursor: hand;
+}
+
+.button:hover {
+  color: #f8f8f8;
+}

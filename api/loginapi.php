@@ -1,9 +1,10 @@
 <?php
-include '../controller/admincontroller.php';
+
+include '../controller/entrepreneurController.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$admincon = new adminController();
-$admincon->userLogin($username, $password);
+$entrepreneurcon = new entrepreneurController();
+$entrepreneurcon->userLogin($username, $password);
 
 ?>

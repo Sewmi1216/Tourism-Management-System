@@ -1,0 +1,236 @@
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=date] {
+    width: 537px;
+    height: 50px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=date]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-image: url('./../view/signup.png');
+    background-size: cover;
+}
+
+.gb {
+    margin-top: 2%;
+    float: right;
+    margin-right: 300px;
+}
+
+.icon img {
+    position: absolute;
+    margin-top: 0.4%;
+    margin-left: 1%;
+}
+
+.icon-2 img {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 83.5%;
+    z-index: 99;
+}
+
+.gb {
+    margin-top: 50px;
+    width: 300px;
+}
+
+.social {
+    gap: 5px;
+}
+
+.googlebtn {
+    background-color: #ffffff;
+    /* Green */
+    border: 5px;
+    border-radius: 5px;
+    border-color: #72655F;
+    color: #72655F;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 80px;
+}
+
+.btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+    background-color: #ffffff;
+}
+
+.fb {
+    width: 300px;
+    margin-left: -11vh;
+}
+
+.facebookbtn {
+    position: absolute;
+    background-color: #ffffff;
+    border: 5px;
+    border-radius: 5px;
+    border-color: #72655F;
+    color: #72655F;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 53px;
+    margin-left: 83%;
+    margin-top: 50px;
+}
+
+.btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+    background-color: #ffffff;
+}
+
+.btn-group {
+    margin-top: 100px;
+}
+
+div.btngrp {
+    text-align: right;
+}
+
+div.up {
+    text-align: right;
+}
+
+div.a {
+    margin-right: 553px;
+    font-family: Poppins;
+}
+
+div.b {
+    margin-right: 63px;
+    font-family: Poppins;
+}
+
+div.c {
+    margin-right: 478px;
+    font-family: Poppins;
+}
+
+div.d {
+    margin-right: 521px;
+    font-family: Poppins;
+    margin-top: -20px;
+}
+
+div.e {
+    margin-right: 555px;
+    font-family: Poppins;
+}
+
+div.f {
+    margin-right: 544px;
+    font-family: Poppins;
+    margin-top: -25px;
+}
+
+div.g {
+    margin-right: 537px;
+    font-family: Poppins;
+}
+
+div.h {
+    margin-right: 560px;
+    font-family: Poppins;
+}
+
+div.submit {
+    text-align: right;
+}
+
+div.log {
+    margin-right: 200px;
+    color: #ffffff;
+}
+
+div.btn-group {
+    text-align: right;
+}
+
+div.ln1 {
+    color: #0789C6;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    margin-right: 5.5%;
+}
+
+.homebtn {
+    background-color: #6cb8f7;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    padding: 8px 10px;
+    margin: 8px 0;
+}
+
+.ls1 {
+    background-color: #0789C6;
+    flex-grow: 5;
+    height: 1.5px;
+    width: 10%;
+    margin-left: 60%;
+}
+
+.ls2 {
+    background-color: #0789C6;
+    flex-grow: 5;
+    height: 1.5px;
+    width: 11%;
+    margin-left: 85%;
+    margin-top: -1.25%;
+}
+
+.label {
+    flex-grow: 1;
+    margin-right: 16%;
+    margin-top: -1.4%;
+    text-align: right;
+    font-size: x-large;
+    font-family: Poppins;
+}
+
+.signupbtn {
+    background-color: #008CBA;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 25px;
+    width: 537px;
+    height: 50px;
+    opacity: 0.9;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 60px;
+}
+
+.email-err {
+    margin-right: -171px;
+    color: red;
+}

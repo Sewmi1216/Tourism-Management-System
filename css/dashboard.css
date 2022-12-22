@@ -1,9 +1,4 @@
-*{
 
-  font-family: 'Arvo', serif;
-  font-family: 'Days One', sans-serif;
-
-}
 
 body {
     background-color: #dde8f0;
@@ -20,6 +15,7 @@ body {
     font-weight: bold;
     font-size: 17px;
     text-align: center;
+
   }
 
   span.b {
