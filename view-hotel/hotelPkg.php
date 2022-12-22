@@ -83,10 +83,10 @@ if ($res->num_rows > 0) {
                         <td class="tbld"><?php echo $row["price"] ?></td>
                         <td class="tbld">
                             <?php if ($row["pkg_status"] == "Available") { ?>
-                                <button class="status1"><?php echo $row["pkg_status"]; ?></button>
+                            <button class="status1"><?php echo $row["pkg_status"]; ?></button>
                             <?php } else { ?>
-                             <button class="status2"><?php echo $row["pkg_status"]; ?></button>
-                             <?php } ?>
+                            <button class="status2"><?php echo $row["pkg_status"]; ?></button>
+                            <?php } ?>
                         </td>
                         <td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>
@@ -138,10 +138,10 @@ if ($res->num_rows > 0) {
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
-                                <option value="" selected>---Choose availability---</option>
-                                <option value="Available">Available</option>
-                                <option value="Unavailable">Unavailable</option>
-                            </select></td>
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -187,6 +187,27 @@ if ($res->num_rows > 0) {
                 </div>
 
                 <div class="container">
+                    <table style="margin:-30px;">
+                        <tr>
+                            <td><img src="../images/download.jpg" alt="Logo" height="300px" width="500px"
+                                    style="margin-left:45px;padding-right:0px;"></td>
+                            <td>
+                                <p>Living & Dining area
+                                    Private pool
+                                    2 large bathrooms
+                                    Safe
+                                    42” LED TV
+                                    Complimentary WI-FI
+                                    DVD Player</p>
+                                <ul style="margin-left:23px;">
+                                    <li>Room Type: Suit</li>
+                                    <li>Number of beds:4</li>
+                                    <li>Status: Available</li>
+                                    <li>Price: $350</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
 
 
                 </div>
@@ -228,10 +249,10 @@ if ($res->num_rows > 0) {
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
-                                <option value="" selected>---Choose availability---</option>
-                                <option value="Available">Available</option>
-                                <option value="Unavailable">Unavailable</option>
-                            </select></td>
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
