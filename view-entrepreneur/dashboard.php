@@ -41,12 +41,12 @@
             <span class="c">
                 Craft Ordering Chart
                 <br>
-                <img src="../images/pie.png" height="300px" width="300px" class="chartimg" />
+                <img src="../image/ent-pie.png" height="300px" width="300px" class="chartimg" />
             </span>
             <span class="c">
                 Sales Revenue
                 <br>
-                <img src="../images/bar.png" alt="" height="300px" width="350px" class="chartimg" />
+                <img src="../image/ent-bar.png" alt="" height="300px" width="350px" class="chartimg" />
             </span>
         </div>
 
