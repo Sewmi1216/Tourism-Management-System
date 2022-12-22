@@ -67,17 +67,17 @@ body{
   color: white;
   padding: 5px 5px;
   width:90%;
-  height: 10% ;
+  height: 50px ;
   margin-bottom: 10px;
   border-radius: 18.2357px;
   
 }
 
 .booked-packages-list>.booked-packages-card>a > img{
-  width: 100px;
-  height: 110px;
+  width: 70px;
+  height: 46px;
   border-radius: 18.46px;
-  
+  margin-top:-4px;
 }
 
 .booked-packages-list>.booked-packages-card>.details{
@@ -108,7 +108,7 @@ body{
   color: white;
   cursor: pointer;
   border-radius: 8px;
-  margin-top: -20px;
+  margin-top: -15px;
   
 }
 
@@ -125,7 +125,7 @@ border-radius: 8px;
 font-family: 'Arvo', serif;
 font-family: 'Days One', sans-serif;
 font-style: normal;
-font-weight: 700;
+font-weight: 200;
 font-size: 13px;
 line-height: 20px;
 
@@ -157,10 +157,6 @@ color: #FF0000;
   font-family: 'Days One', sans-serif;
 
 }
- *{
-  font-family: 'Arvo', serif;
-  font-family: 'Days One', sans-serif;
- }
  td{
   margin-left: 10%;
  }

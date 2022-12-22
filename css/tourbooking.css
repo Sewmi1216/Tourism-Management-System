@@ -1,9 +1,4 @@
-*{
 
-    
-  
-  }
-  
   
   .booked-packages-list{
     margin-top: 20px;
@@ -17,6 +12,7 @@
     background-size: cover;
   
   }
+
   
   .add{
     display: inline;
@@ -24,6 +20,7 @@
   }
   .add>h3{
     color: #022535 ;
+    text-align: center;
   }
   
   .add>a{
@@ -50,7 +47,8 @@
   
   .booked-packages>h3{
     color: white;
- 
+    text-align: center;
+    text-align: center;
   }
   
   .booked-packages-list{
@@ -80,7 +78,13 @@
     margin-bottom: 10px;
     border-radius: 18.2357px;
     
+   
+    
   }
+  .confirmed-packages {
+    border-left: 3px solid black;
+    padding: 15px;
+}
 
   .booked-packages-list>.rejected-packages>.booked-packages-card{
     background-color: #034666;
@@ -91,6 +95,7 @@
     height: 10% ;
     margin-bottom: 10px;
     border-radius: 18.2357px;
+    
     
   }
   

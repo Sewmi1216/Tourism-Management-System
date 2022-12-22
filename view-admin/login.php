@@ -9,8 +9,8 @@
 <head>
     <title>Login - Pack2Paradise</title>
 
-    <link rel="stylesheet" href="../css/alogin.css">
-    <link rel="stylesheet" href="../css/aheader.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/header.css">
   
 </head>
 <body>

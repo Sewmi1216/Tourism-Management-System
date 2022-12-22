@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -25,27 +25,37 @@
         <?php include "dashboardHeader.php"?>
         <div class="text">DASHBOARD OVERVIEW</div>
 
-        <div style="margin-top:20px;margin-left:10px;" class="dashheading">
+        <div style="margin-top:20px;margin-left:14px; margin-right:20px;" class="dashheading">
             <span class="b">
                 User Requests
+                <div style="margin-top:60px;font-size:40px;">20</div>
             </span>
             <span class="b">
                 Tour Bookings
+                <div style="margin-top:60px;font-size:40px;">10</div>
             </span>
             <span class="b">
                 Tour guides
+                <div style="margin-top:60px;font-size:40px;">35</div>
             </span>
             <span class="b">
                 Today's Revenue
+                <div style="margin-top:60px;font-size:40px;">$18,130</div>
             </span>
         </div>
 
-        <div style="margin-top:20px;margin-left:10px;" class="chart">
+        <div style="margin-top:20px;margin-left:40px;" class="chart">
             <span class="c">
+                <br>
                 Room Booking Chart
+                <br>
+                <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
             </span>
             <span class="c">
+                <br>
                 Sales Revenue
+                <br>
+                <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
             </span>
         </div>
 
