@@ -14,6 +14,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+	<link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -63,89 +65,83 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 
 
+        <!-- chat box -->
+        <div class="form-popup" id="myForm">
+            <form action="#" class="form-container">
+
+                <div id="container">
+                    <aside>
+                        <span onclick="document.getElementById('myForm').style.display='none'" class="close"
+                            style="top:20px;right:2px;" title="Close Modal">&times;</span>
+                        <header>
+                            <input type="text" placeholder="search">
+                        </header>
+                        <ul>
+                            <li>
+                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                                <div>
+                                    <h2>Sachini Perera</h2>
+                                    <h3>
+                                        <span class="status orange"></span>
+                                        offline
+                                    </h3>
+                                </div>
 
 
-        <div id="container">
-	<aside>
-		<header>
-			<input type="text" placeholder="search">
-		</header>
-		<ul>
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_01.jpg" alt="">
-				<div>
-					<h2>Malindu Perera</h2>
-					<h3>
-						<span class="status orange"></span>
-						offline
-					</h3>
-				</div>
-			
-			
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_06.jpg" alt="">
-				<div>
-					<h2>Udari Sharmila</h2>
-					<h3>
-						<span class="status green"></span>
-						online
-					</h3>
-				</div>
-			</li>
-		</ul>
-	</aside>
-	<main>
-		<header>
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_01.jpg" alt="">
-			<div>
-				<h2>Chat with Malindu Perera</h2>
-				<h3>already 1902 messages</h3>
-			</div>
-			
-		</header>
-		<ul id="chat">
-			<li class="me">
-				<div class="entete">
-					<h3>10:12AM, Today</h3>
-					<h2>Malindu</h2>
-					<span class="status blue"></span>
-				</div>
-				<div class="triangle"></div>
-				<div class="message">
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-				</div>
-			</li>
-			<li class="me">
-				<div class="entete">
-					<h3>10:12AM, Today</h3>
-					<h2>entrepreneur</h2>
-					<span class="status blue"></span>
-				</div>
-				<div class="triangle"></div>
-				<div class="message">
-					OK
-				</div>
-			</li>
-		</ul>
-		<footer>
-			<textarea placeholder="Type your message"></textarea>
-			
-			<a href="#">Send</a>
-		</footer>
-	</main>
-</div>
+                            <li>
+                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                                <div>
+                                    <h2>Udari Sharmila</h2>
+                                    <h3>
+                                        <span class="status green"></span>
+                                        online
+                                    </h3>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+                    <main>
+                        <header>
+                            <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                            <div>
+                                <h2>Chat with Sachini Perera</h2>
+                            </div>
 
+                        </header>
+                        <ul id="chat">
+                            <li class="me">
+                                <div class="entete">
+                                    <h3>10:12AM, Today</h3>
+                                    <h2>Sachini</h2>
+                                    <span class="status blue"></span>
+                                </div>
+                                <div class="triangle"></div>
+                                <div class="message">
+                                    Hello! How can I help you?
+                                </div>
+                            </li>
+
+                        </ul>
+                        <footer>
+                            <textarea placeholder="Type your message"></textarea>
+
+                            <a href="#">Send</a>
+                        </footer>
+                    </main>
+                </div>
+            </form>
+        </div>
 
     </section>
-<script>
-function openChat() {
-  document.getElementById("container").style.display = "block";
-}
+    <script>
+    function openChat() {
+        document.getElementById("myForm").style.display = "block";
+    }
 
-function closeChat() {
-  document.getElementById("container").style.display = "none";
-}
-</script>
+    function closeChat() {
+        document.getElementById("myForm").style.display = "none";
+    }
+    </script>
 </body>
 
 </html>
