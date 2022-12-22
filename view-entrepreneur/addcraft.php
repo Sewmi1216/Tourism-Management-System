@@ -1,4 +1,12 @@
-
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
+} else {
+    header("location:Login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -25,37 +33,37 @@
                     <tr class="row">
                         <td>
                             <div class="content">Product Name</div>
-                        </td>
-                        <td> <input type="text" class="subfield" name="pName" style="color:black;" /></td>
+                        
+                     <input type="text" class="subfield" name="pName" style="color:black;" /></td>
                     </tr>
                     <tr class="row">
                         <td>
                             <div class="content">Category</div>
-                        </td>
-                        <td> <input type="text" class="subfield" name="pCategory" /></td>
+                        
+                        <input type="text" class="subfield" name="pCategory" /></td>
                     </tr>
 
                     <tr class="row">
                         <td>
                             <div class="content">Price</div>
-                        </td>
-                        <td><input type="text" min="1" oninput="this.value = 
+                        
+                        <input type="text" min="1" oninput="this.value = 
                           !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null" class="subfield" name="price" required/></td>
 
                     </tr>
                     <tr class="row">
                         <td>
                             <div class="content">Available Quantity</div>
-                        </td>
-                        <td> <input type="number" min="10" class="subfield" name="avaquantity" /></td>
+                        
+                         <input type="number" min="10" class="subfield" name="avaquantity" /></td>
                     </tr>
 
 
                     <tr class="row">
                         <td>
                             <div class="content">Upload Image</div>
-                        </td>
-                        <td> <input type="file" style="margin-top:20px;background: white;  box-sizing: border-box;"
+                        
+                         <input type="file" class="subfield" style="margin-top:15px;  box-sizing: border-box;"
                                 name="fileImg" /></td>
                     </tr>
 
