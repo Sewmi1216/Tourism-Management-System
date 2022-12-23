@@ -40,44 +40,44 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <div class="page-title"> Rooms</div>
                 <table>
                     <tr class="subtext tblrw">
-                        <th class="tblh">Reservation ID</th>
-                        <th class="tblh">Guest ID</th>
-                        <th class="tblh">Date</th>
-                        <th class="tblh">Price</th>
-                        <th class="tblh">Check-in</th>
-                        <th class="tblh">Check-out</th>
+                        <th class="tblh">Room No</th>
+                        <th class="tblh">Package Name</th>
+                        <th class="tblh">Room Type</th>
+                        <th class="tblh">From</th>
+                        <th class="tblh">To</th>
+                        <th class="tblh">Status</th>
                     </tr>
                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
-                        <td class="tbld">2022/02/14</td>
-                        <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Family</td>
+                        <td class="tbld">Suit</td>
+                        <td class="tbld">2023/02/14</td>
+                        <td class="tbld">2023/02/16</td>
+                        <td class="tbld">Reserved</td>
                     </tr>
-                    <tr class="subtext tblrw">
+                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
-                        <td class="tbld">2022/02/14</td>
-                        <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Family</td>
+                        <td class="tbld">Suit</td>
+                        <td class="tbld">2023/02/14</td>
+                        <td class="tbld">2023/02/16</td>
+                        <td class="tbld">Reserved</td>
                     </tr>
-                    <tr class="subtext tblrw">
+                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
-                        <td class="tbld">2022/02/14</td>
-                        <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Family</td>
+                        <td class="tbld">Suit</td>
+                        <td class="tbld">2023/02/14</td>
+                        <td class="tbld">2023/02/16</td>
+                        <td class="tbld">Reserved</td>
                     </tr>
-                    <tr class="subtext tblrw">
+                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
-                        <td class="tbld">2022/02/14</td>
-                        <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Family</td>
+                        <td class="tbld">Suit</td>
+                        <td class="tbld">2023/02/14</td>
+                        <td class="tbld">2023/02/16</td>
+                        <td class="tbld">Reserved</td>
                     </tr>
                 </table>
             </div>
@@ -86,43 +86,38 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <table>
                     <tr class="subtext tblrw">
                         <th class="tblh">Reservation ID</th>
-                        <th class="tblh">Guest ID</th>
-                        <th class="tblh">Date</th>
-                        <th class="tblh">Price</th>
+                        <th class="tblh">Package Name</th>
                         <th class="tblh">Check-in</th>
                         <th class="tblh">Check-out</th>
+                        <th class="tblh">Status</th>
                     </tr>
                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
+                        <td class="tbld">Family</td>
                         <td class="tbld">2022/02/14</td>
                         <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Pending</td>
                     </tr>
                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
+                        <td class="tbld">Family</td>
                         <td class="tbld">2022/02/14</td>
                         <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Pending</td>
                     </tr>
                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
+                        <td class="tbld">Family</td>
                         <td class="tbld">2022/02/14</td>
                         <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Pending</td>
                     </tr>
                     <tr class="subtext tblrw">
                         <td class="tbld">R101</td>
-                        <td class="tbld">P111</td>
-                        <td class="tbld">Tom</td>
-                        <td class="tbld">Single</td>
+                        <td class="tbld">Family</td>
                         <td class="tbld">2022/02/14</td>
                         <td class="tbld">2022/02/16</td>
+                        <td class="tbld">Pending</td>
                     </tr>
                 </table>
             </div>

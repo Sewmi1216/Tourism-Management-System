@@ -19,7 +19,7 @@
 
         <div class="back-btn">
           <img class="arrow-img" src="../img/arrow.png" alt="">
-      <a class="back-text" href="./login.php">BACK TO LOGIN</a>
+      <a class="back-text" href="../view-hotel/hotelLogin.php">BACK TO LOGIN</a>
       </div>
 
 

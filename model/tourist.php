@@ -48,7 +48,7 @@ class tourist extends db_connection
         return $stmt;
     }
     public function getallcartitems(){
-        $t_id = $_SESSION['touristID'];
+        $t_id = $_SESSION['userID'];
         $query = "SELECT * FROM cart_item WHERE tourist_ID='$t_id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;

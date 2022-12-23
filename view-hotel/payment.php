@@ -34,7 +34,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns">View All</button>
-                 <span style="margin-left: 8px;">
+                <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
@@ -54,47 +54,50 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <th class="tblh">Status</th>
                 </tr>
                 <tr class="subtext tblrw">
+                    <td class="tbld">P101</td>
+                    <td class="tbld">2022/12/31</td>
                     <td class="tbld">R101</td>
-                    <td class="tbld">P111</td>
-                    <td class="tbld">Tom</td>
+                    <td class="tbld">T111</td>
                     <td class="tbld">Single</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
+                    <td class="tbld">$105</td>
+                    <td class="tbld">Completed</td>
+
                 </tr>
                 <tr class="subtext tblrw">
+                    <td class="tbld">P101</td>
+                    <td class="tbld">2022/12/31</td>
                     <td class="tbld">R101</td>
-                    <td class="tbld">P111</td>
-                    <td class="tbld">Tom</td>
+                    <td class="tbld">T111</td>
                     <td class="tbld">Single</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
+                    <td class="tbld">$105</td>
+                    <td class="tbld">Completed</td>
+
                 </tr>
                 <tr class="subtext tblrw">
+                    <td class="tbld">P101</td>
+                    <td class="tbld">2022/12/31</td>
                     <td class="tbld">R101</td>
-                    <td class="tbld">P111</td>
-                    <td class="tbld">Tom</td>
+                    <td class="tbld">T111</td>
                     <td class="tbld">Single</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
+                    <td class="tbld">$105</td>
+                    <td class="tbld">Completed</td>
+
                 </tr>
                 <tr class="subtext tblrw">
+                    <td class="tbld">P101</td>
+                    <td class="tbld">2022/12/31</td>
                     <td class="tbld">R101</td>
-                    <td class="tbld">P111</td>
-                    <td class="tbld">Tom</td>
+                    <td class="tbld">T111</td>
                     <td class="tbld">Single</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
+                    <td class="tbld">$105</td>
+                    <td class="tbld">Completed</td>
                 </tr>
             </table>
         </div>
         </div>
         </div>
 
- <!-- add hotel package -->
+        <!-- add hotel package -->
         <div id="id01" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
