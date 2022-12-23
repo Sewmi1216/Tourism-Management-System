@@ -25,7 +25,7 @@ class tourpackageController extends db_connection
             echo 'Error Occured';
         }else{
             echo 'Successfully Added';
-            header("Location: ../view/tourpackages.php");
+            header("Location: ../view-admin/tourpackages2.php");
             
         }
 

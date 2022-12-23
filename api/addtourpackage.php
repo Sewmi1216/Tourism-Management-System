@@ -2,7 +2,7 @@
 include '../controller/tourpackageController.php';
 
 $name = $_POST['pckgname'];
-$pckgid = $_POST['pckgid'];
+// $pckgid = $_POST['pckgid'];
 $pckgprice = $_POST['pckgprice'];
 $pckgdesc= $_POST['pckgdesc'];
 

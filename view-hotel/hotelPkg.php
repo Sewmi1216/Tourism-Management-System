@@ -15,6 +15,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -83,16 +84,16 @@ if ($res->num_rows > 0) {
                         <td class="tbld"><?php echo $row["price"] ?></td>
                         <td class="tbld">
                             <?php if ($row["pkg_status"] == "Available") { ?>
-                                <button class="status1"><?php echo $row["pkg_status"]; ?></button>
+                            <button class="status1"><?php echo $row["pkg_status"]; ?></button>
                             <?php } else { ?>
-                             <button class="status2"><?php echo $row["pkg_status"]; ?></button>
-                             <?php } ?>
+                            <button class="status2"><?php echo $row["pkg_status"]; ?></button>
+                            <?php } ?>
                         </td>
                         <td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>
                         <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                     class="fa-solid fa-pen-to-square art"></i></a></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                        <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
                     </tr>
                     <?php }
 } else {
@@ -106,7 +107,7 @@ if ($res->num_rows > 0) {
         </div>
         </div>
 
-
+        <!-- add hotel package -->
         <div id="id01" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
@@ -138,10 +139,10 @@ if ($res->num_rows > 0) {
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
-                                <option value="" selected>---Choose availability---</option>
-                                <option value="Available">Available</option>
-                                <option value="Unavailable">Unavailable</option>
-                            </select></td>
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -176,6 +177,8 @@ if ($res->num_rows > 0) {
                 </div>
             </form>
         </div>
+
+
         <!-- view pkg -->
         <div id="id03" class="modal">
 
@@ -187,6 +190,27 @@ if ($res->num_rows > 0) {
                 </div>
 
                 <div class="container">
+                    <table style="margin:-30px;">
+                        <tr>
+                            <td><img src="../images/download.jpg" alt="Logo" height="300px" width="500px"
+                                    style="margin-left:45px;padding-right:0px;"></td>
+                            <td>
+                                <p>Living & Dining area
+                                    Private pool
+                                    2 large bathrooms
+                                    Safe
+                                    42” LED TV
+                                    Complimentary WI-FI
+                                    DVD Player</p>
+                                <ul style="margin-left:23px;">
+                                    <li>Room Type: Suit</li>
+                                    <li>Number of beds:4</li>
+                                    <li>Status: Available</li>
+                                    <li>Price: $350</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
 
 
                 </div>
@@ -228,10 +252,10 @@ if ($res->num_rows > 0) {
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
-                                <option value="" selected>---Choose availability---</option>
-                                <option value="Available">Available</option>
-                                <option value="Unavailable">Unavailable</option>
-                            </select></td>
+                                    <option value="" selected>---Choose availability---</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -267,8 +291,111 @@ if ($res->num_rows > 0) {
                 </div>
             </form>
         </div>
-    </section>
 
+        <!-- delete pkg -->
+        <div id="id04" class="modal">
+
+            <form class="modal-content animate" style="width:45%;" method="post" action="#" enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id04').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+
+                <div class="container">
+                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete this hotel package?</p>
+
+                    <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                            class="cancelbtn" style="margin-left:11rem;">Yes</button>
+                        <button type="submit" class="btns" value="Save" name="save"
+                            style="margin-left:75px;">No</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+
+
+        <!-- chat box -->
+        <div class="form-popup" id="myForm">
+            <form action="#" class="form-container">
+
+                <div id="container">
+                    <aside>
+                        <span onclick="document.getElementById('myForm').style.display='none'" class="close"
+                            style="top:20px;right:2px;" title="Close Modal">&times;</span>
+                        <header>
+                            <input type="text" placeholder="search">
+                        </header>
+                        <ul>
+                            <li>
+                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                                <div>
+                                    <h2>Sachini Perera</h2>
+                                    <h3>
+                                        <span class="status orange"></span>
+                                        offline
+                                    </h3>
+                                </div>
+
+
+                            <li>
+                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                                <div>
+                                    <h2>Udari Sharmila</h2>
+                                    <h3>
+                                        <span class="status green"></span>
+                                        online
+                                    </h3>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+                    <main>
+                        <header>
+                            <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                            <div>
+                                <h2>Chat with Sachini Perera</h2>
+                            </div>
+
+                        </header>
+                        <ul id="chat">
+                            <li class="me">
+                                <div class="entete">
+                                    <h3>10:12AM, Today</h3>
+                                    <h2>Sachini</h2>
+                                    <span class="status blue"></span>
+                                </div>
+                                <div class="triangle"></div>
+                                <div class="message">
+                                    Hello! How can I help you?
+                                </div>
+                            </li>
+
+                        </ul>
+                        <footer>
+                            <textarea placeholder="Type your message"></textarea>
+
+                            <a href="#">Send</a>
+                        </footer>
+                    </main>
+                </div>
+            </form>
+        </div>
+
+    </section>
+    <script>
+    function openChat() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeChat() {
+        document.getElementById("myForm").style.display = "none";
+    }
+    </script>
 </body>
 
 </html>

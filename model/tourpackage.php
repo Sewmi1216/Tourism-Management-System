@@ -22,7 +22,7 @@ class tourpackage extends db_connection
     {
        
     
-        $query = "INSERT INTO tourpackage(package_name, package_price, package_description) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]')";
+        $query = "INSERT INTO tourpackage(packageName, price, description, adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
