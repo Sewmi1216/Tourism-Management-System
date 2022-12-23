@@ -33,7 +33,7 @@
             </span>
             <span class="b">
                 Today's Revenue
-                <div style="margin-top:60px;font-size:30px;">$250</div>
+                <div style="margin-top:60px;font-size:20px;">$250</div>
             </span>
         </div>
 
