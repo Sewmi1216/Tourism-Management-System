@@ -104,7 +104,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Hotel Package</b></label>
+                    <label for="room"><b>Add Payments</b></label>
                 </div>
 
                 <div class="container">
