@@ -67,7 +67,7 @@ if (!isset($_SESSION["attempts"])) {
     $_SESSION["attempts"] = null;
 }
 
-if ($_SESSION["attempts"] > 2) {
+if ($_SESSION["attempts"] > 3) {
     $_SESSION["locked"] = time();
     echo "<p class='text' style='color:red;margin-left:3px;padding:20px;'>Try again after 30 seconds</p>";
 } else {

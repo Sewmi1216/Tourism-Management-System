@@ -55,43 +55,43 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 </tr>
                 <tr>
                     <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R103</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R104</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R105</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
             </table>
         </div>
@@ -125,45 +125,45 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 </tr>
 
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R106</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
 
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R107</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R108</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
                 <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">R102</td>
+                    <td class="tbld">R109</td>
+                    <td class="tbld">T102</td>
+                    <td class="tbld">2022/12/12</td>
+                    <td class="tbld">500</td>
+                    <td class="tbld">2022/12/28</td>
+                    <td class="tbld">2022/12/30</td>
+                    <td class="tbld">Done</td>
+                    <td class="tbld">Confirmed</td>
                 </tr>
             </table>
         </div>

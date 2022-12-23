@@ -8,6 +8,7 @@ if (isset($_POST['signup'])) {
     $eEmail = $_POST['eEmail'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $epassword = md5($password);
     $address = $_POST['address'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
@@ -24,7 +25,7 @@ if (isset($_POST['signup'])) {
     $folderDoc = "../Images/doc" . $fileDoc;
 
     $entrepreneurcon = new entrepreneurController();
-    $entrepreneurcon->addentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+    $entrepreneurcon->addentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $epassword, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
     move_uploaded_file($ptempname, $pfolder);
     move_uploaded_file($dtempname, $dfolder);
 }
