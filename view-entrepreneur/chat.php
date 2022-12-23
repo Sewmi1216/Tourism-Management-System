@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/Echat.css?v=<?php echo time(); ?>">
 
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
