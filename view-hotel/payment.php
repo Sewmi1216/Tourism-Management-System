@@ -111,18 +111,17 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <table>
                         <tr class="row">
                             <td>
-                                <div class="content">Hotel Package Name</div>
+                                <div class="content">Reservation ID</div>
                             </td>
                             <td> <input type="text" class="subfield" name="pName" /></td>
                         </tr>
                         <tr class="row">
                             <td>
-                                <div class="content">Description</div>
+                                <div class="content">Guest Name</div>
                             </td>
-                            <td>
-                                <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
-                            </td>
+                            <td> <input type="text" class="subfield" name="pName" /></td>
                         </tr>
+                        
                         <tr class="row">
                             <td>
                                 <div class="content">Status</div>
@@ -130,8 +129,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
                                     <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
+                                    <option value="Available">Pending</option>
+                                    <option value="Unavailable">Completed</option>
+                                    <option value="Unavailable">Cancelled</option>
                                 </select></td>
                         </tr>
                         <tr class="row">
@@ -142,12 +142,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                         </tr>
 
 
-                        <tr class="row">
-                            <td>
-                                <div class="content">Upload Image</div>
-                            </td>
-                            <td> <input type="file" class="subfield" name="file" /></td>
-                        </tr>
+                    
                         <!-- <tr>
                 <td>
                      <input type="submit" class="btn1" value="Save" name="signup"/>
