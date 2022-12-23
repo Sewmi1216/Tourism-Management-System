@@ -51,12 +51,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <span class="c">
                 Room Booking Chart
                 <br>
-                <img src="../images/pie.png" height="300px" width="300px" class="chartimg" />
+                <img src="../images/hotel-pie.png" height="300px" width="400px" class="chartimg" />
             </span>
             <span class="c">
                 Sales Revenue
                 <br>
-                <img src="../images/bar.png" alt="" height="300px" width="350px" class="chartimg" />
+                <img src="../images/hotel-bar.png" alt="" height="300px" width="450px" class="chartimg" />
             </span>
         </div>
 
