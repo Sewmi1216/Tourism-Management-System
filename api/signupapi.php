@@ -10,7 +10,7 @@ $address = $_POST['address'];
 $country = $_POST['country'];
 $dob = $_POST['dob'];
 
-$inputs = array($name,$mno,$email,$apassword,$address,$country,$dob);
+$inputs = array($name,$mno,$email,$password,$address,$country,$dob);
 $touristcon = new touristController();
 $touristcon->userSignup($inputs);
 

@@ -44,4 +44,21 @@ class hotelPkg extends db_connection
         // return $stmt;
 
     }
+    public function viewPkg($pId)
+    {
+       $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID and packageID = '$pId'";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+        // $stmt = $this->conn->prepare($query);
+
+        // $stmt->execute();
+        // echo 'sql';
+
+        // return $stmt;
+
+    }
+    public function updatePkg($pkgName, $price, $desc, $filename, $status){
+
+    }
 }

@@ -22,7 +22,7 @@ class product extends db_connection
     public function viewAll()
     {
         //$query = "Select * from product p, entrepreneur e, entrepreneur_product k where k.entrepreneurID=e.userID and k.productID= p.productID";
-        $query = "Select * from product p";
+        $query = "Select * from product p where quantity='40' or quantity='50'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
         // $stmt = $this->conn->prepare($query);

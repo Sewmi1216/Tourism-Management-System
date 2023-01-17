@@ -89,11 +89,14 @@ if ($res->num_rows > 0) {
                             <button class="status2"><?php echo $row["pkg_status"]; ?></button>
                             <?php } ?>
                         </td>
-                        <td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
+                        <td class="tbld"><a
+                                onclick="document.getElementById('id03').style.display='block';document.location='#id03?packageID=<?php $packageID=$row['packageID']; ?>'"><i
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                        <!-- <td class="tbld"><button data-id='<?php echo $row['packageID']; ?>' class="help"> view </button></td> -->
                         <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                     class="fa-solid fa-pen-to-square art"></i></a></td>
-                        <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
+                        <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+                                    class="fa-solid fa-trash art"></i></a></td>
                     </tr>
                     <?php }
 } else {
@@ -180,50 +183,20 @@ if ($res->num_rows > 0) {
 
 
         <!-- view pkg -->
-        <div id="id03" class="modal">
-
-            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Family Package</b></label>
-                </div>
-
-                <div class="container">
-                    <table style="margin:-30px;">
-                        <tr>
-                            <td><img src="../images/download.jpg" alt="Logo" height="300px" width="500px"
-                                    style="margin-left:45px;padding-right:0px;"></td>
-                            <td>
-                                <p>Living & Dining area
-                                    Private pool
-                                    2 large bathrooms
-                                    Safe
-                                    42” LED TV
-                                    Complimentary WI-FI
-                                    DVD Player</p>
-                                <ul style="margin-left:23px;">
-                                    <li>Room Type: Suit</li>
-                                    <li>Number of beds:4</li>
-                                    <li>Status: Available</li>
-                                    <li>Price: $350</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-
-
-                </div>
-
-
-            </form>
-        </div>
+        <?php require_once('viewPkg.php'); ?>
 
 
         <!-- update pkg -->
         <div id="id02" class="modal">
 
             <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+                  <?php
+require_once("../controller/hotelPkgController.php") ;
+$pkg = new hotelPkgController();
+$result = $pkg->viewPkg($packageID);
+if ($result->num_rows > 0) {
+    while ($row = mysqli_fetch_array($result)) {
+        ?>
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
@@ -236,14 +209,14 @@ if ($res->num_rows > 0) {
                             <td>
                                 <div class="content">Hotel Package Name</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td> <input type="text" class="subfield" name="pName" value="<?php echo $row['packageName']; ?>"/></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Description</div>
                             </td>
                             <td>
-                                <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
+                                <textarea class="subtextfield" name="desc" rows="8" cols="50"><?php echo $row["description"] ?></textarea>
                             </td>
                         </tr>
                         <tr class="row">
@@ -252,16 +225,15 @@ if ($res->num_rows > 0) {
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
+                                    <option value="Available" <?php echo ($row["pkg_status"] == "Available" ? "selected" : "") ?>>Available</option>
+                                    <option value="Unavailable" <?php echo ($row["pkg_status"] == "Unavailable" ? "selected" : "") ?>>Unavailable</option>
                                 </select></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Price</div>
                             </td>
-                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                            <td> <input type="number" min="10" class="subfield" name="price" value="<?php echo $row['price']; ?>" /></td>
                         </tr>
 
 
@@ -269,7 +241,9 @@ if ($res->num_rows > 0) {
                             <td>
                                 <div class="content">Upload Image</div>
                             </td>
-                            <td> <input type="file" class="subfield" name="file" /></td>
+                            <td> <?php echo "<img src='../images/" . $row['image'] . "' style=
+                    'width:200px;height: 200px;margin-left:45px;padding-right:0px;'>"; ?>
+<input type="file" class="subfield" name="file" /></td>
                         </tr>
                         <!-- <tr>
                 <td>
@@ -289,20 +263,27 @@ if ($res->num_rows > 0) {
                     <button type="submit" class="btns" value="Save" name="save"
                         style="margin-left:75px;">Update</button>
                 </div>
+                 <?php }
+} else {
+    echo "No results";
+}
+?>
             </form>
         </div>
 
         <!-- delete pkg -->
         <div id="id04" class="modal">
 
-            <form class="modal-content animate" style="width:45%;" method="post" action="#" enctype="multipart/form-data">
+            <form class="modal-content animate" style="width:45%;" method="post" action="#"
+                enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id04').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
                 </div>
 
                 <div class="container">
-                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete this hotel package?</p>
+                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
+                        this hotel package?</p>
 
                     <div class="container" style="background-color:#f1f1f1; padding:10px;">
                         <button type="button" onclick="document.getElementById('id02').style.display='none'"
@@ -320,82 +301,32 @@ if ($res->num_rows > 0) {
 
 
         <!-- chat box -->
-        <div class="form-popup" id="myForm">
-            <form action="#" class="form-container">
+        <?php include_once "chat.php"?>
 
-                <div id="container">
-                    <aside>
-                        <span onclick="document.getElementById('myForm').style.display='none'" class="close"
-                            style="top:20px;right:2px;" title="Close Modal">&times;</span>
-                        <header>
-                            <input type="text" placeholder="search">
-                        </header>
-                        <ul>
-                            <li>
-                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                                <div>
-                                    <h2>Sachini Perera</h2>
-                                    <h3>
-                                        <span class="status orange"></span>
-                                        offline
-                                    </h3>
-                                </div>
-
-
-                            <li>
-                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                                <div>
-                                    <h2>Udari Sharmila</h2>
-                                    <h3>
-                                        <span class="status green"></span>
-                                        online
-                                    </h3>
-                                </div>
-                            </li>
-                        </ul>
-                    </aside>
-                    <main>
-                        <header>
-                            <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                            <div>
-                                <h2>Chat with Sachini Perera</h2>
-                            </div>
-
-                        </header>
-                        <ul id="chat">
-                            <li class="me">
-                                <div class="entete">
-                                    <h3>10:12AM, Today</h3>
-                                    <h2>Sachini</h2>
-                                    <span class="status blue"></span>
-                                </div>
-                                <div class="triangle"></div>
-                                <div class="message">
-                                    Hello! How can I help you?
-                                </div>
-                            </li>
-
-                        </ul>
-                        <footer>
-                            <textarea placeholder="Type your message"></textarea>
-
-                            <a href="#">Send</a>
-                        </footer>
-                    </main>
-                </div>
-            </form>
-        </div>
 
     </section>
-    <script>
-    function openChat() {
-        document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeChat() {
-        document.getElementById("myForm").style.display = "none";
-    }
-    </script>
+    <!-- $(document).on("click", ".open-AddBookDialog", function () {
+     var myBookId = $(this).data('id');
+     $(".modal-body #bookId").val( myBookId );
+}); -->
+    <!-- <script type='text/javascript'>
+    $(document).ready(function(){
+        $('.help').click(function(){
+            var userid = $(this).data('id');
+            // alert(userid);
+            $.ajax({
+                url: 'viewPkg.php',
+                type:'post',
+                data :{ userid: userid},
+                success :function(response) {
+                    $('.modal-body').html(response);
+                    $('#id03').modal('show';)
+                    
+                }
+            })
+        });
+    });
+</script> -->
 </body>
 
 </html>

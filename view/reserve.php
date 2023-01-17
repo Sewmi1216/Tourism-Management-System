@@ -2,7 +2,7 @@
 <html>
 <head>
   <title> Hotel Reservation</title>
-  <link rel="stylesheet" href="./css/reserve.css">
+  <link rel="stylesheet" href="../css/reserve.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 

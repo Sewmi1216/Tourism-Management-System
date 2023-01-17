@@ -35,8 +35,16 @@ class hotelPkgController extends db_connection
 
         $result = $pkg->viewAllPkgs();
 
-        // include "../view/room.php";
         return $result;
+
+    }
+     public function viewPkg($pId)
+    {
+        $hotelPkg = new hotelPkg();
+
+        $results = $hotelPkg->viewPkg($pId);
+
+        return $results;
 
     }
     //  public function search($input)

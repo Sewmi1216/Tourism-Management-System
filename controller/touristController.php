@@ -31,7 +31,8 @@ class touristController extends db_connection
                 $_SESSION['username'] = $result['username'];
                 $_SESSION['touristID'] = $result['userID'];
                 
-                header("Location: ../view/craft_list.php");
+                 header("Location: ../view/craft_list.php");
+
                 exit();
                 
             } else {
