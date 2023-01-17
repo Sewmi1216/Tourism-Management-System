@@ -32,13 +32,20 @@ class hotel extends db_connection
         return $stmt;
     }
 
-    public function insertHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    public function insertHotel($id, $hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
-        $query = "INSERT INTO hotel (name, address, email, phone, profileImg, username, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES ('$hotelName', '$address', '$email', '$phone', '$fileImg', '$username', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc')";
+        $query = "INSERT INTO hotel (hotelID, name, address, email, phone, profileImg, username, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES ('$id', '$hotelName', '$address', '$email', '$phone', '$fileImg', '$username', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
+    }
+
+    //Hotels can only chat with admin and tourists.
+    public function viewAllUsers(){
+        $query = "SELECT * from tourist, admin";
+        $result = mysqli_query($this->conn, $query);
+        return $result;
     }
 }

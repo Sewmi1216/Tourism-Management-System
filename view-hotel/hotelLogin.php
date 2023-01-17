@@ -4,7 +4,7 @@ session_start();
 //if(isset($_SESSION["attempts"])){
 if (isset($_SESSION["locked"])) {
     $difference = time() - $_SESSION["locked"];
-    if ($difference > 5) {
+    if ($difference > 3) {
         unset($_SESSION["locked"]);
         unset($_SESSION["attempts"]);
     }
@@ -34,6 +34,7 @@ if (isset($_POST['signIn'])) {
         <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">LOGIN</div>
         <form class="login-form" method="POST">
             <label style="font-size:15px;padding:10px;" class="text">Username</label>
+
             <input type="text" class="field" onfocus="this.placeholder=''" name="username"
                 placeholder="Enter your username" />
             <label style="font-size:15px;padding:10px;" class="text">Password</label>

@@ -43,7 +43,7 @@ class hotelController extends db_connection
             if ($result1['password'] == $password) {
 
                 $_SESSION['username'] = $result1['username'];
-                $_SESSION['touristID'] = $result1['touristID'];
+                $_SESSION['touristID'] = $result1['userID'];
 
                 header("Location: ../view/craft_list.php");
                 exit();
@@ -125,11 +125,11 @@ class hotelController extends db_connection
         }
 
     }
-    public function addHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    public function addHotel($id, $hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
         $user = new hotel();
 
-        $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+        $result = $user->insertHotel($id, $hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
 
         if (!$result) {
             echo 'There was a error';

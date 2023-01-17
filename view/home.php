@@ -169,6 +169,7 @@ $result = mysqli_fetch_assoc($res2);
         <a href="./order.php?product=<?php echo $result['productID'] ?>"><img src="../img/<?php echo $result['productImg'] ?>"/></a>
         <p>Perahera Art<br><br>View</p>
       </div>
+      
 
 
 

@@ -31,11 +31,11 @@ class adminController extends db_connection
                 $_SESSION['username'] = $result['username'];
              
 
-                header("Location: ../view/dashboard.php");
+                header("Location: ../view-admin/dashboard.php");
                 exit();
                 
             } else {
-                header("Location: ../view/login.php");
+                header("Location: ../view-admin/login.php");
                 exit();
             }
 

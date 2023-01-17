@@ -37,7 +37,7 @@ if (isset($_POST['signIn'])) {
 
         <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">LOGIN</div>
 
-        <form class="login-form" method="POST" action="../api/loginapi.php">
+        <form class="login-form" method="POST" action="../api/aloginapi.php">
             <label style="font-size:15px;padding:10px;" class="text">Username</label>
 
             <input type="text" class="field" onfocus="this.placeholder=''" name="username" placeholder="Enter your username" />

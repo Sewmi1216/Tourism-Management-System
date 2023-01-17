@@ -162,83 +162,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 </div>
             </form>
         </div>
+
         <!-- chat box -->
-        <div class="form-popup" id="myForm">
-            <form action="#" class="form-container">
-
-                <div id="container">
-                    <aside>
-                        <span onclick="document.getElementById('myForm').style.display='none'" class="close"
-                            style="top:20px;right:2px;" title="Close Modal">&times;</span>
-                        <header>
-                            <input type="text" placeholder="search">
-                        </header>
-                        <ul>
-                            <li>
-                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                                <div>
-                                    <h2>Sachini Perera</h2>
-                                    <h3>
-                                        <span class="status orange"></span>
-                                        offline
-                                    </h3>
-                                </div>
-
-
-                            <li>
-                                <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                                <div>
-                                    <h2>Udari Sharmila</h2>
-                                    <h3>
-                                        <span class="status green"></span>
-                                        online
-                                    </h3>
-                                </div>
-                            </li>
-                        </ul>
-                    </aside>
-                    <main>
-                        <header>
-                            <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                            <div>
-                                <h2>Chat with Sachini Perera</h2>
-                            </div>
-
-                        </header>
-                        <ul id="chat">
-                            <li class="me">
-                                <div class="entete">
-                                    <h3>10:12AM, Today</h3>
-                                    <h2>Sachini</h2>
-                                    <span class="status blue"></span>
-                                </div>
-                                <div class="triangle"></div>
-                                <div class="message">
-                                    Hello! How can I help you?
-                                </div>
-                            </li>
-
-                        </ul>
-                        <footer>
-                            <textarea placeholder="Type your message"></textarea>
-
-                            <a href="#">Send</a>
-                        </footer>
-                    </main>
-                </div>
-            </form>
-        </div>
+        <?php include_once "chat.php"?>
 
     </section>
-    <script>
-    function openChat() {
-        document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeChat() {
-        document.getElementById("myForm").style.display = "none";
-    }
-    </script>
+    
 </body>
 
 </html>

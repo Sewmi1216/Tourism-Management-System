@@ -14,8 +14,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
-   
-    <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -88,7 +87,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 
             </div>
-</section>
+            <!-- chat box -->
+            <?php include_once "chat.php"?>
+    </section>
 </body>
 
 </html>
