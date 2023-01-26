@@ -37,7 +37,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <input class="input-field" type="text" placeholder="Search for packages" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <button type="submit" class="btns"><a href="hotelPkg.php" style="color:white;text-decoration:none;">View All</a></button>
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
@@ -97,12 +97,13 @@ if ($res->num_rows > 0) {
                                     class="fa-solid fa-pen-to-square art"></i></a></td>
                         <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
                                     class="fa-solid fa-trash art"></i></a></td>
-                    </tr>
                     <?php }
 } else {
     echo "No results";
 }
 ?>
+                                </tr>
+                    
                 </table>
             </div>
 
@@ -124,6 +125,7 @@ if ($res->num_rows > 0) {
                     <table>
                         <tr class="row">
                             <td>
+                               
                                 <div class="content">Hotel Package Name</div>
                             </td>
                             <td> <input type="text" class="subfield" name="pName" /></td>
@@ -189,7 +191,7 @@ if ($res->num_rows > 0) {
         <!-- update pkg -->
         <div id="id02" class="modal">
 
-            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
                   <?php
 require_once("../controller/hotelPkgController.php") ;
 $pkg = new hotelPkgController();
@@ -206,6 +208,15 @@ if ($result->num_rows > 0) {
                 <div class="container">
                     <table>
                         <tr class="row">
+                            <td>
+                                <div class="content">Hotel Package ID</div>
+                            </td>
+                            <td>
+                                 <input type="text" class="subfield" name="id" value="<?php echo $packageID ?>" readonly/>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                        
                             <td>
                                 <div class="content">Hotel Package Name</div>
                             </td>
@@ -260,7 +271,7 @@ if ($result->num_rows > 0) {
                 <div class="container" style="background-color:#f1f1f1; padding:10px;">
                     <button type="button" onclick="document.getElementById('id02').style.display='none'"
                         class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="save"
+                    <button type="submit" class="btns" value="Save" name="update"
                         style="margin-left:75px;">Update</button>
                 </div>
                  <?php }
@@ -274,7 +285,7 @@ if ($result->num_rows > 0) {
         <!-- delete pkg -->
         <div id="id04" class="modal">
 
-            <form class="modal-content animate" style="width:45%;" method="post" action="#"
+            <form class="modal-content animate" style="width:45%;" method="post" action="../api/addpkg.php"
                 enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id04').style.display='none'" class="close"
@@ -282,14 +293,15 @@ if ($result->num_rows > 0) {
                 </div>
 
                 <div class="container">
+                      <input type="text" class="subfield" name="id" value="<?php echo $packageID ?>" readonly/>
                     <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
                         this hotel package?</p>
 
                     <div class="container" style="background-color:#f1f1f1; padding:10px;">
                         <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                            class="cancelbtn" style="margin-left:11rem;">Yes</button>
-                        <button type="submit" class="btns" value="Save" name="save"
-                            style="margin-left:75px;">No</button>
+                            class="cancelbtn" style="margin-left:11rem;">No</button>
+                        <button type="submit" class="btns" value="Save" name="delete"
+                            style="margin-left:75px;">Yes</button>
                     </div>
                 </div>
 

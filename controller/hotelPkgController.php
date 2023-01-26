@@ -1,6 +1,6 @@
 <?php
 
-include_once('../model/hotelPkg.php');
+include_once '../model/hotelPkg.php';
 
 class hotelPkgController extends db_connection
 {
@@ -11,11 +11,11 @@ class hotelPkgController extends db_connection
         $this->conn = $this->connect();
     }
 
-     public function addHotelPkg($pkgName,$price,$desc,$filename,$status)
+    public function addHotelPkg($pkgName, $price, $desc, $filename, $status)
     {
         $hpkgs = new hotelPkg();
 
-        $res = $hpkgs->insertHotelPkg($pkgName,$price,$desc,$filename,$status);
+        $res = $hpkgs->insertHotelPkg($pkgName, $price, $desc, $filename, $status);
 
         if (!$res) {
             echo 'There was a error';
@@ -38,7 +38,7 @@ class hotelPkgController extends db_connection
         return $result;
 
     }
-     public function viewPkg($pId)
+    public function viewPkg($pId)
     {
         $hotelPkg = new hotelPkg();
 
@@ -58,5 +58,38 @@ class hotelPkgController extends db_connection
 
     // }
 
+    public function updatePkg($id, $pkgName, $price, $desc, $filename, $status)
+    {
+        $hp = new hotelPkg();
+        $hp->updatePkg($id, $pkgName, $price, $desc, $filename, $status);
 
+        if (!$hp) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+
+            echo "<script>alert('Your form was successfully updated');
+        window.location.href = '../view-hotel/hotelPkg.php';
+        </script>";
+
+        }
+
+    }
+    public function deletePkg($id)
+    {
+        $hp = new hotelPkg();
+        $hp->deletePkg($id);
+
+        if (!$hp) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+
+            echo "<script>alert('Your form was successfully deleted');
+        window.location.href = '../view-hotel/hotelPkg.php';
+        </script>";
+
+        }
+
+    }
 }
