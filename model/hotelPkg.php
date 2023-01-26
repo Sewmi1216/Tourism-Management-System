@@ -58,7 +58,14 @@ class hotelPkg extends db_connection
         // return $stmt;
 
     }
-    public function updatePkg($pkgName, $price, $desc, $filename, $status){
-
+    public function updatePkg($id, $pkgName, $price, $desc, $filename, $status){
+        $query = "update hotelpackage set packageName='$pkgName', price='$price', description='$desc', image='$filename', pkg_status='$status' where packageID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function deletePkg($id){
+        $query = "delete from hotelpackage where packageID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
     }
 }
