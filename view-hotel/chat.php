@@ -40,34 +40,34 @@ if ($result->num_rows > 0) {
 
                 </ul>
             </aside>
-            <main id="chat">
-                <header>
-                    <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                    <div>
-                        <h2>Chat with <?php echo $userId?></h2>
-                    </div>
+           <main>
+                        <header>
+                            <img src="../images/avt.png" alt="" height="50px" width="50px;">
+                            <div>
+                                <h2>Chat with <?php echo $userId?></h2>
+                            </div>
 
-                </header>
-                <ul>
-                    <li class="me">
-                        <div class="entete">
-                            <h3>10:12AM, Today</h3>
-                            <h2>Sachini</h2>
-                            <span class="status blue"></span>
-                        </div>
-                        <div class="triangle"></div>
-                        <div class="message">
-                            Hello! How can I help you?
-                        </div>
-                    </li>
+                        </header>
+                        <ul id="chat">
+                            <li class="me">
+                                <div class="entete">
+                                    <h3>10:12AM, Today</h3>
+                                    <h2>Sachini</h2>
+                                    <span class="status blue"></span>
+                                </div>
+                                <div class="triangle"></div>
+                                <div class="message">
+                                    Hello! How can I help you?
+                                </div>
+                            </li>
 
-                </ul>
-                <footer>
-                    <textarea placeholder="Type your message"></textarea>
+                        </ul>
+                        <footer>
+                            <textarea placeholder="Type your message"></textarea>
 
-                    <a href="#">Send</a>
-                </footer>
-            </main>
+                            <a href="#">Send</a>
+                        </footer>
+                    </main>
         </div>
     </form>
 </div>

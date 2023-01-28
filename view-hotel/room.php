@@ -59,78 +59,52 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <th class="tblh">Status</th>
                     <th class="tblh">Edit</th>
                     <th class="tblh">Delete</th>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tbld">R101</td>
-                    <td class="tbld">P111</td>
-                    <td class="tbld">Tom</td>
-                    <td class="tbld">Single</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
-                   <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                    class="fa-solid fa-pen-to-square art"></i></a></td>
-                    <td class="tbld"><a onclick="document.getElementById('id03').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tbld">R102</td>
-                    <td class="tbld">P112</td>
-                    <td class="tbld">Jerry</td>
-                    <td class="tbld">Double</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
-                    <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                    <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tbld">R103</td>
-                    <td class="tbld">P113</td>
-                    <td class="tbld">Dave</td>
-                    <td class="tbld">Single</td>
-                    <td class="tbld">2022/02/14</td>
-                    <td class="tbld">2022/02/16</td>
-                    <td class="tbld">Occupied</td>
-                    <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                    <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                </tr>
-                <!-- <?php
-include "../controller/hotelPkgController.php";
-$hotelPkgcont = new hotelPkgController();
-$res = $hotelPkgcont->viewAllPkgs();
-if ($res->num_rows > 0) {
-    while ($row = mysqli_fetch_array($res)) {
+                </tr><?php 
+require_once("../controller/roomController.php");
+$room = new roomController();
+$result= $room->viewAllRooms();
+if($result->num_rows>0){
+    while($row = mysqli_fetch_array($result)){
         ?>
-                    <tr class="subtext tblrw">
-                        <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>";?>
-                        </td>
-                        <td class="tbld"><?php echo $row["packageName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if($row["status"]==0){
-                            echo "Unavailable";}
-                            else{
-                             echo "Available";}
-                             ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-                    <?php }
+                <tr class="subtext tblrw">
+                    <td class="tbld">
+                        <?php echo $row["roomNo"] ?>
+                    </td>
+                    <td class="tbld">
+                        <?php echo $row["hotelPkgID"] ?>
+                    </td>
+                    <td class="tbld">
+                        <?php echo $row["name"] ?>
+                    </td>
+                    <td class="tbld">
+                        <?php echo $row["type"] ?>
+                    </td>
+                    <td class="tbld">
+                        <?php echo $row["occupied_from"] ?>
+                    </td>
+                    <td class="tbld">
+                        <?php echo $row["occupied_to"] ?>
+                    </td>
+                    <td class="tbld">
+                        <?php echo $row["status"] ?>
+                    </td>
+                </tr>
+                
+
+
+                <?php }
 } else {
     echo "No results";
 }
-?> -->
+?>
+
             </table>
         </div>
         </div>
         </div>
 
 
- <!-- add room -->
+        <!-- add room -->
         <div id="id01" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
@@ -177,7 +151,7 @@ if ($res->num_rows > 0) {
                                     <option value="Unavailable">Unavailable</option>
                                 </select></td>
                         </tr>
-                    
+
                     </table>
 
                 </div>
@@ -191,7 +165,7 @@ if ($res->num_rows > 0) {
         </div>
 
 
-       <!-- update room -->
+        <!-- update room -->
         <div id="id02" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
@@ -238,7 +212,7 @@ if ($res->num_rows > 0) {
                                     <option value="Unavailable">Unavailable</option>
                                 </select></td>
                         </tr>
-                    
+
                     </table>
 
                 </div>
@@ -246,20 +220,23 @@ if ($res->num_rows > 0) {
                 <div class="container" style="background-color:#f1f1f1; padding:10px;">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'"
                         class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="save" style="margin-left:75px;">Update</button>
+                    <button type="submit" class="btns" value="Save" name="save"
+                        style="margin-left:75px;">Update</button>
                 </div>
             </form>
         </div>
-<div id="id03" class="modal">
+        <div id="id03" class="modal">
 
-            <form class="modal-content animate" style="width:45%;" method="post" action="#" enctype="multipart/form-data">
+            <form class="modal-content animate" style="width:45%;" method="post" action="#"
+                enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id03').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
                 </div>
 
                 <div class="container">
-                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete this room?</p>
+                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
+                        this room?</p>
 
                     <div class="container" style="background-color:#f1f1f1; padding:10px;">
                         <button type="button" onclick="document.getElementById('id02').style.display='none'"
