@@ -302,10 +302,6 @@ if ($result->num_rows > 0) {
 
 
 
-        <!-- chat box -->
-        <?php include_once "chat.php"?>
-
-
     </section>
     <!-- $(document).on("click", ".open-AddBookDialog", function () {
      var myBookId = $(this).data('id');

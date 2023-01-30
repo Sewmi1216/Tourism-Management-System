@@ -42,10 +42,63 @@ class hotel extends db_connection
         return $stmt;
     }
 
+    // //Hotels can only chat with admin and tourists.
+    // public function viewAllUsers(){
+    //     $query = "SELECT * from tourist, admin";
+    //     $result = mysqli_query($this->conn, $query);
+    //     return $result;
+    // }
+
     //Hotels can only chat with admin and tourists.
     public function viewAllUsers(){
         $query = "SELECT * from tourist, admin";
-        $result = mysqli_query($this->conn, $query);
-        return $result;
+        // $result = mysqli_query($this->conn, $query);
+        return $this->getData($query);
     }
+
+    private function getData($query) {
+		$result = mysqli_query($this->conn, $query);
+		if(!$result){
+			die('Error in query: '. mysqli_error());
+		}
+		$data= array();
+		while ($row = mysqli_fetch_array($result)) {
+			$data[]=$row;            
+		}
+		return $data;
+	}
+
+    public function showUserChat($from_user_id, $to_user_id) {		
+		$userDetails = $this->getUserDetails($to_user_id);
+		$toUserAvatar = '';
+		foreach ($userDetails as $user) {
+			$toUserAvatar = $user['avatar'];
+			$userSection = '<img src="userpics/'.$user['avatar'].'" alt="" />
+				<p>'.$user['username'].'</p>
+				<div class="social-media">
+					<i class="fa fa-facebook" aria-hidden="true"></i>
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+					 <i class="fa fa-instagram" aria-hidden="true"></i>
+				</div>';
+		}		
+		// get user conversation
+		$conversation = $this->getUserChat($from_user_id, $to_user_id);	
+		// update chat user read status		
+		$sqlUpdate = "
+			UPDATE ".$this->chatTable." 
+			SET status = '0' 
+			WHERE sender_userid = '".$to_user_id."' AND reciever_userid = '".$from_user_id."' AND status = '1'";
+		mysqli_query($this->dbConnect, $sqlUpdate);		
+		// update users current chat session
+		$sqlUserUpdate = "
+			UPDATE ".$this->chatUsersTable." 
+			SET current_session = '".$to_user_id."' 
+			WHERE userid = '".$from_user_id."'";
+		mysqli_query($this->dbConnect, $sqlUserUpdate);		
+		$data = array(
+			"userSection" => $userSection,
+			"conversation" => $conversation			
+		 );
+		 echo json_encode($data);		
+	}	
 }

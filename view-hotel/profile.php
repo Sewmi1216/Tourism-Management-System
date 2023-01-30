@@ -87,8 +87,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 
             </div>
-            <!-- chat box -->
-            <?php include_once "chat.php"?>
     </section>
 </body>
 

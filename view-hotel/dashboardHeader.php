@@ -5,7 +5,7 @@
     <div class="header-right">
         
 
-        <a href="#" style="margin-left:60px;" onclick="openChat()"><i class="fa-solid fa-message fa-lg"
+        <a href="chat.php" style="margin-left:60px;"><i class="fa-solid fa-message fa-lg"
                 style="font-size:18px;color:white;"></i></a>
         <a href="profile.php" style="margin-left:60px;margin-top:-8px;"><img src="../images/logo.png" alt="Logo"
                 height="40px" width="40px" style="padding-right:0px;border-radius:50%;"></a>
