@@ -45,11 +45,11 @@ $rows = $_SESSION['c'];
             <img src="../images/available packages/package1.png" alt="images">
             <span class="details">
             <tr>
-                <td>  '.$row['packageName'].'</td>
-                <td>  '.$row['packageID'].'</td>
+                <td>  '.$row['package_name'].'</td>
+                <td>  '.$row['package_id'].'</td>
 
                 <span class="btn">
-                <a href="editpackage.php?package_id='.$row['packageID'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
+                <a href="editpackage.php?package_id='.$row['package_id'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
                 <button type="button" class="deletebtn">DELETE</button>
                 </span>
             </tr>
