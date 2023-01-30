@@ -21,7 +21,8 @@ class room extends db_connection
     }
     public function viewAllRooms()
     {
-        $query = "Select * from room r, guest_reservation g where r.hotelPkgID=g.hotelPkgID";
+        // $query = "Select * from room r, guest_reservation g where r.hotelPkgID=g.hotelPkgID";
+$query = "Select * from room";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;

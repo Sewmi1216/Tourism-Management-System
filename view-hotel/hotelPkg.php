@@ -47,16 +47,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
         </div>
         <div class="bg">
-            <!-- <div class="search">
-                <input type="search" class="subfield" style="margin-top:9px;margin-left:160px;" name="pName" />
-                <button
-                    style="cursor:pointer;margin-top:5px;margin-left:16px;border:0px white;background-color:white;"><i
-                        class="fa-solid fa-magnifying-glass" style="color:black;font-size:35px;"></i></button>
-            </div> -->
-
-            <!-- <input type="text" id="search" onkeyup="myFunction()" placeholder="Search for names.."
-                title="Type in a name"> -->
-
 
             <div id="result">
                 <table>
@@ -310,10 +300,6 @@ if ($result->num_rows > 0) {
         </div>
 
 
-
-
-        <!-- chat box -->
-        <?php include_once "chat.php"?>
 
 
     </section>
