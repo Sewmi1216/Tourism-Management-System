@@ -49,6 +49,14 @@ class hotel extends db_connection
     //     return $result;
     // }
 
+    public function recPwd($email){
+        $query = "select * from tourist where email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+return $stmt;
+
+
+    }
+
     //Hotels can only chat with admin and tourists.
     public function viewAllUsers(){
         $query = "SELECT * from tourist, admin";
