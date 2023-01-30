@@ -52,7 +52,7 @@ class hotel extends db_connection
     public function recPwd($email){
         $query = "select * from tourist where email='$email'";
         $stmt = mysqli_query($this->conn, $query);
-return $stmt;
+        return $stmt;
 
 
     }
