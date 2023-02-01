@@ -12,26 +12,29 @@ class room extends db_connection
 
     public function insertRoom($roomNo, $type, $beds, $status, $hotelPkgId)
     {
-        $query = "INSERT INTO room (roomNo, type, noOfBeds, status, hotelPkgID) VALUES ('$roomNo','$type','$beds','$status','$hotelPkgId')";
+        $query = "INSERT INTO room (roomNo, type, noOfBeds, status, hotelPkgID) VALUES (?, ?, ?, ?, ?)";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("isisi", $roomNo, $type, $beds, $status, $hotelPkgId);
         $stmt->execute();
         return $stmt;
     }
-    public function viewAllRooms()
-    {
-        // $query = "Select * from room r, guest_reservation g where r.hotelPkgID=g.hotelPkgID";
-$query = "Select * from room";
-
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-        // $stmt = $this->conn->prepare($query);
-
-        // $stmt->execute();
-        // echo 'sql';
-
-        // return $stmt;
-
+   
+    public function viewAllRooms(){
+       $query = "Select * from room";
+       return $this->getData($query);
     }
+
+    private function getData($query) {
+		$result = mysqli_query($this->conn, $query);
+		if(!$result){
+			die('Error in query: '. mysqli_error());
+		}
+		$data= array();
+		while ($row = mysqli_fetch_array($result)) {
+			$data[]=$row;            
+		}
+		return $data;
+	}
 }

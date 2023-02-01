@@ -38,7 +38,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <input class="input-field" type="text" placeholder="Search for rooms" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View
+                        All</a></button>
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
@@ -62,40 +63,45 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 </tr><?php 
 require_once("../controller/roomController.php");
 $room = new roomController();
-$result= $room->viewAllRooms();
-if($result->num_rows>0){
-    while($row = mysqli_fetch_array($result)){
+$results= $room->viewAllRooms();
+foreach ($results as $result) {
         ?>
+
                 <tr class="subtext tblrw">
                     <td class="tbld">
-                        <?php echo $row["roomNo"] ?>
+                        <?php echo $result["roomNo"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $row["hotelPkgID"] ?>
+                        <?php echo $result["hotelPkgID"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $row["name"] ?>
+                        John
                     </td>
                     <td class="tbld">
-                        <?php echo $row["type"] ?>
+                        <?php echo $result["type"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $row["occupied_from"] ?>
+                        <?php echo $result["occupied_from"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $row["occupied_to"] ?>
+                        <?php echo $result["occupied_to"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $row["status"] ?>
+                        <?php if ($result["status"] == "Available") {?>
+                        <button class="status1"><?php echo $result["status"]; ?></button>
+                        <?php } else {?>
+                        <button class="status2"><?php echo $result["status"]; ?></button>
+                        <?php }?>
                     </td>
+                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+                                class="fa-solid fa-pen-to-square art"></i></a></td>
+                    <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+                                class="fa-solid fa-trash art"></i></a></td>
                 </tr>
-                
+
 
 
                 <?php }
-} else {
-    echo "No results";
-}
 ?>
 
             </table>
@@ -107,7 +113,7 @@ if($result->num_rows>0){
         <!-- add room -->
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
+            <form class="modal-content animate" method="post" action="../api/addroom.php" enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
@@ -120,25 +126,40 @@ if($result->num_rows>0){
                             <td>
                                 <div class="content">Hotel Package Name</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td> <select class="subfield" name="hotelPkgId">
+                                    <?php
+require_once("../controller/hotelPkgController.php") ;
+$pkg = new hotelPkgController();
+$results = $pkg->viewAllPkgs();
+           foreach ($results as $result) {
+               ?>
+                                    <option value="<?php echo $result["packageID"];
+                ?>">
+                                        <?php echo $result["packageName"];
+                    ?>
+                                    </option>
+                                    <?php
+           }
+            ?>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Number</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td> <input type="text" class="subfield" name="roomNo" /></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Type</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td> <input type="text" class="subfield" name="type" /></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
                             </td>
-                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                            <td> <input type="number" min="10" class="subfield" name="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -159,7 +180,7 @@ if($result->num_rows>0){
                 <div class="container" style="background-color:#f1f1f1; padding:10px;">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'"
                         class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="save" style="margin-left:75px;">Save</button>
+                    <button type="submit" class="btns" value="Save" name="add" style="margin-left:75px;">Save</button>
                 </div>
             </form>
         </div>
@@ -249,8 +270,7 @@ if($result->num_rows>0){
 
             </form>
         </div>
-        <!-- chat box -->
-        <?php include_once "chat.php"?>
+
 
 
     </section>

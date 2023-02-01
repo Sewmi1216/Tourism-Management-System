@@ -18,6 +18,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 </head>
 
 <body>
@@ -25,7 +26,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="wrappers">
+        <div class="wrappers" style="margin:auto;transform: translate(-0%, 20%);">
             <section class="users">
 
                 <div class="search">
@@ -38,12 +39,35 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 
                 <div class="users-list">
+                    <?php
+require_once "../controller/chatController.php";
+$ct = new chatController();
+$result = $ct->viewAllUsers();
+if ($result->num_rows > 0) {
+    while ($row = mysqli_fetch_array($result)) {
+        ?>
+                    <a href="showChat.php?user_id=<?php echo $row['hotelID']?>">
+                        <div class="content">
+                            <?php echo "<img src='../images/" . $row['profileImg'] . "' style=
+                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    background-repeat: no-repeat;'>"; ?>
 
+                            <div class="details">
+                                <span><?php echo $row["name"]; ?></span>
+                            </div>
+                        </div>
+                        <div class="status-dot '. $offline .'"><i class="fas fa-circle"></i></div>
+                    </a>
+                    <?php }
+} else {
+    echo "No users are available to chat";
+}
+?>
                 </div>
             </section>
         </div>
     </section>
-    <script src="javascript/users.js"></script>
+    <!-- <script src="js/chat.js"></script> -->
 
 </body>
 
