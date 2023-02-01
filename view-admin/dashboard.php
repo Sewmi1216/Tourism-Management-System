@@ -58,14 +58,6 @@
                 <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
             </span>
         </div>
-
-
     </section>
-
-
-
-
-
 </body>
-
 </html>

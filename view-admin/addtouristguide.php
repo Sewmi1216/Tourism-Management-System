@@ -14,7 +14,7 @@
           <input type="text" placeholder="Enter Tourist Guide Name" name="guidename" required>
       <br>
           <label for="nic"><b> NIC </b></label> <br>
-          <input type="text" placeholder="Enter Tourist Guide ID" name="nic" required>
+          <input type="text" placeholder="Enter Tourist Guide ID" name="guidenic" required>
           <br>
           <label for="username"><b>Tourist Guide User Name</b></label><br>
           <input type="text" placeholder="Repeat Password" name="guideusername" required>

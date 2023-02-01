@@ -40,7 +40,7 @@
               <span class="desc">Tourist Guides</span>
           </li>
           <li>
-              <a href="admins2.php">
+              <a href="admins.php">
                   <i class="fa-solid fa-receipt"></i>
                   <span class="link">Administration</span>
               </a>
