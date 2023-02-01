@@ -12,7 +12,7 @@ class chatController extends db_connection
         $this->conn = $this->connect();
     }
 
-   public function viewAllUsers()
+    public function viewAllUsers()
     {
         $hotel = new hotel();
         $result = $hotel->viewAllUsers();

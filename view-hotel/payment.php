@@ -163,8 +163,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             </form>
         </div>
 
-        <!-- chat box -->
-        <?php include_once "chat.php"?>
+       
 
     </section>
     
