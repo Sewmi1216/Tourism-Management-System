@@ -35,9 +35,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <button><i class="fas fa-search"></i></button>
                 </div>
 
-
-
-
                 <div class="users-list">
                     <?php
 require_once "../controller/chatController.php";
@@ -54,6 +51,7 @@ if ($result->num_rows > 0) {
 
                             <div class="details">
                                 <span><?php echo $row["name"]; ?></span>
+                                <span></span>
                             </div>
                         </div>
                         <div class="status-dot '. $offline .'"><i class="fas fa-circle"></i></div>

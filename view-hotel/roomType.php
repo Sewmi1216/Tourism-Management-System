@@ -11,6 +11,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 <html lang="en" dir="ltr">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
@@ -35,7 +36,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <!-- <div class="text">Hotel Packages</div> -->
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Hotel Packages </div>
+                <div class="page-title"> Room Types </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for packages" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
@@ -52,7 +53,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         </div>
         <div class="bg">
 
-            <div id="result">
+            <div id="result" style="overflow-x:auto;">
                 <table id="example">
                     <tr class="subtext tblrw">
                         <th class="tblh">Hotel Package</th>
@@ -116,7 +117,6 @@ foreach ($results as $result) {
                     <table>
                         <tr class="row">
                             <td>
-
                                 <div class="content">Hotel Package Name</div>
                             </td>
                             <td> <input type="text" class="subfield" name="pName" /></td>
@@ -129,6 +129,7 @@ foreach ($results as $result) {
                                 <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
                             </td>
                         </tr>
+                        
                         <tr class="row">
                             <td>
                                 <div class="content">Status</div>

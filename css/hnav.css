@@ -154,12 +154,12 @@
   font-weight: 500;
   margin: 18px
 }
-@media (max-width: 420px) {
+@media (max-width: 650px) {
   .sidebar li .desc{
     display: none;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 650px) {
   .sidebar div .desc{
     display: none;
   }
