@@ -21,8 +21,8 @@ body {
   text-align: center;
   box-shadow: 0 0 20px;
   background-color: rgba(255, 255, 255, 0.719);
-  margin-left: 845px;
-  margin-top: 90px;
+  /* margin-left: 845px;*/
+  margin: auto;
 }
 .field {
   font-family: sans-serif;
