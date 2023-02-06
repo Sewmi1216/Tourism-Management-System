@@ -39,13 +39,23 @@
               </a>
               <span class="desc">Tourist Guides</span>
           </li>
+            <li>
+              <a href="admins.php">
+                  <i class="fa-solid fa-globe"></i>
+                  <span class="link">Tourists</span>
+              </a>
+              <span class="desc">Tourist Details</span>
+          </li>
+          
           <li>
               <a href="admins.php">
                   <i class="fa-solid fa-receipt"></i>
                   <span class="link">Administration</span>
               </a>
-              <span class="desc">Administration</span>
+              <span class="desc">Administration</s=pan>
           </li>
+
+        
 
           <hr>
           <div>
