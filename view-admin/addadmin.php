@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-   <link rel="stylesheet" href="../css/addtouristguide.css">
+   <link rel="stylesheet" href="../css/addadmin.css">
     <title>Document</title>
 </head>
 <body>

@@ -37,7 +37,6 @@ body{
   color: #0789c6;
   border-radius: 10px;
   text-decoration: none;
- 
 }
 
 .booked-packages{
@@ -120,12 +119,31 @@ vertical-align: middle;
 
 background: #D9D9D9;
 border-radius: 8px;
-
+font-family: 'Days One', sans-serif;
 font-style: normal;
 font-weight: 700;
 font-size: 13px;
 line-height: 20px;
 
+color: #000000;
+}
+
+.viewbtn{
+  
+  position: absolute;
+width: 130px;
+height: 33px;
+left: 60%;
+vertical-align: middle;
+
+background: #D9D9D9;
+border-radius: 8px;
+
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 20px;
+font-family: 'Days One', sans-serif;
 color: #000000;
 }
 

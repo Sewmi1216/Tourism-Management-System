@@ -89,13 +89,17 @@ header {
   /* pkg */
   
   body {
-    background-color: #dde8f0;
     margin: 0;
     padding: 0;
+    background-image: url('../images/Admin/adminbackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    
   }
   .registerForm {
     background-color: #066694 ;
-    width: 885px;
+    width: 80%;
     padding: 60px;
     margin-left: 210px;
     margin-top: 20px;
