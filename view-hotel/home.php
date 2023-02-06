@@ -14,11 +14,11 @@
         <div style="padding-top:15px;" class="middle">
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
             <a href="../view-hotel/hotelLogin.php">Login</a>
-            <a href="#">Contact Us</a>
+            <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="#">Accommodation</a>
-            <a href="#">Handicrafts</a>
-            <a href="#">Tour Packages</a>
+            <a href="#hotel">Accommodation</a>
+            <a href="#handi">Handicrafts</a>
+            <a href="#tour">Tour Packages</a>
             <a href="home.php">Home</a>
         </div>
     </div>
@@ -31,6 +31,138 @@
             </h2>
         </div>
     </section>
+
+
+    <!-- tour packages -->
+    <section class="popular" id="tour" style="padding: 2rem 9%;">
+        <h1 class="heading" style="text-align:center;">Explore Sri Lankan tour packages</h1>
+        <hr>
+        <div class="container">
+            <div class="box">
+                <img src="../images/available packages/package1.png" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Jungle Jaunt</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="../images/available packages/package3.png" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Jungle Jaunt</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
+            <div class="box">
+                <img src="../images/available packages/package4.png" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Jungle Jaunt</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- hotels -->
+    <section class="popular" id="hotel" style="padding: 2rem 9%;">
+        <h1 class="heading" style="text-align:center;">Explore Sri Lankan hotels</h1>
+        <hr>
+        <div class="container">
+            <div class="box">
+                <img src="../images/h2.jpg" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Marino Beach</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="../images/h3.jpg" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Wonder Hotel</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
+            <div class="box">
+                <img src="../images/h3.jpg" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">The Kingsbury Hotel</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- handicrafts -->
+    <section class="popular" id="handi" style="padding: 2rem 9%;">
+        <h1 class="heading" style="text-align:center;">Explore Sri Lankan handicrafts</h1>
+        <hr>
+        <div class="container">
+            <div class="box">
+                <img src="../images/bathik saree.jpg" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Mask</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Order Now" name="signIn">
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="../images/c1.jpg" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Crane products</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Order Now" name="signIn">
+                </div>
+            </div>
+            <div class="box">
+                <img src="../images/Bathik.jpeg" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Bathik dresses</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Order Now" name="signIn">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
 
     <!-- about us -->
     <section class="about" id="about" style="padding: 2rem 9%;">
@@ -54,6 +186,25 @@
             </div>
         </div>
     </section>
+
+
+
+    <section id="contact" style="padding-bottom: 20px">
+        <div style="text-align:center; padding: 10px;">
+            <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
+            <div style="color: #babab3;font-size: 17px;padding-top: 50px">
+                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
+                <div>+94 -11- 2581245/ 7</div>
+
+                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
+                <div>+94-11-2237239</div>
+
+                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
+                <div>info@pack2paradise.lk</div>
+            </div>
+        </div>
+    </section>
+
 
     <script src="js/home.js"></script>
 </body>
