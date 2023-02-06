@@ -28,22 +28,14 @@ class hotelPkg extends db_connection
         $stmts->execute();
         return $stmts;
     }
-    public function viewAllPkgs()
-    {
-        // $query = "Select * from hotelpackage p, room r, hotel h where p.packageID=r.hotelPkgID and p.hotelID=h.hotelID";
-       // $query = "Select * from hotelpackage p, room r, hotel h where p.packageID=r.hotelPkgID or p.hotelID=h.hotelID";
-            $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID";
+    // public function viewAllPkgs()
+    // {
+    //   $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID";
 
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-        // $stmt = $this->conn->prepare($query);
+    //     $stmt = mysqli_query($this->conn, $query);
+    //     return $stmt;
 
-        // $stmt->execute();
-        // echo 'sql';
-
-        // return $stmt;
-
-    }
+    // }
     public function viewPkg($pId)
     {
        $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID and packageID = '$pId'";
@@ -58,6 +50,22 @@ class hotelPkg extends db_connection
         // return $stmt;
 
     }
+      public function viewAllPkgs(){
+       $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID";
+       return $this->getData($query);
+    }
+
+    private function getData($query) {
+		$result = mysqli_query($this->conn, $query);
+		if(!$result){
+			die('Error in query: '. mysqli_error());
+		}
+		$data= array();
+		while ($row = mysqli_fetch_array($result)) {
+			$data[]=$row;            
+		}
+		return $data;
+	}
     public function updatePkg($id, $pkgName, $price, $desc, $filename, $status){
         $query = "update hotelpackage set packageName='$pkgName', price='$price', description='$desc', image='$filename', pkg_status='$status' where packageID='$id'";
         $stmt = mysqli_query($this->conn, $query);

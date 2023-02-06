@@ -141,10 +141,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <button type="submit" class="btns" style="margin-top:50px; margin-left:600px;">Reserve</button>
         </div>
 
-
-        <!-- chat box -->
-        <?php include_once "chat.php"?>
-
     </section>
     
 </body>

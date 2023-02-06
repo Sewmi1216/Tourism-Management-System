@@ -12,11 +12,11 @@
               <span class="desc">Dashboard</span>
           </li>
           <li>
-              <a href="hotelPkg.php">
+              <a href="roomType.php">
                   <i class="fa-solid fa-hotel"></i>
-                  <span class="link">Hotel packages</span>
+                  <span class="link">Room Types</span>
               </a>
-              <span class="desc">Hotel packages</span>
+              <span class="desc">Room Types</span>
           </li>
           <li>
               <a href="room.php">
