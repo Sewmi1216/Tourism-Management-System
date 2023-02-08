@@ -28,11 +28,11 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
 
         <div style="margin-top:20px;margin-left:10px;" class="heading">
             <span class="b">
-               New Users 
+               Today Orders
                <div style="margin-top:60px;font-size:20px;">50</div>
             </span>
             <span class="b">
-                Total Orders
+                Cancelled Orders
                 <div style="margin-top:60px;font-size:20px;">100</div>
             </span>
             <span class="b">

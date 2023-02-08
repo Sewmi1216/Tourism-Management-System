@@ -42,7 +42,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
 
         </div>
 
-            <div class="bg">
+            <div class="bg" style="overflow-x:auto;">
                 <table>
                     <tr class="subtext tblrw">
                     
