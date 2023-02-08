@@ -21,13 +21,11 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
 </head>
 
 <body>
-    <?php include "nav.php"?>
-
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title">Payments </div>
+                <div class="page-title">Assign Tourists </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for products" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
@@ -40,22 +38,20 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
         <div class="bg">
             <table>
                 <tr class="subtext tblrw">
-                    <th class="tblh">Payment ID</th>
-                    <th class="tblh">Date</th>
-                    <th class="tblh">Order ID</th>
-                    <th class="tblh">Type</th>
-                    <th class="tblh">Price</th>
-                    <th class="tblh">Status</th>
+                    <th class="tblh">Profile</th>
+                    <th class="tblh">Guest Name</th>
+                    <th class="tblh">Email</th>
+                    <th class="tblh">Phone</th>
+                    <th class="tblh">Country</th>
+                    <th class="tblh">Language</th>
                 </tr>
                 <tr class="subtext tblrw">
-                    <td class="tblh">0001</td>
-                    <td class="tblh">2022/10/24</td>
-                    <td class="tblh">0001</td>
-                    <td class="tblh">Credit</td>
-                    <td class="tblh">20$</td>
-                    <td class="tbld">
-                    <input type="button" class="butns" value="Completed">
-</td>
+                    <td class="tblh"><img src="../images/profile.jpg" alt="Profile" width="90" height="60"></td>
+                    <td class="tblh">Devid Frank</td>
+                    <td class="tblh">devid@gmail.com</td>
+                    <td class="tblh">0715624059</td>
+                    <td class="tblh">England</td>
+                    <td class="tbld">English</td>
                 </tr>
                 <?php
 include "../controller/productController.php";
