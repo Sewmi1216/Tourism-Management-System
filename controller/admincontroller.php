@@ -51,5 +51,33 @@ class adminController extends db_connection
 
     }
     
+    public function addadmin($inputs)
+    {
+        $admin = new admin();
+        
+
+        $res = $admin-> inseradmin($inputs);
+        
+        if (!$res) {
+            echo 'Error Occured';
+        }else{
+            echo 'Successfully Added';
+            header("Location: ../view/tourguide.php");
+            
+        }
+
+    }
+
+    public function viewAlladmin()
+    {
+        
+        $pkg = new admin();
+
+        $result = $pkg->viewadmin();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
 
 }

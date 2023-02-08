@@ -39,7 +39,7 @@
                 <div style="margin-top:60px;font-size:40px;">35</div>
             </span>
             <span class="b">
-                Today's Revenue
+                Monthly Revenue
                 <div style="margin-top:60px;font-size:40px;">$18,130</div>
             </span>
         </div>
@@ -47,7 +47,7 @@
         <div style="margin-top:20px;margin-left:40px;" class="chart">
             <span class="c">
                 <br>
-                Room Booking Chart
+                Tour package Booking Chart
                 <br>
                 <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
             </span>
@@ -58,14 +58,6 @@
                 <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
             </span>
         </div>
-
-
     </section>
-
-
-
-
-
 </body>
-
 </html>
