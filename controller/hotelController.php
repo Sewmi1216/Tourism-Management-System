@@ -45,7 +45,7 @@ class hotelController extends db_connection
                 $_SESSION['username'] = $result1['username'];
                 $_SESSION['touristID'] = $result1['userID'];
 
-                header("Location: ../view/craft_list.php");
+                header("Location: ../view/home2.php");
                 exit();
 
             } else {
