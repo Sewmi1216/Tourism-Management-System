@@ -61,7 +61,7 @@ body{
 }
 
 .booked-packages-list>.booked-packages-card{
-  background-color: #1c1f37;
+  background-color: #1c1f37c9;
   display: flex;
   
   color: white;

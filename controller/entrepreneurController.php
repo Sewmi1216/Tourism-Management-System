@@ -41,8 +41,6 @@ class entrepreneurController extends db_connection
             }
         }
         
-               
-
     }
 public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
 {
@@ -58,7 +56,6 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 	</script>";
 	}
 }
-
 
 
 }
