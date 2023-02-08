@@ -10,6 +10,7 @@ $rows = $_SESSION['c'];
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/packagedescription.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/tourpackage.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -32,33 +33,49 @@ $rows = $_SESSION['c'];
 
 
     <div class="content">
+    <h1 style="color: white; font-family: Montserrat; margin-left: 118px; margin-top: 50px; font-weight: bold;" >JAFFNA LOUNGE</h1>
 
-<div class="booked-packages">
-  <div class="add">  
-    <div class="text">TOUR PACKAGES</div>
-    <a href="addpackage.php"> <b> ADD PACKAGES </b></a>
+<div>
+<div class="nalloor" >
+    <img src="../images/available packages/jaffna1.png"/>
 </div>
-    <?php
-    foreach($rows as $row) {
-    echo '<div class="booked-packages-list">
-        <div class="booked-packages-card">
-            <img src="../images/available packages/package1.png" alt="images">
-            <span class="details">
-            <tr>
-                <td>  '.$row['package_name'].'</td>
-                <td>  '.$row['package_id'].'</td>
 
-                <span class="btn">
-                <a href="packagedescription.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
-                <a href="editpackage.php?package_id='.$row['package_id'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
-                <button type="button" class="deletebtn">DELETE</button>
-                </span>
-            </tr>
-            </span>
-        </div>
-      </div>';
-    }?>
+<div class="jaffna">
+    <img src="../images/available packages/jaffna2.png"/>
+  </div>
 </div>
+
+<table class=data>
+  
+  <tr>
+    <td>Package Name</td>
+    <td>Jaffna Lounge</td>
+    
+  </tr>
+  <tr>
+    <td>Package ID</td>
+    <td>012J</td>
+    
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td> Welcome to our beautiful island! We hope you are in the safe hands of our representatives. 
+    Now it’s time to begin your dream tour Srilanka Vacation Package. Jaffna is known as the home to diverse treasures, located high into the hills with a cooler atmosphere, 
+    with the eyes of dozens of monkeys on our backs paving the way to the ultimate travel destination of Srilanka. 
+    After arrival, you will be taken on a tour around the Kandy lake by Sri Lanka Holiday Package to witness and enjoy the cool breeze and afterward, 
+    you will experience a mind-blowing experience with the elephants at the Pinnawala Elephant Orphanage. What’s an evening in Srilanka without enjoying a cultural dance?
+   Oh yey! We heard you! After a tiring day, 
+    you will be able to witness the rich culture of Srilanka through a colorful, professional cultural dance in-cooperated with the feisty drums giving you goosebumps till the end of the performances.</td>
+    
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td>Rs 120,000</td>
+    
+  </tr>
+  
+  </tr>
+</table>
 </div>
 </section>
 

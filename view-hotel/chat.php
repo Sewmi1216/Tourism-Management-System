@@ -1,84 +1,72 @@
-<div class="form-popup" id="myForm">
-    <form action="#" method="post" class="form-container">
+<?php
+session_start();
+$user = "";
+if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+    $id = $_SESSION["hotelID"];
+} else {
+    header("location:hotelLogin.php");
+}
+?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-        <div id="container">
-            <aside>
-                <span onclick="document.getElementById('myForm').style.display='none'" class="close"
-                    style="top:20px;right:2px;" title="Close Modal">&times;</span>
-                <header>
-                    <input type="text" placeholder="search">
-                </header>
-                <ul>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+    <?php include "nav.php"?>
+    <section class="home-section">
+        <?php include "dashboardHeader.php"?>
+
+        <div class="wrappers" style="margin:auto;transform: translate(-0%, 20%);">
+            <section class="users">
+
+                <div class="search">
+                    <span class="text">Select an user to start chat</span>
+                    <input type="text" placeholder="Enter name to search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="users-list">
                     <?php
 require_once "../controller/chatController.php";
-$chat = new chatController();
-$result = $chat->viewAllUsers();
+$ct = new chatController();
+$result = $ct->viewAllUsers();
 if ($result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
         ?>
-                    <a href="#chat?userId=<?php echo $userId=$row['userID']; ?>">
-                        <li>
-
+                    <a href="showChat.php?user_id=<?php echo $row['hotelID']?>">
+                        <div class="content">
                             <?php echo "<img src='../images/" . $row['profileImg'] . "' style=
                     'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
                     background-repeat: no-repeat;'>"; ?>
-                            <div>
-                                <h2><?php echo $row["name"]?></h2>
-                                <h3>
-                                    <span class="status orange"></span>
-                                    offline
-                                </h3>
-                            </div>
 
-                        </li>
+                            <div class="details">
+                                <span><?php echo $row["name"]; ?></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="status-dot '. $offline .'"><i class="fas fa-circle"></i></div>
                     </a>
                     <?php }
 } else {
-    echo "No results";
+    echo "No users are available to chat";
 }
 ?>
-
-                </ul>
-            </aside>
-            <main id="chat">
-                <header>
-                    <img src="../images/avt.png" alt="" height="50px" width="50px;">
-                    <div>
-                        <h2>Chat with <?php echo $userId?></h2>
-                    </div>
-
-                </header>
-                <ul>
-                    <li class="me">
-                        <div class="entete">
-                            <h3>10:12AM, Today</h3>
-                            <h2>Sachini</h2>
-                            <span class="status blue"></span>
-                        </div>
-                        <div class="triangle"></div>
-                        <div class="message">
-                            Hello! How can I help you?
-                        </div>
-                    </li>
-
-                </ul>
-                <footer>
-                    <textarea placeholder="Type your message"></textarea>
-
-                    <a href="#">Send</a>
-                </footer>
-            </main>
+                </div>
+            </section>
         </div>
-    </form>
-</div>
+    </section>
+    <!-- <script src="js/chat.js"></script> -->
 
-</section>
-<script>
-function openChat() {
-    document.getElementById("myForm").style.display = "block";
-}
+</body>
 
-function closeChat() {
-    document.getElementById("myForm").style.display = "none";
-}
-</script>
+</html>
