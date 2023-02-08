@@ -90,10 +90,12 @@
                     </td>
                     
                 </tr>
+                <tr>
                 <td>
                         <div class="content">Number of passengers that can be carried</div>
                         <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
                     </td>
+</tr>
             </table>
             <input type="submit" class="btnRegister" value="Sign Up" name="signup" />
             <p style="margin-top:-32px;text-align:center;">Already have an account <a href="Login.php"
