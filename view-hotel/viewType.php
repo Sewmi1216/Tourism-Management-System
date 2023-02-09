@@ -2,30 +2,32 @@
 <div id="id03" class="modal">
     <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
         <?php
-require_once("../controller/hotelPkgController.php") ;
-$pkg = new hotelPkgController();
-$result = $pkg->viewPkg($packageID);
+require_once("../controller/roomTypeController.php") ;
+$pkg = new roomTypeController();
+$result = $pkg->viewType($typeID);
 if ($result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
         ?>
         <div class="imgcontainer">
             <span onclick="document.getElementById('id03').style.display='none'" class="close"
                 title="Close Modal">&times;</span>
-            <label for="room"><b><?php echo $row["packageName"] ?>
+            <label for="room"><b><?php echo $row["typeName"] ?>
                 </b></label>
         </div>
 
         <div class="container">
             <table style="margin:-30px;">
                 <tr>
-                    <td><?php echo "<img src='../images/" . $row['image'] . "' style=
-                    'width:500px;height: 300px;margin-left:45px;padding-right:0px;'>"; ?></td>
+                    <td>
+                        <?php echo "<img src='../images/" . $row['img'] . "' style=
+                    'width:500px;height: 300px;margin-left:45px;padding-right:0px;'>"; ?>
+                    </td>
                     <td>
                         <p>
                             <?php echo $row["description"] ?>
                         </p>
                         <ul style="margin-left:23px;">
-                            <li>Status:<?php echo $row["pkg_status"] ?>
+                            <li>Status:<?php echo $row["typestatus"] ?>
                             </li>
                             <li>Price: <?php echo $row["price"] ?>
                             </li>

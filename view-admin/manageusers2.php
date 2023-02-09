@@ -140,10 +140,118 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="add">  
+                    <h3>TOURIST GUIDE APPROVAL</h3> 
+                 <a href="view-hotelmanager.php"><i class=""></i> VIEW TOURIST GUIDE</a>
+                </div>
+
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booked-packages-card">
+                   <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
+                    <div class="details">
+                        <h5>Passikudah</h5>
+                        <div class="tour-dates">
+                            <i class="bi bi-calendar-event"></i> 
+                            <div class="btn">
+                                <button type="button" class="editbtn">APPROVE</button>
+                                <button type="button" class="deletebtn">DELETE</button>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
             </div>
+
+            
         </div>
     </div>
 
+    
 
     </section>
 

@@ -2,30 +2,38 @@
 require('../api/viewtourpackage.php');
 $rows = $_SESSION['c'];
 ?>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
 <head>
-    <link rel="stylesheet" href="../css/tourpackage.css">
-    <link rel="stylesheet" href="../css/packagedescription.css">
-    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/packagedescription.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/tourpackage.css?v=<?php echo time(); ?>">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Days+One&display=swap" rel="stylesheet">
 
-    <title>Tour packages</title>
-
-    <style>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Days+One&family=Montserrat:wght@500&display=swap');
 </style>
+
 </head>
+
 <body>
+    <?php include "nav.php"?>
 
-<?php require "nav.php"?>
+    <section class="home-section">
+        <?php include "dashboardHeader.php"?>
+    
 
-        <?php require "dashboardHeader.php"?>
-       
 
-
-        <h1 style="color: white; font-family: Montserrat; margin-left: 118px; margin-top: 50px; font-weight: bold;" >JAFFNA LOUNGE</h1>
+    <div class="content">
+    <h1 style="color: white; font-family: Montserrat; margin-left: 118px; margin-top: 50px; font-weight: bold;" >JAFFNA LOUNGE</h1>
 
 <div>
 <div class="nalloor" >
@@ -68,54 +76,10 @@ $rows = $_SESSION['c'];
   
   </tr>
 </table>
-<!--
-<div class="detail">
-  <p class="p"> </p> 
-  <p class="p">PACKAGE ID : </p>
-  <p class="p">DESCRIPTION : </p>
-  <div class="rs">  </div>
-  <p class="p">PRICE  : </p>
 </div>
+</section>
 
-<div class="detail2">
-  <p class="p">Jaffna Lounge</p> 
-  <p class="p">012J</p>
-  <p class="p"> </p>
-  <p class="p">120,000 LKR </p>  -->
-</div>
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

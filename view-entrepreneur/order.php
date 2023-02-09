@@ -1,8 +1,8 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
+if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
 } else {
     header("location:Login.php");
 }
@@ -48,7 +48,30 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <tr class="subtext tblrw">
                         <td class="tbld">0001</td>
                         <td class="tbld">2022/10/22</td>
-                        <td class="tbld">Accepted</td>
+                        <td class="tbld">
+                        <select name="status" id="status">
+  <option value="recived">Recieved</option>
+  <option value="pending">Pending</option>
+  <option value="recieved">Recieved</option>
+</select>
+</td>
+<td class="tbld"><a onclick="document.getElementById('id03').style.display='block';"><i
+                                    class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                        
+                                    
+                        
+                        
+                    </tr>
+                    <tr class="subtext tblrw">
+                        <td class="tbld">0001</td>
+                        <td class="tbld">2022/10/22</td>
+                       <td class="tbld">
+                        <select name="status" id="status">
+  <option value="recived">Recieved</option>
+  <option value="pending">Pending</option>
+  <option value="recieved">Recieved</option>
+</select>
+</td>
                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"
                                     style="color:black;"></i></td>
                         
@@ -57,16 +80,13 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <tr class="subtext tblrw">
                         <td class="tbld">0001</td>
                         <td class="tbld">2022/10/22</td>
-                        <td class="tbld">Accepted</td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"
-                                    style="color:black;"></i></td>
-                        
-                        
-                    </tr>
-                    <tr class="subtext tblrw">
-                        <td class="tbld">0001</td>
-                        <td class="tbld">2022/10/22</td>
-                        <td class="tbld">Accepted</td>
+                        <td class="tbld">
+                        <select name="status" id="status">
+  <option value="recived">Recieved</option>
+  <option value="pending">Pending</option>
+  <option value="recieved">Recieved</option>
+</select>
+</td>
                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"
                                     style="color:black;"></i></td>
                         
@@ -88,6 +108,74 @@ if ($res->num_rows > 0) {
         </div>
         </div>
         </div>
+         <!-- view pkg -->
+         <div id="id03" class="modal">
+
+<form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <label for="room"><b>Order Details</b></label>
+    </div>
+   
+    <table>
+            <tr class="row">
+                <td>
+                    <div class="content">Orderer</div>
+                </td>
+                <td> <input type="text" class="subfield" name="pName"style="color:black;" /></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Status</div>
+                </td>
+                <td> <input type="text" class="subfield" name="pCategory" /></td>
+            </tr>
+            
+            <tr class="row">
+                <td>
+                    <div class="content">ID</div>
+                </td>
+                <td><input type="text" class="subfield" name="price" /></td>
+                 <!-- <td> <select class="subfield" name="status" form="carform">
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>  -->
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Oder Date</div>
+                </td>
+                <td> <input type="text" min="10" class="subfield" name="avaquantity" /></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Total Amount</div>
+                </td>
+                <td> <input type="text" min="10" class="subfield" name="avaquantity" /></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Shipping Address</div>
+                </td>
+                <td> <input type="text" class="subfield" name="pCategory" /></td>
+            </tr>
+            
+            
+            
+            <!-- <tr>
+                <td>
+                     <input type="submit" class="btn1" value="Save" name="signup"/>
+                </td>
+                <td> <input type="reset" class="btn" value="Clear" name="reset"/></td>
+            </tr> -->
+            
+         
+        </table>
+</div>
+
+</form>
+</div>
 
     </section>
     <script>

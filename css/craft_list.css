@@ -140,7 +140,7 @@ body {
 
 .search input {
     position: absolute;
-    width: 70vw;
+    width: 80vw;
     height: 3vw;
     left: 8vw;
     top: 8vw;
@@ -159,15 +159,15 @@ body {
     position: absolute;
     width: 21.64px;
     height: 21.95px;
-    top: 140px;
-    left: 1150px;
+    left: 82%;
+    margin-top: 5%;
 }
 
 .text-box {
     position: absolute;
-    width: 684px;
-    height: 587px;
-    left: 40px;
+    width: 40vw;
+    height: 25vw;
+    left: 7%;
     top: 250px;
     background: #253551;
     border-radius: 18px;
@@ -176,7 +176,7 @@ body {
 .text-1 {
     position: absolute;
     top: 5px;
-    width: 567px;
+    width: 39vw;
     height: 146px;
     padding-left: 40px;
     font-family: 'Montserrat';
@@ -193,7 +193,7 @@ body {
     position: absolute;
     width: 615px;
     height: 143px;
-    top: 250px;
+    top: 200px;
     padding-left: 40px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -207,7 +207,7 @@ body {
     position: absolute;
     width: 615px;
     height: 29px;
-    top: 480px;
+    top: 21vw;
     padding-left: 40px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -220,16 +220,16 @@ body {
 .lankan-img {
     position: relative;
     float: right;
-    right: 250px;
+    right: 20%;
     top: 155px;
-    width: 321px;
-    height: 587px;
+    width: 15vw;
+    height: 25vw;
 }
 
 .silverpot {
     position: relative;
     float: left;
-    left: 40px;
+    left: 10%;
     top: 800px;
     width: 669.6px;
     height: 648px;
@@ -241,7 +241,7 @@ body {
     height: 53.73px;
     left: -335px;
     top: 270px;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 34px;
@@ -256,7 +256,7 @@ body {
     position: relative;
     width: 322.4px;
     height: 312px;
-    left: 100px;
+    left: 30%;
     top: 800px;
 }
 
@@ -264,7 +264,7 @@ body {
     position: relative;
     width: 323px;
     height: 312px;
-    left: 455px;
+    left: 12%;
     top: 485px;
 }
 
@@ -272,7 +272,7 @@ body {
     position: relative;
     width: 322.4px;
     height: 312px;
-    left: 770px;
+    left: 47%;
     top: 500px;
 }
 
@@ -280,17 +280,17 @@ body {
     position: relative;
     width: 322.4px;
     height: 312px;
-    left: 1126px;
+    left: 65%;
     top: 203.5px;
 }
 
 .mid-text p {
     position: absolute;
-    width: 343.07px;
+    width: 40vw;
     height: 53px;
-    left: 537.33px;
+    left: 30%;
     top: 1619px;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 45px;

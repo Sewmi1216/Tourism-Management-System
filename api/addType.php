@@ -1,12 +1,12 @@
 <?php
-include_once('../controller/hotelPkgController.php') ;
+include_once '../controller/roomTypeController.php';
 
 if (isset($_POST['save'])) {
     $pkgName = $_POST['pName'];
     $price = $_POST['price'];
     $desc = $_POST['desc'];
     // $st = $_POST['status'];
-$status = $_POST['status'];
+    $status = $_POST['status'];
     // if ($st) {
     //     if ($st == "Available") {
     //         $status = 1;
@@ -22,8 +22,8 @@ $status = $_POST['status'];
 
     $folder = "../images/" . $filename;
 
-    $pkgcon = new hotelPkgController();
-    $pkgcon->addHotelPkg($pkgName, $price, $desc, $filename, $status);
+    $pkgcon = new roomTypeController();
+    $pkgcon->addRoomType($pkgName, $price, $desc, $filename, $status);
     move_uploaded_file($tempname, $folder);
 
 }
@@ -50,18 +50,17 @@ if (isset($_POST['update'])) {
 
     $folder = "../images/" . $filename;
 
-    $pk = new hotelPkgController();
-    $pk->updatePkg($id, $pkgName, $price, $desc, $filename, $status);
+    $pk = new roomTypeController();
+    $pk->updateType($id, $pkgName, $price, $desc, $filename, $status);
     move_uploaded_file($tempname, $folder);
 
 }
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
-    $pk = new hotelPkgController();
-    $pk->deletePkg($id);
+    $pk = new roomTypeController();
+    $pk->deleteType($id);
 
 }
-
 
 //if (isset($_POST['input'])) {
 //     $input = $_POST['input'];
@@ -69,4 +68,3 @@ if (isset($_POST['delete'])) {
 // $res = $hotelpkgsearch->search($input);
 
 //}
-
