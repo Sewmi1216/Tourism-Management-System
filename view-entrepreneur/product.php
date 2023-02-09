@@ -1,8 +1,8 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
+if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
 } else {
     header("location:Login.php");
 }
@@ -66,7 +66,7 @@ if ($res->num_rows > 0) {
                         
                         <td class="tbld"><?php echo $row["productID"] ?></td>
                         <td class="tbld"><?php echo "<img src='../images/" . $row['productImg'] . "' style=
-                    'border-radius: 50%;width:30px;height: 30px;background-size: 100%;
+                    'border-radius: 10%;width:70px;height: 70px;background-size: 100%;
                     background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
                         <td class="tbld"><?php echo $row["productName"] ?></td>
                         <td class="tbld"><?php echo $row["category"] ?></td>
@@ -76,7 +76,8 @@ if ($res->num_rows > 0) {
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>
                         <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                     class="fa-solid fa-pen-to-square art"></i></a></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                        <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+                                        class="fa-solid fa-trash art"></i></a></td>
 
                     </tr>
 
@@ -99,12 +100,28 @@ if ($res->num_rows > 0) {
                         title="Close Modal">&times;</span>
                     <label for="room"><b>Product Details</b></label>
                 </div>
-                <div>
-                <img src="../images/bathik saree.jpg" height="300px" width="350px" class="chartimg" />
-                </div>
-                <div class="content">Saree
+               
+                <table style="margin:-30px;">
+                <tr>
+                    <td ><img src="../images/bathik saree.jpg" height="300px" width="350px" class="chartimg" style="margin-left:100px;" /></td>
+                    <td>
+                        
+                        <ul style="margin-left:23px;">
+                            <li>Product Name: Saree
+                            </li>
+                            <li>Category: 
+                            </li>
+                            <li>Quantity:
+                            </li>
+                            <li>Price:
+                            </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </table>
 
-                </div>
+        </div>
 
             </form>
         </div>
@@ -119,17 +136,90 @@ if ($res->num_rows > 0) {
                         title="Close Modal">&times;</span>
                     <label for="room"><b>Update Product</b></label>
                 </div>
+                <table>
+            <tr class="row">
+                <td>
+                    <div class="content">Product Name</div>
+                </td>
+                <td> <input type="text" class="subfield" name="pName"style="color:black;" /></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Category</div>
+                </td>
+                <td> <input type="text" class="subfield" name="pCategory" /></td>
+            </tr>
+            
+            <tr class="row">
+                <td>
+                    <div class="content">Price</div>
+                </td>
+                <td><input type="text" class="subfield" name="price" /></td>
+                 <!-- <td> <select class="subfield" name="status" form="carform">
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select></td>  -->
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Available Quantity</div>
+                </td>
+                <td> <input type="number" min="10" class="subfield" name="avaquantity" /></td>
+            </tr>
+            
+            
+            <tr class="row">
+                <td>
+                    <div class="content">Upload Image</div>
+                </td>
+                <td> <input type="file" class="subfield"
+                        style="margin-top:25px;background:#dde8f0;  box-sizing: border-box;"
+                        name="fileImg" /></td>
+            </tr>
+            <!-- <tr>
+                <td>
+                     <input type="submit" class="btn1" value="Save" name="signup"/>
+                </td>
+                <td> <input type="reset" class="btn" value="Clear" name="reset"/></td>
+            </tr> -->
+            
+         
+        </table>
+       
+        <input type="submit" class="btn1" value="Save" name="save"/>
+        </form>
+    </div>
 
-                
+       
+        <!-- delete pkg -->
+        <div id="id04" class="modal">
+
+            <form class="modal-content animate" style="width:45%;" method="post" action="../api/addpkg.php"
+                enctype="multipart/form-data">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id04').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+
+                    <input type="hidden" class="subfield" name="id" value="<?php echo $packageID ?>" />
+                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
+                        this product?</p>
+
+                    <div>
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                            class="btns" style="margin-left:11rem; ">No</button>
+                        <button type="submit" class="btns" value="Save" name="delete"
+                            style="margin-left:105px;">Yes</button>
+</div>
+                   
+
+
+            </form>
+        </div>
+         
                 
        
 
-
-                
-                    
-                
-            </form>
-        </div>
 
     </section>
 
