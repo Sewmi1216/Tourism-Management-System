@@ -32,7 +32,7 @@ class hotelController extends db_connection
                     echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
                 }
             } else {
-                 $_SESSION["pwderror"] = "Password does not match";
+                $_SESSION["pwderror"] = "Password does not match";
                 $_SESSION["attempts"] += 1;
                 // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
@@ -94,8 +94,7 @@ class hotelController extends db_connection
                 // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
-        }
-        else if (mysqli_num_rows($res[4]) > 0) {
+        } else if (mysqli_num_rows($res[4]) > 0) {
 
             $result1 = mysqli_fetch_assoc($res[4]);
 
@@ -141,19 +140,25 @@ class hotelController extends db_connection
     }
     public function recoverPwd($email)
     {
-        
+
+        $rec = new hotel();
+        $result= $rec->recPwd($email);
+
+        if (mysqli_num_rows($result) > 0) {
+
+
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
 
             $mail->isSMTP();
-            $mail->Host='smtp.gmail.com';
-            $mail->Port=587;
-            $mail->SMTPAuth=true;
-            $mail->SMTPSecure='tls';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
 
             // h-hotel account
-            $mail->Username='sewmi.rotaract3220@gmail.com';
-            $mail->Password='uaqgejykofzquoaf';
+            $mail->Username = 'sewmi.rotaract3220@gmail.com';
+            $mail->Password = 'uaqgejykofzquoaf';
 
             // send by h-hotel email
             $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Password Reset');
@@ -163,28 +168,44 @@ class hotelController extends db_connection
 
             // HTML body
             $mail->isHTML(true);
-            $mail->Subject="Recover your password";
-        $mail->Body = "<b>Dear User</b>
-            <h3>We received a request to reset your password.</h3>
-            <p>Kindly click the below link to reset your password</p>
-            http://localhost/pack2paradise/view-hotel/resetPwd.php
-            <br><br>";
+            $mail->Subject = "Recover your password";
+            $mail->Body = "<b>Dear User</b>
+                <h3>We received a request to reset your password.</h3>
+                <p>Kindly click the below link to reset your password</p>
+                http://localhost/pack2paradise/view-hotel/resetPwd.php
+                <br><br>";
 
-            if(!$mail->send()){
-                ?>
-                    <script>
-                        alert("<?php echo "Invalid Email "?>");
-                    </script>
-                <?php
-            }else{
-                ?>
-                    <script>
-                         alert("<?php echo "Email sent to ". $email ?>");
-                    </script>
-                <?php
+            if (!$mail->send()) {
+                echo "<script>alert('Invalid Email ');
+                window.location.href = '../view-hotel/recoverPwd.php';
+        </script>";?>
+                    <?php
+            } else {
+                        ?>
+                                <script>
+                                    alert("<?php echo "Email sent to " . $email ?>");
+                                </script>
+                            <?php
             }
         }
+    
+        else{
+            ?>
+            <script>
+                            alert("<?php echo "Invalid Email " ?>");
+                        </script><?php
+    }
+}
+
+
+public function validateUser($email)
+    {
+        $hoteluser = new hotel();
+        $res = $hoteluser->recPwd($email);
+
+        return $res;
 
     }
 
+}
 
