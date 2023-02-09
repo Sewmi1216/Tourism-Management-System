@@ -57,6 +57,36 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
                     <input type="button" class="butns" value="Completed">
 </td>
                 </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tbld">
+                    <input type="button" class="butn" value="Pending">
+</td>
+                </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tbld">
+                    <input type="button" class="butns" value="Completed">
+</td>
+                </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tbld">
+                    <input type="button" class="butns" value="Completed">
+</td>
+                </tr>
                 <?php
 include "../controller/productController.php";
 $productcont = new productController();
