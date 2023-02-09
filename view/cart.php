@@ -24,7 +24,7 @@ $res2 = $tourist->getallcartitems();
         <ul>
           <img src="../img/logo.png" alt=" logo" style="width:40px;height:40px; margin-left: 20px;" >
           <li style="float:right">
-            <a  href="craft_list.php">
+            <a  href="home.php">
               <button>Home</button></a></li>
        
         </ul>
@@ -32,7 +32,7 @@ $res2 = $tourist->getallcartitems();
 
     
 
-      <a class="back-text" href="./craft_list.php">BACK</a>
+      <a class="back-text" href="./home2.php">BACK</a>
 
      
      <div class="h">

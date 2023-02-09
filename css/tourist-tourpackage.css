@@ -304,7 +304,8 @@ header .search-bar-container label:hover{
 }
 
 .book .row .image img{
-  width:100%;
+  width:60%;
+
 }
 
 .book .row form{

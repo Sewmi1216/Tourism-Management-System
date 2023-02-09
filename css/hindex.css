@@ -190,7 +190,7 @@ section#contact {
 }
 
 .popular .container .box .stars i {
-  color: gold;
+  color: rgb(119, 0, 255);
   font-size: 1.7rem;
   padding: 1rem 0.1rem;
 }
