@@ -63,25 +63,25 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr> <?php
-require_once("../controller/roomTypeController.php") ;
+require_once "../controller/roomTypeController.php";
 $pkg = new roomTypeController();
 $results = $pkg->viewAllTypes();
 foreach ($results as $result) {
-        ?><tbody>
+    ?><tbody>
                         <tr class="subtext tblrw">
-                           <td class="tbld">
-                            <?php echo "<img src='../images/" . $result['img'] . "' style=
+                            <td class="tbld">
+                                <?php echo "<img src='../images/" . $result['img'] . "' style=
                     'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>";?>
+                    background-repeat: no-repeat;'>"; ?>
                             </td>
                             <td class="tbld"><?php echo $result["typeName"] ?></td>
                             <td class="tbld"><?php echo $result["price"] ?></td>
                             <td class="tbld">
-                                <?php if ($result["typestatus"] == "Available") { ?>
+                                <?php if ($result["typestatus"] == "Available") {?>
                                 <button class="status1"><?php echo $result["typestatus"]; ?></button>
-                                <?php } else { ?>
+                                <?php } else {?>
                                 <button class="status2"><?php echo $result["typestatus"]; ?></button>
-                                <?php } ?>
+                                <?php }?>
                             </td>
                             <td class="tbld"><a
                                     onclick="document.getElementById('id03').style.display='block';document.location='#id03?typeID=<?php $typeID =$result['roomTypeId']; ?>'"><i
@@ -89,7 +89,7 @@ foreach ($results as $result) {
                             <!-- <td class="tbld"><button data-id='<?php echo $result['roomTypeId']; ?>' class="help"> view </button></td> -->
                             <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                         class="fa-solid fa-pen-to-square art"></i></a></td>
-                            <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+                            <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i
                                         class="fa-solid fa-trash art"></i></a></td>
                             <?php }
 
@@ -175,9 +175,8 @@ foreach ($results as $result) {
             </form>
         </div>
 
-
         <!-- view pkg -->
-        <?php require_once('viewType.php'); ?>
+        <?php require_once 'viewType.php';?>
 
 
         <!-- update pkg -->
@@ -185,7 +184,7 @@ foreach ($results as $result) {
 
             <form class="modal-content animate" method="post" action="../api/addType.php" enctype="multipart/form-data">
                 <?php
-require_once("../controller/roomTypeController.php") ;
+require_once "../controller/roomTypeController.php";
 $pkg = new roomTypeController();
 $result = $pkg->viewType($typeID);
 if ($result->num_rows > 0) {
@@ -195,7 +194,7 @@ if ($result->num_rows > 0) {
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Hotel Package</b></label>
+                    <label for="room"><b>Update Hotel Package</b><hr style="margin-top:25px;"></label>
                 </div>
 
                 <div class="container">
@@ -288,12 +287,15 @@ if ($result->num_rows > 0) {
                 </div>
 
                 <div class="container">
-                    <input type="text" class="subfield" name="id" value="<?php echo $typeID ?>" />
+
+                    <input type="text" id="modalIdValue" class="subfield" name="id" value="<?php echo $typeID;?>" />
+
+
                     <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
                         this hotel package?</p>
 
                     <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                        <button type="button" onclick="document.getElementById('id04').style.display='none'"
                             class="cancelbtn" style="margin-left:11rem;">No</button>
                         <button type="submit" class="btns" value="Save" name="delete"
                             style="margin-left:75px;">Yes</button>
@@ -324,13 +326,27 @@ if ($result->num_rows > 0) {
                 success :function(response) {
                     $('.modal-body').html(response);
                     $('#id03').modal('show';)
-                    
+
                 }
             })
         });
     });
 </script> -->
-    <script src="js/reserveRoom.js"></script>
+    <script>
+    //  function openModal1(id) {
+    //     var modal = document.getElementById("id03");
+    //     var modalIdValue = document.getElementById("modalIdValue2");
+    //     modalIdValue.value = id;
+    //     modal.style.display = "block";
+    //   }
+    // Function to open the modal and set the id value
+    function openModal(id) {
+        var modal = document.getElementById("id04");
+        var modalIdValue = document.getElementById("modalIdValue");
+        modalIdValue.value = id;
+        modal.style.display = "block";
+    }
+    </script>
 </body>
 
 </html>

@@ -12,8 +12,9 @@ if ($result->num_rows > 0) {
         <div class="imgcontainer">
             <span onclick="document.getElementById('id03').style.display='none'" class="close"
                 title="Close Modal">&times;</span>
-            <label for="room"><b><?php echo $row["typeName"] ?>
+            <label for="room"><b><?php echo $row["typeName"] ?><hr style="margin-top:25px;">
                 </b></label>
+                
         </div>
 
         <div class="container">
