@@ -72,7 +72,7 @@ foreach ($results as $result) {
                         <?php echo $result["roomNo"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $result["hotelPkgID"] ?>
+                        <?php echo $result["typeID"] ?>
                     </td>
                     <td class="tbld">
                         John
