@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
-    $id = $_SESSION["userID"];
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+    header("location:../view-hotel/hotelLogin.php");
 }
 ?>
 <!DOCTYPE html>
@@ -86,6 +86,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
                     <td class="tbld">
                     <input type="button" class="butns" value="Completed">
 </td>
+
                 </tr>
                 <?php
 include "../controller/productController.php";

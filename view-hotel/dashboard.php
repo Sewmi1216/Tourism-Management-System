@@ -30,7 +30,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
         <div style="margin-top:20px;margin-left:10px;" class="dashheading">
             <span class="b">
-                All Reservations
+                Today's Reservations
                 <div style="margin-top:60px;font-size:40px;">20</div>
             </span>
             <span class="b">
