@@ -4,7 +4,7 @@ $user = "";
 if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+    header("location:../view-hotel/hotelLogin.php");
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
             </div>
 
         </div>
-        <div class="bg">
+        <div class="bg" style="overflow-x:auto;">
             <table>
                 <tr class="subtext tblrw">
                     <th class="tblh">Payment ID</th>
@@ -56,6 +56,37 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <td class="tbld">
                     <input type="button" class="butns" value="Completed">
 </td>
+                </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tbld">
+                    <input type="button" class="butn" value="Pending">
+</td>
+                </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tbld">
+                    <input type="button" class="butns" value="Completed">
+</td>
+                </tr>
+                <tr class="subtext tblrw">
+                    <td class="tblh">0001</td>
+                    <td class="tblh">2022/10/24</td>
+                    <td class="tblh">0001</td>
+                    <td class="tblh">Credit</td>
+                    <td class="tblh">20$</td>
+                    <td class="tbld">
+                    <input type="button" class="butns" value="Completed">
+</td>
+
                 </tr>
                 <?php
 include "../controller/productController.php";

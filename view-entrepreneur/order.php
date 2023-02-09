@@ -1,8 +1,8 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
+if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
 } else {
     header("location:Login.php");
 }
@@ -37,7 +37,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
             </div>
 
         </div>
-        <div class="bg">
+        <div class="bg" style="overflow-x:auto;">
                 <table>
                     <tr class="subtext tblrw">
                         <th class="tblh">Order ID</th>
