@@ -37,8 +37,25 @@ public function viewAll()
         return $result;
 
     }
+    public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+{
+    $product = new product();
+
+    $result = $product->deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
+
+    if (!$result) {
+        echo 'There was an error';
+    } else {
+        echo "<script>alert('The product was successfully deleted');
+        window.location.href = '../view-entrepreneur/Product.php';
+        </script>";
+    }
+}
+
+
 
 }
+
 
 
 

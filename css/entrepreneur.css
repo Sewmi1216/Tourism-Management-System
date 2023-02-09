@@ -804,6 +804,19 @@ select:focus{
   margin: 4px 2px;
   
 }
+.butn {
+  background-color: #fc0303;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  
+}
 
 
 
