@@ -1,10 +1,11 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
-    $id = $_SESSION["userID"];
+
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+    header("location:../view-hotel/hotelLogin.php");
 }
 ?>
 <!DOCTYPE html>
@@ -28,11 +29,11 @@ if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
 
         <div style="margin-top:20px;margin-left:10px;" class="heading">
             <span class="b">
-               New Users 
+               Today Orders
                <div style="margin-top:60px;font-size:20px;">50</div>
             </span>
             <span class="b">
-                Total Orders
+                Cancelled Orders
                 <div style="margin-top:60px;font-size:20px;">100</div>
             </span>
             <span class="b">

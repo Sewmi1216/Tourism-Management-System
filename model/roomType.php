@@ -8,7 +8,7 @@ require_once "../db/db_connection.php";
 //     header("location:login.php");
 // }
 
-class hotelPkg extends db_connection
+class roomType extends db_connection
 {
     private $conn;
 
@@ -17,11 +17,11 @@ class hotelPkg extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertHotelPkg($pkgName, $price, $desc, $filename, $status)
+    public function insertRoomType($pkgName, $price, $desc, $filename, $status)
     {
-        require_once "../view-hotel/hotelPkg.php";
+        require_once "../view-hotel/roomType.php";
 
-        $sql= "INSERT INTO hotelpackage(packageName, price, description, image, pkg_status, hotelID) VALUES ('$pkgName','$price','$desc','$filename','$status', '$id')";
+        $sql= "INSERT INTO roomtype(typeName, price, img, description, typestatus, hotelID) VALUES ('$pkgName','$price', '$filename', '$desc','$status', '$id')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmts = $this->conn->prepare($sql);
@@ -36,9 +36,9 @@ class hotelPkg extends db_connection
     //     return $stmt;
 
     // }
-    public function viewPkg($pId)
+    public function viewType($pId)
     {
-       $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID and packageID = '$pId'";
+       $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -50,8 +50,8 @@ class hotelPkg extends db_connection
         // return $stmt;
 
     }
-      public function viewAllPkgs(){
-       $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID";
+      public function viewAllTypes(){
+       $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID";
        return $this->getData($query);
     }
 
@@ -66,13 +66,13 @@ class hotelPkg extends db_connection
 		}
 		return $data;
 	}
-    public function updatePkg($id, $pkgName, $price, $desc, $filename, $status){
-        $query = "update hotelpackage set packageName='$pkgName', price='$price', description='$desc', image='$filename', pkg_status='$status' where packageID='$id'";
+    public function updateType($id, $pkgName, $price, $desc, $filename, $status){
+        $query = "update roomtype set typeName='$pkgName', price='$price', description='$desc', img='$filename', typestatus='$status' where roomTypeId='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
-    public function deletePkg($id){
-        $query = "delete from hotelpackage where packageID='$id'";
+    public function deleteType($id){
+        $query = "delete from roomtype where roomTypeId='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
