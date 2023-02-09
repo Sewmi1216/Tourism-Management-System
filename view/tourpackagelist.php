@@ -13,6 +13,7 @@ $res2 = $tourist->getallproducts();
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="../css/hindex.css">
+  <link rel="stylesheet" href="../css/tourist-tourpackage.css">
 </head>
 
 <body>
@@ -51,30 +52,148 @@ $res2 = $tourist->getallproducts();
 
       <div class="silverpot">
         <p>Recommended Crafts from Us</p>
-        <img src="../images/tourpackage/1.jpg"/>
+        <img src="../images/forest.png"/>
       </div>
 
       <div class="elephant-statue">
-        <img src="../img/elephant_statue.png"/>
+        <img src="../images/img2.png"/>
       </div>
 
       <div class="saree">
-        <img src="../img/green_saree.png"/>
+        <img src="../images/img3.png"/>
       </div>
 
       <div class="elephant">
-        <img src="../img/leaf_elephant.png"/>
+        <img src="../images/img4.png"/>
       </div>
 
       <div class="palmyrah">
-        <img src="../img/plamyrah_products.png"/>
-      </div>
-
-      <div class="mid-text">
-        <p>New Products</p>
+        <img src="../images/img5.png"/>
       </div>
 
 
+
+
+      <section class="packages" id="packages" style="padding-top = 40px">
+
+<h1 class="heading">
+    <span>p</span>
+    <span>a</span>
+    <span>c</span>
+    <span>k</span>
+    <span>a</span>
+    <span>g</span>
+    <span>e</span>
+    <span>s</span>
+</h1>
+
+<div class="box-container">
+
+    <div class="box">
+        <img src="../images/kandy.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Middle Through </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/anuradhapura.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Roam Anuradha </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/polannaruwa.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Heritage Steer </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/galle.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Galle Quest </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/sinharaja.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Jungle Jaunt </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/colombo.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Capital Ride </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+</div>
+
+</section>
 
 
 
