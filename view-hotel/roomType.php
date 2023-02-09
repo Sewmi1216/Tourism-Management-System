@@ -288,7 +288,7 @@ if ($result->num_rows > 0) {
 
                 <div class="container">
 
-                    <input type="text" id="modalIdValue" class="subfield" name="id" value="<?php echo $typeID;?>" />
+                    <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $typeID;?>" />
 
 
                     <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete

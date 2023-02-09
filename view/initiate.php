@@ -14,7 +14,7 @@
 
         <div class="home-btn">
             <img class="home-img" src="../img/home.png" alt="">
-        <a class="home-text" href="#">HOME</a>
+        <a class="home-text" href="../view-hotel/home.php">HOME</a>
         </div>
 
         <div class="back-btn">
