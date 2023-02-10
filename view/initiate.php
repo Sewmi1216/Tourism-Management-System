@@ -41,6 +41,7 @@
       </div>
 
       <div class="right2">
+      <a href="../view-tour_guide/Guide_signup.php">
       <button class="btns" >TOUR GUIDE</button>
       </div>
       
