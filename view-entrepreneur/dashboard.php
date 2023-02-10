@@ -29,7 +29,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 
         <div style="margin-top:20px;margin-left:10px;" class="heading">
             <span class="b">
-               Today Orders
+               Today's Orders
                <div style="margin-top:60px;font-size:40px;">50</div>
             </span>
             <span class="b">
@@ -37,7 +37,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 <div style="margin-top:60px;font-size:40px;">100</div>
             </span>
             <span class="b">
-               Products Sell
+               Products Sold
                <div style="margin-top:60px;font-size:40px;">500</div>
             </span>
             <span class="b">
