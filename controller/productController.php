@@ -39,7 +39,7 @@ public function viewAll()
     }
     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
 {
-    $product = new product();
+    
 
     $result = $product->deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
 

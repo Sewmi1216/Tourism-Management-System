@@ -40,7 +40,7 @@
               <span class="desc">Tourist Guides</span>
           </li>
             <li>
-              <a href="admins.php">
+              <a href="touristdetails.php">
                   <i class="fa-solid fa-globe"></i>
                   <span class="link">Tourists</span>
               </a>

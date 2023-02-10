@@ -13,6 +13,7 @@ $res2 = $tourist->getallproducts();
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="../css/hindex.css">
+  <link rel="stylesheet" href="../css/tourist-tourpackage.css">
 </head>
 
 <body>
@@ -30,49 +31,120 @@ $res2 = $tourist->getallproducts();
             <a href="home2.php">Home</a>
         </div>
     </div>
-
-    <div class="search">
-        <input type="text" placeholder="Search by Location">
-        <img src="../img/Union.png"/>
-      </div>
+      <section class="packages" id="packages" style="padding-top = 40px">
 
 
-      <div class="text-box">
-        <p class="text-1">MAKE YOURSELF AT HOME</p>
-        <br><br>
-        <p class="text-2">We are a small island with big hearts. Wherever you may find yourself in Sri Lanka, rest easy knowing that an open door is never too far away.</p>
-        <br><br>
-        <p class="text-3">BOOK TOUR PACKAGES NOW >></p>
-      </div>
 
-      <div class="lankan-img">
-        <img src="../img/24545515_357 [Converted] 1.png"/>
-      </div>
 
-      <div class="silverpot">
-        <p>Recommended Crafts from Us</p>
-        <img src="../img/silver_pot.png"/>
-      </div>
+      <div class="box-container">
 
-      <div class="elephant-statue">
-        <img src="../img/elephant_statue.png"/>
-      </div>
+    <div class="box">
+        <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
 
-      <div class="saree">
-        <img src="../img/green_saree.png"/>
-      </div>
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
 
-      <div class="elephant">
-        <img src="../img/leaf_elephant.png"/>
-      </div>
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
 
-      <div class="palmyrah">
-        <img src="../img/plamyrah_products.png"/>
-      </div>
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Queenly Quad </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
 
-      <div class="mid-text">
-        <p>New Products</p>
-      </div>
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Cottage</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Apartment</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
 
 
 

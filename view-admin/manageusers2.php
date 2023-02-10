@@ -29,13 +29,13 @@
 
         <div class="booked-packages">
           <div class="add">  
-            <a href="addentrepreneur.php"><i class=""></i> ADD ENTREPRENEURS</a>
+           
             <a href="view-entrepreneur.php"><i class=""></i> VIEW ENTREPRENEURS</a>
         </div>
 
             <div class="booked-packages-list">
                 <div class="booked-packages-card">
-                  <a href=""> <img src="../images/admin/admin.png" alt="images"></a> 
+                  <a href=""> <img src="../images/admin/admin.png" alt="images" id="myBtn"></a> 
                     <div class="details">
                         <h5>Passikudah</h5>
                         <div class="tour-dates">
@@ -92,7 +92,6 @@
                 </div>
                 <div class="add">  
                     <h3>HOTEL MANAGER APPROVAL</h3> 
-                    <a href="addhotelmanager.php"><i class=""></i> ADD HOTEL MANAGERS</a>
                  <a href="view-hotelmanager.php"><i class=""></i> VIEW HOTEL MANAGERS</a>
                 </div>
                 <div class="booked-packages-card">
@@ -256,7 +255,33 @@
     </section>
 
 
+    <script>
+// Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 
 </body>

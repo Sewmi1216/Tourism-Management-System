@@ -42,7 +42,7 @@
                                     <i class="bi bi-calendar-event"></i>
                                     <div class="btn">
                                         <button type="button" class="editbtn">APPROVE</button>
-                                        <button type="button" class="deletebtn">DELETE</button>
+                                        <button type="button" class="deletebtn">CONTACT</button>
                                     </div>
                                     <p></p>
                                 </div>
@@ -56,7 +56,7 @@
                                     <i class="bi bi-calendar-event"></i>
                                     <div class="btn">
                                         <button type="button" class="editbtn">APPROVE</button>
-                                        <button type="button" class="deletebtn">DELETE</button>
+                                        <button type="button" class="deletebtn">CONTACT</button>
                                     </div>
                                     <p></p>
                                 </div>
@@ -71,7 +71,7 @@
                                     <i class="bi bi-calendar-event"></i>
                                     <div class="btn">
                                         <button type="button" class="editbtn">APPROVE</button>
-                                        <button type="button" class="deletebtn">DELETE</button>
+                                        <button type="button" class="deletebtn">CONTACT</button>
                                     </div>
                                     <p></p>
                                 </div>
@@ -111,23 +111,7 @@
                             </div>
                         </div>
 
-                        <div class="add">
-                            <h3>REJECTED BOOKINGS</h3>
-                        </div>
-                        <div class="booked-packages-card" style="background-color: #022535
-">
-                            <a href=""> <img src="../images/available packages/package1.png" alt="images"></a>
-                            <div class="details">
-                                <h5>Passikudah</h5>
-                                <div class="tour-dates">
-                                    <i class="bi bi-calendar-event"></i>
-                                    <div class="btn">
-                                        <button type="button" class="editbtn">CONTACT</button>
-                                    </div>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
+            
                     </div>
                 </div>
             </div>

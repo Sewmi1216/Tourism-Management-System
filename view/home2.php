@@ -16,9 +16,9 @@
             <a href="../view-hotel/hotelLogin.php">Log out</a>
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="#hotel">Accommodation</a>
+            <a href="hotellist.php">Accommodation</a>
             <a href="craftlist.php">Handicrafts</a>
-            <a href="#tour">Tour Packages</a>
+            <a href="tourpackagelist.php">Tour Packages</a>
             <a href="home2.php">Home</a>
         </div>
     </div>

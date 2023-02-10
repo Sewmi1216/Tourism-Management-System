@@ -9,7 +9,6 @@
         <div class="booked-packages">
           <div class="add">  
             <h3>ENTREPRENEUR APPROVAL</h3> 
-            <a href="addentrepreneur.php"><i class=""></i> ADD ENTREPRENEURS</a>
             <a href="view-entrepreneur.php"><i class=""></i> VIEW ENTREPRENEURS</a>
         </div>
 
@@ -72,7 +71,7 @@
                 </div>
                 <div class="add">  
                     <h3>HOTEL MANAGER APPROVAL</h3> 
-                    <a href="addentrepreneur.php"><i class=""></i> ADD HOTEL MANAGERS</a>
+                   
                  <a href="view-hotelmanager.php"><i class=""></i> VIEW HOTEL MANAGERS</a>
                 </div>
                 <div class="booked-packages-card">
