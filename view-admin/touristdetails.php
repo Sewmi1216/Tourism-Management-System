@@ -91,7 +91,7 @@ if ($res->num_rows > 0) {
                     <tr class="subtext tblrw">
                         
                         <td class="tbld"><?php echo $row["name"] ?></td>
-                        <td class="tbld"><?php echo $row["nic"] ?></td>
+                        <td class="tbld"><?php echo $row["address"] ?></td>
                         <td class="tbld"><?php echo $row["email"] ?></td>
                         <td class="tbld"><?php echo $row["phone"] ?></td>
                         <td class="tbld"><a
