@@ -194,7 +194,7 @@ if ($result->num_rows > 0) {
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Hotel Package</b><hr style="margin-top:25px;"></label>
+                    <label for="room"><b>Update Room Type</b><hr style="margin-top:25px;"></label>
                 </div>
 
                 <div class="container">

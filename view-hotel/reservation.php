@@ -30,7 +30,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <!-- <div class="text">Hotel Packages</div> -->
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Guest Reservations</div>
+                <div class="page-title"> Guest Reservations[Payment done by tourist]</div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for guest reservations" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
@@ -100,7 +100,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Admin Reservations</div>
+                <div class="page-title"> Guest Reservations[Payment done by admin]</div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for admin reservations" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
