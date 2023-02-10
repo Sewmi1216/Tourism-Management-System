@@ -110,7 +110,7 @@ foreach ($results as $result) {
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room Types</b></label>
+                    <label for="room"><b>Add Room Types</b><hr style="margin-top:25px;"></label>
                 </div>
 
                 <div class="container">
