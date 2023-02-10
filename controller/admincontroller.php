@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 include '../model/admin.php';
 
@@ -62,7 +62,7 @@ class adminController extends db_connection
             echo 'Error Occured';
         }else{
             echo 'Successfully Added';
-            header("Location: ../view/tourguide.php");
+            header("Location: ../view/admins.php");
             
         }
 
@@ -73,7 +73,7 @@ class adminController extends db_connection
         
         $pkg = new admin();
 
-        $result = $pkg->viewadmin();
+        $result = $pkg->viewAdmin();
 
         $_SESSION['c'] = $result;
         return $result;

@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="../css/reserve.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link rel="stylesheet" href="../css/tourist-tourpackage.css">
+  <link rel="stylesheet" href="../css/order.css">
 </head>
 
 <body>

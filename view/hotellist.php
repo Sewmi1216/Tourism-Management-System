@@ -51,7 +51,7 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">book now</a>
+            <a href="reservehotel.php" class="btn">book now</a>
         </div>
     </div>
 
@@ -68,7 +68,7 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">book now</a>
+            <a href="reservehotel.php" class="btn">book now</a>
         </div>
     </div>
 
@@ -102,7 +102,7 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">book now</a>
+            <a href="reservehotel.php" class="btn">book now</a>
         </div>
     </div>
 
@@ -119,7 +119,7 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">book now</a>
+            <a href="reservehotel.php" class="btn">book now</a>
         </div>
     </div>
 
@@ -136,10 +136,213 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
             <a href="#" class="btn">book now</a>
         </div>
     </div>
 
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Queenly Quad </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Cottage</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Apartment</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="#" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Queenly Quad </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Cottage</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/h3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Apartment</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
 </div>
 
 </section>

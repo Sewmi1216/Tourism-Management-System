@@ -177,9 +177,9 @@ span.psw {
                 </div>
  
                 <span style="margin-left: 8px;">
-                    <a onclick="document.getElementById('id01').style.display='block'"><i
-                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
-;"></i></a>
+                    <a onclick="document.getElementById('id01').style.display='block'">
+                    
+                    <i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581;"></i></a>
                 </span>
             </div>
 

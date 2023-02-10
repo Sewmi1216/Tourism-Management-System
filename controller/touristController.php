@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 include '../model/tourist.php';
 
@@ -104,5 +104,16 @@ class touristController extends db_connection
         }
     }
     
+    public function viewAlltourist()
+    {
+        
+        $pkg = new admin();
+
+        $result = $pkg->viewtourist();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
 
 }
