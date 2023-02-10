@@ -83,7 +83,17 @@ class tourist extends db_connection
         return $stmt2;
     }
 
+    public function viewAlltourist()
+    {
         
+        $pkg = new admin();
+
+        $result = $pkg->viewtourist();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    } 
 
     
 }

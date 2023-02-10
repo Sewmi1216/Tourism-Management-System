@@ -39,8 +39,8 @@ $rows = $_SESSION['c'];
                     <img src="../images/available packages/package1.png" alt="images">
                     <span class="details">
                     <tr>
-                        <td>  '.$row['package_name'].'</td>
-                        <td>  '.$row['package_id'].'</td>
+                        <td>  '.$row['name'].'</td>
+                        <td>  '.$row['id'].'</td>
 
                         <span class="btn">
                         <a href="editpackage.php?package_id='.$row['package_id'].'"> <button type="button" class="editbtn"> EDIT </button></a> 

@@ -17,5 +17,10 @@ class admin extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    public function viewAdmin(){
+        $sql = "SELECT * from admin";
+        $stmt = mysqli_query($this->conn, $sql);
+        return $stmt;
+    }
 
 }

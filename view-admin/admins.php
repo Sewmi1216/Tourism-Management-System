@@ -52,7 +52,10 @@
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 
-;"></i></a>
+                <span style="margin-left: 8px;">
+                    <a onclick="document.getElementById('id01').style.display='block'"><i
+                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581;"></i></a>
+                </span>
                 </span>
             </div>
 
@@ -114,18 +117,9 @@ if ($res->num_rows > 0) {
 
 
 
+        
 
-
-
-
-
-
-
-
-
-
-
-        <div id="id01" class="modal">
+    <div id="id01" class="modal">
 
             <form class="modal-content animate" action="../api/addtourguide.php" method="post">
                 <div class="imgcontainer">

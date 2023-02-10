@@ -80,12 +80,12 @@
                         <th class="tblh">Delete</th>
                     </tr>
                     <?php
-require_once("../controller/adminController.php") ;
-$admincont = new admincontroller();
-$res = $admincont->viewALladmin();
+
+include "../controller/touristcontroller.php";
+$touristcont = new touristController();
+$res = $touristcont->viewAlltourist();
 if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
-      
         ?>
 
                     <tr class="subtext tblrw">
