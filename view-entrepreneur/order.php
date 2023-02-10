@@ -1,8 +1,8 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
-    $id = $_SESSION["userID"];
+if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+    $id = $_SESSION["entID"];
 } else {
     header("location:Login.php");
 }
