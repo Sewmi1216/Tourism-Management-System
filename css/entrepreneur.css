@@ -376,6 +376,7 @@ span.b {
   border: 1px solid rgba(37, 53, 81, 1);    
   background-color: white; 
   margin-top: 10px;
+  font-size: 20px;
 }
 span.c {
   display: inline-block;
