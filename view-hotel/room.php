@@ -52,7 +52,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <table>
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
-                    <th class="tblh">Hotel Package ID</th>
                     <th class="tblh">Guest Name</th>
                     <th class="tblh">Room type</th>
                     <th class="tblh">From</th>
@@ -71,9 +70,7 @@ foreach ($results as $result) {
                     <td class="tbld">
                         <?php echo $result["roomNo"] ?>
                     </td>
-                    <td class="tbld">
-                        <?php echo $result["typeID"] ?>
-                    </td>
+                    
                     <td class="tbld">
                         John
                     </td>
@@ -117,25 +114,25 @@ foreach ($results as $result) {
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b></label>
+                    <label for="room"><b>Add Room</b><hr style="margin-top:25px;"></label>
                 </div>
 
                 <div class="container">
                     <table>
                         <tr class="row">
                             <td>
-                                <div class="content">Hotel Package Name</div>
+                                <div class="content">Room Type</div>
                             </td>
                             <td> <select class="subfield" name="hotelPkgId">
                                     <?php
-require_once("../controller/hotelPkgController.php") ;
-$pkg = new hotelPkgController();
-$results = $pkg->viewAllPkgs();
+require_once("../controller/roomTypeController.php") ;
+$pkg = new roomTypeController();
+$results = $pkg->viewAllTypes();
            foreach ($results as $result) {
                ?>
-                                    <option value="<?php echo $result["packageID"];
+                                    <option value="<?php echo $result["roomTypeId"];
                 ?>">
-                                        <?php echo $result["packageName"];
+                                        <?php echo $result["typeName"];
                     ?>
                                     </option>
                                     <?php
@@ -149,17 +146,12 @@ $results = $pkg->viewAllPkgs();
                             </td>
                             <td> <input type="text" class="subfield" name="roomNo" /></td>
                         </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="type" /></td>
-                        </tr>
+                        
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
                             </td>
-                            <td> <input type="number" min="10" class="subfield" name="beds" /></td>
+                            <td> <input type="number" min="0" class="subfield" name="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -193,14 +185,14 @@ $results = $pkg->viewAllPkgs();
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Room</b></label>
+                    <label for="room"><b>Update Room</b><hr style="margin-top:25px;"></label>
                 </div>
 
                 <div class="container">
                     <table>
                         <tr class="row">
                             <td>
-                                <div class="content">Hotel Package Name</div>
+                                <div class="content">Room Type</div>
                             </td>
                             <td> <input type="text" class="subfield" name="pName" /></td>
                         </tr>
@@ -210,17 +202,12 @@ $results = $pkg->viewAllPkgs();
                             </td>
                             <td> <input type="text" class="subfield" name="pName" /></td>
                         </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
-                        </tr>
+                    
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
                             </td>
-                            <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                            <td> <input type="number" min="0" class="subfield" name="price" /></td>
                         </tr>
                         <tr class="row">
                             <td>

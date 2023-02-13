@@ -1,7 +1,9 @@
 <?php
-session_start();
+
 
 include '../model/tourist.php';
+include '../model/admin.php';
+
 
 class touristController extends db_connection
 {
@@ -104,5 +106,16 @@ class touristController extends db_connection
         }
     }
     
+    public function viewAlltourist()
+    {
+        
+        $pkg = new tourist();
+
+        $result = $pkg->viewAdmin();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
 
 }

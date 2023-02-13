@@ -1,4 +1,6 @@
 <?php
+
+
 include_once '../controller/roomTypeController.php';
 
 if (isset($_POST['save'])) {
@@ -62,9 +64,28 @@ if (isset($_POST['delete'])) {
 
 }
 
-//if (isset($_POST['input'])) {
-//     $input = $_POST['input'];
-//    $hotelpkgsearch = new hotelPkgController();
-// $res = $hotelpkgsearch->search($input);
+if (isset($_POST["get_data"])) {
+    // Get the ID of customer user has selected
+    $id = $_POST["id"];
 
-//}
+    // Connecting with database
+    // $connection = mysqli_connect("localhost", "root", "", "pack2paradise");
+
+    // Getting specific customer's detail
+    //$sql = "SELECT * FROM customers WHERE customerNumber='$id'";
+    // $sql = "SELECT * from roomtype where roomTypeId = '$id'";
+
+    // $result = mysqli_query($connection, $sql);
+    // $row = mysqli_fetch_object($result);
+
+    $type = new roomTypeController();
+    $result = $type->viewType($id);
+    $row = mysqli_fetch_object($result);
+
+    // Important to echo the record in JSON format
+    echo json_encode($row);
+
+    // Important to stop further executing the script on AJAX by following line
+    exit();
+}
+

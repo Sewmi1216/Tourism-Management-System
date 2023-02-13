@@ -12,7 +12,7 @@ class room extends db_connection
 
     public function insertRoom($roomNo, $type, $beds, $status, $hotelPkgId)
     {
-        $query = "INSERT INTO room (roomNo, type, noOfBeds, status, hotelPkgID) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO room (roomNo, type, noOfBeds, status, typeID) VALUES (?, ?, ?, ?, ?)";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);

@@ -39,9 +39,7 @@ class roomTypeController extends db_connection
     public function viewAllTypes()
     {
         $pkg = new roomType();
-
         $result = $pkg->viewAllTypes();
-
         return $result;
 
     }

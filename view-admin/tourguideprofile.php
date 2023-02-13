@@ -21,7 +21,7 @@
      
 
       <div class="heading">
-        <h2 style="color:white"><b>TOURIST PROFILE</b></h2>
+        <h2 style="color:white"><b>TOUR GUIDE PROFILE</b></h2>
         </div>
 
         <div class="tab" >

@@ -46,16 +46,12 @@
         <!-- <div class="text">Hotel Packages</div> -->
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> System Administrators </div>
+                <div class="page-title"> Registered Tourists </div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for Admins" name="search">
+                    <input class="input-field" type="text" placeholder="Search for Tourist" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
-                <span style="margin-left: 8px;">
-                    <a onclick="document.getElementById('id01').style.display='block'"><i
-                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
-;"></i></a>
+</i></a>
                 </span>
             </div>
 
@@ -84,18 +80,18 @@
                         <th class="tblh">Delete</th>
                     </tr>
                     <?php
-require_once("../controller/adminController.php") ;
-$admincont = new admincontroller();
-$res = $admincont->viewALladmin();
+
+include "../controller/touristcontroller.php";
+$touristcont = new touristController();
+$res = $touristcont->viewAlltourist();
 if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
-      
         ?>
 
                     <tr class="subtext tblrw">
                         
                         <td class="tbld"><?php echo $row["name"] ?></td>
-                        <td class="tbld"><?php echo $row["nic"] ?></td>
+                        <td class="tbld"><?php echo $row["address"] ?></td>
                         <td class="tbld"><?php echo $row["email"] ?></td>
                         <td class="tbld"><?php echo $row["phone"] ?></td>
                         <td class="tbld"><a

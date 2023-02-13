@@ -13,6 +13,7 @@ $res2 = $tourist->getallproducts();
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="../css/hindex.css">
+  <link rel="stylesheet" href="../css/tourist-tourpackage.css">
 </head>
 
 <body>
@@ -30,49 +31,225 @@ $res2 = $tourist->getallproducts();
             <a href="home2.php">Home</a>
         </div>
     </div>
-
-    <div class="search">
-        <input type="text" placeholder="Search by Location">
-        <img src="../img/Union.png"/>
-      </div>
+      <section class="packages" id="packages" style="padding-top = 40px">
 
 
-      <div class="text-box">
-        <p class="text-1">MAKE YOURSELF AT HOME</p>
-        <br><br>
-        <p class="text-2">We are a small island with big hearts. Wherever you may find yourself in Sri Lanka, rest easy knowing that an open door is never too far away.</p>
-        <br><br>
-        <p class="text-3">BOOK TOUR PACKAGES NOW >></p>
-      </div>
 
-      <div class="lankan-img">
-        <img src="../img/24545515_357 [Converted] 1.png"/>
-      </div>
 
-      <div class="silverpot">
-        <p>Recommended Crafts from Us</p>
-        <img src="../img/silver_pot.png"/>
-      </div>
+      <div class="box-container">
 
-      <div class="elephant-statue">
-        <img src="../img/elephant_statue.png"/>
-      </div>
+    <div class="box">
+        <img src="../images/craft/c1.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Jar</h3>
+            <p></p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
 
-      <div class="saree">
-        <img src="../img/green_saree.png"/>
-      </div>
+    <div class="box">
+    <img src="../images/craft/c2.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Perahera Art</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
 
-      <div class="elephant">
-        <img src="../img/leaf_elephant.png"/>
-      </div>
+    <div class="box">
+    <img src="../images/craft/c3.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Elephant Statue</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
 
-      <div class="palmyrah">
-        <img src="../img/plamyrah_products.png"/>
-      </div>
+    <div class="box">
+    <img src="../images/craft/c4.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Clay Pots </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
 
-      <div class="mid-text">
-        <p>New Products</p>
-      </div>
+    <div class="box">
+    <img src="../images/craft/c5.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Lord Ganesh Art</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c6.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Modern Art</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c7.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Bamboo Basket</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c8.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>  Batik Bag</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c9.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Batik Saree</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c10.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Batik Shawl</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c11.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Decorative Ornament </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c12.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Batik Top</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+  
+      
+
+ 
+
+</section>
+
+
 
 
 

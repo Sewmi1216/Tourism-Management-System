@@ -83,7 +83,12 @@ class tourist extends db_connection
         return $stmt2;
     }
 
-        
+    public function viewtourist(){
+        $sql = "SELECT * from tourist";
+        $stmt = mysqli_query($this->conn, $sql);
+        return $stmt;
+    }
+
 
     
 }
