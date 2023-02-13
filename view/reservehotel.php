@@ -58,25 +58,38 @@
 <div class="row">
 
     <div class="image">
-        <img src="../img/r4.png" alt="">
-        <img src="../img/r4.png" alt="">
+    <img src="../images/hotelpackage/hotel2.jpg" alt="">
+    <img src="../images/hotelpackage/g8.jpg" alt="" >
     </div>
 
     <form action="">
-        <div class="inputBox">
-            <h3>where to</h3>
-            <input type="text" placeholder="place name">
+
+    <div class="inputBox">
+            <h3>Name</h3>
+            <input type="text" placeholder="">
         </div>
         <div class="inputBox">
-            <h3>how many</h3>
-            <input type="number" placeholder="number of guests">
+            <h3>Email Address</h3>
+            <input type="text" placeholder="">
         </div>
         <div class="inputBox">
-            <h3>arrivals</h3>
+            <h3>Mobile Number</h3>
+            <input type="text" placeholder="">
+        </div>
+        <div class="inputBox">
+            <h3>Room Type</h3>
+            <input type="text" placeholder="">
+        </div>
+        <div class="inputBox">
+            <h3>No Of Guests</h3>
+            <input type="number" placeholder="">
+        </div>
+        <div class="inputBox">
+            <h3>Check-In</h3>
             <input type="date">
         </div>
         <div class="inputBox">
-            <h3>leaving</h3>
+            <h3>Check-Out</h3>
             <input type="date">
         </div>
         <input type="submit" class="btn" value="book now">
@@ -142,7 +155,7 @@
     <div class="box-container">
 
         <div class="box">
-            <img src="images/g-1.jpg" alt="">
+        <img src="../images/hotelpackage/g9.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -150,7 +163,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-2.jpg" alt="">
+        <img src="../images/hotelpackage/g2.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -158,7 +171,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-3.jpg" alt="">
+        <img src="../images/hotelpackage/g10.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -166,7 +179,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-4.jpg" alt="">
+        <img src="../images/hotelpackage/g4.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -174,7 +187,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-5.jpg" alt="">
+        <img src="../images/hotelpackage/g9.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -182,7 +195,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-6.jpg" alt="">
+        <img src="../images/hotelpackage/g6.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -190,7 +203,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-7.jpg" alt="">
+        <img src="../images/hotelpackage/g7.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -198,7 +211,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-8.jpg" alt="">
+        <img src="../images/hotelpackage/g12.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
@@ -206,7 +219,7 @@
             </div>
         </div>
         <div class="box">
-            <img src="images/g-9.jpg" alt="">
+        <img src="../images/hotelpackage/g13.jpg" alt="" >
             <div class="content">
                 <h3>amazing places</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
