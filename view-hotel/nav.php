@@ -47,7 +47,7 @@
               <span class="desc">Payments</span>
           </li>
 
-          <hr>
+          <hr style="margin-top:200px;">
           <div>
               <a href="../api/logout.php">
                   <i class="fa-solid fa-right-from-bracket"></i>

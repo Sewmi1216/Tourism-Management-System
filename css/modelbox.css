@@ -29,25 +29,26 @@ input {
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-  width: auto;
+  /* width: auto; */
   padding: 10px 18px;
   background-color: #ffffff;
   border: 3px solid #004581;
   text-align: center;
-  display: inline-block;
+  /* display: inline; */
   cursor: pointer;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  margin-left: 15rem;
+  /* margin-left: 15rem; */
   font-size: 14px;
   color: #004581;
 }
 
 /* Center the image and position the close button */
 .imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
+  text-align: left;
+  /* margin: 24px 0 12px 0; */
   position: relative;
+  padding: 20px;
 }
 
 img.avatar {
@@ -56,8 +57,9 @@ img.avatar {
 }
 
 .container {
-  padding: 40px;
+  padding: 20px;
   margin-top: 10px;
+  text-align: center;
 }
 
 span.psw {
@@ -91,11 +93,12 @@ span.psw {
 /* The Close Button (x) */
 .close {
   position: absolute;
-  right: 25px;
-  top: 0;
+  right: 12px;
+  top: 14px;
   color: #000;
-  font-size: 35px;
+  font-size:25px;
   font-weight: bold;
+  padding: 0 8px 0 8px;
 }
 
 .close:hover,
@@ -137,4 +140,8 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+
+hr{
+  border: 2px solid rgb(89, 52, 175);
 }

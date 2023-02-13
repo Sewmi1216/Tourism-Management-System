@@ -86,28 +86,6 @@
 
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- <div class="set">
         <div class="des">
             <p> <b>Hotel Golden Pearl  - Tranquil Triple - Suite </b><br>

@@ -2,6 +2,8 @@
 
 
 include '../model/tourist.php';
+include '../model/admin.php';
+
 
 class touristController extends db_connection
 {
@@ -109,7 +111,7 @@ class touristController extends db_connection
         
         $pkg = new admin();
 
-        $result = $pkg->viewtourist();
+        $result = $pkg->viewAdmin();
 
         $_SESSION['c'] = $result;
         return $result;

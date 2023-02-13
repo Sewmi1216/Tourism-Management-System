@@ -27,25 +27,25 @@
                 <td>
                     <div class="content">Package Name</div>
                 </td>
-                <td>  <input type="text" placeholder="Enter Package Name" value="<?php echo $name?>" name="pckgname" required></td>
+                <td>  <input type="text" placeholder="Enter Package Name" value="" name="pckgname" required></td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Package Price</div>
                 </td>
-                <td> <input type="text" placeholder="Package Price" value="<?php echo $name?>" name="pckgprice" required> </td>
+                <td> <input type="text" placeholder="Package Price" value="" name="pckgprice" required> </td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Package Description</div>
                 </td>
-                <td> <input type="text" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" value="<?php echo $name?>" name="pckgdesc" required> </td>
+                <td> <input type="text" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" value="" name="pckgdesc" required> </td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Package Images</div>
                 </td>
-                <td><input type="file" id="myFile" value="<?php echo $name?>" name="pckgimg"> </td>
+                <td><input type="file" id="myFile" value="" name="pckgimg"> </td>
             </tr>
             
            

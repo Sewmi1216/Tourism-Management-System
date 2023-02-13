@@ -33,9 +33,6 @@ $res2 = $tourist->getallproducts();
     </div>
       <section class="packages" id="packages" style="padding-top = 40px">
 
-
-
-
       <div class="box-container">
 
     <div class="box">
