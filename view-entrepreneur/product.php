@@ -194,20 +194,20 @@ if ($res->num_rows > 0) {
         <!-- delete pkg -->
         <div id="id04" class="modal">
 
-            <form class="modal-content animate" style="width:45%;" method="post" action="../api/addpkg.php"
+            <form class="modal-content animate" style="width:45%;" method="post" action="../api/productapi.php"
                 enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id04').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
                 </div>
 
-                    <input type="hidden" class="subfield" name="id" value="<?php echo $packageID ?>" />
+                    <input type="hidden" class="subfield" name="id" value="<?php echo $productID ?>" />
                     <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
                         this product?</p>
 
                     <div>
                         <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                            class="btns" style="margin-left:11rem; ">No</button>
+                            class="btnss" style="margin-left:11rem; ">No</button>
                         <button type="submit" class="btns" value="Save" name="delete"
                             style="margin-left:105px;">Yes</button>
 </div>

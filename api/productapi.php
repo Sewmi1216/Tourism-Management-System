@@ -17,4 +17,10 @@ if (isset($_POST['save'])) {
     $productcon->addproduct($pName, $pCategory,$avaquantity, $price,$filename);
     move_uploaded_file($tempname, $folder);
 }
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $result = new productController();
+    $result->deleteproduct($id);
+
+}
 ?>

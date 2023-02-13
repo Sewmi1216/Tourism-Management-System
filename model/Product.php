@@ -33,13 +33,19 @@ class product extends db_connection
         // return $stmt;
 
     }
-    public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
-{
-    $query = "DELETE FROM product WHERE productID = 16";
+//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+// {
+//     $query = "DELETE FROM product WHERE productID = 16";
 
-    $stmt = $this->conn->prepare($query);
-    $stmt->bind_param("i", $pName, $pCategory,$avaquantity, $price,$fileImg);
-    $stmt->execute();
+//     $stmt = $this->conn->prepare($query);
+//     $stmt->bind_param("i", $pName, $pCategory,$avaquantity, $price,$fileImg);
+//     $stmt->execute();
+//     return $stmt;
+// }
+
+public function deleteproduct($id){
+    $query = "delete from product where productID='16'";
+    $stmt = mysqli_query($this->conn, $query);
     return $stmt;
 }
 

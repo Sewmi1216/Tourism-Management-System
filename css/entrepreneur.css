@@ -566,6 +566,20 @@ table {
 i {
   cursor: pointer;
 }
+.btnss {
+  border: 2px solid var(--mainColor);
+  color: var(--mainColor);
+  background-color: rgb(240, 56, 56);
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  color: white;
+  font-size: 16px;
+}
+
 
 
 
