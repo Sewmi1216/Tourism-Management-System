@@ -37,20 +37,36 @@ public function viewAll()
         return $result;
 
     }
-    public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
-{
+//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+// {
     
+//     $result = new product();
+//     $result = $product->deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
 
-    $result = $product->deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
+//     if (!$result) {
+//         echo 'There was an error';
+//     } else {
+//         echo "<script>alert('The product was successfully deleted');
+//         window.location.href = '../view-entrepreneur/product.php';
+//         </script>";
+//     }
+// }
 
-    if (!$result) {
-        echo 'There was an error';
-    } else {
-        echo "<script>alert('The product was successfully deleted');
-        window.location.href = '../view-entrepreneur/Product.php';
+public function deleteproduct($id)
+    {
+        $result = new product();
+        $result->deleteproduct($id);
+
+        if (!$result) {
+            echo 'There was a error';
+        } else {
+            echo "<script>alert('This product is deleted');
+        window.location.href = '../view-entrepreneur/product.php';
         </script>";
+
+        }
+
     }
-}
 
 
 

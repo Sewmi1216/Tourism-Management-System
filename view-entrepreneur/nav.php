@@ -34,7 +34,7 @@
           </li>
           <hr>
           <div>
-              <a href="../api/Elogout.php">
+              <a href="../api/logout.php">
                   <i class="fa-solid fa-right-from-bracket"></i>
                   <span class="link">Sign-out</span>
               </a>
