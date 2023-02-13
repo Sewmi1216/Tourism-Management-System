@@ -89,5 +89,6 @@ class tourist extends db_connection
         return $stmt;
     }
 
+
     
 }
