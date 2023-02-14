@@ -68,6 +68,24 @@ public function deleteproduct($id)
 
     }
 
+    public function updateproduct($id, $pName, $pCategory,$avaquantity, $price,$fileImg)
+    {
+        $product = new roomType();
+        $result>updateType($id,$pName, $pCategory,$avaquantity, $price,$fileImg);
+
+        if (!$result) {
+            echo 'There was a error';
+          
+        } else {
+
+            echo "<script>
+        window.location.href = '../view-entrepreneur/product.php';
+        </script>";
+
+        }
+
+    }
+
 
 
 }

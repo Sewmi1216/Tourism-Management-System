@@ -14,7 +14,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
-    
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -95,10 +94,10 @@ if ($res->num_rows > 0) {
         <div id="id03" class="modal">
 
             <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
-                <div class="imgcontainer">
+                <div class="imgcontainer" style="background-color:#004581;">
                     <span onclick="document.getElementById('id03').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Product Details</b></label>
+                    <label for="product" style="color:white; margin-left:15px" ><b>Product Details</b></label>
                 </div>
                
                 <table style="margin:-30px;">
@@ -130,31 +129,34 @@ if ($res->num_rows > 0) {
         <!-- update product -->
         <div id="id02" class="modal">
 
-            <form class="modal-content animate" method="post" action="#" enctype="multipart/form-data">
-                <div class="imgcontainer">
+            <form class="modal-content animate" method="post" action="../api/productapi.php" enctype="multipart/form-data">
+                <div class="imgcontainer" style="background-color:#004581;">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Product</b></label>
+                    <label for="product" style="color:white; margin-left:15px;"><b>Update Product</b></label>
                 </div>
                 <table>
+                <tr class="row">
+                    <input type="hidden" class="subfield" name="id" id="productid" value="" ?>
+                </tr>
             <tr class="row">
                 <td>
                     <div class="content">Product Name</div>
                 </td>
-                <td> <input type="text" class="subfield" name="pName"style="color:black;" /></td>
+                <td> <input type="text" class="subfield" id ="productname" name="pName" value="" style="color:black;" /></td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Category</div>
                 </td>
-                <td> <input type="text" class="subfield" name="pCategory" /></td>
+                <td> <input type="text" class="subfield" id="pcategory"  name="pCategory" value=""/></td>
             </tr>
             
             <tr class="row">
                 <td>
                     <div class="content">Price</div>
                 </td>
-                <td><input type="text" class="subfield" name="price" /></td>
+                <td><input type="number" id="price" min="10" class="subfield" name="price" value="<?php echo $row['price']; ?>"/></td>
                  <!-- <td> <select class="subfield" name="status" form="carform">
                                     <option value="Available">Available</option>
                                     <option value="Unavailable">Unavailable</option>
@@ -164,7 +166,7 @@ if ($res->num_rows > 0) {
                 <td>
                     <div class="content">Available Quantity</div>
                 </td>
-                <td> <input type="number" min="10" class="subfield" name="avaquantity" /></td>
+                <td> <input type="number" id="qunatity" min="10" class="subfield" name="avaquantity" value="<?php echo $row['quantity'];?>"/></td>
             </tr>
             
             
@@ -186,7 +188,7 @@ if ($res->num_rows > 0) {
          
         </table>
        
-        <input type="submit" class="btn1" value="Save" name="save"/>
+        <input type="submit" class="btn1" value="Update" name="update"/>
         </form>
     </div>
 

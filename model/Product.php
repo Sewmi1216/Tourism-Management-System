@@ -49,4 +49,12 @@ public function deleteproduct($id){
     return $stmt;
 }
 
+public function updateproduct($id, $pName, $pCategory,$avaquantity, $price,$fileImg){
+    $query = "UPDATE product SET productName='$pName', category='$pCategory', quantity='$avaquantity', price='$price', productImg='$fileImg' WHERE productID='$id'";
+    $stmt = mysqli_query($this->conn, $query);
+    return $stmt;
+}
+
+
+
 }
