@@ -28,4 +28,14 @@ class entrepreneur extends db_connection
         // echo "print";
         return $stmt;
     }
+
+
+    public function viewAllentrepreneur()
+    {
+        $query = "SELECT * from entrpreneur";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    
+    }
 }

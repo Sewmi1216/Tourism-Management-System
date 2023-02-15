@@ -58,4 +58,15 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 }
 
 
+public function viewAllentrepreneurs(){
+        $user = new entrepreur();
+
+        $result = $user-> viewAllentrepreneurs();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+
+}
+
 }
