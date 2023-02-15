@@ -9,14 +9,15 @@ $result = $pkg->viewType($typeID);
 if ($result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
         ?>
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('id03').style.display='none'" class="close"
-                title="Close Modal">&times;</span>
-            <label for="room"><b><?php echo $row["typeName"] ?><hr style="margin-top:25px;">
-                </b></label>
-                
-        </div>
 
+        <div class="imgcontainer" style="background-color:#004581;">
+
+            <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                class="cancelbtn close">&times;</button>
+            <label for="room" style="color:white"><b><?php echo $row["typeName"] ?>
+                </b></label>
+        </div>
+        <hr>
         <div class="container">
             <table style="margin:-30px;">
                 <tr>

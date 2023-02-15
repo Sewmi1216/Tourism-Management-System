@@ -38,7 +38,8 @@ class roomType extends db_connection
     // }
     public function viewType($pId)
     {
-       $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+    //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from roomtype where roomTypeId = '$pId'";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
