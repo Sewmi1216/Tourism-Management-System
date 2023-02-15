@@ -179,13 +179,13 @@ class hotelController extends db_connection
                 window.location.href = '../view-hotel/recoverPwd.php';
         </script>";?>
                     <?php
-} else {
+    } else {
                 ?>
                                 <script>
                                     alert("<?php echo "Email sent to " . $email ?>");
                                 </script>
                             <?php
-}
+    }
         } else {
             ?>
             <script>
@@ -208,8 +208,17 @@ class hotelController extends db_connection
         $hoteluser = new hotel();
         $res = $hoteluser->countReservations();
         return $res;
-
     }
+
+    public function viewAllmanagers()
+    {
+        $user = new hotel();
+
+        $result = $user-> viewAllmanagers();
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
     public function canceledReservations()
     {
         $hoteluser2 = new hotel();
@@ -244,7 +253,7 @@ class hotelController extends db_connection
         $result4 = $hoteluser4->viewAdminReservations($id);
         return $result4;
     }
-public function viewPendingReservations($id)
+    public function viewPendingReservations($id)
     {
         $hoteluser5 = new hotel();
         $result5 = $hoteluser5->viewPendingReservations($id);
