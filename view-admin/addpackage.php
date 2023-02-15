@@ -29,18 +29,32 @@
                 </td>
                 <td>  <input type="text" placeholder="Enter Package Name" name="pckgname" required></td>
             </tr>
+
+            
             <tr class="row">
                 <td>
                     <div class="content">Package Price</div>
                 </td>
                 <td> <input type="text" placeholder="Package Price" name="pckgprice" required> </td>
             </tr>
+
+
             <tr class="row">
                 <td>
                     <div class="content">Package Description</div>
                 </td>
                 <td> <input type="text" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" name="pckgdesc" required> </td>
             </tr>
+
+
+            <tr class="row">
+                <td>
+                    <div class="content">Max No of participants</div>
+                </td>
+                <td> <input type="number" placeholder="number of guests" name="nooftpurist" required> </td>
+            </tr>
+
+
             <tr class="row">
                 <td>
                     <div class="content">Package Images</div>

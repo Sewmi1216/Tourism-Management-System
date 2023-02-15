@@ -1,3 +1,14 @@
+<?php 
+require('../api/viewonetourpackage.php');
+$rows = $_SESSION['c'];
+
+// print_r($rows); die();
+// The http request hits here 4th.
+// Using the data from previously execute code, the view is prepared
+// A response to the http request is sent from here as html file.
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -19,35 +30,52 @@
         <div class="text">Edit Tour Packages</div>
 
         <div class="registerForm">
-        <form action="../api/addtourpackage.php" method="POST">
+        <form action="../api/updatetourpackage.php" method="POST">
+            <input type="hidden" name = "packageID" value=<?php foreach($rows as $row)echo $row['packageID']; ?>>
+         <?php
+
+        foreach($rows as $row) 
+        echo '<table>
+
         
-        
-        <table>
+       
             <tr class="row">
                 <td>
                     <div class="content">Package Name</div>
                 </td>
-                <td>  <input type="text" placeholder="Enter Package Name" value="<?php echo $name?>" name="pckgname" required></td>
+                <td>  <input type="text" placeholder="Enter Package Name" value='.$row['packageName'].' name="pckgname" required></td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Package Price</div>
                 </td>
-                <td> <input type="text" placeholder="Package Price" value="<?php echo $name?>" name="pckgprice" required> </td>
+                <td> <input type="text" placeholder="Package Price" value='.$row['price'].' name="pckgprice" required> </td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Package Description</div>
                 </td>
-                <td> <input type="text" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" value="<?php echo $name?>" name="pckgdesc" required> </td>
+                <td> <textarea placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" name="pckgdesc" required rows="4" cols="60"> '.$row['description'].' </textarea> </td>
+            </tr> 
+            
+            <tr class="row">
+                <td>
+                    <div class="content"> No of participants </div>
+                </td>
+                <td> <input type="text" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" value='.$row['participant_count'].' name="noofparticipant" required> </td>
             </tr>
+
             <tr class="row">
                 <td>
                     <div class="content">Package Images</div>
                 </td>
                 <td><input type="file" id="myFile" value="<?php echo $name?>" name="pckgimg"> </td>
             </tr>
+
             
+           
+           
+             
            
             <!-- <tr>
                 <td>
@@ -57,7 +85,7 @@
             </tr> -->
             
          
-        </table>
+            </table>'  ?>
        
         <input type="submit" class="btn1" value="Save" name="UPDATE"/>
         </form>
