@@ -1,3 +1,8 @@
+<?php 
+require('../api/viewhotelmanager.php');
+$rows = $_SESSION['c'];
+?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -204,6 +209,21 @@ span.psw {
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr>
+                    <?php 
+foreach ($rows as $row) {
+
+echo ' <tr class="subtext tblrw">
+                        
+                        <td class="tbld">'.$row['managerName'].'</td>
+                        <td class="tbld">'.$row['entrepreneurNic'].'</td>
+                        <td class="tbld">'.$row['entrepreneurEmail'].'</td>
+                        <td class="tbld">'.$row['entrepreneurPhone'].'</td>
+                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+        </tr> ';
+                             }
+?>  
                 </table>
             </div>
 
@@ -219,21 +239,11 @@ span.psw {
                         <th class="tblh">Delete</th>
                     </tr>
                     <tr class="subtext tblrw">
-                        <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
-                        </td>
+                       
                         <td class="tbld"><?php echo $row["packageName"] ?></td>
                         <td class="tbld"><?php echo $row["price"] ?></td>
                         <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if ($row["status"] == 0) {
-                                    echo "Unavailable";
-                                } else {
-                                    echo "Available";
-                                }
-                                ?></button>
-                        </td>
+                        <td class="tbld"><?php echo $row["price"] ?></td>
                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
                         <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
                         <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
