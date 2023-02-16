@@ -68,7 +68,7 @@ class adminController extends db_connection
 
     }
 
-    public function viewAlladmin()
+    public function viewAlladmins()
     {
         
         $pkg = new admin();

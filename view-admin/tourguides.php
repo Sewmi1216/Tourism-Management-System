@@ -105,8 +105,7 @@ if ($res->num_rows > 0) {
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                         <!-- <td class="tbld"><button data-id='<?php echo $row['packageID']; ?>' class="help"> view </button></td> -->
-                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                    class="fa-solid fa-pen-to-square art"></i></a></td>
+                        <td class="tbld">  <a href="edittouristguide.php?tourguide_id='.$row['tourguideID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                         <td class="tbld"><a onclick='showDeleteForm()'><i class="fa-solid fa-trash art"></i></a></td>
                  <?php   } } ?>
 

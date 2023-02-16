@@ -215,11 +215,12 @@ foreach ($rows as $row) {
 echo ' <tr class="subtext tblrw">
                         
                         <td class="tbld">'.$row['managerName'].'</td>
-                        <td class="tbld">'.$row['entrepreneurNic'].'</td>
-                        <td class="tbld">'.$row['entrepreneurEmail'].'</td>
-                        <td class="tbld">'.$row['entrepreneurPhone'].'</td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld">'.$row['managerNic'].'</td>
+                        <td class="tbld">'.$row['managerEmail'].'</td>
+                        <td class="tbld">'.$row['managerPhone'].'</td>
+                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                     <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                      
                         <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
         </tr> ';
                              }

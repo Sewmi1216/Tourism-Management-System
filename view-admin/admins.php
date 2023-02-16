@@ -1,3 +1,7 @@
+<?php 
+require('../api/viewadmins.php');
+$rows = $_SESSION['c'];
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -80,34 +84,23 @@
                         <th class="tblh">E-Mail Address</th>
                         <th class="tblh">Phone Number</th>
                         <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
-                        <th class="tblh">Delete</th>
+                     
                     </tr>
-                    <?php
-require_once("../controller/adminController.php") ;
-$admincont = new admincontroller();
-$res = $admincont->viewALladmin();
-if ($res->num_rows > 0) {
-    while ($row = mysqli_fetch_array($res)) {
-      
-        ?>
 
-                    <tr class="subtext tblrw">
+
+  <?php                  foreach ($rows as $row) {
+
+echo ' <tr class="subtext tblrw">
                         
-                        <td class="tbld"><?php echo $row["name"] ?></td>
-                        <td class="tbld"><?php echo $row["nic"] ?></td>
-                        <td class="tbld"><?php echo $row["email"] ?></td>
-                        <td class="tbld"><?php echo $row["phone"] ?></td>
-                        <td class="tbld"><a
-                                onclick="document.getElementById('id03').style.display='block';document.location='#id03?packageID=<?php $guestusername=$row['username']; ?>'"><i
-                                    class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                        <!-- <td class="tbld"><button data-id='<?php echo $row['packageID']; ?>' class="help"> view </button></td> -->
-                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                    class="fa-solid fa-pen-to-square art"></i></a></td>
-                        <td class="tbld"><a onclick='showDeleteForm()'><i class="fa-solid fa-trash art"></i></a></td>
-                 <?php   } } ?>
-
-                    </tr>
+                        <td class="tbld">'.$row['adminName'].'</td>
+                        <td class="tbld">'.$row['username'].'</td>
+                        <td class="tbld">'.$row['managerEmail'].'</td>
+                        <td class="tbld">'.$row['managerPhone'].'</td>
+                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                    
+        </tr> ';
+                             }
+?>  
                 </table>
             </div>
 
