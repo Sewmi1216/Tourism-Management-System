@@ -31,13 +31,13 @@ public function viewAll()
     {
         $product = new product();
 
-        $result = $product->viewAll();
+        $results= $product->viewAll();
 
         // include "../view/product.php";
-        return $result;
+        return $results;
 
     }
-//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$filename)
 // {
     
 //     $result = new product();
@@ -65,13 +65,15 @@ public function deleteproduct($id)
         </script>";
 
         }
+        
 
     }
+   
 
-    public function updateproduct($id, $pName, $pCategory,$avaquantity, $price,$fileImg)
+    public function updateproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
     {
-        $product = new roomType();
-        $result>updateType($id,$pName, $pCategory,$avaquantity, $price,$fileImg);
+        $result = new product();
+        $result-> updateproduct ($pName, $pCategory,$avaquantity, $price,$fileImg);
 
         if (!$result) {
             echo 'There was a error';

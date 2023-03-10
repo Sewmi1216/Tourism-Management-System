@@ -101,7 +101,7 @@ foreach ($results as $result) {
                 <?php }
 ?>
 
-            </table>
+        </table>
         </div>
         </div>
         </div>

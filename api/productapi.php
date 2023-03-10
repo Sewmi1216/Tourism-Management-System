@@ -1,6 +1,7 @@
 <?php
 include '../controller/productController.php';
 if (isset($_POST['save'])) {
+    $pid = $_POST['id'];
     $pName = $_POST['pName'];
     $pCategory = $_POST['pCategory'];
     $avaquantity = $_POST['avaquantity'];
@@ -24,6 +25,7 @@ if (isset($_POST['delete'])) {
 
 }
 
+
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $pName = $_POST['pName'];
@@ -38,8 +40,8 @@ if (isset($_POST['update'])) {
    
     $folder = "../images/" . $filename;
 
-    $productcon = new productController();
-    $productcon->updateproduct($id,$pName, $pCategory,$avaquantity, $price,$filename);
+    $result = new productController();
+    $result->updateproduct($id,$pName, $pCategory,$avaquantity, $price,$filename);
     move_uploaded_file($tempname, $folder);
 
 

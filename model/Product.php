@@ -21,30 +21,29 @@ class product extends db_connection
     }
     public function viewAll()
     {
-        //$query = "Select * from product p, entrepreneur e, entrepreneur_product k where k.entrepreneurID=e.userID and k.productID= p.productID";
-        $query = "Select * from product p where quantity='40' or quantity='50' or quantity='10' or quantity='25'" ;
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-        // $stmt = $this->conn->prepare($query);
-
-        // $stmt->execute();
-        // echo 'sql';
-
-        // return $stmt;
+        
+        // $query = "Select * from product p where quantity='40' or quantity='50' or quantity='10' or quantity='25'" ;
+        
+        // return $this->getData($query);
+        $query = "SELECT * FROM product";
+        return $this->getData($query);
 
     }
-//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
-// {
-//     $query = "DELETE FROM product WHERE productID = 16";
+    private function getData($query) {
+		$result = mysqli_query($this->conn, $query);
+		if(!$result){
+			die('Error in query: '. mysqli_error());
+		}
+		$data= array();
+		while ($row = mysqli_fetch_array($result)) {
+			$data[]=$row;            
+		}
+		return $data;
+	}
 
-//     $stmt = $this->conn->prepare($query);
-//     $stmt->bind_param("i", $pName, $pCategory,$avaquantity, $price,$fileImg);
-//     $stmt->execute();
-//     return $stmt;
-// }
 
 public function deleteproduct($id){
-    $query = "delete from product where productID='16'";
+    $query = "delete from product where productID='17'";
     $stmt = mysqli_query($this->conn, $query);
     return $stmt;
 }
