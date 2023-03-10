@@ -36,6 +36,7 @@ $res2 = $tourist->getallproducts();
 
         <div class="box-container">
 
+
             <div class="box">
                 <img src="../images/h3.jpg" alt="">
                 <div class="content">
@@ -51,9 +52,39 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+        <img src="../images/hotelpackage/hotel1.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Rodeway Inn</h3>
+            <p></p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="reservehotel.php" class="btn">book now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel2.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Belmond</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
-            <div class="box">
+          <div class="box">
                 <img src="../images/h3.jpg" alt="">
                 <div class="content">
                     <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
@@ -85,7 +116,21 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="#" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel3.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>The Hoxton</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
+
 
             <div class="box">
                 <img src="../images/h3.jpg" alt="">
@@ -102,7 +147,21 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel4.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Mandarin </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
+
 
             <div class="box">
                 <img src="../images/h3.jpg" alt="">
@@ -119,6 +178,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel5.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Seven Seasons Hotels</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -136,6 +208,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel6.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> The Springs</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -153,6 +238,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel7.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Coast Hotels</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -170,6 +268,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel8.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Malibu </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -187,6 +298,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="#" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel9.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Hotel Oceanic</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -204,6 +328,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel10.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Sea-Moon</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -221,6 +358,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel11.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Blue Lagoon</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -238,6 +388,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel12.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Royal Orbit</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -255,6 +418,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel13.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> The Noliton</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -272,6 +448,18 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+<div class="box">
+    <img src="../images/hotelpackage/hotel14.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Sunnyfish </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -289,6 +477,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="#" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel15.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i>Green Garden Hotel</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -306,6 +507,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel16.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Livin Hub </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
 
             <div class="box">
@@ -323,6 +537,18 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel17.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hotel Comfy</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
             </div>
 
             <div class="box">
@@ -340,6 +566,19 @@ $res2 = $tourist->getallproducts();
                     <div class="price"> $90.00 <span>$120.00</span> </div>
                     <a href="reservehotel.php" class="btn">book now</a>
                 </div>
+
+    <div class="box">
+    <img src="../images/hotelpackage/hotel18.jpg" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Central Loop</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+
             </div>
         </div>
 

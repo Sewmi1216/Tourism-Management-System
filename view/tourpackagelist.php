@@ -77,7 +77,7 @@ $res2 = $tourist->getallproducts();
 <div class="box-container">
 
     <div class="box">
-        <img src="../images/kandy.png" alt="">
+    <img src="../images/tourpackage/k1.jpg" alt="">
         <div class="content">
             <h3> <i class="fas fa-map-marker-alt"></i> Middle Through </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
@@ -94,7 +94,7 @@ $res2 = $tourist->getallproducts();
     </div>
 
     <div class="box">
-    <img src="../images/anuradhapura.png" alt="">
+    <img src="../images/tourpackage/anu.webp" alt="">
         <div class="content">
             <h3> <i class="fas fa-map-marker-alt"></i> Roam Anuradha </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
@@ -111,7 +111,7 @@ $res2 = $tourist->getallproducts();
     </div>
 
     <div class="box">
-    <img src="../images/polannaruwa.png" alt="">
+    <img src="../images/tourpackage/polo.jpg" alt="">
         <div class="content">
             <h3> <i class="fas fa-map-marker-alt"></i> Heritage Steer </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
@@ -128,7 +128,7 @@ $res2 = $tourist->getallproducts();
     </div>
 
     <div class="box">
-    <img src="../images/galle.png" alt="">
+    <img src="../images/tourpackage/galle.jpg" alt="">
         <div class="content">
             <h3> <i class="fas fa-map-marker-alt"></i> Galle Quest </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
@@ -145,7 +145,7 @@ $res2 = $tourist->getallproducts();
     </div>
 
     <div class="box">
-    <img src="../images/sinharaja.png" alt="">
+    <img src="../images/tourpackage/jungle.jpg" alt="">
         <div class="content">
             <h3> <i class="fas fa-map-marker-alt"></i> Jungle Jaunt </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
@@ -162,7 +162,7 @@ $res2 = $tourist->getallproducts();
     </div>
 
     <div class="box">
-    <img src="../images/colombo.png" alt="">
+    <img src="../images/tourpackage/col.jpg" alt="">
         <div class="content">
             <h3> <i class="fas fa-map-marker-alt"></i> Capital Ride </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
@@ -180,9 +180,9 @@ $res2 = $tourist->getallproducts();
     <div class="box-container">
 
 <div class="box">
-    <img src="../images/kandy.png" alt="">
+<img src="../images/tourpackage/trinco.jpg" alt="">
     <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Middle Through </h3>
+        <h3> <i class="fas fa-map-marker-alt"></i> Trinco Trails </h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
         <div class="stars">
             <i class="fas fa-star"></i>
@@ -197,9 +197,9 @@ $res2 = $tourist->getallproducts();
 </div>
 
 <div class="box">
-<img src="../images/anuradhapura.png" alt="">
+<img src="../images/tourpackage/batti.jpg" alt="">
     <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Roam Anuradha </h3>
+        <h3> <i class="fas fa-map-marker-alt"></i> Batti Breeze </h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
         <div class="stars">
             <i class="fas fa-star"></i>
@@ -214,9 +214,9 @@ $res2 = $tourist->getallproducts();
 </div>
 
 <div class="box">
-<img src="../images/polannaruwa.png" alt="">
+<img src="../images/tourpackage/jaffna.jpg" alt="">
     <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Heritage Steer </h3>
+        <h3> <i class="fas fa-map-marker-alt"></i> Jaffna  Lounge </h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
         <div class="stars">
             <i class="fas fa-star"></i>
@@ -230,57 +230,8 @@ $res2 = $tourist->getallproducts();
     </div>
 </div>
 
-<div class="box">
-<img src="../images/galle.png" alt="">
-    <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Galle Quest </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="price"> $90.00 <span>$120.00</span> </div>
-        <a href="booktourpackage.php" class="btn">book now</a>
-    </div>
-</div>
 
-<div class="box">
-<img src="../images/sinharaja.png" alt="">
-    <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Jungle Jaunt </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="price"> $90.00 <span>$120.00</span> </div>
-        <a href="booktourpackage.php" class="btn">book now</a>
-    </div>
-</div>
 
-<div class="box">
-<img src="../images/colombo.png" alt="">
-    <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Capital Ride </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="price"> $90.00 <span>$120.00</span> </div>
-        <a href="booktourpackage.php" class="btn">book now</a>
-    </div>
-</div>
-</div>
 
 </section>
 

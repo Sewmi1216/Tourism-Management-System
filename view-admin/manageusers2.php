@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">
      <link rel="stylesheet" href="../css/manageusers.css">
+
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -41,6 +42,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -55,6 +57,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -69,6 +72,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -83,6 +87,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -103,6 +108,7 @@
 
 
                           <div class="btn">
+                          <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                             <button type="button" class="editbtn">APPROVE</button>
                             <button type="button" class="deletebtn">DELETE</button>
                         </div>
@@ -116,6 +122,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -132,6 +139,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -147,6 +155,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -162,6 +171,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -173,7 +183,7 @@
 
                 <div class="add">  
                     <h3>TOURIST GUIDE APPROVAL</h3> 
-                 <a href="view-hotelmanager.php"><i class=""></i> VIEW TOURIST GUIDE</a>
+                 <a href="tourguides.php"><i class=""></i> VIEW TOURIST GUIDE</a>
                 </div>
 
                 <div class="booked-packages-card">
@@ -183,6 +193,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -198,6 +209,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -213,6 +225,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -228,6 +241,7 @@
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
+                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>

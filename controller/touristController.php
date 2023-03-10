@@ -109,7 +109,7 @@ class touristController extends db_connection
     public function viewAlltourist()
     {
         
-        $pkg = new admin();
+        $pkg = new tourist();
 
         $result = $pkg->viewAdmin();
 

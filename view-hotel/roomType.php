@@ -113,9 +113,6 @@ foreach ($results as $result) {
         <!-- update room type -->
         <?php require_once 'updateRoomType.php';?>
 
-        <!-- delete room type -->
-        <?php require_once 'deleteRoomType.php';?>
-
     </section>
 
     <script>

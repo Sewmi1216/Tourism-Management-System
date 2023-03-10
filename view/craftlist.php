@@ -14,7 +14,6 @@ $res2 = $tourist->getallproducts();
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="../css/hindex.css">
   <link rel="stylesheet" href="../css/tourist-tourpackage.css">
-
 </head>
 
 <body>
@@ -32,17 +31,34 @@ $res2 = $tourist->getallproducts();
             <a href="home2.php">Home</a>
         </div>
     </div>
-
-
-
       <section class="packages" id="packages" style="padding-top = 40px">
 
-<div class="box-container">
+
+
+
+      <div class="box-container">
 
     <div class="box">
-        <img src="../images/dress.png" alt="">
+        <img src="../images/craft/c1.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Batik Dress </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i> Jar</h3>
+            <p></p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <a href="craftorder.php" class="btn">Buy now</a>
+        </div>
+    </div>
+
+    <div class="box">
+    <img src="../images/craft/c2.png" alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Perahera Art</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -52,14 +68,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c3.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Clay Pot </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>Elephant Statue</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -69,14 +85,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c4.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i>Elephant Statue </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i> Clay Pots </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -86,14 +102,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c5.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Portrait </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i> Lord Ganesh Art</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -103,14 +119,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">book now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c6.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Lord Shiva Statue </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>Modern Art</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -120,14 +136,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c7.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Ornament</h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>Bamboo Basket</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -137,15 +153,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
-
     <div class="box">
-        <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c8.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Batik Dress </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>  Batik Bag</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -155,14 +170,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c9.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Clay Pot </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>Batik Saree</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -172,14 +187,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c10.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i>Elephant Statue </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i> Batik Shawl</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -189,14 +204,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c11.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Portrait </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>Decorative Ornament </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -206,14 +221,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
     <div class="box">
-    <img src="../images/dress.png" alt="">
+    <img src="../images/craft/c12.png" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Lord Shiva Statue </h3>
+            <h3> <i class="fas fa-map-marker-alt"></i>Batik Top</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -223,131 +238,14 @@ $res2 = $tourist->getallproducts();
                 <i class="far fa-star"></i>
             </div>
             <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
+            <a href="craftorder.php" class="btn">Buy now</a>
         </div>
     </div>
 
-    <div class="box">
-    <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Ornament</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
+  
+      
 
-
-    <div class="box">
-        <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Batik Dress </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Clay Pot </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i>Elephant Statue </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Portrait </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Lord Shiva Statue </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/dress.png" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Ornament</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-    </div>
-
-</div>
+ 
 
 </section>
 
