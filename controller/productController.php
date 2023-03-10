@@ -31,13 +31,13 @@ public function viewAll()
     {
         $product = new product();
 
-        $result = $product->viewAll();
+        $results= $product->viewAll();
 
         // include "../view/product.php";
-        return $result;
+        return $results;
 
     }
-//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$filename)
 // {
     
 //     $result = new product();
@@ -61,6 +61,26 @@ public function deleteproduct($id)
             echo 'There was a error';
         } else {
             echo "<script>alert('This product is deleted');
+        window.location.href = '../view-entrepreneur/product.php';
+        </script>";
+
+        }
+        
+
+    }
+   
+
+    public function updateproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+    {
+        $result = new product();
+        $result-> updateproduct ($pName, $pCategory,$avaquantity, $price,$fileImg);
+
+        if (!$result) {
+            echo 'There was a error';
+          
+        } else {
+
+            echo "<script>
         window.location.href = '../view-entrepreneur/product.php';
         </script>";
 

@@ -103,7 +103,7 @@ class hotelController extends db_connection
                     $_SESSION['username'] = $result1['username'];
                     $_SESSION['tourguideID'] = $result1['tourguideID'];
 
-                    // header("Location: ../view-hotel/dashboard.php");
+                     header("Location: ../view-tour_guide/Guide_Assign_tourists.php");
                     exit();
                 } else {
                     echo "<script type='text/javascript'>alert('Please try again shortly');</script>";

@@ -41,6 +41,17 @@ class entrepreneurController extends db_connection
             }
         }
         
+
+    }
+    public function viewAll()
+    {
+        $entrepreneur = new entrepreneur();
+
+        $result = $entrepreneur->viewAll();
+
+        // include "../view/proedit.php";
+        return $result;
+
     }
 public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
 {
@@ -55,6 +66,24 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 	window.location.href = '../view-entrepreneur/Login.php';
 	</script>";
 	}
+}
+
+public function updateentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+{
+    $result = new entrepreneur();
+    $result> updateentrepreneur ($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+
+    if (!$result) {
+        echo 'There was a error';
+      
+    } else {
+
+        echo "<script>
+    window.location.href = '../view-entrepreneur/proedit.php';
+    </script>";
+
+    }
+
 }
 
 
