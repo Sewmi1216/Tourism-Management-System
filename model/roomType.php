@@ -63,13 +63,15 @@ class roomType extends db_connection
         // return $stmt;
 
     }
-      public function viewAllTypes(){
-       $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID";
+      public function viewAllTypes($id){
+        
+       $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and h.hotelID='$id'";
        return $this->getData($query);
     }
-    public function viewAllImgs(){
-        // $query = "Select * from roomtype_img where roomTypeId='$getid'";
-        $query = "Select * from roomtype_img";
+
+    public function viewAllImgs($getid){
+         $query = "Select * from roomtype_img i, roomtype r where i.roomTypeId=r.roomTypeId and i.roomTypeId='$getid'";
+       // $query = "Select * from roomtype_img";
 
         return $this->getData($query);
 

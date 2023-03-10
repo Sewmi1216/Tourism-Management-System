@@ -37,8 +37,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <div class="searchSec">
                 <div class="page-title"> Room Types</div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for packages" name="search">
-                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+                    <input class="input-field" type="text" id="myInput" onkeyup="searchTypes()"
+                        placeholder="Search for Room Types" name="search">
+                    <a href="" class="searchimg"><i class="fa fa-search icon" style="font-color:blue;"></i></a>
                 </div>
                 <button type="submit" class="btns" style="margin-left: 1rem;"><a href="roomType.php"
                         style="color:white;text-decoration:none;">View
@@ -53,7 +54,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         </div>
         <div class="bg">
             <div id="result" style="overflow-x:auto;">
-                <table id="example">
+                <table id="myTable">
                     <tr class="subtext tblrw">
                         <!-- <th class="tblh">Image</th> -->
                         <th class="tblh">Room Type</th>
@@ -65,7 +66,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     </tr> <?php
 require_once "../controller/roomTypeController.php";
 $pkg = new roomTypeController();
-$results = $pkg->viewAllTypes();
+$results = $pkg->viewAllTypes($id);
 foreach ($results as $result) {
     ?><tbody>
                         <tr class="subtext tblrw">
@@ -116,6 +117,26 @@ foreach ($results as $result) {
     </section>
 
     <script>
+    function searchTypes() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
     // Function to open the modal and set the id value
     function openModal(id) {
         var modal = document.getElementById("id04");

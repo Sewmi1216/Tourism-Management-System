@@ -11,18 +11,17 @@ if (isset($_POST['save'])) {
     $pkgcon = new roomTypeController();
     $pkgcon->addRoomType($pkgName, $price, $desc, $status);
     if (!$pkgcon) {
-    echo 'There was a error';
-} else {
-    echo "
+        echo 'There was a error';
+    } else {
+        echo "
              <script>
         window.location.href = '../view-hotel/roomType.php';
         </script>";
+    }
 
+    //  move_uploaded_file($tempname, $folder);
 }
 
-  //  move_uploaded_file($tempname, $folder);
-
-}
 if (isset($_POST['submitImg'])) {
     $typeid = $_POST['id'];
 
@@ -36,28 +35,30 @@ if (isset($_POST['submitImg'])) {
 
     $typecon = new roomTypeController();
     $typecon->addRoomTypeImg($typeid, $file);
-     move_uploaded_file($tempname, $folder);
-     if (!$typecon) {
-    echo 'There was a error';
-} else {
-    echo "
+
+    move_uploaded_file($tempname, $folder);
+    if (!$typecon) {
+        echo 'There was a error';
+    } else {
+        echo "
              <script>
              window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
 
         </script>";
 
-}
+
+    }
 }
 if (isset($_POST['deleteimg'])) {
     $id = $_POST['id'];
-    $imgname =$_POST['imgname'];
-    $typeid =$_POST['typeid'];
+    $imgname = $_POST['imgname'];
+    $typeid = $_POST['typeid'];
+
     $tp = new roomTypeController();
     $tp->deleteImg($id, $typeid);
     unlink("../images/" . $imgname);
 
 }
-
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];

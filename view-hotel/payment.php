@@ -58,7 +58,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <?php
 require_once "../controller/hotelController.php";
 $pay = new hotelController();
-$results = $pay->viewhotelPayments();
+
+$results = $pay->viewhotelPayments($id);
 foreach ($results as $result) {
     ?><tbody>
                     <tr class="subtext tblrw">

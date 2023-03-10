@@ -216,10 +216,12 @@ class hotelController extends db_connection
         $res2 = $hoteluser2->canceledReservations();
         return $res2;
     }
-    public function viewhotelPayments()
+
+    public function viewhotelPayments($id)
     {
         $hoteluser3 = new hotel();
-        $result3 = $hoteluser3->viewhotelPayments();
+        $result3 = $hoteluser3->viewhotelPayments($id);
+
         return $result3;
     }
     public function get_payments($id)
@@ -229,22 +231,23 @@ class hotelController extends db_connection
         return $result4;
 
     }
-    public function viewGuestReservations()
+
+    public function viewGuestReservations($id)
     {
         $hoteluser4 = new hotel();
-        $result4 = $hoteluser4->viewGuestReservations();
+        $result4 = $hoteluser4->viewGuestReservations($id);
         return $result4;
     }
-    public function viewAdminReservations()
+    public function viewAdminReservations($id)
     {
         $hoteluser4 = new hotel();
-        $result4 = $hoteluser4->viewAdminReservations();
+        $result4 = $hoteluser4->viewAdminReservations($id);
         return $result4;
     }
-public function viewPendingReservations()
+public function viewPendingReservations($id)
     {
         $hoteluser5 = new hotel();
-        $result5 = $hoteluser5->viewPendingReservations();
+        $result5 = $hoteluser5->viewPendingReservations($id);
         return $result5;
     }
 }

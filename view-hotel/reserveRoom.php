@@ -70,7 +70,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                         <?php
 require_once "../controller/hotelController.php";
 $hotel = new hotelController();
-$results = $hotel->viewPendingReservations();
+$results = $hotel->viewPendingReservations($id);
 foreach ($results as $result) {
     ?>
                         <tr class="subtext tblrw">
@@ -103,7 +103,7 @@ foreach ($results as $result) {
                         <?php
 require_once "../controller/roomController.php";
 $room = new roomController();
-$results2 = $room->viewAvailableRooms();
+$results2 = $room->viewAvailableRooms($id);
 foreach ($results2 as $result) {
     ?>
                         <tr class="subtext tblrw">

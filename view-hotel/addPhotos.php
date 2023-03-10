@@ -44,6 +44,7 @@ $getid = $_GET['id'];
         </div>
         <div class="bg">
             <form class="" action="../api/addType.php" method="post" autocomplete="off" enctype="multipart/form-data">
+
                 <input type="hidden" class="subfield" name="id" value="<?php if (isset($getid)) {echo $getid;}?>" />
 
 
@@ -58,7 +59,9 @@ $getid = $_GET['id'];
                 <?php
 require_once "../controller/roomTypeController.php";
 $typeimg = new roomTypeController();
-$results = $typeimg->viewAllImgs();
+
+if (isset($getid)) { $id= $getid;}
+$results = $typeimg->viewAllImgs($id);
 foreach ($results as $result) {
     ?>
                 <td>
@@ -67,9 +70,9 @@ foreach ($results as $result) {
                     background-repeat: no-repeat;'>"; ?>
 
                     <form action="../api/addType.php" method="post">
+
                         <input type="hidden" class="subfield" name="typeid"
                             value="<?php if (isset($getid)) {echo $getid;}?>" />
-
 
                         <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
                         <input type="hidden" name="imgname" value="<?php echo $result['image']; ?>">

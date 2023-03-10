@@ -29,10 +29,16 @@ class roomTypeController extends db_connection
        
 
     }
-    public function viewAllTypes()
+    public function viewAllTypes($id)
     {
         $pkg = new roomType();
-        $result = $pkg->viewAllTypes();
+        $result = $pkg->viewAllTypes($id);
+        return $result;
+    }
+    public function viewAllImgs($getid)
+    {
+        $type = new roomType();
+        $result = $type->viewAllImgs($getid);
         return $result;
     }
     public function viewAllImgs()
@@ -40,6 +46,22 @@ class roomTypeController extends db_connection
         $type = new roomType();
         $result = $type->viewAllImgs();
         return $result;
+
+    }
+    public function deleteImg($id, $typeid)
+    {
+        $dl = new roomType();
+        $dl->deleteImg($id);
+
+        if (!$dl) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+            echo "<script>
+        window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+        </script>";
+
+        }
 
     }
     public function deleteImg($id, $typeid)
