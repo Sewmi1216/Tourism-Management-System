@@ -68,6 +68,7 @@ class roomType extends db_connection
        $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and h.hotelID='$id'";
        return $this->getData($query);
     }
+
     public function viewAllImgs($getid){
          $query = "Select * from roomtype_img i, roomtype r where i.roomTypeId=r.roomTypeId and i.roomTypeId='$getid'";
        // $query = "Select * from roomtype_img";

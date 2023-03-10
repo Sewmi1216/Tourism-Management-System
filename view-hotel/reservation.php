@@ -58,6 +58,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 require_once "../controller/hotelController.php";
 $res = new hotelController();
 $results = $res->viewGuestReservations($id);
+
 foreach ($results as $result) {
     ?><tbody>
                     <tr class="subtext tblrw">
@@ -115,6 +116,7 @@ foreach ($results as $result) {
 require_once "../controller/hotelController.php";
 $admin= new hotelController();
 $results2 = $admin->viewAdminReservations($id);
+
 foreach ($results2 as $result) {
     ?><tbody>
                     <tr class="subtext tblrw">

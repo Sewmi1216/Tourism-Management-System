@@ -17,12 +17,11 @@ if (isset($_POST['save'])) {
              <script>
         window.location.href = '../view-hotel/roomType.php';
         </script>";
-
     }
 
     //  move_uploaded_file($tempname, $folder);
-
 }
+
 if (isset($_POST['submitImg'])) {
     $typeid = $_POST['id'];
 
@@ -36,6 +35,7 @@ if (isset($_POST['submitImg'])) {
 
     $typecon = new roomTypeController();
     $typecon->addRoomTypeImg($typeid, $file);
+
     move_uploaded_file($tempname, $folder);
     if (!$typecon) {
         echo 'There was a error';
@@ -46,12 +46,14 @@ if (isset($_POST['submitImg'])) {
 
         </script>";
 
+
     }
 }
 if (isset($_POST['deleteimg'])) {
     $id = $_POST['id'];
     $imgname = $_POST['imgname'];
     $typeid = $_POST['typeid'];
+
     $tp = new roomTypeController();
     $tp->deleteImg($id, $typeid);
     unlink("../images/" . $imgname);
@@ -114,3 +116,4 @@ if (isset($_POST["get_payments"])) {
     // Important to stop further executing the script on AJAX by following line
     exit();
 }
+
