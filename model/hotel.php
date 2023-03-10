@@ -105,7 +105,7 @@ class hotel extends db_connection
 
     public function viewhotelPayments()
     {
-        $query = "Select * from payment p, guest_reservation g where p.reservationID=g.reservationID and category='reservation'";
+        $query = "Select * from payment p, guest_reservation g where p.reservationID=g.reservationID and category='reservation' and g.hotelId='$id'";
         return $this->getData($query);
     }
     public function get_payments($id)
@@ -114,19 +114,19 @@ class hotel extends db_connection
         return $this->getData($query);
 
     }
-     public function viewGuestReservations()
+     public function viewGuestReservations($id)
     {
-        $query = "Select * from guest_reservation g, payment p";
+        $query = "Select * from guest_reservation g, payment p where hotelId='$id'";
         return $this->getData($query);
     }
-     public function viewAdminReservations()
+     public function viewAdminReservations($id)
     {
-        $query = "Select * from admin_reservation g, payment p";
+        $query = "Select * from admin_reservation g, payment p where hotelId='$id'";
         return $this->getData($query);
     }
      public function viewPendingReservations()
     {
-        $query = "Select * from guest_reservation g, roomtype r where g.typeID=r.roomTypeID and status='Pending'";
+        $query = "Select * from guest_reservation g, roomtype r where g.typeID=r.roomTypeID and status='Pending' and g.hotelId='$id'";
         return $this->getData($query);
     }
 }

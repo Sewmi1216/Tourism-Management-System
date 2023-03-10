@@ -27,28 +27,18 @@ class roomController extends db_connection
         }
 
     }
-    public function viewAllRooms()
+    public function viewAllRooms($id)
     {
-        
-
         $room = new room();
-
-        $result = $room->viewAllRooms();
-
-        // include "../view/room.php";
+        $result = $room->viewAllRooms($id);
         return $result;
-
     }
 
-     public function viewAvailableRooms()
+     public function viewAvailableRooms($id)
     {
         $room = new room();
-
-        $result = $room->viewAvailableRooms();
-
-        // include "../view/room.php";
+        $result = $room->viewAvailableRooms($id);
         return $result;
-
     }
 
 }

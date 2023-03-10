@@ -21,8 +21,8 @@ class room extends db_connection
         return $stmt;
     }
    
-    public function viewAllRooms(){
-       $query = "Select * from room";
+    public function viewAllRooms($id){
+       $query = "Select * from room where hotelId='$id'";
        return $this->getData($query);
     }
 
@@ -37,8 +37,8 @@ class room extends db_connection
 		}
 		return $data;
 	}
-     public function viewAvailableRooms(){
-       $query = "Select * from room where status='Available'";
+     public function viewAvailableRooms($id){
+       $query = "Select * from room where status='Available' and hotelId='$id'";
        return $this->getData($query);
     }
 }

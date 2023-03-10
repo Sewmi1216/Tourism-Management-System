@@ -35,7 +35,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <div class="searchSec">
                 <div class="page-title"> Rooms</div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for rooms" name="search">
+                    <input class="input-field" id="myInput" onkeyup="searchTypes()" type="text"
+                        placeholder="Search for room types" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View
@@ -49,7 +50,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
         </div>
         <div class="bg">
-            <table>
+            <table id="myTable">
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
                     <th class="tblh">Guest Name</th>
@@ -62,7 +63,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 </tr><?php 
 require_once("../controller/roomController.php");
 $room = new roomController();
-$results= $room->viewAllRooms();
+$results= $room->viewAllRooms($id);
 foreach ($results as $result) {
         ?>
 
@@ -70,7 +71,7 @@ foreach ($results as $result) {
                     <td class="tbld">
                         <?php echo $result["roomNo"] ?>
                     </td>
-                    
+
                     <td class="tbld">
                         John
                     </td>
@@ -101,7 +102,7 @@ foreach ($results as $result) {
                 <?php }
 ?>
 
-        </table>
+            </table>
         </div>
         </div>
         </div>
@@ -114,7 +115,9 @@ foreach ($results as $result) {
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b><hr style="margin-top:25px;"></label>
+                    <label for="room"><b>Add Room</b>
+                        <hr style="margin-top:25px;">
+                    </label>
                 </div>
 
                 <div class="container">
@@ -127,7 +130,7 @@ foreach ($results as $result) {
                                     <?php
 require_once("../controller/roomTypeController.php") ;
 $pkg = new roomTypeController();
-$results = $pkg->viewAllTypes();
+$results = $pkg->viewAllTypes($id);
            foreach ($results as $result) {
                ?>
                                     <option value="<?php echo $result["roomTypeId"];
@@ -146,7 +149,7 @@ $results = $pkg->viewAllTypes();
                             </td>
                             <td> <input type="text" class="subfield" name="roomNo" /></td>
                         </tr>
-                        
+
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
@@ -185,7 +188,9 @@ $results = $pkg->viewAllTypes();
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Room</b><hr style="margin-top:25px;"></label>
+                    <label for="room"><b>Update Room</b>
+                        <hr style="margin-top:25px;">
+                    </label>
                 </div>
 
                 <div class="container">
@@ -202,7 +207,7 @@ $results = $pkg->viewAllTypes();
                             </td>
                             <td> <input type="text" class="subfield" name="pName" /></td>
                         </tr>
-                    
+
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
@@ -262,6 +267,25 @@ $results = $pkg->viewAllTypes();
 
     </section>
     <script>
+    function searchTypes() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
     function openChat() {
         document.getElementById("myForm").style.display = "block";
     }

@@ -29,16 +29,16 @@ class roomTypeController extends db_connection
        
 
     }
-    public function viewAllTypes()
+    public function viewAllTypes($id)
     {
         $pkg = new roomType();
-        $result = $pkg->viewAllTypes();
+        $result = $pkg->viewAllTypes($id);
         return $result;
     }
-    public function viewAllImgs()
+    public function viewAllImgs($getid)
     {
         $type = new roomType();
-        $result = $type->viewAllImgs();
+        $result = $type->viewAllImgs($getid);
         return $result;
 
     }
