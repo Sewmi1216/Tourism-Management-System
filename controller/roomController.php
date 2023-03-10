@@ -40,4 +40,15 @@ class roomController extends db_connection
 
     }
 
+     public function viewAvailableRooms()
+    {
+        $room = new room();
+
+        $result = $room->viewAvailableRooms();
+
+        // include "../view/room.php";
+        return $result;
+
+    }
+
 }

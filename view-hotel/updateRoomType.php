@@ -48,24 +48,8 @@
                         <div class="content">Price</div>
                     </td>
                     <td> <input type="number" id="price" min="10" class="subfield" name="price"
-                            value="<?php echo $row['price']; ?>" /></td>
+                            value="" /></td>
                 </tr>
-                <tr class="row">
-                    <td>
-                        <div class="content">Upload Image</div>
-                    </td>
-                    <td> <?php echo "<img src='' style=
-                    'width:200px;height: 200px;margin-left:45px;padding-right:0px;' id='img'>"; ?>
-                        <input type="file" class="subfield" name="file" />
-                    </td>
-                </tr>
-                <!-- <tr>
-                <td>
-                     <input type="submit" class="btn1" value="Save" name="signup"/>
-                </td>
-                <td> <input type="reset" class="btn" value="Clear" name="reset"/></td>
-            </tr> -->
-
 
             </table>
 

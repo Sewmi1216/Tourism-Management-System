@@ -17,16 +17,28 @@ class roomType extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertRoomType($pkgName, $price, $desc, $filename, $status)
+    public function insertRoomType($pkgName, $price, $desc, $status)
     {
         require_once "../view-hotel/roomType.php";
 
-        $sql= "INSERT INTO roomtype(typeName, price, img, description, typestatus, hotelID) VALUES ('$pkgName','$price', '$filename', '$desc','$status', '$id')";
+        $sql= "INSERT INTO roomtype(typeName, price, description, typestatus, hotelID) VALUES ('$pkgName','$price', '$desc','$status', '$id')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmts = $this->conn->prepare($sql);
         $stmts->execute();
         return $stmts;
+    }
+     public function addRoomTypeImg($typeid, $file)
+    {
+        require_once "../view-hotel/addPhotos.php";
+
+        // $sql= "INSERT INTO roomtype_img(roomTypeId, image) VALUES (?, ?)";
+        $sql = "INSERT INTO roomtype_img(roomTypeId, image) VALUES ('$typeid', '$file')";
+        $stmt = $this->conn->prepare($sql);
+       // $stmt->bind_param("ib", $typeid, $file);
+
+        $stmt->execute();
+        return $stmt;
     }
     // public function viewAllPkgs()
     // {
@@ -54,6 +66,18 @@ class roomType extends db_connection
       public function viewAllTypes(){
        $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID";
        return $this->getData($query);
+    }
+    public function viewAllImgs(){
+        // $query = "Select * from roomtype_img where roomTypeId='$getid'";
+        $query = "Select * from roomtype_img";
+
+        return $this->getData($query);
+
+    }
+     public function deleteImg($id){
+        $query = "delete from roomtype_img where id='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
     }
 
     private function getData($query) {
