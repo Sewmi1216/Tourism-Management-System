@@ -11,29 +11,22 @@ class roomTypeController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addRoomType($pkgName, $price, $desc, $filename, $status)
+    public function addRoomType($pkgName, $price, $desc, $status)
     {
         $hpkgs = new roomType();
 
-        $res = $hpkgs->insertRoomType($pkgName, $price, $desc, $filename, $status);
+        $res = $hpkgs->insertRoomType($pkgName, $price, $desc, $status);
+        return $res;
 
-        if (!$res) {
-            echo 'There was a error';
-            // echo "<script>console.log(res)</script>";
-        } else {
-            // echo "
-            //  <script>
-            //     var x = document.getElementById('snackbar);
-            //     x.className = 'show';
-            //     setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);
-            //     window.location.href = '../view-hotel/roomType.php';
-            // </script>";
-            echo "
-             <script>alert(' A new room type is added');
-        window.location.href = '../view-hotel/roomType.php';
-        </script>";
+    }
+    public function addRoomTypeImg($typeid, $file)
+    {
+        $typeImg = new roomType();
 
-        }
+        $result = $typeImg->addRoomTypeImg($typeid, $file);
+
+        return $result;
+       
 
     }
     public function viewAllTypes()
@@ -41,6 +34,28 @@ class roomTypeController extends db_connection
         $pkg = new roomType();
         $result = $pkg->viewAllTypes();
         return $result;
+    }
+    public function viewAllImgs()
+    {
+        $type = new roomType();
+        $result = $type->viewAllImgs();
+        return $result;
+
+    }
+    public function deleteImg($id, $typeid)
+    {
+        $dl = new roomType();
+        $dl->deleteImg($id);
+
+        if (!$dl) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+            echo "<script>
+        window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+        </script>";
+
+        }
 
     }
     public function viewType($pId)
@@ -89,7 +104,7 @@ class roomTypeController extends db_connection
             echo 'There was a error';
             // echo "<script>console.log(res)</script>";
         } else {
-            echo "<script>alert('This room type is deleted');
+            echo "<script>
         window.location.href = '../view-hotel/roomType.php';
         </script>";
 

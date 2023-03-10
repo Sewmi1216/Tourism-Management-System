@@ -42,16 +42,22 @@
                      <td>
                          <div class="content">Price</div>
                      </td>
-                     <td> <input type="number" min="10" class="subfield" name="price" /></td>
+                     <td> <input type="number" min="10" class="subfield" name="price" required/></td>
                  </tr>
 
-
+<!-- 
                  <tr class="row">
                      <td>
                          <div class="content">Upload Image</div>
                      </td>
                      <td> <input type="file" class="subfield" name="file" /></td>
-                 </tr>
+                 </tr> -->
+
+
+                 
+
+
+
                  <!-- <tr>
                 <td>
                      <input type="submit" class="btn1" value="Save" name="signup"/>
@@ -66,8 +72,8 @@
 
          <div class="container" style="padding:10px;">
              <button type="submit" class="btns" value="Save" style="margin-left:460px;" name="save">Save</button>
-             <button type="button" style="margin-left:20px;" onclick="document.getElementById('id01').style.display='none'"
-                 class="cancelbtn">Cancel</button>
+             <button type="button" style="margin-left:20px;"
+                 onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
 
          </div>
      </form>

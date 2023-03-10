@@ -44,55 +44,43 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <div class="bg">
             <table>
                 <tr class="subtext tblrw">
+                    <th class="tblh">Date</th>
                     <th class="tblh">Reservation ID</th>
                     <th class="tblh">Guest ID</th>
-                    <th class="tblh">Date</th>
-                    <th class="tblh">Price</th>
+                    <th class="tblh">Guest Name</th>
+                    <th class="tblh">Total amount</th>
                     <th class="tblh">Check-in</th>
                     <th class="tblh">Check-out</th>
-                    <th class="tblh">Payment</th>
-                    <th class="tblh">Status</th>
+                    <th class="tblh">Payment status</th>
                 </tr>
-                <tr>
-                    <td class="tbld">R102</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
-                <tr>
-                    <td class="tbld">R103</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
-                <tr>
-                    <td class="tbld">R104</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
-                <tr>
-                    <td class="tbld">R105</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
+
+                <?php
+require_once "../controller/hotelController.php";
+$res = new hotelController();
+$results = $res->viewGuestReservations();
+foreach ($results as $result) {
+    ?><tbody>
+                    <tr class="subtext tblrw">
+                        <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                        <td class="tbld"><?php echo $result["reservationID"] ?></td>
+                        <td class="tbld"><?php echo $result["touristID"] ?></td>
+                        <td class="tbld"><?php echo $result["guestName"] ?></td>
+                        <td class="tbld"><?php echo '$' . $result["total_amount"] ?></td>
+                        <td class="tbld"><?php echo $result["checkInDate"] ?></td>
+                        <td class="tbld"><?php echo $result["checkOutDate"] ?></td>
+                        <td class="tbld">
+                            <?php if ($result["typestatus"] == "Completed") {?>
+                            <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
+                            <?php } else {?>
+                            <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
+                            <?php }?>
+                        </td>
+
+
+                        <?php }
+
+?>
+                    </tr>
             </table>
         </div>
         </div>
@@ -114,66 +102,52 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <div class="bg">
             <table>
                 <tr class="subtext tblrw">
+                    <th class="tblh">Date</th>
                     <th class="tblh">Reservation ID</th>
                     <th class="tblh">Guest ID</th>
-                    <th class="tblh">Date</th>
-                    <th class="tblh">Price</th>
+                    <th class="tblh">Guest Name</th>
+                    <th class="tblh">Total amount</th>
                     <th class="tblh">Check-in</th>
                     <th class="tblh">Check-out</th>
-                    <th class="tblh">Payment</th>
-                    <th class="tblh">Status</th>
+                    <th class="tblh">Payment status</th>
                 </tr>
+                <?php
+require_once "../controller/hotelController.php";
+$admin= new hotelController();
+$results2 = $admin->viewAdminReservations();
+foreach ($results2 as $result) {
+    ?><tbody>
+                    <tr class="subtext tblrw">
+                        <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                        <td class="tbld"><?php echo $result["reservationID"] ?></td>
+                        <td class="tbld"><?php echo $result["touristID"] ?></td>
+                        <td class="tbld"><?php echo $result["guestName"] ?></td>
+                        <td class="tbld"><?php echo '$' . $result["total_amount"] ?></td>
+                        <td class="tbld"><?php echo $result["checkInDate"] ?></td>
+                        <td class="tbld"><?php echo $result["checkOutDate"] ?></td>
+                        <td class="tbld">
+                            <?php if ($result["typestatus"] == "Completed") {?>
+                            <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
+                            <?php } else {?>
+                            <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
+                            <?php }?>
+                        </td>
 
-                <tr>
-                    <td class="tbld">R106</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
 
-                <tr>
-                    <td class="tbld">R107</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
-                <tr>
-                    <td class="tbld">R108</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
-                <tr>
-                    <td class="tbld">R109</td>
-                    <td class="tbld">T102</td>
-                    <td class="tbld">2022/12/12</td>
-                    <td class="tbld">500</td>
-                    <td class="tbld">2022/12/28</td>
-                    <td class="tbld">2022/12/30</td>
-                    <td class="tbld">Done</td>
-                    <td class="tbld">Confirmed</td>
-                </tr>
+                        <?php }
+
+?>
+                    </tr>
+
             </table>
         </div>
         </div>
         </div>
 
 
-       
+
     </section>
-   
+
 </body>
 
 </html>

@@ -31,11 +31,21 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <div style="margin-top:20px;margin-left:10px;" class="dashheading">
             <span class="b">
                 Today's Reservations
-                <div style="margin-top:60px;font-size:40px;">20</div>
+                <div style="margin-top:60px;font-size:40px;"><?php
+require_once "../controller/hotelController.php";
+$res1 = new hotelController();
+$results1 = $res1->countReservations();
+echo $results1;
+?>
+                </div>
             </span>
             <span class="b">
                 Cancelled Reservations
-                <div style="margin-top:60px;font-size:40px;">2</div>
+                <div style="margin-top:60px;font-size:40px;"><?php
+$res2 = new hotelController();
+$results2 = $res2->canceledReservations();
+echo $results2;
+?></div>
             </span>
             <span class="b">
                 Reserved Rooms

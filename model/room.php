@@ -37,4 +37,8 @@ class room extends db_connection
 		}
 		return $data;
 	}
+     public function viewAvailableRooms(){
+       $query = "Select * from room where status='Available'";
+       return $this->getData($query);
+    }
 }

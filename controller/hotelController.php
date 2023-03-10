@@ -142,10 +142,9 @@ class hotelController extends db_connection
     {
 
         $rec = new hotel();
-        $result= $rec->recPwd($email);
+        $result = $rec->recPwd($email);
 
         if (mysqli_num_rows($result) > 0) {
-
 
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
@@ -180,25 +179,22 @@ class hotelController extends db_connection
                 window.location.href = '../view-hotel/recoverPwd.php';
         </script>";?>
                     <?php
-            } else {
-                        ?>
+} else {
+                ?>
                                 <script>
                                     alert("<?php echo "Email sent to " . $email ?>");
                                 </script>
                             <?php
-            }
-        }
-    
-        else{
+}
+        } else {
             ?>
             <script>
                             alert("<?php echo "Invalid Email " ?>");
                         </script><?php
-    }
 }
+    }
 
-
-public function validateUser($email)
+    public function validateUser($email)
     {
         $hoteluser = new hotel();
         $res = $hoteluser->recPwd($email);
@@ -207,5 +203,48 @@ public function validateUser($email)
 
     }
 
-}
+    public function countReservations()
+    {
+        $hoteluser = new hotel();
+        $res = $hoteluser->countReservations();
+        return $res;
 
+    }
+    public function canceledReservations()
+    {
+        $hoteluser2 = new hotel();
+        $res2 = $hoteluser2->canceledReservations();
+        return $res2;
+    }
+    public function viewhotelPayments()
+    {
+        $hoteluser3 = new hotel();
+        $result3 = $hoteluser3->viewhotelPayments();
+        return $result3;
+    }
+    public function get_payments($id)
+    {
+        $hoteluser4 = new hotel();
+        $result4 = $hoteluser4->get_payments($id);
+        return $result4;
+
+    }
+    public function viewGuestReservations()
+    {
+        $hoteluser4 = new hotel();
+        $result4 = $hoteluser4->viewGuestReservations();
+        return $result4;
+    }
+    public function viewAdminReservations()
+    {
+        $hoteluser4 = new hotel();
+        $result4 = $hoteluser4->viewAdminReservations();
+        return $result4;
+    }
+public function viewPendingReservations()
+    {
+        $hoteluser5 = new hotel();
+        $result5 = $hoteluser5->viewPendingReservations();
+        return $result5;
+    }
+}

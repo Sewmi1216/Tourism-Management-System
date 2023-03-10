@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
+    <style>
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-padding-top: 6rem;
+        scroll-behavior: smooth;
+    }
+    </style>
 </head>
 
 <body>
@@ -32,134 +40,189 @@
         </div>
     </section>
 
+    
+
+    <section class="hotel" id="hotel" style="padding-top = 40px">
+        <h2 class="heading" style="text-align:center;">Explore Sri Lankan tour packages</h1>
+            <hr>
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="reservehotel.php" class="btn">book now</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="reservehotel.php" class="btn">book now</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="#" class="btn">book now</a>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+
 
     <!-- tour packages -->
-    <section class="popular" id="tour" style="padding: 2rem 9%;">
-        <h1 class="heading" style="text-align:center;">Explore Sri Lankan tour packages</h1>
-        <hr>
-        <div class="container">
-            <div class="box">
-                <img src="../images/available packages/package1.png" alt="">
+    <section class="hotel" id="hotel" style="padding-top = 40px">
+        <h2 class="heading" style="text-align:center;">Explore Sri Lankan tour packages</h1>
+            <hr>
+            <div class="box-container">
 
-                <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="reservehotel.php" class="btn">book now</a>
+                    </div>
                 </div>
 
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="reservehotel.php" class="btn">book now</a>
+                    </div>
                 </div>
+
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="#" class="btn">book now</a>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="box">
-                <img src="../images/available packages/package3.png" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-            <div class="box">
-                <img src="../images/available packages/package4.png" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-
-        </div>
     </section>
 
     <!-- hotels -->
-    <section class="popular" id="hotel" style="padding: 2rem 9%;">
-        <h1 class="heading" style="text-align:center;">Explore Sri Lankan hotels</h1>
-        <hr>
-        <div class="container">
-            <div class="box">
-                <img src="../images/h2.jpg" alt="">
+    <section class="hotel" id="hotel" style="padding-top = 40px">
+        <h2 class="heading" style="text-align:center;">Explore Sri Lankan tour packages</h1>
+            <hr>
+            <div class="box-container">
 
-                <div class="content-container">
-                    <h3 style="display: inline;">Marino Beach</h3>
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="reservehotel.php" class="btn">book now</a>
+                    </div>
                 </div>
 
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="reservehotel.php" class="btn">book now</a>
+                    </div>
                 </div>
+
+                <div class="box">
+                    <img src="../images/h3.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <a href="#" class="btn">book now</a>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="box">
-                <img src="../images/h3.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Wonder Hotel</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-            <div class="box">
-                <img src="../images/h3.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">The Kingsbury Hotel</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- handicrafts -->
-    <section class="popular" id="handi" style="padding: 2rem 9%;">
-        <h1 class="heading" style="text-align:center;">Explore Sri Lankan handicrafts</h1>
-        <hr>
-        <div class="container">
-            <div class="box">
-                <img src="../images/bathik saree.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Mask</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Order Now" name="signIn">
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="../images/c1.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Crane products</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Order Now" name="signIn">
-                </div>
-            </div>
-            <div class="box">
-                <img src="../images/Bathik.jpeg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Bathik dresses</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Order Now" name="signIn">
-                </div>
-            </div>
-
-        </div>
     </section>
 
 

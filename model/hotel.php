@@ -79,37 +79,54 @@ class hotel extends db_connection
         return $data;
     }
 
-    // public function showUserChat($from_user_id, $to_user_id) {
-    //     $userDetails = $this->getUserDetails($to_user_id);
-    //     $toUserAvatar = '';
-    //     foreach ($userDetails as $user) {
-    //         $toUserAvatar = $user['avatar'];
-    //         $userSection = '<img src="userpics/'.$user['avatar'].'" alt="" />
-    //             <p>'.$user['username'].'</p>
-    //             <div class="social-media">
-    //                 <i class="fa fa-facebook" aria-hidden="true"></i>
-    //                 <i class="fa fa-twitter" aria-hidden="true"></i>
-    //                  <i class="fa fa-instagram" aria-hidden="true"></i>
-    //             </div>';
-    //     }
-    //     // get user conversation
-    //     $conversation = $this->getUserChat($from_user_id, $to_user_id);
-    //     // update chat user read status
-    //     $sqlUpdate = "
-    //         UPDATE ".$this->chatTable."
-    //         SET status = '0'
-    //         WHERE sender_userid = '".$to_user_id."' AND reciever_userid = '".$from_user_id."' AND status = '1'";
-    //     mysqli_query($this->dbConnect, $sqlUpdate);
-    //     // update users current chat session
-    //     $sqlUserUpdate = "
-    //         UPDATE ".$this->chatUsersTable."
-    //         SET current_session = '".$to_user_id."'
-    //         WHERE userid = '".$from_user_id."'";
-    //     mysqli_query($this->dbConnect, $sqlUserUpdate);
-    //     $data = array(
-    //         "userSection" => $userSection,
-    //         "conversation" => $conversation
-    //      );
-    //      echo json_encode($data);
-    // }
+    public function countReservations()
+    {
+        $query1 = "SELECT count(*) FROM guest_reservation where DATE(bookingDateTime ) = CURRENT_DATE()";
+        $query2 = "SELECT count(*) FROM admin_reservation where DATE(bookingDateTime ) = CURRENT_DATE()";
+
+        $query = "SELECT count(*) from guest_reservation";
+        $stmt1 = mysqli_query($this->conn, $query);
+        $stmt2 = mysqli_query($this->conn, $query2);
+        $rowcount1 = mysqli_num_rows($stmt1);
+        $rowcount2 = mysqli_num_rows($stmt2);
+        return $rowcount1;
+    }
+    public function canceledReservations()
+    {
+        $query1 = "SELECT count(*) FROM guest_reservation where status = 'Cancelled'";
+        $query2 = "SELECT count(*) FROM admin_reservation where status = 'Cancelled'";
+        // $query = "SELECT count(*) from guest_reservation";
+        $stmt1 = mysqli_query($this->conn, $query1);
+        $stmt2 = mysqli_query($this->conn, $query2);
+        $rowcount1 = mysqli_num_rows($stmt1);
+        $rowcount2 = mysqli_num_rows($stmt2);
+        return $rowcount1 + $rowcount2;
+    }
+
+    public function viewhotelPayments()
+    {
+        $query = "Select * from payment p, guest_reservation g where p.reservationID=g.reservationID and category='reservation'";
+        return $this->getData($query);
+    }
+    public function get_payments($id)
+    {
+        $query = "Select * from guest_reservation where reservationID ='$id'";
+        return $this->getData($query);
+
+    }
+     public function viewGuestReservations()
+    {
+        $query = "Select * from guest_reservation g, payment p";
+        return $this->getData($query);
+    }
+     public function viewAdminReservations()
+    {
+        $query = "Select * from admin_reservation g, payment p";
+        return $this->getData($query);
+    }
+     public function viewPendingReservations()
+    {
+        $query = "Select * from guest_reservation g, roomtype r where g.typeID=r.roomTypeID and status='Pending'";
+        return $this->getData($query);
+    }
 }

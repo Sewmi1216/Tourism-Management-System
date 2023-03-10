@@ -26,7 +26,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
 
-
 </head>
 
 <body>
@@ -36,12 +35,13 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Room Types </div>
+                <div class="page-title"> Room Types</div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for packages" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns" style="margin-left: 1rem;"><a href="roomType.php" style="color:white;text-decoration:none;">View
+                <button type="submit" class="btns" style="margin-left: 1rem;"><a href="roomType.php"
+                        style="color:white;text-decoration:none;">View
                         All</a></button>
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
@@ -52,15 +52,14 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
         </div>
         <div class="bg">
-
             <div id="result" style="overflow-x:auto;">
                 <table id="example">
                     <tr class="subtext tblrw">
-                        <th class="tblh">Image</th>
+                        <!-- <th class="tblh">Image</th> -->
                         <th class="tblh">Room Type</th>
                         <th class="tblh">Price</th>
                         <th class="tblh">Status</th>
-                        <th class="tblh">View</th>
+                        <th class="tblh">Add photos</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr> <?php
@@ -70,11 +69,11 @@ $results = $pkg->viewAllTypes();
 foreach ($results as $result) {
     ?><tbody>
                         <tr class="subtext tblrw">
-                            <td class="tbld">
+                            <!-- <td class="tbld">
                                 <?php echo "<img src='../images/" . $result['img'] . "' style=
                     'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
                     background-repeat: no-repeat;'>"; ?>
-                            </td>
+                            </td> -->
                             <td class="tbld"><?php echo $result["typeName"] ?></td>
                             <td class="tbld"><?php echo $result["price"] ?></td>
                             <td class="tbld">
@@ -84,14 +83,18 @@ foreach ($results as $result) {
                                 <button class="status2"><?php echo $result["typestatus"]; ?></button>
                                 <?php }?>
                             </td>
+                            <td class="tbld">
+                                <?php echo "<a href='addPhotos.php?id=$result[roomTypeId]'>"; ?>
+                                <i class="fa-solid fa-images"></i>
+                                <?php echo "</a>" ?>
+                            </td>
                             <td class="tbld"><a
-                                    onclick="document.getElementById('id03').style.display='block';document.location='#id03?typeID=<?php $typeID = $result['roomTypeId'];?>'"><i
-                                        class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                            <!-- <td class="tbld"><button data-id='<?php echo $result['roomTypeId']; ?>' class="help"> view </button></td> -->
-                            <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));" data-id="<?php echo $result['roomTypeId']; ?>"><i
+                                    onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
+                                    data-id="<?php echo $result['roomTypeId']; ?>"><i
                                         class="fa-solid fa-pen-to-square art"></i></a></td>
                             <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i
                                         class="fa-solid fa-trash art"></i></a></td>
+
                             <?php }
 
 ?>
@@ -106,9 +109,6 @@ foreach ($results as $result) {
 
         <!-- add room type -->
         <?php require_once 'addRoomType.php';?>
-
-        <!-- view room type -->
-        <?php require_once 'viewType.php';?>
 
         <!-- update room type -->
         <?php require_once 'updateRoomType.php';?>
@@ -128,15 +128,15 @@ foreach ($results as $result) {
     }
 
     function loadData(id) {
-    	$.ajax({
-    	    url: "../api/addtype.php",
-    	    method: "POST",
-    	    data: {
-                get_data: 1, 
+        $.ajax({
+            url: "../api/addtype.php",
+            method: "POST",
+            data: {
+                get_data: 1,
                 id: id,
             },
-    	    success: function (response) {
-    	        console.log(response);
+            success: function(response) {
+                console.log(response);
                 var type = JSON.parse(response);
                 $("#typeid").val(type.roomTypeId);
                 $("#typename").val(type.typeName);
@@ -146,10 +146,47 @@ foreach ($results as $result) {
                 $("#img").attr("src", "../images/" + type.img);
                 $('#status').val(type.typestatus);
 
-    	    }
+            }
         });
     }
-</script>
+
+    function upload_file(e) {
+        e.preventDefault();
+        ajax_file_upload(e.dataTransfer.files);
+    }
+
+    function file_explorer() {
+        document.getElementById("selectfile").click();
+        document.getElementById("selectfile").onchange = function() {
+            files = document.getElementById("selectfile").files;
+            ajax_file_upload(files);
+        };
+    }
+
+    function ajax_file_upload(files_obj) {
+        if (files_obj != undefined) {
+            var form_data = new FormData();
+            for (i = 0; i < files_obj.length; i++) {
+                form_data.append("file[]", files_obj[i]);
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "ajax.php", true);
+            xhttp.onload = function(event) {
+                if (xhttp.status == 200) {
+                    alert(this.responseText);
+                } else {
+                    alert(
+                        "Error " + xhttp.status + " occurred when trying to upload your file."
+                    );
+                }
+            };
+
+            xhttp.send(form_data);
+        }
+    }
+    </script>
+
+
 </body>
 
 </html>

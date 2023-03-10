@@ -6,6 +6,22 @@ body {
   background-position: center;
   margin: 0;
   padding: 0;
+  max-height: 200px;
+}
+@media (max-width: 936px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 1200px) {
+  .btn {
+    font-size: 80%;
+    width: 80%;
+  }
+
+  .popular .container .box h3 {
+    font-size: 150%;
+  }
 }
 .text {
   font-style: "helvetica neue", helvetica, tahoma, sans-serif;
@@ -25,7 +41,16 @@ body {
   margin-top: 90px;
   /* align-items: center;
   justify-content: center; */
-
+  position: fixed;
+ top: 50%;
+ left: 25%;
+  transform: translate(-80%, -60%);
+}
+@media screen and (max-width: 936px) {
+  .form {
+    max-width: 90%;
+    padding: 25px;
+  }
 }
 .field {
   font-family: sans-serif;

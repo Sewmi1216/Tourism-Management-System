@@ -23,18 +23,20 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
     <script type="text/javascript">
-    $(document).ready(function() {
-        $("#example").on('click', '.spnSelected', function() {
-            var self = $(this).closest("tr");
-            var col1_value = self.find("#D1").text();
-            $("#d1").val(col1_value);
-            var col2_value = self.find("#R1").text();
-            $("#r1").val(col2_value);
-            // console.log('hello');
+
+     function select(id) {
+        console . log(id);
+        var modal = document.getElementById("r1");
+        modal.value = id;
+        console.log(modal);
+    }
+ function selecter(id) {
+        var modal = document.getElementById("d1");
+        modal.value = id;
+        console.log(modal);
+    }
 
 
-        });
-    });
     </script>
 </head>
 
@@ -54,11 +56,10 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
             <div class="side">
                 <div class="page-title"> Reservations</div>
-                <table id="example">
+                <table id="example1">
                     <thead>
                         <tr class="subtext tblrw">
-                            <th class="tblh">Room No</th>
-                            <th class="tblh">Package Name</th>
+                            <th class="tblh">Reservation ID</th>
                             <th class="tblh">Room Type</th>
                             <th class="tblh">From</th>
                             <th class="tblh">To</th>
@@ -67,19 +68,17 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     </thead>
                     <tbody>
                         <?php
-require_once "../controller/roomController.php";
-$room = new roomController();
-$results = $room->viewAllRooms();
+require_once "../controller/hotelController.php";
+$hotel = new hotelController();
+$results = $hotel->viewPendingReservations();
 foreach ($results as $result) {
     ?>
                         <tr class="subtext tblrw">
-                            <td class="tbld" id="R1"> <?php echo $result["roomNo"] ?></td>
-                            <td class="tbld">Family</td>
-                            <td class="tbld">Suit</td>
-                            <td class="tbld">2023/02/14</td>
-                            <td class="tbld">2023/02/16</td>
-                            <td class="tbld"><span class="spnSelected">Select</span></td>
-                        </tr>
+                            <td class="tbld"> <?php echo $result["reservationID"] ?></td>
+                            <td class="tbld"> <?php echo $result["typeName"] ?></td>
+                            <td class="tbld"> <?php echo $result["checkInDate"] ?></td>
+                           <td class="tbld"> <?php echo $result["checkOutDate"] ?></td>
+                            <td class="tbld"><span class="spnSelected" onclick="select(<?php echo $result['reservationID']; ?>)">Select</span></td></tr>
 
                         <?php }
 ?>
@@ -89,7 +88,7 @@ foreach ($results as $result) {
             </div>
             <div class="side">
                 <div class="page-title"> Rooms</div>
-                <table id="example">
+                <table id="example2">
                     <thead>
                         <tr class="subtext tblrw">
                             <th class="tblh">Room No</th>
@@ -104,8 +103,8 @@ foreach ($results as $result) {
                         <?php
 require_once "../controller/roomController.php";
 $room = new roomController();
-$results = $room->viewAllRooms();
-foreach ($results as $result) {
+$results2 = $room->viewAvailableRooms();
+foreach ($results2 as $result) {
     ?>
                         <tr class="subtext tblrw">
                             <td class="tbld" id="D1"> <?php echo $result["roomNo"] ?></td>
@@ -113,7 +112,7 @@ foreach ($results as $result) {
                             <td class="tbld">Suit</td>
                             <td class="tbld">2023/02/14</td>
                             <td class="tbld">2023/02/16</td>
-                            <td class="tbld"><span class="spnSelected">Select</span></td>
+                            <td class="tbld"><span class="spnSelected" onclick="selecter(<?php echo $result['roomNo']; ?>)">Select</span></td>
                         </tr>
 
                         <?php }
