@@ -31,15 +31,16 @@ class tourguideController extends db_connection
 
     }
 
-    public function viewAllguide()
+    
+    
+    public function viewAllTourguides()
     {
-        
-        $pkg = new tourguide();
+        $tourguide = new tourguide();
 
-        $result = $pkg->viewtourguide();
+        $results= $tourguide->viewAllTourguides();
 
-        $_SESSION['c'] = $result;
-        return $result;
+        // include "../view-tour_guide/Guide_Assign_tourists.php";
+        return $results;
 
     }
 }

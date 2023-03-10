@@ -29,7 +29,7 @@ class tourguide extends db_connection
         return $stmt;
     }
 
-    public function viewtourguide()
+    public function viewAllTourguides()
     {
        
     

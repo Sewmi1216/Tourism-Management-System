@@ -4,7 +4,7 @@ $user = "";
 if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:../view-hotel/hotelLogin.php");
+    header("location:Login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -42,65 +42,33 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 <tr class="subtext tblrw">
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
-                    <th class="tblh">Order ID</th>
                     <th class="tblh">Type</th>
                     <th class="tblh">Price</th>
                     <th class="tblh">Status</th>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tblh">0001</td>
-                    <td class="tblh">2022/10/24</td>
-                    <td class="tblh">0001</td>
-                    <td class="tblh">Credit</td>
-                    <td class="tblh">20$</td>
-                    <td class="tbld">
-                    <input type="button" class="butns" value="Completed">
-</td>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tblh">0001</td>
-                    <td class="tblh">2022/10/24</td>
-                    <td class="tblh">0001</td>
-                    <td class="tblh">Credit</td>
-                    <td class="tblh">20$</td>
-                    <td class="tbld">
-                    <input type="button" class="butn" value="Pending">
-</td>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tblh">0001</td>
-                    <td class="tblh">2022/10/24</td>
-                    <td class="tblh">0001</td>
-                    <td class="tblh">Credit</td>
-                    <td class="tblh">20$</td>
-                    <td class="tbld">
-                    <input type="button" class="butns" value="Completed">
-</td>
-                </tr>
-                <tr class="subtext tblrw">
-                    <td class="tblh">0001</td>
-                    <td class="tblh">2022/10/24</td>
-                    <td class="tblh">0001</td>
-                    <td class="tblh">Credit</td>
-                    <td class="tblh">20$</td>
-                    <td class="tbld">
-                    <input type="button" class="butns" value="Completed">
-</td>
-
-                </tr>
-                <?php
-include "../controller/productController.php";
-$productcont = new productController();
-$res = $productcont->viewAll();
-if ($res->num_rows > 0) {
-    while ($row = mysqli_fetch_array($res)) {
+                    <th class="tblh">Tour Booking ID</th>
+                    <th class="tblh">Order ID</th>
+                    <th class="tblh">Reservation ID</th>
+                </tr><?php 
+require_once("../controller/paymentController.php");
+$payment = new paymentController();
+$results= $payment->viewAllPayments();
+foreach ($results as $result) {
         ?>
-                
+             
+ 
+           <tr class="subtext tblrw">
+                    <th class="tblh"><?php echo $result["paymentID"] ?></th>
+                    <th class="tblh"><?php echo $result["date"] ?></th>
+                    <th class="tblh"><?php echo $result["type"] ?></th>
+                    <th class="tblh"><?php echo $result["amount"] ?></th>
+                    <th class="tblh"><?php echo $result["status"] ?></th>
+                    <th class="tblh"><?php echo $result["bookingID"] ?></th>
+                    <th class="tblh"><?php echo $result["orderID"] ?></th>
+                    <th class="tblh"><?php echo $result["reservationID"] ?></th>
+                </tr>     
                 
                 <?php }
-} else {
-    echo "No results";
-}
+
 ?>
             </table>
         </div>
@@ -108,19 +76,7 @@ if ($res->num_rows > 0) {
         </div>
 
     </section>
-    <script>
-    var model = $('.model');
-
-    $('.add').click(function() {
-        model.show();
-    })
-    $('.close').click(function() {
-        model.hide();
-    })
-    // $('.btn').click(function() {
-    //     model.hide();
-    // })
-    </script>
+    
 </body>
 
 </html>

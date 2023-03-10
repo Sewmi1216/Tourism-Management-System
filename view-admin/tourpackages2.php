@@ -50,6 +50,7 @@ $rows = $_SESSION['c'];
 
                 <span class="btn">
 
+            
                 <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                 <a href="editpackage.php?package_id='.$row['packageID'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
 
