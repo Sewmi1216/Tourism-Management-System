@@ -87,4 +87,15 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 }
 
 
+public function viewAllentrepreneurs(){
+        $user = new entrepreur();
+
+        $result = $user-> viewAllentrepreneurs();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+
+}
+
 }

@@ -1,3 +1,8 @@
+<?php 
+require('../api/view-entrepreneur.php');
+$rows = $_SESSION['c'];
+?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -172,7 +177,7 @@ span.psw {
                     <input class="input-field" type="text" placeholder="Search for guides" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+               
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
@@ -204,6 +209,31 @@ span.psw {
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr>
+                    <tr class="subtext tblrw">
+
+                    <?php
+                    foreach($rows as $row)
+                    
+                    {
+
+                  
+                        
+                        <td class="tbld"><?php echo $row["businessName"] ?></td>
+                        <td class="tbld"><?php echo $row["price"] ?></td>
+                        <td class="tbld"><?php echo $row["price"] ?></td>
+                        <td class="tbld"><button class="status">
+                                <?php if ($row["status"] == 0) {
+                                    echo "Unavailable";
+                                } else {
+                                    echo "Available";
+                                }
+                                ?></button>
+                        </td>
+                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                    </tr>
+  } ?>
                 </table>
             </div>
 
@@ -219,10 +249,7 @@ span.psw {
                         <th class="tblh">Delete</th>
                     </tr>
                     <tr class="subtext tblrw">
-                        <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
-                        </td>
+                        
                         <td class="tbld"><?php echo $row["packageName"] ?></td>
                         <td class="tbld"><?php echo $row["price"] ?></td>
                         <td class="tbld"><?php echo $row["price"] ?></td>
