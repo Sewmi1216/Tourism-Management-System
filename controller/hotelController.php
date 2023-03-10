@@ -216,10 +216,12 @@ class hotelController extends db_connection
         $res2 = $hoteluser2->canceledReservations();
         return $res2;
     }
+
     public function viewhotelPayments($id)
     {
         $hoteluser3 = new hotel();
         $result3 = $hoteluser3->viewhotelPayments($id);
+
         return $result3;
     }
     public function get_payments($id)
@@ -229,6 +231,7 @@ class hotelController extends db_connection
         return $result4;
 
     }
+
     public function viewGuestReservations($id)
     {
         $hoteluser4 = new hotel();

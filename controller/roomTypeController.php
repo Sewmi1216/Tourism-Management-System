@@ -40,6 +40,28 @@ class roomTypeController extends db_connection
         $type = new roomType();
         $result = $type->viewAllImgs($getid);
         return $result;
+    }
+    public function viewAllImgs()
+    {
+        $type = new roomType();
+        $result = $type->viewAllImgs();
+        return $result;
+
+    }
+    public function deleteImg($id, $typeid)
+    {
+        $dl = new roomType();
+        $dl->deleteImg($id);
+
+        if (!$dl) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+            echo "<script>
+        window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+        </script>";
+
+        }
 
     }
     public function deleteImg($id, $typeid)
