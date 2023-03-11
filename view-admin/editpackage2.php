@@ -45,12 +45,14 @@ $rows = $_SESSION['c'];
                 </td>
                 <td>  <input type="text" placeholder="Enter Package Name" value="<?php echo $name?>" name="pckgname" required></td>
             </tr>
+
             <tr class="row">
                 <td>
                     <div class="content">Package Price</div>
                 </td>
                 <td> <input type="text" placeholder="Package Price" value="<?php echo $name?>" name="pckgprice" required> </td>
             </tr>
+
             <tr class="row">
                 <td>
                     <div class="content">Package Description</div>
@@ -58,6 +60,7 @@ $rows = $_SESSION['c'];
                 <td> <input type="text" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" value="<?php echo $name?>" name="pckgdesc" required> </td>
             </tr>
 
+  
             <tr class="row">
                 <td>
                     <div class="content">Package Images</div>

@@ -106,9 +106,7 @@ $rows = $_SESSION['c'];
                     </td>
                 </tr>
             </table>
-            <input type="submit" class="btnRegister" value="Sign Up" name="signup" />
-            <p style="margin-top:-32px;text-align:center;">Already have an account <a href="hotelLogin.php"
-                    style="text-decoration:none;color: #004581;" class="text">Login</a></p>
+            <input type="submit" class="btnRegister" value="Update Manager Details" name="signup" />
         </form>
 
 
