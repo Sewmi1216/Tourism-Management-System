@@ -106,4 +106,4 @@ if (isset($_POST["get_payments"])) {
     // Important to stop further executing the script on AJAX by following line
     exit();
 }
-
+?>

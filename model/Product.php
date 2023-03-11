@@ -10,29 +10,36 @@ class product extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+    public function insertproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg)
     {
-        $query = "INSERT INTO product (productName, category, quantity,price, productImg) VALUES ('$pName', '$pCategory','$avaquantity', '$price','$fileImg')";
+        $query = "INSERT INTO product (entID,productName, category, quantity,price, productImg) VALUES ('$eid','$pName', '$pCategory','$avaquantity', '$price','$fileImg')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
-    public function viewAll()
+
+    public function viewproduct($pId)
+    {
+    
+        $query = "Select * from product where productID = '$pId'";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+        
+    }
+    public function viewAll($id)
     {
         
-        // $query = "Select * from product p where quantity='40' or quantity='50' or quantity='10' or quantity='25'" ;
-        
-        // return $this->getData($query);
-        $query = "SELECT * FROM product";
+        $query = "SELECT * FROM product p, entrepreneur e where p.entID=e.entID and e.entID='$id'";
         return $this->getData($query);
 
     }
     private function getData($query) {
 		$result = mysqli_query($this->conn, $query);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: '. mysqli_error($this->conn));
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result)) {
@@ -41,9 +48,22 @@ class product extends db_connection
 		return $data;
 	}
 
+    // private function getData($query) {
+    //     $result = mysqli_query($this->conn, $query);
+    //     if(!$result){
+    //         die('Error in query: '. mysqli_error($this->conn));
+    //     }
+    //     $data= array();
+    //     while ($row = mysqli_fetch_array($result)) {
+    //         $data[]=$row;            
+    //     }
+    //     return $data;
+    // }
+    
+
 
 public function deleteproduct($id){
-    $query = "delete from product where productID='17'";
+    $query = "delete from product where productID='$id'";
     $stmt = mysqli_query($this->conn, $query);
     return $stmt;
 }
@@ -57,3 +77,4 @@ public function updateproduct($id, $pName, $pCategory,$avaquantity, $price,$file
 
 
 }
+?>
