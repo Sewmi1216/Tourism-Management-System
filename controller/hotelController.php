@@ -259,4 +259,30 @@ class hotelController extends db_connection
         $result5 = $hoteluser5->viewPendingReservations($id);
         return $result5;
     }
+    
+    public function viewAllpendingmanagers()
+    {
+        $user = new hotel();
+    
+        $result = $user-> viewAllpendingmanagers();
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+    
+    public function viewonemanager($inputs)
+    {
+        $user = new hotel();
+    
+        $result = $user-> viewonemanager($inputs[0]);
+    
+        // print_r($result);
+        // die();
+    
+        $_SESSION['c'] = $result;
+        return $result;
+    }
 }
+
+
+
+
