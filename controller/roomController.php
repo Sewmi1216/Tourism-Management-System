@@ -11,17 +11,18 @@ class roomController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addRoom($roomNo,$type,$beds,$status,$hotelPkgId)
+    public function addRoom($roomNo,$beds,$status,$typeId,$id)
     {
         $room = new room();
 
-        $res = $room->insertRoom($roomNo,$type,$beds,$status,$hotelPkgId);
+
+        $res = $room->insertRoom($roomNo,$beds,$status,$typeId,$id);
 
         if (!$res) {
             echo 'There was a error';
             // echo "<script>console.log(res)</script>";
         } else {
-            echo "<script>alert('Your form was successfully submitted');
+            echo "<script>
         window.location.href = '../view-hotel/room.php';
         </script>";
         }
