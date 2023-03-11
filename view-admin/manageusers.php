@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/manageusers.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <!-- <script src="../libs/jquery.min.js"></script> -->
@@ -32,7 +32,7 @@
         <div class="searchSec">
                 <div class="page-title"> ENTREPRENEUR APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View All Verified Entrepreneur</a></button>
+            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
 
 
         <div class="bg">
@@ -93,7 +93,7 @@ foreach ($results as $result) {
           <div class="searchSec">
                 <div class="page-title"> MANAGER APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View All Veried Hotels</a></button>
+            <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotels</a></button>
 
           <div class="bg">
        
@@ -153,7 +153,7 @@ foreach ($results as $result) {
      <div class="searchSec">
                 <div class="page-title"> TOURGUIDE APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View All</a></button>
+            <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
 
      <div class="bg">
        
