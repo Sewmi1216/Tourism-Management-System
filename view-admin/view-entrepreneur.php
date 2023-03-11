@@ -244,8 +244,9 @@ echo ' <tr class="subtext tblrw">
                         <td class="tbld">'.$row['entrepreneurNic'].'</td>
                         <td class="tbld">'.$row['entrepreneurEmail'].'</td>
                         <td class="tbld">'.$row['entrepreneurPhone'].'</td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld">   <a href="entrepreneurprofile2.php?entrepreneur_id='.$row['entID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                     <td class="tbld">  <a href="editmanager.php?"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                      
                         <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
         </tr> ';
                              }

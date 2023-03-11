@@ -1,6 +1,8 @@
 <?php 
 require('../api/viewhotelmanager.php');
 $rows = $_SESSION['c'];
+
+
 ?>
 
 
@@ -209,8 +211,8 @@ span.psw {
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr>
-                    <?php 
-foreach ($rows as $row) {
+  <?php                   
+foreach ($rows as $row) {  
 
 echo ' <tr class="subtext tblrw">
                         
@@ -218,41 +220,17 @@ echo ' <tr class="subtext tblrw">
                         <td class="tbld">'.$row['managerNic'].'</td>
                         <td class="tbld">'.$row['managerEmail'].'</td>
                         <td class="tbld">'.$row['managerPhone'].'</td>
-                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                         <td class="tbld">   <a href="managerprofile.php?hotel_id='.$row['hotelID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                      <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
                         <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-        </tr> ';
-                             }
+        </tr> ' ;
+}
+
 ?>  
-                </table>
+            </table>
             </div>
 
-            <!-- <div id="results">
-                <table>
-                    <tr class="subtext tblrw">
-                        <th class="tblh">Hotel Package</th>
-                        <th class="tblh">Hotel Package Name</th>
-                        <th class="tblh">Room Type</th>
-                        <th class="tblh">Status</th>
-                        <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
-                        <th class="tblh">Delete</th>
-                    </tr>
-                    <tr class="subtext tblrw">
-                       
-                        <td class="tbld"><?php echo $row["packageName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-                
-                </table>
-            </div>
-         -->
 
         </div>
         </div>
@@ -269,7 +247,7 @@ echo ' <tr class="subtext tblrw">
 
 
 
-
+<!-- 
         <div id="id01" class="modal">
 
             <form class="modal-content animate" action="../api/addroomapi.php" method="post">
@@ -358,7 +336,7 @@ echo ' <tr class="subtext tblrw">
                 </div>
             </form>
         </div>
-    </section>
+    </section> -->
 
 </body>
 
