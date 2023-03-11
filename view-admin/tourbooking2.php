@@ -1,3 +1,10 @@
+<?php 
+require('../api/viewtourbookings.php');
+$rows = $_SESSION['c'];
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -33,6 +40,8 @@
                 
 
                 <div class="booked-packages-list">
+
+
                     <div class="booked-packages">
                         <div class="booked-packages-card">
                             <a href=""> <img src="../images/available packages/package1.png" alt="images"></a>
@@ -48,35 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="booked-packages-card">
-                            <a href=""> <img src="../images/available packages/package1.png" alt="images"></a>
-                            <div class="details">
-                                <h5>Passikudah</h5>
-                                <div class="tour-dates">
-                                    <i class="bi bi-calendar-event"></i>
-                                    <div class="btn">
-                                        <button type="button" class="editbtn">APPROVE</button>
-                                        <button type="button" class="deletebtn">CONTACT</button>
-                                    </div>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="booked-packages-card">
-                            <a href=""><img src="../images/available packages/package1.png" alt="images"></a>
-                            <div class="details">
-                                <h5>Passikudah</h5>
-                                <div class="tour-dates">
-                                    <i class="bi bi-calendar-event"></i>
-                                    <div class="btn">
-                                        <button type="button" class="editbtn">APPROVE</button>
-                                        <button type="button" class="deletebtn">CONTACT</button>
-                                    </div>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="add">
                         <h3>CONFIRMED BOOKINGS</h3>
@@ -97,21 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="booked-packages-card">
-                            <a href=""> <img src="../images/available packages/package1.png" alt="images"></a>
-                            <div class="details">
-                                <h5>Passikudah</h5>
-                                <div class="tour-dates">
-                                    <i class="bi bi-calendar-event"></i>
-                                    <div class="btn">
-                                        <button type="button" class="editbtn">CONTACT</button>
-                                    </div>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-
-            
+                     
                     </div>
                 </div>
             </div>

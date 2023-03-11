@@ -33,16 +33,23 @@
           <h3>ENTREPRENEUR APPROVAL</h3> 
             <a href="view-entrepreneur.php"><i class=""></i> VIEW ENTREPRENEURS</a>
         </div>
+ <div class="booked-packages-list">
+        <?php 
+require_once("../controller/entrepreneurController.php");
+$penentrepreneur = new entrepreneurController();
+$results= $penentrepreneur->viewAllpendingentrepreneurs();
+foreach ($results as $result) {
 
-            <div class="booked-packages-list">
+        ?>
+           
                 <div class="booked-packages-card">
                   <a href=""> <img src="../images/admin/admin.png" alt="images" id="myBtn"></a> 
                     <div class="details">
-                        <h5>Passikudah</h5>
+                        <h5> <?php echo $result["entrepreneurName"] ?></h5>
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
-                            <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
+                            <a href="Approvalentrepreneur.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                                 <button type="button" class="editbtn">APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
@@ -50,21 +57,33 @@
                         </div>
                     </div>
                 </div>
-      
+                <?php }
+?>
+
+
+
                 <div class="add">  
                     <h3>HOTEL MANAGER APPROVAL</h3> 
                  <a href="view-hotelmanager.php"><i class=""></i> VIEW HOTEL MANAGERS</a>
                 </div>
+
+                <?php 
+require_once("../controller/hotelController.php");
+$penmanager= new hotelController();
+$results= $penmanager->viewAllpendingmanagers();
+foreach ($results as $result) {
+
+        ?>
                 <div class="booked-packages-card">
                   <a href="">  <img src="../images/admin/admin.png" alt="images"></a>
                     <div class="details">
-                        <h5>Passikudah</h5>
+                        <h5> <?php echo $result["managerName"] ?></h5>
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i>
 
 
                           <div class="btn">
-                          <a href="tourguideprofile2.php.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
+                          <a href="Approvehotelmanager.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                             <button type="button" class="editbtn">APPROVE</button>
                             <button type="button" class="deletebtn">DELETE</button>
                         </div>
@@ -72,31 +91,40 @@
                     </div>
                 </div>
                 
+                <?php }
+?>
 
 
                 <div class="add">  
                     <h3>TOURIST GUIDE APPROVAL</h3> 
                  <a href="tourguides.php"><i class=""></i> VIEW TOURIST GUIDE</a>
                 </div>
+                <?php 
+require_once("../controller/hotelController.php");
+$penmanager= new hotelController();
+$results= $penmanager->viewAllpendingmanagers();
+foreach ($results as $result) {
 
+        ?>
                 <div class="booked-packages-card">
                    <a href=""> <img src="../images/admin/admin.png" alt="images"></a>
                     <div class="details">
-                        <h5>Passikudah</h5>
+                        <h5> <?php echo $result["managerName"] ?> </h5>
                         <div class="tour-dates">
                             <i class="bi bi-calendar-event"></i> 
                             <div class="btn">
-                            <a href="touristprofile2.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
-                                <button type="button" class="editbtn">APPROVE</button>
+                            <a href="Approvetouristguide.php?package_id='.$row['package_id'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
+                                <button  class="editbtn" type="submit" formmethod="post" >APPROVE</button>
                                 <button type="button" class="deletebtn">DELETE</button>
                             </div>
-                            <p></p>
+                          
                         </div>
                     </div>
                 </div>
 
                 
-
+                <?php }
+?>
 
 
             </div>

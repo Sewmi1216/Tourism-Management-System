@@ -94,9 +94,9 @@ echo ' <tr class="subtext tblrw">
                         
                         <td class="tbld">'.$row['adminName'].'</td>
                         <td class="tbld">'.$row['username'].'</td>
-                        <td class="tbld">'.$row['managerEmail'].'</td>
-                        <td class="tbld">'.$row['managerPhone'].'</td>
-                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                        <td class="tbld">'.$row['email'].'</td>
+                        <td class="tbld">'.$row['phone'].'</td>
+                        <td class="tbld">   <a href="adminprofile.php?"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                     
         </tr> ';
                              }

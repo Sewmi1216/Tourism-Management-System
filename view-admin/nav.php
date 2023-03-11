@@ -12,7 +12,7 @@
               <span class="desc">Dashboard</span>
           </li>
           <li>
-              <a href="tourpackages2.php">
+              <a href="tourpackages.php">
                   <i class="fa-solid fa-globe"></i>
                   <span class="link">Tour packages</span>
               </a>
@@ -26,7 +26,7 @@
               <span class="desc">Tour Bookings</span>
           </li>
           <li>
-              <a href="manageusers2.php">
+              <a href="manageusers.php">
                   <i class="fa-sharp fa-solid fa-calendar-days"></i>
                   <span class="link">Manage Users</span>
               </a>
@@ -54,7 +54,20 @@
               </a>
               <span class="desc">Administration</s=pan>
           </li>
-
+          <li>
+              <a href="payment.php">
+                  <i class="fa-solid fa-file-invoice-dollar"></i>
+                  <span class="link">Payments</span>
+              </a>
+              <span class="desc">Payment</s=pan>
+          </li>
+          <li>
+              <a href="payment.php">
+                  <i class="fa-solid fa-trash"></i>
+                  <span class="link">Recently deleted</span>
+              </a>
+              <span class="desc">Payment</s=pan>
+          </li>
         
 
           <hr>

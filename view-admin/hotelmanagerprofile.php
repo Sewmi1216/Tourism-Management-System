@@ -1,92 +1,88 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+
 <head>
-  <title> User Profile</title>
-  <link rel="stylesheet" href="../css/hotelmanagerprofile.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
+    <?php include "nav.php"?>
 
+    <section class="home-section">
+        <?php include "dashboardHeader.php"?>
+        <div class="text">Profile</div>
+        <div class="wrapper">
 
-    <div class="navbar">
-        
-        <ul>
-          <img src="../img/logo.png" alt=" logo" style="width:40px;height:40px; margin-left: 20px;" >
-          <li style="float:right"><a  href="#home">Home</a></li>
-          <li style="float:right"><a  href="#contactus">Contact Us</a></li>
-          <li style="float:right"><a href="#about">About</a></li>
-        </ul>
-      </div>
-      
-
-      <div class="heading">
-        <h2 style="color:white"><b>HOTEL MANAGER PROFILE</b></h2>
-        </div>
-
-        <div class="tab" >
-            <div class="centered">
-                <img src="../img/lithu.png" alt="lithu">
-                <h2><b>Lithurshika Sritharakanthan</b></h2>
-                <p><b>@lithusri7</b></p>
-              </div>
-
-            <div class="vl">
-             <div class="ldetails"> 
-                <p>E-mail</p> 
-                <p>lithurshikasri777@gmail.com</p><br>
-                <p>Phone Number</p> 
-                <p>+94 774193765</p><br>
-                <p>Address</p> 
-                <p>No 423, Main Street, Navatkudah,Batticaloa</p><br>
-               
-             </div>
-             <div class="rdetails"> 
-                <p>Languages</p> 
-                <p>Tamil, English, Sinhala, Hindi</p><br>
-                <p>Date of Birth</p> 
-                <p>25.07.2000</p><br>
-                <p>Country of Origin</p> 
-                <p>Sri Lanka</p><br>
+            <div class="left">
+                <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
+                    style="padding-right:0px;border-radius:50%;">
+                <h3>Grand Monarch</h3>
+                <p>@GMOCH</p>
             </div>
-        </div>
+            <div class="right">
+
+                <div class="info">
+                    <h3>Hotel Details</h3>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Email</h4>
+                            <p>sharmi@gmail.com</p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p>011-4556345</p>
+                        </div>
+                        <div class="data">
+                            <h4>Address</h4>
+                            <p>Thibirigasyaya,Colombo 07</p>
+                        </div>
 
 
 
-        <div class="heading2">
-        <h2 style="color:white"><b>HOTEL PROFILE</b></h2>
-        </div>
+                    </div>
 
-        <div class="tab2" >
-            <div class="centered2">
-                <img src="../img/lithu.png" alt="lithu">
-                <h2><b>Lithurshika Sritharakanthan</b></h2>
-                <p><b>@lithusri7</b></p>
-              </div>
+                </div>
+                <div class="projects">
+                    <h3>Contact Person Details</h3>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h4>Name</h4>
+                            <p>G.M.Perera</p>
+                        </div>
+                        <div class="data">
+                            <h4>NIC</h4>
+                            <p>986080961V</p>
+                        </div>
+                        <div class="data">
+                            <h4>Email</h4>
+                            <p>perera@gmail.com</p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p>011-4556345</p>
+                        </div>
 
-            <div class="vl">
-             <div class="ldetails"> 
-                <p>E-mail</p> 
-                <p>lithurshikasri777@gmail.com</p><br>
-                <p>Phone Number</p> 
-                <p>+94 774193765</p><br>
-                <p>Address</p> 
-                <p>No 423, Main Street, Navatkudah,Batticaloa</p><br>
-               
-             </div>
-             <div class="rdetails"> 
-                <p>Languages</p> 
-                <p>Tamil, English, Sinhala, Hindi</p><br>
-                <p>Date of Birth</p> 
-                <p>25.07.2000</p><br>
-                <p>Country of Origin</p> 
-                <p>Sri Lanka</p><br>
+
+
+                    </div>
+
+                </div>
+                <br>
+                <a href="profileupdate.php" class="button">Update profile</a>
+
+
             </div>
-        </div>
-
-
-     
-
-        
+    </section>
 </body>
+
 </html>

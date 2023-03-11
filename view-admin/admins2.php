@@ -241,7 +241,7 @@ echo ' <tr class="subtext tblrw">
                          <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
                      <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                     <td class="tbld">   <a href="adminprofile.php?"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
         </tr> ';
                              }
 ?>  
