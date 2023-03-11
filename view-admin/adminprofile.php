@@ -1,62 +1,99 @@
+<?php
+require('../api/managerprofile.php');
+$rows = $_SESSION['c'];
+
+
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+
 <head>
-  <title> Admin Profile</title>
-  <link rel="stylesheet" href="../css/profile.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/managerprofile.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
+    
+
+    <?php include "nav.php"?>
+   
 
 
-    <div class="navbar">
+    <section class="home-section">
+        <?php include "dashboardHeader.php"?>
+
+        <div class="text">Admin Profile</div>
         
-        <ul>
-          <img src="../img/logo.png" alt=" logo" style="width:40px;height:40px; margin-left: 20px;" >
-          <li style="float:right"><a  href="#home">Home</a></li>
-          <li style="float:right"><a  href="#contactus">Contact Us</a></li>
-          <li style="float:right"><a href="#about">About</a></li>
-        </ul>
-      </div>
-     
-
-      <div class="heading">
-        <h2 style="color:white"><b>ADMIN PROFILE</b></h2>
-        </div>
-
-        <div class="tab" >
-            <div class="centered">
-                <img src="../img/lithu.png" alt="lithu">
-                <h2><b> Prashan Heshtro</b></h2>
-                <p><b>@prashan4</b></p>
-              </div>
-            
-
-            <div class="vl">
-             <div class="ldetails"> 
-                <p>E-mail</p> 
-                <p>prashan4@gmail.com</p><br>
-            
-                <p>Phone Number</p> 
-                <p>+94 758519048</p><br>
-                <p>Address</p> 
-                <p>No 44/2, Krishnapuram, Mattikali,Trincomalee</p><br>
-                <p>NIC</p> 
-                <p>200030803107</p><br>
-                <p>Date of Birth</p> 
-                <p>03.11.2000</p><br>
-                <p>Country of Origin</p> 
-                <p>Sri Lanka</p><br>
-               
-             </div> 
+        <div class="wrapper">
+            <div class="left"> 
 
             
-             
-            
-        </div>
+                <img src="../Images/jasi.jpg" alt="logo" height="150px" width="150px"
+                    style="padding-right:0px;border-radius:50%;">
+                <h3>Jasitharan</h3>
+                <p>tmj003</p>
+            </div>
+            <div class="right">
 
+                <div class="info">
+                    <h3>Admin Details</h3>
+                    <div class="info_data">
+                        <div class="data">
+                        <h4>Name</h4>
+                            <p>Jasitharan</p>
+                        </div>
+                        <div class="data">
+                        <h4>NIC</h4>
+                            <p>200030803107</p>
+                        </div>
+                        <div class="data">
+                        <h4>Email</h4>
+                            <p>muralijasi@gmail.com</p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p>0763572139</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="projects">
+                    <h3>Contact Person Details</h3>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h4>Name</h4>
+                            <p>Jasitharan</p>
+                        </div>
+                        <div class="data">
+                            <h4>NIC</h4>
+                            <p>200030803107</p>
+                        </div>
+                        <div class="data">
+                            <h4>Email</h4>
+                            <p>muralijasi@gmail.com</p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p>0763572139</p>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <br>  
+              
+            </div>
         
-       
-        
+    </section>
 </body>
+
 </html>

@@ -51,6 +51,7 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
     $query = "UPDATE entrepreneur SET businessName='$businessName', address='$address', email='$email', phone='$phone', profileImg='$fileImg' , username='$username', password='$password', entrepreneurName='$eName', entrepreneurNic='$eNic' ,entrepreneurPhone='$ePhone' ,entrepreneurEmail='$eEmail', document='$fileDoc'WHERE entID='id'";
     $stmt = mysqli_query($this->conn, $query);
     return $stmt;
+    
 }
 
 
@@ -63,5 +64,28 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
     
     }
 
-}
+    public function viewAllentrepreneurs(){
+        $query = "SELECT * FROM entrepreneur";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+
+
+    public function viewpendingentrepreneurs(){
+            $query = "SELECT * FROM entrepreneur where status=0";
+    
+            $stmt = mysqli_query($this->conn, $query);
+            return $stmt;
+
+    }
+
+    public function viewoneentrepreneur($id){
+        $query = "SELECT * FROM entrepreneur where entID= $id";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+}   
 ?>

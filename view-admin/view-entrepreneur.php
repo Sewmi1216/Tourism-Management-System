@@ -211,29 +211,24 @@ span.psw {
                     </tr>
                     <tr class="subtext tblrw">
 
-                    <?php
-                    foreach($rows as $row)
-                    
-                    {
 
-                  
+
+<?php 
+foreach ($rows as $row) {
+
+echo ' <tr class="subtext tblrw">
                         
-                        <td class="tbld"><?php echo $row["businessName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if ($row["status"] == 0) {
-                                    echo "Unavailable";
-                                } else {
-                                    echo "Available";
-                                }
-                                ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
+                        <td class="tbld">'.$row['businessName'].'</td>
+                        <td class="tbld">'.$row['entrepreneurNic'].'</td>
+                        <td class="tbld">'.$row['entrepreneurEmail'].'</td>
+                        <td class="tbld">'.$row['entrepreneurPhone'].'</td>
+                        <td class="tbld">   <a href="entrepreneurprofile2.php?entrepreneur_id='.$row['entID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                     <td class="tbld">  <a href="editmanager.php?"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                      
                         <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-  } ?>
+        </tr> ';
+                             }
+?>  
                 </table>
             </div>
 

@@ -82,7 +82,7 @@
                     <?php
 require_once("../controller/tourguideController.php") ;
 $tourguidecont = new tourguidecontroller();
-$res = $tourguidecont->viewALlguide();
+$res = $tourguidecont->viewAllTourguides();
 if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
       
@@ -101,12 +101,10 @@ if ($res->num_rows > 0) {
                                 onclick="document.getElementById('id03').style.display='block';document.location='#id03?packageID=<?php $guestusername=$row['username']; ?>'"><i
                                     class="fa-sharp fa-solid fa-bars art"></i></a></td>--> 
 
-                                    <a href="tourguideprofile.php"><i
-                                    class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                                    <a href="tourguideprofile.php?tourguideID='<?php echo $row['tourguideID']; ?>'"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                         <!-- <td class="tbld"><button data-id='<?php echo $row['packageID']; ?>' class="help"> view </button></td> -->
-                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                    class="fa-solid fa-pen-to-square art"></i></a></td>
+                        <td class="tbld">  <a href="edittouristguide.php?tourguideID='.$row['tourguideID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                         <td class="tbld"><a onclick='showDeleteForm()'><i class="fa-solid fa-trash art"></i></a></td>
                  <?php   } } ?>
 

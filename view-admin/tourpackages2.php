@@ -51,24 +51,47 @@ $rows = $_SESSION['c'];
                 <span class="btn">
 
             
-                <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
                 <a href="editpackage.php?package_id='.$row['packageID'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
 
                 <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <button type="button" class="viewbtn"> VIEW </button></a> 
-                <a href="editpackage2.php?package_id='.$row['packageID'].'"> <button type="button" class="editbtn"> EDIT </button></a> 
-
-                <button type="button" class="deletebtn">DELETE</button>
+                <a href="#"> <button type="button" class="deletebtn"> DELETE </button></a> 
+                
                 </span>
             </tr>
             </span>
         </div>
       </div>';
-    }?>
+    } ?>
 </div>
 </div>
 </section>
 
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Delete Account</h1>
+      <p>Are you sure you want to delete your account?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 </body>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 </html>

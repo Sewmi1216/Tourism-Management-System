@@ -88,15 +88,38 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 
 
 public function viewAllentrepreneurs(){
-        $user = new entrepreneur();
+    $user = new entrepreneur();
+    
+    $result = $user-> viewAllentrepreneurs();
+    
+    $_SESSION['c'] = $result;
+    return $result;
+    
+    
+}
 
-        $result = $user-> viewAllentrepreneurs();
 
-        $_SESSION['c'] = $result;
-        return $result;
+public function viewAllpendingentrepreneurs(){
+    $user = new entrepreneur();
+
+    $result = $user-> viewpendingentrepreneurs();
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
 
 
+public function viewoneentrepreneur($inputs)
+{
+
+    $user = new entrepreneur();
+
+    $result = $user-> viewoneentrepreneur($inputs[0]);
+
+    $_SESSION['c'] = $result;
+    return $result;
 }
 
 }
 ?>
+
