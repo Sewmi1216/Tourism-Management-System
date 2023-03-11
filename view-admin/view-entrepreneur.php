@@ -211,29 +211,7 @@ span.psw {
                     </tr>
                     <tr class="subtext tblrw">
 
-                    <?php
-                    foreach($rows as $row)
-                    
-                    {
-'
-                  
-                        
-                        <td class="tbld"><?php echo $row["businessName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if ($row["status"] == 0) {
-                                    echo "Unavailable";
-                                } else {
-                                    echo "Available";
-                                }
-                                ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-'  } ?>
+
 
 <?php 
 foreach ($rows as $row) {
