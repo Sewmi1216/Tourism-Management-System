@@ -12,13 +12,11 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
-    <!-- <script src="../libs/jquery.min.js"></script> -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -93,8 +91,12 @@ foreach ($results as $result) {
                         <button class="status3"><?php echo $result["status"]; ?></button>
                         <?php }?>
                     </td>
-                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                class="fa-solid fa-pen-to-square art"></i></a></td>
+                    <td class="tbld"><a
+                                    onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
+                                    data-id="<?php echo $result['roomNo']; ?>"><i
+                                        class="fa-solid fa-pen-to-square art"></i></a></td>
+                    <!-- <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+                                class="fa-solid fa-pen-to-square art"></i></a></td> -->
                     <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
                                 class="fa-solid fa-trash art"></i></a></td>
                 </tr>
@@ -200,30 +202,43 @@ $results = $pkg->viewAllTypes($id);
                             <td>
                                 <div class="content">Room Type</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td><select class="subfield" name="typeId">
+                                    <?php
+require_once("../controller/roomTypeController.php") ;
+$pkg = new roomTypeController();
+$results = $pkg->viewAllTypes($id);
+           foreach ($results as $result) {
+               ?>
+                                    <option value="<?php echo $result["roomTypeId"];?>" id="roomtype">
+                                        <?php echo $result["typeName"];?>
+                                    </option>
+                                    <?php
+           }
+            ?>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Number</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td> <input type="text" class="subfield" name="pName" id="roomno" value=""/></td>
                         </tr>
 
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
                             </td>
-                            <td> <input type="number" min="0" class="subfield" name="price" /></td>
+                            <td> <input type="number" min="0" class="subfield" value="" name="price"id="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Status</div>
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
+                            <td> <select class="subfield" name="status" id="status">
+                                    <option value="Reserved">Reserved</option>
+                                    <option value="Occupied">Occupied</option>
+                                    <option value="Vacant">Vacant</option>
                                 </select></td>
                         </tr>
 
@@ -285,6 +300,25 @@ $results = $pkg->viewAllTypes($id);
                 }
             }
         }
+    }
+
+    function loadData(id) {
+        $.ajax({
+            url: "../api/addroom.php",
+            method: "POST",
+            data: {
+                get_data: 1,
+                id: id,
+            },
+            success: function(response) {
+                console.log(response);
+                var room = JSON.parse(response);
+                $("#roomno").val(room.roomNo);
+                $("#roomtype").val(room.typeName);
+                $("#beds").val(room.noOfBeds);
+                $('#status').val(room.status);
+            }
+        });
     }
 
     function openChat() {

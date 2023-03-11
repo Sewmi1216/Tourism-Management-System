@@ -39,7 +39,6 @@
                                 Available
                             </option>
                             <option value="Unavailable">
-                                
                                 Unavailable</option>
                         </select></td>
                 </tr>
