@@ -30,11 +30,14 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
         <form method="post" action="../api/productapi.php" enctype="multipart/form-data">
         
         <table>
+        <tr class="row">
+                    <input type="hidden" class="subfield" name="id" id="productid" value="id" ?>
+                </tr>
             <tr class="row">
                 <td>
                     <div class="content">Product Name</div>
                 </td>
-                <td> <input type="text" class="subfield" name="pName"style="color:black;" /></td>
+                <td> <input type="text" class="subfield" name="pName" style="color:black;" /></td>
             </tr>
             <tr class="row">
                 <td>
