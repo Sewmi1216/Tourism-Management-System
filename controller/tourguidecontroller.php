@@ -43,4 +43,20 @@ class tourguideController extends db_connection
         return $results;
 
     }
+
+    
+    public function viewoneguide($inputs)
+    {
+        
+        $pkg = new tourguide();
+        
+
+        $result = $pkg->viewonetourguide($inputs[0]);
+        // print_r($result);
+        // die();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
 }

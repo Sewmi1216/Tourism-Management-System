@@ -1,4 +1,6 @@
 <?php
+require('../api/managerprofile.php');
+$rows = $_SESSION['c'];
 
 
 ?>
@@ -8,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/managerprofile.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -16,22 +18,29 @@
 </head>
 
 <body>
+    
+
     <?php include "nav.php"?>
+   
+
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">Profile</div>
-        <div class="wrapper">
 
-            <div class="left">
-                <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
+        <div class="text">Hotel Manager - Pending Approval</div>
+        
+        <div class="wrapper">
+            <div class="left"> 
+
+            
+                <img src="../Images/download2.jpg" alt="logo" height="150px" width="150px"
                     style="padding-right:0px;border-radius:50%;">
-                <h3>Grand Monarch</h3>
-                <p>@GMOCH</p>
+                <h3>'.$row['username'].'</h3>
+                <p>'.$row['username'].'</p>
             </div>
             <div class="right">
 
-                <div class="info">
+            <div class="info">
                     <h3>Hotel Details</h3>
                     <div class="info_data">
                         <div class="data">
@@ -77,11 +86,12 @@
                     </div>
 
                 </div>
-                <br>
-                <a href="profileupdate.php" class="button">Update profile</a>
-
+                <br>  
+                <a href="#" class="button">Approve</a>
+                <a href="#" class="button">Decline</a>
 
             </div>
+        
     </section>
 </body>
 

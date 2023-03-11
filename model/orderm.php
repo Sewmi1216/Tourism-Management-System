@@ -19,7 +19,7 @@ class order  extends db_connection
     private function getData($query) {
 		$result = mysqli_query($this->conn, $query);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: '. mysqli_error($this->conn));
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result)) {
@@ -28,5 +28,5 @@ class order  extends db_connection
 		return $data;
 	}
 }
-
+?>
 

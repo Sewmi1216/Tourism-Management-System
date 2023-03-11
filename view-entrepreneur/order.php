@@ -47,6 +47,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         <th class="tblh">Tourist ID</th>
                         <th class="tblh">Cart ID</th>
                         <th class="tblh">Product ID</th>
+                        <th class="tblh">View</th>
+                        
+                     
                     </tr><?php 
 require_once("../controller/orderController.php");
 $order = new orderController();
@@ -64,14 +67,72 @@ foreach ($results as $result) {
     <th class="tbld"><?php echo $result["touristID"] ?></td>
     <th class="tbld"><?php echo $result["cartID"] ?></td>
     <th class="tbld"><?php echo $result["productID"] ?></td>
+    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['productID']; ?>"><i class="fa-solid fa-bars"></i></a></td>
     
     </tr>
+    
     <?php }
     ?>
     </table>
         </div>
         </div>
         </div>
+        <!-- update product -->
+        <div id="id02" class="modal">
+
+            <form class="modal-content animate" method="post" action="../api/productapi.php" enctype="multipart/form-data">
+                <div class="imgcontainer" style="background-color:#004581;">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                    <label for="product" style="color:white; margin-left:15px;"><b>View Order Details</b></label>
+                </div>
+                <table>
+                <tr class="row">
+                    <input type="hidden" class="subfield" name="id" id="productid" value="" ?>
+                </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Product Name :</div>
+                    
+                </td>
+                <td> <input type="text" class="subfield" id ="productname" name="pName" value=""  /></td>
+                
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Category:</div>
+                </td>
+                <td> <input type="text" class="subfield" id="pcategory"  name="pCategory" value=""/></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Quantity : </div>
+                </td>
+                <td> <input type="number" id="qunatity" min="10" class="subfield" name="avaquantity" value=""/></td>
+            </tr>
+
+            
+            <tr class="row">
+                <td>
+                    <div class="content">Price</div>
+                </td>
+                <td><input type="number" id="price" min="10" class="subfield" name="price" value=""></td>
+                
+            </tr>
+            
+            
+            
+          
+            
+         
+        </table>
+       
+            <button type="submit" class="btns" value="update" style="margin-left:460px; margin-top:50px;" name="update">Update</button>
+        <button type="button" style="margin-left:20px;"
+                onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        </form>
+    </div>
+
          
 </body>
 

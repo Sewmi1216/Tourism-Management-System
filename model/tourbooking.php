@@ -2,7 +2,7 @@
 require_once "../db/db_connection.php";
 // The http request hits there third.
 // Depending on the function called, database is access and some data is return / or may be no data is return.
-class tourpackage extends db_connection
+class tourbooking extends db_connection
 {
     private $conn;
 
@@ -19,7 +19,7 @@ class tourpackage extends db_connection
         return $stmt;
     } */
 
-    public function inserttourpackage($inputs)
+    public function inserttourbooking($inputs)
     {
        
     
@@ -30,7 +30,7 @@ class tourpackage extends db_connection
         return $stmt;
     }
 
-    public function updatetourpackage($inputs)
+    public function updatetourbooking($inputs)
     {
        
     
@@ -51,6 +51,15 @@ class tourpackage extends db_connection
         return $stmt;
     }
 
+    public function viewtourbookingpending()
+    {
+       
+    
+        $query = "SELECT * FROM tourbooking where status = 0 ";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
     public function viewtourpkg($id)
     {
        
@@ -58,7 +67,6 @@ class tourpackage extends db_connection
         $query = "SELECT * FROM tourpackage where packageid = $id ";
         
         $stmt = mysqli_query($this->conn, $query);
- 
         return $stmt;
     }
 }

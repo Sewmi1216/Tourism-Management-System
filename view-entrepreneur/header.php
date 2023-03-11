@@ -3,7 +3,7 @@
             style="margin-left:45px;padding-right:0px;"></a>
     <div class="header-right">
         <a href="#home">HOME</a>
-        <a href="#contact" style="margin-left:60px;">SIGNUP</a>
+        <a href="#contact" style="margin-left:60px;">LOGIN</a>
         
     </div>
 </header>

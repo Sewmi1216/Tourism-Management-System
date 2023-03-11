@@ -1,3 +1,8 @@
+<?php 
+require('../api/viewadmins.php');
+$rows = $_SESSION['c'];
+?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -224,34 +229,22 @@ span.psw {
 </div>
 
 
-<?php
-include "../controller/tourguidecontroller.php";
-$tourguidecont = new tourguideController();
-$res = $tourguidecont->viewAllguide();
-if ($res->num_rows > 0) {
-    while ($row = mysqli_fetch_array($res)) {
-        ?>
-                  <!--  <tr class="subtext tblrw">
-                        <td class="tbld"><?php echo $row["name"] ?>
-                        </td>
-                        <td class="tbld"><?php echo $row["nic"] ?></td>
-                        <td class="tbld"><?php echo $row["email"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if($row["status"]==0){
-                            echo "Unavailable";}
-                            else{
-                             echo "Available";}
-                             ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-                    <?php }
-} else {
-    echo "No results";
-}
-?> 
+<?php 
+foreach ($rows as $row) {
+
+echo ' <tr class="subtext tblrw">
+                        
+                        <td class="tbld">'.$row['name'].'</td>
+                        <td class="tbld">'.$row['managerNic'].'</td>
+                        <td class="tbld">'.$row['managerEmail'].'</td>
+                        <td class="tbld">'.$row['managerPhone'].'</td>
+                         <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
+                     <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                      
+                     <td class="tbld">   <a href="adminprofile.php?"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+        </tr> ';
+                             }
+?>  
                 </table>
             </div> -->
 

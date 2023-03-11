@@ -1,3 +1,12 @@
+<?php 
+require('../api/tourguideprofile.php');
+$rows = $_SESSION['c'];
+// print_r($rows);
+// die();
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,33 +32,36 @@
       <div class="heading">
         <h2 style="color:white"><b>TOUR GUIDE PROFILE</b></h2>
         </div>
+        <?php
 
+foreach($rows as $row) 
+echo '
         <div class="tab" >
             <div class="centered">
                 <img src="../img/lithu.png" alt="lithu">
-                <h2><b> Prashan Heshtro</b></h2>
-                <p><b>@prashan4</b></p>
+                <h2><b>  '.$row['name'].'</b></h2>
+                <p><b> '.$row['username'].'</b></p>
               </div>
             
 
             <div class="vl">
              <div class="ldetails"> 
                 <p>E-mail</p> 
-                <p>prashan4@gmail.com</p><br>
+                <p> '.$row['email'].'</p><br>
             
                 <p>Phone Number</p> 
-                <p>+94 758519048</p><br>
+                <p> '.$row['phone'].'</p><br>
                 <p>Address</p> 
-                <p>No 44/2, Krishnapuram, Mattikali,Trincomalee</p><br>
+                <p> '.$row['address'].'</p><br>
                 <p>NIC</p> 
-                <p>200030803107</p><br>
+                <p> '.$row['nic'].'</p><br>
                 <p>Date of Birth</p> 
-                <p>03.11.2000</p><br>
+                <p> '.$row['name'].'</p><br>
                 <p>Country of Origin</p> 
-                <p>Sri Lanka</p><br>
+                <p> '.$row['name'].'</p><br>
                
              </div>
-
+             '  ?>
             
              
             
