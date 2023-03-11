@@ -28,6 +28,13 @@ class roomController extends db_connection
         }
 
     }
+    public function viewRoom($rId)
+    {
+        $rm = new room();
+        $rs = $rm->viewRoom($rId);
+        return $rs;
+
+    }
     public function viewAllRooms($id)
     {
         $room = new room();
