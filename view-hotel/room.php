@@ -12,13 +12,11 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
-    <!-- <script src="../libs/jquery.min.js"></script> -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -53,10 +51,10 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <table id="myTable">
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
+                    <th class="tblh">Room Type</th>
                     <th class="tblh">Guest Name</th>
-                    <th class="tblh">Room type</th>
-                    <th class="tblh">From</th>
-                    <th class="tblh">To</th>
+                    <th class="tblh">Reserved_from</th>
+                    <th class="tblh">Reserved_to</th>
                     <th class="tblh">Status</th>
                     <th class="tblh">Edit</th>
                     <th class="tblh">Delete</th>
@@ -73,10 +71,10 @@ foreach ($results as $result) {
                     </td>
 
                     <td class="tbld">
-                        John
+                        <?php echo $result["typeName"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $result["type"] ?>
+                        
                     </td>
                     <td class="tbld">
                         <?php echo $result["occupied_from"] ?>
@@ -85,14 +83,20 @@ foreach ($results as $result) {
                         <?php echo $result["occupied_to"] ?>
                     </td>
                     <td class="tbld">
-                        <?php if ($result["status"] == "Available") {?>
+                        <?php if ($result["status"] == "Vacant") {?>
                         <button class="status1"><?php echo $result["status"]; ?></button>
-                        <?php } else {?>
+                        <?php } else if($result["status"] == "Reserved") {?>
                         <button class="status2"><?php echo $result["status"]; ?></button>
+                        <?php } else{?>
+                        <button class="status3"><?php echo $result["status"]; ?></button>
                         <?php }?>
                     </td>
-                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                class="fa-solid fa-pen-to-square art"></i></a></td>
+                    <td class="tbld"><a
+                                    onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
+                                    data-id="<?php echo $result['roomNo']; ?>"><i
+                                        class="fa-solid fa-pen-to-square art"></i></a></td>
+                    <!-- <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+                                class="fa-solid fa-pen-to-square art"></i></a></td> -->
                     <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
                                 class="fa-solid fa-trash art"></i></a></td>
                 </tr>
@@ -112,21 +116,21 @@ foreach ($results as $result) {
         <div id="id01" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addroom.php" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b>
-                        <hr style="margin-top:25px;">
-                    </label>
+                <div class="imgcontainer" style="background-color:#004581;">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn close">&times;</button>
+                    <label for="room" style="color:white"><b>Add Room</b></label>
                 </div>
-
+                <hr>
                 <div class="container">
+                    <input type="hidden" class="subfield" name="hotelId" value="<?php echo $id; ?>" />
                     <table>
+
                         <tr class="row">
                             <td>
                                 <div class="content">Room Type</div>
                             </td>
-                            <td> <select class="subfield" name="hotelPkgId">
+                            <td> <select class="subfield" name="typeId">
                                     <?php
 require_once("../controller/roomTypeController.php") ;
 $pkg = new roomTypeController();
@@ -163,8 +167,9 @@ $results = $pkg->viewAllTypes($id);
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
                                     <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
+                                    <option value="Available">Reserved</option>
+                                    <option value="Available">Vacant</option>
+                                    <option value="Unavailable">Occupied</option>
                                 </select></td>
                         </tr>
 
@@ -185,44 +190,55 @@ $results = $pkg->viewAllTypes($id);
         <div id="id02" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Room</b>
-                        <hr style="margin-top:25px;">
-                    </label>
-                </div>
-
+                 <div class="imgcontainer" style="background-color:#004581;">
+             <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                 class="cancelbtn close">&times;</button>
+             <label for="room" style="color:white"><b>Update room</b></label>
+         </div>
+         <hr>
                 <div class="container">
                     <table>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Type</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td><select class="subfield" name="typeId">
+                                    <?php
+require_once("../controller/roomTypeController.php") ;
+$pkg = new roomTypeController();
+$results = $pkg->viewAllTypes($id);
+           foreach ($results as $result) {
+               ?>
+                                    <option value="<?php echo $result["roomTypeId"];?>" id="roomtype">
+                                        <?php echo $result["typeName"];?>
+                                    </option>
+                                    <?php
+           }
+            ?>
+                                </select></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Number</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
+                            <td> <input type="text" class="subfield" name="pName" id="roomno" value=""/></td>
                         </tr>
 
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
                             </td>
-                            <td> <input type="number" min="0" class="subfield" name="price" /></td>
+                            <td> <input type="number" min="0" class="subfield" value="" name="price"id="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Status</div>
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
+                            <td> <select class="subfield" name="status" id="status">
+                                    <option value="Reserved">Reserved</option>
+                                    <option value="Occupied">Occupied</option>
+                                    <option value="Vacant">Vacant</option>
                                 </select></td>
                         </tr>
 
@@ -274,7 +290,7 @@ $results = $pkg->viewAllTypes($id);
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2];
+            td = tr[i].getElementsByTagName("td")[1];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -284,6 +300,25 @@ $results = $pkg->viewAllTypes($id);
                 }
             }
         }
+    }
+
+    function loadData(id) {
+        $.ajax({
+            url: "../api/addroom.php",
+            method: "POST",
+            data: {
+                get_data: 1,
+                id: id,
+            },
+            success: function(response) {
+                console.log(response);
+                var room = JSON.parse(response);
+                $("#roomno").val(room.roomNo);
+                $("#roomtype").val(room.typeName);
+                $("#beds").val(room.noOfBeds);
+                $('#status').val(room.status);
+            }
+        });
     }
 
     function openChat() {

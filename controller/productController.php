@@ -12,11 +12,11 @@ class productController extends db_connection
     }
 
     
-public function addproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+public function addproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg)
 {
 	$product = new product();
 
-	$result = $product->insertproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
+	$result = $product->insertproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg);
 
 	if (!$result) {
 		echo 'There was a error';
@@ -27,30 +27,17 @@ public function addproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
 	</script>";
 	}
 }
-public function viewAll()
+public function viewAll($id)
     {
         $product = new product();
 
-        $results= $product->viewAll();
+        $results= $product->viewAll($id);
 
         // include "../view/product.php";
         return $results;
 
     }
-//     public function deleteproduct($pName, $pCategory,$avaquantity, $price,$filename)
-// {
-    
-//     $result = new product();
-//     $result = $product->deleteproduct($pName, $pCategory,$avaquantity, $price,$fileImg);
 
-//     if (!$result) {
-//         echo 'There was an error';
-//     } else {
-//         echo "<script>alert('The product was successfully deleted');
-//         window.location.href = '../view-entrepreneur/product.php';
-//         </script>";
-//     }
-// }
 
 public function deleteproduct($id)
     {
@@ -68,12 +55,13 @@ public function deleteproduct($id)
         
 
     }
+    
    
 
-    public function updateproduct($pName, $pCategory,$avaquantity, $price,$fileImg)
+    public function updateproduct($id,$pName, $pCategory,$avaquantity, $price,$fileImg)
     {
         $result = new product();
-        $result-> updateproduct ($pName, $pCategory,$avaquantity, $price,$fileImg);
+        $result-> updateproduct ($id,$pName, $pCategory,$avaquantity, $price,$fileImg);
 
         if (!$result) {
             echo 'There was a error';
@@ -91,6 +79,7 @@ public function deleteproduct($id)
 
 
 }
+?>
 
 
 

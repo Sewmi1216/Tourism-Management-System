@@ -63,7 +63,7 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 		echo 'There was a error';
 	} else {
 		echo "<script>alert('Your form was successfully submitted');
-	window.location.href = '../view-entrepreneur/Login.php';
+	window.location.href = '../view-hotel/hotelLogin.php';
 	</script>";
 	}
 }
@@ -98,6 +98,7 @@ public function viewAllentrepreneurs(){
     
 }
 
+
 public function viewAllpendingentrepreneurs(){
     $user = new entrepreneur();
 
@@ -106,6 +107,7 @@ public function viewAllpendingentrepreneurs(){
     $_SESSION['c'] = $result;
     return $result;
 }
+
 
 public function viewoneentrepreneur($inputs)
 {
@@ -117,4 +119,7 @@ public function viewoneentrepreneur($inputs)
     $_SESSION['c'] = $result;
     return $result;
 }
+
 }
+?>
+

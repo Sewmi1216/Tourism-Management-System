@@ -78,10 +78,10 @@ class roomTypeController extends db_connection
 
     // }
 
-    public function updateType($id, $pkgName, $price, $desc, $filename, $status)
+    public function updateType($id, $pkgName, $price, $desc, $status)
     {
         $hp = new roomType();
-        $hp->updateType($id, $pkgName, $price, $desc, $filename, $status);
+        $hp->updateType($id, $pkgName, $price, $desc, $status);
 
         if (!$hp) {
             echo 'There was a error';

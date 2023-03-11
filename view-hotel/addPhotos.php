@@ -49,9 +49,8 @@ $getid = $_GET['id'];
 
 
                 <label class="txt" for="image">Upload Image</label>
-                <input type="file" class="subfield" name="file" accept=".jpg, .jpeg, .png" required />
-                <br><br>
-                <button class="btnRegister" style="font-size:13px;width:10%;" type="submit" name="submitImg">Insert Image</button>
+                <input type="file" class="subfield" style="width:30%;margin-left:25px;" name="file" accept=".jpg, .jpeg, .png" required />
+                <button class="btnRegister" style="font-size:13px;width:10%;margin-left:20px;" type="submit" name="submitImg">Insert Image</button>
             </form>
 
 

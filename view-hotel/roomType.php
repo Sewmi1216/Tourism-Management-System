@@ -37,9 +37,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
             <div class="searchSec">
                 <div class="page-title"> Room Types</div>
                 <div class="input-container">
-                    <input class="input-field" type="text" id="myInput" onkeyup="searchTypes()"
-                        placeholder="Search for Room Types" name="search">
-                    <a href="" class="searchimg"><i class="fa fa-search icon" style="font-color:blue;"></i></a>
+                    <input class="input-field" type="text" placeholder="Search for packages" name="search" id="myInput" onkeyup="searchTypes()">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns" style="margin-left: 1rem;"><a href="roomType.php"
                         style="color:white;text-decoration:none;">View
@@ -114,9 +113,19 @@ foreach ($results as $result) {
         <!-- update room type -->
         <?php require_once 'updateRoomType.php';?>
 
+        <!-- delete room type -->
+        <?php require_once 'deleteRoomType.php';?>
+
     </section>
 
     <script>
+    // Function to open the modal and set the id value
+    function openModal(id) {
+        var modal = document.getElementById("id04");
+        var modalIdValue = document.getElementById("modalIdValue");
+        modalIdValue.value = id;
+        modal.style.display = "block";
+    }
     function searchTypes() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
@@ -137,14 +146,6 @@ foreach ($results as $result) {
     }
 
 
-    // Function to open the modal and set the id value
-    function openModal(id) {
-        var modal = document.getElementById("id04");
-        var modalIdValue = document.getElementById("modalIdValue");
-        modalIdValue.value = id;
-        modal.style.display = "block";
-    }
-
     function loadData(id) {
         $.ajax({
             url: "../api/addtype.php",
@@ -161,47 +162,47 @@ foreach ($results as $result) {
                 $("#desc").val(type.description);
                 // $("#status").val(type.typestatus);
                 $("#price").val(type.price);
-                $("#img").attr("src", "../images/" + type.img);
+                // $("#img").attr("src", "../images/" + type.img);
                 $('#status').val(type.typestatus);
 
             }
         });
     }
 
-    function upload_file(e) {
-        e.preventDefault();
-        ajax_file_upload(e.dataTransfer.files);
-    }
+    // function upload_file(e) {
+    //     e.preventDefault();
+    //     ajax_file_upload(e.dataTransfer.files);
+    // }
 
-    function file_explorer() {
-        document.getElementById("selectfile").click();
-        document.getElementById("selectfile").onchange = function() {
-            files = document.getElementById("selectfile").files;
-            ajax_file_upload(files);
-        };
-    }
+    // function file_explorer() {
+    //     document.getElementById("selectfile").click();
+    //     document.getElementById("selectfile").onchange = function() {
+    //         files = document.getElementById("selectfile").files;
+    //         ajax_file_upload(files);
+    //     };
+    // }
 
-    function ajax_file_upload(files_obj) {
-        if (files_obj != undefined) {
-            var form_data = new FormData();
-            for (i = 0; i < files_obj.length; i++) {
-                form_data.append("file[]", files_obj[i]);
-            }
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "ajax.php", true);
-            xhttp.onload = function(event) {
-                if (xhttp.status == 200) {
-                    alert(this.responseText);
-                } else {
-                    alert(
-                        "Error " + xhttp.status + " occurred when trying to upload your file."
-                    );
-                }
-            };
+    // function ajax_file_upload(files_obj) {
+    //     if (files_obj != undefined) {
+    //         var form_data = new FormData();
+    //         for (i = 0; i < files_obj.length; i++) {
+    //             form_data.append("file[]", files_obj[i]);
+    //         }
+    //         var xhttp = new XMLHttpRequest();
+    //         xhttp.open("POST", "ajax.php", true);
+    //         xhttp.onload = function(event) {
+    //             if (xhttp.status == 200) {
+    //                 alert(this.responseText);
+    //             } else {
+    //                 alert(
+    //                     "Error " + xhttp.status + " occurred when trying to upload your file."
+    //                 );
+    //             }
+    //         };
 
-            xhttp.send(form_data);
-        }
-    }
+    //         xhttp.send(form_data);
+    //     }
+    // }
     </script>
 
 
