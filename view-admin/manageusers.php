@@ -32,7 +32,7 @@
         <div class="searchSec">
                 <div class="page-title"> ENTREPRENEUR APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View All Verified Entrepreneur</a></button>
+            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View All Verified Entrepreneur</a></button>
 
 
         <div class="bg">
