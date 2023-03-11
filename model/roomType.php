@@ -55,12 +55,6 @@ class roomType extends db_connection
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
-        // $stmt = $this->conn->prepare($query);
-
-        // $stmt->execute();
-        // echo 'sql';
-
-        // return $stmt;
 
     }
       public function viewAllTypes($id){
@@ -93,8 +87,8 @@ class roomType extends db_connection
 		}
 		return $data;
 	}
-    public function updateType($id, $pkgName, $price, $desc, $filename, $status){
-        $query = "update roomtype set typeName='$pkgName', price='$price', description='$desc', img='$filename', typestatus='$status' where roomTypeId='$id'";
+    public function updateType($id, $pkgName, $price, $desc, $status){
+        $query = "update roomtype set typeName='$pkgName', price='$price', description='$desc', typestatus='$status' where roomTypeId='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }

@@ -66,20 +66,10 @@ if (isset($_POST['update'])) {
     $pkgName = $_POST['pName'];
     $price = $_POST['price'];
     $desc = $_POST['desc'];
-
     $status = $_POST['status'];
 
-    $file = $_FILES['file']['name'];
-
-    $filename = $_FILES["file"]["name"];
-
-    $tempname = $_FILES["file"]["tmp_name"];
-
-    $folder = "../images/" . $filename;
-
     $pk = new roomTypeController();
-    $pk->updateType($id, $pkgName, $price, $desc, $filename, $status);
-    move_uploaded_file($tempname, $folder);
+    $pk->updateType($id, $pkgName, $price, $desc, $status);
 
 }
 if (isset($_POST['delete'])) {
