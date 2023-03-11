@@ -31,6 +31,24 @@ if (isset($_POST["get_data"])) {
     // Important to stop further executing the script on AJAX by following line
     exit();
 }
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+
+    $pkgName = $_POST['pName'];
+    $price = $_POST['price'];
+    $desc = $_POST['desc'];
+    $status = $_POST['status'];
+
+    $pk = new roomTypeController();
+    $pk->updateType($id, $pkgName, $price, $desc, $status);
+
+}
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $pk = new roomTypeController();
+    $pk->deleteType($id);
+}
+
 
 
 ?>

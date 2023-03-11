@@ -189,7 +189,7 @@ $results = $pkg->viewAllTypes($id);
         <!-- update room -->
         <div id="id02" class="modal">
 
-            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
+            <form class="modal-content animate" method="post" action="../api/addroom.php" enctype="multipart/form-data">
                  <div class="imgcontainer" style="background-color:#004581;">
              <button type="button" onclick="document.getElementById('id02').style.display='none'"
                  class="cancelbtn close">&times;</button>
@@ -198,6 +198,12 @@ $results = $pkg->viewAllTypes($id);
          <hr>
                 <div class="container">
                     <table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Room Number</div>
+                            </td>
+                            <td> <input type="text" class="subfield" name="pName" id="roomno" value="" readonly/></td>
+                        </tr>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Type</div>
@@ -217,12 +223,7 @@ $results = $pkg->viewAllTypes($id);
             ?>
                                 </select></td>
                         </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Number</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="pName" id="roomno" value=""/></td>
-                        </tr>
+                        
 
                         <tr class="row">
                             <td>
@@ -249,7 +250,7 @@ $results = $pkg->viewAllTypes($id);
                 <div class="container" style="background-color:#f1f1f1; padding:10px;">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'"
                         class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="save"
+                    <button type="submit" class="btns" value="Save" name="update"
                         style="margin-left:75px;">Update</button>
                 </div>
             </form>
