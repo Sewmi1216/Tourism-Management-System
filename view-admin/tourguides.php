@@ -82,7 +82,7 @@
                     <?php
 require_once("../controller/tourguideController.php") ;
 $tourguidecont = new tourguidecontroller();
-$res = $tourguidecont->viewALlguide();
+$res = $tourguidecont->viewAllTourguides();
 if ($res->num_rows > 0) {
     while ($row = mysqli_fetch_array($res)) {
       

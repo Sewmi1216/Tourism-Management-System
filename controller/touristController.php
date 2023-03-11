@@ -111,7 +111,7 @@ class touristController extends db_connection
         
         $pkg = new tourist();
 
-        $result = $pkg->viewAdmin();
+        $result = $pkg->viewtourist();
 
         $_SESSION['c'] = $result;
         return $result;
