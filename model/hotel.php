@@ -173,4 +173,24 @@ class hotel extends db_connection
         return $stmt;
 
     }
+
+    public function viewAllpendingmanagers()
+    {
+        $query =  "SELECT * from hotel where status=0";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function viewonemanager($id)
+    {
+        $query =  "SELECT * from hotel where hotelID = $id";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        // print_r($stmt);
+        // die();
+        return $stmt;
+
+    }
 }

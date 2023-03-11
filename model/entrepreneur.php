@@ -69,9 +69,23 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
+    }
 
+
+    public function viewpendingentrepreneurs(){
+            $query = "SELECT * FROM entrepreneur where status=0";
+    
+            $stmt = mysqli_query($this->conn, $query);
+            return $stmt;
 
     }
 
-}
+    public function viewoneentrepreneur($id){
+        $query = "SELECT * FROM entrepreneur where entID= $id";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+}   
 ?>
