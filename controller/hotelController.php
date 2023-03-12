@@ -147,6 +147,8 @@ class hotelController extends db_connection
     }
     public function UpdateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
+        
+
         $hp = new hotel();
         $hp->updateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
 
