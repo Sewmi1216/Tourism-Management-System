@@ -118,7 +118,9 @@ class hotel extends db_connection
 
      public function viewGuestReservations($id)
     {
-        $query = "Select * from guest_reservation g, payment p where hotelId='$id'";
+        // $query = "Select * from guest_reservation g, payment p where hotelId='1'";
+        $query = "Select * from guest_reservation g where hotelId='$id'";
+
         return $this->getData($query);
     }
      public function viewAdminReservations($id)

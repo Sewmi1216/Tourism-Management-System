@@ -31,6 +31,23 @@ if (isset($_POST["get_data"])) {
     // Important to stop further executing the script on AJAX by following line
     exit();
 }
+if (isset($_POST['update'])) {
+
+    $roomno = $_POST['roomNo'];
+    $typeId = $_POST['roomType'];
+    $beds = $_POST['beds'];
+    $status = $_POST['status'];
+
+    $rm = new roomController();
+    $rm->updateRoom($roomno, $typeId, $beds, $status);
+
+}
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $pk = new roomController();
+    $pk->deleteRoom($id);
+}
+
 
 
 ?>

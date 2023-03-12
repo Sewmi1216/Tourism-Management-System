@@ -50,4 +50,38 @@ class roomController extends db_connection
     }
 
 
+    public function updateRoom($roomno, $typeId, $beds, $status)
+    {
+        $room = new room();
+        $room->updateRoom($roomno, $typeId, $beds, $status);
+
+
+        if (!$room) {
+            echo 'There was a error';
+          
+        } else {
+
+
+            echo "<script>
+        window.location.href = '../view-hotel/room.php';
+        </script>";
+
+        }
+    }
+    public function deleteRoom($id)
+    {
+        $hp = new room();
+        $hp->deleteRoom($id);
+
+        if (!$hp) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+            echo "<script>
+        window.location.href = '../view-hotel/room.php';
+        </script>";
+
+        }
+
+    }
 }

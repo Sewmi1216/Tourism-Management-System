@@ -44,10 +44,30 @@ class room extends db_connection
         }
         return $data;
     }
-
     public function viewAvailableRooms($id)
     {
         $query = "Select * from room where status='Available' and hotelId='$id'";
         return $this->getData($query);
+    }
+    public function updateRoom($roomno, $typeId, $beds, $status){
+        $query = "update room set typeID='24', noOfBeds='$beds', status='$status' where roomNo='$roomno'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function deleteRoom($id){
+        $query = "delete from room where roomNo='$id'";
+    //     $foreign_key_query = "SELECT * FROM reservation WHERE typeID='$id'";
+
+    // $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
+
+    // if (mysqli_num_rows($foreign_key_result) > 0) {
+    //     echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+    //     echo "<script> window.location.href = '../view-hotel/reservation.php'; </script>";
+    // } else {
+    //     mysqli_query($this->conn, $query);
+    //     echo "<script> window.location.href = '../view-hotel/reservation.php'; </script>";
+    // } pass the type id value from UI
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
     }
 }

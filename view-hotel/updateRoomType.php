@@ -1,4 +1,4 @@
-<!-- update pkg -->
+<!-- update room type-->
 <div id="id02" class="modal">
 
     <form class="modal-content animate" method="post" action="../api/addType.php" enctype="multipart/form-data">
