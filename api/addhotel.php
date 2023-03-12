@@ -22,7 +22,7 @@ if (isset($_POST['signup'])) {
     $dtempname = $_FILES["doc"]["tmp_name"];
 
     $pfolder = "../images/" . $fileImgname;
-     //$id = 'T' . time();
+    //$id = 'T' . time();
     // $id ='T'. date('his');
 
     $id = rand(time(), 100000000);
@@ -43,4 +43,21 @@ if (isset($_POST['recover'])) {
         </script>";
 
 }
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
 
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $managerName = $_POST['managerName'];
+    $managerPhone = $_POST['managerPhone'];
+    $managerEmail = $_POST['managerEmail'];
+    $managerNic = $_POST['managerNic'];
+
+    $profile = new hotelController();
+    $profile->updateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
+
+}

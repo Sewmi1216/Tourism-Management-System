@@ -79,6 +79,20 @@ class hotel extends db_connection
         return $data;
     }
 
+     public function viewProfile($id)
+    {
+        //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from hotel where hotelID = '$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function updateprofile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
+    {
+        $query = "update hotel set name='$name', address='$address', email='$email', phone='$phone',username='$username', password='$password',managerName='$managerName', managerPhone='$managerPhone', managerEmail='$managerEmail', managerNic='$managerNic' where hotelID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+
     public function countReservations()
     {
         $query1 = "SELECT count(*) FROM guest_reservation where DATE(bookingDateTime ) = CURRENT_DATE()";

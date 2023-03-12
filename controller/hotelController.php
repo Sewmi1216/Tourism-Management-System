@@ -138,6 +138,30 @@ class hotelController extends db_connection
         </script>";
         }
     }
+    public function viewProfile($id)
+    {
+        $profile = new hotel();
+        $rs = $profile->viewProfile($id);
+        return $rs;
+
+    }
+    public function UpdateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
+    {
+        $hp = new hotel();
+        $hp->updateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
+
+        if (!$hp) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        } else {
+
+            echo "<script>
+        window.location.href = '../view-hotel/profile.php';
+        </script>";
+
+        }
+
+    }
     public function recoverPwd($email)
     {
 
