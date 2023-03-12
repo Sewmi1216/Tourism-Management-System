@@ -52,7 +52,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
                     <th class="tblh">Room Type</th>
-                    <th class="tblh">Guest Name</th>
+                    <th class="tblh">No.of beds</th>
                     <th class="tblh">Reserved_from</th>
                     <th class="tblh">Reserved_to</th>
                     <th class="tblh">Status</th>
@@ -74,7 +74,7 @@ foreach ($results as $result) {
                         <?php echo $result["typeName"] ?>
                     </td>
                     <td class="tbld">
-                        
+                        <?php echo $result["noOfBeds"] ?>
                     </td>
                     <td class="tbld">
                         <?php echo $result["occupied_from"] ?>
@@ -92,12 +92,14 @@ foreach ($results as $result) {
                         <?php }?>
                     </td>
                     <td class="tbld"><a
-                                    onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
-                                    data-id="<?php echo $result['roomNo']; ?>"><i
-                                        class="fa-solid fa-pen-to-square art"></i></a></td>
+                            onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
+                            data-id="<?php echo $result['roomNo']; ?>"><i class="fa-solid fa-pen-to-square art"></i></a>
+                    </td>
                     <!-- <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                 class="fa-solid fa-pen-to-square art"></i></a></td> -->
-                    <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+                    <!-- <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+                                class="fa-solid fa-trash art"></i></a></td> -->
+                    <td class="tbld"><a onclick="openModal(<?php echo $result['roomNo']; ?>)"><i
                                 class="fa-solid fa-trash art"></i></a></td>
                 </tr>
 
@@ -190,19 +192,19 @@ $results = $pkg->viewAllTypes($id);
         <div id="id02" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/addroom.php" enctype="multipart/form-data">
-                 <div class="imgcontainer" style="background-color:#004581;">
-             <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                 class="cancelbtn close">&times;</button>
-             <label for="room" style="color:white"><b>Update room</b></label>
-         </div>
-         <hr>
+                <div class="imgcontainer" style="background-color:#004581;">
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                        class="cancelbtn close">&times;</button>
+                    <label for="room" style="color:white"><b>Update room</b></label>
+                </div>
+                <hr>
                 <div class="container">
                     <table>
                         <tr class="row">
                             <td>
                                 <div class="content">Room Number</div>
                             </td>
-                            <td> <input type="text" class="subfield" name="pName" id="roomno" value="" readonly/></td>
+                            <td> <input type="text" class="subfield" name="roomNo" id="roomno" value="" readonly /></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -215,7 +217,7 @@ $pkg = new roomTypeController();
 $results = $pkg->viewAllTypes($id);
            foreach ($results as $result) {
                ?>
-                                    <option value="<?php echo $result["roomTypeId"];?>" id="roomtype">
+                                    <option value="<?php echo $result["roomTypeId"];?>" name="roomType" id="roomtype">
                                         <?php echo $result["typeName"];?>
                                     </option>
                                     <?php
@@ -223,13 +225,12 @@ $results = $pkg->viewAllTypes($id);
             ?>
                                 </select></td>
                         </tr>
-                        
 
                         <tr class="row">
                             <td>
                                 <div class="content">No.of beds</div>
                             </td>
-                            <td> <input type="number" min="0" class="subfield" value="" name="price"id="beds" /></td>
+                            <td> <input type="number" min="0" class="subfield" value="" name="beds" id="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
@@ -255,28 +256,30 @@ $results = $pkg->viewAllTypes($id);
                 </div>
             </form>
         </div>
-        <div id="id03" class="modal">
+        <!-- delete room-->
+        <div id="id04" class="modal">
 
-            <form class="modal-content animate" style="width:45%;" method="post" action="#"
+            <form class="modal-content animate" style="width:45%;" method="post" action="../api/addroom.php"
                 enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
+                <div class="imgcontainer" style="background-color:#004581;">
+                    <button type="button" onclick="document.getElementById('id04').style.display='none'"
+                        class="cancelbtn close">&times;</button>
+                    <label for="room" style="color:white"><b>Delete Room</b></label>
                 </div>
 
                 <div class="container">
-                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
-                        this room?</p>
+                    <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $typeID;?>" />
 
-                    <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                            class="cancelbtn" style="margin-left:11rem;">Yes</button>
-                        <button type="submit" class="btns" value="Save" name="save"
-                            style="margin-left:75px;">No</button>
+                    <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
+                        this room type?</p>
+
+                    <div class="container" style="padding:10px;">
+                        <button type="button" onclick="document.getElementById('id04').style.display='none'"
+                            class="btns" style="">No</button>
+                        <button type="submit" class="cancelbtn" value="Save" name="delete"
+                            style="margin-left:75px;">Yes</button>
                     </div>
                 </div>
-
-
             </form>
         </div>
 
@@ -303,6 +306,13 @@ $results = $pkg->viewAllTypes($id);
         }
     }
 
+     function openModal(id) {
+        var modal = document.getElementById("id04");
+        var modalIdValue = document.getElementById("modalIdValue");
+        modalIdValue.value = id;
+        modal.style.display = "block";
+    }
+    
     function loadData(id) {
         $.ajax({
             url: "../api/addroom.php",

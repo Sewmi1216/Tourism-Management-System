@@ -32,21 +32,20 @@ if (isset($_POST["get_data"])) {
     exit();
 }
 if (isset($_POST['update'])) {
-    $id = $_POST['id'];
 
-    $pkgName = $_POST['pName'];
-    $price = $_POST['price'];
-    $desc = $_POST['desc'];
+    $roomno = $_POST['roomNo'];
+    $typeId = $_POST['roomType'];
+    $beds = $_POST['beds'];
     $status = $_POST['status'];
 
-    $pk = new roomTypeController();
-    $pk->updateType($id, $pkgName, $price, $desc, $status);
+    $rm = new roomController();
+    $rm->updateRoom($roomno, $typeId, $beds, $status);
 
 }
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
-    $pk = new roomTypeController();
-    $pk->deleteType($id);
+    $pk = new roomController();
+    $pk->deleteRoom($id);
 }
 
 

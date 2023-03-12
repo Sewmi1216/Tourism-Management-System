@@ -57,6 +57,10 @@ if (isset($_POST['deleteimg'])) {
     $tp = new roomTypeController();
     $tp->deleteImg($id, $typeid);
     unlink("../images/" . $imgname);
+     echo "
+             <script>
+             window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+                  </script>";
 
 }
 

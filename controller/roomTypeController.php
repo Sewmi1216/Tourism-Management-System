@@ -47,15 +47,15 @@ class roomTypeController extends db_connection
         $dl = new roomType();
         $dl->deleteImg($id);
 
-        if (!$dl) {
-            echo 'There was a error';
-            // echo "<script>console.log(res)</script>";
-        } else {
-            echo "<script>
-        window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
-        </script>";
+        // if (!$dl) {
+        //     echo 'There was a error';
+        //     // echo "<script>console.log(res)</script>";
+        // } else {
+        //     echo "<script>
+        // window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+        // </script>";
 
-        }
+        // }
 
     }
     public function viewType($pId)
@@ -100,15 +100,15 @@ class roomTypeController extends db_connection
         $hp = new roomType();
         $hp->deleteType($id);
 
-        if (!$hp) {
-            echo 'There was a error';
-            // echo "<script>console.log(res)</script>";
-        } else {
-            echo "<script>
-        window.location.href = '../view-hotel/roomType.php';
-        </script>";
+        // if (!$hp) {
+        //     echo 'There was a error';
+        //     // echo "<script>console.log(res)</script>";
+        // } else {
+        //     echo "<script>
+        // window.location.href = '../view-hotel/roomType.php';
+        // </script>";
 
-        }
+        // }
 
     }
 }
