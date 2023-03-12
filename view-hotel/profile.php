@@ -25,14 +25,21 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
+        <?php
+require_once "../controller/hotelController.php";
+$profile = new hotelController();
+$results = $profile->viewProfile($id);
+foreach ($results as $result) {
+    ?>
         <div class="text">Profile</div>
         <div class="wrapper">
 
             <div class="left">
-                <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
-                    style="padding-right:0px;border-radius:50%;">
-                <h3>Grand Monarch</h3>
-                <p>@GMOCH</p>
+                <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
+                    style='padding-right:0px;border-radius:50%;'>";?>
+
+                <h3><?php echo $result['name'];?></h3>
+                <p><?php echo $result['username'];?></p>
             </div>
             <div class="right">
 
@@ -41,15 +48,15 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>sharmi@gmail.com</p>
+                            <p><?php echo $result['email'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>011-4556345</p>
+                            <p><?php echo $result['phone'];?></p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>Thibirigasyaya,Colombo 07</p>
+                            <p><?php echo $result['address'];?></p>
                         </div>
 
 
@@ -62,30 +69,31 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p>G.M.Perera</p>
+                            <p><?php echo $result['managerName'];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p>986080961V</p>
+                            <p><?php echo $result['managerNic'];?></p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p>perera@gmail.com</p>
+                            <p><?php echo $result['managerEmail'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>011-4556345</p>
+                            <p><?php echo $result['managerPhone'];?></p>
                         </div>
-
-
 
                     </div>
 
                 </div>
                 <br>
-                <a href="profileupdate.php" class="button">Update profile</a>
+                <button
+                    onclick="document.location='profileupdate.php?id=<?php echo $result['hotelID']; ?> &name=<?php echo $result['name']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?> &username=<?php echo $result['username']; ?> &password=<?php echo $result['password']; ?> &managerName=<?php echo $result['managerName']; ?> &managerPhone=<?php echo $result['managerPhone']; ?> &managerEmail=<?php echo $result['managerEmail']; ?> &managerNic=<?php echo $result['managerNic']; ?>'"
+                    type="submit" name="update" class="button" href="">Edit Profile</button>
 
 
+                <?php } ?>
             </div>
     </section>
 </body>
