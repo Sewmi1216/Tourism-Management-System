@@ -42,32 +42,32 @@ $managerNic = $_GET['managerNic'];
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
         <div class="registerForm">
-            <form method="post" action="../api/addhotel.php" enctype="multipart/form-data">
+            <form method="get" action="../api/addhotel.php" enctype="multipart/form-data">
                 <div class="heading" style="margin-top:0px;">Update Hotel Profile</div>
                 <div class="subheading" style="margin-top:15px;">Hotel Name*</div>
-                <input type="text" class="field" style=";margin-top:12px;" name="hotelName" value="<?php echo $name;?>" />
+                <input type="text" class="field" style=";margin-top:12px;" name="name" value="<?php echo $username;?>" />
                 <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
-                <input type="hidden" class="subfield" name="mName" value="<?php echo $id;?>"/>
+                <input type="hidden" class="subfield" name="id" value="<?php echo $id;?>"/>
                 <table>
                     <tr>
                         <td>
                             <div class="content">Name</div>
-                            <input type="text" class="subfield" name="mName" value="<?php echo $managerName;?>"/>
+                            <input type="text" class="subfield" name="managerName" value="<?php echo $managerName;?>"/>
                         </td>
                         <td>
                             <div class="content">Contact Number</div>
-                            <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" value="<?php echo $managerPhone;?>" required />
+                            <input type="text" class="subfield" name="managerPhone" value="<?php echo $managerPhone;?>" required />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="content">Email Address</div>
-                            <input type="text" class="subfield" name="mEmail"
+                            <input type="text" class="subfield" name="managerEmail"
                                 value="<?php echo $managerEmail;?>" required />
                         </td>
                         <td>
                             <div class="content">NIC</div>
-                            <input type="text" class="subfield" id="nic" name="mNic" pattern="[0-9]{9}[Vv0-9]{1,3}" value="<?php echo $managerNic;?>"
+                            <input type="text" class="subfield" id="nic" name="managerNic" value="<?php echo $managerNic;?>"
                                 required />
                         </td>
                     </tr>
@@ -96,13 +96,13 @@ $managerNic = $_GET['managerNic'];
                         <td>
                             <div class="content">Email address</div>
                             <input type="text" class="subfield" name="email"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $email;?>" required />
+                                 value="<?php echo $email;?>" required />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="content">Contact Number</div>
-                            <input type="text" class="subfield" name="phone" pattern="[0-9]{10}"  value="<?php echo $phone;?>" required />
+                            <input type="text" class="subfield" name="phone" value="<?php echo $phone;?>" required />
                         </td>
                         <!-- <td>
                             <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
