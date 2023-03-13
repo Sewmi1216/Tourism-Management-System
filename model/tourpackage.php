@@ -58,6 +58,8 @@ class tourpackage extends db_connection
         $query = "SELECT * FROM tourpackage where packageid = $id ";
         
         $stmt = mysqli_query($this->conn, $query);
+        // print_r($stmt);
+        // die();
  
         return $stmt;
     }

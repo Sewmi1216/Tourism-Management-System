@@ -66,7 +66,7 @@
                   <i class="fa-solid fa-trash"></i>
                   <span class="link">Recently deleted</span>
               </a>
-              <span class="desc">Payment</s=pan>
+              <span class="desc">Recently Deleted</s=pan>
           </li>
         
 
