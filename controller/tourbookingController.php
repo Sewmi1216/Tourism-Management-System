@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 // This is where the http request hits second.
 // This is accessed to create the controller object.
 // This is also accessed when a method inside is called.
