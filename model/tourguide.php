@@ -33,7 +33,7 @@ class tourguide extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourguide ";
+        $query = "SELECT * FROM tourguide where status = 2";
         
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -52,7 +52,15 @@ class tourguide extends db_connection
         return $stmt;
     }
 
-
+    public function viewAllpendingguides()
+    {
+       
+    
+        $query = "SELECT * FROM tourguide where status = 1 ";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
 
 
