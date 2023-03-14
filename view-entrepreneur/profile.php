@@ -26,14 +26,22 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
+        <?php
+require_once "../controller/entrepreneurController.php";
+$profile = new entrepreneurController();
+$results = $profile->viewProfile($id);
+foreach ($results as $result) {
+    ?>
         <div class="text">Profile</div>
         <div class="wrapper">
 
             <div class="left">
-                <img src="../Images/Profile.jpg" alt="logo" height="150px" width="150px"
-                    style="padding-right:0px;border-radius:50%;">
-                <h3>Sharmi Crafts</h3>
-                <p>@udari123</p>
+                <!-- <img src="../Images/Profile.jpg" alt="logo" height="150px" width="150px"
+                    style="padding-right:0px;border-radius:50%;"> -->
+                    <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
+                    style='padding-right:0px;border-radius:50%;'>";?>
+                <h3><?php echo $result['businessName'];?></h3>
+                <p><?php echo $result['username'];?></p>
             </div>
             <div class="right">
 
@@ -42,15 +50,15 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>sharmi@gmail.com</p>
+                            <p><?php echo $result['email'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>011-4556345</p>
+                            <p><?php echo $result['phone'];?></p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>Thibirigasyaya,Colombo 07</p>
+                            <p><?php echo $result['address'];?></p>
                         </div>
 
 
@@ -63,19 +71,19 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p>Udari Wijamuni</p>
+                            <p><?php echo $result['entrepreneurName'];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p>986080961V</p>
+                            <p><?php echo $result['entrepreneurNic'];?></p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p>udari@gmail.com</p>
+                            <p><?php echo $result['entrepreneurEmail'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>011-4556345</p>
+                            <p><?php echo $result['entrepreneurPhone'];?></p>
                         </div>
 
 
@@ -85,9 +93,14 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 </div>
                 <br>
                 
-                <a href="proedit.php" class="button">Edit</a>
+                <!-- <button
+                    onclick="document.location='proedit.php?id=<?php echo $result['entID']; ?> &name=<?php echo $result['name']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?> &username=<?php echo $result['username']; ?> &password=<?php echo $result['password']; ?> &managerName=<?php echo $result['managerName']; ?> &managerPhone=<?php echo $result['managerPhone']; ?> &managerEmail=<?php echo $result['managerEmail']; ?> &managerNic=<?php echo $result['managerNic']; ?>'"
+                    type="submit" name="update" class="button" href="">Edit Profile</button> -->
+                    <button
+                    onclick="document.location='proedit.php?id=<?php echo $result['entID']; ?> &businessName=<?php echo $result['businessName']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?> &username=<?php echo $result['username']; ?> &password=<?php echo $result['password']; ?> &entrepreneurName=<?php echo $result['entrepreneurName']; ?> &entrepreneurPhone=<?php echo $result['entrepreneurPhone']; ?> &entrepreneurEmail=<?php echo $result['entrepreneurEmail']; ?> &entrepreneurNic=<?php echo $result['entrepreneurNic']; ?>'"
+                    type="submit" name="update" class="button" href="">Edit Profile</button>
 
-
+                    <?php } ?>
             </div>
 </section>
 

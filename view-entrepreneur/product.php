@@ -47,12 +47,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <tr class="header">
                     
                     
-                        <th class="tblh">Product</th>
 
                          <th class="tblh">Product Name</th>
                         <th class="tblh">Category</th>
                         <th class="tblh">Available Quantity</th>
                         <th class="tblh">Price</th>
+                        <th class="tblh">Add Photos</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr><?php
@@ -64,13 +64,18 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 
                     <tr class="header">
                     
-                    <td class="tbld"><?php echo "<img src='../images/" . $result['productImg'] . "' style=
+                    <!-- <td class="tbld"><?php echo "<img src='../images/" . $result['productImg'] . "' style=
                     'border-radius: 10%;width:70px;height: 70px;background-size: 100%;
-                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
+                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td> -->
                     <td class="tbld"><?php echo $result["productName"] ?></td>
                         <td class="tbld"><?php echo $result["category"] ?></td>
                         <td class="tbld"><?php echo $result["quantity"] ?></td>
                         <td class="tbld"><?php echo $result["price"] ?></td>
+                        <td class="tbld">
+                                <?php echo "<a href='addPhotos.php?id=$result[productID]'>"; ?>
+                                <i class="fa-solid fa-images"></i>
+                                <?php echo "</a>" ?>
+                            </td>
                         
                         <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['productID']; ?>"><i
                                     class="fa-solid fa-pen-to-square art"></i></a></td>
@@ -162,7 +167,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         title="Close Modal">&times;</span>
                 </div>
 
-                    <input type="text" id="modalIdValue" class="subfield" name="id" value="<?php echo $productID ?>" />
+                    <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $productID ?>" />
                     <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
                         this product?</p>
 

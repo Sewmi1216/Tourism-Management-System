@@ -64,14 +64,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
             </tr>
             
             
-            <tr class="row">
-                <td>
-                    <div class="content">Upload Image</div>
-                </td>
-                <td> <input type="file" class="subfield"
-                        style="margin-top:25px;background:#dde8f0;  box-sizing: border-box;"
-                        name="fileImg" /></td>
-            </tr>
+            
             <!-- <tr>
                 <td>
                      <input type="submit" class="btn1" value="Save" name="signup"/>

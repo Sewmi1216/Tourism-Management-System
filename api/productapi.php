@@ -1,23 +1,68 @@
 <?php
 include '../controller/productController.php';
 if (isset($_POST['save'])) {
-    $eid = $_POST['id'];
+  
     $pName = $_POST['pName'];
     $pCategory = $_POST['pCategory'];
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
-    $fileImg = $_FILES['fileImg']['name'];
-
-    $filename = $_FILES["fileImg"]["name"];
-
-    $tempname = $_FILES["fileImg"]["tmp_name"];
-   
-    $folder = "../images/" . $filename;
+    
     
     $productcon = new productController();
-    $productcon->addproduct($eid,$pName,$pCategory,$avaquantity,$price,$filename);
-    move_uploaded_file($tempname, $folder);
+    $productcon->addproduct($pName,$pCategory,$avaquantity,$price);
+    if (!$pkgcon) {
+        echo 'There was a error';
+    } else {
+        echo "
+             <script>
+        window.location.href = '../view-entrepreneur/product.php';
+        </script>";
+    }
+
 }
+
+if (isset($_POST['submitImg'])) {
+    $productid = $_POST['id'];
+
+    $file = $_FILES['file']['name'];
+
+    $filename = $_FILES["file"]["name"];
+
+    $tempname = $_FILES["file"]["tmp_name"];
+
+    $folder = "../images/" . $filename;
+
+    $productcon = new productController();
+    $productcon->addproductImg($productid, $file);
+
+    move_uploaded_file($tempname, $folder);
+    if (!$typecon) {
+        echo 'There was a error';
+    } else {
+        echo "
+             <script>
+             window.location.href = '../view-entrepreneur/addPhotos.php?id=$productid';
+
+        </script>";
+
+
+    }
+}
+if (isset($_POST['deleteimg'])) {
+    $id = $_POST['id'];
+    $imgname = $_POST['imgname'];
+    $typeid = $_POST['productid'];
+
+    $tp = new productController();
+    $tp->deleteImg($id, $productID);
+    unlink("../images/" . $imgname);
+     echo "
+             <script>
+             window.location.href = '../view-entrepreneur/addPhotos.php?id=$productid';
+                  </script>";
+
+}
+
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
     $result = new productController();
@@ -41,22 +86,16 @@ if (isset($_POST["get_data"])) {
 
 
 if (isset($_POST['update'])) {
-    $eid = $_POST['id'];
+    $id = $_POST['id'];
     $pName = $_POST['pName'];
     $pCategory = $_POST['pCategory'];
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
-    $fileImg = $_FILES['fileImg']['name'];
-
-    $filename = $_FILES["fileImg"]["name"];
-
-    $tempname = $_FILES["fileImg"]["tmp_name"];
-   
-    $folder = "../images/" . $filename;
+    
 
     $result = new productController();
-    $result->updateproduct($eid,$pName,$pCategory,$avaquantity,$price,$filename);
-    move_uploaded_file($tempname, $folder);
+    $result->updateproduct($id,$pName,$pCategory,$avaquantity,$price,$filename);
+   
     
 
 }
