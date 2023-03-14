@@ -1,5 +1,5 @@
 <?php
-require('../../api/managerprofile.php');
+require('../../api/tourguideprofile.php');
 $rows = $_SESSION['c'];
 
 
@@ -32,7 +32,10 @@ $rows = $_SESSION['c'];
         <div class="wrapper">
             <div class="left"> 
 
-            
+          
+            <?php 
+        foreach($rows as $row) 
+        echo '       
                 <img src="../Images/download2.jpg" alt="logo" height="150px" width="150px"
                     style="padding-right:0px;border-radius:50%;">
                 <h3>'.$row['username'].'</h3>
@@ -45,15 +48,15 @@ $rows = $_SESSION['c'];
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>tourguide@gmail.com</p>
+                            <p>'.$row['username'].'</p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>07758545521</p>
+                            <p>'.$row['username'].'</p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>Colombo</p>
+                            <p>'.$row['username'].'</p>
                         </div>
 
 
@@ -66,15 +69,15 @@ $rows = $_SESSION['c'];
                     <div class="projects_data">
                         <div class="data">
                             <h4>Vehicle Type</h4>
-                            <p>Van</p>
+                            <p>'.$row['username'].'</p>
                         </div>
                         <div class="data">
                             <h4>Vehicle Number</h4>
-                            <p>VH- 1758</p>
+                            <p>'.$row['username'].'</p>
                         </div>
                         <div class="data">
                             <h4>No of Passegers that can be carried</h4>
-                            <p>10</p>
+                            <p>'.$row['username'].'</p>
                         </div>
 
 
@@ -85,7 +88,7 @@ $rows = $_SESSION['c'];
                 <br>  
                 <a href="#" class="button">Approve</a>
                 <a href="#" class="button">Decline</a>
-
+                ' ; ?>
             </div>
         
     </section>

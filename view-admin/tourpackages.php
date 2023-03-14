@@ -77,9 +77,9 @@ echo '
                     </td>
                   
                     <td class="tbld">  <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                     <td class="tbld"> <a href="editpackage2.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                    <td class="tbld"> <a href="editpackage2.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                    <td class="tbld"> <a href="/deletetourpackage.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-trash art"></i></td>
                 </tr>
 
     
@@ -87,168 +87,18 @@ echo '
             }
             
             ?>  
-               
-
             </table>
             
 
 
  
+
+
         </div>
         </div>
         </div>
 
-
-        <!-- add room -->
-        <div id="id01" class="modal">
-
-            <form class="modal-content animate" method="post" action="../api/addroom.php" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b><hr style="margin-top:25px;"></label>
-                </div>
-
-                <div class="container">
-                    <table>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <select class="subfield" name="hotelPkgId">
-                                    <?php
-require_once("../controller/roomTypeController.php") ;
-$pkg = new roomTypeController();
-$results = $pkg->viewAllTypes();
-           foreach ($results as $result) {
-               ?>
-                                    <option value="<?php echo $result["roomTypeId"];
-                ?>">
-                                        <?php echo $result["typeName"];
-                    ?>
-                                    </option>
-                                    <?php
-           }
-            ?>
-                                </select></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Number</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="roomNo" /></td>
-                        </tr>
-                        
-                        <tr class="row">
-                            <td>
-                                <div class="content">No.of beds</div>
-                            </td>
-                            <td> <input type="number" min="0" class="subfield" name="beds" /></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Status</div>
-                            </td>
-                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
-                                </select></td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="add" style="margin-left:75px;">Save</button>
-                </div>
-            </form>
-        </div>
-
-
-        <!-- update room -->
-        <div id="id02" class="modal">
-
-            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Room</b><hr style="margin-top:25px;"></label>
-                </div>
-
-                <div class="container">
-                    <table>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Number</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
-                        </tr>
-                    
-                        <tr class="row">
-                            <td>
-                                <div class="content">No.of beds</div>
-                            </td>
-                            <td> <input type="number" min="0" class="subfield" name="price" /></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Status</div>
-                            </td>
-                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
-                                </select></td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="save"
-                        style="margin-left:75px;">Update</button>
-                </div>
-            </form>
-        </div>
-        <div id="id03" class="modal">
-
-            <form class="modal-content animate" style="width:45%;" method="post" action="#"
-                enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                </div>
-
-                <div class="container">
-                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
-                        this room?</p>
-
-                    <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                            class="cancelbtn" style="margin-left:11rem;">Yes</button>
-                        <button type="submit" class="btns" value="Save" name="save"
-                            style="margin-left:75px;">No</button>
-                    </div>
-                </div>
-
-
-            </form>
-        </div>
+       
 
 
 

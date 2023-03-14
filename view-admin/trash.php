@@ -24,62 +24,50 @@
         <!-- <div class="text">Hotel Packages</div> -->
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> MANAGE USERS</div>
+                <div class="page-title"> RECENTLY DELETED </div>
             </div>
 
         </div> 
         
         <div class="searchSec">
-                <div class="page-title"> ENTREPRENEUR APPROVAL</div>
+                <div class="page-title"> Recently Deleted Tour Packages </div>
             </div>
-            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
+            <button type="submit" class="btns"><a href="tourpackages.php" style="color:white;text-decoration:none;">View all Tour packages</a></button>
 
 
         <div class="bg">
        
             <table>
                 <tr class="subtext tblrw">
-                        <th class="tblh"> Entrepreneur Name</th>
-                        <th class="tblh">NIC</th>
-                        <th class="tblh">E-Mail Address</th>
-                        <th class="tblh">Phone Number</th>
-                        <th class="tblh">View</th>
-                        <th class="tblh">Approve</th>
-                        <th class="tblh">Remove</th>
+                    <th class="tblh">Package ID</th>
+                    <th class="tblh">Package Name</th>
+                    <th class="tblh">View</th>
+                    <th class="tblh">Restore Package</th>
+                    <th class="tblh">Permemnerntly Deslete</th>
                 </tr>
                 
         <?php 
-require_once("../controller/entrepreneurController.php");
-$penentrepreneur = new entrepreneurController();
-$results= $penentrepreneur->viewAllpendingentrepreneurs();
+require_once("../controller/tourpackagecontroller.php");
+$del_tourpackage = new tourpackagecontroller();
+$results= $del_tourpackage-> viewdeletedtourPkg();
 foreach ($results as $result) {
 
         ?>
 
                 <tr class="subtext tblrw">
                     <td class="tbld">
-                        <?php echo $result["entrepreneurName"] ?>
+                        <?php echo $result["packageID"] ?>
                     </td>
                     
                     <td class="tbld">
-                    <?php echo $result["entrepreneurNic"] ?>
-                    </td>
-                    <td class="tbld">
-                    <?php echo $result["entrepreneurEmail"] ?>
-                    </td>
-                    <td class="tbld">
-                    <?php echo $result["entrepreneurPhone"] ?>
+                    <?php echo $result["packageName"] ?>
                     </td>
                     
-                    <td class="tbld">   <a href="Approvalentrepreneur.php?entrepreneur_id=<?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                    <td class="tbld">   <a href="packagedescription2.php? <?php echo $result["packageID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
-                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
-                                class="fa-solid fa-circle-check"></i></a></td>
-                    <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
-                                class="fa-solid fa-trash art"></i></a></td>
+                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i class="fa-sharp fa-solid fa-trash-can-undo"></i></i></a></td>
+                    <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
                 </tr>
-
-
 
                 <?php }
 ?>
@@ -131,7 +119,7 @@ foreach ($results as $result) {
                <?php echo $result["managerPhone"] ?>
                </td>
                
-               <td class="tbld">   <a href="Approvehotelmanager.php?hotel_id=<?php echo $result["hotelID"] ?>"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+               <td class="tbld">   <a href="Approvehotelmanager.php? <?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                            class="fa-solid fa-circle-check"></i></a></td>
@@ -169,9 +157,9 @@ foreach ($results as $result) {
            </tr>
            
            <?php 
-require_once("../controller/tourguidecontroller.php");
-$penguide= new tourguidecontroller();
-$results= $penguide->viewAllpendingguides();
+require_once("../controller/hotelController.php");
+$penmanager= new hotelController();
+$results= $penmanager->viewAllpendingmanagers();
 foreach ($results as $result) {
 
         ?>
@@ -191,7 +179,7 @@ foreach ($results as $result) {
                <?php echo $result["phone"] ?>
                </td>
                
-               <td class="tbld">   <a href="Approvetouristguide.php?tourguideID=<?php echo $result["tourguideID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+               <td class="tbld">   <a href="Approvetouristguide.php? <?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                            class="fa-solid fa-circle-check"></i></a></td>
@@ -214,19 +202,6 @@ foreach ($results as $result) {
         </div>
 
 
-      
-
-
-    </section>
-    <script>
-    function openChat() {
-        document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeChat() {
-        document.getElementById("myForm").style.display = "none";
-    }
-    </script>
 </body>
 
 </html>

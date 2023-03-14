@@ -307,6 +307,8 @@ class hotelController extends db_connection
         $_SESSION['c'] = $result;
         return $result;
     }
+
+    
 }
 
 
