@@ -19,7 +19,7 @@
               <span class="desc">Tour packages</span>
           </li>
           <li>
-              <a href="tourbooking2.php">
+              <a href="tourbooking.php">
                   <i class="fa-sharp fa-solid fa-suitcase"></i>
                   <span class="link">Tour Bookings</span>
               </a>

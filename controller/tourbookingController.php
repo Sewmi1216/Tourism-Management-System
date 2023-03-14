@@ -50,12 +50,12 @@ class tourbookingcontroller extends db_connection
 
     }
 
-    public function viewAllpendingbookings()
+    public function viewtourreservations()
     {
         
         $pkg = new tourbooking();
 
-        $result = $pkg->viewtourbookingpending();
+        $result = $pkg->viewtourreservations();
 
         $_SESSION['c'] = $result;
         return $result;
