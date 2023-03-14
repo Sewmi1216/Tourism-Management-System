@@ -2,6 +2,11 @@
 require('../api/viewonetourpackage.php');
 $rows = $_SESSION['c'];
 
+// foreach($rows as $x){
+//     print_r($x);
+// }
+
+// die();
 // print_r($rows); die();
 // The http request hits here 4th.
 // Using the data from previously execute code, the view is prepared
@@ -43,7 +48,7 @@ $rows = $_SESSION['c'];
                 <td>
                     <div class="content">Package Name</div>
                 </td>
-                <td>  <input type="text" placeholder="Enter Package Name" value='.$row['packageName'].' name="pckgname" required></td>
+                <td>  <input type="text" placeholder="Enter Package Name" value="'.$row['packageName'].'" name="pckgname" required></td>
             </tr>
 
             <tr class="row">

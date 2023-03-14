@@ -79,7 +79,7 @@ echo '
                     <td class="tbld">  <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                     <td class="tbld"> <a href="editpackage2.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                    <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
+                    <td class="tbld"> <a href="deletetourpackage.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-trash art"></i></td>
                 </tr>
 
     
