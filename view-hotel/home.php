@@ -63,7 +63,7 @@
                         <a href="reservehotel.php" class="btn">book now</a>
                     </div>
                 </div>
-
+<!-- 
                 <div class="box">
                     <img src="../images/h3.jpg" alt="">
                     <div class="content">
@@ -79,7 +79,7 @@
                         <div class="price"> $90.00 <span>$120.00</span> </div>
                         <a href="reservehotel.php" class="btn">book now</a>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="box">
                     <img src="../images/h3.jpg" alt="">
