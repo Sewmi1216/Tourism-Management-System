@@ -1,4 +1,19 @@
 <?php 
+require('../api/tourguideprofile.php');
+$rows = $_SESSION['c'];
+
+// foreach($rows as $x){
+//     print_r($x);
+// }
+
+// die();
+// print_r($rows); die();
+// The http request hits here 4th.
+// Using the data from previously execute code, the view is prepared
+// A response to the http request is sent from here as html file.
+?>
+
+<?php 
 require('../api/viewhotelmanager.php');
 $rows = $_SESSION['c'];
 ?>
@@ -34,40 +49,44 @@ $rows = $_SESSION['c'];
         <form method="post" action="../api/addentreapi.php" enctype="multipart/form-data">
             <div class="heading" style="margin-top:0px;">Edit Tour Guide Information</div>
             <hr>
+
+            <?php            
+foreach($rows as $row) {
+echo '<table>
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
                 <tr>
                     <td>
                         <div class="content">Name</div>
-                        <input type="text" class="subfield" name="eName" />
+                        <input type="text" class="subfield" value="'.$row['name'].'" name="eName" />
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" value="'.$row['phone'].'" required />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Email Address</div>
-                        <input type="text" class="subfield" name="eEmail"
+                        <input type="text" class="subfield" name="eEmail" value="'.$row['email'].'"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
                     <td>
                         <div class="content">NIC</div>
-                        <input type="text" class="subfield" id="nic" name="eNic" pattern="[0-9]{9}[Vv0-9]{1,3}"
+                        <input type="text" class="subfield" id="nic" name="eNic" pattern="[0-9]{9}[Vv0-9]{1,3}" value="'.$row['nic'].'"
                             required />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Username</div>
-                        <input type="text" class="subfield" name="username" required />
+                        <input type="text" class="subfield" name="username" value="'.$row['username'].'" required />
                     </td>
                     <td>
                         <div class="content">Password</div>
                         <input type="password" class="subfield" name="password" id="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="'.$row['document'].'" required />
                         <div id="msg" style="color:red;"></div>
                     </td>
                 </tr>
@@ -75,24 +94,24 @@ $rows = $_SESSION['c'];
                 <tr>
                     <td>
                         <div class="content">Languages</div>
-                        <input type="text" class="subfield" name="address" />
+                        <input type="text" class="subfield" name="address" value="'.$row['document'].'"/>
                     </td>
                     <td>
                         <div class="content">Availability</div>
-                        <input type="text" class="subfield" name="email"
+                        <input type="text" class="subfield" name="email" value="'.$row['document'].'"
                             required />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
+                        <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;" value="'.$row['document'].'"
                             class="subfield" name="proImg" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Legal Document</div>
-                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
+                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" value="'.$row['document'].'" />
                     </td>
                 </tr>
 </table>
@@ -103,28 +122,28 @@ $rows = $_SESSION['c'];
                 <tr>
                     <td>
                         <div class="content">Vehicle Number</div>
-                        <input type="text" class="subfield" name="eName" />
+                        <input type="text" class="subfield" name="eName" value="'.$row['document'].'"/>
                     </td>
                     <td>
                         <div class="content">Vehicle Type</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required value="'.$row['document'].'"/>
                     </td>
                     
                 </tr>
                 <tr>
                 <td>
                         <div class="content">Number of passengers that can be carried</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required value="'.$row['document'].'" />
                     </td>
 </tr>
             </table>
-            <input type="submit" class="btnRegister" value="UPDATE" name="Sign UpE" />
+            <input type="submit" class="btnRegister" value="UPDATE" name="Sign UpE" value="'.$row['document'].'" />
          
         </form>
 
 
     </div>
-
+    '; } ?>
     <script>
     var nic = document.getElementById("nic");
 
