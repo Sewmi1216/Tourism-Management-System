@@ -1,9 +1,7 @@
 <?php
 
-
 include '../model/tourist.php';
 include '../model/admin.php';
-
 
 class touristController extends db_connection
 {
@@ -17,26 +15,22 @@ class touristController extends db_connection
     public function userLogin($username, $password)
     {
         $tourist = new tourist();
-        
 
         $res = $tourist->validate($username, $password);
-        
 
         if (mysqli_num_rows($res) > 0) {
-            
 
             $result = mysqli_fetch_assoc($res);
-            
 
             if ($result['email'] == $username && $result['password'] == $password) {
-                
+
                 $_SESSION['username'] = $result['username'];
                 $_SESSION['touristID'] = $result['userID'];
-                
-                 header("Location: ../view/craft_list.php");
+
+                header("Location: ../view/craft_list.php");
 
                 exit();
-                
+
             } else {
                 header("Location: ../view/login.php");
                 exit();
@@ -55,23 +49,22 @@ class touristController extends db_connection
         $tourist = new tourist();
         $mailcheck = $tourist->checkmail($inputs[2]);
 
-        if($mailcheck > 0){
-            $_SESSION['err']= "Email is already registered";
+        if ($mailcheck > 0) {
+            $_SESSION['err'] = "Email is already registered";
             header("Location: ../view/sign.php");
-        }
-        else{
+        } else {
             $res = $tourist->insertTourist($inputs);
             if (!$res) {
                 echo 'Error Occured';
-            }else{
+            } else {
                 echo 'Successfully Added';
                 header("Location: ../view/login.php");
-                
+
             }
         }
 
     }
-     public function userLogout()
+    public function userLogout()
     {
         session_unset();
         session_destroy();
@@ -80,35 +73,35 @@ class touristController extends db_connection
 
     }
 
-    public function addcart($quantity, $productID,$tourist_id){
+    public function addcart($quantity, $productID, $tourist_id)
+    {
         $tourist = new tourist();
         $row = $tourist->checkproid($productID);
-        
-        if( $row > 0) {
-             $res = $tourist->updateToCart($quantity, $productID, $tourist_id);
-             if (!$res) {
+
+        if ($row > 0) {
+            $res = $tourist->updateToCart($quantity, $productID, $tourist_id);
+            if (!$res) {
                 echo 'Error Occured';
-            }else{
+            } else {
                 echo 'Successfully Added';
                 header("Location: ../view/cart.php");
-                
+
             }
-        }
-        else{
+        } else {
             $res = $tourist->insertToCart($quantity, $productID, $tourist_id);
             if (!$res) {
                 echo 'Error Occured';
-            }else{
+            } else {
                 echo 'Successfully Added';
                 header("Location: ../view/cart.php");
-                
+
             }
         }
     }
-    
+
     public function viewAlltourist()
     {
-        
+
         $pkg = new tourist();
 
         $result = $pkg->viewtourist();
@@ -117,5 +110,29 @@ class touristController extends db_connection
         return $result;
 
     }
+    public function viewAllHotels()
+    {
+        $hotel = new tourist();
+        $result = $hotel->viewAllHotels();
+        return $result;
+    }
+    public function viewHotel($id)
+    {
+        $hotel1 = new tourist();
+        $rs = $hotel1->viewHotel($id);
+        return $rs;
+    }
+    public function viewAllRoomTypes($id)
+    {
+        $type = new tourist();
+        $rs = $type->viewAllRoomTypes($id);
+        return $rs;
+    }
+    public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
+    {
+        $reservation = new tourist();
+        $res = $reservation->insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId);
+        return $res;
 
+    }
 }

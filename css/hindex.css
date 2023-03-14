@@ -156,7 +156,7 @@ section#contact {
 }
 
 .popular .container .box {
-  padding: 2rem;
+  padding: 10px;
   background-color: #fff;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   border: 0.1rem sold rgba(0, 0, 0, 0.3);
@@ -164,11 +164,44 @@ section#contact {
   /* text-align: center; */
   /* flex: 1 1 20rem; */
   position: relative;
-  width: 25%;
+  width: 30%;
 }
-
+.hotel1 .container .box {
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  /* text-align: center; */
+  /* flex: 1 1 20rem; */
+  position: relative;
+  width: 100%;
+}
+.hotel2 .container .box {
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  /* text-align: center; */
+  /* flex: 1 1 20rem; */
+  position: relative;
+  width: 60%;
+}
+.h3 .container .box {
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  /* text-align: center; */
+  /* flex: 1 1 20rem; */
+  position: relative;
+  width: 20%;
+  float: right;
+}
 .popular .container .box img {
-  height: 18rem;
+  height: 28rem;
   object-fit: cover;
   width: 100%;
   border-radius: 0.5rem;
@@ -243,7 +276,7 @@ section#contact {
 
 
 
-
+/* 
 .hotel .box-container{
   display: flex;
   flex-wrap: wrap;
@@ -298,11 +331,11 @@ section#contact {
   color:#666;
   font-size: 1.5rem;
   text-decoration: line-through;
-}
+} */
 
-section{
+/* section{
   padding:2rem 9%;
-}
+} */
 
 /* search */
   .searchSec {
