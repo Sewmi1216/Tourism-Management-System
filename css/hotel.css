@@ -265,6 +265,12 @@ table {
   border-radius: 20px;
   color: white;
 }
+.status3{
+  background-color: rgb(93, 125, 150);
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+}
 .art {
   font-size: 17px;
   color: rgb(0, 0, 0);

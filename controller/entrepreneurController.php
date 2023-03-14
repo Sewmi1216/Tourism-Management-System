@@ -43,16 +43,7 @@ class entrepreneurController extends db_connection
         
 
     }
-    public function viewAll()
-    {
-        $entrepreneur = new entrepreneur();
-
-        $result = $entrepreneur->viewAll();
-
-        // include "../view/proedit.php";
-        return $result;
-
-    }
+    
 public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
 {
 	$user = new entrepreneur();
@@ -86,38 +77,29 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 
 }
 
+public function viewAll($id)
+    {
+        $entrepreneur= new entrepreneur();
+
+        $results= $entrepreneur->viewAll($id);
+
+        // include "../view/product.php";
+        return $results;
+
+    }
+
+
+
 
 public function viewAllentrepreneurs(){
-    $user = new entrepreneur();
-    
-    $result = $user-> viewAllentrepreneurs();
-    
-    $_SESSION['c'] = $result;
-    return $result;
-    
-    
-}
+        $user = new entrepreneur();
+
+        $result = $user-> viewAllentrepreneurs();
+
+        $_SESSION['c'] = $result;
+        return $result;
 
 
-public function viewAllpendingentrepreneurs(){
-    $user = new entrepreneur();
-
-    $result = $user-> viewpendingentrepreneurs();
-
-    $_SESSION['c'] = $result;
-    return $result;
-}
-
-
-public function viewoneentrepreneur($inputs)
-{
-
-    $user = new entrepreneur();
-
-    $result = $user-> viewoneentrepreneur($inputs[0]);
-
-    $_SESSION['c'] = $result;
-    return $result;
 }
 
 }

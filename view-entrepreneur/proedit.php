@@ -31,12 +31,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
         <?php
                     require_once "../controller/entrepreneurController.php";
                     $entrepreneur = new entrepreneurController();
-                    $results = $entrepreneur->viewAll();
-                    foreach ($results as $result)
+                    $results = $entrepreneur->viewAll($id);
+                    foreach ($results as $result){
                         ?>
             
             <div class="subheading" style="margin-top:15px;">Business Name*</div>
-            <input type="text" class="field" style=";margin-top:12px;" name="businessName"  value="<?php echo $result["businessName"] ?>" />
+            <input type="text" class="field" style=";margin-top:12px;" name="businessName"  value="" />
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
@@ -113,9 +113,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
                     </td>
                 </tr>
-                <?php 
+                <?php }
 
 ?>
+     
+
+
             </table>
             <input type="submit" class="btnRegister" value="Update" name="update" />
             

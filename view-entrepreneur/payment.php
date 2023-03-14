@@ -13,6 +13,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -61,7 +62,15 @@ foreach ($results as $result) {
                     <th class="tblh"><?php echo $result["date"] ?></th>
                     <th class="tblh"><?php echo $result["type"] ?></th>
                     <th class="tblh"><?php echo $result["amount"] ?></th>
-                    <th class="tblh"><?php echo $result["status"] ?></th>
+                    <td class="tbld">
+                        <?php if ($result["status"] == "Completed") {?>
+                        <button class="status3"><?php echo $result["status"]; ?></button>
+                        <?php } else if($result["status"] == "Pending") {?>
+                        <button class="status1"><?php echo $result["status"]; ?></button>
+                        <?php } else{?>
+                        <button class="status2"><?php echo $result["status"]; ?></button>
+                        <?php }?>
+                    </td>
                     <th class="tblh"><?php echo $result["bookingID"] ?></th>
                     <th class="tblh"><?php echo $result["orderID"] ?></th>
                     <th class="tblh"><?php echo $result["reservationID"] ?></th>

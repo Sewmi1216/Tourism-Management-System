@@ -11,16 +11,25 @@ class orderController extends db_connection
         $this->conn = $this->connect();
     }
 
-    
+    // public function viewAll($id)
+    // {
+    //     $product = new product();
+
+    //     $results= $product->viewAll($id);
+
+    //     // include "../view/product.php";
+    //     return $results;
+
+    // }
 
     
-    public function viewAllOrders()
+    public function viewAllOrders($id)
     {
         
 
         $order = new order();
 
-        $result = $order->viewAllOrders();
+        $result = $order->viewAllOrders($id);
 
         // include "../view/order.php";
         return $result;

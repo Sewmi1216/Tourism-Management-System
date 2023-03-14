@@ -94,9 +94,9 @@ class hotelController extends db_connection
                 // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
-        } else if (mysqli_num_rows($res[4]) > 0) {
+        } else if (mysqli_num_rows($res[3]) > 0) {
 
-            $result1 = mysqli_fetch_assoc($res[4]);
+            $result1 = mysqli_fetch_assoc($res[3]);
 
             if ($result1['password'] == $password) {
                 if ($result1['status'] == 1) {

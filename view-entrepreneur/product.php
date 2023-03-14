@@ -33,7 +33,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products.." title="Type in a productname">
                     
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <a href="product.php"><button type="submit" class="btns">View All</button></a>
                 <span style="margin-left: 8px;">
                     <a href="addcraft.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
@@ -46,7 +46,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 <table id="myTable">
                     <tr class="header">
                     
-                    <th class="tblh">Product ID</th>
+                    
                         <th class="tblh">Product</th>
 
                          <th class="tblh">Product Name</th>
@@ -63,7 +63,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         ?>
 
                     <tr class="header">
-                    <td class="tbld"><?php echo $result["productID"] ?></td>
+                    
                     <td class="tbld"><?php echo "<img src='../images/" . $result['productImg'] . "' style=
                     'border-radius: 10%;width:70px;height: 70px;background-size: 100%;
                     background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
@@ -103,7 +103,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 </div>
                 <table>
                 <tr class="row">
-                    <input type="text" class="subfield" name="id" id="productid" value="" ?>
+                    <input type="hidden" class="subfield" name="id" id="productid" value="" ?>
                 </tr>
             <tr class="row">
                 <td>
@@ -211,7 +211,7 @@ function myFunction() {
 
     function loadData(id) {
     	$.ajax({
-    	    url: "../api/product-.php",
+    	    url: "../api/productapi.php",
     	    method: "POST",
     	    data: {
                 get_data: 1, 
