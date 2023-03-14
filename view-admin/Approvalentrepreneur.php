@@ -1,5 +1,5 @@
 <?php
-require('../api/managerprofile.php');
+require('../api/entrepreneurprofile.php');
 $rows = $_SESSION['c'];
 
 
@@ -27,16 +27,18 @@ $rows = $_SESSION['c'];
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="text">Entrepreneur - Pending Approval</div>
+        <div class="text">Entrepreneur Profile</div>
         
         <div class="wrapper">
             <div class="left"> 
 
-            
+            <?php 
+        foreach($rows as $row) 
+        echo '   
                 <img src="../Images/download2.jpg" alt="logo" height="150px" width="150px"
                     style="padding-right:0px;border-radius:50%;">
-                <h3>'.$row['username'].'</h3>
-                <p>'.$row['username'].'</p>
+                <h3>'.$row['businessName'].'</h3>
+                <p>'.$row['entrepreneurName'].'</p>
             </div>
             <div class="right">
 
@@ -66,19 +68,19 @@ $rows = $_SESSION['c'];
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p>'.$row['name'].'</p>
+                            <p>'.$row['entrepreneurName'].'</p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p>'.$row['nic'].'</p>
+                            <p>'.$row['entrepreneurNic'].'</p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p>'.$row['Email'].'</p>
+                            <p>'.$row['entrepreneurEmail'].'</p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>'.$row['phone'].'</p>
+                            <p>'.$row['entrepreneurPhone'].'</p>
                         </div>
 
 
@@ -86,9 +88,11 @@ $rows = $_SESSION['c'];
                     </div>
 
                 </div>
+
+                '; ?>
                 <br>  
-                <a href="#" class="button">Approve</a>
-                <a href="#" class="button">Decline</a>
+                <a href="editentrepreneur.php" class="button">Update profile</a>
+                <a href="#" class="button">Delete profile</a>
 
             </div>
         
