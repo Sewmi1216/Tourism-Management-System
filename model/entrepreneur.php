@@ -25,7 +25,7 @@ class entrepreneur extends db_connection
        return $stmt;
     }
 
-    public function viewAll()
+    public function viewAll($id)
     {
     
         $query = "Select * from entrepreneur " ;
@@ -36,7 +36,7 @@ class entrepreneur extends db_connection
     private function getData($query) {
 		$result = mysqli_query($this->conn, $query);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: '. mysqli_error($this->conn));
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result)) {
@@ -55,13 +55,16 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 }
 
 
-    public function viewAllentrepreneur()
+    
+
+    public function viewentrepreneue($eId)
     {
-        $query = "SELECT * from entrpreneur";
+    
+        $query = "Select * from entrepreur where entID = '$eId'";
+
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
-
-    
+        
     }
 
     public function viewAllentrepreneurs(){
@@ -89,3 +92,5 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
     }
 }   
 ?>
+
+   

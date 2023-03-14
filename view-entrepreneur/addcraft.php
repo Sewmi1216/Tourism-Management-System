@@ -31,7 +31,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
         
         <table>
         <tr class="row">
-                    <input type="hidden" class="subfield" name="id" id="productid" value="id" ?>
+                    <input type="hidden" class="subfield" name="id" id="productid" value="<?php echo $id; ?>" ?>
                 </tr>
             <tr class="row">
                 <td>

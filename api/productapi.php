@@ -15,7 +15,7 @@ if (isset($_POST['save'])) {
     $folder = "../images/" . $filename;
     
     $productcon = new productController();
-    $productcon->addproduct($eid,$pName, $pCategory,$avaquantity, $price,$filename);
+    $productcon->addproduct($eid,$pName,$pCategory,$avaquantity,$price,$filename);
     move_uploaded_file($tempname, $folder);
 }
 if (isset($_POST['delete'])) {
@@ -29,7 +29,7 @@ if (isset($_POST["get_data"])) {
     $id = $_POST["id"];
 
     $product = new productController();
-    $result = $product->viewAll($id);
+    $result = $product->viewproduct($id);
     $row = mysqli_fetch_object($result);
 
     // Important to echo the record in JSON format
@@ -41,7 +41,7 @@ if (isset($_POST["get_data"])) {
 
 
 if (isset($_POST['update'])) {
-    $id = $_POST['id'];
+    $eid = $_POST['id'];
     $pName = $_POST['pName'];
     $pCategory = $_POST['pCategory'];
     $avaquantity = $_POST['avaquantity'];
@@ -55,7 +55,7 @@ if (isset($_POST['update'])) {
     $folder = "../images/" . $filename;
 
     $result = new productController();
-    $result->updateproduct($id,$pName, $pCategory,$avaquantity, $price,$filename);
+    $result->updateproduct($eid,$pName,$pCategory,$avaquantity,$price,$filename);
     move_uploaded_file($tempname, $folder);
     
 

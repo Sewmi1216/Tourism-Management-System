@@ -12,11 +12,11 @@ class productController extends db_connection
     }
 
     
-public function addproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg)
+public function addproduct($eid,$pName,$pCategory,$avaquantity,$price,$fileImg)
 {
 	$product = new product();
 
-	$result = $product->insertproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg);
+	$result = $product->insertproduct($eid,$pName,$pCategory,$avaquantity,$price,$fileImg);
 
 	if (!$result) {
 		echo 'There was a error';
@@ -58,10 +58,10 @@ public function deleteproduct($id)
     
    
 
-    public function updateproduct($id,$pName, $pCategory,$avaquantity, $price,$fileImg)
+    public function updateproduct($eid,$pName,$pCategory,$avaquantity,$price,$fileImg)
     {
         $result = new product();
-        $result-> updateproduct ($id,$pName, $pCategory,$avaquantity, $price,$fileImg);
+        $result-> updateproduct ($eid,$pName,$pCategory,$avaquantity,$price,$fileImg);
 
         if (!$result) {
             echo 'There was a error';
@@ -78,6 +78,17 @@ public function deleteproduct($id)
 
 
 
+    public function viewproduct($pId)
+
+    {
+        $product = new product();
+
+        $results= $product->viewproduct($pId);
+
+        return $results;
+    
+      
+    }
 }
 ?>
 

@@ -11,8 +11,7 @@
         <form method="post" action="../api/addentreapi.php" enctype="multipart/form-data">
             <div class="heading" style="margin-top:0px;">Tour Guide Registration</div>
             <hr>
-            <div class="subheading" style="margin-top:15px;">Business Name*</div>
-            <input type="text" class="field" style=";margin-top:12px;" name="businessName" />
+            
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
@@ -86,14 +85,14 @@
                     </td>
                     <td>
                         <div class="content">Vehicle Type</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="ePhone" required />
                     </td>
                     
                 </tr>
                 <tr>
                 <td>
                         <div class="content">Number of passengers that can be carried</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
+                        <input type="number" class="subfield" name="ePhone" required />
                     </td>
 </tr>
             </table>

@@ -12,7 +12,7 @@ class product extends db_connection
 
     public function insertproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg)
     {
-        $query = "INSERT INTO product (entID,productName, category, quantity,price, productImg) VALUES ('$eid','$pName', '$pCategory','$avaquantity', '$price','$fileImg')";
+        $query = "INSERT INTO product (productName,category,quantity,price,productImg,entID) VALUES ('$pName', '$pCategory','$avaquantity', '$price','$fileImg','$eid')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
@@ -48,22 +48,10 @@ class product extends db_connection
 		return $data;
 	}
 
-    // private function getData($query) {
-    //     $result = mysqli_query($this->conn, $query);
-    //     if(!$result){
-    //         die('Error in query: '. mysqli_error($this->conn));
-    //     }
-    //     $data= array();
-    //     while ($row = mysqli_fetch_array($result)) {
-    //         $data[]=$row;            
-    //     }
-    //     return $data;
-    // }
-    
 
 
-public function deleteproduct($id){
-    $query = "delete from product where productID='$id'";
+public function deleteproduct($eid){
+    $query = "delete from product where productID='$eid'";
     $stmt = mysqli_query($this->conn, $query);
     return $stmt;
 }
