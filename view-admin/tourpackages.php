@@ -30,7 +30,7 @@ $rows = $_SESSION['c'];
             <div class="searchSec">
                 <div class="page-title"> Tour packages </div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for rooms" name="search">
+                    <input class="input-field" type="text" placeholder="Search for Tour packages" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 
@@ -79,7 +79,7 @@ echo '
                     <td class="tbld">  <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                     <td class="tbld"> <a href="editpackage2.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                    <td class="tbld"> <a href="/deletetourpackage.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-trash art"></i></td>
+                    <td class="tbld"> <a href="deletetourpackage.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-trash art"></i></td>
                 </tr>
 
     
