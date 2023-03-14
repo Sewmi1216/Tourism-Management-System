@@ -133,9 +133,9 @@ foreach ($results as $result) {
                
                <td class="tbld">   <a href="Approvehotelmanager.php?hotel_id=<?php echo $result["hotelID"] ?>"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
-               <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+               <td class="tbld"><a href="Approveuser.php?hotel_id=<?php echo $result["hotelID"] ?>&type=accept&usertype=manager"><i
                            class="fa-solid fa-circle-check"></i></a></td>
-               <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+               <td class="tbld"><a href="Approveuser.php?hotel_id=<?php echo $result["hotelID"] ?>&type=decline&usertype=manager"><i
                            class="fa-solid fa-trash art"></i></a></td>
            </tr>
 

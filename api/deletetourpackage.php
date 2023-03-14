@@ -1,6 +1,6 @@
 
 <?php
-include '../controller/tourpackageController.php';
+include '../controller/tourpackagecontroller.php';
 
 $packagename = $_GET["package_id"];
 $inputs = array($packagename);
