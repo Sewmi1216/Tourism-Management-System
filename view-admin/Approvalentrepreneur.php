@@ -91,8 +91,8 @@ $rows = $_SESSION['c'];
 
                 '; ?>
                 <br>  
-                <a href="editentrepreneur.php" class="button">Update profile</a>
-                <a href="#" class="button">Delete profile</a>
+                <a href="editentrepreneur.php" class="button"> Approve Registration</a>
+                <a href="#" class="button">Decline</a>
 
             </div>
         

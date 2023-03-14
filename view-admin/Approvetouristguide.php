@@ -1,5 +1,5 @@
 <?php
-require('../../api/tourguideprofile.php');
+require('../api/tourguideprofile.php');
 $rows = $_SESSION['c'];
 
 
@@ -86,7 +86,7 @@ $rows = $_SESSION['c'];
 
                 </div>
                 <br>  
-                <a href="#" class="button">Approve</a>
+                <a href="#" class="button">Approve Regitration</a>
                 <a href="#" class="button">Decline</a>
                 ' ; ?>
             </div>
