@@ -19,7 +19,7 @@
               <span class="desc">Tour packages</span>
           </li>
           <li>
-              <a href="tourbooking2.php">
+              <a href="tourbooking.php">
                   <i class="fa-sharp fa-solid fa-suitcase"></i>
                   <span class="link">Tour Bookings</span>
               </a>
@@ -33,7 +33,7 @@
               <span class="desc">Manage Users</span>
           </li>
           <li>
-              <a href="tourguides.php">
+              <a href="view-tourguides.php">
                   <i class="fa-sharp fa-solid fa-address-book"></i>
                   <span class="link">Tourist Guides</span>
               </a>
@@ -62,11 +62,11 @@
               <span class="desc">Payment</s=pan>
           </li>
           <li>
-              <a href="payment.php">
+              <a href="trash.php">
                   <i class="fa-solid fa-trash"></i>
                   <span class="link">Recently deleted</span>
               </a>
-              <span class="desc">Payment</s=pan>
+              <span class="desc">Recently Deleted</s=pan>
           </li>
         
 

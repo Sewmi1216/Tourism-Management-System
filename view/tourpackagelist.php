@@ -1,9 +1,6 @@
 <?php 
-session_start();
-include '../model/tourist.php';
-$tourist = new tourist();
-$res2 = $tourist->getallproducts();
-
+require('../api/viewtourpackage.php');
+$rows = $_SESSION['c'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,13 +71,17 @@ $res2 = $tourist->getallproducts();
     <span>s</span>
 </h1> -->
 
-<div class="box-container">
 
+<div class="box-container">
+<?php                   
+foreach ($rows as $row) {  
+
+echo '
     <div class="box">
     <img src="../images/tourpackage/k1.jpg" alt="">
         <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Middle Through </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <h3> <i class="fas fa-map-marker-alt"></i> '.$row['packageName'].' </h3>
+            <p>'.$row['packageName'].'</p>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -88,150 +89,14 @@ $res2 = $tourist->getallproducts();
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
+            <div class="price"> $ '.$row['price'].'  <span> $ '.$row['price'].' </span> </div>
             <a href="booktourpackage.php" class="btn">book now</a>
         </div>
     </div>
 
-    <div class="box">
-    <img src="../images/tourpackage/anu.webp" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Roam Anuradha </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
-        </div>
-    </div>
+   
 
-    <div class="box">
-    <img src="../images/tourpackage/polo.jpg" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Heritage Steer </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/tourpackage/galle.jpg" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Galle Quest </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/tourpackage/jungle.jpg" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Jungle Jaunt </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
-        </div>
-    </div>
-
-    <div class="box">
-    <img src="../images/tourpackage/col.jpg" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> Capital Ride </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="price"> $90.00 <span>$120.00</span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
-        </div>
-    </div>
-    <div class="box-container">
-
-<div class="box">
-<img src="../images/tourpackage/trinco.jpg" alt="">
-    <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Trinco Trails </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="price"> $90.00 <span>$120.00</span> </div>
-        <a href="booktourpackage.php" class="btn">book now</a>
-    </div>
-</div>
-
-<div class="box">
-<img src="../images/tourpackage/batti.jpg" alt="">
-    <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Batti Breeze </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="price"> $90.00 <span>$120.00</span> </div>
-        <a href="booktourpackage.php" class="btn">book now</a>
-    </div>
-</div>
-
-<div class="box">
-<img src="../images/tourpackage/jaffna.jpg" alt="">
-    <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> Jaffna  Lounge </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <div class="price"> $90.00 <span>$120.00</span> </div>
-        <a href="booktourpackage.php" class="btn">book now</a>
-    </div>
-</div>
-
-
-
+';} ?>
 
 </section>
 

@@ -1,6 +1,16 @@
 <?php 
-require('../api/viewhotelmanager.php');
+require('../api/managerprofile.php');
 $rows = $_SESSION['c'];
+
+// foreach($rows as $x){
+//     print_r($x);
+// }
+
+// die();
+// print_r($rows); die();
+// The http request hits here 4th.
+// Using the data from previously execute code, the view is prepared
+// A response to the http request is sent from here as html file.
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +49,19 @@ $rows = $_SESSION['c'];
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
+
+<?php
+
+foreach($rows as $row) 
+echo '<table>
                 <tr>
                     <td>
                         <div class="content">Name</div>
-                        <input type="text" class="subfield" name="mName" />
+                        <input type="text" class="subfield" value="'.$row['packageName'].'" name="mName" />
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" required /> </td>
+                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" value="'.$row['packageName'].'"required /> </td>
                 </tr>
                 <tr>
                     <td>

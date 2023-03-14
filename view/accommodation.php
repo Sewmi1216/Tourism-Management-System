@@ -33,8 +33,9 @@
     </div>
 
 
-    <section class="hotel" id="hotel" style="padding-top = 40px">
-        <form action="">
+
+        <section class="popular" id="hotel" style="padding: 2rem 9%;">
+        <!-- <form action="">
             <div class="searchSec" style="margin-top:20px;">
                 <table>
                     <tr>
@@ -69,78 +70,47 @@
                         </td>
                         <td>
                             <div class="input-container" style="margin-left: 1rem;">
-                                <input class="input-field" type="number" placeholder="No.of rooms" name="search" onfocus="showMessage(true)" onblur="showMessage(false)">
-                                
+                                <input class="input-field" type="number" placeholder="No.of rooms" name="search"
+                                    onfocus="showMessage(true)" onblur="showMessage(false)">
+
                             </div>
-                            
+
                         </td>
                     </tr>
-                    
+
                 </table>
 
                 <button type="submit" class="btns" style="margin-left: 1rem;margin-top:20px;"><a href="roomType.php"
                         style="color:white;text-decoration:none;">Search</a></button>
-                        
+
             </div>
             <p id="dem" style="display:none;">***One room can accommodate only 2 people</p>
-        </form>
-        <div class="box-container">
+        </form> -->
+       
 
+        <div class="container">
+             <?php
+require_once("../controller/touristController.php") ;
+$hotel = new touristController();
+$results = $hotel->viewAllHotels();
+           foreach ($results as $result) {
+               ?>
             <div class="box">
-                <img src="../images/h3.jpg" alt="">
-                <div class="content">
-                    <h3> <i class="fas fa-map-marker-alt"></i> Sizzling Single</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="price"> $90.00 <span>$120.00</span> </div>
-                    <a href="reservehotel.php" class="btn">book now</a>
+                 <?php echo "<img src='../images/" . $result['profileImg'] . "'>"; ?>
+
+                <div class="content-container">
+                    <h3 style="display: inline;"><?php echo $result['name'];?></h3>
+                    <br>
+                    <h2><?php echo $result['address'];?></h2>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                     <a href="hotelView.php?id=<?php echo $result['hotelID']; ?>" class="btn">Select</a>
                 </div>
             </div>
-
-            <div class="box">
-                <img src="../images/h3.jpg" alt="">
-                <div class="content">
-                    <h3> <i class="fas fa-map-marker-alt"></i> Dreamy Double </h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="price"> $90.00 <span>$120.00</span> </div>
-                    <a href="reservehotel.php" class="btn">book now</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="../images/h3.jpg" alt="">
-                <div class="content">
-                    <h3> <i class="fas fa-map-marker-alt"></i>Tranquil Triple</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="price"> $90.00 <span>$120.00</span> </div>
-                    <a href="#" class="btn">book now</a>
-                </div>
-            </div>
-
+               <?php }?>
         </div>
-
     </section>
-
     <section id="contact" style="padding-bottom: 20px">
         <div style="text-align:center; padding: 10px;">
             <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
@@ -160,15 +130,15 @@
 
     <script src="js/home.js"></script>
     <script>
-function showMessage(show) {
-  var messageElement = document.getElementById("dem");
-  if (show) {
-    messageElement.style.display = "block"; // or "inline"
-  } else {
-    messageElement.style.display = "none";
-  }
-}
-</script>
+    function showMessage(show) {
+        var messageElement = document.getElementById("dem");
+        if (show) {
+            messageElement.style.display = "block"; // or "inline"
+        } else {
+            messageElement.style.display = "none";
+        }
+    }
+    </script>
 </body>
 
 </html>

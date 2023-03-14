@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/manageusers.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <!-- <script src="../libs/jquery.min.js"></script> -->
@@ -32,7 +32,7 @@
         <div class="searchSec">
                 <div class="page-title"> ENTREPRENEUR APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View All Verified Entrepreneur</a></button>
+            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
 
 
         <div class="bg">
@@ -71,7 +71,7 @@ foreach ($results as $result) {
                     <?php echo $result["entrepreneurPhone"] ?>
                     </td>
                     
-                    <td class="tbld">   <a href="Approvalentrepreneur.php? <?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                    <td class="tbld">   <a href="Approvalentrepreneur.php?entrepreneur_id=<?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                     <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                 class="fa-solid fa-circle-check"></i></a></td>
@@ -93,7 +93,7 @@ foreach ($results as $result) {
           <div class="searchSec">
                 <div class="page-title"> MANAGER APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View All Veried Hotels</a></button>
+            <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotels</a></button>
 
           <div class="bg">
        
@@ -131,11 +131,11 @@ foreach ($results as $result) {
                <?php echo $result["managerPhone"] ?>
                </td>
                
-               <td class="tbld">   <a href="Approvehotelmanager.php? <?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+               <td class="tbld">   <a href="Approvehotelmanager.php?hotel_id=<?php echo $result["hotelID"] ?>"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
-               <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
+               <td class="tbld"><a href="Approveuser.php?hotel_id=<?php echo $result["hotelID"] ?>&type=accept&usertype=manager"><i
                            class="fa-solid fa-circle-check"></i></a></td>
-               <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i
+               <td class="tbld"><a href="Approveuser.php?hotel_id=<?php echo $result["hotelID"] ?>&type=decline&usertype=manager"><i
                            class="fa-solid fa-trash art"></i></a></td>
            </tr>
 
@@ -153,7 +153,7 @@ foreach ($results as $result) {
      <div class="searchSec">
                 <div class="page-title"> TOURGUIDE APPROVAL</div>
             </div>
-            <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View All</a></button>
+            <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
 
      <div class="bg">
        
@@ -169,9 +169,9 @@ foreach ($results as $result) {
            </tr>
            
            <?php 
-require_once("../controller/hotelController.php");
-$penmanager= new hotelController();
-$results= $penmanager->viewAllpendingmanagers();
+require_once("../controller/tourguidecontroller.php");
+$penguide= new tourguidecontroller();
+$results= $penguide->viewAllpendingguides();
 foreach ($results as $result) {
 
         ?>
@@ -191,7 +191,7 @@ foreach ($results as $result) {
                <?php echo $result["phone"] ?>
                </td>
                
-               <td class="tbld">   <a href="Approvetouristguide.php? <?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+               <td class="tbld">   <a href="Approvetouristguide.php?tourguideID=<?php echo $result["tourguideID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                            class="fa-solid fa-circle-check"></i></a></td>
@@ -214,157 +214,7 @@ foreach ($results as $result) {
         </div>
 
 
-        <!-- add room -->
-        <div id="id01" class="modal">
-
-            <form class="modal-content animate" method="post" action="../api/addroom.php" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b><hr style="margin-top:25px;"></label>
-                </div>
-
-                <div class="container">
-                    <table>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <select class="subfield" name="hotelPkgId">
-                                    <?php
-require_once("../controller/roomTypeController.php") ;
-$pkg = new roomTypeController();
-$results = $pkg->viewAllTypes();
-           foreach ($results as $result) {
-               ?>
-                                    <option value="<?php echo $result["roomTypeId"];
-                ?>">
-                                        <?php echo $result["typeName"];
-                    ?>
-                                    </option>
-                                    <?php
-           }
-            ?>
-                                </select></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Number</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="roomNo" /></td>
-                        </tr>
-                        
-                        <tr class="row">
-                            <td>
-                                <div class="content">No.of beds</div>
-                            </td>
-                            <td> <input type="number" min="0" class="subfield" name="beds" /></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Status</div>
-                            </td>
-                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
-                                </select></td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="add" style="margin-left:75px;">Save</button>
-                </div>
-            </form>
-        </div>
-
-
-        <!-- update room -->
-        <div id="id02" class="modal">
-
-            <form class="modal-content animate" method="post" action="../api/addpkg.php" enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Update Room</b><hr style="margin-top:25px;"></label>
-                </div>
-
-                <div class="container">
-                    <table>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Type</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Room Number</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="pName" /></td>
-                        </tr>
-                    
-                        <tr class="row">
-                            <td>
-                                <div class="content">No.of beds</div>
-                            </td>
-                            <td> <input type="number" min="0" class="subfield" name="price" /></td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Status</div>
-                            </td>
-                            <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
-                                </select></td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn">Cancel</button>
-                    <button type="submit" class="btns" value="Save" name="save"
-                        style="margin-left:75px;">Update</button>
-                </div>
-            </form>
-        </div>
-        <div id="id03" class="modal">
-
-            <form class="modal-content animate" style="width:45%;" method="post" action="#"
-                enctype="multipart/form-data">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                </div>
-
-                <div class="container">
-                    <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
-                        this room?</p>
-
-                    <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                            class="cancelbtn" style="margin-left:11rem;">Yes</button>
-                        <button type="submit" class="btns" value="Save" name="save"
-                            style="margin-left:75px;">No</button>
-                    </div>
-                </div>
-
-
-            </form>
-        </div>
-
+      
 
 
     </section>

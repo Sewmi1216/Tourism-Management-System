@@ -41,6 +41,17 @@ class tourbooking extends db_connection
         return $stmt;
     }
 
+    
+    public function viewtourbookingpending()
+    {
+        
+        
+        $query = "SELECT * FROM tourbooking where status = 0 ";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    
     public function viewtourpkgs()
     {
        
@@ -50,23 +61,15 @@ class tourbooking extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    
+    public function viewtourreservations()
+    {
+       
+    
+        $query = "SELECT * FROM tourbooking";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
-    public function viewtourbookingpending()
-    {
-       
-    
-        $query = "SELECT * FROM tourbooking where status = 0 ";
-        
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-    }
-    public function viewtourpkg($id)
-    {
-       
-    
-        $query = "SELECT * FROM tourpackage where packageid = $id ";
-        
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-    }
 }

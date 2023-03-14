@@ -23,7 +23,7 @@ class tourpackage extends db_connection
     {
        
     
-        $query = "INSERT INTO tourpackage(packageName, price, description, adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1')";
+        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, participant_count, visible	) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 1)";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -45,7 +45,7 @@ class tourpackage extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourpackage ";
+        $query = "SELECT * FROM tourpackage where visible = 1 ";
         
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -58,7 +58,28 @@ class tourpackage extends db_connection
         $query = "SELECT * FROM tourpackage where packageid = $id ";
         
         $stmt = mysqli_query($this->conn, $query);
+        // print_r($stmt);
+        // die();
  
+        return $stmt;
+    }
+
+    public function deletetourPkg($id)
+    {
+       
+    
+        // $query = "UPDATE tourpackage SET (packageName, price, description, participant_count , adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '$inputs[3]', '1') where packageID = $inputs[4]";
+        $query = "UPDATE tourpackage SET visible = 0 WHERE packageID = $id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function viewdeletedtourPkg()
+    {
+        $query = "SELECT * FROM tourpackage where visible = 0 ";
+    
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
 }

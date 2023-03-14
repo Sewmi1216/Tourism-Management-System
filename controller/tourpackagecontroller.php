@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 // This is where the http request hits second.
 // This is accessed to create the controller object.
 // This is also accessed when a method inside is called.
@@ -74,5 +74,29 @@ class tourpackageController extends db_connection
         $_SESSION['c'] = $result;
         return $result;
 
+    }
+
+    public function deletePkg($inputs)
+    {
+        
+        $pkg = new tourpackage();
+        
+
+        $result = $pkg->deletetourPkg($inputs[0]);
+        
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
+
+    public function viewdeletedtourPkg()
+    {
+        $pkg = new tourpackage();
+        
+        $result = $pkg->viewdeletedtourPkg();
+        
+        $_SESSION['c'] = $result;
+        return $result;
     }
 }

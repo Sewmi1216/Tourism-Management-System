@@ -14,4 +14,6 @@ $inputs = array($id);
 
 $tourpackagecon = new tourpackageController();
 $tourpackagecon-> viewPkg($inputs);
+
+
 ?>
