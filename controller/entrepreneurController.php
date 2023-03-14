@@ -58,11 +58,18 @@ public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg,
 	</script>";
 	}
 }
+public function viewProfile($id)
+    {
+        $profile = new entrepreneur();
+        $rs = $profile->viewProfile($id);
+        return $rs;
 
-public function updateentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+    }
+
+public function updateProfile($id,$businessName, $address, $email,$phone,$username, $password, $eName,$eNic,$ePhone, $eEmail)
 {
     $result = new entrepreneur();
-    $result> updateentrepreneur ($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
+    $result> updateProfile ($id,$businessName, $address, $email,$phone,$username, $password, $eName,$eNic,$ePhone, $eEmail);
 
     if (!$result) {
         echo 'There was a error';
@@ -70,7 +77,7 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
     } else {
 
         echo "<script>
-    window.location.href = '../view-entrepreneur/proedit.php';
+    window.location.href = '../view-entrepreneur/profile.php';
     </script>";
 
     }

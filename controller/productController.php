@@ -12,21 +12,46 @@ class productController extends db_connection
     }
 
     
-public function addproduct($eid,$pName,$pCategory,$avaquantity,$price,$fileImg)
+public function addproduct($pName,$pCategory,$avaquantity,$price)
 {
 	$product = new product();
 
-	$result = $product->insertproduct($eid,$pName,$pCategory,$avaquantity,$price,$fileImg);
+	$result = $product->insertproduct($pName,$pCategory,$avaquantity,$price,);
 
-	if (!$result) {
-		echo 'There was a error';
-		// echo "<script>console.log(res)</script>";
-	} else {
-		echo "<script>alert('Your form was successfully submitted');
-        window.location.href = '../view-entrepreneur/Product.php';
-	</script>";
-	}
+	
 }
+public function addproductImg($productid,$file)
+    {
+        $productImg = new product();
+
+        $result = $productImg->addproductImg($productid, $file);
+
+        return $result;
+       
+
+    }
+    public function viewAllImgs($getid)
+    {
+        $product = new product();
+        $result = $product->viewAllImgs($getid);
+        return $result;
+    }
+    public function deleteImg($id, $productid)
+    {
+        $dl = new product();
+        $dl->deleteImg($id);
+
+        // if (!$dl) {
+        //     echo 'There was a error';
+        //     // echo "<script>console.log(res)</script>";
+        // } else {
+        //     echo "<script>
+        // window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+        // </script>";
+
+        // }
+
+    }
 public function viewAll($id)
     {
         $product = new product();
@@ -58,10 +83,10 @@ public function deleteproduct($id)
     
    
 
-    public function updateproduct($eid,$pName,$pCategory,$avaquantity,$price,$fileImg)
+    public function updateproduct($id,$pName,$pCategory,$avaquantity,$price)
     {
         $result = new product();
-        $result-> updateproduct ($eid,$pName,$pCategory,$avaquantity,$price,$fileImg);
+        $result-> updateproduct ($id,$pName,$pCategory,$avaquantity,$price);
 
         if (!$result) {
             echo 'There was a error';
