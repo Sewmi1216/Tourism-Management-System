@@ -1,16 +1,16 @@
 <?php
 include '../controller/productController.php';
 if (isset($_POST['save'])) {
-  
+    
     $pName = $_POST['pName'];
     $pCategory = $_POST['pCategory'];
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
     
-    
+    $id =$_POST['id'];
     $productcon = new productController();
-    $productcon->addproduct($pName,$pCategory,$avaquantity,$price);
-    if (!$pkgcon) {
+    $productcon->addproduct($pName,$pCategory,$avaquantity,$price,$id);
+    if (!$productcon) {
         echo 'There was a error';
     } else {
         echo "

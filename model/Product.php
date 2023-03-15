@@ -10,9 +10,9 @@ class product extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertproduct($pName, $pCategory,$avaquantity, $price)
+    public function insertproduct($pName, $pCategory,$avaquantity, $price,$id)
     {
-        $query = "INSERT INTO product (productName,category,quantity,price,entID) VALUES ('$pName', '$pCategory','$avaquantity','$price','$id')";
+        $query = "INSERT INTO product (productName,category,quantity,price,entID) VALUES ('$pName','$pCategory','$avaquantity','$price','$id')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);

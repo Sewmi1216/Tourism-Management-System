@@ -18,11 +18,11 @@ class tourguide extends db_connection
         return $stmt;
     } */
 
-    public function inserttourguide($inputs)
+    public function inserttourguide($name,$email,$phone,$nic, $fileImg, $username, $password, $availability,$language,$fileDoc,$vehicle,$type,$passenger)
     {
        
     
-        $query = "INSERT INTO tourguide(name, nic, username, email, address, phone, password) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]','$inputs[3]','$inputs[4]','$inputs[5]','$inputs[6]')";
+        $query = "INSERT INTO tourguide(name,email,phone,nic,profileImg,username,password,availability,languages,document,vehicleNumber,vehicleType,passenger,status) VALUES ('$name', '$email','$phone','$nic', '$fileImg', '$username', '$password', '$availability','$language','$fileDoc','$vehicle','$type','$passenger',0)";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
