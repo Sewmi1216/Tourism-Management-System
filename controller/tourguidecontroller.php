@@ -90,4 +90,19 @@ class tourguideController extends db_connection
         return $result;
 
     }
+
+    public function viewAllpendingguides()
+    {
+        
+        $pkg = new tourguide();
+        
+
+        $result = $pkg->viewAllpendingguides($inputs[0]);
+        // print_r($result);
+        // die();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
 }

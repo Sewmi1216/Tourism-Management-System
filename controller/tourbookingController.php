@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 // This is where the http request hits second.
 // This is accessed to create the controller object.
 // This is also accessed when a method inside is called.
@@ -50,12 +50,12 @@ class tourbookingcontroller extends db_connection
 
     }
 
-    public function viewAllpendingbookings()
+    public function viewtourreservations()
     {
         
         $pkg = new tourbooking();
 
-        $result = $pkg->viewtourbookingpending();
+        $result = $pkg->viewtourreservations();
 
         $_SESSION['c'] = $result;
         return $result;

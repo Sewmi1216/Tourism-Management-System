@@ -48,6 +48,17 @@
                     <input type="submit" class="btn" value="Book Now" name="signIn">
                 </div>
             </div>
+             <div class="box">
+                <img src="../images/available packages/package1.png" alt="">
+
+                <div class="content-container">
+                    <h3 style="display: inline;">Jungle Jaunt</h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                </div>
+            </div>
 
             <div class="box">
                 <img src="../images/available packages/package3.png" alt="">

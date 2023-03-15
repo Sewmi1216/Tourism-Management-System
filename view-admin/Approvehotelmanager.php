@@ -33,27 +33,31 @@ $rows = $_SESSION['c'];
             <div class="left"> 
 
             
-                <img src="../Images/download2.jpg" alt="logo" height="150px" width="150px"
+            <?php 
+        foreach($rows as $row) 
+        echo '
+            
+                <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
                     style="padding-right:0px;border-radius:50%;">
-                <h3>'.$row['username'].'</h3>
+                <h3>'.$row['managerName'].'</h3>
                 <p>'.$row['username'].'</p>
             </div>
             <div class="right">
 
-            <div class="info">
+                <div class="info">
                     <h3>Hotel Details</h3>
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>sharmi@gmail.com</p>
+                            <p>'.$row['name'].'</p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>011-4556345</p>
+                            <p>'.$row['phone'].'</p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>Thibirigasyaya,Colombo 07</p>
+                            <p>'.$row['username'].'</p>
                         </div>
 
 
@@ -66,31 +70,34 @@ $rows = $_SESSION['c'];
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p>G.M.Perera</p>
+                            <p>'.$row['managerName'].'</p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p>986080961V</p>
+                            <p>'.$row['managerNic'].'</p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p>perera@gmail.com</p>
+                            <p>'.$row['managerEmail'].'</p>
                         </div>
+                      
+<br>
+
                         <div class="data">
-                            <h4>Phone</h4>
-                            <p>011-4556345</p>
+                        <h4>Phone</h4>
+                        <p>'.$row['managerPhone'].'</p>
                         </div>
-
-
 
                     </div>
 
-                </div>
+                </div> '; ?>
                 <br>  
-                <a href="#" class="button">Approve</a>
-                <a href="#" class="button">Decline</a>
+                <a href="editmanager.php" class="button">Approve Registration</a>
+                <a href="editmanager.php" class="button">Decline</a>
 
             </div>
+
+                
         
     </section>
 </body>

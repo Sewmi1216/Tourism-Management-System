@@ -51,7 +51,7 @@
                 <td>
                     <div class="content">Max No of participants</div>
                 </td>
-                <td> <input type="number" placeholder="number of guests" name="nooftpurist" required> </td>
+                <td> <input type="number" placeholder="number of guests" name="nooftourist" required> </td>
             </tr>
 
 

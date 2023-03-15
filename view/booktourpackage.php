@@ -66,35 +66,32 @@
     <img src="../images/tourpackage/k3.jpg" alt="">
     <img src="../images/tourpackage/k4.jpg" alt="">
     </div>
-    <form action="">
+    <form action="../api/booktourpackage.php" method="POST">
         <div class="inputBox">
             <h3> Name of Guest</h3>
-            <input type="text" placeholder="place name">
+            <input type="text" placeholder="place name" name="guestname">
         </div>
 
         <div class="inputBox">
             <h3>Email Address</h3>
-            <input type="text" placeholder="place name">
+            <input type="text" placeholder="place name" name="emailaddress">
         </div>
 
         <div class="inputBox">
             <h3>Mobile Number </h3>
-            <input type="text" placeholder="place name">
+            <input type="text" placeholder="place name" name= "mobilenumber">
         </div>
 
 
         <div class="inputBox">
             <h3>Number Of Guests</h3>
-            <input type="number" placeholder="number of guests">
+            <input type="number" placeholder="number of guests" name= noofpartiicipants>
         </div>
         <div class="inputBox">
             <h3>Arrivals</h3>
-            <input type="date">
+            <input type="date" name ="arrivaldate">
         </div>
-        <div class="inputBox">
-            <h3>Leaving</h3>
-            <input type="date">
-        </div>
+   
         <input type="submit" class="btn" value="book now">
     </form>
 
