@@ -64,7 +64,6 @@ class hotel extends db_connection
     //     return $result;
     // }
 
-  
     //Hotels can only chat with admin and tourists.
     public function viewAllUsers()
     {
@@ -86,7 +85,7 @@ class hotel extends db_connection
         }
         return $data;
     }
-      public function checkAllEmails($email)
+    public function checkAllEmails($email)
     {
         $query = "SELECT COUNT(*) AS COUNT
                     FROM (
@@ -102,7 +101,6 @@ class hotel extends db_connection
         return $stmt;
     }
 
-
     public function viewProfile($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
@@ -113,6 +111,30 @@ class hotel extends db_connection
     public function updateprofile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
         $query = "update hotel set name='$name', address='$address', email='$email', phone='$phone',username='$username', password='$password',managerName='$managerName', managerPhone='$managerPhone', managerEmail='$managerEmail', managerNic='$managerNic' where hotelID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function updateHotelPwd($email, $password)
+    {
+        $query = "UPDATE hotel SET password='$password' WHERE email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function updateTouristPwd($email, $password)
+    {
+        $query = "UPDATE tourist SET password='$password' WHERE email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function updateEntPwd($email, $password)
+    {
+        $query = "UPDATE entrepreneur SET password='$password' WHERE email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+    public function updateGuidePwd($email, $password)
+    {
+        $query = "UPDATE tourguide SET password='$password' WHERE email='$email'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }

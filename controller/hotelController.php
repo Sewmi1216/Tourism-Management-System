@@ -94,9 +94,9 @@ class hotelController extends db_connection
                 // echo "<script type='text/javascript'>alert('Password is incorrect');</script>";
 
             }
-        } else if (mysqli_num_rows($res[3]) > 0) {
+        } else if (mysqli_num_rows($res[4]) > 0) {
 
-            $result1 = mysqli_fetch_assoc($res[3]);
+            $result1 = mysqli_fetch_assoc($res[4]);
 
             if ($result1['password'] == $password) {
                 if ($result1['status'] == 1) {
@@ -188,6 +188,7 @@ class hotelController extends db_connection
               </script>";
         } else {
 
+            $_SESSION['email'] = $email;
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
 
@@ -220,28 +221,60 @@ class hotelController extends db_connection
                 echo "<script>alert('Invalid Email ');
                     window.location.href = '../view-hotel/recoverPwd.php';
             </script>";?>
-                        <?php
+<?php
 } else {
                 ?>
-                                    <script>
-                                        alert("<?php echo "Email sent to " . $email ?>");
-                                        window.location.href = '../view-hotel/recoverPwd.php';
-                                    </script>
-                                <?php
+<script>
+alert("<?php echo "Email sent to " . $email ?>");
+window.location.href = '../view-hotel/recoverPwd.php';
+</script>
+<?php
 }
 
         }
     }
 
-    public function validateUser($email)
+    // public function validateUser($email)
+    // {
+    //     $hoteluser = new hotel();
+    //     $res = $hoteluser->recPwd($email);
+    //     return $res;
+
+    // }
+
+    public function resetPwd($email, $password)
     {
-        $hoteluser = new hotel();
-        $res = $hoteluser->recPwd($email);
+        $user = new hotel();
+        $checkUser = $user->validate($email);
 
-        return $res;
+        if (mysqli_num_rows($checkUser[0]) > 0) {
+            $user->updateHotelPwd($email, $password);
+            echo "<script>alert('Password reset is sucessful');
+              window.location.href = '../view-hotel/login.php';
+              </script>";
 
+        } else if (mysqli_num_rows($checkUser[1]) > 0) {
+            $user->updateTouristPwd($email, $password);
+            echo "<script>alert('Password reset is sucessful');
+              window.location.href = '../view-hotel/login.php';
+              </script>";
+
+        } else if (mysqli_num_rows($checkUser[3]) > 0) {
+            $user->updateEntPwd($email, $password);
+            echo "<script>alert('Password reset is sucessful');
+              window.location.href = '../view-hotel/login.php';
+              </script>";
+
+        } else if (mysqli_num_rows($checkUser[4]) > 0) {
+            $user->updateGuidePwd($email, $password);
+            echo "<script>alert('Password reset is sucessful');
+              window.location.href = '../view-hotel/login.php';
+              </script>";
+        }else{
+            echo 'Error';
+        }
+       
     }
-
     public function countReservations()
     {
         $hoteluser = new hotel();

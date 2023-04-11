@@ -44,6 +44,14 @@ if (isset($_POST['recover'])) {
     //     </script>";
 
 }
+if (isset($_POST['reset'])) {
+    $password = $_POST['cpwd'];
+    $email = $_SESSION['email'];
+    $reset = new hotelController();
+    $reset->resetPwd($email,$password);
+
+}
+
 if (isset($_GET['update'])) {
     $id = $_GET['id'];
 
