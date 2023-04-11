@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     $id = $_SESSION["hotelID"];
 } else {
-    header("location:HotelLogin.php");
+    header("location:login.php");
 }
 ?>
 <!DOCTYPE html>

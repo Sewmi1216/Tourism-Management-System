@@ -7,6 +7,10 @@ $id = $_GET['id'];
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
@@ -129,9 +133,6 @@ $results = $room->viewAllTypes($id);
            foreach ($results as $result) {
                ?>
             <div class="box">
-
-
-
                 <div class="slideshow-container">
                     <?php
 require_once("../controller/roomTypeController.php") ;
@@ -139,12 +140,9 @@ $tp = new roomTypeController();
 $rows = $tp->viewAllImgs( $result['roomTypeId']);
            foreach ($rows as $row) {
                ?>
-                    <div class="mySlides fade">
+                    <div class="slider">
                         <?php echo "<img src='../images/" . $row['image'] . "' style='width:100%'>";?>
                     </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
                     <?php } ?>
                 </div>
 
@@ -157,7 +155,8 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <a href="reserve.php?typeid=<?php echo $result['roomTypeId'];?>&hotelID=<?php echo $result['hotelID'];?>&price=<?php echo $result['price'];?>" class="btn">Reserve</a>
+                    <a href="reserve.php?typeid=<?php echo $result['roomTypeId'];?>&hotelID=<?php echo $result['hotelID'];?>&price=<?php echo $result['price'];?>"
+                        class="btn">Reserve</a>
                 </div>
             </div>
             <?php }?>
@@ -180,45 +179,25 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
         </div>
     </section>
 
+ <script type="text/javascript">
+   $('.slider').slick();
 
+ 
+    </script>
     <script src="js/home.js"></script>
     <script>
     function showMessage(show) {
         var messageElement = document.getElementById("dem");
         if (show) {
-            messageElement.style.display = "block"; // or "inline"
+            messageElement.style.display = "block";
         } else {
             messageElement.style.display = "none";
         }
     }
 
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
+ 
     </script>
+   
 </body>
 
 </html>

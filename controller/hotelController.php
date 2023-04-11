@@ -12,10 +12,10 @@ class hotelController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function userLogin($username, $password)
+    public function userLogin($email, $password)
     {
         $hoteluser = new hotel();
-        $res = $hoteluser->validate($username);
+        $res = $hoteluser->validate($email);
 
         if (mysqli_num_rows($res[0]) > 0) {
 
@@ -23,7 +23,7 @@ class hotelController extends db_connection
 
             if ($result1['password'] == $password) {
                 if ($result1['status'] == 1) {
-                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['email'] = $result1['email'];
                     $_SESSION['hotelID'] = $result1['hotelID'];
 
                     header("Location: ../view-hotel/dashboard.php");
@@ -42,10 +42,10 @@ class hotelController extends db_connection
             $result1 = mysqli_fetch_assoc($res[1]);
             if ($result1['password'] == $password) {
 
-                $_SESSION['username'] = $result1['username'];
-                $_SESSION['touristID'] = $result1['userID'];
+                $_SESSION['email'] = $result1['email'];
+                $_SESSION['userID'] = $result1['userID'];
 
-                header("Location: ../view/home2.php");
+                header("Location: ../view-tourist/home.php");
                 exit();
 
             } else {
@@ -59,7 +59,7 @@ class hotelController extends db_connection
             $result1 = mysqli_fetch_assoc($res[2]);
             if ($result1['password'] == $password) {
 
-                $_SESSION['username'] = $result1['username'];
+                $_SESSION['email'] = $result1['email'];
                 $_SESSION['adminID'] = $result1['adminID'];
 
                 header("Location: ../view-admin/dashboard.php");
@@ -78,7 +78,7 @@ class hotelController extends db_connection
 
             if ($result1['password'] == $password) {
                 if ($result1['status'] == 1) {
-                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['email'] = $result1['email'];
                     $_SESSION['entID'] = $result1['entID'];
 
                     header("Location: ../view-entrepreneur/dashboard.php");
@@ -100,10 +100,10 @@ class hotelController extends db_connection
 
             if ($result1['password'] == $password) {
                 if ($result1['status'] == 1) {
-                    $_SESSION['username'] = $result1['username'];
+                    $_SESSION['email'] = $result1['email'];
                     $_SESSION['tourguideID'] = $result1['tourguideID'];
 
-                     header("Location: ../view-tour_guide/Guide_Assign_tourists.php");
+                    header("Location: ../view-tour_guide/Guide_Assign_tourists.php");
                     exit();
                 } else {
                     echo "<script type='text/javascript'>alert('Please try again shortly');</script>";
@@ -117,25 +117,40 @@ class hotelController extends db_connection
             }
         } else {
             $_SESSION["attempts"] += 1;
-            $_SESSION["usernameerror"] = "Username does not exist";
+            $_SESSION["usernameerror"] = "Email does not exist";
 
             // echo "<script type='text/javascript'>alert('Username is incorrect');</script>";
 
         }
 
     }
-    public function addHotel($id, $hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    public function checkEmail($email)
     {
         $user = new hotel();
+        $rlt = $user->checkEmail($email);
+        return $rlt;
 
-        $result = $user->insertHotel($id, $hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+    }
+    public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    {
+        $user = new hotel();
+        $mailcheck = $user->checkEmail($email);
 
-        if (!$result) {
-            echo 'There was a error';
+        if ($mailcheck>0) {
+            $_SESSION['error'] = "Email is already registered";
+        //     echo "<script>alert('Email is already registered');window.location.href = '../view-hotel/hotelSignup.php';
+        // </script>";
+
         } else {
-            echo "<script>alert('Your form was successfully submitted');
-        window.location.href = '../view-hotel/hotelLogin.php';
+            $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+
+            if (!$result) {
+                echo 'There was a error';
+            } else {
+                echo "<script>alert('Your form was successfully submitted');
+        window.location.href = '../view-hotel/login.php';
         </script>";
+            }
         }
     }
     public function viewProfile($id)
@@ -147,7 +162,6 @@ class hotelController extends db_connection
     }
     public function UpdateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
-        
 
         $hp = new hotel();
         $hp->updateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
@@ -205,13 +219,13 @@ class hotelController extends db_connection
                 window.location.href = '../view-hotel/recoverPwd.php';
         </script>";?>
                     <?php
-    } else {
+} else {
                 ?>
                                 <script>
                                     alert("<?php echo "Email sent to " . $email ?>");
                                 </script>
                             <?php
-    }
+}
         } else {
             ?>
             <script>
@@ -240,7 +254,7 @@ class hotelController extends db_connection
     {
         $user = new hotel();
 
-        $result = $user-> viewAllmanagers();
+        $result = $user->viewAllmanagers();
         $_SESSION['c'] = $result;
         return $result;
     }
@@ -285,32 +299,27 @@ class hotelController extends db_connection
         $result5 = $hoteluser5->viewPendingReservations($id);
         return $result5;
     }
-    
+
     public function viewAllpendingmanagers()
     {
         $user = new hotel();
-    
-        $result = $user-> viewAllpendingmanagers();
+
+        $result = $user->viewAllpendingmanagers();
         $_SESSION['c'] = $result;
         return $result;
     }
-    
+
     public function viewonemanager($inputs)
     {
         $user = new hotel();
-    
-        $result = $user-> viewonemanager($inputs[0]);
-    
+
+        $result = $user->viewonemanager($inputs[0]);
+
         // print_r($result);
         // die();
-    
+
         $_SESSION['c'] = $result;
         return $result;
     }
 
-    
 }
-
-
-
-

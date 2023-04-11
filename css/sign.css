@@ -115,6 +115,7 @@ div.up {
 div.a {
     margin-right: 553px;
     font-family: Poppins;
+    color: #ffffff;
 }
 
 div.b {
@@ -125,32 +126,47 @@ div.b {
 div.c {
     margin-right: 478px;
     font-family: Poppins;
+    color: #ffffff;
 }
 
 div.d {
     margin-right: 521px;
     font-family: Poppins;
     margin-top: -20px;
+    color: #ffffff;
 }
 
 div.e {
     margin-right: 555px;
     font-family: Poppins;
+    color: #ffffff;
 }
 
 div.f {
     margin-right: 544px;
     font-family: Poppins;
     margin-top: -25px;
+    color: #ffffff;
 }
 
 div.g {
     margin-right: 537px;
     font-family: Poppins;
+    color: #ffffff;
 }
 
 div.h {
-    margin-right: 560px;
+    margin-right: 500px;
+    font-family: Poppins;
+    color: #ffffff;
+}
+div.j {
+    margin-right: 490px;
+    font-family: Poppins;
+    color: #ffffff;
+}
+div.k {
+    margin-right: 340px;
     font-family: Poppins;
 }
 

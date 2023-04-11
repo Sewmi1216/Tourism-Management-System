@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     $id = $_SESSION["hotelID"];
 } else {
-    header("location:hotelLogin.php");
+    header("location:login.php");
 }
 
 ?>
@@ -95,9 +95,7 @@ foreach ($results as $result) {
                             <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i
                                         class="fa-solid fa-trash art"></i></a></td>
 
-                            <?php }
-
-?>
+                            <?php } ?>
                         </tr>
                     </tbody>
                 </table>

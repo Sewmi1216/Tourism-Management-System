@@ -10,15 +10,15 @@ class hotel extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function validate($username)
+    public function validate($email)
     {
         $stmt = array();
         // $query = "SELECT * FROM hotel where username='$username'";
-        $query1 = "SELECT * FROM hotel where username='$username'";
-        $query2 = "SELECT * FROM tourist where username='$username'";
-        $query3 = "SELECT * FROM admin where username='$username'";
-        $query4 = "SELECT * FROM entrepreneur where username='$username'";
-        $query5 = "SELECT * FROM tourguide where username='$username'";
+        $query1 = "SELECT * FROM hotel where email='$email'";
+        $query2 = "SELECT * FROM tourist where email='$email'";
+        $query3 = "SELECT * FROM admin where email='$email'";
+        $query4 = "SELECT * FROM entrepreneur where email='$email'";
+        $query5 = "SELECT * FROM tourguide where email='$email'";
 
         //echo "print";
         $stmt[0] = mysqli_query($this->conn, $query1);
@@ -32,14 +32,29 @@ class hotel extends db_connection
         return $stmt;
     }
 
-    public function insertHotel($id, $hotelName, $address, $email, $phone, $fileImg, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    public function insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
-        $query = "INSERT INTO hotel (hotelID, name, address, email, phone, profileImg, username, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES ('$id', '$hotelName', '$address', '$email', '$phone', '$fileImg', '$username', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc')";
+        //  $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES ('$hotelName', '$address', '$email', '$phone', '$fileImg', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc')";
+        //$query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) SELECT '$hotelName', '$address', '$email', '$phone', '$fileImg', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc' WHERE NOT EXISTS (SELECT hotelID FROM hotel WHERE email = '$email')";
 
-        //$stmt = mysqli_query($this->conn, $query);
+        // $stmt = mysqli_query($this->conn, $query);
+        // $stmt = $this->conn->prepare($query);
+        // $stmt->execute();
+        //  return $stmt;
+
+        $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, document) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("sssssssssss", $hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
         $stmt->execute();
         return $stmt;
+
+    }
+    public function checkEmail($email)
+    {
+        $query = "select hotelID from hotel where email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_array($stmt);
+        return $row;
     }
 
     // //Hotels can only chat with admin and tourists.
@@ -79,7 +94,7 @@ class hotel extends db_connection
         return $data;
     }
 
-     public function viewProfile($id)
+    public function viewProfile($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from hotel where hotelID = '$id'";
@@ -130,28 +145,27 @@ class hotel extends db_connection
 
     }
 
-     public function viewGuestReservations($id)
+    public function viewGuestReservations($id)
     {
         // $query = "Select * from guest_reservation g, payment p where hotelId='1'";
         $query = "Select * from guest_reservation g where hotelId='$id'";
 
         return $this->getData($query);
     }
-     public function viewAdminReservations($id)
+    public function viewAdminReservations($id)
     {
         $query = "Select * from admin_reservation g, payment p where hotelId='$id'";
         return $this->getData($query);
     }
-     public function viewPendingReservations($id)
+    public function viewPendingReservations($id)
     {
         $query = "Select * from guest_reservation g, roomtype r where g.typeID=r.roomTypeID and status='Pending' and g.hotelId='$id'";
         return $this->getData($query);
     }
 
-
     public function viewAllmanagers()
     {
-        $query =  "SELECT * from hotel where status=1";
+        $query = "SELECT * from hotel where status=1";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -160,7 +174,7 @@ class hotel extends db_connection
 
     public function viewAllpendingmanagers()
     {
-        $query =  "SELECT * from hotel where status=0";
+        $query = "SELECT * from hotel where status=0";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -169,8 +183,8 @@ class hotel extends db_connection
 
     public function viewonemanager($id)
     {
-        $query =  "SELECT * from hotel where hotelID = $id";
-        
+        $query = "SELECT * from hotel where hotelID = $id";
+
         $stmt = mysqli_query($this->conn, $query);
         // print_r($stmt);
         // die();

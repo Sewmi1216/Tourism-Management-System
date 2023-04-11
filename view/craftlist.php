@@ -1,8 +1,15 @@
 <?php 
 session_start();
+if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
+} else {
+    header("location:../view-hotel/hotelLogin.php");
+}
+
 include '../model/tourist.php';
 $tourist = new tourist();
 $res2 = $tourist->getallproducts();
+
 
 ?>
 <!DOCTYPE html>
@@ -25,10 +32,10 @@ $res2 = $tourist->getallproducts();
             <a href="../view-hotel/hotelLogin.php">Log out</a>
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="hotellist.php">Accommodation</a>
+            <a href="../view/accommodation.php">Accommodation</a>
             <a href="craftlist.php">Handicrafts</a>
             <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="home2.php">Home</a>
+            <a href="../view-hotel/home.php">Home</a>
         </div>
     </div>
       <section class="packages" id="packages" style="padding-top = 40px">

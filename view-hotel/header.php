@@ -5,6 +5,6 @@
     <div class="header-right">
         <a href="../view-hotel/home.php">HOME</a>
         <a href="../view/initiate.php" style="margin-left:60px;">SIGNUP</a>
-        <a href="hotelLogin.php" style="margin-left:60px;">LOGIN</a>
+        <a href="login.php" style="margin-left:60px;">LOGIN</a>
     </div>
 </header>

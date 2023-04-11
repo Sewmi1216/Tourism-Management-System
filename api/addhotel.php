@@ -25,11 +25,12 @@ if (isset($_POST['signup'])) {
     //$id = 'T' . time();
     // $id ='T'. date('his');
 
-    $id = rand(time(), 100000000);
+    // $id = rand(time(), 100000000);
     $hotelconnection = new hotelController();
-    $hotelconnection->addHotel($id, $hotelName, $address, $email, $phone, $fileImgname, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+   
     move_uploaded_file($ptempname, $pfolder);
-    move_uploaded_file($dtempname, $dfolder);
+    move_uploaded_file($dtempname, $pfolder);
 
 }
 

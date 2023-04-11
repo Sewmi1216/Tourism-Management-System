@@ -58,7 +58,7 @@ class touristController extends db_connection
                 echo 'Error Occured';
             } else {
                 echo 'Successfully Added';
-                header("Location: ../view/login.php");
+                header("Location: ../view-hotel/login.php");
 
             }
         }
@@ -133,6 +133,13 @@ class touristController extends db_connection
         $reservation = new tourist();
         $res = $reservation->insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId);
         return $res;
+
+    }
+     public function viewProfile($id)
+    {
+        $profile = new tourist();
+        $rs = $profile->viewProfile($id);
+        return $rs;
 
     }
 }

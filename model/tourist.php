@@ -33,7 +33,7 @@ class tourist extends db_connection
     public function insertTourist($inputs)
     {
 
-        $query = "INSERT INTO tourist (name, address, email, phone, username, password, dob, country) VALUES ('$inputs[0]', '$inputs[4]', '$inputs[2]', '$inputs[1]', '$inputs[2]', '$inputs[3]', '$inputs[6]', '$inputs[4]')";
+        $query = "INSERT INTO tourist (name, address, email, phone, profileImg, username, password, dob, country) VALUES ('$inputs[0]', '$inputs[4]', '$inputs[2]', '$inputs[1]', '$inputs[8]', '$inputs[7]', '$inputs[3]', '$inputs[6]','$inputs[5]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -129,11 +129,18 @@ class tourist extends db_connection
 
     public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
     {
-        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, total_amount, checkInDate, checkOutDate,touristID, typeID,hotelId) VALUES ('$bookingDateTime', '$guestName', '$guestPhone', '$guestEmail', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$typeID', '$hotelId')";
+        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, total_amount, checkInDate, checkOutDate,touristID, typeID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$typeID', '$hotelId')";
         $stmt = mysqli_query($this->conn, $query);
         // $stmt = $this->conn->prepare($query);
         // $stmt->bind_param("ssssissiii",);
         // $stmt->execute();
+        return $stmt;
+    }
+     public function viewProfile($id)
+    {
+        //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from tourist where userID = '$id'";
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start()
 ?>
 
@@ -17,11 +17,11 @@ session_start()
 
 <body>
     <div class="up">
-        <button type="button" class="homebtn">Home</button> <br>
-
-
+        <button type="button" class="homebtn" onclick="document.location.href='../view-hotel/home.php'">Home</button>
+        <br>
         <div class="ln1">
-            <p>Hey, We are glad you chose <br>Pack2Paradise &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p>Hey, We are glad you chose <br>Pack2Paradise &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
 
         </div>
 
@@ -36,7 +36,7 @@ session_start()
         <br>
     </div>
 
-    <div class="social">
+    <!-- <div class="social">
         <div class="gb">
             <div class="icon">
                 <img src="../img/glicon.png">
@@ -49,7 +49,7 @@ session_start()
             </div>
             <button class="facebookbtn">Facebook Account</button>
         </div>
-    </div>
+    </div> -->
 
 
 
@@ -57,7 +57,7 @@ session_start()
 
     <div class="btn-group">
 
-        <form action="../api/signupapi.php" method="POST">
+        <form action="../api/signupapi.php" method="POST" style="font-color:white;" enctype="multipart/form-data">
             <div class="a">
                 <label for="name"><b>Name</b></label><br>
             </div>
@@ -76,12 +76,12 @@ session_start()
 
             <div class="e">
                 <label for="email"><b>Email</b> </label> <br>
-                <?php 
-                if(isset($_SESSION['err'])){
-                    echo'<span class="email-err">' . $_SESSION['err'] .  '</span>';
-                    $_SESSION['err'] = '';
-                }?>
-               
+                <?php
+if (isset($_SESSION['err'])) {
+    echo '<span class="email-err">' . $_SESSION['err'] . '</span>';
+    $_SESSION['err'] = '';
+}?>
+
             </div>
 
             <div class="b">
@@ -89,11 +89,19 @@ session_start()
             </div>
 
             <div class="h">
-                <label for="dob"><b>Date</b></label><br>
+                <label for="dob"><b>Date of Birth</b></label><br>
             </div>
 
             <div class="b">
-                <input type="date" placeholder="Please  enter your DOB" name="dob" required><br><br>
+                <input type="date" placeholder="Please enter your DOB" name="dob" required><br><br>
+            </div>
+
+            <div class="d">
+                <label for="psw"><b>Username</b></label><br>
+            </div>
+
+            <div class="b">
+                <input type="text" placeholder="Please enter a username" name="username" required><br><br>
             </div>
 
 
@@ -106,11 +114,11 @@ session_start()
             </div>
 
             <div class="f">
-                <label for="address"><b>District</b></label><br>
+                <label for="address"><b>City</b></label><br>
             </div>
 
             <div class="b">
-                <input type="text" placeholder=" Enter your District" name="address" required><br>
+                <input type="text" placeholder=" Enter your City" name="address" required><br>
             </div>
 
             <div class="g">
@@ -120,21 +128,30 @@ session_start()
             <div class="b">
                 <input type="text" placeholder=" Enter your Country" name="country" required><br>
             </div>
-            
+
+             <div class="j">
+                <label for="image"><b>Profile Image</b></label><br>
+            </div>
+
+            <div class="k">
+                <input type="file" placeholder="Enter your City" name="proImg"><br>
+            </div>
 
 
             <div class="submit">
-                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="submit" class="signupbtn" name="signup">Sign Up</button>
             </div>
         </form>
 
         <div class="log">
-            <p style="color:rgb(255, 255, 255);"> Already have an account? <a href="./login.php" target="_blank">Log In</a> <br></p>
+            <p style="color:rgb(255, 255, 255);"> Already have an account? <a href="../view-hotel/login.php">Log
+                    In</a> <br></p>
         </div>
     </div>
 
-        </form>
+    </form>
 
 </body>
 
 </html>
+

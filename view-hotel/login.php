@@ -13,10 +13,10 @@ if (isset($_SESSION["locked"])) {
 
 if (isset($_POST['signIn'])) {
     // session_start();
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $hotelcon = new hotelController();
-    $hotelcon->userLogin($username, $password);
+    $hotelcon->userLogin($email, $password);
 }
 ?>
 
@@ -33,10 +33,10 @@ if (isset($_POST['signIn'])) {
     <div class="form">
         <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">LOGIN</div>
         <form class="login-form" method="POST">
-            <label style="font-size:15px;padding:10px;" class="text">Username</label>
+            <label style="font-size:15px;padding:10px;" class="text">Email</label>
 
-            <input type="text" class="field" onfocus="this.placeholder=''" name="username"
-                placeholder="Enter your username" />
+            <input type="text" class="field" onfocus="this.placeholder=''" name="email"
+                placeholder="Enter your email" />
             <label style="font-size:15px;padding:10px;" class="text">Password</label>
             <input type="password" class="field" name="password" placeholder="********" onfocus="this.placeholder=''" />
 
