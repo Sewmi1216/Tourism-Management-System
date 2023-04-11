@@ -50,8 +50,8 @@ class touristController extends db_connection
         $mailcheck = $tourist->checkmail($inputs[2]);
 
         if ($mailcheck > 0) {
-            $_SESSION['err'] = "Email is already registered";
-            header("Location: ../view/sign.php");
+            $_SESSION['error'] = "Email is already registered";
+            // header("Location: ../view/sign.php");
         } else {
             $res = $tourist->insertTourist($inputs);
             if (!$res) {

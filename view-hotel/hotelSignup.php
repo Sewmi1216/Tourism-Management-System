@@ -15,7 +15,7 @@ include_once '../api/addhotel.php';?>
         <!-- <div style="font-size: 25px;line-height: 40px;color: rgba(37, 53, 81, 1);margin-top:10px;">Pack2Paradise</div> -->
         <div class="header-right">
             <a href="../view-hotel/home.php">HOME</a>
-            <a href="hotelLogin.php" style="margin-left:60px;">LOGIN</a>
+            <a href="login.php" style="margin-left:60px;">LOGIN</a>
         </div>
     </header>
     <div class="registerForm">
@@ -120,7 +120,7 @@ if (!isset($_SESSION["error"])) {
             </table>
 
             <input type="submit" class="btnRegister" id="signup" value="Sign Up" name="signup" />
-            <p style="margin-top:-32px;text-align:center;">Already have an account <a href="hotelLogin.php"
+            <p style="margin-top:-32px;text-align:center;">Already have an account <a href="login.php"
                     style="text-decoration:none;color: #004581;" class="text">Login</a></p>
         </form>
 

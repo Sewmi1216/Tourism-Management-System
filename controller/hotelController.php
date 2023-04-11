@@ -124,23 +124,20 @@ class hotelController extends db_connection
         }
 
     }
-    public function checkEmail($email)
-    {
-        $user = new hotel();
-        $rlt = $user->checkEmail($email);
-        return $rlt;
+    // public function checkEmail($email)
+    // {
+    //     $user = new hotel();
+    //     $rlt = $user->checkEmail($email);
+    //     return $rlt;
 
-    }
+    // }
     public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
         $user = new hotel();
         $mailcheck = $user->checkEmail($email);
 
-        if ($mailcheck>0) {
+        if ($mailcheck > 0) {
             $_SESSION['error'] = "Email is already registered";
-        //     echo "<script>alert('Email is already registered');window.location.href = '../view-hotel/hotelSignup.php';
-        // </script>";
-
         } else {
             $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
 
@@ -180,11 +177,16 @@ class hotelController extends db_connection
     }
     public function recoverPwd($email)
     {
-
         $rec = new hotel();
-        $result = $rec->recPwd($email);
+        $mailcheck = $rec->checkAllEmails($email);
+        $row = mysqli_fetch_assoc($mailcheck);
+        $count = $row['COUNT'];
 
-        if (mysqli_num_rows($result) > 0) {
+        if ($count == 0) {
+            echo "<script>alert('Email is not registered');
+              window.location.href = '../view-hotel/recoverPwd.php';
+              </script>";
+        } else {
 
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
@@ -209,29 +211,26 @@ class hotelController extends db_connection
             $mail->isHTML(true);
             $mail->Subject = "Recover your password";
             $mail->Body = "<b>Dear User</b>
-                <h3>We received a request to reset your password.</h3>
-                <p>Kindly click the below link to reset your password</p>
-                http://localhost/pack2paradise/view-hotel/resetPwd.php
-                <br><br>";
+                    <h3>We received a request to reset your password.</h3>
+                    <p>Kindly click the below link to reset your password</p>
+                http://localhost/Tourism-Management-System/view-hotel/resetPwd.php
+                    <br><br>";
 
             if (!$mail->send()) {
                 echo "<script>alert('Invalid Email ');
-                window.location.href = '../view-hotel/recoverPwd.php';
-        </script>";?>
-                    <?php
+                    window.location.href = '../view-hotel/recoverPwd.php';
+            </script>";?>
+                        <?php
 } else {
                 ?>
-                                <script>
-                                    alert("<?php echo "Email sent to " . $email ?>");
-                                </script>
-                            <?php
+                                    <script>
+                                        alert("<?php echo "Email sent to " . $email ?>");
+                                        window.location.href = '../view-hotel/recoverPwd.php';
+                                    </script>
+                                <?php
 }
-        } else {
-            ?>
-            <script>
-                            alert("<?php echo "Invalid Email " ?>");
-                        </script><?php
-}
+
+        }
     }
 
     public function validateUser($email)

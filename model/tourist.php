@@ -33,7 +33,7 @@ class tourist extends db_connection
     public function insertTourist($inputs)
     {
 
-        $query = "INSERT INTO tourist (name, address, email, phone, profileImg, username, password, dob, country) VALUES ('$inputs[0]', '$inputs[4]', '$inputs[2]', '$inputs[1]', '$inputs[8]', '$inputs[7]', '$inputs[3]', '$inputs[6]','$inputs[5]')";
+        $query = "INSERT INTO tourist (name, address, email, phone, profileImg,  password, dob, country) VALUES ('$inputs[0]', '$inputs[1]', '$inputs[2]', '$inputs[3]', '$inputs[4]', '$inputs[5]', '$inputs[6]','$inputs[7]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -76,7 +76,7 @@ class tourist extends db_connection
         $query = "SELECT * FROM tourist where email='$email'";
 
         $stmt = mysqli_query($this->conn, $query);
-        $rows = mysqli_num_rows($stmt);
+        $rows = mysqli_fetch_array($stmt);
         return $rows;
     }
 

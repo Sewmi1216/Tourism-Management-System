@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     $id = $_SESSION["userID"];
 } else {
     header("location: http://localhost/Tourism-Management-System/view-hotel/login.php");

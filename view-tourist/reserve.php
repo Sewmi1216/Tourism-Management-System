@@ -1,9 +1,9 @@
 <?php 
 session_start();
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     $id = $_SESSION["userID"];
 } else {
-    header("location:../view-hotel/hotelLogin.php");
+    header("location:../view-hotel/login.php");
 }
 $typeid = $_GET['typeid'];
 $hotelID = $_GET['hotelID'];
@@ -31,20 +31,7 @@ $price = $_GET['price'];
 </head>
 
 <body>
-    <div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="padding-left:10px;"></a>
-        <div style="padding-top:15px;" class="middle">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Login</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
-            <a href="#handi">Handicrafts</a>
-            <a href="#tour">Tour Packages</a>
-            <a href="../view-hotel/home.php">Home</a>
-        </div>
-    </div>
+    <?php include "header.php"?>
 
 
     <section class="hotel2" id="hotel" style="padding: 2rem 9%;">
@@ -53,9 +40,9 @@ $price = $_GET['price'];
                 <form method="post" action="../api/reserve.php" enctype="multipart/form-data">
                     <div class="heading" style="margin-top:0px;text-align:left;">Your Details</div>
                     <hr>
-                     <input type="hidden" class="subfield" name="id"  value="<?php echo $id;?>"/>
-                     <input type="hidden" class="subfield" name="hotelId"  value="<?php echo $hotelID;?>"/>
-                      <input type="hidden" class="subfield" name="typeid"  value="<?php echo $typeid;?>"/>
+                    <input type="hidden" class="subfield" name="id" value="<?php echo $id;?>" />
+                    <input type="hidden" class="subfield" name="hotelId" value="<?php echo $hotelID;?>" />
+                    <input type="hidden" class="subfield" name="typeid" value="<?php echo $typeid;?>" />
                     <div class="subheading" style="margin-top:15px;">Name*</div>
                     <div>Please give us the name of one of the people staying in this room.</div>
                     <input type="text" class="subfield" name="guestName" />
@@ -80,7 +67,7 @@ $price = $_GET['price'];
                     <input type="number" class="subfield" id="price" value="<?php echo $price;?>" />
                     <div class="content">Number of rooms</div>
                     <input type="number" class="subfield" name="room" onkeyup="calculateTotal(this.value)" required />
-                    <input type="hidden" class="subfield" id="total-amount" name="total-amount"/>
+                    <input type="hidden" class="subfield" id="total-amount" name="total-amount" />
 
                     <input type="submit" id="total" name="reserve" value=" " class="btn" />
                 </form>

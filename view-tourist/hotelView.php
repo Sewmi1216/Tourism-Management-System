@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
+} else {
+    header("location:../view-hotel/login.php");
+}
+
 $id = $_GET['id'];
 ?>
 
@@ -8,9 +15,15 @@ $id = $_GET['id'];
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
@@ -26,25 +39,11 @@ $id = $_GET['id'];
 </head>
 
 <body>
-    <div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="padding-left:10px;"></a>
-        <div style="padding-top:15px;" class="middle">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Login</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
-            <a href="#handi">Handicrafts</a>
-            <a href="#tour">Tour Packages</a>
-            <a href="../view-hotel/home.php">Home</a>
-        </div>
-    </div>
+    <?php include "header.php"?>
 
 
     <section class="hotel1" id="hotel" style="padding: 2rem 9%;">
         <div class="container">
-
             <?php
 require_once("../controller/touristController.php") ;
 $hotel = new touristController();
@@ -179,10 +178,8 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
         </div>
     </section>
 
- <script type="text/javascript">
-   $('.slider').slick();
-
- 
+    <script type="text/javascript">
+    $('.slider').slick();
     </script>
     <script src="js/home.js"></script>
     <script>
@@ -194,10 +191,8 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
             messageElement.style.display = "none";
         }
     }
-
- 
     </script>
-   
+
 </body>
 
 </html>

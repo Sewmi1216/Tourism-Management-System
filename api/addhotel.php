@@ -39,9 +39,9 @@ if (isset($_POST['recover'])) {
     $recover = new hotelController();
     $recover->recoverPwd($email);
 
-    echo "<script>
-                window.location.href = '../view-hotel/recoverPwd.php';
-        </script>";
+    // echo "<script>
+    //             window.location.href = '../view-hotel/recoverPwd.php';
+    //     </script>";
 
 }
 if (isset($_GET['update'])) {

@@ -64,14 +64,7 @@ class hotel extends db_connection
     //     return $result;
     // }
 
-    public function recPwd($email)
-    {
-        $query = "select * from tourist where email='$email'";
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-
-    }
-
+  
     //Hotels can only chat with admin and tourists.
     public function viewAllUsers()
     {
@@ -93,6 +86,22 @@ class hotel extends db_connection
         }
         return $data;
     }
+      public function checkAllEmails($email)
+    {
+        $query = "SELECT COUNT(*) AS COUNT
+                    FROM (
+                    SELECT email FROM hotel WHERE email = '$email'
+                    UNION
+                    SELECT email FROM tourist WHERE email = '$email'
+                        UNION
+                    SELECT email FROM entrepreneur WHERE email = '$email'
+                        UNION
+                    SELECT email FROM tourguide WHERE email = '$email'
+                    ) AS emails;";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+
 
     public function viewProfile($id)
     {

@@ -81,7 +81,7 @@ if ($_SESSION["attempts"] > 3) {
             <?php }?>
 
 
-            <p class="message text">Don't have an account <a href="../view/initiate.php" class="text"
+            <p class="message text">Don't have an account <a href="../view-tourist/initiate.php" class="text"
                     style="text-decoration:none;">Sign up for
                     free</a></p>
         </form>

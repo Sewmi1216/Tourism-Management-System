@@ -1,13 +1,3 @@
-<?php
-session_start();
-$user = "";
-if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
-    $id = $_SESSION["hotelID"];
-} else {
-    header("location:login.php");
-}
-?>
-
 <!DOCTYPE html>
 
 <head>
