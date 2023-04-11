@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/hindex2.css">
+    <link rel="stylesheet" href="../css/hindex.css">
 </head>
 
 <body>
-<div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
+    <div class="nav" id="topnav">
+        <a href="index.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
                 style="padding-left:10px;"></a>
         <div style="padding-top:15px;" class="middle">
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Log out</a>
+            <a href="../view-hotel/login.php">Login</a>
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="hotellist.php">Accommodation</a>
-            <a href="craftlist.php">Handicrafts</a>
-            <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="home2.php">Home</a>
+            <a href="../view/accommodation.php">Accommodation</a>
+            <a href="../view/craftlist.php">Handicrafts</a>
+            <a href="../view/tourpackagelist.php">Tour Packages</a>
+            <a href="index.php">Home</a>
         </div>
     </div>
+
     <!-- home -->
     <section class="home" id="home">
         <div class="content">
@@ -38,17 +38,6 @@
         <hr>
         <div class="container">
             <div class="box">
-                <img src="../images/available packages/package1.png" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-             <div class="box">
                 <img src="../images/available packages/package1.png" alt="">
 
                 <div class="content-container">

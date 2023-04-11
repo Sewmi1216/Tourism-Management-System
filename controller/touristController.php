@@ -50,15 +50,15 @@ class touristController extends db_connection
         $mailcheck = $tourist->checkmail($inputs[2]);
 
         if ($mailcheck > 0) {
-            $_SESSION['err'] = "Email is already registered";
-            header("Location: ../view/sign.php");
+            $_SESSION['error'] = "Email is already registered";
+            // header("Location: ../view/sign.php");
         } else {
             $res = $tourist->insertTourist($inputs);
             if (!$res) {
                 echo 'Error Occured';
             } else {
                 echo 'Successfully Added';
-                header("Location: ../view/login.php");
+                header("Location: ../view-hotel/login.php");
 
             }
         }
@@ -133,6 +133,13 @@ class touristController extends db_connection
         $reservation = new tourist();
         $res = $reservation->insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId);
         return $res;
+
+    }
+     public function viewProfile($id)
+    {
+        $profile = new tourist();
+        $rs = $profile->viewProfile($id);
+        return $rs;
 
     }
 }

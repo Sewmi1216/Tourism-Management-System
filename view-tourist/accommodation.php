@@ -1,3 +1,12 @@
+<?php
+require '../api/viewtourpackage.php';
+session_start();
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
+} else {
+    header("location:../view-hotel/login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,24 +26,10 @@
 </head>
 
 <body>
-    <div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="padding-left:10px;"></a>
-        <div style="padding-top:15px;" class="middle">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Login</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
-            <a href="#handi">Handicrafts</a>
-            <a href="#tour">Tour Packages</a>
-            <a href="../view-hotel/home.php">Home</a>
-        </div>
-    </div>
+    <?php include "header.php"?>
 
 
-
-        <section class="popular" id="hotel" style="padding: 2rem 9%;">
+    <section class="popular" id="hotel" style="padding: 2rem 9%;">
         <!-- <form action="">
             <div class="searchSec" style="margin-top:20px;">
                 <table>
@@ -86,17 +81,17 @@
             </div>
             <p id="dem" style="display:none;">***One room can accommodate only 2 people</p>
         </form> -->
-       
+
 
         <div class="container">
-             <?php
+            <?php
 require_once("../controller/touristController.php") ;
 $hotel = new touristController();
 $results = $hotel->viewAllHotels();
            foreach ($results as $result) {
                ?>
             <div class="box">
-                 <?php echo "<img src='../images/" . $result['profileImg'] . "'>"; ?>
+                <?php echo "<img src='../images/" . $result['profileImg'] . "'>"; ?>
 
                 <div class="content-container">
                     <h3 style="display: inline;"><?php echo $result['name'];?></h3>
@@ -105,10 +100,10 @@ $results = $hotel->viewAllHotels();
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                     <a href="hotelView.php?id=<?php echo $result['hotelID']; ?>" class="btn">Select</a>
+                    <a href="hotelView.php?id=<?php echo $result['hotelID']; ?>" class="btn">Select</a>
                 </div>
             </div>
-               <?php }?>
+            <?php }?>
         </div>
     </section>
     <section id="contact" style="padding-bottom: 20px">

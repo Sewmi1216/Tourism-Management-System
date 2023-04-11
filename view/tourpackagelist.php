@@ -1,5 +1,12 @@
 <?php 
 require('../api/viewtourpackage.php');
+session_start();
+if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
+} else {
+    header("location:../view-hotel/hotelLogin.php");
+}
+
 $rows = $_SESSION['c'];
 ?>
 <!DOCTYPE html>
@@ -22,10 +29,10 @@ $rows = $_SESSION['c'];
             <a href="../view-hotel/hotelLogin.php">Log out</a>
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="hotellist.php">Accommodation</a>
+            <a href="../view/accommodation.php">Accommodation</a>
             <a href="craftlist.php">Handicrafts</a>
             <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="home2.php">Home</a>
+            <a href="../view-hotel/home.php">Home</a>
         </div>
     </div>
 

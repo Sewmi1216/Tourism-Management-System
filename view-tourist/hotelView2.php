@@ -157,7 +157,8 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <a href="reserve.php?typeid=<?php echo $result['roomTypeId'];?>&hotelID=<?php echo $result['hotelID'];?>&price=<?php echo $result['price'];?>" class="btn">Reserve</a>
+                    <a href="reserve.php?typeid=<?php echo $result['roomTypeId'];?>&hotelID=<?php echo $result['hotelID'];?>&price=<?php echo $result['price'];?>"
+                        class="btn">Reserve</a>
                 </div>
             </div>
             <?php }?>
@@ -186,7 +187,7 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
     function showMessage(show) {
         var messageElement = document.getElementById("dem");
         if (show) {
-            messageElement.style.display = "block"; // or "inline"
+            messageElement.style.display = "block";
         } else {
             messageElement.style.display = "none";
         }
@@ -216,7 +217,6 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
             slides[i].style.display = "none";
         }
         slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
     }
     </script>
 </body>
