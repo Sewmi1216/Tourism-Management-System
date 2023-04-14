@@ -111,4 +111,13 @@ class roomTypeController extends db_connection
         // }
 
     }
+       public function viewPersons($id)
+    {
+        $hotelPkg = new roomType();
+
+        $results = $hotelPkg->viewPersons($id);
+
+        return $results;
+
+    }
 }

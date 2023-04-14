@@ -34,9 +34,10 @@ if (isset($_POST["get_data"])) {
 if (isset($_POST['update'])) {
 
     $roomno = $_POST['roomNo'];
-    $typeId = $_POST['roomType'];
+    $typeId = $_POST['typeId'];
     $beds = $_POST['beds'];
     $status = $_POST['status'];
+   // print $typeId;
 
     $rm = new roomController();
     $rm->updateRoom($roomno, $typeId, $beds, $status);

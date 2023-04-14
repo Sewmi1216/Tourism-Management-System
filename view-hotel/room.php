@@ -52,7 +52,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
                     <th class="tblh">Room Type</th>
-                    <th class="tblh">No.of beds</th>
+                    <th class="tblh">No.of Persons</th>
                     <th class="tblh">Reserved_from</th>
                     <th class="tblh">Reserved_to</th>
                     <th class="tblh">Status</th>
@@ -74,7 +74,7 @@ foreach ($results as $result) {
                         <?php echo $result["typeName"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $result["noOfBeds"] ?>
+                        <?php echo $result["noOfPersons"] ?>
                     </td>
                     <td class="tbld">
                         <?php echo $result["occupied_from"] ?>
@@ -169,9 +169,9 @@ $results = $pkg->viewAllTypes($id);
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                             <td> <select class="subfield" name="status">
                                     <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Reserved</option>
-                                    <option value="Available">Vacant</option>
-                                    <option value="Unavailable">Occupied</option>
+                                    <option value="Reserved">Reserved</option>
+                                    <option value="Vacant">Vacant</option>
+                                    <option value="Occupied">Occupied</option>
                                 </select></td>
                         </tr>
 
@@ -210,14 +210,14 @@ $results = $pkg->viewAllTypes($id);
                             <td>
                                 <div class="content">Room Type</div>
                             </td>
-                            <td><select class="subfield" name="typeId">
+                            <td><select class="subfield" name="typeId" id="roomtype">
                                     <?php
 require_once("../controller/roomTypeController.php") ;
 $pkg = new roomTypeController();
 $results = $pkg->viewAllTypes($id);
            foreach ($results as $result) {
                ?>
-                                    <option value="<?php echo $result["roomTypeId"];?>" name="roomType" id="roomtype">
+                                    <option value="<?php echo $result["roomTypeId"];?>">
                                         <?php echo $result["typeName"];?>
                                     </option>
                                     <?php
@@ -325,8 +325,8 @@ $results = $pkg->viewAllTypes($id);
                 console.log(response);
                 var room = JSON.parse(response);
                 $("#roomno").val(room.roomNo);
-                $("#roomtype").val(room.typeName);
-                $("#beds").val(room.noOfBeds);
+                $("#roomtype").val(room.typeID);
+                $("#beds").val(room.noOfPersons);
                 $('#status').val(room.status);
             }
         });

@@ -11,7 +11,7 @@ class room extends db_connection
     }
     public function insertRoom($roomNo, $beds, $status, $typeId, $id)
     {
-        $query = "INSERT INTO room (roomNo, noOfBeds, status, typeID, hotelId) VALUES (?,?,?,?,?)";
+        $query = "INSERT INTO room (roomNo, noOfPersons, status, typeID, hotelId) VALUES (?,?,?,?,?)";
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("iisii", $roomNo, $beds, $status, $typeId, $id);
@@ -50,7 +50,7 @@ class room extends db_connection
         return $this->getData($query);
     }
     public function updateRoom($roomno, $typeId, $beds, $status){
-        $query = "update room set typeID='24', noOfBeds='$beds', status='$status' where roomNo='$roomno'";
+        $query = "update room set typeID='$typeId', noOfPersons='$beds', status='$status' where roomNo='$roomno'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
