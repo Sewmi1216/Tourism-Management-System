@@ -6,6 +6,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     header("location:../view-hotel/login.php");
 }
 
+
 $id = $_GET['id'];
 ?>
 
@@ -14,19 +15,11 @@ $id = $_GET['id'];
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
     <style>
     html {
@@ -57,17 +50,20 @@ $results = $hotel->viewHotel($id);
                             <?php echo "<img src='../images/" . $result['profileImg'] . "' style='width:80rem;height:50rem;'>"; ?>
                         </td>
 
-                        <td style="padding:100px;">
+                        <td style="padding:50px;">
                             <div>
-                                <h3 style="display: inline;"><?php echo $result['name'];?></h3>
-                                <br>
-                                <h2><?php echo $result['address'];?></h2>
-                                <br>
-                                <h2><?php echo $result['email'];?></h2>
-                                <br>
-                                <h2><?php echo $result['phone'];?></h2>
-                                <br>
-                                <h2><?php echo $result['address'];?></h2>
+                                <h1 class="hotel"><?php echo $result['name'];?></h3><br>
+
+                                    <p class="sub"><i class="fa-solid fa-location-dot"></i>
+                                        &nbsp;&nbsp;<?php echo $result['address'];?></p>
+
+                                    <p class="sub"><i class="fa-sharp fa-solid fa-envelope"></i>
+                                        &nbsp;&nbsp;<?php echo $result['email'];?></p>
+
+                                    <p class="sub"><i
+                                            class="fa-solid fa-phone"></i>&nbsp;&nbsp;<?php echo $result['phone'];?></p>
+
+                                    <!-- <p><?php echo $result['address'];?></p> -->
                             </div>
                         </td>
                     </tr>
@@ -84,13 +80,16 @@ $results = $hotel->viewHotel($id);
                 <table>
                     <tr>
                         <th>
-                            <div>Check-In</div>
+                            <div class="search">Check-In</div>
                         </th>
                         <th>
-                            <div>Check-Out</div>
+                            <div class="search">Check-Out</div>
                         </th>
                         <th>
-                            <div>No.of rooms</div>
+                            <div class="search">No.of persons</div>
+                        </th>
+                        <th>
+                            <div class="search">Accommodation</div>
                         </th>
                     </tr>
                     <tr>
@@ -106,9 +105,45 @@ $results = $hotel->viewHotel($id);
                         </td>
                         <td>
                             <div class="input-container" style="margin-left: 1rem;">
-                                <input class="input-field" type="number" placeholder="No.of rooms" name="search"
-                                    onfocus="showMessage(true)" onblur="showMessage(false)">
+                                <select class="input-field" name="status">
+                                    <option value="" selected>---No of Persons---</option>
+                                    <?php
+require_once "../controller/roomTypeController.php";
+$pkg = new roomTypeController();
+$results = $pkg->viewPersons($id);
+foreach ($results as $result) {
+    ?>
+                                    <option value="<?php echo $result["NumberPerson"];
+    ?>">
+                                        <?php echo $result["NumberPerson"];
+    ?>
+                                    </option>
+                                    <?php
+}
+?>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-container" style="margin-left: 1rem;">
+                                <select class="input-field" name="status">
+                                    <option value="" selected>---Room Type---</option>
+                                    <?php
+require_once "../controller/roomTypeController.php";
+$pkg = new roomTypeController();
+$results = $pkg->viewAllTypes($id);
+foreach ($results as $result) {
+    ?>
+                                    <option value="<?php echo $result["typeName"];
+    ?>">
+                                        <?php echo $result["typeName"];
+    ?>
+                                    </option>
+                                    <?php
+}
+?>
 
+                                </select>
                             </div>
 
                         </td>
@@ -124,7 +159,7 @@ $results = $hotel->viewHotel($id);
         </form>
 
 
-        <div class="container" style="margin-top:30px;">
+        <!-- <div class="container" style="margin-top:30px;">
             <?php
 require_once("../controller/roomTypeController.php") ;
 $room = new roomTypeController();
@@ -142,7 +177,7 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
                     <div class="slider">
                         <?php echo "<img src='../images/" . $row['image'] . "' style='width:100%'>";?>
                     </div>
-                    <?php } ?>
+                    <?php break;} ?>
                 </div>
 
                 <div class="content-container">
@@ -159,7 +194,7 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
                 </div>
             </div>
             <?php }?>
-        </div>
+        </div> -->
     </section>
 
     <section id="contact" style="padding-bottom: 20px">
@@ -178,20 +213,7 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
         </div>
     </section>
 
-    <script type="text/javascript">
-    $('.slider').slick();
-    </script>
     <script src="js/home.js"></script>
-    <script>
-    function showMessage(show) {
-        var messageElement = document.getElementById("dem");
-        if (show) {
-            messageElement.style.display = "block";
-        } else {
-            messageElement.style.display = "none";
-        }
-    }
-    </script>
 
 </body>
 
