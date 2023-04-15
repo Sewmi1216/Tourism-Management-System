@@ -37,7 +37,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                         placeholder="Search for room types" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View
+                <button type="submit" class="btns" style="margin-left:1rem;"><a href="room.php" style="color:white;text-decoration:none;">View
                         All</a></button>
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
