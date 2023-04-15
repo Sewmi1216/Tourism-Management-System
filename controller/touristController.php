@@ -128,14 +128,15 @@ class touristController extends db_connection
         $rs = $type->viewAllRoomTypes($id);
         return $rs;
     }
-    // public function searchRoom($id, $person, $room){
-    //     $room= new tourist();
-    //     return $room->searchRoom($id, $person, $room);
+    public function searchRoom($id, $person, $roomtype){
+        $room= new tourist();
+        $rs =$room->searchRoom($id, $person, $roomtype);
+        return $rs;
 
-    // }
-    public function availability($id, $checkin, $checkout, $person, $room){
+    }
+    public function availability($checkin, $checkout,  $room){
         $search = new tourist();
-         $rs =$search->availability($id, $checkin, $checkout, $person, $room);
+         $rs =$search->availability($checkin, $checkout, $room);
          return $rs;
         //  if (mysqli_num_rows($rs) > 0) {
         //     return $rs;

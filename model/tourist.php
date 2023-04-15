@@ -126,17 +126,20 @@ class tourist extends db_connection
         $query = "Select * from roomtype r, roomtype_img i, hotel h where i.roomTypeId=r.roomTypeId and r.hotelID=h.hotelID and h.hotelID='$id'";
         return $this->getData($query);
     }
-    // public function searchRoom($id, $person, $room){
-    //     $query = "Select * from room r, roomtype t, hotel h where r.typeID=t.roomTypeId and r.hotelID=h.hotelID and h.hotelID='$id' and t.typeName='$room' and r.noOfPersons='$person'";
-    //     return $this->getData($query);
-    // }
- public function availability($id, $checkin, $checkout, $person, $room) {
-    $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
-    $results = $this->getData($query);
-    if ($results) {
-        foreach ($results as $result) {
-            // echo $result['roomNo'];
-            $query1 = "SELECT * FROM guest_reservation WHERE ((
+    public function searchRoom($id, $person, $room)
+    {
+        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
+        $stmt = mysqli_query($this->conn, $query);
+        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+        if ($results) {
+            return $results;
+        } else {
+            die('Error in query: ' . mysqli_error($this->conn));
+        }
+    }
+    public function availability($checkin, $checkout, $room)
+    {
+        $query = "SELECT * FROM guest_reservation WHERE ((
                     '$checkin' >= DATE_FORMAT(`checkInDate`,'%Y-%m-%d')
                     AND  '$checkin' <= DATE_FORMAT(`checkOutDate`,'%Y-%m-%d')
                     )
@@ -149,18 +152,16 @@ class tourist extends db_connection
                     AND DATE_FORMAT(`checkInDate`,'%Y-%m-%d') <=  '$checkout'
                     )
                     )
-                    AND roomID ='$result[roomNo]'";
-            $stmt = mysqli_query($this->conn, $query1);
-            if ($stmt) {
-                return $stmt;
-            } else {
-                die('Error in query2: ' . mysqli_error($this->conn));
-            }
+                    AND roomID ='$room'";
+        $stmt = mysqli_query($this->conn, $query);
+       $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+
+        if ($results) {
+            return $results;
+        } else {
+            die('Error in query: ' . mysqli_error($this->conn));
         }
-    } else {
-        die('Error in query1: ' . mysqli_error($this->conn));
     }
-}
 
     public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
     {

@@ -175,75 +175,41 @@ if (isset($_POST['search'])) {
     $room = $_POST['room'];
 
     $search = new touristController();
-    $result = $search->availability($id, $checkin, $checkout, $person, $room);
-    foreach ($result as $row) {
-        $status = $row['status'];?>
+    $rs = $search->searchRoom($id, $person, $room);
+    if ($rs) {
+        foreach ($rs as $result) { 
+           // echo $result['roomNo'];
+            $av = new touristController();
+            $rows= $av->availability($checkin, $checkout, (int)$result['roomNo']);
+            foreach ($rows as $row) {
+                $status = $row['status'];?>
 
         <input class="input-field" type="hidden" value="<?php echo $row['status'] ?>">
 
         <?php
                     if($status=='Confirmed'){
-                $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Reserve!</strong></div>';
-                 $img_title = ' 
-
-                           <figcaption class="img-title-active">
-                                <h5>Reserve!</h5>    
-                            </figcaption>
-
-
-                    ';
-              }elseif($status=='Checkedin'){
-                $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Book!</strong></div>';
-                 $img_title = ' 
-
-                           <figcaption class="img-title-active">
-                                <h5>Book!</h5>    
-                            </figcaption>
-
-
-                    ';
-                     }else{
-                $btn =  '
-                 <div class="form-group">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12">
-                            <input type="submit" class="button rooms_button"  id="booknow" name="booknow" onclick="return validateBook();" value="Book Now!"/>
-                                                   
-                           </div>
-                        </div>
-                      </div>';
-                    $img_title = ' 
-
-                           <figcaption class="img-title">
-                                <h5>'.$result->ROOM . ' <br/> '.$result->ROOMDESC.'  <br/>
-                                ' . $result->ACCOMODATION .' <br/> 
-                                '.$result->ACCOMDESC . '<br/>  
-                                Number of Person:' . $result->NUMPERSON .' <br/> 
-                                Price:'.$result->PRICE.'</h5>    
-                            </figcaption>
-
-
-                    ';
-                   
-
-              } ?>
+                        $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Reserve!</strong></div>';
+                    }else if($status=='Checkedin'){
+                        $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Book!</strong></div>';
+                    }else{
+                $btn =  '<div style="display: flex; justify-content: center;">
+                    <a href="reserve.php?typeid=<?php echo $result[roomTypeId];?>&hotelID=<?php echo $result[hotelID];?>&price=<?php echo $result[price];?>"
+        class="btn">Reserve</a>
+        </div>';
+                    } }
+        ?>
         <div class="container" style="margin-top:30px;">
-            <?php
-require_once("../controller/roomTypeController.php") ;
-$room = new roomTypeController();
-$results = $room->viewAllTypes($id);
-           foreach ($results as $result) {
-               ?>
+          
             <div class="box">
                 <div class="slideshow-container">
                     <?php
 require_once("../controller/roomTypeController.php") ;
 $tp = new roomTypeController();
-$rows = $tp->viewAllImgs( $result['roomTypeId']);
-           foreach ($rows as $row) {
+$outputs = $tp->viewAllImgs($result['typeID']);
+           foreach ($outputs as $output) {
                ?>
                     <div class="slider">
-                        <?php echo "<img src='../images/" . $row['image'] . "' style='width:100%'>";?>
+                        <?php echo "<img src='../images/" . $output['image'] . "' style='width:100%'>";?>
                     </div>
                     <?php break;} ?>
                 </div>
@@ -257,15 +223,11 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
                 </div>
                 <?php echo $btn; ?>
 
-                <!-- <div style="display: flex; justify-content: center;">
-                    <a href="reserve.php?typeid=<?php echo $result['roomTypeId'];?>&hotelID=<?php echo $result['hotelID'];?>&price=<?php echo $result['price'];?>"
-                        class="btn">Reserve</a>
-                </div> -->
             </div>
-            <?php }?>
+          
         </div>
-        
-        <?php }}?>
+
+        <?php }}}?>
 
 
 
