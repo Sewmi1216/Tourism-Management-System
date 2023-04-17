@@ -5,6 +5,7 @@
              <button type="button" onclick="document.getElementById('id01').style.display='none'"
                  class="cancelbtn close">&times;</button>
              <label for="room" style="color:white"><b>Add Room Type</b></label>
+             <input type="hidden" value="<?php echo $id ?>" name="id" />
          </div>
          <hr>
          <div class="container">
@@ -23,23 +24,22 @@
                          <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
                      </td>
                  </tr>
-                 <tr class="row">
+                 <!-- <tr class="row">
                      <td>
                          <div class="content">Status</div>
                      </td>
-                     <!-- <td><input type="text" class="subfield" name="status" /></td> -->
                      <td> <select class="subfield" name="status">
                              <option value="" selected>---Choose availability---</option>
                              <option value="Available">Available</option>
                              <option value="Unavailable">Unavailable</option>
                          </select></td>
-                 </tr>
-                 <tr class="row">
+                 </tr> -->
+                 <!-- <tr class="row">
                      <td>
                          <div class="content">Price</div>
                      </td>
                      <td> <input type="number" min="10" class="subfield" name="price" required /></td>
-                 </tr>
+                 </tr> -->
              </table>
          </div>
          <div class="container" style="padding:10px;">

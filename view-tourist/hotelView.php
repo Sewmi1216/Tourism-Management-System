@@ -176,12 +176,12 @@ if (isset($_POST['search'])) {
 
     $search = new touristController();
     $rs = $search->searchRoom($id, $person, $room);
-    if ($rs) {
         foreach ($rs as $result) { 
            // echo $result['roomNo'];
             $av = new touristController();
             $rows= $av->availability($checkin, $checkout, (int)$result['roomNo']);
-            foreach ($rows as $row) {
+            if($rows){
+            foreach ($rows as $row) {    
                 $status = $row['status'];?>
 
         <input class="input-field" type="hidden" value="<?php echo $row['status'] ?>">
@@ -194,12 +194,20 @@ if (isset($_POST['search'])) {
                     }else{
                 $btn =  '<div style="display: flex; justify-content: center;">
                     <a href="reserve.php?typeid=<?php echo $result[roomTypeId];?>&hotelID=<?php echo $result[hotelID];?>&price=<?php echo $result[price];?>"
-        class="btn">Reserve</a>
+        class="btn" target="_blank">Reserve</a>
+        </div>';}
+        }}else{
+        $btn = '<div style="display: flex; justify-content: center;">
+            <a href="reserve.php?typeid=<?php echo $result[roomTypeId];?>&hotelID=<?php echo $result[hotelID];?>&price=<?php echo $result[price];?>"
+                class="btn" target="_blank">Reserve</a>
         </div>';
-                    } }
+
+        }
+
+
         ?>
         <div class="container" style="margin-top:30px;">
-          
+
             <div class="box">
                 <div class="slideshow-container">
                     <?php
@@ -219,15 +227,18 @@ $outputs = $tp->viewAllImgs($result['typeID']);
                     <br>
                     <h2><?php echo $result['description'];?></h2>
                     <br>
-                    <h2><?php echo $result['price'];?></h2>
+                    <h2><?php echo $result['view'];?></h2>
+                    <br>
+                    <h1>$<?php echo $result['price'];?>/Night</h1>
                 </div>
                 <?php echo $btn; ?>
 
             </div>
-          
+
         </div>
 
-        <?php }}}?>
+        <?php }
+    }?>
 
 
 

@@ -131,11 +131,8 @@ class tourist extends db_connection
         $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
         $stmt = mysqli_query($this->conn, $query);
         $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
-        if ($results) {
             return $results;
-        } else {
-            die('Error in query: ' . mysqli_error($this->conn));
-        }
+
     }
     public function availability($checkin, $checkout, $room)
     {
@@ -156,11 +153,8 @@ class tourist extends db_connection
         $stmt = mysqli_query($this->conn, $query);
        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
 
-        if ($results) {
             return $results;
-        } else {
-            die('Error in query: ' . mysqli_error($this->conn));
-        }
+        
     }
 
     public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)

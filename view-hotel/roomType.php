@@ -57,8 +57,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                     <tr class="subtext tblrw">
                         <!-- <th class="tblh">Image</th> -->
                         <th class="tblh">Room Type</th>
-                        <th class="tblh">Price</th>
-                        <th class="tblh">Status</th>
+                        <th class="tblh">Desciption</th>
                         <th class="tblh">Add photos</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
@@ -75,14 +74,8 @@ foreach ($results as $result) {
                     background-repeat: no-repeat;'>"; ?>
                             </td> -->
                             <td class="tbld"><?php echo $result["typeName"] ?></td>
-                            <td class="tbld"><?php echo $result["price"] ?></td>
-                            <td class="tbld">
-                                <?php if ($result["typestatus"] == "Available") {?>
-                                <button class="status1"><?php echo $result["typestatus"]; ?></button>
-                                <?php } else {?>
-                                <button class="status2"><?php echo $result["typestatus"]; ?></button>
-                                <?php }?>
-                            </td>
+                            <td class="tbld"><?php echo $result["description"] ?></td>
+                            
                             <td class="tbld">
                                 <?php echo "<a href='addPhotos.php?id=$result[roomTypeId]'>"; ?>
                                 <i class="fa-solid fa-images"></i>

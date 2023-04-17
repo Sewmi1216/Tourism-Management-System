@@ -29,11 +29,11 @@
                         <textarea class="subtextfield" id="desc" name="desc" rows="8" cols="50"></textarea>
                     </td>
                 </tr>
-                <tr class="row">
+                <!-- <tr class="row">
                     <td>
                         <div class="content">Status</div>
                     </td>
-                    <!-- <td><input type="text" class="subfield" name="status" /></td> -->
+                  
                     <td> <select class="subfield" name="status" id="status">
                             <option value="Available">
                                 Available
@@ -48,7 +48,7 @@
                     </td>
                     <td> <input type="number" id="price" min="10" class="subfield" name="price"
                             value="" /></td>
-                </tr>
+                </tr> -->
 
             </table>
 
