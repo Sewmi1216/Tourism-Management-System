@@ -31,14 +31,8 @@ class tourguide extends db_connection
 
     public function viewAllTourguides()
     {
-       
-    
 
-        $query = "SELECT * FROM tourbooking ";
-
-        $query = "SELECT * FROM tourguide where status = 2";
-
-        
+        $query = "SELECT * FROM tourguide where status = 1";    
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -66,8 +60,50 @@ class tourguide extends db_connection
         return $stmt;
     }
 
+    public function removetourguide($id){
 
+        // print_r($id);
+        // die();
+        $query = "UPDATE tourguide SET status = 0 where tourguideID= $id ";
 
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function removetourguiderequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE tourguide SET status = 0 where tourguideID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function accepttourguiderequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE tourguide SET status = 2 where tourguideID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function viewdeletedguides()
+    {
+       
+    
+        $query = "SELECT * FROM tourguide where status = 0 ";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
 
 

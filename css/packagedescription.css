@@ -8,12 +8,9 @@ body {
 }
 
 .p{
-    color: white;
+    color: rgba(39, 36, 204, 0.719);
 
 }
-
-
-
 
 .nalloor{
     position: relative;
@@ -40,11 +37,11 @@ body {
     margin-right: 10%;
   }
   
-  td, th {
+  /* td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-  }
+  } */
 
 .detail{
 display: block;
@@ -65,3 +62,18 @@ margin-left: 7.5%;
     
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }

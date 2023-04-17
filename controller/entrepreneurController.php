@@ -109,6 +109,47 @@ public function viewAllentrepreneurs(){
 
 }
 
+public function removeentrepreneur($id)
+{
+
+    $user = new entrepreneur();
+
+    $result = $user-> removeentrepreneur($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
+public function removeentrepreneurrequest($id)
+{
+
+    $user = new entrepreneur();
+
+    $result = $user-> removeentrepreneurrequest($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
+public function acceptentrepreneurrequest($id)
+{
+
+    $user = new entrepreneur();
+
+    $result = $user-> acceptentrepreneurrequest($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
+public function viewdeletedentrepreneurs(){
+    $user = new entrepreneur();
+
+    $result = $user-> viewdeletedentrepreneurs();
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
 }
 ?>
 

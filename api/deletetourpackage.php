@@ -2,7 +2,7 @@
 <?php
 include '../controller/tourpackagecontroller.php';
 
-$packagename = $_GET["package_id"];
+$packagename = $_GET["id"];
 $inputs = array($packagename);
 
 $tourpackagecon = new tourpackageController();

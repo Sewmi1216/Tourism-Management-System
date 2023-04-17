@@ -176,10 +176,10 @@ span.psw {
             <div class="searchSec">
                 <div class="page-title"> Registered Hotel Managers </div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for guides" name="search">
+                    <input class="input-field" type="text" placeholder="Search for Hotels" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <!-- <button type="submit" class="btns">View All</button> -->
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581

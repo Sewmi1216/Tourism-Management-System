@@ -21,15 +21,10 @@
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title">Payments</div>
-                <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for rooms" name="search">
-                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
-                </div>
-                <button type="submit" class="btns">View All</button>
+           
+               
                 <span style="margin-left: 8px;">
-                    <a href="addCashPayment.php"><i
-                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
-;"></i></a>
+
                 </span>
             </div>
 
@@ -39,21 +34,52 @@
                 <tr class="subtext tblrw">
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
-                    <th class="tblh">Reservation ID</th>
+                    <th class="tblh">Booking ID</th>
                     <th class="tblh">Guest Name</th>
                     <th class="tblh">Guest Phone number</th>
-                    <th class="tblh">Type</th>
+                   
                     <th class="tblh">Total amount</th>
                     <th class="tblh">Status</th>
                 </tr>
 
+                <tbody>
+                    <tr class="subtext tblrw">
+
+                        <td class="tbld"> 0054</td>
+                        <td class="tbld"> 13.02.2023</td>
+                        <td class="tbld"> 005</td>
+                        <td class="tbld"> Jasi</td>
+                        <td class="tbld"> 0763572139</td>
+                      
+                        <td class="tbld"> 1200000</td>
+                        <td class="tbld">
+                               Completed
+                            </td>
+
+
+                       
+
+
+                    </tr>
+            </table>
+
+
+
+
+
+<!-- 
                 <?php
-require_once "../controller/hotelController.php";
+require_once "../controller/tourbookinController.php";
 $pay = new hotelController();
 
 $results = $pay->viewhotelPayments($id);
 foreach ($results as $result) {
-    ?><tbody>
+    ?>
+     -->
+    
+    
+    
+    <tbody>
                     <tr class="subtext tblrw">
 
                         <td class="tbld"><?php echo $result["paymentID"] ?></td>
