@@ -24,7 +24,7 @@ $rows = $_SESSION['c'];
 <?php include "header.php"?>
     <div class="registerForm">
         <form method="post" action="../api/addentreapi.php" enctype="multipart/form-data">
-            <div class="heading" style="margin-top:0px;">Entrepreneur Registration</div>
+            <div class="heading" style="margin-top:0px;">Edit Entrepreneur Details</div>
             <hr>
 
             <?php            

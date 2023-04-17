@@ -123,7 +123,7 @@ echo '<table>
                     </td>
                 </tr>
             </table>
-            <input type="submit" class="btnRegister" value="Update Manager Details" name="signup" />
+            <input type="submit" class="btnRegister" value="Update Manager Details" name="update" />
         </form>
 
 

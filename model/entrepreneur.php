@@ -65,7 +65,7 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
     }
 
     public function viewAllentrepreneurs(){
-        $query = "SELECT * FROM entrepreneur";
+        $query = "SELECT * FROM entrepreneur where status = 2";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -73,7 +73,7 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 
 
     public function viewpendingentrepreneurs(){
-            $query = "SELECT * FROM entrepreneur where status=0";
+            $query = "SELECT * FROM entrepreneur where status=1";
     
             $stmt = mysqli_query($this->conn, $query);
             return $stmt;
@@ -87,5 +87,48 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
         return $stmt;
 
     }
+
+    public function removeentrepreneur($id){
+
+        // print_r($id);
+        // die();
+        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function removeentrepreneurrequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function acceptentrepreneurrequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE entrepreneur SET status = 2 where entID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function viewdeletedentrepreneurs(){
+        $query = "SELECT * FROM entrepreneur where status=0";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+}
 }   
 ?>

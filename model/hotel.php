@@ -183,7 +183,7 @@ class hotel extends db_connection
 
     public function viewAllmanagers()
     {
-        $query =  "SELECT * from hotel where status=1";
+        $query =  "SELECT * from hotel where status= 2";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -192,7 +192,7 @@ class hotel extends db_connection
 
     public function viewAllpendingmanagers()
     {
-        $query =  "SELECT * from hotel where status=0";
+        $query =  "SELECT * from hotel where status= 1";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -206,6 +206,50 @@ class hotel extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         // print_r($stmt);
         // die();
+        return $stmt;
+
+    }
+
+    public function removehotel($id){
+
+        // print_r($id);
+        // die();
+        $query = "UPDATE hotel SET status = 0 where hotelID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function removehotelrequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE hotel SET status = 0 where hotelID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function accepthotelrequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE hotel SET status = 2 where hotelID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function viewdeletedmanagers()
+    {
+        $query =  "SELECT * from hotel where status= 0";
+
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
     }

@@ -25,13 +25,6 @@
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> Tour Bookings </div>
-                
-                <div class="input-container">
-                
-                   
-           
-
-        </div>
 
         <div class="bg">
             <table>
@@ -61,13 +54,13 @@ foreach ($results as $result) {
                         <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
                         <td class="tbld"><?php echo $result["passportExpDate"] ?></td>
                         
-                        <td class="tbld">
+                        <!-- <td class="tbld">
                             <?php if ($result["typestatus"] == "Completed") {?>
                             <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
                             <?php } else {?>
                             <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
                             <?php }?>
-                        </td>
+                        </td> -->
 
 
                         <?php }

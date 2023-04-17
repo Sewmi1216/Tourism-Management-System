@@ -308,6 +308,48 @@ class hotelController extends db_connection
         return $result;
     }
 
+    public function removehotel($id)
+{
+
+    $user = new hotel();
+
+    $result = $user-> removehotel($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
+public function removehotelrequest($id)
+{
+
+    $user = new hotel();
+
+    $result = $user-> removehotelrequest($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
+public function accepthotelrequest($id)
+{
+
+    $user = new hotel();
+
+    $result = $user-> accepthotelrequest($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
+    
+public function viewdeletedmanagers()
+{
+    $user = new hotel();
+
+    $result = $user-> viewdeletedmanagers();
+    $_SESSION['c'] = $result;
+    return $result;
+}
     
 }
 

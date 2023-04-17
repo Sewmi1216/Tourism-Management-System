@@ -79,9 +79,9 @@ foreach ($results as $result) {
         </div>
          
           <div class="searchSec">
-                <div class="page-title"> MANAGER APPROVAL</div>
+                <div class="page-title"> Recently deleted Hotel Managers </div>
             </div>
-            <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotels</a></button>
+            <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotel Managers</a></button>
 
           <div class="bg">
        
@@ -92,14 +92,14 @@ foreach ($results as $result) {
                    <th class="tblh">E-Mail Address</th>
                    <th class="tblh">Phone Number</th>
                    <th class="tblh">View</th>
-                   <th class="tblh">Approve</th>
-                   <th class="tblh">Remove</th>
+                   <th class="tblh">Restore</th>
+                   <th class="tblh">Permenently Delete</th>
            </tr>
            
            <?php 
 require_once("../controller/hotelController.php");
 $penmanager= new hotelController();
-$results= $penmanager->viewAllpendingmanagers();
+$results= $penmanager->viewdeletedmanagers();
 foreach ($results as $result) {
 
         ?>
@@ -139,7 +139,7 @@ foreach ($results as $result) {
    </div>
 
      <div class="searchSec">
-                <div class="page-title"> TOURGUIDE APPROVAL</div>
+                <div class="page-title"> Recently deleted Tour guides</div>
             </div>
             <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
 
@@ -152,16 +152,15 @@ foreach ($results as $result) {
                    <th class="tblh">E-Mail Address</th>
                    <th class="tblh">Phone Number</th>
                    <th class="tblh">View</th>
-                   <th class="tblh">Approve</th>
-                   <th class="tblh">Remove</th>
+                   <th class="tblh">Restore</th>
+                   <th class="tblh">Permenently Delete</th>
            </tr>
            
            <?php 
-require_once("../controller/hotelController.php");
-$penmanager= new hotelController();
-$results= $penmanager->viewAllpendingmanagers();
+require_once("../controller/tourguidecontroller.php");
+$penguide= new tourguidecontroller();
+$results= $penguide->viewdeletedguides();
 foreach ($results as $result) {
-
         ?>
 
            <tr class="subtext tblrw">
@@ -201,7 +200,61 @@ foreach ($results as $result) {
         </div>
         </div>
 
+       
+        <div class="searchSec">
+                <div class="page-title"> Recently deleted entrepreneurs </div>
+            </div>
 
+            <!-- viewing all the verified Entrepreneurs Button -->
+            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
+
+
+        <div class="bg">
+       <!-- Head of the pending entrepreneur list table -->
+            <table>
+                <tr class="subtext tblrw">
+                        <th class="tblh"> Entrepreneur Name</th>
+                        <th class="tblh">NIC</th>
+                        <th class="tblh">E-Mail Address</th>
+                        <th class="tblh">Phone Number</th>
+                        <th class="tblh">View</th>
+                        <th class="tblh">Restore</th>
+                        <th class="tblh">Permenently Delete</th>
+                </tr>
+                
+        <?php 
+require_once("../controller/entrepreneurController.php");
+$penentrepreneur = new entrepreneurController();
+$results= $penentrepreneur->viewdeletedentrepreneurs();
+foreach ($results as $result) {
+
+        ?>
+
+                <tr class="subtext tblrw">
+                    <td class="tbld">
+                        <?php echo $result["entrepreneurName"] ?>
+                    </td>
+                    
+                    <td class="tbld">
+                    <?php echo $result["entrepreneurNic"] ?>
+                    </td>
+                    <td class="tbld">
+                    <?php echo $result["entrepreneurEmail"] ?>
+                    </td>
+                    <td class="tbld">
+                    <?php echo $result["entrepreneurPhone"] ?>
+                    </td>
+                    
+                    <td class="tbld">   <a href="Approvalentrepreneur.php?entrepreneur_id=<?php echo $result["entID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+
+                    <td class="tbld"><a onclick="openaModal('<?php echo $result['entID'] ?>')"><i class="fa-solid fa-circle-check"></i></a></td>
+                                
+                    <td class="tbld"><a onclick="opendModal('<?php echo $result['entID'] ?>')"><i class="fa-solid fa-trash art"></i></a></td>
+                </tr>
+
+
+                <?php } ?>
+            </table>
 </body>
 
 </html>

@@ -12,12 +12,6 @@ $rows = $_SESSION['c'];
 // Using the data from previously execute code, the view is prepared
 // A response to the http request is sent from here as html file.
 ?>
-
-<?php 
-require('../api/viewhotelmanager.php');
-$rows = $_SESSION['c'];
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -86,19 +80,16 @@ echo '<table>
                     <td>
                         <div class="content">Password</div>
                         <input type="password" class="subfield" name="password" id="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="'.$row['document'].'" required />
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="'.$row['password'].'" required />
                         <div id="msg" style="color:red;"></div>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
-                        <div class="content">Languages</div>
-                        <input type="text" class="subfield" name="address" value="'.$row['document'].'"/>
-                    </td>
+               
                     <td>
                         <div class="content">Availability</div>
-                        <input type="text" class="subfield" name="email" value="'.$row['document'].'"
+                        <input type="text" class="subfield" name="email" value="'.$row['availability'].'"
                             required />
                     </td>
                 </tr>
@@ -122,22 +113,22 @@ echo '<table>
                 <tr>
                     <td>
                         <div class="content">Vehicle Number</div>
-                        <input type="text" class="subfield" name="eName" value="'.$row['document'].'"/>
+                        <input type="text" class="subfield" name="eName" value=""/>
                     </td>
                     <td>
                         <div class="content">Vehicle Type</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required value="'.$row['document'].'"/>
+                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required value=""/>
                     </td>
                     
                 </tr>
                 <tr>
                 <td>
                         <div class="content">Number of passengers that can be carried</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required value="'.$row['document'].'" />
+                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required value="" />
                     </td>
 </tr>
             </table>
-            <input type="submit" class="btnRegister" value="UPDATE" name="Sign UpE" value="'.$row['document'].'" />
+            <input type="submit" class="btnRegister" value="update" name="Sign UpE" value="" />
          
         </form>
 
