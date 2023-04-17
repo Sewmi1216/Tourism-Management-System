@@ -1,7 +1,27 @@
 <?php
 include '../controller/touristController.php';
 
+if(isset($_POST['search'])){
+    $id = $_POST['hotel'];
+    $checkin = $_POST['checkin'];
+    $checkout = $_POST['checkout'];
+    $person = $_POST['person'];
+    $room = $_POST['room'];
 
+    $search = new touristController();
+    $result= $search->availability($id, $checkin, $checkout, $person, $room);
+
+//     //echo $result;
+//      $row = mysqli_fetch_object($result);
+
+// // Important to echo the record in JSON format
+//     echo json_encode($row);
+//     //echo 'print';
+
+// // Important to stop further executing the script on AJAX by following line
+// exit();
+
+}
 if (isset($_POST['reserve'])) {
     $touristID = $_POST['id'];
     $hotelId = $_POST['hotelId'];

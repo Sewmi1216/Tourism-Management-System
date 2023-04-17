@@ -71,14 +71,14 @@ class tourist extends db_connection
 
     }
 
-    public function checkmail($email)
-    {
-        $query = "SELECT * FROM tourist where email='$email'";
+    // public function checkmail($email)
+    // {
+    //     $query = "SELECT * FROM tourist where email='$email'";
 
-        $stmt = mysqli_query($this->conn, $query);
-        $rows = mysqli_fetch_array($stmt);
-        return $rows;
-    }
+    //     $stmt = mysqli_query($this->conn, $query);
+    //     $rows = mysqli_fetch_array($stmt);
+    //     return $rows;
+    // }
 
     public function checkproid($id)
     {
@@ -126,6 +126,36 @@ class tourist extends db_connection
         $query = "Select * from roomtype r, roomtype_img i, hotel h where i.roomTypeId=r.roomTypeId and r.hotelID=h.hotelID and h.hotelID='$id'";
         return $this->getData($query);
     }
+    public function searchRoom($id, $person, $room)
+    {
+        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
+        $stmt = mysqli_query($this->conn, $query);
+        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+            return $results;
+
+    }
+    public function availability($checkin, $checkout, $room)
+    {
+        $query = "SELECT * FROM guest_reservation WHERE ((
+                    '$checkin' >= DATE_FORMAT(`checkInDate`,'%Y-%m-%d')
+                    AND  '$checkin' <= DATE_FORMAT(`checkOutDate`,'%Y-%m-%d')
+                    )
+                    OR (
+                    '$checkout' >= DATE_FORMAT(`checkInDate`,'%Y-%m-%d')
+                    AND  '$checkout' <= DATE_FORMAT(`checkOutDate`,'%Y-%m-%d')
+                    )
+                    OR (
+                    DATE_FORMAT(`checkInDate`,'%Y-%m-%d') >=  '$checkin'
+                    AND DATE_FORMAT(`checkInDate`,'%Y-%m-%d') <=  '$checkout'
+                    )
+                    )
+                    AND roomID ='$room'";
+        $stmt = mysqli_query($this->conn, $query);
+       $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+
+            return $results;
+        
+    }
 
     public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
     {
@@ -136,7 +166,7 @@ class tourist extends db_connection
         // $stmt->execute();
         return $stmt;
     }
-     public function viewProfile($id)
+    public function viewProfile($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from tourist where userID = '$id'";
