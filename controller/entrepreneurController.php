@@ -150,6 +150,15 @@ public function viewdeletedentrepreneurs(){
     $_SESSION['c'] = $result;
     return $result;
 }
+public function viewAllpendingentrepreneurs(){
+    $user = new entrepreneur();
+
+    $result = $user-> viewpendingentrepreneurs();
+
+    $_SESSION['c'] = $result;
+    return $result;
 }
+}
+
 ?>
 
