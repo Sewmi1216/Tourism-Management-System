@@ -198,6 +198,7 @@ class hotel extends db_connection
     {
 
         $query = "SELECT * from hotel where status= 1";
+
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
@@ -205,7 +206,6 @@ class hotel extends db_connection
 
     public function viewAllpendingmanagers()
     {
-
         $query = "SELECT * from hotel where status IS NULL";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
