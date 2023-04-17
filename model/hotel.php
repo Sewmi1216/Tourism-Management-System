@@ -197,7 +197,8 @@ class hotel extends db_connection
     public function viewAllmanagers()
     {
 
-        $query =  "SELECT * from hotel where status= 1";
+        $query = "SELECT * from hotel where status= 1";
+
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
@@ -205,8 +206,7 @@ class hotel extends db_connection
 
     public function viewAllpendingmanagers()
     {
-
-        $query =  "SELECT * from hotel where status IS NULL";
+        $query = "SELECT * from hotel where status IS NULL";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
@@ -223,7 +223,8 @@ class hotel extends db_connection
 
     }
 
-    public function removehotel($id){
+    public function removehotel($id)
+    {
 
         // print_r($id);
         // die();
@@ -234,7 +235,8 @@ class hotel extends db_connection
 
     }
 
-    public function removehotelrequest($id){
+    public function removehotelrequest($id)
+    {
 
         // print_r($id);
         // die();
@@ -246,21 +248,34 @@ class hotel extends db_connection
 
     }
 
-    public function accepthotelrequest($id){
+    public function accepthotelrequest($id)
+    {
 
         // print_r($id);
         // die();
 
         $query = "UPDATE hotel SET status = 1 where hotelID= $id ";
-
         $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        // return $stmt;
+        if ($stmt) {
+            $query1 = "select email from hotel where hotelID= $id ";
+            $stmt = mysqli_query($this->conn, $query1);
+            $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+            if ($results) {
+                return $results;
+            } else {
+                die('Error in query2: ' . mysqli_error($this->conn));
+
+            }
+        } else {
+            die('Error in query1: ' . mysqli_error($this->conn));
+        }
 
     }
 
     public function viewdeletedmanagers()
     {
-        $query =  "SELECT * from hotel where status= 0";
+        $query = "SELECT * from hotel where status= 0";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;

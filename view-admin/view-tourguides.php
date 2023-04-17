@@ -71,7 +71,7 @@
             <div id="result">
                 <table>
                     <tr class="subtext tblrw">
-                        <th class="tblh"> Guide Name</th>
+                        <th class="tblh">Guide Name</th>
                         <th class="tblh">NIC</th>
                         <th class="tblh">E-Mail Address</th>
                         <th class="tblh">Phone Number</th>
