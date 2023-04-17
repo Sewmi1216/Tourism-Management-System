@@ -23,9 +23,6 @@ if (isset($_POST['accept']))
 
     $id = $_POST['id'];
 
-    print_r($id);
-    die();
-
     $acc_tourguide = new tourguidecontroller();
     $acc_tourguide-> accepttourguiderequest($id);
 

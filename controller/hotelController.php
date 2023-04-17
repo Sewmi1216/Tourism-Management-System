@@ -270,10 +270,10 @@ window.location.href = '../view-hotel/recoverPwd.php';
             echo "<script>alert('Password reset is sucessful');
               window.location.href = '../view-hotel/login.php';
               </script>";
-        }else{
+        } else {
             echo 'Error';
         }
-       
+
     }
     public function countReservations()
     {
@@ -347,56 +347,88 @@ window.location.href = '../view-hotel/recoverPwd.php';
 
         $result = $user->viewonemanager($inputs[0]);
 
-        // print_r($result);
-        // die();
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
+    public function removehotel($id)
+    {
+
+        $user = new hotel();
+
+        $result = $user->removehotel($id);
 
         $_SESSION['c'] = $result;
         return $result;
     }
 
+    public function removehotelrequest($id)
+    {
 
-    public function removehotel($id)
-{
+        $user = new hotel();
 
-    $user = new hotel();
+        $result = $user->removehotelrequest($id);
 
-    $result = $user-> removehotel($id);
+        $_SESSION['c'] = $result;
+        return $result;
+    }
 
-    $_SESSION['c'] = $result;
-    return $result;
+    public function accepthotelrequest($id)
+    {
+
+        $user = new hotel();
+
+        $results = $user->accepthotelrequest($id);
+        // $_SESSION['c'] = $result;
+        //return $result;
+        foreach ($results as $result) {
+            $hemail = $result['email'];
+            require "../libs/PHPMailer/PHPMailerAutoload.php";
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+
+            // h-hotel account
+            $mail->Username = 'sewmi.rotaract3220@gmail.com';
+            $mail->Password = 'uaqgejykofzquoaf';
+
+            // send by h-hotel email
+            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Approve account');
+            // get email from input
+            $mail->addAddress($hemail);
+            //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
+            // HTML body
+            $mail->isHTML(true);
+            $mail->Subject = "Your account is approved";
+            $mail->Body = "<b>Dear User</b>
+                    <h3>Your account is approved</h3>";
+
+            if (!$mail->send()) {?>
+                <script>alert("<?php echo "Error sending email to " . $hemail ?>");
+            </script>
+<?php
+} else {
+                ?>
+<script>
+alert("<?php echo "Email sent to " . $hemail ?>");
+</script>
+<?php
+}}
+
+    }
+
+    public function viewdeletedmanagers()
+    {
+        $user = new hotel();
+
+        $result = $user->viewdeletedmanagers();
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
 }
-
-public function removehotelrequest($id)
-{
-
-    $user = new hotel();
-
-    $result = $user-> removehotelrequest($id);
-
-    $_SESSION['c'] = $result;
-    return $result;
-}
-
-public function accepthotelrequest($id)
-{
-
-    $user = new hotel();
-
-    $result = $user-> accepthotelrequest($id);
-
-    $_SESSION['c'] = $result;
-    return $result;
-}
-
-    
-public function viewdeletedmanagers()
-{
-    $user = new hotel();
-
-    $result = $user-> viewdeletedmanagers();
-    $_SESSION['c'] = $result;
-    return $result;
-}
-    
-}
-

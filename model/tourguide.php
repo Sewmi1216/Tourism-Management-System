@@ -54,7 +54,7 @@ class tourguide extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourguide where status = 1 ";
+        $query = "SELECT * FROM tourguide where status = 0 ";
         
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -88,7 +88,7 @@ class tourguide extends db_connection
         // print_r($id);
         // die();
 
-        $query = "UPDATE tourguide SET status = 2 where tourguideID= $id ";
+        $query = "UPDATE tourguide SET status = 1 where tourguideID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
