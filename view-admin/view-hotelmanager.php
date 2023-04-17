@@ -203,10 +203,11 @@ span.psw {
             <div id="result">
                 <table>
                     <tr class="subtext tblrw">
-                        <th class="tblh"> Manager Name</th>
-                        <th class="tblh">NIC</th>
-                        <th class="tblh">E-Mail Address</th>
-                        <th class="tblh">Phone Number</th>
+                       <th class="tblh">Hotel Name</th>
+                   <th class="tblh">Address</th>
+                    <th class="tblh">Email Address</th>
+                   <th class="tblh">Phone Number</th>
+                    <th class="tblh">Manager Name</th>
                         <th class="tblh">View</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
@@ -215,11 +216,11 @@ span.psw {
 foreach ($rows as $row) {  
 
 echo ' <tr class="subtext tblrw">
-                        
+                        <td class="tbld">'.$row['name'].'</td>
+                        <td class="tbld">'.$row['address'].'</td>
+                        <td class="tbld">'.$row['email'].'</td>
+                        <td class="tbld">'.$row['phone'].'</td>
                         <td class="tbld">'.$row['managerName'].'</td>
-                        <td class="tbld">'.$row['managerNic'].'</td>
-                        <td class="tbld">'.$row['managerEmail'].'</td>
-                        <td class="tbld">'.$row['managerPhone'].'</td>
                          <td class="tbld">   <a href="managerprofile.php?hotel_id='.$row['hotelID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                      <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       

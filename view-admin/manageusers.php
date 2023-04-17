@@ -167,7 +167,7 @@ modal.style.display = "block";
         <!-- ----------Manager Approval------------------ -->
          
           <div class="searchSec">
-                <div class="page-title"> MANAGER APPROVAL</div>
+                <div class="page-title"> HOTEL APPROVAL</div>
             </div>
 
             <!-- view all the verified managers in the system -->
@@ -177,10 +177,11 @@ modal.style.display = "block";
        
        <table>
            <tr class="subtext tblrw">
-                   <th class="tblh"> Manager Name</th>
-                   <th class="tblh">NIC</th>
-                   <th class="tblh">E-Mail Address</th>
+                   <th class="tblh">Hotel Name</th>
+                   <th class="tblh">Address</th>
+                    <th class="tblh">Email Address</th>
                    <th class="tblh">Phone Number</th>
+                    <th class="tblh">Manager Name</th>
                    <th class="tblh">View</th>
                    <th class="tblh">Approve</th>
                    <th class="tblh">Remove</th>
@@ -196,17 +197,19 @@ foreach ($results as $result) {
 
            <tr class="subtext tblrw">
                <td class="tbld">
+                   <?php echo $result["name"] ?>
+               </td>
+               <td class="tbld">
+               <?php echo $result["address"] ?>
+               </td>
+               <td class="tbld">
+               <?php echo $result["email"] ?>
+               </td>
+               <td class="tbld">
+               <?php echo $result["phone"] ?>
+               </td>
+                <td class="tbld">
                    <?php echo $result["managerName"] ?>
-               </td>
-               
-               <td class="tbld">
-               <?php echo $result["managerNic"] ?>
-               </td>
-               <td class="tbld">
-               <?php echo $result["managerEmail"] ?>
-               </td>
-               <td class="tbld">
-               <?php echo $result["managerPhone"] ?>
                </td>
                
                <td class="tbld">   <a href="Approvehotelmanager.php?hotel_id=<?php echo $result["hotelID"] ?>"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
