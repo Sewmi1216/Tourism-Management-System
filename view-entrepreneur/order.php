@@ -13,6 +13,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -53,7 +54,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     </tr><?php 
 require_once("../controller/orderController.php");
 $order = new orderController();
-$results= $order->viewAllOrders();
+$results= $order->viewAllOrders($id);
 foreach ($results as $result) {
         ?>
                    
@@ -63,7 +64,15 @@ foreach ($results as $result) {
     <th class="tbld"><?php echo $result["orderID"] ?></td>
     <th class="tbld"><?php echo $result["orderDateTime"] ?></td>
     <th class="tbld"><?php echo $result["totalAmount"] ?></td>
-    <th class="tbld"><?php echo $result["status"] ?></td>
+    <td class="tbld">
+                        <?php if ($result["status"] == "Completed") {?>
+                        <button class="status2"><?php echo $result["status"]; ?></button>
+                        <?php } else if($result["status"] == "Pending") {?>
+                        <button class="status1"><?php echo $result["status"]; ?></button>
+                        <?php } else{?>
+                        <button class="status3"><?php echo $result["status"]; ?></button>
+                        <?php }?>
+                    </td>
     <th class="tbld"><?php echo $result["touristID"] ?></td>
     <th class="tbld"><?php echo $result["cartID"] ?></td>
     <th class="tbld"><?php echo $result["productID"] ?></td>
@@ -77,7 +86,7 @@ foreach ($results as $result) {
         </div>
         </div>
         </div>
-        <!-- update product -->
+       
         <div id="id02" class="modal">
 
             <form class="modal-content animate" method="post" action="../api/productapi.php" enctype="multipart/form-data">
@@ -114,7 +123,7 @@ foreach ($results as $result) {
             
             <tr class="row">
                 <td>
-                    <div class="content">Price</div>
+                    <div class="content">Price :</div>
                 </td>
                 <td><input type="number" id="price" min="10" class="subfield" name="price" value=""></td>
                 
@@ -127,9 +136,6 @@ foreach ($results as $result) {
          
         </table>
        
-            <button type="submit" class="btns" value="update" style="margin-left:460px; margin-top:50px;" name="update">Update</button>
-        <button type="button" style="margin-left:20px;"
-                onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
         </form>
     </div>
 

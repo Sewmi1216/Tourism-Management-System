@@ -7,7 +7,6 @@ $res2 = $tourist->getallproducts();
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Craft List</title>
     <link rel="stylesheet" href="../css/craft_list.css">
@@ -18,25 +17,10 @@ $res2 = $tourist->getallproducts();
 </head>
 
 <body>
-    <div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="padding-left:10px;"></a>
-        <div style="padding-top:15px;" class="middle">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Log out</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About</a>
-            <a href="hotellist.php">Accommodation</a>
-            <a href="craftlist.php">Handicrafts</a>
-            <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="home2.php">Home</a>
-        </div>
-    </div>
+     <?php include "header.php"?>
     <section class="packages" id="packages" style="padding-top = 40px">
 
         <div class="box-container">
-
-
             <div class="box">
                 <img src="../images/h3.jpg" alt="">
                 <div class="content">

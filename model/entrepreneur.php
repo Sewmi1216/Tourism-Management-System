@@ -17,7 +17,7 @@ class entrepreneur extends db_connection
        
         return $stmt;
     }
-    public function insertentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+    public function insertentrepreneur($id,$businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
     {
         $query = "INSERT INTO entrepreneur (businessName, address, email, phone, profileImg, username, password, entrepreneurName, entrepreneurNic,  entrepreneurPhone, entrepreneurEmail, document, status) VALUES ('$businessName', '$address','$email','$phone', '$fileImg', '$username', '$password', '$eName', '$eNic','$ePhone', '$eEmail',  '$fileDoc', 0)";
         $stmt = $this->conn->prepare($query);
@@ -25,7 +25,7 @@ class entrepreneur extends db_connection
        return $stmt;
     }
 
-    public function viewAll()
+    public function viewAll($id)
     {
     
         $query = "Select * from entrepreneur " ;
@@ -36,7 +36,7 @@ class entrepreneur extends db_connection
     private function getData($query) {
 		$result = mysqli_query($this->conn, $query);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: '. mysqli_error($this->conn));
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result)) {
@@ -45,23 +45,34 @@ class entrepreneur extends db_connection
 		return $data;
 	}
 
-
-
-public function updateentrepreneur($businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc){
-    $query = "UPDATE entrepreneur SET businessName='$businessName', address='$address', email='$email', phone='$phone', profileImg='$fileImg' , username='$username', password='$password', entrepreneurName='$eName', entrepreneurNic='$eNic' ,entrepreneurPhone='$ePhone' ,entrepreneurEmail='$eEmail', document='$fileDoc'WHERE entID='id'";
-    $stmt = mysqli_query($this->conn, $query);
-    return $stmt;
-    
-}
-
-
-    public function viewAllentrepreneur()
+    public function viewProfile($id)
     {
-        $query = "SELECT * from entrpreneur";
+        
+        $query = "Select * from entrepreneur where entID = '$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
+    }
+    public function updateprofile($id, $businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+    {
+        $query = "update entrepreneur set businessName='$businessName', address='$address', email='$email', phone='$phone',username='$username', password='$password',entrepreneurName='$eName', entrepreneurPhone='$ePhone', entrepreneurEmail='$eEmail', entrepreneurNic='$eNic' where entID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+
+
+
+
 
     
+
+    public function viewentrepreneue($eId)
+    {
+    
+        $query = "Select * from entrepreur where entID = '$eId'";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+        
     }
 
     public function viewAllentrepreneurs(){
@@ -132,3 +143,5 @@ public function updateentrepreneur($businessName, $address, $email,$phone, $file
 }
 }   
 ?>
+
+   

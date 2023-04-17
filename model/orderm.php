@@ -10,12 +10,22 @@ class order  extends db_connection
         $this->conn = $this->connect();
     }
 
-   
-    public function viewAllOrders(){
-       $query = "Select * from craftorder";
-       return $this->getData($query);
-    }
+    public function vieworders($oId)
+    {
+    
+        $query = "Select * from order where orderID = '$oId'";
 
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+        
+    }
+    public function viewAllOrders($id)
+    {
+        
+        $query = "SELECT * FROM craftorder o, entrepreneur e where o.entID=e.entID and e.entID='$id'";
+        return $this->getData($query);
+
+    }
     private function getData($query) {
 		$result = mysqli_query($this->conn, $query);
 		if(!$result){
@@ -27,6 +37,16 @@ class order  extends db_connection
 		}
 		return $data;
 	}
+
+
+
+
+
+
+   
+    
+
+    
 }
 ?>
 

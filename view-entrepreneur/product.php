@@ -33,7 +33,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products.." title="Type in a productname">
                     
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <a href="product.php"><button type="submit" class="btns">View All</button></a>
                 <span style="margin-left: 8px;">
                     <a href="addcraft.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
@@ -46,13 +46,13 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 <table id="myTable">
                     <tr class="header">
                     
-                    <th class="tblh">Product ID</th>
-                        <th class="tblh">Product</th>
+                    
 
                          <th class="tblh">Product Name</th>
                         <th class="tblh">Category</th>
                         <th class="tblh">Available Quantity</th>
                         <th class="tblh">Price</th>
+                        <th class="tblh">Add Photos</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr><?php
@@ -63,14 +63,19 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         ?>
 
                     <tr class="header">
-                    <td class="tbld"><?php echo $result["productID"] ?></td>
-                    <td class="tbld"><?php echo "<img src='../images/" . $result['productImg'] . "' style=
+                    
+                    <!-- <td class="tbld"><?php echo "<img src='../images/" . $result['productImg'] . "' style=
                     'border-radius: 10%;width:70px;height: 70px;background-size: 100%;
-                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td>
+                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td> -->
                     <td class="tbld"><?php echo $result["productName"] ?></td>
                         <td class="tbld"><?php echo $result["category"] ?></td>
                         <td class="tbld"><?php echo $result["quantity"] ?></td>
                         <td class="tbld"><?php echo $result["price"] ?></td>
+                        <td class="tbld">
+                                <?php echo "<a href='addPhotos.php?id=$result[productID]'>"; ?>
+                                <i class="fa-solid fa-images"></i>
+                                <?php echo "</a>" ?>
+                            </td>
                         
                         <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['productID']; ?>"><i
                                     class="fa-solid fa-pen-to-square art"></i></a></td>
@@ -103,7 +108,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 </div>
                 <table>
                 <tr class="row">
-                    <input type="text" class="subfield" name="id" id="productid" value="" ?>
+                    <input type="hidden" class="subfield" name="id" id="productid" value="" ?>
                 </tr>
             <tr class="row">
                 <td>
@@ -162,7 +167,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         title="Close Modal">&times;</span>
                 </div>
 
-                    <input type="text" id="modalIdValue" class="subfield" name="id" value="<?php echo $productID ?>" />
+                    <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $productID ?>" />
                     <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to delete
                         this product?</p>
 
@@ -211,7 +216,7 @@ function myFunction() {
 
     function loadData(id) {
     	$.ajax({
-    	    url: "../api/product-.php",
+    	    url: "../api/productapi.php",
     	    method: "POST",
     	    data: {
                 get_data: 1, 

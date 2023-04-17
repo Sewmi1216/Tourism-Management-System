@@ -25,11 +25,12 @@ if (isset($_POST['signup'])) {
     //$id = 'T' . time();
     // $id ='T'. date('his');
 
-    $id = rand(time(), 100000000);
+    // $id = rand(time(), 100000000);
     $hotelconnection = new hotelController();
-    $hotelconnection->addHotel($id, $hotelName, $address, $email, $phone, $fileImgname, $username, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+   
     move_uploaded_file($ptempname, $pfolder);
-    move_uploaded_file($dtempname, $dfolder);
+    move_uploaded_file($dtempname, $pfolder);
 
 }
 
@@ -38,11 +39,19 @@ if (isset($_POST['recover'])) {
     $recover = new hotelController();
     $recover->recoverPwd($email);
 
-    echo "<script>
-                window.location.href = '../view-hotel/recoverPwd.php';
-        </script>";
+    // echo "<script>
+    //             window.location.href = '../view-hotel/recoverPwd.php';
+    //     </script>";
 
 }
+if (isset($_POST['reset'])) {
+    $password = $_POST['cpwd'];
+    $email = $_SESSION['email'];
+    $reset = new hotelController();
+    $reset->resetPwd($email,$password);
+
+}
+
 if (isset($_GET['update'])) {
     $id = $_GET['id'];
 

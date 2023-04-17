@@ -10,13 +10,39 @@ class product extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertproduct($eid,$pName, $pCategory,$avaquantity, $price,$fileImg)
+    public function insertproduct($pName, $pCategory,$avaquantity, $price)
     {
-        $query = "INSERT INTO product (entID,productName, category, quantity,price, productImg) VALUES ('$eid','$pName', '$pCategory','$avaquantity', '$price','$fileImg')";
+        $query = "INSERT INTO product (productName,category,quantity,price,entID) VALUES ('$pName', '$pCategory','$avaquantity','$price','$id')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
+        return $stmt;
+    }
+    public function addproductImg($productid, $file)
+    {
+        require_once "../view-entrepreneur/addPhotos.php";
+
+        // $sql= "INSERT INTO roomtype_img(roomTypeId, image) VALUES (?, ?)";
+        $sql = "INSERT INTO product_img(productId, image) VALUES ('$productid', '$file')";
+        $stmt = $this->conn->prepare($sql);
+        // $stmt->bind_param("ib", $typeid, $file);
+
+        $stmt->execute();
+        return $stmt;
+    }
+    public function viewAllImgs($getid)
+    {
+        $query = "Select * from product_img i, product p where i.productID=p.productID and i.productID='$getid'";
+        // $query = "Select * from roomtype_img";
+
+        return $this->getData($query);
+
+    }
+    public function deleteImg($id)
+    {
+        $query = "delete from product_img where id='$id'";
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
 
@@ -48,18 +74,6 @@ class product extends db_connection
 		return $data;
 	}
 
-    // private function getData($query) {
-    //     $result = mysqli_query($this->conn, $query);
-    //     if(!$result){
-    //         die('Error in query: '. mysqli_error($this->conn));
-    //     }
-    //     $data= array();
-    //     while ($row = mysqli_fetch_array($result)) {
-    //         $data[]=$row;            
-    //     }
-    //     return $data;
-    // }
-    
 
 
 public function deleteproduct($id){
@@ -68,8 +82,8 @@ public function deleteproduct($id){
     return $stmt;
 }
 
-public function updateproduct($id, $pName, $pCategory,$avaquantity, $price,$fileImg){
-    $query = "UPDATE product SET productName='$pName', category='$pCategory', quantity='$avaquantity', price='$price', productImg='$fileImg' WHERE productID='$id'";
+public function updateproduct($id, $pName, $pCategory,$avaquantity, $price){
+    $query = "UPDATE product SET productName='$pName', category='$pCategory', quantity='$avaquantity', price='$price' WHERE productID='$id'";
     $stmt = mysqli_query($this->conn, $query);
     return $stmt;
 }

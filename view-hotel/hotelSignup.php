@@ -1,7 +1,10 @@
+<?php session_start();
+include_once '../api/addhotel.php';?>
 <!DOCTYPE html>
 
 <head>
     <title>Pack2Paradise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
 </head>
 
@@ -12,15 +15,66 @@
         <!-- <div style="font-size: 25px;line-height: 40px;color: rgba(37, 53, 81, 1);margin-top:10px;">Pack2Paradise</div> -->
         <div class="header-right">
             <a href="../view-hotel/home.php">HOME</a>
-            <a href="hotelLogin.php" style="margin-left:60px;">LOGIN</a>
+            <a href="login.php" style="margin-left:60px;">LOGIN</a>
         </div>
     </header>
     <div class="registerForm">
-        <form method="post" action="../api/addhotel.php" enctype="multipart/form-data">
+        <form method="post" action="" enctype="multipart/form-data">
             <div class="heading" style="margin-top:0px;">Hotel Registration</div>
             <hr>
             <div class="subheading" style="margin-top:15px;">Hotel Name*</div>
             <input type="text" class="field" style=";margin-top:12px;" name="hotelName" />
+            <!--
+            <div class="subheading" style="margin-top:15px;">Hotel Details</div> -->
+
+            <table>
+                <tr>
+                    <td>
+                        <div class="content">Address</div>
+                        <input type="text" class="subfield" name="address" />
+                    </td>
+                    <td>
+                        <div class="content">Contact Number</div>
+                        <input type="text" class="subfield" name="phone" pattern="[0-9]{10}" required />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">Business Certificate</div>
+                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
+                    </td>
+                    <td>
+                        <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
+                            class="subfield" name="proImg" />
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <div class="content">Email address</div>
+                        <input type="text" class="subfield" name="email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+                    </td>
+                    
+                    <td>
+                        <div class="content">Password</div>
+                        <input type="password" class="subfield" name="password" id="password" required />
+                        <!-- <input type="password" class="subfield" name="password" id="password"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required /> -->
+                        <div id="msg" style="color:red;"></div>
+                    </td>
+                </tr>
+            </table>
+                <?php
+if (!isset($_SESSION["error"])) {
+    $_SESSION["error"] = null;
+} else {
+    echo "<p class='text' style='color:red;margin-left:3px;padding:13px;'>";
+    echo $_SESSION["error"];
+    echo "</p>";
+    unset($_SESSION["error"]);
+}?>
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
@@ -31,13 +85,15 @@
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" required /> </td>
+                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" required />
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Email Address</div>
                         <input type="text" class="subfield" name="mEmail"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+
                     </td>
                     <td>
                         <div class="content">NIC</div>
@@ -45,54 +101,26 @@
                             required />
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>
                         <div class="content">Username</div>
-                        <input type="text" class="subfield" name="username" required />
+                        <span id="check-username"></span></br>
+                        <input type="text" class="subfield" name="username" id="username" oninput="checkUsername()"
+                            required />
                     </td>
                     <td>
                         <div class="content">Password</div>
-                        <input type="password" class="subfield" name="password" id="password" required />
-                            <!-- <input type="password" class="subfield" name="password" id="password"
+                        <input type="password" class="subfield" name="password" id="password" required /> -->
+                <!-- <input type="password" class="subfield" name="password" id="password"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required /> -->
-                        <div id="msg" style="color:red;"></div>
+                <!-- <div id="msg" style="color:red;"></div>
                     </td>
-                </tr>
+                </tr> -->
 
             </table>
-            <div class="subheading" style="margin-top:15px;">Hotel Details</div>
 
-            <table>
-                <tr>
-                    <td>
-                        <div class="content">Address</div>
-                        <input type="text" class="subfield" name="address" />
-                    </td>
-                    <td>
-                        <div class="content">Email address</div>
-                        <input type="text" class="subfield" name="email"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="phone" pattern="[0-9]{10}" required />
-                    </td>
-                    <td>
-                        <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
-                            class="subfield" name="proImg" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="content">Business Certificate</div>
-                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
-                    </td>
-                </tr>
-            </table>
-            <input type="submit" class="btnRegister" value="Sign Up" name="signup" />
-            <p style="margin-top:-32px;text-align:center;">Already have an account <a href="hotelLogin.php"
+            <input type="submit" class="btnRegister" id="signup" value="Sign Up" name="signup" />
+            <p style="margin-top:-32px;text-align:center;">Already have an account <a href="login.php"
                     style="text-decoration:none;color: #004581;" class="text">Login</a></p>
         </form>
 
@@ -100,6 +128,18 @@
     </div>
 
     <script>
+    function checkUsername() {
+        $.ajax({
+            url: "../api/check.php",
+            method: "POST",
+            data: 'username=' + $("username").val(),
+            success: function(data) {
+                console.log(data);
+                $("#check-username").html(data);
+            }
+        });
+
+    }
     var nic = document.getElementById("nic");
 
     nic.addEventListener('input', () => {

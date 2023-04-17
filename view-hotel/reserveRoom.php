@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     $id = $_SESSION["hotelID"];
 } else {
-    header("location:hotelLogin.php");
+    header("location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -92,8 +92,7 @@ foreach ($results as $result) {
                     <thead>
                         <tr class="subtext tblrw">
                             <th class="tblh">Room No</th>
-                            <th class="tblh">Package Name</th>
-                            <th class="tblh">Room Type</th>
+                            <th class="tblh">Room type</th>
                             <th class="tblh">From</th>
                             <th class="tblh">To</th>
                             <th class="tblh">select</th>
@@ -108,8 +107,7 @@ foreach ($results2 as $result) {
     ?>
                         <tr class="subtext tblrw">
                             <td class="tbld" id="D1"> <?php echo $result["roomNo"] ?></td>
-                            <td class="tbld">Family</td>
-                            <td class="tbld">Suit</td>
+                            <td class="tbld">Sea view</td>
                             <td class="tbld">2023/02/14</td>
                             <td class="tbld">2023/02/16</td>
                             <td class="tbld"><span class="spnSelected" onclick="selecter(<?php echo $result['roomNo']; ?>)">Select</span></td>
@@ -129,11 +127,11 @@ foreach ($results2 as $result) {
             <table>
                 <tr>
                     <td>
-                        <div class="content">Room ID</div>
+                        <div class="content">Reservation ID</div>
                         <input type="text" class="subfield" name="mName" id="r1" required />
                     </td>
                     <td>
-                        <div class="content">Reservation ID</div>
+                        <div class="content">Room ID</div>
                         <input type="text" class="subfield" name="mPhone" id="d1" required />
                     </td>
                 </tr>
