@@ -173,10 +173,7 @@ foreach ($results as $result) {
 
 
 
-
-
         <!-- ----------HotelApproval------------------ -->
-
         <div class="searchSec">
             <div class="page-title"> HOTEL APPROVAL</div>
             <!-- view all the verified hotels in the system -->
@@ -200,13 +197,16 @@ foreach ($results as $result) {
                     <th class="tblh">Remove</th>
                 </tr>
 
-                <?php 
+              
+           <?php 
+
 require_once("../controller/hotelController.php");
 $penmanager= new hotelController();
 $results= $penmanager->viewAllpendingmanagers();
 foreach ($results as $result) {
 
         ?>
+
 
                 <tr class="subtext tblrw">
                     <td class="tbld">
