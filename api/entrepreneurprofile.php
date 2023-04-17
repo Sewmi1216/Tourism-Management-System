@@ -15,4 +15,12 @@ $inputs = array($id);
 
 $entrepreneurcon = new entrepreneurController();
 $entrepreneurcon-> viewoneentrepreneur($inputs);
+
+
+// if (isset($_POST['delete'])) 
+// {
+//     $inputs = $_POST['id'];
+//     $rem_entrepreneur = new entrepreneurController();
+//     $rem_entrepreneur ->removeentrepreneur($inputs);
+// }
 ?>

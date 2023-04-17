@@ -92,8 +92,7 @@ foreach ($results as $result) {
                                     onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
                                     data-id="<?php echo $result['roomTypeId']; ?>"><i
                                         class="fa-solid fa-pen-to-square art"></i></a></td>
-                            <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i
-                                        class="fa-solid fa-trash art"></i></a></td>
+                            <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i class="fa-solid fa-trash art"></i></a></td>
 
                             <?php } ?>
                         </tr>

@@ -16,6 +16,7 @@ $rows = $_SESSION['c'];
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -199,7 +200,7 @@ span.psw {
 
 
             <div id="result">
-                <table>
+            <table>
                     <tr class="subtext tblrw">
                         <th class="tblh"> Entrepreneur Name</th>
                         <th class="tblh">NIC</th>
@@ -223,153 +224,70 @@ echo ' <tr class="subtext tblrw">
                         <td class="tbld">'.$row['entrepreneurEmail'].'</td>
                         <td class="tbld">'.$row['entrepreneurPhone'].'</td>
                         <td class="tbld">   <a href="entrepreneurprofile2.php?entrepreneur_id='.$row['entID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                     <td class="tbld">  <a href="editmanager.php?"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                     <td class="tbld">  <a href="editentrepreneur.php?entrepreneur_id='.$row['entID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-        </tr> ';
-                             }
-?>  
-                </table>
+                     <td class="tbld"><a onclick="openModal('.$row['entID'].')"><i class="fa-solid fa-trash art"></i></a></td>
+        </tr>
+        '; }  ?>  
+         
+            </table>
             </div>
 
-            <!-- <div id="results">
-                <table>
-                    <tr class="subtext tblrw">
-                        <th class="tblh">Hotel Package</th>
-                        <th class="tblh">Hotel Package Name</th>
-                        <th class="tblh">Room Type</th>
-                        <th class="tblh">Status</th>
-                        <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
-                        <th class="tblh">Delete</th>
-                    </tr>
-                    <tr class="subtext tblrw">
-                        
-                        <td class="tbld"><?php echo $row["packageName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if ($row["status"] == 0) {
-                                    echo "Unavailable";
-                                } else {
-                                    echo "Available";
-                                }
-                                ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-                
-                </table>
-            </div>
-         -->
+           
 
         </div>
         </div>
 
 
 
+                      <div id="id04" class="modal">
+
+                      <form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"
+                          enctype="multipart/form-data">
+                          <div class="imgcontainer" style="background-color:#004581;">
+                              <button type="button" onclick="document.getElementById('id04').style.display='none'"
+                                  class="cancelbtn close">&times;</button>
+                                  <label for="room" style="color:white"><b>Remove Entrepreneur</b></label>
+                          </div>
+
+                          <div class="container">
+
+                              <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $entID ;?>" />
+
+
+                              <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the entrepreneur ?</p>
+
+                              <div class="container" style="padding:10px;">
+                                  <button type="button" onclick="document.getElementById('id04').style.display='none'" class="btns"
+                                      style="">No</button>
+                                  <button type="submit" class="cancelbtn" value="Save" name="delete" style="margin-left:75px;">Yes</button>
+                              </div>
+                          </div>
+
+
+                      </form>
+                      </div>
+
+
+
+
+<script>
+  function openModal(id) {
+        var modal = document.getElementById("id04");
+        var modalIdValue = document.getElementById("modalIdValue");
+        modalIdValue.value = id;
+        modal.style.display = "block";
+    }
+</script>
 
 
 
 
 
-
-
-
-
-
-
-        <div id="id01" class="modal">
-
-            <form class="modal-content animate" action="../api/addroomapi.php" method="post">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Room</b></label>
-                </div>
-
-                <div class="container">
-                    <table>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Tourist Guide Name</div>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Tourist Guide User Name</div>
-                            </td>
-                            <td><input type="text" class="subfield" placeholder="Enter Tourist Guide Name" name="guidename" required>
-                             
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content"> NIC</div>
-                            </td>
-                            <td>  <input type="text" class="subfield" placeholder="Enter Tourist Guide ID" name="nic" required>
-                
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">E-Mail Address</div>
-                            </td>
-                            <td> <input type="text" class="subfield" placeholder="Tourist guide's email address" name="guideemail" required>
-                            </td>
-                        </tr>
-
-                        <tr class="row">
-                            <td>
-                                <div class="content">Address</div>
-                            </td>
-                            <td> <input type="text"  class="subfield" placeholder="Tourist guide's physical address" name="guideaddress" required>
-                            </td>
-                        </tr> 
-                        
-                        </tr>   
-                        <tr class="row">
-                            <td>
-                                <div class="content">Phone Number</div>
-                            </td>
-                            <td>           <input type="text"  class="subfield"  placeholder="Contact number" name="guidephone" required>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Password</div>
-                            </td>
-                            <td> <input type="password"  class="subfield"  placeholder="Enter the password" name="guidepassword" required>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Re-Enter Password</div>
-                            </td>
-                            <td> <input type="password" class="subfield" placeholder="Re-enter the password" name="guidepassword2" required>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Status</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="status" required />
-    
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn">Cancel</button>
-                        <input type="submit" class="btn1" value="Save" name="save"/>
-                </div>
-            </form>
+        
+          
         </div>
-    </section>
+</section>
 
 </body>
 
