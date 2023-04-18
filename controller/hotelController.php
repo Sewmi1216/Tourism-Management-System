@@ -400,7 +400,6 @@ window.location.href = '../view-hotel/recoverPwd.php';
             $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Approve account');
             // get email from input
             $mail->addAddress($hemail);
-            //$mail->addReplyTo('lamkaizhe16@gmail.com');
 
             // HTML body
             $mail->isHTML(true);
@@ -429,6 +428,16 @@ alert("<?php echo "Email sent to " . $hemail ?>");
         $result = $user->viewdeletedmanagers();
         $_SESSION['c'] = $result;
         return $result;
+    }
+    public function updateStatus($reservationid, $newStatus)
+    {
+        $user = new hotel();
+
+        $result = $user->updateStatus($reservationid, $newStatus);
+        if($result){
+            echo "<script>alert('status update is sucessful');
+              </script>";
+        }
     }
 
 }

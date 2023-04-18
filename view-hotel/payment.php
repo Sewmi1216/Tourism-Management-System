@@ -30,25 +30,26 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
             <div class="searchSec">
                 <div class="page-title">Payments</div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for rooms" name="search">
+                    <input class="input-field" type="text" placeholder="Search for rooms" name="search" id="searcher"
+                        onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
-                <span style="margin-left: 8px;">
+                <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
+                <!-- <span style="margin-left: 8px;">
                     <a href="addCashPayment.php"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
-                </span>
+                </span> -->
             </div>
 
         </div>
         <div class="bg">
-            <table>
+            <table id="tbl">
                 <tr class="subtext tblrw">
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
                     <th class="tblh">Reservation ID</th>
-                    <th class="tblh">Guest Name</th>
+                    <!-- <th class="tblh">Guest Name</th> -->
                     <th class="tblh">Guest Phone number</th>
                     <th class="tblh">Type</th>
                     <th class="tblh">Total amount</th>
@@ -67,17 +68,17 @@ foreach ($results as $result) {
                         <td class="tbld"><?php echo $result["paymentID"] ?></td>
                         <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
                         <td class="tbld"><?php echo $result["reservationID"] ?></td>
-                        <td class="tbld"><?php echo $result["guestName"] ?></td>
+                        <!-- <td class="tbld"><?php echo $result["guestName"] ?></td> -->
                         <td class="tbld"><?php echo $result["guestPhone"] ?></td>
                         <td class="tbld"><?php echo $result["type"] ?></td>
                         <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
                         <td class="tbld">
-                                <?php if ($result["typestatus"] == "Completed") {?>
-                                <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
-                                <?php } else {?>
-                                <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
-                                <?php }?>
-                            </td>
+                            <?php if ($result["typestatus"] == "Completed") {?>
+                            <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
+                            <?php } else {?>
+                            <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
+                            <?php }?>
+                        </td>
 
 
                         <?php }
@@ -158,7 +159,27 @@ foreach ($results as $result) {
 
 
     </section>
-
+    <script>
+    function searchRes() {
+        console.log(print);
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searcher");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tbl");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    </script>
 </body>
 
 </html>

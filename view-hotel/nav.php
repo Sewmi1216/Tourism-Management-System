@@ -32,13 +32,13 @@
               </a>
               <span class="desc">Reservations</span>
           </li>
-          <li>
+          <!-- <li>
               <a href="reserveRoom.php">
                   <i class="fa-sharp fa-solid fa-address-book"></i>
                   <span class="link">Reserve room</span>
               </a>
               <span class="desc">Reserve room</span>
-          </li>
+          </li> -->
           <li>
               <a href="payment.php">
                   <i class="fa-solid fa-receipt"></i>
