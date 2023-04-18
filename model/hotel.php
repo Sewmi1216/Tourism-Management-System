@@ -149,14 +149,19 @@ class hotel extends db_connection
     }
     public function canceledReservations()
     {
-        $query1 = "SELECT count(*) FROM guest_reservation where status = 'Cancelled'";
-        $query2 = "SELECT count(*) FROM admin_reservation where status = 'Cancelled'";
-        // $query = "SELECT count(*) from guest_reservation";
-        $stmt1 = mysqli_query($this->conn, $query1);
-        $stmt2 = mysqli_query($this->conn, $query2);
-        $rowcount1 = mysqli_num_rows($stmt1);
-        $rowcount2 = mysqli_num_rows($stmt2);
-        return $rowcount1 + $rowcount2;
+        $query1 = "SELECT COUNT(*) as num_reservations FROM guest_reservation WHERE status ='Cancelled' and DATE(bookingDateTime) = CURDATE();";
+        return $this->getData($query1);
+
+    }
+    public function todayRevenue()
+    {
+        $query1 = "SELECT SUM(amount) as today_revenue FROM hotel_payment WHERE DATE(paymentDateTime) = CURDATE() AND paymentStatus = 'Completed';";
+        return $this->getData($query1);
+    }
+     public function pendingPayments()
+    {
+        $query1 = "SELECT COUNT(*) as pending_payments FROM hotel_payment WHERE DATE(paymentDateTime) = CURDATE() AND paymentStatus = 'Pending';";
+        return $this->getData($query1);
     }
 
     public function viewhotelPayments($id)
@@ -281,11 +286,10 @@ class hotel extends db_connection
     {
         $query = "UPDATE guest_reservation SET status='$newStatus' WHERE reservationID='$reservationid'";
         $stmt = mysqli_query($this->conn, $query);
-        if($stmt){
-        return $stmt;
-        }
-        else{
-           die('Error in query1: ' . mysqli_error($this->conn));
+        if ($stmt) {
+            return $stmt;
+        } else {
+            die('Error in query1: ' . mysqli_error($this->conn));
         }
     }
 }

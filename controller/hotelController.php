@@ -297,6 +297,18 @@ window.location.href = '../view-hotel/recoverPwd.php';
         $res2 = $hoteluser2->canceledReservations();
         return $res2;
     }
+     public function todayRevenue()
+    {
+        $hoteluser3= new hotel();
+        $res3 = $hoteluser3->todayRevenue();
+        return $res3;
+    }
+     public function pendingPayments()
+    {
+        $hoteluser3= new hotel();
+        $res3 = $hoteluser3->pendingPayments();
+        return $res3;
+    }
 
     public function viewhotelPayments($id)
     {
