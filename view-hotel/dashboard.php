@@ -34,8 +34,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                 <div style="margin-top:60px;font-size:40px;"><?php
 require_once "../controller/hotelController.php";
 $res1 = new hotelController();
-$results1 = $res1->countReservations();
-echo $results1;
+$results = $res1->countReservations();
+foreach($results as $result){
+echo $result['num_reservations'];}
 ?>
                 </div>
             </span>

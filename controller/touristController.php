@@ -202,4 +202,11 @@ class touristController extends db_connection
         return $rs;
 
     }
+    public function viewReservation($id)
+    {
+        $res = new tourist();
+        $rs = $res->viewReservation($id);
+        return $rs;
+
+    }
 }

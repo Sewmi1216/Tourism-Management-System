@@ -131,7 +131,7 @@ class tourist extends db_connection
         $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
         $stmt = mysqli_query($this->conn, $query);
         $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
-            return $results;
+        return $results;
 
     }
     public function availability($checkin, $checkout, $room)
@@ -151,19 +151,26 @@ class tourist extends db_connection
                     )
                     AND roomID ='$room'";
         $stmt = mysqli_query($this->conn, $query);
-       $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
 
-            return $results;
-        
+        return $results;
+
     }
 
     public function insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Confirmed', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
         $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        if ($stmt) {
+            $reslId = mysqli_insert_id($this->conn); // get the reservation ID
+            $query1 = "INSERT INTO hotel_payment (type, amount, paymentStatus, reservationID) VALUES ('Card',  '$total_amount', 'Completed','$reslId')";
+            $stmt = mysqli_query($this->conn, $query1);
+            return $stmt;
+
+        }
+
     }
-     public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+    public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Pending', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
         $stmt = mysqli_query($this->conn, $query);
@@ -176,6 +183,13 @@ class tourist extends db_connection
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from tourist where userID = '$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+     public function viewReservation($id)
+    {
+        //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from guest_reservation where reservationID = '$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
