@@ -161,9 +161,6 @@ class tourist extends db_connection
     {
         $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Confirmed', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
         $stmt = mysqli_query($this->conn, $query);
-        // $stmt = $this->conn->prepare($query);
-        // $stmt->bind_param("ssssissiii",);
-        // $stmt->execute();
         return $stmt;
     }
      public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
