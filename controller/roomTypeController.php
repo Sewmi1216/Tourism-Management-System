@@ -63,7 +63,6 @@ class roomTypeController extends db_connection
         $hotelPkg = new roomType();
 
         $results = $hotelPkg->viewType($pId);
-
         return $results;
 
     }

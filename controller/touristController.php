@@ -148,12 +148,18 @@ class touristController extends db_connection
 
 }
 
-    public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
+    public function insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
-        $res = $reservation->insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId);
+        $res = $reservation->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
         return $res;
 
+    }
+    public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+    {
+        $reservation = new tourist();
+        $res = $reservation->insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
+        return $res;
     }
      public function viewProfile($id)
     {
