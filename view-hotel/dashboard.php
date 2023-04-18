@@ -45,16 +45,31 @@ echo $result['num_reservations'];}
                 <div style="margin-top:60px;font-size:40px;"><?php
 $res2 = new hotelController();
 $results2 = $res2->canceledReservations();
-echo $results2;
-?></div>
+foreach ($results2 as $r) {
+    echo $r['num_reservations'];}?>
+                </div>
             </span>
             <span class="b">
-                Reserved Rooms
-                <div style="margin-top:60px;font-size:40px;">4</div>
+                Today's Pending Payments
+                <div style="margin-top:60px;font-size:40px;">
+                    <?php  $res2 = new hotelController();
+$results2 = $res2->pendingPayments();
+foreach ($results2 as $r) {
+    echo $r['pending_payments'];}
+?>
+                </div>
             </span>
             <span class="b">
                 Today's Revenue
-                <div style="margin-top:60px;font-size:40px;">$250</div>
+                <div style="margin-top:60px;font-size:40px;">
+                    <?php
+            $res2 = new hotelController();
+$results2 = $res2->todayRevenue();
+foreach ($results2 as $r) {
+    echo '$'. $r['today_revenue'];}
+ ?>
+                </div>
+
             </span>
         </div>
 

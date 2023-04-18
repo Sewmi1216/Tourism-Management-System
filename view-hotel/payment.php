@@ -35,6 +35,10 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
+                <form method="post" action="../api/reserve.php">
+                    <button type="submit" name="create_ppdf" class="btns"
+                        style="margin-left:1rem;background-color:red;">Download pdf</button>
+                </form>
                 <!-- <span style="margin-left: 8px;">
                     <a href="addCashPayment.php"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
