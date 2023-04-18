@@ -1,10 +1,11 @@
 <?php 
 session_start();
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     $id = $_SESSION["userID"];
 } else {
-    header("location:../view-hotel/hotelLogin.php");
+    header("location:../view-hotel/login.php");
 }
+
 
 include '../model/tourist.php';
 $tourist = new tourist();

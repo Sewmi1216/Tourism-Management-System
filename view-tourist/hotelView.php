@@ -6,7 +6,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     header("location:../view-hotel/login.php");
 }
 
-if (isset($_GET['id'])) {$id = $_GET['id'];
+if (isset($_GET['hid'])) {$hid = $_GET['hid'];
 }
 
 ?>
@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {$id = $_GET['id'];
             <?php
 require_once "../controller/touristController.php";
 $hotel = new touristController();
-$results = $hotel->viewHotel($id);
+$results = $hotel->viewHotel($hid);
 foreach ($results as $result) {
     ?>
             <div class="box">
@@ -96,7 +96,7 @@ foreach ($results as $result) {
                         </th>
                     </tr>
                     <tr>
-                        <input type="hidden" value="<?php echo $id ?>" name="hotel">
+                        <input type="hidden" value="<?php echo $hid ?>" name="hotel">
                         <td>
                             <div class="input-container" style="margin-left: 1rem;">
                                 <input class="input-field" type="date" id="checkin" placeholder="check-In"
@@ -116,7 +116,7 @@ foreach ($results as $result) {
                                     <?php
 require_once "../controller/roomTypeController.php";
 $pkg = new roomTypeController();
-$results = $pkg->viewPersons($id);
+$results = $pkg->viewPersons($hid);
 foreach ($results as $result) {
     ?>
                                     <option value="<?php echo $result["NumberPerson"];
@@ -137,7 +137,7 @@ foreach ($results as $result) {
                                     <?php
 require_once "../controller/roomTypeController.php";
 $pkg = new roomTypeController();
-$results = $pkg->viewAllTypes($id);
+$results = $pkg->viewAllTypes($hid);
 foreach ($results as $result) {
     ?>
                                     <option value="<?php echo $result["typeName"];
@@ -168,14 +168,19 @@ foreach ($results as $result) {
 
         <?php
 if (isset($_POST['search'])) {
-    $id = $_POST['hotel'];
+    $hid = $_POST['hotel'];
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
     $person = $_POST['person'];
     $room = $_POST['room'];
+    // $date1 = new DateTime($checkin);
+    // $date2 = new DateTime($checkout);
+    // $diff = $date1->diff($date2);
+   // echo $interval->format('%a');
+
 
     $search = new touristController();
-    $rs = $search->searchRoom($id, $person, $room);
+    $rs = $search->searchRoom($hid, $person, $room);
         foreach ($rs as $result) { 
            // echo $result['roomNo'];
             $av = new touristController();
@@ -193,13 +198,13 @@ if (isset($_POST['search'])) {
                         $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Book!</strong></div>';
                     }else{
                 $btn =  '<div style="display: flex; justify-content: center;">
-                    <a href="reserve.php?typeid=<?php echo $result[roomTypeId];?>&hotelID=<?php echo $result[hotelID];?>&price=<?php echo $result[price];?>"
+                  <a href="reserve.php?hid=' . $hid .'&roomno=' . $result['roomNo'] .'&typeID=' .$result['typeID'].'&price='.$result['price'].'&checkin=' .$checkin.'&checkout='.$checkout.'"
         class="btn" target="_blank">Reserve</a>
         </div>';}
         }}else{
         $btn = '<div style="display: flex; justify-content: center;">
-            <a href="reserve.php?typeid=<?php echo $result[roomTypeId];?>&hotelID=<?php echo $result[hotelID];?>&price=<?php echo $result[price];?>"
-                class="btn" target="_blank">Reserve</a>
+             <a href="reserve.php?hid=' . $hid .'&roomno=' . $result['roomNo'] .'&typeID=' .$result['typeID'].'&price='.$result['price'].'&checkin=' .$checkin.'&checkout='.$checkout.'"
+        class="btn" target="_blank">Reserve</a>
         </div>';
 
         }
@@ -223,6 +228,8 @@ $outputs = $tp->viewAllImgs($result['typeID']);
                 </div>
 
                 <div class="content-container">
+                    <input type="text" value="<?php echo $result['typeID'] ?>" name="type">
+                    <input type="text" value="<?php echo $result['roomNo'] ?>" name="room">
                     <h3 style="display: inline;"><?php echo $result['typeName'];?></h3>
                     <br>
                     <h2><?php echo $result['description'];?></h2>

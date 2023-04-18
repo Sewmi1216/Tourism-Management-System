@@ -157,9 +157,18 @@ class tourist extends db_connection
         
     }
 
-    public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
+    public function insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
-        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, total_amount, checkInDate, checkOutDate,touristID, typeID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$typeID', '$hotelId')";
+        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Confirmed', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
+        $stmt = mysqli_query($this->conn, $query);
+        // $stmt = $this->conn->prepare($query);
+        // $stmt->bind_param("ssssissiii",);
+        // $stmt->execute();
+        return $stmt;
+    }
+     public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+    {
+        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Pending', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
         $stmt = mysqli_query($this->conn, $query);
         // $stmt = $this->conn->prepare($query);
         // $stmt->bind_param("ssssissiii",);

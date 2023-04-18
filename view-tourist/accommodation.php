@@ -58,7 +58,7 @@ $results = $hotel->viewAllHotels();
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <a href="hotelView.php?id=<?php echo $result['hotelID']; ?>" class="btn">Select</a>
+                    <a href="hotelView.php?hid=<?php echo $result['hotelID']; ?>" class="btn">Select</a>
                 </div>
             </div>
             <?php }?>

@@ -183,10 +183,24 @@ section#contact {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   border: 0.1rem sold rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
-  /* text-align: center; */
-  /* flex: 1 1 20rem; */
-  position: relative;
+  position: left;
   width: 60%;
+}
+ .res1 {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  float: left;
+  width: 58%;
+}
+ .res2 {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  float: right;
+  width: 30%;
 }
 .h3 .container .box {
   padding: 10px;
