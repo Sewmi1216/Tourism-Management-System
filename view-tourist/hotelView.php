@@ -173,14 +173,9 @@ if (isset($_POST['search'])) {
     $checkout = $_POST['checkout'];
     $person = $_POST['person'];
     $room = $_POST['room'];
-    // $date1 = new DateTime($checkin);
-    // $date2 = new DateTime($checkout);
-    // $diff = $date1->diff($date2);
-   // echo $interval->format('%a');
-
-
     $search = new touristController();
     $rs = $search->searchRoom($hid, $person, $room);
+    if($rs){
         foreach ($rs as $result) { 
            // echo $result['roomNo'];
             $av = new touristController();
@@ -228,8 +223,8 @@ $outputs = $tp->viewAllImgs($result['typeID']);
                 </div>
 
                 <div class="content-container">
-                    <input type="text" value="<?php echo $result['typeID'] ?>" name="type">
-                    <input type="text" value="<?php echo $result['roomNo'] ?>" name="room">
+                    <input type="hidden" value="<?php echo $result['typeID'] ?>" name="type">
+                    <input type="hidden" value="<?php echo $result['roomNo'] ?>" name="room">
                     <h3 style="display: inline;"><?php echo $result['typeName'];?></h3>
                     <br>
                     <h2><?php echo $result['description'];?></h2>
@@ -245,7 +240,12 @@ $outputs = $tp->viewAllImgs($result['typeID']);
         </div>
 
         <?php }
-    }?>
+    }
+    else{ ?>
+        <div class="content-container">
+                    No results
+                </div>
+ <?php   }}?>
 
 
 

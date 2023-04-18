@@ -41,7 +41,7 @@ $charge = \Stripe\Charge::create([
 //         </script>";
 // }
 $reserve = new touristController();
-$reserve->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
+$reserve->insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
 
 if ($charge) {
     echo "

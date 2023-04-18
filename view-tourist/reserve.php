@@ -69,7 +69,7 @@ $checkout = $_GET['checkout'];
                     <input type="text" class="subfield" id="totalamount" name="totalamount" value=" " readonly />
 
                     <!-- <input type="submit" value="Pay at Hotel" class="pay" style="margin-top:50px;"/> -->
-                    <div style="margin-top:20px;">
+                    <div style="margin-top:20px;margin-left:240px;">
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">
                         </script>
