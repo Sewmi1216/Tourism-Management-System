@@ -15,6 +15,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
@@ -85,12 +86,36 @@ foreach ($results2 as $r) {
                 <span class="c">
                     Room Booking Chart
                     <br>
-                    <img src="../images/hotel-pie.png" height="300px" width="400px" class="chartimg" />
+                    <!-- pie chart -->
+                    <?php
+$pie = new hotelController();
+$results= $pie->countRoomTypeReservations();
+foreach ($results as $data) {
+    $type[]=$data['room_type'];
+    $reservations[]=$data['num_reservations'];
+
+}
+?>
+                    <div class="piechart">
+                        <canvas id="piechart"></canvas>
+                    </div>
                 </span>
                 <span class="c">
                     Sales Revenue
                     <br>
-                    <img src="../images/hotel-bar.png" alt="" height="300px" width="450px" class="chartimg" />
+                    <!-- bar chart -->
+                    <?php
+$pie = new hotelController();
+$results= $pie->revenue();
+foreach ($results as $data) {
+    $month[]=$data['month'];
+    $revenue[]=$data['revenue'];
+
+}
+?>
+        <div class="barchart">
+            <canvas id="barchart"></canvas>
+        </div>
                 </span>
             </div>
 
@@ -100,7 +125,53 @@ foreach ($results2 as $r) {
     </section>
 
 
-    <script type="text/javascript">
+    <script>
+    const ctx = document.getElementById("piechart");
+    new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: <?php echo json_encode($type) ?>,
+            datasets: [{
+                label: "No of Reservations",
+                data: <?php echo json_encode($reservations) ?>,
+                backgroundColor: [
+                    "rgb(255, 99, 132)",
+                    "rgb(54, 162, 235)",
+                    "rgb(255, 205, 86)",
+                    "rgb(34, 100, 50)",
+                ],
+                hoverOffset: 4,
+            }, ],
+        },
+    });
+
+     const cht = document.getElementById("barchart");
+
+ new Chart(cht, {
+   type: "bar",
+   data: {
+     labels: <?php echo json_encode($month) ?>,
+
+     datasets: [
+       {
+         label: "# of Votes",
+         data: <?php echo json_encode($revenue) ?>,
+
+         borderWidth: 1,
+       },
+     ],
+   },
+   options: {
+     scales: {
+       y: {
+         beginAtZero: true,
+       },
+     },
+   },
+ });
+
+    </script>
+    <script>
     document.getElementById('create_pdf').onclick = function() {
         var element = document.getElementById('container');
         var opt = {
