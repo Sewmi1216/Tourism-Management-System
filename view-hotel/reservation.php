@@ -18,8 +18,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -99,9 +97,8 @@ foreach ($results as $result) {
                                         Cancelled</option>
                                 </select>
                             </td>
-
                             <td class="tbld"><a
-                                    onclick="document.getElementById('id08').style.display='block';loadData(this.getAttribute('data-id'));"
+                                    onclick="document.getElementById('id05').style.display='block';loadData(this.getAttribute('data-id'));"
                                     data-id="<?php echo $result['reservationID']; ?>"><i
                                         class="fa-solid fa-bars"></i></a>
                             </td>
@@ -114,13 +111,85 @@ foreach ($results as $result) {
             </div>
         </div>
 
+ <!-- view Reservation-->
+    <div id="id05" class="modal">
+
+        <form class="modal-content animate" method="post" action="../api/">
+            <div class="imgcontainer" style="background-color:#004581;">
+                <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                    class="cancelbtn close">&times;</button>
+                <label for="room" style="color:white"><b>View Reservation</b></label>
+            </div>
+            <hr>
+            <div class="container">
+                <table>
+                    <tr class="row">
+                        <td>
+                            <div class="content">Reservation Number</div>
+                        </td>
+                        <td><div id="resid"></div></td>
+                    </tr>
+
+                    <tr class="row">
+                        <td>
+                            <div class="content">Booking Date/ Time</div>
+                        </td>
+                        <td><div id="date"></div></td>
+                    </tr>
+                    <tr class="row">
+                        <td>
+                            <div class="content">Guest Name</div>
+                        </td>
+                        <td><div id="guestname"></div></td>
+                    </tr>
+                    <tr class="row">
+                        <td>
+                            <div class="content">Reservation Phone</div>
+                        </td>
+                        <td><div id="guestphone"></div></td>
+                    </tr>
+                    <tr class="row">
+                        <td>
+                            <div class="content">Guest Email Addres</div>
+                        </td>
+                        <td><div id="guestemail"></div></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                    class="cancelbtn">Ok</button>
+            </div>
+        </form>
+    </div>
 
     </section>
 
-    <!-- view Reservation-->
-
+   
 
     <script type="text/javascript">
+    function loadData(id) {
+        $.ajax({
+            url: "../api/reserve.php",
+            method: "POST",
+            data: {
+                get_data: 1,
+                id: id,
+            },
+            success: function(response) {
+                console.log(response);
+                var res = JSON.parse(response);
+                $("#resid").text(res.reservationID);
+                $("#date").text(res.bookingDateTime);
+                $("#guestname").text(res.guestName);
+                $("#guestphone").text(res.guestPhone);
+                $("#guestemail").text(res.guestEmail);
+
+            }
+        });
+    }
     document.getElementById('create_rpdf').onclick = function() {
         var element = document.getElementById('cont');
         var opt = {
@@ -184,23 +253,7 @@ foreach ($results as $result) {
         }
     }
 
-    function loadData(id) {
-        $.ajax({
-            url: "../api/reserve.php",
-            method: "POST",
-            data: {
-                get_data: 1,
-                id: id,
-            },
-            success: function(response) {
-                console.log(response);
-                var res = JSON.parse(response);
-                $("#resid").val(res.reservationID);
-
-
-            }
-        });
-    }
+   
     </script>
 </body>
 
