@@ -144,7 +144,7 @@ foreach ($results as $result) {
                     </tr>
                     <tr class="row">
                         <td>
-                            <div class="content">Reservation Phone</div>
+                            <div class="content">Guest Phone Number</div>
                         </td>
                         <td><div id="guestphone"></div></td>
                     </tr>
