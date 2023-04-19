@@ -153,6 +153,16 @@ class hotel extends db_connection
         return $this->getData($query1);
 
     }
+      public function countRoomTypeReservations()
+    {
+        $query1 = "SELECT rt.typeName as room_type, COUNT(*) as num_reservations FROM guest_reservation gr INNER JOIN room r ON gr.roomID = r.roomNo INNER JOIN roomtype rt ON r.typeID = rt.roomTypeId GROUP BY rt.typeName;";
+        return $this->getData($query1);
+    }
+    public function revenue()
+    {
+        $query1 = "SELECT YEAR(paymentDateTime) AS year, MONTHNAME(paymentDateTime) AS month, SUM(amount) AS revenue FROM hotel_payment GROUP BY YEAR(paymentDateTime), MONTH(paymentDateTime);";
+        return $this->getData($query1);
+    }
     public function todayRevenue()
     {
         $query1 = "SELECT SUM(amount) as today_revenue FROM hotel_payment WHERE DATE(paymentDateTime) = CURDATE() AND paymentStatus = 'Completed';";

@@ -281,7 +281,19 @@ window.location.href = '../view-hotel/recoverPwd.php';
         $res = $hoteluser->countReservations();
         return $res;
     }
+    public function countRoomTypeReservations()
+    {
+        $hoteluser = new hotel();
+        $res = $hoteluser->countRoomTypeReservations();
+        return $res;
+    }
 
+     public function revenue()
+    {
+        $hoteluser = new hotel();
+        $res = $hoteluser->revenue();
+        return $res;
+    }
     public function viewAllmanagers()
     {
         $user = new hotel();
