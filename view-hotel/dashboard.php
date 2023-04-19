@@ -101,7 +101,7 @@ foreach ($results as $data) {
                     </div>
                 </span>
                 <span class="c">
-                    Sales Revenue
+                    Total Revenue
                     <br>
                     <!-- bar chart -->
                     <?php
@@ -154,9 +154,8 @@ foreach ($results as $data) {
 
      datasets: [
        {
-         label: "# of Votes",
+         label: "Revenue",
          data: <?php echo json_encode($revenue) ?>,
-
          borderWidth: 1,
        },
      ],

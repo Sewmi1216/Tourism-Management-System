@@ -343,13 +343,13 @@ $results = $pkg->viewAllTypes($id);
         });
     }
 
-    function openChat() {
-        document.getElementById("myForm").style.display = "block";
-    }
+    // function openChat() {
+    //     document.getElementById("myForm").style.display = "block";
+    // }
 
-    function closeChat() {
-        document.getElementById("myForm").style.display = "none";
-    }
+    // function closeChat() {
+    //     document.getElementById("myForm").style.display = "none";
+    // }
     </script>
 </body>
 

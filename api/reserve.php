@@ -56,10 +56,10 @@ if (isset($_POST['search'])) {
 //     }
 if (isset($_POST["get_data"])) {
     // Get the ID of customer user has selected
-    $id = $_POST["id"];
+    $rid = $_POST["id"];
 
     $type = new touristController();
-    $result = $type->viewReservation($id);
+    $result = $type->viewReservation($rid);
 
     $row = mysqli_fetch_object($result);
 
