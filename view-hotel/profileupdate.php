@@ -45,7 +45,7 @@ $managerNic = $_GET['managerNic'];
             <form method="get" action="../api/addhotel.php" enctype="multipart/form-data">
                 <div class="heading" style="margin-top:0px;">Update Hotel Profile</div>
                 <div class="subheading" style="margin-top:15px;">Hotel Name*</div>
-                <input type="text" class="field" style=";margin-top:12px;" name="name" value="<?php echo $username;?>" />
+                <input type="text" class="field" style=";margin-top:12px;" name="name" value="<?php echo $name;?>" />
                 <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
                 <input type="hidden" class="subfield" name="id" value="<?php echo $id;?>"/>
                 <table>
@@ -72,10 +72,6 @@ $managerNic = $_GET['managerNic'];
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <div class="content">Username</div>
-                            <input type="text" class="subfield" name="username" value="<?php echo $username;?>" required />
-                        </td>
                         <td>
                             <div class="content">Password</div>
                             <input type="password" class="subfield" name="password" id="password"
