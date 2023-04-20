@@ -25,7 +25,7 @@
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
             <a href="../view/accommodation.php">Accommodation</a>
-            <a href="#handi">Handicrafts</a>
+            <a href="../view/craftlist.php">Handicrafts</a>
             <a href="#tour">Tour Packages</a>
             <a href="home.php">Home</a>
         </div>
