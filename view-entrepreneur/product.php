@@ -122,13 +122,13 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 <td>
                     <div class="content">Category</div>
                 </td>
-                <td> <input type="text" class="subfield" id="pcategory"  name="pCategory" value=""/></td>
+                <td> <input type="text" class="subfield" id="category"  name="pCategory" value=""/></td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Available Quantity</div>
                 </td>
-                <td> <input type="number" id="qunatity" min="10" class="subfield" name="avaquantity" value=""/></td>
+                <td> <input type="number" id="quantity" min="10" class="subfield" name="avaquantity" value=""/></td>
             </tr>
 
             

@@ -3,7 +3,10 @@
 <head>
   <title> Craft Order</title>
   <link rel="stylesheet" href="../css/reserve.css">
+  <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/tourist-tourpackage.css">
 </head>
 
@@ -18,7 +21,15 @@
         </div>
 
         <div class="b2sr">
-        <p style="color:white">BACK TO SEARCH RESULTS</p>
+          <div>
+        <form class="example" action="/action_page.php">
+  <input type="text" placeholder="Search Products" name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+  <i class="fa fa-shopping-cart" style="margin-left:100px;"></i>
+</form>
+
+</div>
+                
         <!-- </div>
 
         <div class="r1">
@@ -74,15 +85,16 @@
         </div>
 
         <div class="inputBox">
-            <h3>Quantity</h3>
+            <h3></h3>
             <input type="number" placeholder="">
         </div>
       
         </div>
 
-        <div class="cartbtn">
-        <input type="submit" class="btn" value="Add To Cart">
-        </div>
+        
+        <a href="cart.php" class="btn">Buy now</a>
+        
+    
 
     </form>
     

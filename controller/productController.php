@@ -12,11 +12,11 @@ class productController extends db_connection
     }
 
     
-public function addproduct($pName,$pCategory,$avaquantity,$price)
+public function addproduct($pName,$pCategory,$avaquantity,$price,$id)
 {
 	$product = new product();
 
-	$result = $product->insertproduct($pName,$pCategory,$avaquantity,$price,);
+	$result = $product->insertproduct($pName,$pCategory,$avaquantity,$price,$id);
 
 	
 }

@@ -1,4 +1,3 @@
-
 <?php 
 
 session_start();
@@ -15,7 +14,10 @@ $res2 = $tourist->getallcartitems();
 <head>
   <title> Cart</title>
   <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -23,55 +25,129 @@ $res2 = $tourist->getallcartitems();
         
         <ul>
           <img src="../img/logo.png" alt=" logo" style="width:40px;height:40px; margin-left: 20px;" >
-          <li style="float:right">
-            <a  href="home.php">
-              <button>Home</button></a></li>
+          
        
         </ul>
       </div>
 
+    <div>
+   
+      <form class="example" action="/action_page.php">
     
+  <input type="text" placeholder="Search Products" name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+  
+  <i class="fa fa-shopping-cart" style="margin-left:100px;"></i>
+</form>
+</div>
 
-      <a class="back-text" href="./home2.php">BACK</a>
 
      
      <div class="h">
      <h2><b>SHOPPING CART</b></h2>
     </div>
 
-    
+    <div class="container bootdey">
+<div class="row bootstrap snippets">
+<div class="col-lg-3 col-md-3 col-sm-12">
 
-      <table>
-        <tr>
-          <th>PRODUCT</th>
-          <th>PRICE</th>
-          <th>QUANTITY</th>
-          <th>SHIPPING</th>
-          <th>SUBTOTAL</th>
-        </tr>
-        <?php 
-        $total = 0;
-        while($result = mysqli_fetch_assoc($res2)){
-          $res3 = $tourist->getproduct($result['productID']);
-          $product = mysqli_fetch_assoc($res3);
-          
-          $subtotal = bcmul($product['price'], $result['quantity']);
-          
-          // print_r($result);die();
-        echo ' 
-        <tr>
-          <td>'.$product['productName'].'</td>
-          <td>'.$product['price'].'</td>
-          <td>'.$result['quantity'].'</td>
-          <td>none </td>
-          <td>'.$subtotal.' </td>
-        </tr>
-        ';
-        $total = $total + $subtotal;
-        }; ?>
+</div>
+<div class="clearfix visible-sm"></div>
+<!-- Cart -->
+<div class="col-lg-9 col-md-9 col-sm-12">
+<div class="col-lg-12 col-sm-12">
+<span class="title">SHOPPING CART</span>
+</div>
+<div class="col-lg-12 col-sm-12 hero-feature">
+<div class="table-responsive">
+<table class="table table-bordered tbl-cart">
+<thead>
+<tr>
+<td class="hidden-xs">Image</td>
+<td>Product Name</td>
+<td>Size</td>
+<td>Color</td>
+<td class="td-qty">Quantity</td>
+<td>Unit Price</td>
+<td>Sub Total</td>
+<td>Remove</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="hidden-xs">
+<a href="#">
+<img src="https://via.placeholder.com/200x200/" alt="Age Of Wisdom Tan Graphic Tee" title="" width="47" height="47">
+</a>
+</td>
+<td><a href="#">Age Of Wisdom Tan Graphic Tee</a>
+</td>
+<td>
+<select name="">
+<option value="" selected="selected">S</option>
+ <option value="">M</option>
+</select>
+</td>
+<td>-</td>
+<td>
+<div class="input-group bootstrap-touchspin"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button">+</button></span></div>
+</td>
+<td class="price">$ 122.21</td>
+<td>$ 122.21</td>
+<td class="text-center">
+<a href="#" class="remove_cart" rel="2">
+<i class="fa fa-trash-o"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td class="hidden-xs">
+<a href="#">
+<img src="https://via.placeholder.com/200x200/" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
+</a>
+</td>
+<td><a href="#">Adidas Men Red Printed T-shirt</a>
+</td>
+<td>
+<select name="">
+<option value="">S</option>
+<option value="" selected="selected">M</option>
+</select>
+</td>
+<td>
+<select name="">
+<option value="" selected="selected">Red</option>
+<option value="">Blue</option>
+</select>
+</td>
+<td>
+<div class="input-group bootstrap-touchspin"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button">+</button></span></div>
+</td>
+<td class="price">$ 20.63</td>
+ <td>$ 41.26</td>
+<td class="text-center">
+<a href="#" class="remove_cart" rel="1">
+<i class="fa fa-trash-o"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="6" align="right">Total</td>
+<td class="total" colspan="2"><b>$ 163.47</b>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+<!-- End Cart -->
+</div>
+</div> 
+
+      
         
-    
-      </table>
 
       <div class="ctotal">
         <p>CART TOTAL:  <?php echo' ' .$total . ''; ?> </p>
@@ -95,4 +171,3 @@ $res2 = $tourist->getallcartitems();
    
 </body>
 </html>
-
