@@ -26,22 +26,32 @@
         <div class="text">DASHBOARD OVERVIEW</div>
 
         <div style="margin-top:20px;margin-left:14px; margin-right:20px;" class="dashheading">
-            <span class="b">
+          <a href="manageusers.php"> <span class="b">
                 User Requests
                 <div style="margin-top:60px;font-size:40px;">20</div>
             </span>
+          </a> 
+
+          <a href="tourbooking.php">
             <span class="b">
                 Tour Bookings
                 <div style="margin-top:60px;font-size:40px;">10</div>
             </span>
+          </a>
+
+          <a href="view-tourguides.php">
             <span class="b">
                 Tour guides
                 <div style="margin-top:60px;font-size:40px;">35</div>
             </span>
+          </a>
+
+          <a href="payment.php">
             <span class="b">
                 Monthly Revenue
                 <div style="margin-top:60px;font-size:40px;">$18,130</div>
             </span>
+          </a>
         </div>
 
         <div style="margin-top:20px;margin-left:40px;" class="chart">
@@ -50,6 +60,34 @@
                 Tour package Booking Chart
                 <br>
                 <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
+<!--                                <div id="piechart">
+                     
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+                                <script type="text/javascript">
+                                // Load google charts
+                                google.charts.load('current', {'packages':['corechart']});
+                                google.charts.setOnLoadCallback(drawChart);
+
+                                // Draw the chart and set the chart values
+                                function drawChart() {
+                                  var data = google.visualization.arrayToDataTable([
+                                  ['Task', 'Hours per Day'],
+                                  ['Work', 8],
+                                  ['Eat', 2],
+                                  ['TV', 4],
+                                  ['Gym', 2],
+                                  ['Sleep', 8]
+                                ]);
+
+                                  // Optional; add a title and set the width and height of the chart
+                                  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+                                  // Display the chart inside the <div> element with id="piechart"
+                                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                  chart.draw(data, options);
+                                }
+                                </script> </div> -->
             </span>
             <span class="c">
                 <br>

@@ -33,7 +33,7 @@ class tourist extends db_connection
     public function insertTourist($inputs)
     {
 
-        $query = "INSERT INTO tourist (name, address, email, phone, username, password, dob, country) VALUES ('$inputs[0]', '$inputs[4]', '$inputs[2]', '$inputs[1]', '$inputs[2]', '$inputs[3]', '$inputs[6]', '$inputs[4]')";
+        $query = "INSERT INTO tourist (name, address, email, phone, profileImg,  password, dob, country) VALUES ('$inputs[0]', '$inputs[1]', '$inputs[2]', '$inputs[3]', '$inputs[4]', '$inputs[5]', '$inputs[6]','$inputs[7]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -71,14 +71,14 @@ class tourist extends db_connection
 
     }
 
-    public function checkmail($email)
-    {
-        $query = "SELECT * FROM tourist where email='$email'";
+    // public function checkmail($email)
+    // {
+    //     $query = "SELECT * FROM tourist where email='$email'";
 
-        $stmt = mysqli_query($this->conn, $query);
-        $rows = mysqli_num_rows($stmt);
-        return $rows;
-    }
+    //     $stmt = mysqli_query($this->conn, $query);
+    //     $rows = mysqli_fetch_array($stmt);
+    //     return $rows;
+    // }
 
     public function checkproid($id)
     {
@@ -126,14 +126,71 @@ class tourist extends db_connection
         $query = "Select * from roomtype r, roomtype_img i, hotel h where i.roomTypeId=r.roomTypeId and r.hotelID=h.hotelID and h.hotelID='$id'";
         return $this->getData($query);
     }
-
-    public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
+    public function searchRoom($id, $person, $room)
     {
-        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, total_amount, checkInDate, checkOutDate,touristID, typeID,hotelId) VALUES ('$bookingDateTime', '$guestName', '$guestPhone', '$guestEmail', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$typeID', '$hotelId')";
+        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
+        $stmt = mysqli_query($this->conn, $query);
+        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+        return $results;
+
+    }
+    public function availability($checkin, $checkout, $room)
+    {
+        $query = "SELECT * FROM guest_reservation WHERE ((
+                    '$checkin' >= DATE_FORMAT(`checkInDate`,'%Y-%m-%d')
+                    AND  '$checkin' <= DATE_FORMAT(`checkOutDate`,'%Y-%m-%d')
+                    )
+                    OR (
+                    '$checkout' >= DATE_FORMAT(`checkInDate`,'%Y-%m-%d')
+                    AND  '$checkout' <= DATE_FORMAT(`checkOutDate`,'%Y-%m-%d')
+                    )
+                    OR (
+                    DATE_FORMAT(`checkInDate`,'%Y-%m-%d') >=  '$checkin'
+                    AND DATE_FORMAT(`checkInDate`,'%Y-%m-%d') <=  '$checkout'
+                    )
+                    )
+                    AND roomID ='$room'";
+        $stmt = mysqli_query($this->conn, $query);
+        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+
+        return $results;
+
+    }
+
+    public function insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+    {
+        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Confirmed', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
+        $stmt = mysqli_query($this->conn, $query);
+        if ($stmt) {
+            $reslId = mysqli_insert_id($this->conn); // get the reservation ID
+            $query1 = "INSERT INTO hotel_payment (paymentDateTime, type, amount, paymentStatus, reservationID) VALUES (NOW(), 'Card',  '$total_amount', 'Completed','$reslId')";
+            $stmt = mysqli_query($this->conn, $query1);
+            return $stmt;
+
+        }
+
+    }
+    public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+    {
+        $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Pending', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
         $stmt = mysqli_query($this->conn, $query);
         // $stmt = $this->conn->prepare($query);
         // $stmt->bind_param("ssssissiii",);
         // $stmt->execute();
+        return $stmt;
+    }
+    public function viewProfile($id)
+    {
+        //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from tourist where userID = '$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
+     public function viewReservation($id)
+    {
+        //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from guest_reservation where reservationID = '$id'";
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
 

@@ -41,48 +41,50 @@ $rows = $_SESSION['c'];
         <?php include "dashboardHeader.php"?>
         
         <div class="registerForm">
-        <form method="post" action="../api/addhotel.php" enctype="multipart/form-data">
+        <form method="post" action="../api/updatehotel.php" enctype="multipart/form-data">
             <div class="heading" style="margin-top:0px;">Edit Hotel / Hotel Manager Information </div>
             <hr>
+  <?php            
+foreach($rows as $row) {
+echo '<table>
             <div class="subheading" style="margin-top:15px;">Hotel Name*</div>
-            <input type="text" class="field" style=";margin-top:12px;" name="hotelName" />
+            <input type="text" class="field" style=";margin-top:12px;" name="hotelName" value="'.$row['name'].'" />
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
+          
+
+
 
             <table>
 
-<?php
-
-foreach($rows as $row) 
-echo '<table>
+            
                 <tr>
                     <td>
                         <div class="content">Name</div>
-                        <input type="text" class="subfield" value="'.$row['packageName'].'" name="mName" />
+                        <input type="text" class="subfield" name="mName" value="'.$row['managerName'].'" />
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" value="'.$row['packageName'].'"required /> </td>
+                        <input type="text" class="subfield" name="mPhone" pattern="[0-9]{10}" value="'.$row['managerPhone'].'"  required /> </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Email Address</div>
-                        <input type="text" class="subfield" name="mEmail"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+                        <input type="text" class="subfield" name="mEmail value="'.$row['managerEmail'].'" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
                     <td>
                         <div class="content">NIC</div>
-                        <input type="text" class="subfield" id="nic" name="mNic" pattern="[0-9]{9}[Vv0-9]{1,3}"
+                        <input type="text" class="subfield" id="nic" name="mNic" value="'.$row['managerNic'].'" pattern="[0-9]{9}[Vv0-9]{1,3}"
                             required />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Username</div>
-                        <input type="text" class="subfield" name="username" required />
+                        <input type="text" class="subfield" name="username" value="'.$row['username'].'"  required />
                     </td>
                     <td>
                         <div class="content">Password</div>
-                        <input type="password" class="subfield" name="password" id="password" required />
+                        <input type="password" class="subfield" name="password" id="password" value="'.$row['password'].'"  required />
                             <!-- <input type="password" class="subfield" name="password" id="password"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required /> -->
                         <div id="msg" style="color:red;"></div>
@@ -96,18 +98,18 @@ echo '<table>
                 <tr>
                     <td>
                         <div class="content">Address</div>
-                        <input type="text" class="subfield" name="address" />
+                        <input type="text" class="subfield" name="address" value="'.$row['address'].'" />
                     </td>
                     <td>
                         <div class="content">Email address</div>
                         <input type="text" class="subfield" name="email"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  value="'.$row['email'].'"required />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="phone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="phone" pattern="[0-9]{10}" value="'.$row['phone'].'" required />
                     </td>
                     <td>
                         <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
@@ -117,17 +119,17 @@ echo '<table>
                 <tr>
                     <td>
                         <div class="content">Business Certificate</div>
-                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
+                        <input type="file" class="subfield" name="doc" value="'.$row['document'].'" style="padding-bottom:25px;" />
                     </td>
                 </tr>
             </table>
-            <input type="submit" class="btnRegister" value="Update Manager Details" name="signup" />
+            <input type="submit" class="btnRegister" value="Update Manager Details" name="update" />
         </form>
 
 
     </div>
 
-
+'; } ?>
     <script>
     var nic = document.getElementById("nic");
 

@@ -105,4 +105,52 @@ class tourguideController extends db_connection
         return $result;
 
     }
+
+    public function removetourguide($id)
+    {
+    
+        $user = new tourguide();
+    
+        $result = $user-> removetourguide($id);
+    
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+    
+    public function removetourguiderequest($id)
+    {
+    
+        $user = new tourguide();
+    
+        $result = $user-> removetourguiderequest($id);
+    
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+    
+    public function accepttourguiderequest($id)
+    {
+    
+        $user = new tourguide();
+    
+        $result = $user-> accepttourguiderequest($id);
+    
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
+    public function viewdeletedguides()
+    {
+        
+        $pkg = new tourguide();
+        
+
+        $result = $pkg->viewdeletedguides($inputs[0]);
+        // print_r($result);
+        // die();
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
 }

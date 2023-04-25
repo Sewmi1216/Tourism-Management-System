@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     $id = $_SESSION["hotelID"];
 } else {
-    header("location:hotelLogin.php");
+    header("location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                         placeholder="Search for room types" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns"><a href="room.php" style="color:white;text-decoration:none;">View
+                <button type="submit" class="btns" style="margin-left:1rem;"><a href="room.php" style="color:white;text-decoration:none;">View
                         All</a></button>
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
@@ -52,10 +52,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
                     <th class="tblh">Room Type</th>
-                    <th class="tblh">No.of beds</th>
-                    <th class="tblh">Reserved_from</th>
-                    <th class="tblh">Reserved_to</th>
-                    <th class="tblh">Status</th>
+                    <th class="tblh">No.of Persons</th>
+                    <th class="tblh">Price</th>
+                    <th class="tblh">View</th>
                     <th class="tblh">Edit</th>
                     <th class="tblh">Delete</th>
                 </tr><?php 
@@ -74,21 +73,18 @@ foreach ($results as $result) {
                         <?php echo $result["typeName"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $result["noOfBeds"] ?>
+                        <?php echo $result["noOfPersons"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $result["occupied_from"] ?>
+                        <?php echo $result["price"] ?>
                     </td>
                     <td class="tbld">
-                        <?php echo $result["occupied_to"] ?>
-                    </td>
-                    <td class="tbld">
-                        <?php if ($result["status"] == "Vacant") {?>
-                        <button class="status1"><?php echo $result["status"]; ?></button>
-                        <?php } else if($result["status"] == "Reserved") {?>
-                        <button class="status2"><?php echo $result["status"]; ?></button>
+                        <?php if ($result["view"] == "Ocean View") {?>
+                        <button class="status1"><?php echo $result["view"]; ?></button>
+                        <?php } else if($result["view"] == "City View") {?>
+                        <button class="status2"><?php echo $result["view"]; ?></button>
                         <?php } else{?>
-                        <button class="status3"><?php echo $result["status"]; ?></button>
+                        <button class="status3"><?php echo $result["view"]; ?></button>
                         <?php }?>
                     </td>
                     <td class="tbld"><a
@@ -158,20 +154,27 @@ $results = $pkg->viewAllTypes($id);
 
                         <tr class="row">
                             <td>
-                                <div class="content">No.of beds</div>
+                                <div class="content">No.of Persons</div>
                             </td>
                             <td> <input type="number" min="0" class="subfield" name="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
-                                <div class="content">Status</div>
+                                <div class="content">Price</div>
+                            </td>
+                            <td> <input type="number" min="0" class="subfield" name="price" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">View</div>
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status">
-                                    <option value="" selected>---Choose availability---</option>
-                                    <option value="Available">Reserved</option>
-                                    <option value="Available">Vacant</option>
-                                    <option value="Unavailable">Occupied</option>
+                            <td> <select class="subfield" name="view">
+                                    <option value="" selected>---Choose room view ---</option>
+                                    <option value="Ocean View">Ocean View</option>
+                                    <option value="City View">City View</option>
+                                    <option value="Garden View">Garden View</option>
+                                    <option value="Pool View">Pool View</option>
                                 </select></td>
                         </tr>
 
@@ -210,14 +213,14 @@ $results = $pkg->viewAllTypes($id);
                             <td>
                                 <div class="content">Room Type</div>
                             </td>
-                            <td><select class="subfield" name="typeId">
+                            <td><select class="subfield" name="typeId" id="roomtype">
                                     <?php
 require_once("../controller/roomTypeController.php") ;
 $pkg = new roomTypeController();
 $results = $pkg->viewAllTypes($id);
            foreach ($results as $result) {
                ?>
-                                    <option value="<?php echo $result["roomTypeId"];?>" name="roomType" id="roomtype">
+                                    <option value="<?php echo $result["roomTypeId"];?>">
                                         <?php echo $result["typeName"];?>
                                     </option>
                                     <?php
@@ -228,19 +231,26 @@ $results = $pkg->viewAllTypes($id);
 
                         <tr class="row">
                             <td>
-                                <div class="content">No.of beds</div>
+                                <div class="content">No.of Persons</div>
                             </td>
                             <td> <input type="number" min="0" class="subfield" value="" name="beds" id="beds" /></td>
                         </tr>
                         <tr class="row">
                             <td>
-                                <div class="content">Status</div>
+                                <div class="content">Price</div>
+                            </td>
+                            <td> <input type="number" min="0" class="subfield" value="" name="price" id="price" /></td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">View</div>
                             </td>
                             <!-- <td><input type="text" class="subfield" name="status" /></td> -->
-                            <td> <select class="subfield" name="status" id="status">
-                                    <option value="Reserved">Reserved</option>
-                                    <option value="Occupied">Occupied</option>
-                                    <option value="Vacant">Vacant</option>
+                            <td> <select class="subfield" name="view" id="view">
+                                    <option value="Ocean View">Ocean View</option>
+                                    <option value="City View">City View</option>
+                                    <option value="Garden View">Garden View</option>
+                                    <option value="Pool View">Pool View</option>
                                 </select></td>
                         </tr>
 
@@ -325,20 +335,21 @@ $results = $pkg->viewAllTypes($id);
                 console.log(response);
                 var room = JSON.parse(response);
                 $("#roomno").val(room.roomNo);
-                $("#roomtype").val(room.typeName);
-                $("#beds").val(room.noOfBeds);
-                $('#status').val(room.status);
+                $("#roomtype").val(room.typeID);
+                $("#beds").val(room.noOfPersons);
+                $('#price').val(room.price);
+                $('#view').val(room.view);
             }
         });
     }
 
-    function openChat() {
-        document.getElementById("myForm").style.display = "block";
-    }
+    // function openChat() {
+    //     document.getElementById("myForm").style.display = "block";
+    // }
 
-    function closeChat() {
-        document.getElementById("myForm").style.display = "none";
-    }
+    // function closeChat() {
+    //     document.getElementById("myForm").style.display = "none";
+    // }
     </script>
 </body>
 

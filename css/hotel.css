@@ -505,6 +505,18 @@ p{
   margin:10px;
   padding:10px;
 }
+.piechart{
+  height:350px;
+  width: 350px;
+  padding: 10px;
+}
+.barchart{
+  height:450px;
+  width: 550px;
+  padding: 10px;
+}
+
+
 
 form.example input[type=text] {
   padding: 10px;

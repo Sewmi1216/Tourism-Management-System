@@ -71,7 +71,7 @@
             <div id="result">
                 <table>
                     <tr class="subtext tblrw">
-                        <th class="tblh"> Guide Name</th>
+                        <th class="tblh">Guide Name</th>
                         <th class="tblh">NIC</th>
                         <th class="tblh">E-Mail Address</th>
                         <th class="tblh">Phone Number</th>
@@ -79,7 +79,10 @@
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr>
-                    <?php
+
+
+
+        <?php
 require_once("../controller/tourguideController.php") ;
 $tourguidecont = new tourguidecontroller();
 $res = $tourguidecont->viewAllTourguides();
@@ -97,197 +100,68 @@ if ($res->num_rows > 0) {
                         <td class="tbld">
                             
                         
-                     <!--   <a
-                                onclick="document.getElementById('id03').style.display='block';document.location='#id03?packageID=<?php $guestusername=$row['username']; ?>'"><i
-                                    class="fa-sharp fa-solid fa-bars art"></i></a></td>--> 
+                  
 
-                                    <a href="tourguideprofile.php?tourguideID='<?php echo $row['tourguideID']; ?>'"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-
-                        <!-- <td class="tbld"><button data-id='<?php echo $row['packageID']; ?>' class="help"> view </button></td> -->
-                        <td class="tbld">  <a href="edittouristguide.php?tourguideID='.$row['tourguideID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
-                        <td class="tbld"><a onclick='showDeleteForm()'><i class="fa-solid fa-trash art"></i></a></td>
+                        <a href="tourguideprofile.php?tourguideID='<?php echo $row['tourguideID']; ?>'"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                        <td class="tbld">  <a href="edittouristguide.php?tourguideID='<?php echo $row['tourguideID']; ?>'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                        <td class="tbld"><a onclick="openModal('.$row['tourguideID'].')"><i class="fa-solid fa-trash art"></i></a></td>
                  <?php   } } ?>
 
                     </tr>
                 </table>
             </div>
 
-            <!-- <div id="results">
-                <table>
-                    <tr class="subtext tblrw">
-                        <th class="tblh">Hotel Package</th>
-                        <th class="tblh">Hotel Package Name</th>
-                        <th class="tblh">Room Type</th>
-                        <th class="tblh">Status</th>
-                        <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
-                        <th class="tblh">Delete</th>
-                    </tr>
-                    <tr class="subtext tblrw">
-                        <td class="tbld"><?php echo "<img src='../images/" . $row['image'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
-                        </td>
-                        <td class="tbld"><?php echo $row["packageName"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><?php echo $row["price"] ?></td>
-                        <td class="tbld"><button class="status">
-                                <?php if ($row["status"] == 0) {
-                                    echo "Unavailable";
-                                } else {
-                                    echo "Available";
-                                }
-                                ?></button>
-                        </td>
-                        <td class="tbld"><i class="fa-sharp fa-solid fa-bars art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-pen-to-square art"></i></td>
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-                    </tr>
-                
-                </table>
-            </div>
-         -->
+          
 
         </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="id01" class="modal">
-
-            <form class="modal-content animate" action="../api/addtourguide.php" method="post">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <label for="room"><b>Add Tour Guide</b></label>
-                </div>
-
-                <div class="container">
-                    <table>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Tourist Guide Name</div>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Tourist Guide User Name</div>
-                            </td>
-                            <td><input type="text" class="subfield" placeholder="Enter Tourist Guide Name" name="guidename" required>
-                             
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content"> NIC</div>
-                            </td>
-                            <td>  <input type="text" class="subfield" placeholder="Enter Tourist Guide ID" name="guidenic" required>
-                
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">E-Mail Address</div>
-                            </td>
-                            <td> <input type="text" class="subfield" placeholder="Tourist guide's email address" name="guideemail" required>
-                            </td>
-                        </tr>
-
-                        <tr class="row">
-                            <td>
-                                <div class="content">Address</div>
-                            </td>
-                            <td> <input type="text"  class="subfield" placeholder="Tourist guide's physical address" name="guideaddress" required>
-                            </td>
-                        </tr> 
-                        
-                        </tr>   
-                        <tr class="row">
-                            <td>
-                                <div class="content">Phone Number</div>
-                            </td>
-                            <td>           <input type="text"  class="subfield"  placeholder="Contact number" name="guidephone" required>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Password</div>
-                            </td>
-                            <td> <input type="password"  class="subfield"  placeholder="Enter the password" name="guidepassword" required>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Re-Enter Password</div>
-                            </td>
-                            <td> <input type="password" class="subfield" placeholder="Re-enter the password" name="guidepassword2" required>
-                            </td>
-                        </tr>
-                        <tr class="row">
-                            <td>
-                                <div class="content">Status</div>
-                            </td>
-                            <td> <input type="text" class="subfield" name="status" required />
-    
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn">Cancel</button>
-                        <input type="submit" class="btn1" value="Save" name="save"/>
-                </div>
-            </form>
         </div>
     </section>
 
-            <!-- delete pkg -->
+    <!-- Delete Package  -->
     <div id="id04" class="modal">
 
-        <form class="modal-content animate" style="width:45%;" method="post" action="../api/addtourguide.php"  enctype="multipart/form-data">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
-            </div>
-
-            <div class="container">
-                <input type="text" class="subfield" name="id" value="<?php echo $guidename ?>" readonly />
-                <p class="text" style="font-size:20px;text-align:center;margin-left:90px;">Do you want to remove the tour guide</p>
-
-                <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                    <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                        class="cancelbtn" style="margin-left:11rem;">No</button>
-                    <button type="submit" class="btns" value="Save" name="delete"
-                        style="margin-left:75px;">Yes</button>
-                </div>
-            </div>
-
-
-        </form>
+<form class="modal-content animate" style="width:45%;" method="post" action="deleteentrepreneur.php"
+    enctype="multipart/form-data">
+    <div class="imgcontainer" style="background-color:#004581;">
+        <button type="button" onclick="document.getElementById('id04').style.display='none'"
+            class="cancelbtn close">&times;</button>
+            <label for="room" style="color:white"><b>Remove Tourist Guide</b></label>
     </div>
 
-    <script>
-        const showDeleteForm = () => {
-            console.log('hi')
-            console.log(document.getElementById('id04'))
-            document.getElementById('id04').style.display = "block"
-            //.log(document.getElementById('id04'))
-            console.log('hihi')
-        }
-    </script>
+    <div class="container">
 
+        <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $entID ;?>" />
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the Tourist Guide ?</p>
+
+        <div class="container" style="padding:10px;">
+            <button type="button" onclick="document.getElementById('id04').style.display='none'" class="btns"
+                style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="delete"
+                style="margin-left:75px;">Yes</button>
+        </div>
+    </div>
+
+
+</form>
+</div>
+
+
+
+
+<script>
+function openModal(id) {
+var modal = document.getElementById("id04");
+var modalIdValue = document.getElementById("modalIdValue");
+modalIdValue.value = id;
+modal.style.display = "block";
+}
+</script>
+
+
+  
 
 </body>
 

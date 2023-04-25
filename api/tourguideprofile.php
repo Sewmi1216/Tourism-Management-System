@@ -15,4 +15,11 @@ $inputs = array($id);
 
 $tourguidecon = new tourguideController();
 $tourguidecon-> viewoneguide($inputs);
+
+
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $pk = new roomTypeController();
+    $pk->deleteType($id);
+}
 ?>

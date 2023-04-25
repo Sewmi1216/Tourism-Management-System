@@ -79,7 +79,7 @@ echo '
                     <td class="tbld">  <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                     <td class="tbld"> <a href="editpackage2.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                    <td class="tbld"> <a href="./updates/deletetourpackage.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-trash art"></i></td>
+                    <td class="tbld"><a onclick="openModal('.$row['packageID'].')"><i class="fa-solid fa-trash art"></i></a></td>
                 </tr>
 
     
@@ -89,7 +89,45 @@ echo '
             ?>  
             </table>
             
+            <div id="id04" class="modal">
 
+<form class="modal-content animate" style="width:45%;" method="post" action="../api/deletetourpackage.php"
+    enctype="multipart/form-data">
+    <div class="imgcontainer" style="background-color:#004581;">
+        <button type="button" onclick="document.getElementById('id04').style.display='none'"
+            class="cancelbtn close">&times;</button>
+            <label for="room" style="color:white"><b>Delete Tour</b></label>
+    </div>
+
+    <div class="container">
+
+        <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $packageID ;?>" />
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the tourpackage ?</p>
+
+        <div class="container" style="padding:10px;">
+            <button type="button" onclick="document.getElementById('id04').style.display='none'" class="btns"
+                style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="delete" style="margin-left:75px;">Yes</button>
+        </div>
+    </div>
+
+
+</form>
+</div>
+
+
+
+
+<script>
+function openModal(id) {
+var modal = document.getElementById("id04");
+var modalIdValue = document.getElementById("modalIdValue");
+modalIdValue.value = id;
+modal.style.display = "block";
+}
+</script>
 
  
 

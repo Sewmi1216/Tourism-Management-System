@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     $id = $_SESSION["hotelID"];
 } else {
-    header("location:hotelLogin.php");
+    header("location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -12,6 +12,9 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
@@ -28,50 +31,57 @@ if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title">Payments</div>
-                <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for rooms" name="search">
+
+                <div class="input-container" style="margin-left:730px;">
+                    <input class="input-field" type="text" placeholder="Search for rooms" name="search" id="searcher"
+                        onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
-                <span style="margin-left: 8px;">
+                <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
+
+                <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
+                    style="margin-left:1rem;background-color:red;">Download pdf</button>
+
+                <!-- <span style="margin-left: 8px;">
                     <a href="addCashPayment.php"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
-                </span>
+                </span> -->
             </div>
 
         </div>
-        <div class="bg">
-            <table>
-                <tr class="subtext tblrw">
-                    <th class="tblh">Payment ID</th>
-                    <th class="tblh">Date</th>
-                    <th class="tblh">Reservation ID</th>
-                    <th class="tblh">Guest Name</th>
-                    <th class="tblh">Guest Phone number</th>
-                    <th class="tblh">Type</th>
-                    <th class="tblh">Total amount</th>
-                    <th class="tblh">Status</th>
-                </tr>
+        <div id="cont">
+            <div class="page-title" style="margin-left:30px;"> Payments</div>
+            <div class="bg">
+                <table id="tbl">
+                    <tr class="subtext tblrw">
+                        <th class="tblh">Payment ID</th>
+                        <th class="tblh">Date</th>
+                        <th class="tblh">Reservation ID</th>
+                        <!-- <th class="tblh">Guest Name</th> -->
+                        <th class="tblh">Guest Phone number</th>
+                        <th class="tblh">Type</th>
+                        <th class="tblh">Total amount</th>
+                        <th class="tblh">Status</th>
+                    </tr>
 
-                <?php
+                    <?php
 require_once "../controller/hotelController.php";
 $pay = new hotelController();
 
 $results = $pay->viewhotelPayments($id);
 foreach ($results as $result) {
     ?><tbody>
-                    <tr class="subtext tblrw">
+                        <tr class="subtext tblrw">
 
-                        <td class="tbld"><?php echo $result["paymentID"] ?></td>
-                        <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
-                        <td class="tbld"><?php echo $result["reservationID"] ?></td>
-                        <td class="tbld"><?php echo $result["guestName"] ?></td>
-                        <td class="tbld"><?php echo $result["guestPhone"] ?></td>
-                        <td class="tbld"><?php echo $result["type"] ?></td>
-                        <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
-                        <td class="tbld">
+                            <td class="tbld"><?php echo $result["paymentID"] ?></td>
+                            <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                            <td class="tbld"><?php echo $result["reservationID"] ?></td>
+                            <!-- <td class="tbld"><?php echo $result["guestName"] ?></td> -->
+                            <td class="tbld"><?php echo $result["guestPhone"] ?></td>
+                            <td class="tbld"><?php echo $result["type"] ?></td>
+                            <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
+                            <td class="tbld">
                                 <?php if ($result["typestatus"] == "Completed") {?>
                                 <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
                                 <?php } else {?>
@@ -80,14 +90,15 @@ foreach ($results as $result) {
                             </td>
 
 
-                        <?php }
+                            <?php }
 
 ?>
-                    </tr>
-            </table>
+                        </tr>
+                </table>
+            </div>
         </div>
-        </div>
-        </div>
+
+
 
         <!-- add cash payement -->
         <div id="id01" class="modal">
@@ -158,7 +169,49 @@ foreach ($results as $result) {
 
 
     </section>
-
+    <script type="text/javascript">
+    document.getElementById('create_ppdf').onclick = function() {
+        var element = document.getElementById('cont');
+        var opt = {
+            margin: 0.2,
+            filename: 'payments.pdf',
+            image: {
+                type: 'jpeg',
+                quality: 0.98
+            },
+            html2canvas: {
+                scale: 1
+            },
+            jsPDF: {
+                unit: 'in',
+                format: 'letter',
+                orientation: 'landscape'
+            }
+        };
+        html2pdf(element, opt);
+    };
+    </script>
+    <script>
+    function searchRes() {
+        console.log(print);
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searcher");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tbl");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    </script>
 </body>
 
 </html>

@@ -176,10 +176,10 @@ span.psw {
             <div class="searchSec">
                 <div class="page-title"> Registered Hotel Managers </div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for guides" name="search">
+                    <input class="input-field" type="text" placeholder="Search for Hotels" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <!-- <button type="submit" class="btns">View All</button> -->
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
@@ -203,10 +203,11 @@ span.psw {
             <div id="result">
                 <table>
                     <tr class="subtext tblrw">
-                        <th class="tblh"> Manager Name</th>
-                        <th class="tblh">NIC</th>
-                        <th class="tblh">E-Mail Address</th>
-                        <th class="tblh">Phone Number</th>
+                       <th class="tblh">Hotel Name</th>
+                   <th class="tblh">Address</th>
+                    <th class="tblh">Email Address</th>
+                   <th class="tblh">Phone Number</th>
+                    <th class="tblh">Manager Name</th>
                         <th class="tblh">View</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
@@ -215,11 +216,11 @@ span.psw {
 foreach ($rows as $row) {  
 
 echo ' <tr class="subtext tblrw">
-                        
+                        <td class="tbld">'.$row['name'].'</td>
+                        <td class="tbld">'.$row['address'].'</td>
+                        <td class="tbld">'.$row['email'].'</td>
+                        <td class="tbld">'.$row['phone'].'</td>
                         <td class="tbld">'.$row['managerName'].'</td>
-                        <td class="tbld">'.$row['managerNic'].'</td>
-                        <td class="tbld">'.$row['managerEmail'].'</td>
-                        <td class="tbld">'.$row['managerPhone'].'</td>
                          <td class="tbld">   <a href="managerprofile.php?hotel_id='.$row['hotelID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                      <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       

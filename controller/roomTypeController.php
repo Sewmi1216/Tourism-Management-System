@@ -11,11 +11,11 @@ class roomTypeController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addRoomType($pkgName, $price, $desc, $status)
+    public function addRoomType($pkgName, $desc, $id)
     {
         $hpkgs = new roomType();
 
-        $res = $hpkgs->insertRoomType($pkgName, $price, $desc, $status);
+        $res = $hpkgs->insertRoomType($pkgName,$desc, $id);
         return $res;
 
     }
@@ -63,7 +63,6 @@ class roomTypeController extends db_connection
         $hotelPkg = new roomType();
 
         $results = $hotelPkg->viewType($pId);
-
         return $results;
 
     }
@@ -78,10 +77,10 @@ class roomTypeController extends db_connection
 
     // }
 
-    public function updateType($id, $pkgName, $price, $desc, $status)
+    public function updateType($id, $pkgName, $desc)
     {
         $hp = new roomType();
-        $hp->updateType($id, $pkgName, $price, $desc, $status);
+        $hp->updateType($id, $pkgName, $desc);
 
         if (!$hp) {
             echo 'There was a error';
@@ -109,6 +108,15 @@ class roomTypeController extends db_connection
         // </script>";
 
         // }
+
+    }
+       public function viewPersons($id)
+    {
+        $hotelPkg = new roomType();
+
+        $results = $hotelPkg->viewPersons($id);
+
+        return $results;
 
     }
 }

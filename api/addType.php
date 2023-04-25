@@ -3,13 +3,13 @@ include_once '../controller/roomTypeController.php';
 
 if (isset($_POST['save'])) {
     $pkgName = $_POST['pName'];
-    $price = $_POST['price'];
+    // $price = $_POST['price'];
     $desc = $_POST['desc'];
 
-    $status = $_POST['status'];
+    $id = $_POST['id'];
 
     $pkgcon = new roomTypeController();
-    $pkgcon->addRoomType($pkgName, $price, $desc, $status);
+    $pkgcon->addRoomType($pkgName, $desc, $id);
     if (!$pkgcon) {
         echo 'There was a error';
     } else {
@@ -68,12 +68,12 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
 
     $pkgName = $_POST['pName'];
-    $price = $_POST['price'];
+    // $price = $_POST['price'];
     $desc = $_POST['desc'];
-    $status = $_POST['status'];
+    // $status = $_POST['status'];
 
     $pk = new roomTypeController();
-    $pk->updateType($id, $pkgName, $price, $desc, $status);
+    $pk->updateType($id, $pkgName, $desc);
 
 }
 if (isset($_POST['delete'])) {

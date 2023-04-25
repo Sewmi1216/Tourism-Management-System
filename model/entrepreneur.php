@@ -76,7 +76,7 @@ class entrepreneur extends db_connection
     }
 
     public function viewAllentrepreneurs(){
-        $query = "SELECT * FROM entrepreneur";
+        $query = "SELECT * FROM entrepreneur where status = 1";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -98,6 +98,49 @@ class entrepreneur extends db_connection
         return $stmt;
 
     }
+
+    public function removeentrepreneur($id){
+
+        // print_r($id);
+        // die();
+        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function removeentrepreneurrequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function acceptentrepreneurrequest($id){
+
+        // print_r($id);
+        // die();
+
+        $query = "UPDATE entrepreneur SET status = 1 where entID= $id ";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+
+    public function viewdeletedentrepreneurs(){
+        $query = "SELECT * FROM entrepreneur where status=0";
+
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+}
 }   
 ?>
 

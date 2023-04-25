@@ -1,5 +1,5 @@
 <?php
-require('../api/managerprofile.php');
+require('../api/tourguideprofile.php');
 $rows = $_SESSION['c'];
 
 
@@ -32,10 +32,12 @@ $rows = $_SESSION['c'];
         <div class="wrapper">
             <div class="left"> 
 
-            
+            <?php 
+        foreach($rows as $row) 
+        echo '            
                 <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
                     style="padding-right:0px;border-radius:50%;">
-                <h3>'.$row['username'].'</h3>
+                <h3>'.$row['name'].'</h3>
                 <p>'.$row['username'].'</p>
             </div>
             <div class="right">
@@ -45,19 +47,25 @@ $rows = $_SESSION['c'];
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>tourguide@gmail.com</p>
+                            <p>'.$row['email'].'</p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>07758545521</p>
+                            <p>'.$row['phone'].'</p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>Colombo</p>
+                            <p>'.$row['address'].'</p>
                         </div>
-
-
-
+                        <div class="data">
+                        <h4>NIC</h4>
+                        <p>'.$row['nic'].'</p>
+                    </div>
+<br>
+                        <div class="data">
+                        <h4>Availability</h4>
+                        <p>'.$row['availability'].'</p>
+                        </div>
                     </div>
 
                 </div>
@@ -77,15 +85,15 @@ $rows = $_SESSION['c'];
                             <p>10</p>
                         </div>
                        
-
+'  ?>
 
 
                     </div>
 
                 </div>
                 <br>  
-                <a href="editmanager.php" class="button">Update profile</a>
-                <a href="editmanager.php" class="button">Delete profile</a>
+                <a href="edittouristguide.php?tourguideID='<?php echo $row['tourguideID']; ?>'" class="button"> Update profile</a>
+                <a href="#" class="button">Delete profile</a>
 
             </div>
         

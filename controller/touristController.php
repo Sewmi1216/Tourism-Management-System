@@ -44,26 +44,26 @@ class touristController extends db_connection
 
     }
 
-    public function userSignup($inputs)
-    {
-        $tourist = new tourist();
-        $mailcheck = $tourist->checkmail($inputs[2]);
+    // public function userSignup($inputs)
+    // {
+    //     $tourist = new tourist();
+    //     $mailcheck = $tourist->checkmail($inputs[2]);
 
-        if ($mailcheck > 0) {
-            $_SESSION['err'] = "Email is already registered";
-            header("Location: ../view/sign.php");
-        } else {
-            $res = $tourist->insertTourist($inputs);
-            if (!$res) {
-                echo 'Error Occured';
-            } else {
-                echo 'Successfully Added';
-                header("Location: ../view/login.php");
+    //     if ($mailcheck > 0) {
+    //         $_SESSION['error'] = "Email is already registered";
+    //         // header("Location: ../view/sign.php");
+    //     } else {
+    //         $res = $tourist->insertTourist($inputs);
+    //         if (!$res) {
+    //             echo 'Error Occured';
+    //         } else {
+    //             echo 'Successfully Added';
+    //             header("Location: ../view-hotel/login.php");
 
-            }
-        }
+    //         }
+    //     }
 
-    }
+    // }
     public function userLogout()
     {
         session_unset();
@@ -128,11 +128,85 @@ class touristController extends db_connection
         $rs = $type->viewAllRoomTypes($id);
         return $rs;
     }
-    public function insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId)
+    public function searchRoom($id, $person, $roomtype)
+    {
+        $room = new tourist();
+        $rs = $room->searchRoom($id, $person, $roomtype);
+        return $rs;
+
+    }
+    public function availability($checkin, $checkout, $room)
+    {
+        $search = new tourist();
+        $rs = $search->availability($checkin, $checkout, $room);
+        return $rs;
+        //  if (mysqli_num_rows($rs) > 0) {
+        //     return $rs;
+        // }
+        // else{
+        //     echo " no print";
+
+        //}
+
+    }
+
+    public function insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
-        $res = $reservation->insertReservation($bookingDateTime, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $typeID, $hotelId);
-        return $res;
+        $res = $reservation->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
+        
+            require "../libs/PHPMailer/PHPMailerAutoload.php";
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+
+            // h-hotel account
+            $mail->Username = 'sewmi.rotaract3220@gmail.com';
+            $mail->Password = 'uaqgejykofzquoaf';
+
+            // send by h-hotel email
+            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Reservation');
+            // get email from input
+            $mail->addAddress($email);
+            //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
+            // HTML body
+            $mail->isHTML(true);
+            $mail->Subject = "Your have placed a reservation";
+            $mail->Body = "<b>Dear User</b>
+                    <h3>Your have placed a reservation</h3>";
+
+            if (!$mail->send()) {?>
+        <script>
+        alert("<?php echo "Error sending email to " . $email ?>");
+        </script>
+        <?php
+}
+
+    }
+    public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+    {
+        $reservation = new tourist();
+        $res = $reservation->insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
+        // return $res;
+
+    }
+    public function viewProfile($id)
+    {
+        $profile = new tourist();
+        $rs = $profile->viewProfile($id);
+        return $rs;
+
+    }
+    public function viewReservation($id)
+    {
+        $res = new tourist();
+        $rs = $res->viewReservation($id);
+        return $rs;
 
     }
 }
