@@ -9,9 +9,9 @@ $id= $_GET['entrepreneur_id'];
 // We create required controller object.
 // We call the required function.
 
-$inputs = array($id);
+$inputs = ($id);
 // print_r($inputs);
-//  die();
+// die();
 
 $entrepreneurcon = new entrepreneurController();
 $entrepreneurcon-> viewoneentrepreneur($inputs);

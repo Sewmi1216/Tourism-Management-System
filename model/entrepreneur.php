@@ -93,8 +93,12 @@ class entrepreneur extends db_connection
 
     public function viewoneentrepreneur($id){
 
+        // print_r($id);
+        // die();
         $query = "SELECT * FROM entrepreneur where entID= $id";
 
+        // print_r($query);
+        // die();
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
@@ -104,7 +108,7 @@ class entrepreneur extends db_connection
 
         // print_r($id);
         // die();
-        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+        $query = "UPDATE entrepreneur SET status = 2 where entID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
