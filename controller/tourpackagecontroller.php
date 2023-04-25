@@ -27,7 +27,7 @@ class tourpackageController extends db_connection
             echo 'Error Occured';
         }else{
             echo 'Successfully Added';
-            header("Location: ../view-admin/tourpackages2.php");
+            header("Location: ../view-admin/tourpackages.php");
             
         }
 
@@ -44,7 +44,7 @@ class tourpackageController extends db_connection
             echo 'Error Occured';
         }else{
             echo 'Successfully updated';
-            header("Location: ../view-admin/tourpackages2.php");
+            header("Location: ../view-admin/tourpackages.php");
             
         }
 

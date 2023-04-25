@@ -151,6 +151,16 @@ public function viewdeletedentrepreneurs(){
     return $result;
 }
 
+public function viewoneentrepreneur($id){
+
+    $user = new entrepreneur();
+
+    $result = $user-> viewoneentrepreneur($id);
+
+    $_SESSION['c'] = $result;
+    return $result;
+}
+
 public function viewAllpendingentrepreneurs(){
     $user = new entrepreneur();
 

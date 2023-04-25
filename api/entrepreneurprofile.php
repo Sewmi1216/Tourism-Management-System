@@ -11,7 +11,7 @@ $id= $_GET['entrepreneur_id'];
 
 $inputs = array($id);
 // print_r($inputs);
-// die();
+//  die();
 
 $entrepreneurcon = new entrepreneurController();
 $entrepreneurcon-> viewoneentrepreneur($inputs);

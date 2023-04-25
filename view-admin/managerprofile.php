@@ -3,6 +3,7 @@ require('../api/managerprofile.php');
 $rows = $_SESSION['c'];
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
