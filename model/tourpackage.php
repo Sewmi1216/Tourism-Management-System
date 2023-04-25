@@ -82,4 +82,5 @@ class tourpackage extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    
 }

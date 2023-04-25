@@ -207,7 +207,7 @@ class hotel extends db_connection
 
     public function viewAllpendingmanagers()
     {
-        $query = "SELECT * from hotel where status IS NULL";
+        $query = "SELECT * from hotel where status = 0";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
@@ -229,7 +229,7 @@ class hotel extends db_connection
 
         // print_r($id);
         // die();
-        $query = "UPDATE hotel SET status = 0 where hotelID= $id ";
+        $query = "UPDATE hotel SET status = 2 where hotelID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -242,7 +242,7 @@ class hotel extends db_connection
         // print_r($id);
         // die();
 
-        $query = "UPDATE hotel SET status = 0 where hotelID= $id ";
+        $query = "UPDATE hotel SET status = 3 where hotelID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -276,7 +276,7 @@ class hotel extends db_connection
 
     public function viewdeletedmanagers()
     {
-        $query = "SELECT * from hotel where status= 0";
+        $query = "SELECT * from hotel where status= 2";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
