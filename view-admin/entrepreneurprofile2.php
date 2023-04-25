@@ -1,7 +1,7 @@
 <?php
 require('../api/entrepreneurprofile.php');
 $rows = $_SESSION['c'];
-var_dump($_SESSION);
+
 
 
 ?>
@@ -90,12 +90,12 @@ var_dump($_SESSION);
 
                 </div>
 
-                '; ?>
+               
 
 
                 <br>  
-                <a href="editentrepreneur.php" class="button">Update profile</a>
-                <a href="#" class="button">Delete profile</a>
+                <a href="editentrepreneur.php??entrepreneur_id='.$row['entID'].'" class="button">Update profile</a>
+                <a href="#" class="button">Delete profile</a> '; ?>
 
             </div>
         
