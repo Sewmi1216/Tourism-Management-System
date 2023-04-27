@@ -2,9 +2,9 @@
 require('../api/entrepreneurprofile.php');
 $rows = $_SESSION['c'];
 
-// foreach($rows as $x){
-//     print_r($x);
-// }
+foreach($rows as $x){
+    print_r($x);
+ }
 
 // die();
 // print_r($rows); die();
@@ -27,9 +27,11 @@ $rows = $_SESSION['c'];
             <div class="heading" style="margin-top:0px;">Edit Entrepreneur Details</div>
             <hr>
 
-            <?php            
+<table>            
+    
+    <?php            
 foreach($rows as $row) {
-echo '<table>
+echo '
 
             <div class="subheading" style="margin-top:15px;">Business Name*</div>
             <input type="text" class="field" style=";margin-top:12px;" name="bName" value="'.$row['businessName'].'" />

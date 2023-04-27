@@ -32,28 +32,33 @@ $rows = $_SESSION['c'];
         <div class="wrapper">
             <div class="left"> 
 
-            
+            <?php
+require_once "../controller/hotelController.php";
+$profile = new hotelController();
+$results = $profile->viewProfile($id);
+foreach ($results as $result) {
+    ?>            
                 <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
                     style="padding-right:0px;border-radius:50%;">
-                <h3>'.$row['username'].'</h3>
-                <p>'.$row['username'].'</p>
+                <h3><?php echo $result['username'];?></h3>
+               
             </div>
             <div class="right">
 
                 <div class="info">
-                    <h3>Hotel Details</h3>
+                    <h3>Tourist Details</h3>
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
 
 
@@ -62,23 +67,22 @@ $rows = $_SESSION['c'];
 
                 </div>
                 <div class="projects">
-                    <h3>Contact Person Details</h3>
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
 
 
@@ -91,7 +95,7 @@ $rows = $_SESSION['c'];
                 <a href="editmanager.php" class="button">Delete profile</a>
 
             </div>
-        
+            <?php } ?>
     </section>
 </body>
 

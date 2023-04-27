@@ -74,7 +74,7 @@ echo '<table>
   </tr>
   <tr>
   <td>No of participants</td>
-  <td>'.$row['participant_count'].'</td>
+  <td>'.$row['max_part'].'</td>
   
 </tr>
   </tr>
