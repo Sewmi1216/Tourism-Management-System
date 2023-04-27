@@ -50,10 +50,11 @@ if (isset($_POST['search'])) {
 //         echo 'There was a error';
 //     } else {
 //         echo "
-//              <script>alert('Your reservation is successful');
-//         window.location.href = '../view/accommodation.php';
+//              <script>alert('Your reservation is placed.Can pay at the hotel');
+//         window.location.href = '../view-tourist/hotelView.php';
 //         </script>";
 //     }
+// }
 if (isset($_POST["get_data"])) {
     // Get the ID of customer user has selected
     $rid = $_POST["id"];

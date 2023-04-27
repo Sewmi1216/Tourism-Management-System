@@ -194,4 +194,11 @@ class tourist extends db_connection
         return $stmt;
     }
 
+    // Tour packages
+    public function viewAllTourPackages()
+    {
+        $sql = "SELECT * from tourpackage";
+        return $this->getData($sql);
+    }
+
 }

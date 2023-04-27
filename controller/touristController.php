@@ -153,7 +153,7 @@ class touristController extends db_connection
     public function insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
-        $res = $reservation->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
+        $res = $reservation->insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
         
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
@@ -208,5 +208,11 @@ class touristController extends db_connection
         $rs = $res->viewReservation($id);
         return $rs;
 
+    }
+      public function viewAllTourPackages()
+    {
+        $hotel = new tourist();
+        $result = $hotel->viewAllTourPackages();
+        return $result;
     }
 }
