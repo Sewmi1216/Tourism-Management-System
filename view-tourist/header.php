@@ -20,7 +20,7 @@ foreach ($results as $result) {
          <a href="home.php#about">About</a>
          <a href="accommodation.php">Accommodation</a>
          <a href="craftlist.php">Handicrafts</a>
-         <a href="../view/tourpackagelist.php">Tour Packages</a>
+         <a href="tourpackagelist.php">Tour Packages</a>
          <a href="home.php">Home</a>
      </div>
  </div>

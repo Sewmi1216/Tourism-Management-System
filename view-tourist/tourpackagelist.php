@@ -1,143 +1,68 @@
-<?php 
-require('../api/viewtourpackage.php');
+<?php
+require '../api/viewtourpackage.php';
 session_start();
-if (isset($_SESSION["username"]) && isset($_SESSION["userID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     $id = $_SESSION["userID"];
 } else {
-    header("location:../view-hotel/hotelLogin.php");
+    header("location:../view-hotel/login.php");
 }
-
-$rows = $_SESSION['c'];
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Tour Package</title>
-  <link rel="stylesheet" href="../css/craft_list.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-  <link rel="stylesheet" href="../css/hindex.css">
-  <link rel="stylesheet" href="../css/tourist-tourpackage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/hindex.css">
+    <link rel="stylesheet" href="../css/tourist.css">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+
+    <style>
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-padding-top: 6rem;
+        scroll-behavior: smooth;
+    }
+    </style>
 </head>
 
 <body>
-<div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="padding-left:10px;"></a>
-        <div style="padding-top:15px;" class="middle">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Log out</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
-            <a href="craftlist.php">Handicrafts</a>
-            <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="../view-hotel/home.php">Home</a>
-        </div>
-    </div>
-
-    <!-- <div class="search">
-        <input type="text" placeholder="Search by Location">
-        <img src="../img/Union.png"/>
-      </div> -->
-
-      <!-- <div class="silverpot">
-        <p>Recommended Crafts from Us</p>
-        <img src="../images/forest.png"/>
-      </div>
-
-      <div class="elephant-statue">
-        <img src="../images/img2.png"/>
-      </div>
-
-      <div class="saree">
-        <img src="../images/img3.png"/>
-      </div>
-
-      <div class="elephant">
-        <img src="../images/img4.png"/>
-      </div>
-
-      <div class="palmyrah">
-        <img src="../images/img5.png"/>
-      </div>
- -->
+    <?php include "header.php"?>
 
 
-
-      <section class="packages" id="packages" style="padding-top = 40px">
-
-<!-- <h1 class="heading">
-    <span>p</span>
-    <span>a</span>
-    <span>c</span>
-    <span>k</span>
-    <span>a</span>
-    <span>g</span>
-    <span>e</span>
-    <span>s</span>
-</h1> -->
-
-
-<div class="box-container">
-<?php                   
-foreach ($rows as $row) {  
-
-echo '
-    <div class="box">
-    <img src="../images/tourpackage/k1.jpg" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> '.$row['packageName'].' </h3>
-            <p>'.$row['packageName'].'</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
+    <section class="popular" id="hotel" style="padding: 2rem 9%;">
+        <div class="cont">
+            <div class="search">
+                <h1>Sri Lanka Tour Packages</h1>
+                <input type="text" name="" id="find" onfocus="this.placeholder=''" placeholder="Search Tour Package...." onkeyup="search()">
             </div>
-            <div class="price"> $ '.$row['price'].'  <span> $ '.$row['price'].' </span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
         </div>
-    </div>
 
-   
-
-';} ?>
-
-</section>
-
-
-
-
-
-
-
-      <!-- about us -->
-   <section class="about" id="about" style="padding: 2rem 9%;">
         <div class="container">
-            <div class="image">
-                <img src="../img/24545515_357 [Converted] 1.png" alt="">
-            </div>
-            <div class="content">
-                <h1 class="heading">Pack2Paradise</h1>
-                <hr>
-                <p>
-                    Welcome to Pack2Paradise, the most unique platform that connects the tourist with the Trip planners,
-                    local entrepreneurs and the tourist guides.
-                    <br>
-                    <br>
+            <?php
+require_once "../controller/touristController.php";
+$tour = new touristController();
+$results = $tour->viewAllTourPackages();
+foreach ($results as $result) {
+    ?>
+            <div class="box">
+                <?php echo "<img src='../images/" . $result['image'] . "'>"; ?>
 
-                    Our vision is to connect the tourist with the small and medium scale Hotels, Small entrepreneurs and
-                    to provide them a memorable vacation through providing the tour packages with great tourist guides.
-                    <br>
-                </p>
+                <div class="content-container">
+                    <h3 style="display: inline;"><?php echo $result['packageName']; ?></h3>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <a href="tourpackage.php?hid=<?php echo $result['packageID']; ?>" class="btn">More Information</a>
+                     <!-- <a href="hotelView.php?hid=<?php echo $result['hotelID']; ?>" class="btn">More Information</a> -->
+                </div>
             </div>
+            <?php }?>
         </div>
     </section>
-
-
-
     <section id="contact" style="padding-bottom: 20px">
         <div style="text-align:center; padding: 10px;">
             <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
@@ -155,11 +80,33 @@ echo '
     </section>
 
 
-    <script src="../view-hotel/js/home.js"></script>
-      
+    <script src="js/home.js"></script>
+    <script type="text/javascript">
+    // function showMessage(show) {
+    //     var messageElement = document.getElementById("dem");
+    //     if (show) {
+    //         messageElement.style.display = "block"; // or "inline"
+    //     } else {
+    //         messageElement.style.display = "none";
+    //     }
+    // }
+    function search() {
+        let filter = document.getElementById('find').value.toUpperCase();
+        let tour = document.querySelectorAll('.box');
+        let tag = document.getElementsByTagName('h3');
+
+        for (var i = 0; i <= tag.length; i++) {
+            let x = tour[i].getElementsByTagName('h3')[0];
+            let value = x.innerHTML || x.innerText || x.textContent;
+
+            if (value.toUpperCase().indexOf(filter) > -1) {
+                tour[i].style.display = "";
+            } else {
+                tour[i].style.display = "none";
+            }
+        }
+    }
+    </script>
 </body>
-</html>
-
-
 
 </html>

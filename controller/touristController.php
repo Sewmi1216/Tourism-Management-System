@@ -209,4 +209,10 @@ class touristController extends db_connection
         return $rs;
 
     }
+      public function viewAllTourPackages()
+    {
+        $hotel = new tourist();
+        $result = $hotel->viewAllTourPackages();
+        return $result;
+    }
 }
