@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
     header("location:Login.php");
@@ -34,7 +34,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns">View All</button>
-                
+                <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
+                    style="margin-left:2rem;background-color:red;">Download pdf</button> 
             </div>
 
         </div>
@@ -45,9 +46,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         <th class="tblh">Order Date</th>
                         <th class="tblh">Total Amount</th>
                         <th class="tblh">Status</th>
-                        <th class="tblh">Tourist ID</th>
-                        <th class="tblh">Cart ID</th>
-                        <th class="tblh">Product ID</th>
                         <th class="tblh">View</th>
                         
                      
@@ -73,10 +71,7 @@ foreach ($results as $result) {
                         <button class="status3"><?php echo $result["status"]; ?></button>
                         <?php }?>
                     </td>
-    <th class="tbld"><?php echo $result["touristID"] ?></td>
-    <th class="tbld"><?php echo $result["cartID"] ?></td>
-    <th class="tbld"><?php echo $result["productID"] ?></td>
-    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['productID']; ?>"><i class="fa-solid fa-bars"></i></a></td>
+    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['orderID']; ?>"><i class="fa-solid fa-bars"></i></a></td>
     
     </tr>
     
@@ -97,7 +92,7 @@ foreach ($results as $result) {
                 </div>
                 <table>
                 <tr class="row">
-                    <input type="hidden" class="subfield" name="id" id="productid" value="" ?>
+                    <input type="hidden" class="subfield" name="id" id="orderid" value="" ?>
                 </tr>
             <tr class="row">
                 <td>
@@ -139,7 +134,40 @@ foreach ($results as $result) {
         </form>
     </div>
 
-         
+    <script>
+    // Function to open the modal and set the id value
+    function openModal(id) {
+        var modal = document.getElementById("id02");
+        var modalIdValue = document.getElementById("modalIdValue");
+        modalIdValue.value = id;
+        modal.style.display = "block";
+    }
+
+    function loadData(id) {
+    	$.ajax({
+    	    url: "../api/productapi.php",
+    	    method: "POST",
+    	    data: {
+                get_data: 1, 
+                id: id,
+            },
+    	    success: function (response) {
+    	        console.log(response);
+                var type = JSON.parse(response);
+                $("#productid").val(type.productID);
+                $("#productname").val(type.productName);
+                $("#category").val(type.category);
+                // $("#status").val(type.typestatus);
+                $("#quantity").val(type.quantity);
+                $("#price").val(type.price);
+                
+               
+
+    	    }
+        });
+    }
+</script>
+     
 </body>
 
 </html>

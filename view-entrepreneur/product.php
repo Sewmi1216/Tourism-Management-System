@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
     header("location:Login.php");
@@ -29,14 +29,14 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
             <div class="searchSec">
                 <div class="page-title"> Craft Products </div>
                 <div class="input-container">
-                    <!-- <input class="input-field" type="text" placeholder="Search for products" name="search"> -->
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products.." title="Type in a productname">
-                    
+                    <input class="input-field" type="text" placeholder="Search for packages" name="search" id="myInput" onkeyup="searchTypes()">
+                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <a href="product.php"><button type="submit" class="btns">View All</button></a>
                 <span style="margin-left: 8px;">
-                    <a href="addcraft.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
+                    <a href="addcraft.php"><i class="fa-regular fa-square-plus" style="font-size:35px;color:#004581;margin-left:0.5rem;
 ;"></i></a>
+
                 </span>
             </div>
 
@@ -186,7 +186,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 
        
         <script>
-function myFunction() {
+function searchTypes() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
