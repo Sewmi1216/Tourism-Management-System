@@ -9,7 +9,7 @@ $id= $_GET['entrepreneur_id'];
 // We create required controller object.
 // We call the required function.
 
-$inputs = ($id);
+$inputs = array($id);
 // print_r($inputs);
 // die();
 

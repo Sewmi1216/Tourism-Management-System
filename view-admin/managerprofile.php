@@ -1,10 +1,10 @@
-<?php
+<!-- <?php
 require('../api/managerprofile.php');
 $rows = $_SESSION['c'];
 
 
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -27,20 +27,21 @@ $rows = $_SESSION['c'];
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-
+        <?php
+require_once "../controller/hotelController.php";
+$profile = new hotelController();
+$results = $profile->viewProfile($id);
+foreach ($results as $result) {
+    ?>
         <div class="text">Profile</div>
-        
         <div class="wrapper">
-            <div class="left"> 
 
-    <?php 
-        foreach($rows as $row) 
-        echo '
-            
-                <img src="../Images/download.jpg" alt="logo" height="150px" width="150px"
-                    style="padding-right:0px;border-radius:50%;">
-                <h3>'.$row['managerName'].'</h3>
-                <p>'.$row['username'].'</p>
+            <div class="left">
+                <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
+                    style='padding-right:0px;border-radius:50%;'>";?>
+
+                <h3><?php echo $result['name'];?></h3>
+                <p><?php echo $result['username'];?></p>
             </div>
             <div class="right">
 
@@ -49,15 +50,15 @@ $rows = $_SESSION['c'];
                     <div class="info_data">
                         <div class="data">
                             <h4>Email</h4>
-                            <p>'.$row['name'].'</p>
+                            <p><?php echo $result['email'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p>'.$row['phone'].'</p>
+                            <p><?php echo $result['phone'];?></p>
                         </div>
                         <div class="data">
                             <h4>Address</h4>
-                            <p>'.$row['username'].'</p>
+                            <p><?php echo $result['address'];?></p>
                         </div>
 
 
@@ -70,33 +71,31 @@ $rows = $_SESSION['c'];
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p>'.$row['managerName'].'</p>
+                            <p><?php echo $result['managerName'];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p>'.$row['managerNic'].'</p>
+                            <p><?php echo $result['managerNic'];?></p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p>'.$row['managerEmail'].'</p>
+                            <p><?php echo $result['managerEmail'];?></p>
                         </div>
-                      
-<br>
-
                         <div class="data">
-                        <h4>Phone</h4>
-                        <p>'.$row['managerPhone'].'</p>
+                            <h4>Phone</h4>
+                            <p><?php echo $result['managerPhone'];?></p>
                         </div>
 
                     </div>
 
-                </div> '; ?>
-                <br>  
-                <a href="editmanager.php" class="button">Update profile</a>
+                </div>
+                <br>
+                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entrepreneurNic'];?>'" class="button">Update profile</a>
                 <a href="editmanager.php" class="button">Delete profile</a>
 
+
+                <?php } ?>
             </div>
-        
     </section>
 </body>
 

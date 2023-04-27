@@ -1,10 +1,10 @@
-<?php
+<!-- <?php
 require('../api/entrepreneurprofile.php');
 $rows = $_SESSION['c'];
 
 
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -19,87 +19,83 @@ $rows = $_SESSION['c'];
 </head>
 
 <body>
-    
-
     <?php include "nav.php"?>
-   
 
+<section class="home-section">
+    <?php include "dashboardHeader.php"?>
+    <?php
+require_once "../controller/entrepreneurController.php";
+$profile = new entrepreneurController();
+$results = $profile->viewProfile($id);
+foreach ($results as $result) {
+?>
+    <div class="text">Profile</div>
+    <div class="wrapper">
 
-    <section class="home-section">
-        <?php include "dashboardHeader.php"?>
+        <div class="left">
+            <!-- <img src="../Images/Profile.jpg" alt="logo" height="150px" width="150px"
+                style="padding-right:0px;border-radius:50%;"> -->
+                <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
+                style='padding-right:0px;border-radius:50%;'>";?>
+            <h3><?php echo $result['businessName'];?></h3>
+            <p><?php echo $result['username'];?></p>
+        </div>
+        <div class="right">
 
-        <div class="text">Entrepreneur Profile</div>
-        
-        <div class="wrapper">
-            <div class="left"> 
-
-            <?php 
-        foreach($rows as $row) 
-        echo '   
-                <img src="../Images/download2.jpg" alt="logo" height="150px" width="150px"
-                    style="padding-right:0px;border-radius:50%;">
-                <h3>'.$row['businessName'].'</h3>
-                <p>'.$row['entrepreneurName'].'</p>
-            </div>
-            <div class="right">
-
-                <div class="info">
-                    <h3>Business Details</h3>
-                    <div class="info_data">
-                        <div class="data">
-                            <h4>Email</h4>
-                            <p>'.$row['email'].'</p>
-                        </div>
-                        <div class="data">
-                            <h4>Phone</h4>
-                            <p>'.$row['phone'].'</p>
-                        </div>
-                        <div class="data">
-                            <h4>Address</h4>
-                            <p>'.$row['address'].'</p>
-                        </div>
-
-
-
+            <div class="info">
+                <h3>Bussiness Details</h3>
+                <div class="info_data">
+                    <div class="data">
+                        <h4>Email</h4>
+                        <p><?php echo $result['email'];?></p>
+                    </div>
+                    <div class="data">
+                        <h4>Phone</h4>
+                        <p><?php echo $result['phone'];?></p>
+                    </div>
+                    <div class="data">
+                        <h4>Address</h4>
+                        <p><?php echo $result['address'];?></p>
                     </div>
 
-                </div>
-                <div class="projects">
-                    <h3>Entrepreneur Details</h3>
-                    <div class="projects_data">
-                        <div class="data">
-                            <h4>Name</h4>
-                            <p>'.$row['entrepreneurName'].'</p>
-                        </div>
-                        <div class="data">
-                            <h4>NIC</h4>
-                            <p>'.$row['entrepreneurNic'].'</p>
-                        </div>
-                        <div class="data">
-                            <h4>Email</h4>
-                            <p>'.$row['entrepreneurEmail'].'</p>
-                        </div>
-                        <div class="data">
-                            <h4>Phone</h4>
-                            <p>'.$row['entrepreneurPhone'].'</p>
-                        </div>
 
-
-
-                    </div>
 
                 </div>
 
-               
+            </div>
+            <div class="projects">
+                <h3>Contact Person Details</h3>
+                <div class="projects_data">
+                    <div class="data">
+                        <h4>Name</h4>
+                        <p><?php echo $result['entrepreneurName'];?></p>
+                    </div>
+                    <div class="data">
+                        <h4>NIC</h4>
+                        <p><?php echo $result['entrepreneurNic'];?></p>
+                    </div>
+                    <div class="data">
+                        <h4>Email</h4>
+                        <p><?php echo $result['entrepreneurEmail'];?></p>
+                    </div>
+                    <div class="data">
+                        <h4>Phone</h4>
+                        <p><?php echo $result['entrepreneurPhone'];?></p>
+                    </div>
 
 
-                <br>  
-                <a href="editentrepreneur.php??entrepreneur_id='.$row['entID'].'" class="button">Update profile</a>
-                <a href="#" class="button">Delete profile</a> '; ?>
+
+                </div>
 
             </div>
-        
-    </section>
+            <br>
+            
+            <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entrepreneurNic'];?>'" class="button">Update profile</a>
+                <a href="editmanager.php" class="button">Delete profile</a>
+
+                <?php } ?>
+        </div>
+</section>
 </body>
 
 </html>
