@@ -15,9 +15,9 @@
             <a href="../view-hotel/login.php">Login</a>
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
-            <a href="../view/craftlist.php">Handicrafts</a>
-            <a href="../view/tourpackagelist.php">Tour Packages</a>
+            <a href="accommodation.php">Accommodation</a>
+            <a href="craftlist.php">Handicrafts</a>
+            <a href="tourpackagelist.php">Tour Packages</a>
             <a href="index.php">Home</a>
         </div>
     </div>

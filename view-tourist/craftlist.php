@@ -33,10 +33,10 @@ $res2 = $tourist->getallproducts();
             <a href="../view-hotel/hotelLogin.php">Log out</a>
             <a href="#contact">Contact Us</a>
             <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
+            <a href="accommodation.php">Accommodation</a>
             <a href="craftlist.php">Handicrafts</a>
             <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="../view-hotel/home.php">Home</a>
+            <a href="home.php">Home</a>
         </div>
     </div>
       <section class="packages" id="packages" style="padding-top = 40px">

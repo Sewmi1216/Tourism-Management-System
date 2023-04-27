@@ -19,83 +19,84 @@ $rows = $_SESSION['c'];
 </head>
 
 <body>
-    <?php include "nav.php"?>
+    
 
-<section class="home-section">
-    <?php include "dashboardHeader.php"?>
-    <?php
-require_once "../controller/entrepreneurController.php";
+    <?php include "nav.php"?>
+   
+
+
+    <section class="home-section">
+        <?php include "dashboardHeader.php"?>
+        <?php
+require_once "../controller/hotelController.php";
 $profile = new entrepreneurController();
 $results = $profile->viewProfile($id);
 foreach ($results as $result) {
-?>
-    <div class="text">Profile</div>
-    <div class="wrapper">
+    ?>
+        <div class="text">Entrereneur Profile</div>
+        <div class="wrapper">
 
-        <div class="left">
-            <!-- <img src="../Images/Profile.jpg" alt="logo" height="150px" width="150px"
-                style="padding-right:0px;border-radius:50%;"> -->
+            <div class="left">
                 <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
-                style='padding-right:0px;border-radius:50%;'>";?>
-            <h3><?php echo $result['businessName'];?></h3>
-            <p><?php echo $result['username'];?></p>
-        </div>
-        <div class="right">
+                    style='padding-right:0px;border-radius:50%;'>";?>
 
-            <div class="info">
-                <h3>Bussiness Details</h3>
-                <div class="info_data">
-                    <div class="data">
-                        <h4>Email</h4>
-                        <p><?php echo $result['email'];?></p>
-                    </div>
-                    <div class="data">
-                        <h4>Phone</h4>
-                        <p><?php echo $result['phone'];?></p>
-                    </div>
-                    <div class="data">
-                        <h4>Address</h4>
-                        <p><?php echo $result['address'];?></p>
-                    </div>
+                <h3><?php echo $result['name'];?></h3>
+                <p><?php echo $result['username'];?></p>
+            </div>
+            <div class="right">
+
+                <div class="info">
+                    <h3>Hotel Details</h3>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Email</h4>
+                            <p><?php echo $result['email'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p><?php echo $result['phone'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>Address</h4>
+                            <p><?php echo $result['address'];?></p>
+                        </div>
 
 
+
+                    </div>
 
                 </div>
+                <div class="projects">
+                    <h3>Contact Person Details</h3>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h4>Name</h4>
+                            <p><?php echo $result['managerName'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>NIC</h4>
+                            <p><?php echo $result['managerNic'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>Email</h4>
+                            <p><?php echo $result['managerEmail'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p><?php echo $result['managerPhone'];?></p>
+                        </div>
 
-            </div>
-            <div class="projects">
-                <h3>Contact Person Details</h3>
-                <div class="projects_data">
-                    <div class="data">
-                        <h4>Name</h4>
-                        <p><?php echo $result['entrepreneurName'];?></p>
                     </div>
-                    <div class="data">
-                        <h4>NIC</h4>
-                        <p><?php echo $result['entrepreneurNic'];?></p>
-                    </div>
-                    <div class="data">
-                        <h4>Email</h4>
-                        <p><?php echo $result['entrepreneurEmail'];?></p>
-                    </div>
-                    <div class="data">
-                        <h4>Phone</h4>
-                        <p><?php echo $result['entrepreneurPhone'];?></p>
-                    </div>
-
-
 
                 </div>
-
-            </div>
-            <br>
-            
-            <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entrepreneurNic'];?>'" class="button">Update profile</a>
+                <br>
+                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entrepreneurNic'];?>'" class="button">Update profile</a>
                 <a href="editmanager.php" class="button">Delete profile</a>
 
+
                 <?php } ?>
-        </div>
-</section>
+            </div>
+    </section>
 </body>
 
 </html>

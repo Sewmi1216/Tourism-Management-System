@@ -32,7 +32,7 @@ $id = $_GET['id'];
             <a href="#about">About</a>
             <a href="../view/accommodation.php">Accommodation</a>
             <a href="../craftlist.php">Handicrafts</a>
-            <a href="#tour">Tour Packages</a>
+            <a href="tourpackagelist.php">Tour Packages</a>
             <a href="../view-hotel/home.php">Home</a>
         </div>
     </div>

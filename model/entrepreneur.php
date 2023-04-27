@@ -52,6 +52,7 @@ class entrepreneur extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    
     public function updateprofile($id, $businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
     {
         $query = "update entrepreneur set businessName='$businessName', address='$address', email='$email', phone='$phone',username='$username', password='$password',entrepreneurName='$eName', entrepreneurPhone='$ePhone', entrepreneurEmail='$eEmail', entrepreneurNic='$eNic' where entID='$id'";
