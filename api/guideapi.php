@@ -1,9 +1,9 @@
 <?php
-include '../controller/guideController.php';
+include '../controller/tourguideController.php';
 if (isset($_POST['signup'])) {
     
     $name = $_POST['name'];
-    $address = $_POST['address'];
+    
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $nic = $_POST['nic'];
@@ -26,8 +26,8 @@ if (isset($_POST['signup'])) {
     $folderImg = "../Images/" . $fileImg;
     $folderDoc = "../Images/doc" . $fileDoc;
 
-    $guidecon = new guideController();
-    $guidecon->addguide($name,$address, $email,$phone,$nic, $fileImg, $username, $password, $availability,$language,$fileDoc,$vehicle,$type,$passenger);
+    $guidecon = new tourguideController();
+    $guidecon->addguide($name, $email,$phone,$nic, $fileImg, $username, $password, $availability,$language,$fileDoc,$vehicle,$type,$passenger);
     move_uploaded_file($ptempname, $pfolder);
     move_uploaded_file($dtempname, $dfolder);
 }

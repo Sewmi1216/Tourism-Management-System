@@ -18,11 +18,11 @@ class tourguide extends db_connection
         return $stmt;
     } */
 
-    public function inserttourguide($inputs)
+    public function inserttourguide($name,$email,$phone,$nic, $fileImg, $username, $password, $availability,$language,$fileDoc,$vehicle,$type,$passenger)
     {
        
     
-        $query = "INSERT INTO tourguide(name, nic, username, email, address, phone, password) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]','$inputs[3]','$inputs[4]','$inputs[5]','$inputs[6]')";
+        $query = "INSERT INTO tourguide(name,email,phone,nic,profileImg,username,password,availability,languages,document,vehicleNumber,vehicleType,passenger,status) VALUES ('$name', '$email','$phone','$nic', '$fileImg', '$username', '$password', '$availability','$language','$fileDoc','$vehicle','$type','$passenger',0)";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -32,7 +32,7 @@ class tourguide extends db_connection
     public function viewAllTourguides()
     {
 
-        $query = "SELECT * FROM tourguide where status= 2";    
+        $query = "SELECT * FROM tourguide where status= 1";    
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -42,7 +42,7 @@ class tourguide extends db_connection
     {
        
         
-        $query = "SELECT * FROM tourbooking where bookingID = $id ";
+        $query = "SELECT * FROM tourguide where tourguideID = $id ";
         
         $stmt = mysqli_query($this->conn, $query);
         // print_r($stmt);
@@ -64,7 +64,7 @@ class tourguide extends db_connection
 
         // print_r($id);
         // die();
-        $query = "UPDATE tourguide SET status = 0 where tourguideID= $id ";
+        $query = "UPDATE tourguide SET status = 2 where tourguideID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -76,7 +76,7 @@ class tourguide extends db_connection
         // print_r($id);
         // die();
 
-        $query = "UPDATE tourguide SET status = 0 where tourguideID= $id ";
+        $query = "UPDATE tourguide SET status = 3 where tourguideID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -99,7 +99,7 @@ class tourguide extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourguide where status = 0 ";
+        $query = "SELECT * FROM tourguide where status = 2 ";
         
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;

@@ -35,7 +35,7 @@ $rows = $_SESSION['c'];
                 </div>
                 
                 <span style="margin-left: 8px;">
-                    <a href="addpackage.php"><i
+                    <a href="addpackage2.php"><i
                             class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
 ;"></i></a>
                 </span>
@@ -70,7 +70,7 @@ echo '
                     '.$row['packageName'].' 
                     </td>
                     <td class="tbld">
-                    '.$row['participant_count'].'  
+                    '.$row['max_part'].'  
                     </td>
                     <td class="tbld">
                     '.$row['price'].'  

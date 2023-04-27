@@ -11,7 +11,7 @@ $results = $profile->viewProfile($id);
 foreach ($results as $result) {
     ?>
          <a href="profile.php" style="margin-top:-8px;">
-             <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='40px' width='40px'
+             <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='#' height='40px' width='40px'
                     style='padding-right:0px;border-radius:50%;'>"; ?></a>
          <?php }?>
 
@@ -20,7 +20,7 @@ foreach ($results as $result) {
          <a href="home.php#about">About</a>
          <a href="accommodation.php">Accommodation</a>
          <a href="craftlist.php">Handicrafts</a>
-         <a href="tourpackagelist.php">Tour Packages</a>
+         <a href="../view/tourpackagelist.php">Tour Packages</a>
          <a href="home.php">Home</a>
      </div>
  </div>

@@ -50,4 +50,24 @@ if (isset($_POST['decline']))
          </script>";
 }
 
+if (isset($_POST['view']))
+{
+
+    $id = $_POST['id'];
+
+    // print_r($id);
+    // die();
+
+   
+
+
+$entrepreneurcon = new entrepreneurController();
+$entrepreneurcon-> viewoneentrepreneur($inputs);
+
+    echo "
+    <script>
+    window.location.href = '../view-admin/manageusers.php';
+         </script>";
+}
+
 ?>

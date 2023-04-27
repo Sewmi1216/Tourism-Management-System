@@ -8,7 +8,7 @@
 <body>
 <?php include "header.php"?>
     <div class="registerForm">
-        <form method="post" action="../api/addentreapi.php" enctype="multipart/form-data">
+        <form method="post" action="../api/guideapi.php" enctype="multipart/form-data">
             <div class="heading" style="margin-top:0px;">Tour Guide Registration</div>
             <hr>
             
@@ -18,22 +18,22 @@
                 <tr>
                     <td>
                         <div class="content">Name</div>
-                        <input type="text" class="subfield" name="eName" />
+                        <input type="text" class="subfield" name="name" />
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
-                        <input type="text" class="subfield" name="ePhone" pattern="[0-9]{10}" required />
+                        <input type="text" class="subfield" name="phone" pattern="[0-9]{10}" required />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="content">Email Address</div>
-                        <input type="text" class="subfield" name="eEmail"
+                        <input type="text" class="subfield" name="email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
                     <td>
                         <div class="content">NIC</div>
-                        <input type="text" class="subfield" id="nic" name="eNic" pattern="[0-9]{9}[Vv0-9]{1,3}"
+                        <input type="text" class="subfield" id="nic" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}"
                             required />
                     </td>
                 </tr>
@@ -53,11 +53,11 @@
                 <tr>
                     <td>
                         <div class="content">Languages</div>
-                        <input type="text" class="subfield" name="address" />
+                        <input type="text" class="subfield" name="language" />
                     </td>
                     <td>
                         <div class="content">Availability</div>
-                        <input type="text" class="subfield" name="email"
+                        <input type="text" class="subfield" name="availability"
                             required />
                     </td>
                 </tr>
@@ -81,18 +81,18 @@
                 <tr>
                     <td>
                         <div class="content">Vehicle Number</div>
-                        <input type="text" class="subfield" name="eName" />
+                        <input type="text" class="subfield" name="vehicle" />
                     </td>
                     <td>
                         <div class="content">Vehicle Type</div>
-                        <input type="text" class="subfield" name="ePhone" required />
+                        <input type="text" class="subfield" name="type" required />
                     </td>
                     
                 </tr>
                 <tr>
                 <td>
                         <div class="content">Number of passengers that can be carried</div>
-                        <input type="number" class="subfield" name="ePhone" required />
+                        <input type="number" class="subfield" name="passengers" required />
                     </td>
 </tr>
             </table>

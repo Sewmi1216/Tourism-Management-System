@@ -52,6 +52,7 @@ class entrepreneur extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    
     public function updateprofile($id, $businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
     {
         $query = "update entrepreneur set businessName='$businessName', address='$address', email='$email', phone='$phone',username='$username', password='$password',entrepreneurName='$eName', entrepreneurPhone='$ePhone', entrepreneurEmail='$eEmail', entrepreneurNic='$eNic' where entID='$id'";
@@ -92,8 +93,13 @@ class entrepreneur extends db_connection
     }
 
     public function viewoneentrepreneur($id){
+
+        // print_r($id);
+        // die();
         $query = "SELECT * FROM entrepreneur where entID= $id";
 
+        // print_r($query);
+        // die();
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
@@ -103,7 +109,7 @@ class entrepreneur extends db_connection
 
         // print_r($id);
         // die();
-        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+        $query = "UPDATE entrepreneur SET status = 2 where entID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -115,7 +121,7 @@ class entrepreneur extends db_connection
         // print_r($id);
         // die();
 
-        $query = "UPDATE entrepreneur SET status = 0 where entID= $id ";
+        $query = "UPDATE entrepreneur SET status = 3 where entID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
@@ -135,7 +141,7 @@ class entrepreneur extends db_connection
     }
 
     public function viewdeletedentrepreneurs(){
-        $query = "SELECT * FROM entrepreneur where status=0";
+        $query = "SELECT * FROM entrepreneur where status=2";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;

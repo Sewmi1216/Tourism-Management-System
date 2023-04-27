@@ -23,7 +23,7 @@ class tourpackage extends db_connection
     {
        
     
-        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, participant_count, visible	) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 1)";
+        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, max_part , visible	, no_of_days) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 1 , '$inputs[4]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -35,7 +35,7 @@ class tourpackage extends db_connection
        
     
         // $query = "UPDATE tourpackage SET (packageName, price, description, participant_count , adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '$inputs[3]', '1') where packageID = $inputs[4]";
-        $query = "UPDATE tourpackage SET packagename = '$inputs[0]', price ='$inputs[1]', description ='$inputs[2]', participant_count ='$inputs[3]' WHERE packageID ='$inputs[4]'";
+        $query = "UPDATE tourpackage SET packagename = '$inputs[0]', price ='$inputs[1]', description ='$inputs[2]', max_part ='$inputs[3]', no_of_days='$inputs[4]' WHERE packageID =$id";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -46,7 +46,7 @@ class tourpackage extends db_connection
        
     
         $query = "SELECT * FROM tourpackage where visible = 1 ";
-        
+     
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -58,8 +58,7 @@ class tourpackage extends db_connection
         $query = "SELECT * FROM tourpackage where packageid = $id ";
         
         $stmt = mysqli_query($this->conn, $query);
-        // print_r($stmt);
-        // die();
+ 
  
         return $stmt;
     }
@@ -82,4 +81,5 @@ class tourpackage extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    
 }
