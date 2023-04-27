@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
     header("location:Login.php");
@@ -34,6 +34,8 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns">View All</button>
+                <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
+                    style="margin-left:2rem;background-color:red;">Download pdf</button>
                 
             </div>
 
@@ -44,11 +46,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
                     <th class="tblh">Type</th>
+                    <th class="tblh">Order ID</th>
                     <th class="tblh">Price</th>
                     <th class="tblh">Status</th>
-                    <th class="tblh">Tour Booking ID</th>
-                    <th class="tblh">Order ID</th>
-                    <th class="tblh">Reservation ID</th>
+                    
+                   
+                    
                 </tr><?php 
 require_once("../controller/paymentController.php");
 $payment = new paymentController();
@@ -60,6 +63,7 @@ foreach ($results as $result) {
            <tr class="subtext tblrw">
                     <th class="tblh"><?php echo $result["paymentID"] ?></th>
                     <th class="tblh"><?php echo $result["date"] ?></th>
+                    <th class="tblh"><?php echo $result["orderID"] ?></th>
                     <th class="tblh"><?php echo $result["type"] ?></th>
                     <th class="tblh"><?php echo $result["amount"] ?></th>
                     <td class="tbld">
@@ -71,9 +75,9 @@ foreach ($results as $result) {
                         <button class="status2"><?php echo $result["status"]; ?></button>
                         <?php }?>
                     </td>
-                    <th class="tblh"><?php echo $result["bookingID"] ?></th>
-                    <th class="tblh"><?php echo $result["orderID"] ?></th>
-                    <th class="tblh"><?php echo $result["reservationID"] ?></th>
+                    
+                    
+                    
                 </tr>     
                 
                 <?php }
