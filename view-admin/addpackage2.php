@@ -90,7 +90,7 @@ input[type=submit]:hover {
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="text">Add Tour Packages</div>
+        <div class="text">ADD TOUR PACKAGES</div>
 
         <div class="registerForm">
         <form action="../api/addtourpackage.php" method="POST">
@@ -113,24 +113,63 @@ input[type=submit]:hover {
       <input type="text" placeholder="Package Price" name="pckgprice" required> 
       </div>
     </div>
+
     <div class="row">
       <div class="col-25">
-        <label for="days">No of Days</label>
+        <label for="lname">Maximum Participants </label>
       </div>
       <div class="col-75">
-        <select id="country" name="country">
+      <input type="text" placeholder="Maximum number of participants" name="max_part" required> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="participants">No of Days</label>
+      </div>
+      <div class="col-75">
+        <select id="days" name="days" onchange="showInputTables()">
           <option value="1"> 1 </option>
           <option value="2">2 </option>
           <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-25">
+      <table id="input-table" style="display:none;">
+          <tr>
+              <td><label for="input1">Input 1:</label></td>
+              <td><input type="text" id="input1" name="input1"></td>
+           </tr>
+            <tr>
+              <td><label for="input2">Input 2:</label></td>
+              <td><input type="text" id="input2" name="input2"></td>
+           </tr>
+  <!-- Add more input fields as needed -->
+</table>
+
+      </div>
+    </div>
+
+
     <div class="row">
       <div class="col-25">
         <label for="subject"> Tour package description </label>
       </div>
       <div class="col-75">
         <textarea id="subject" name="pckgdesc" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" style="height:200px"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="subject"> Tour package Images </label>
+      </div>
+      <div class="col-75">
+      <input type="file" id="myFile" name="pckgimg">
       </div>
     </div>
 
@@ -143,7 +182,18 @@ input[type=submit]:hover {
        
 
     </section>
-
+    <script>
+        function showInputTables() 
+        {
+        var numTables = document.getElementById("days").value;
+                for (var i = 0; i < numTables; i++) 
+                {
+                     var table = document.getElementById("input-table").cloneNode(true);
+                     table.style.display = "table";
+                      document.body.appendChild(table);
+                }
+        }
+</script>
 </body>
 
 </html>
