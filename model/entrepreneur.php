@@ -17,6 +17,8 @@ class entrepreneur extends db_connection
        
         return $stmt;
     }
+
+
     public function insertentrepreneur($id,$businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
     {
         $query = "INSERT INTO entrepreneur (businessName, address, email, phone, profileImg, username, password, entrepreneurName, entrepreneurNic,  entrepreneurPhone, entrepreneurEmail, document, status) VALUES ('$businessName', '$address','$email','$phone', '$fileImg', '$username', '$password', '$eName', '$eNic','$ePhone', '$eEmail',  '$fileDoc', 0)";
@@ -25,6 +27,7 @@ class entrepreneur extends db_connection
        return $stmt;
     }
 
+    
     public function viewAll($id)
     {
     
@@ -52,7 +55,7 @@ class entrepreneur extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
-    
+
     public function updateprofile($id, $businessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
     {
         $query = "update entrepreneur set businessName='$businessName', address='$address', email='$email', phone='$phone',username='$username', password='$password',entrepreneurName='$eName', entrepreneurPhone='$ePhone', entrepreneurEmail='$eEmail', entrepreneurNic='$eNic' where entID='$id'";
@@ -96,10 +99,9 @@ class entrepreneur extends db_connection
 
         // print_r($id);
         // die();
-        $query = "SELECT * FROM entrepreneur where entID= $id";
+        $query = "SELECT * FROM entrepreneur where entID=  $id";
 
-        // print_r($query);
-        // die();
+      
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
 
