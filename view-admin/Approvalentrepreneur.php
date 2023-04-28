@@ -15,6 +15,8 @@ $rows = $_SESSION['c'];
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
+
 </head>
 
 <body>
@@ -91,10 +93,93 @@ $rows = $_SESSION['c'];
 
                 '; ?>
                 <br>  
-                <a href="editentrepreneur.php" class="button"> Approve Registration</a>
-                <a href="#" class="button">Decline</a>
+                <a onclick="openaModal('<?php echo $result['entID'] ?>')" class="button"> Approve Registration</a>
+                <a onclick="opendModal('<?php echo $result['entID'] ?>')" class="button"> Decline</a>
 
             </div>
+            </div>
+
+            <div id="id04" class="modal">
+
+                <form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"
+                    enctype="multipart/form-data">
+                    <div class="imgcontainer" style="background-color:#004581;">
+                        <button type="button" onclick="document.getElementById('id04').style.display='none'"
+                            class="cancelbtn close">&times;</button>
+                        <label for="room" style="color:white"><b>Remove Entrepreneur</b></label>
+                    </div>
+
+                    <div class="container">
+
+                        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+                            value=" <?php echo $result["entID"] ?>" />
+
+
+                        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
+                            the entrepreneur request?</p>
+
+                        <div class="container" style="padding:10px;">
+                            <button type="button" onclick="document.getElementById('id04').style.display='none'"
+                                class="btns" style="">No</button>
+                            <button type="submit" class="cancelbtn" value="Save" name="decline"
+                                style="margin-left:75px;">Yes</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <script>
+            function opendModal(id) {
+                var modal = document.getElementById("id04");
+                var modalIdValue = document.getElementById("modalIdValue");
+                modalIdValue.value = id;
+                modal.style.display = "block";
+            }
+            </script>
+
+
+            <div id="id02" class="modal">
+
+                <form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"
+                    enctype="multipart/form-data">
+                    <div class="imgcontainer" style="background-color:#004581;">
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                            class="cancelbtn close">&times;</button>
+                        <label for="room" style="color:white"><b>Accept Entrepreneur</b></label>
+                    </div>
+
+                    <div class="container">
+
+                        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+                            value="<?php echo $result["entID"] ?>" />
+
+
+                        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to Accept
+                            the entrepreneur request?</p>
+
+                        <div class="container" style="padding:10px;">
+                            <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                                class="btns" style="">No</button>
+                            <button type="submit" class="cancelbtn" value="Save" name="accept"
+                                style="margin-left:75px;">Yes</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <script>
+            function openaModal(id) {
+                var modal = document.getElementById("id02");
+                var modalIdValue = document.getElementById("modalIdValue");
+                modalIdValue.value = id;
+                modal.style.display = "block";
+            }
+            </script>
+        
         
     </section>
 </body>

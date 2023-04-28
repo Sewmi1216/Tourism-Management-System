@@ -9,17 +9,13 @@ $id= $_GET['tourguideID'];
 // We create required controller object.
 // We call the required function.
 
-$inputs = array($id);
-// print_r($inputs);
-// die();
+$inputs = ($id);
+//  print_r($inputs);
+//  die();
 
 $tourguidecon = new tourguideController();
 $tourguidecon-> viewoneguide($inputs);
 
 
-if (isset($_POST['delete'])) {
-    $id = $_POST['id'];
-    $pk = new roomTypeController();
-    $pk->deleteType($id);
-}
+
 ?>
