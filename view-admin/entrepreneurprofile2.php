@@ -28,7 +28,7 @@ $rows = $_SESSION['c'];
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
         <?php
-require_once "../controller/hotelController.php";
+require_once "../controller/entrepreneurController.php";
 $profile = new entrepreneurController();
 $results = $profile->viewProfile($id);
 foreach ($results as $result) {
@@ -40,7 +40,7 @@ foreach ($results as $result) {
                 <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
                     style='padding-right:0px;border-radius:50%;'>";?>
 
-                <h3><?php echo $result['name'];?></h3>
+                <h3><?php echo $result['entrepreneurName'];?></h3>
                 <p><?php echo $result['username'];?></p>
             </div>
             <div class="right">
@@ -71,26 +71,26 @@ foreach ($results as $result) {
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p><?php echo $result['managerName'];?></p>
+                            <p><?php echo $result['entrepreneurName'];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p><?php echo $result['managerNic'];?></p>
+                            <p><?php echo $result['entrepreneurNic'];?></p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p><?php echo $result['managerEmail'];?></p>
+                            <p><?php echo $result['entrepreneurEmail'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p><?php echo $result['managerPhone'];?></p>
+                            <p><?php echo $result['entrepreneurPhone'];?></p>
                         </div>
 
                     </div>
 
                 </div>
                 <br>
-                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entrepreneurNic'];?>'" class="button">Update profile</a>
+                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entID'];?>'" class="button">Update profile</a>
                 <a href="editmanager.php" class="button">Delete profile</a>
 
 
