@@ -6,6 +6,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
 } else {
     header("location:../view-hotel/login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +57,7 @@ foreach ($results as $result) {
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <a href="tourpackage.php?hid=<?php echo $result['packageID']; ?>" class="btn">More Information</a>
+                    <a href="tourpackage.php?pid=<?php echo $result['packageID']; ?>" class="btn">More Information</a>
                      <!-- <a href="hotelView.php?hid=<?php echo $result['hotelID']; ?>" class="btn">More Information</a> -->
                 </div>
             </div>

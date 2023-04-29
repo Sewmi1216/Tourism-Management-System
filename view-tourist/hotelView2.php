@@ -130,12 +130,12 @@ $results = $hotel->viewHotel($id);
         ?>
             <div class="box">
                 <div class="slideshow-container">
-                    <?php
+                    <!-- <?php
                 require_once("../controller/roomTypeController.php") ;
                 $tp = new roomTypeController();
                 $rows = $tp->viewAllImgs( $result['roomTypeId']);
                 foreach ($rows as $key => $row) {
-                    ?>
+                    ?> -->
                     <div class="mySlides fade type-<?php echo $result['roomTypeId']; ?>">
                         <?php echo "<img src='../images/" . $row['image'] . "' style='width:100%'>";?>
                     </div>
@@ -158,7 +158,7 @@ $results = $hotel->viewHotel($id);
                         class="btn">Reserve</a>
                 </div>
             </div>
-            <?php }?>
+            <!-- <?php }?> -->
         </div>
     </section>
 
