@@ -45,13 +45,14 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
             </div>
         </div>
         <div id="cont">
-            <div class="page-title" style="margin-left:30px;"> Guest Reservations[Payment done by tourist]</div>
+            <div class="page-title" style="margin-left:30px;"> Guest Reservations</div>
             <div class="bg">
 
                 <table id="tbl">
                     <tr class="subtext tblrw">
                         <th class="tblh">Date</th>
                         <th class="tblh">Reservation ID</th>
+                        <th class="tblh">Room Number</th>
                         <th class="tblh">Guest ID</th>
                         <th class="tblh">Guest Name</th>
                         <th class="tblh">Total amount</th>
@@ -71,6 +72,7 @@ foreach ($results as $result) {
                         <tr class="subtext tblrw">
                             <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
                             <td class="tbld"><?php echo $result["reservationID"] ?></td>
+                            <td class="tbld"><?php echo $result["roomID"] ?></td>
                             <td class="tbld"><?php echo $result["touristID"] ?></td>
                             <td class="tbld"><?php echo $result["guestName"] ?></td>
                             <td class="tbld"><?php echo '$' . $result["total_amount"] ?></td>

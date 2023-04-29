@@ -215,4 +215,16 @@ class touristController extends db_connection
         $result = $hotel->viewAllTourPackages();
         return $result;
     }
+     public function viewTourPkg($pid)
+    {
+        $tourpkg = new tourist();
+        $result = $tourpkg->viewTourPkg($pid);
+        return $result;
+    }
+    public function viewAllTourImgs($id)
+    {
+        $tour = new tourist();
+        $result = $tour->viewAllTourImgs($id);
+        return $result;
+    }
 }

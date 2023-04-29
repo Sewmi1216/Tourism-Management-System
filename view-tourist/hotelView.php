@@ -54,8 +54,7 @@ foreach ($results as $result) {
 
                         <td style="padding:50px;">
                             <div>
-                                <h1 class="hotel"><?php echo $result['name']; ?></h3><br>
-
+                                <h1 class="hotel"><?php echo $result['name']; ?></h1><br>
                                     <p class="sub"><i class="fa-solid fa-location-dot"></i>
                                         &nbsp;&nbsp;<?php echo $result['address']; ?></p>
 

@@ -25,7 +25,9 @@ html{
   scroll-padding-top: 6rem;
   scroll-behavior: smooth;
 }
-
+body{
+  color:#222;
+}
 section{
   padding:2rem 9%;
 }
@@ -606,10 +608,6 @@ header .search-bar-container label:hover{
 .footer .credit span{
   color:var(--orange);
 }
-
-
-
-
 
 
 

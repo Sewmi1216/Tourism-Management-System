@@ -6,139 +6,110 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
 } else {
     header("location:../view-hotel/login.php");
 }
-
-$rows = $_SESSION['c'];
+if (isset($_GET['pid'])) {$pid = $_GET['pid'];}
+// $rows = $_SESSION['c'];
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Tour Package</title>
-  <link rel="stylesheet" href="../css/craft_list.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-  <link rel="stylesheet" href="../css/hindex.css">
-  <link rel="stylesheet" href="../css/tourist-tourpackage.css">
+    <title>Tour Package</title>
+    <link rel="stylesheet" href="../css/craft_list.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/hindex.css">
+    <link rel="stylesheet" href="../css/tourist.css">
+    <link rel="stylesheet" href="../css/hotel.css">
+    <link rel="stylesheet" href="../css/tourpackage.css">
 </head>
 
 <body>
-<div class="nav" id="topnav">
-        <a href="home.php" class="logo"><img src="../images/logo.png" alt="Logo" height="50px" width="90px"
-                style="padding-left:10px;"></a>
-        <div style="padding-top:15px;" class="middle">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            <a href="../view-hotel/hotelLogin.php">Log out</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About</a>
-            <a href="../view/accommodation.php">Accommodation</a>
-            <a href="craftlist.php">Handicrafts</a>
-            <a href="tourpackagelist.php">Tour Packages</a>
-            <a href="../view-hotel/home.php">Home</a>
-        </div>
-    </div>
+    <?php include "header.php"?>
+    <?php
+require_once("../controller/touristController.php") ;
+$tp = new touristController();
+$results = $tp->viewTourPkg($pid);
+           foreach ($results as $result) {
+               ?>
+    <section class="hotel1" id="hotel" style="padding: 2rem 9%;">
 
-    <!-- <div class="search">
-        <input type="text" placeholder="Search by Location">
-        <img src="../img/Union.png"/>
-      </div> -->
-
-      <!-- <div class="silverpot">
-        <p>Recommended Crafts from Us</p>
-        <img src="../images/forest.png"/>
-      </div>
-
-      <div class="elephant-statue">
-        <img src="../images/img2.png"/>
-      </div>
-
-      <div class="saree">
-        <img src="../images/img3.png"/>
-      </div>
-
-      <div class="elephant">
-        <img src="../images/img4.png"/>
-      </div>
-
-      <div class="palmyrah">
-        <img src="../images/img5.png"/>
-      </div>
- -->
-
-
-
-      <section class="packages" id="packages" style="padding-top = 40px">
-
-<!-- <h1 class="heading">
-    <span>p</span>
-    <span>a</span>
-    <span>c</span>
-    <span>k</span>
-    <span>a</span>
-    <span>g</span>
-    <span>e</span>
-    <span>s</span>
-</h1> -->
-
-
-<div class="box-container">
-<?php                   
-foreach ($rows as $row) {  
-
-echo '
-    <div class="box">
-    <img src="../images/tourpackage/k1.jpg" alt="">
-        <div class="content">
-            <h3> <i class="fas fa-map-marker-alt"></i> '.$row['packageName'].' </h3>
-            <p>'.$row['packageName'].'</p>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
+        <div class="cont">
+            <div class="search">
+                <h1><?php echo $result['packageName'] ?></h1>
             </div>
-            <div class="price"> $ '.$row['price'].'  <span> $ '.$row['price'].' </span> </div>
-            <a href="booktourpackage.php" class="btn">book now</a>
         </div>
-    </div>
+        <div class="containerimgs">
+            <div class="mySlides">
+                <img src="../images/bg2.jpg" class="tourimg">
+            </div>
+            <div class="mySlides">
+                <img src="../images/bg4.jpg" class="tourimg">
+            </div>
 
-   
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
 
-';} ?>
+            <div class="row" style="margin-left:10%;">
+                <div class="column">
+                    <img class="demo cursor" src="../images/bg2.jpg" style="width:100%" onclick="currentSlide(1)"
+                        alt="The Woods">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="../images/bg4.jpg" style="width:100%" onclick="currentSlide(2)"
+                        alt="The Woods">
+                </div>
+            </div>
 
-</section>
+        </div>
 
-
-
-
-
-
-
-      <!-- about us -->
-   <section class="about" id="about" style="padding: 2rem 9%;">
+    </section>
+    <section class="hotel2" id="hotel" style="padding: 2rem 9%;">
         <div class="container">
-            <div class="image">
-                <img src="../img/24545515_357 [Converted] 1.png" alt="">
-            </div>
-            <div class="content">
-                <h1 class="heading">Pack2Paradise</h1>
-                <hr>
-                <p>
-                    Welcome to Pack2Paradise, the most unique platform that connects the tourist with the Trip planners,
-                    local entrepreneurs and the tourist guides.
-                    <br>
-                    <br>
 
-                    Our vision is to connect the tourist with the small and medium scale Hotels, Small entrepreneurs and
-                    to provide them a memorable vacation through providing the tour packages with great tourist guides.
-                    <br>
-                </p>
+            <div class="pkg" style="padding:30px;">
+                <div class="vl"></div>
+                <p><?php echo $result['description'] ?></p>
+            </div>
+
+            <div class="pkg1" style="padding:30px;">
+                <div class="new">
+                    <div class="price">$ <?php echo $result['price'] ?></div>
+                    <div style="color: darkgray;font-size: 20px;">per person</div>
+                </div>
+                <h1>Reserve Now !</h1>
+            </div>
+            <div class="pkg1" style="padding:30px;margin-top:30px;">
+                <h2>Reservation</h2>
+                <div class="content">Name*</div>
+                <input type="text" class="subfield" style="width:100%;" name="name" />
+
+                <div class="content">Email Address*</div>
+                <input type="text" class="subfield" style="width:100%;" name="email" />
+
+                <div class="content">Mobile Number*</div>
+                <input type="text" class="subfield" style="width:100%;" name="phone" />
+
+                <div class="content">Number of travelers*</div>
+                <input type="number" class="subfield" style="width:100%;" name="phone" />
+
+                <div class="content">Arrival Date*</div>
+                <input type="date" class="subfield" style="width:100%;" name="phone" />
+
+                <div class="content">Departure Date*</div>
+                <input type="date" class="subfield" style="width:100%;" name="phone" />
+
+                <div style="margin-top: 30px;">
+                    <a href="" class="btn" style="padding: 15px 0px; width:100%;margin:0px;">Reserve</a>
+                </div>
             </div>
         </div>
     </section>
+    <?php } ?>
 
 
 
-    <section id="contact" style="padding-bottom: 20px">
+
+    <section id="contact" style="padding-bottom: 20px;margin-top:60%;">
         <div style="text-align:center; padding: 10px;">
             <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
             <div style="color: #babab3;font-size: 17px;padding-top: 50px">
@@ -156,8 +127,43 @@ echo '
 
 
     <script src="../view-hotel/js/home.js"></script>
-      
+    <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+    </script>
+
 </body>
+
 </html>
 
 

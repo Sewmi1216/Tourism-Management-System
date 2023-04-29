@@ -9,13 +9,13 @@
   margin-top: 20px;
 }
 
-
 body{
-  background-color: #beebff;
-  font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
+  margin: 0;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #dde8f0;
+  color: #000000;
 }
 
 .add{
@@ -165,11 +165,116 @@ font-family: 'Arvo', serif;
 font-family: 'Days One', sans-serif;
 color: #022535;
 }
-
-
-
-
-
  td{
   margin-left: 10%;
  }
+
+ 
+/* slideshow */
+
+/* Position the image container (needed to position the left and right arrows) */
+.containerimgs {
+  position: inherit;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.prev{
+    margin-left:123px;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 258px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  width:80%;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+.tourimg{
+  display: block;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+ .pkg {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  float: left;
+  width: 58%;
+}
+ .pkg1 {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  float: right;
+  width: 30%;
+}
+.vl {
+  border-left: 4px solid rgb(0, 2, 128);
+  margin-left:5px;
+  height: 200px;
+  float:left;
+}
+.price{
+  font-size: 2rem;
+}
+p{
+  margin-left:30px;
+}
+
+.new{
+float: right;
+}

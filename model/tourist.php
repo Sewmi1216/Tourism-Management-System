@@ -200,5 +200,16 @@ class tourist extends db_connection
         $sql = "SELECT * from tourpackage";
         return $this->getData($sql);
     }
+    public function viewTourPkg($pid)
+    {
+        $sql = "SELECT * from tourpackage where packageID='$pid'";
+        $stmt = mysqli_query($this->conn, $sql);
+        return $stmt;
+    }
+     public function viewAllTourImgs($id)
+    {
+        $query = "Select * from tourpackage_img i, tourpackage t where i.tourpackageId=t.packageID and i.tourpackageId='$id'";
+        return $this->getData($query);
+    }
 
 }

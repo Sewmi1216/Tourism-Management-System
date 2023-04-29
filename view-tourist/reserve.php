@@ -89,10 +89,6 @@ $room = new roomTypeController();
 $results = $room->viewType($typeid);
 foreach ($results as $result) {
     ?>
-
-
-
-
                 <div class="slideshow-container">
                     <?php
 require_once "../controller/roomTypeController.php";
