@@ -14,6 +14,8 @@ if (isset($_GET['pid'])) {$pid = $_GET['pid'];}
 
 <head>
     <title>Tour Package</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/craft_list.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -79,28 +81,38 @@ $results = $tp->viewTourPkg($pid);
                 <h1>Reserve Now !</h1>
             </div>
             <div class="pkg1" style="padding:30px;margin-top:30px;">
-                <h2>Reservation</h2>
-                <div class="content">Name*</div>
-                <input type="text" class="subfield" style="width:100%;" name="name" />
+                <form action="../api/tourbooking.php" method="post">
 
-                <div class="content">Email Address*</div>
-                <input type="text" class="subfield" style="width:100%;" name="email" />
+                    <h2>Reservation</h2>
+                    <input type="hidden" class="subfield" style="width:100%;" name="tid" value="<?php echo $id ?>" />
+                    <input type="hidden" class="subfield" style="width:100%;" name="pid" value="<?php echo $pid ?>" />
+                    <div class="content">Name*</div>
+                    <input type="text" class="subfield" style="width:100%;" name="name" />
 
-                <div class="content">Mobile Number*</div>
-                <input type="text" class="subfield" style="width:100%;" name="phone" />
+                    <div class="content">Email Address*</div>
+                    <input type="text" class="subfield" style="width:100%;" name="email" />
 
-                <div class="content">Number of travelers*</div>
-                <input type="number" class="subfield" style="width:100%;" name="phone" />
+                    <div class="content">Mobile Number*</div>
+                    <input type="text" class="subfield" style="width:100%;" name="phone" />
 
-                <div class="content">Arrival Date*</div>
-                <input type="date" class="subfield" style="width:100%;" name="phone" />
+                    <div class="content">Number of travelers*</div>
+                    <input type="number" class="subfield" style="width:100%;" name="traverler" />
 
-                <div class="content">Departure Date*</div>
-                <input type="date" class="subfield" style="width:100%;" name="phone" />
+                    <div class="content">Arrival Date*</div>
+                    <input type="date" class="subfield" style="width:100%;" name="adate" />
 
-                <div style="margin-top: 30px;">
-                    <a href="" class="btn" style="padding: 15px 0px; width:100%;margin:0px;">Reserve</a>
-                </div>
+                    <div class="content">Departure Date*</div>
+                    <input type="date" class="subfield" style="width:100%;" name="ddate" />
+
+                    <div class="content">Total amount</div>
+                    <input type="text" class="subfield" style="width:100%;" name="tot_amount"/>
+
+                    <div style="margin-top:20px;margin-left:120px;">
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">
+                        </script>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -125,6 +137,17 @@ $results = $tp->viewTourPkg($pid);
         </div>
     </section>
 
+    <script>
+    const price = <?php echo $result['price'] ?>;
+    const inputTravelers = document.querySelector('input[name="traverler"]');
+    const inputAmount = document.querySelector('input[name="tot_amount"]');
+
+    inputTravelers.addEventListener('input', () => {
+        const travelers = inputTravelers.value;
+        const totalAmount = price * travelers;
+        inputAmount.value = totalAmount;
+    });
+    </script>
 
     <script src="../view-hotel/js/home.js"></script>
     <script>

@@ -153,7 +153,7 @@ class touristController extends db_connection
     public function insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
-        $res = $reservation->insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
+        $res = $reservation->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
         
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
@@ -179,6 +179,44 @@ class touristController extends db_connection
             $mail->Subject = "Your have placed a reservation";
             $mail->Body = "<b>Dear User</b>
                     <h3>Your have placed a reservation</h3>";
+
+            if (!$mail->send()) {?>
+        <script>
+        alert("<?php echo "Error sending email to " . $email ?>");
+        </script>
+        <?php
+}
+
+    }
+    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+    {
+        $booking = new tourist();
+        $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
+        
+            require "../libs/PHPMailer/PHPMailerAutoload.php";
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+
+            // h-hotel account
+            $mail->Username = 'sewmi.rotaract3220@gmail.com';
+            $mail->Password = 'uaqgejykofzquoaf';
+
+            // send by h-hotel email
+            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
+            // get email from input
+            $mail->addAddress($email);
+            //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
+            // HTML body
+            $mail->isHTML(true);
+            $mail->Subject = "Your have placed a tour booking";
+            $mail->Body = "<b>Dear User</b>
+                    <h3>Your have placed a tour booking</h3>";
 
             if (!$mail->send()) {?>
         <script>

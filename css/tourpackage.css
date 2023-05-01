@@ -253,6 +253,7 @@ color: #022535;
   border-radius: 0.5rem;
   float: left;
   width: 58%;
+    position: relative;
 }
  .pkg1 {
   background-color: #fff;
@@ -261,12 +262,15 @@ color: #022535;
   border-radius: 0.5rem;
   float: right;
   width: 30%;
+
 }
 .vl {
   border-left: 4px solid rgb(0, 2, 128);
   margin-left:5px;
-  height: 200px;
   float:left;
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
 }
 .price{
   font-size: 2rem;
