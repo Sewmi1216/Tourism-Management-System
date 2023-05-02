@@ -173,7 +173,7 @@ class tourist extends db_connection
     }
     public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
     {
-        $query = "INSERT INTO tourbooking (bookingDateTime, bookingStatus, guestName, guestPhone, guestEmail, arrivalDate, departureDate, noOfGuests, tourPkgID, touristID) VALUES (NOW(), 'Pending', $name', '$phone', '$email', '$aDate', '$dDate','$guests', '$packageId', '$touristID')";
+        $query = "INSERT INTO tourbooking (bookingDateTime, bookingStatus, guestName, guestPhone, guestEmail, arrivalDate, departureDate, noOfGuests, tourPkgID, touristID) VALUES (NOW(), 'Pending', '$name', '$phone', '$email', '$aDate', '$dDate','$guests', '$packageId', '$touristID')";
         $stmt = mysqli_query($this->conn, $query);
         if ($stmt) {
             $bookingId = mysqli_insert_id($this->conn); // get the booking ID
@@ -183,7 +183,6 @@ class tourist extends db_connection
         } else {
             $error = mysqli_error($this->conn);
             return "Error: $error";
-
         }
 
     }
