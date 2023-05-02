@@ -114,6 +114,45 @@ public function deleteproduct($id)
     
       
     }
+    public function countOrders()
+    {
+        $productuser = new product();
+        $res = $productuser->countOrders();
+        return $res;
+    }
+    public function countProdctOrders()
+    {
+        $productuser = new product();
+        $res = $productuser->countProductOrders();
+        return $res;
+    }
+    public function revenue()
+    {
+        $productuser = new product();
+        $res = $productuser->revenue();
+        return $res;
+    }
+   
+
+    public function canceledOrders()
+    {
+        $productuser2 = new product();
+        $res2 = $productuser2->canceledOrders();
+        return $res2;
+    }
+     public function todayRevenue()
+    {
+        $productuser3= new product();
+        $res3 = $productuser3->todayRevenue();
+        return $res3;
+    }
+    
+    public function soldProducts()
+    {
+        $productuser3= new product();
+        $res3 = $productuser3->soldProducts();
+        return $res3;
+    }
 }
 ?>
 

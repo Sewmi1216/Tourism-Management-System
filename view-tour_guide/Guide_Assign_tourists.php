@@ -1,8 +1,8 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
-    $id = $_SESSION["entID"];
+if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
+    $id = $_SESSION["tourguideID"];
 } else {
     header("location:Login.php");
 }
@@ -66,7 +66,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                         <td class="tbld"><?php echo $result["guestPhone"] ?></td>
                        
                         <td class="tbld"><?php echo $result["noOfGuests"] ?></td>
-                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['productID']; ?>"><i class="fa-solid fa-bars"></i></a></td>
+                        <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['userID']['packageID']['tourguideID']; ?>"><i class="fa-solid fa-bars"></i></a></td>
                         
                         
 
@@ -122,7 +122,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
             </tr>
             <tr class="row">
                 <td>
-                    <div class="content">Destination :</div>
+                    <div class="content">Description :</div>
                 </td>
                 <td><input type="number" id="price" min="10" class="subfield" name="price" value=""></td>
                 
@@ -169,6 +169,42 @@ function myFunction() {
   }
 }
 </script>
+
+<script>
+    // Function to open the modal and set the id value
+    function openModal(id) {
+        var modal = document.getElementById("id04");
+        var modalIdValue = document.getElementById("modalIdValue");
+        modalIdValue.value = id;
+        modal.style.display = "block";
+    }
+
+    function loadData(id) {
+    	$.ajax({
+    	    url: "../api/productapi.php",
+    	    method: "POST",
+    	    data: {
+                get_data: 1, 
+                id: id,
+            },
+    	    success: function (response) {
+    	        console.log(response);
+                var type = JSON.parse(response);
+                $("#touristid").val(type.userID);
+                $("#packageid").val(type.packageID);
+                $("#tourguideid").val(type.tourguideID);
+                $("#productname").val(type.name);
+                $("#phone").val(type.phone);
+                $("#description").val(type.description);
+                $("#passengers").val(type.passenger);
+              
+               
+
+    	    }
+        });
+    }
+</script>
+
 
     </section>
 
