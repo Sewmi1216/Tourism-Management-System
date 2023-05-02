@@ -2,9 +2,9 @@
 require('../api/entrepreneurprofile.php');
 $rows = $_SESSION['c'];
 
-foreach($rows as $x){
-    print_r($x);
- }
+// foreach($rows as $x){
+//     print_r($x);
+//  }
 
 // die();
 // print_r($rows); die();

@@ -82,4 +82,17 @@ class tourpackage extends db_connection
         return $stmt;
     }
     
+    //adding images
+    public function addRoomTypeImg($typeid, $file)
+    {
+        require_once "../view-hotel/addPhotos.php";
+
+        // $sql= "INSERT INTO roomtype_img(roomTypeId, image) VALUES (?, ?)";
+        $sql = "INSERT INTO roomtype_img(roomTypeId, image) VALUES ('$typeid', '$file')";
+        $stmt = $this->conn->prepare($sql);
+        // $stmt->bind_param("ib", $typeid, $file);
+
+        $stmt->execute();
+        return $stmt;
+    }
 }
