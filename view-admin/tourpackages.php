@@ -51,6 +51,7 @@ $rows = $_SESSION['c'];
                     <th class="tblh">Package Name</th>
                     <th class="tblh"> No of Participant</th>
                     <th class="tblh"> Package price</th>
+                    <th class="tblh">Add photos</th>
                     <th class="tblh">View</th>
                     <th class="tblh">Edit</th>
                     <th class="tblh">Delete</th>
@@ -76,8 +77,11 @@ echo '
                     '.$row['price'].'  
                     </td>
                   
+                    
+                    <td class="tbld">  <a href="addPhotos.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-images"></i></a></td>
+
                     <td class="tbld">  <a href="packagedescription2.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                    <td class="tbld"> <a href="editpackage2.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
+                    <td class="tbld"> <a href="editpackage.php?package_id='.$row['packageID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
                     <td class="tbld"><a onclick="openModal('.$row['packageID'].')"><i class="fa-solid fa-trash art"></i></a></td>
                 </tr>
