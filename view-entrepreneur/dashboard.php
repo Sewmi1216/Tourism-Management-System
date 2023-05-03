@@ -75,7 +75,7 @@ foreach ($results2 as $r) {
                 <br>
                 <?php
 $pie = new productController();
-$results= $pie->countOrders();
+$results= $pie->countProductOrders();
 foreach ($results as $data) {
     $type[]=$data['product'];
     $reservations[]=$data['num_orders'];

@@ -139,3 +139,5 @@ class productController extends db_connection
     }
     
 }
+
+}

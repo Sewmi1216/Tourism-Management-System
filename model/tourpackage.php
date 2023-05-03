@@ -35,7 +35,7 @@ class tourpackage extends db_connection
        
     
         // $query = "UPDATE tourpackage SET (packageName, price, description, participant_count , adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '$inputs[3]', '1') where packageID = $inputs[4]";
-        $query = "UPDATE tourpackage SET packagename = '$inputs[0]', price ='$inputs[1]', description ='$inputs[2]', max_part ='$inputs[3]', no_of_days='$inputs[4]' WHERE packageID =$id";
+        $query = "UPDATE tourpackage SET packagename = '$inputs[0]', price ='$inputs[1]', description ='$inputs[2]', max_part ='$inputs[3]', no_of_days='$inputs[4]' WHERE packageID ='$inputs[5]'";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -71,6 +71,7 @@ class tourpackage extends db_connection
         $query = "UPDATE tourpackage SET visible = 0 WHERE packageID = $id";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
+        
         return $stmt;
     }
 
@@ -82,4 +83,30 @@ class tourpackage extends db_connection
         return $stmt;
     }
     
+    //adding images
+    public function addtourpackageImg($typeid, $file)
+    {
+        require_once "../view-admin/addPhotos.php";
+
+        // $sql= "INSERT INTO tourpackage_img(tourpackageid, image) VALUES (?, ?)";
+        $sql = "INSERT INTO tourpackage_img(tourpackageid, image) VALUES ('$typeid', '$file')";
+        $stmt = $this->conn->prepare($sql);
+        // $stmt->bind_param("ib", $typeid, $file);
+
+        $stmt->execute();
+
+        // print_r($stmt);
+        // die();
+
+        return $stmt;
+    }
+
+    public function viewAllImgs($getid)
+    {
+        $query = "Select * from tourpackage_img i, roomtype r where i.roomTypeId=r.roomTypeId and r.roomTypeId='$getid'";
+        // $query = "Select * from roomtype_img";
+
+        return $this->getData($query);
+
+    }
 }
