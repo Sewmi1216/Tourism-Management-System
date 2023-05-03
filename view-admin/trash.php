@@ -21,7 +21,10 @@
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
+
+
         <!-- <div class="text">Hotel Packages</div> -->
+        
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> RECENTLY DELETED </div>
@@ -46,13 +49,13 @@
                     <th class="tblh">Permemnerntly Deslete</th>
                 </tr>
                 
-        <?php 
-require_once("../controller/tourpackagecontroller.php");
-$del_tourpackage = new tourpackagecontroller();
-$results= $del_tourpackage-> viewdeletedtourPkg();
-foreach ($results as $result) {
+                                    <?php 
+                                    require_once("../controller/tourpackagecontroller.php");
+                                    $del_tourpackage = new tourpackagecontroller();
+                                    $results= $del_tourpackage-> viewdeletedtourPkg();
+                                    foreach ($results as $result) {
 
-        ?>
+                                    ?>
 
                 <tr class="subtext tblrw">
                     <td class="tbld">
@@ -65,19 +68,37 @@ foreach ($results as $result) {
                     
                     <td class="tbld">   <a href="packagedescription2.php? <?php echo $result["packageID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
-                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i class="fa-sharp fa-solid fa-trash-can-undo"></i></i></a></td>
-                    <td class="tbld"><a onclick="document.getElementById('id04').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
+                    <td class="tbld"><a onclick="document.getElementById('id01').style.display='block'"><i
+                           class="fa-solid fa-circle-check"></i></a></td>
+                    <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i class="fa-solid fa-trash art"></i></a></td>
                 </tr>
 
-                <?php }
-?>
+                <?php } ?>
 
             </table>
 
-              
-      
         </div>
          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div class="searchSec">
                 <div class="page-title"> Recently deleted Hotel Managers </div>
             </div>
