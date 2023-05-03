@@ -1,3 +1,18 @@
+<?php 
+require('../api/viewonetourpackage.php');
+$rows = $_SESSION['c'];
+
+// foreach($rows as $x){
+//     print_r($x);
+// }
+
+// die();
+// print_r($rows); die();
+// The http request hits here 4th.
+// Using the data from previously execute code, the view is prepared
+// A response to the http request is sent from here as html file.
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -90,19 +105,24 @@ input[type=submit]:hover {
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="text">ADD TOUR PACKAGES</div>
+        <div class="text">UPDATE TOUR PACKAGES</div>
 
         <div class="registerForm">
-        <form action="../api/addtourpackage.php" method="POST">
+        <form action="../api/updatetourpackage.php" method="POST">
         
-        <div class="container">
-  <form action="/action_page.php">
+        <input type="hidden" name = "packageID" value=<?php foreach($rows as $row)echo $row['packageID']; ?>>
+         <?php
+
+ 
+
+foreach($rows as $row) 
+echo '
     <div class="row">
       <div class="col-25">
         <label for="fname"> Package Name </label>
       </div>
       <div class="col-75">
-      <input type="text" placeholder="Enter Package Name" name="pckgname" required>
+      <input type="text" placeholder="Enter Package Name" name="pckgname" value="'.$row['packageName'].'" required>
       </div>
     </div>
     <div class="row">
@@ -110,7 +130,7 @@ input[type=submit]:hover {
         <label for="lname">Package Price</label>
       </div>
       <div class="col-75">
-      <input type="text" placeholder="Package Price" name="pckgprice" required> 
+      <input type="text" placeholder="Package Price" name="pckgprice" value='.$row['price'].' required> 
       </div>
     </div>
 
@@ -119,7 +139,7 @@ input[type=submit]:hover {
         <label for="lname">Maximum Participants </label>
       </div>
       <div class="col-75">
-      <input type="text" placeholder="Maximum number of participants" name="max_part" required> 
+      <input type="text" placeholder="Maximum number of participants" name="nooftourist" value='.$row['max_part'].' required> 
       </div>
     </div>
     <div class="row">
@@ -148,8 +168,8 @@ input[type=submit]:hover {
               <td><label for="input2">Input 2:</label></td>
               <td><input type="text" id="input2" name="input2"></td>
            </tr>
-  <!-- Add more input fields as needed -->
-</table>
+
+      </table>
 
       </div>
     </div>
@@ -160,24 +180,17 @@ input[type=submit]:hover {
         <label for="subject"> Tour package description </label>
       </div>
       <div class="col-75">
-        <textarea id="subject" name="pckgdesc" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" style="height:200px"></textarea>
+        <textarea id="subject" name="pckgdesc" placeholder="Describe the Tour package (E.g : No of Days, Travel Destinations)" style="height:200px"> '.$row['description'].' </textarea>
       </div>
     </div>
 
+    
+'  ?>
     <div class="row">
-      <div class="col-25">
-        <label for="subject"> Tour package Images </label>
-      </div>
-      <div class="col-75">
-      <input type="file" id="myFile" name="pckgimg">
-      </div>
+      <input type="submit" class="btn1" value="UPDATE PACKAGE" name="save">
     </div>
-
-    <div class="row">
-      <input type="submit" class="btn1" value="Submit" name="save">
-    </div>
-  </form>
-</di
+  </form> 
+</div>
        
        
 

@@ -164,14 +164,7 @@ input[type=submit]:hover {
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-25">
-        <label for="subject"> Tour package Images </label>
-      </div>
-      <div class="col-75">
-      <input type="file" id="myFile" name="pckgimg">
-      </div>
-    </div>
+    
 
     <div class="row">
       <input type="submit" class="btn1" value="Submit" name="save">

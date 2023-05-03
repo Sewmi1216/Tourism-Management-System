@@ -28,7 +28,7 @@ if (isset($_POST['submitImg'])) {
     $folder = "../images/" . $filename;
 
     $typecon = new tourpackageController();
-    $typecon->tourpackageimg($typeid, $file);
+    $typecon->addtourpackageimg($typeid, $file);
 
     move_uploaded_file($tempname, $folder);
     if (!$typecon) {
