@@ -2,7 +2,7 @@
 session_start();
 $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
-    $id = $_SESSION["hotelID"];
+    $id = $_SESSION["adminID"];
 } else {
     // header("location:login.php");
 }
@@ -68,7 +68,7 @@ foreach ($results as $result) {
                     'width:150px;height: 150px;background-size: 100%;
                     background-repeat: no-repeat;'>"; ?>
 
-                    <form action="../api/addType.php" method="post">
+                    <form action="../api/addtourpackage.php" method="post">
 
                         <input type="hidden" class="subfield" name="typeid"
                             value="<?php if (isset($getid)) {echo $getid;}?>" />

@@ -104,11 +104,10 @@ class tourpackageController extends db_connection
     {
         $typeImg = new tourpackage();
 
-        $result = $typeImg->addRoomTypeImg($typeid, $file);
+        $result = $typeImg->addtourpackageImg($typeid, $file);
 
         return $result;
        
-
     }
 
     public function viewAllImgs($getid)
