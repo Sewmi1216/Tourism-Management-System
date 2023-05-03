@@ -76,13 +76,13 @@ class tourpackageController extends db_connection
 
     }
 
-    public function deletePkg($inputs)
+    public function deletePkg($id)
     {
         
         $pkg = new tourpackage();
         
 
-        $result = $pkg->deletetourPkg($inputs[0]);
+        $result = $pkg->deletetourPkg($id);
         
 
         $_SESSION['c'] = $result;
