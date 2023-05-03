@@ -29,7 +29,7 @@ $rows = $_SESSION['c'];
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="text">Entrepreneur Profile</div>
+        <div class="text">Entrepreneur - Pending Approval</div>
         
         <div class="wrapper">
             <div class="left"> 
@@ -91,13 +91,16 @@ $rows = $_SESSION['c'];
 
                 </div>
 
-                '; ?>
+                
                 <br>  
-                <a onclick="openaModal('<?php echo $result['entID'] ?>')" class="button"> Approve Registration</a>
-                <a onclick="opendModal('<?php echo $result['entID'] ?>')" class="button"> Decline</a>
+                '; ?>
 
+                <a onclick="openaModal('<?php echo $row['entID'] ?>')" class="button"> Approve Registration</a>
+                <a onclick="opendModal('<?php echo $row['entID'] ?>')" class="button"> Decline</a>
+                
             </div>
             </div>
+           
 
             <div id="id04" class="modal">
 

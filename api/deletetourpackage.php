@@ -2,10 +2,9 @@
 <?php
 include '../controller/tourpackagecontroller.php';
 
-$packagename = $_GET["id"];
-$inputs = array($packagename);
+$id = $_GET["packageID"];
 
 $tourpackagecon = new tourpackageController();
-$tourpackagecon-> deletePkg($inputs);
+$tourpackagecon-> deletePkg($id);
 
 ?>

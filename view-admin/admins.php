@@ -77,7 +77,7 @@ $rows = $_SESSION['c'];
                 <table>
                     <tr class="subtext tblrw">
                         <th class="tblh"> Admin Name</th>
-                        <th class="tblh">NIC</th>
+                        <th class="tblh">Job Position</th>
                         <th class="tblh">E-Mail Address</th>
                         <th class="tblh">Phone Number</th>
                         <th class="tblh">View</th>
@@ -89,10 +89,10 @@ $rows = $_SESSION['c'];
 
 echo ' <tr class="subtext tblrw">
                         
-                        <td class="tbld">'.$row['adminName'].'</td>
-                        <td class="tbld">'.$row['username'].'</td>
+                        <td class="tbld">'.$row['name'].'</td>
+                        <td class="tbld">'.$row['job_position'].'</td>
                         <td class="tbld">'.$row['email'].'</td>
-                        <td class="tbld">'.$row['phone'].'</td>
+                        <td class="tbld">'.$row['phoneNo'].'</td>
                         <td class="tbld">   <a href="adminprofile.php?"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                     
         </tr> ';

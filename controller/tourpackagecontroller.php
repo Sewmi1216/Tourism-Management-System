@@ -76,13 +76,13 @@ class tourpackageController extends db_connection
 
     }
 
-    public function deletePkg($inputs)
+    public function deletePkg($id)
     {
         
         $pkg = new tourpackage();
         
 
-        $result = $pkg->deletetourPkg($inputs[0]);
+        $result = $pkg->deletetourPkg($id);
         
 
         $_SESSION['c'] = $result;
@@ -98,5 +98,39 @@ class tourpackageController extends db_connection
         
         $_SESSION['c'] = $result;
         return $result;
+    }
+
+    public function addtourpackageimg($typeid, $file)
+    {
+        $typeImg = new tourpackage();
+
+        $result = $typeImg->addtourpackageImg($typeid, $file);
+
+        return $result;
+       
+    }
+
+    public function viewAllImgs($getid)
+    {
+        $type = new tourpackage();
+        $result = $type->viewAllImgs($getid);
+        return $result;
+    }
+
+    public function deleteImg($id, $typeid)
+    {
+        $dl = new tourpackage();
+        $dl->deleteImg($id);
+
+        // if (!$dl) {
+        //     echo 'There was a error';
+        //     // echo "<script>console.log(res)</script>";
+        // } else {
+        //     echo "<script>
+        // window.location.href = '../view-hotel/addPhotos.php?id=$typeid';
+        // </script>";
+
+        // }
+
     }
 }

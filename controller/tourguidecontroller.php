@@ -76,13 +76,13 @@ class tourguideController extends db_connection
     }
 
     
-    public function viewoneguide($inputs)
+    public function viewoneguide($id)
     {
         
         $pkg = new tourguide();
         
 
-        $result = $pkg->viewonetourguide($inputs[0]);
+        $result = $pkg->viewonetourguide($id);
         // print_r($result);
         // die();
 
