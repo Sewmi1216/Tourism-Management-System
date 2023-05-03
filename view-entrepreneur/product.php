@@ -4,7 +4,7 @@ $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+   header("location:../view-hotel/login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -45,9 +45,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
             <div class="bg" style="overflow-x:auto;">
                 <table id="myTable">
                     <tr class="header">
-                    
-                    
-
                          <th class="tblh">Product Name</th>
                         <th class="tblh">Category</th>
                         <th class="tblh">Available Quantity</th>

@@ -4,7 +4,7 @@ $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
     $id = $_SESSION["tourguideID"];
 } else {
-    header("location:Login.php");
+    header("location:login.php");
 }
 ?>
 <!DOCTYPE html>

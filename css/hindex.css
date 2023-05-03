@@ -4,6 +4,7 @@ body {
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #dde8f0;
+  bottom: 0;
 }
 .nav {
   overflow: hidden;
@@ -165,6 +166,19 @@ section#contact {
   /* flex: 1 1 20rem; */
   position: relative;
   width: 30%;
+}
+.popular .filter {
+  margin-right: 1.5rem;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  /* text-align: center; */
+  /* flex: 1 1 20rem; */
+  position: relative;
+  width: 20%;
+  float: left;
 }
 .hotel1 .container .box {
   padding: 10px;
@@ -440,6 +454,9 @@ section#contact {
   color: white;
   font-size: 18px;
 }
+
+
+
 /* Media query for screens with a max width of 767px */
 @media (max-width: 767px) {
   .searchSec {

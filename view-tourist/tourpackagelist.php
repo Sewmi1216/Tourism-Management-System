@@ -20,25 +20,16 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
-    <style>
-    html {
-        font-size: 62.5%;
-        overflow-x: hidden;
-        scroll-padding-top: 6rem;
-        scroll-behavior: smooth;
-    }
-    </style>
 </head>
 
 <body>
     <?php include "header.php"?>
-
-
     <section class="popular" id="hotel" style="padding: 2rem 9%;">
         <div class="cont">
             <div class="search">
                 <h1>Sri Lanka Tour Packages</h1>
-                <input type="text" name="" id="find" onfocus="this.placeholder=''" placeholder="Search Tour Package...." onkeyup="search()">
+                <input type="text" name="" id="find" onfocus="this.placeholder=''" placeholder="Search Tour Package...."
+                    onkeyup="search()">
             </div>
         </div>
 
@@ -58,28 +49,12 @@ foreach ($results as $result) {
 
                 <div style="display: flex; justify-content: center;">
                     <a href="tourpackage.php?pid=<?php echo $result['packageID']; ?>" class="btn">More Information</a>
-                     <!-- <a href="hotelView.php?hid=<?php echo $result['hotelID']; ?>" class="btn">More Information</a> -->
                 </div>
             </div>
             <?php }?>
         </div>
     </section>
-    <section id="contact" style="padding-bottom: 20px">
-        <div style="text-align:center; padding: 10px;">
-            <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
-            <div style="color: #babab3;font-size: 17px;padding-top: 50px">
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
-                <div>+94 -11- 2581245/ 7</div>
-
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
-                <div>+94-11-2237239</div>
-
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
-                <div>info@pack2paradise.lk</div>
-            </div>
-        </div>
-    </section>
-
+    <?php include "footer.php"?>
 
     <script src="js/home.js"></script>
     <script type="text/javascript">

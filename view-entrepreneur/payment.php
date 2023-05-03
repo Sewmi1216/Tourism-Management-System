@@ -4,7 +4,8 @@ $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+   header("location:../view-hotel/login.php");
+
 }
 ?>
 <!DOCTYPE html>
@@ -53,9 +54,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                    
                     
                 </tr><?php 
-require_once("../controller/paymentController.php");
-$payment = new paymentController();
-$results= $payment->viewAllPayments();
+require_once("../controller/productController.php");
+$payment = new productController();
+$results= $payment->viewOrderPayments($id);
 foreach ($results as $result) {
         ?>
              

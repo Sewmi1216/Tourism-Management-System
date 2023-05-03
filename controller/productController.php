@@ -11,23 +11,20 @@ class productController extends db_connection
         $this->conn = $this->connect();
     }
 
-    
-public function addproduct($pName,$pCategory,$avaquantity,$price,$id)
-{
-	$product = new product();
+    public function addproduct($pName, $pCategory, $avaquantity, $price, $id)
+    {
+        $product = new product();
 
-	$result = $product->insertproduct($pName,$pCategory,$avaquantity,$price,$id);
+        $result = $product->insertproduct($pName, $pCategory, $avaquantity, $price, $id);
 
-	
-}
-public function addproductImg($productid,$file)
+    }
+    public function addproductImg($productid, $file)
     {
         $productImg = new product();
 
         $result = $productImg->addproductImg($productid, $file);
 
         return $result;
-       
 
     }
     public function viewAllImgs($getid)
@@ -52,19 +49,18 @@ public function addproductImg($productid,$file)
         // }
 
     }
-public function viewAll($id)
+    public function viewAll($id)
     {
         $product = new product();
 
-        $results= $product->viewAll($id);
+        $results = $product->viewAll($id);
 
         // include "../view/product.php";
         return $results;
 
     }
 
-
-public function deleteproduct($id)
+    public function deleteproduct($id)
     {
         $result = new product();
         $result->deleteproduct($id);
@@ -77,20 +73,17 @@ public function deleteproduct($id)
         </script>";
 
         }
-        
 
     }
-    
-   
 
-    public function updateproduct($id,$pName,$pCategory,$avaquantity,$price)
+    public function updateproduct($id, $pName, $pCategory, $avaquantity, $price)
     {
         $result = new product();
-        $result-> updateproduct ($id,$pName,$pCategory,$avaquantity,$price);
+        $result->updateproduct($id, $pName, $pCategory, $avaquantity, $price);
 
         if (!$result) {
             echo 'There was a error';
-          
+
         } else {
 
             echo "<script>
@@ -101,18 +94,30 @@ public function deleteproduct($id)
 
     }
 
-
-
     public function viewproduct($pId)
-
     {
         $product = new product();
 
-        $results= $product->viewproduct($pId);
+        $results = $product->viewproduct($pId);
 
         return $results;
-    
-      
+
+    }
+    public function viewAllOrders($id)
+    {
+        $order = new product();
+
+        $result = $order->viewAllOrders($id);
+
+        // include "../view/order.php";
+        return $result;
+    }
+    public function viewOrderPayments($id)
+    {
+        $order = new product();
+        $result = $order->viewOrderPayments($id);
+        return $result;
+
     }
     public function countOrders()
     {
@@ -154,8 +159,3 @@ public function deleteproduct($id)
         return $res3;
     }
 }
-?>
-
-
-
-

@@ -202,15 +202,15 @@ class touristController extends db_connection
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'tls';
 
-            // h-hotel account
+
             $mail->Username = 'sewmi.rotaract3220@gmail.com';
             $mail->Password = 'uaqgejykofzquoaf';
 
-            // send by h-hotel email
+
             $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
-            // get email from input
+
             $mail->addAddress($email);
-            //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
 
             // HTML body
             $mail->isHTML(true);
