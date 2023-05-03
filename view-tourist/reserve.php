@@ -74,9 +74,9 @@ $checkout = $_GET['checkout'];
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">
                         </script>
-                       
-                       
-                    
+
+
+
                     </div>
                 </form>
             </div>
@@ -120,7 +120,7 @@ require_once "../controller/roomTypeController.php";
                         Total Amount: $&nbsp;<div id="tot" style="display: inline-block;"></div>
                     </h2>
 
-                    
+
 
 
                 </div>
@@ -134,24 +134,7 @@ require_once "../controller/roomTypeController.php";
         </div>
     </section>
 
-
-
-
-    <section id="contact" style="padding-bottom: 20px;">
-        <div style="text-align:center; padding: 10px;">
-            <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
-            <div style="color: #babab3;font-size: 17px;padding-top: 50px">
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
-                <div>+94 -11- 2581245/ 7</div>
-
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
-                <div>+94-11-2237239</div>
-
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
-                <div>info@pack2paradise.lk</div>
-            </div>
-        </div>
-    </section>
+    <?php include "footer.php"?>
 
 
     <script>

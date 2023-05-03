@@ -4,7 +4,7 @@ $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+    header("location:../view-hotel/login.php");
 }
 ?>
 <!DOCTYPE html>
