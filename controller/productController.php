@@ -119,43 +119,25 @@ class productController extends db_connection
         return $result;
 
     }
-    public function countOrders()
+    public function countOrders($id)
     {
-        $productuser = new product();
-        $res = $productuser->countOrders();
-        return $res;
+        $order = new product();
+        $result = $order->countOrders($id);
+        return $result;
     }
-    public function countProdctOrders()
+     public function cancelledOrders($id)
     {
-        $productuser = new product();
-        $res = $productuser->countProductOrders();
-        return $res;
+        $order = new product();
+        $result = $order->cancelledOrders($id);
+        return $result;
     }
-    public function revenue()
+    public function todayRevenue($id)
     {
-        $productuser = new product();
-        $res = $productuser->revenue();
-        return $res;
-    }
-   
-
-    public function canceledOrders()
-    {
-        $productuser2 = new product();
-        $res2 = $productuser2->canceledOrders();
-        return $res2;
-    }
-     public function todayRevenue()
-    {
-        $productuser3= new product();
-        $res3 = $productuser3->todayRevenue();
-        return $res3;
+        $order = new product();
+        $result = $order->todayRevenue($id);
+        return $result;
     }
     
-    public function soldProducts()
-    {
-        $productuser3= new product();
-        $res3 = $productuser3->soldProducts();
-        return $res3;
-    }
+}
+
 }

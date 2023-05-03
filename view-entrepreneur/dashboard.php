@@ -40,9 +40,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                <?php
 require_once "../controller/productController.php";
 $res1 = new productController();
-$results = $res1->countOrders();
+$results = $res1->countOrders($id);
 foreach($results as $result){
-echo $result['num_orders'];}
+echo $result['count'];}
 ?>
             </div>
             </span>
@@ -51,19 +51,9 @@ echo $result['num_orders'];}
                 <div style="margin-top:60px;font-size:40px;">
                 <?php
 $res2 = new productController();
-$results2 = $res2->canceledOrders();
+$results2 = $res2->cancelledOrders($id);
 foreach ($results2 as $r) {
-    echo $r['num_orders'];}?>
-            </div>
-            </span>
-            <span class="b">
-               Products Sold
-               <div style="margin-top:60px;font-size:40px;">
-               <?php  $res2 = new productController();
-$results2 = $res2->soldProducts();
-foreach ($results2 as $r) {
-    echo $r[''];}sold_products
-?>
+    echo $r['cancelled'];}?>
             </div>
             </span>
             <span class="b">
@@ -71,9 +61,9 @@ foreach ($results2 as $r) {
                 <div style="margin-top:60px;font-size:40px;">
                 <?php
             $res2 = new productController();
-$results2 = $res2->todayRevenue();
+$results2 = $res2->todayRevenue($id);
 foreach ($results2 as $r) {
-    echo '$'. $r['today_revenue'];}
+    echo '$'. $r['amount'];}
  ?>
             </div>
             </span>
