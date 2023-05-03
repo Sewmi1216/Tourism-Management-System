@@ -71,6 +71,7 @@ class tourpackage extends db_connection
         $query = "UPDATE tourpackage SET visible = 0 WHERE packageID = $id";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
+        
         return $stmt;
     }
 
