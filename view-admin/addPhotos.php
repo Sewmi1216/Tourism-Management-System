@@ -6,8 +6,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
 } else {
     // header("location:login.php");
 }
-if(isset($_GET['id'])){
-$getid = $_GET['id'];
+if(isset($_GET['package_id'])){
+$getid = $_GET['package_id'];
 }
 ?>
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ $getid = $_GET['id'];
         <div class="bg">
             <form class="" action="../api/addtourpackage.php" method="post" autocomplete="off" enctype="multipart/form-data">
 
-                <input type="hidden" class="subfield" name="id" value="<?php if (isset($getid)) {echo $getid;}?>" />
+                <input type="hidden" class="subfield" name="pid" value="<?php if (isset($getid)) {echo $getid;}?>" />
 
 
                 <label class="txt" for="image">Upload Image</label>
@@ -59,22 +59,24 @@ $getid = $_GET['id'];
 require_once "../controller/tourpackagecontroller.php";
 $typeimg = new tourpackagecontroller();
 
-if (isset($getid)) { $id= $getid;}
+if (isset($getid)) { 
+    $id= $getid;}
 $results = $typeimg->viewAllImgs($id);
 foreach ($results as $result) {
     ?>
                 <td>
+
                     <?php echo "<img src='../images/" . $result['image'] . "' style=
                     'width:150px;height: 150px;background-size: 100%;
                     background-repeat: no-repeat;'>"; ?>
 
                     <form action="../api/addtourpackage.php" method="post">
 
-                        <input type="hidden" class="subfield" name="typeid"
+                        <input type="text" class="subfield" name="typeid"
                             value="<?php if (isset($getid)) {echo $getid;}?>" />
 
-                        <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
-                        <input type="hidden" name="imgname" value="<?php echo $result['image']; ?>">
+                        <input type="text" name="id" value="<?php echo $result['id']; ?>">
+                        <input type="text" name="imgname" value="<?php echo $result['image']; ?>">
                         <button type="submit" name="deleteimg" class="btnDel-icon"><i
                                 class="fas fa-trash-alt"></i></button>
 

@@ -100,11 +100,11 @@ class tourpackageController extends db_connection
         return $result;
     }
 
-    public function addtourpackageimg($typeid, $file)
+    public function addtourpackageimg($package_id, $file)
     {
         $typeImg = new tourpackage();
 
-        $result = $typeImg->addtourpackageImg($typeid, $file);
+        $result = $typeImg->addtourpackageimg($package_id, $file);
 
         return $result;
        
@@ -117,7 +117,7 @@ class tourpackageController extends db_connection
         return $result;
     }
 
-    public function deleteImg($id, $typeid)
+    public function deleteImg($id)
     {
         $dl = new tourpackage();
         $dl->deleteImg($id);

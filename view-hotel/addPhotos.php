@@ -45,7 +45,7 @@ $getid = $_GET['id'];
         <div class="bg">
             <form class="" action="../api/addType.php" method="post" autocomplete="off" enctype="multipart/form-data">
 
-                <input type="text" class="subfield" name="id" value="<?php if (isset($getid)) {echo $getid;}?>" />
+                <input type="hidden" class="subfield" name="id" value="<?php if (isset($getid)) {echo $getid;}?>" />
 
 
                 <label class="txt" for="image">Upload Image</label>
