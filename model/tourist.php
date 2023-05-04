@@ -111,7 +111,7 @@ class tourist extends db_connection
 
     public function viewAllHotels()
     {
-        $sql = "SELECT * from hotel";
+        $sql = "SELECT * from hotel where status='1'";
         return $this->getData($sql);
     }
     public function viewHotel($id)

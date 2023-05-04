@@ -10,13 +10,14 @@ $profile = new hotelController();
 $results = $profile->viewProfile($id);
 foreach ($results as $result) {
     ?>
-    <!-- <p>Hello </p> -->
+        <!-- <p>Hello </p> -->
+        <a href="chat.php" style="margin-left:60px;"><i class="fa-solid fa-message fa-lg"
+                style="font-size:18px;color:white;"></i></a>
         <a href="profile.php" style="margin-left:60px;margin-top:-8px;">
             <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='40px' width='40px'
                     style='padding-right:0px;border-radius:50%;'>";?></a>
-            <?php }?>
-            <!-- <a href="chat.php" style="margin-left:60px;"><i class="fa-solid fa-message fa-lg"
-                style="font-size:18px;color:white;"></i></a> -->
-            <!-- <a class="active" href="../api/logout.php" style="padding:10px;margin-left:60px;">LOGOUT</a> -->
+        <?php }?>
+
+        <!-- <a class="active" href="../api/logout.php" style="padding:10px;margin-left:60px;">LOGOUT</a> -->
     </div>
 </header>

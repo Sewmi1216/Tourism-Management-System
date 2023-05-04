@@ -27,8 +27,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
-
-
 </head>
 
 <body>

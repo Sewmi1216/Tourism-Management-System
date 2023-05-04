@@ -463,5 +463,12 @@ alert("<?php echo "Email sent to " . $hemail ?>");
               </script>";
         }
     }
+   
+    //  public function chatUser()
+    // {
+    //     $hotel = new hotel();
+    //     $result = $hotel->chatUser();
+    //     return $result;
+    // }
 
 }
