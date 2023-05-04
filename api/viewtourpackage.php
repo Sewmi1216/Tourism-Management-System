@@ -2,6 +2,6 @@
 include '../controller/tourpackageController.php';
 
 $tourpackagecon = new tourpackageController();
-$tourpackagecon-> viewAllPkgs();
+$rows=$tourpackagecon-> viewAllPkgs();
 
 ?>

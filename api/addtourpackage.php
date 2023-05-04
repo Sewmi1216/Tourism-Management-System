@@ -1,12 +1,13 @@
 <?php
 include '../controller/tourpackageController.php';
 
+if (isset($_POST['save'])) {
 $name = $_POST['pckgname'];
 // $pckgid = $_POST['pckgid'];
 $pckgprice = $_POST['pckgprice'];
 $pckgdesc= $_POST['pckgdesc'];
 $no_of_days = $_POST['days'];
-$max_part	= $_POST['nooftourist'];
+$max_part	= $_POST['max_part'];
 
 
 $inputs = array($name,$pckgprice,$pckgdesc,$max_part,$no_of_days);
@@ -14,10 +15,10 @@ $inputs = array($name,$pckgprice,$pckgdesc,$max_part,$no_of_days);
 $tourpackagecon = new tourpackageController();
 $tourpackagecon-> addtourpackage($inputs);
 
-
+}
 
 if (isset($_POST['submitImg'])) {
-    $typeid = $_POST['id'];
+    $packageid = $_POST['pid'];
 
     $file = $_FILES['file']['name'];
 
@@ -28,7 +29,8 @@ if (isset($_POST['submitImg'])) {
     $folder = "../images/" . $filename;
 
     $typecon = new tourpackageController();
-    $typecon->addtourpackageimg($typeid, $file);
+
+    $typecon->addtourpackageimg($packageid, $file);
 
     move_uploaded_file($tempname, $folder);
     if (!$typecon) {
@@ -36,27 +38,29 @@ if (isset($_POST['submitImg'])) {
     } else {
         echo "
              <script>
-             window.location.href = '../view-admin/addPhotos.php?id=$package_id';
+             window.location.href = '../view-admin/addPhotos.php?package_id=$packageid';
 
         </script>";
 
-
     }
 }
+
 if (isset($_POST['deleteimg'])) {
     $id = $_POST['id'];
     $imgname = $_POST['imgname'];
     $typeid = $_POST['typeid'];
 
     $tp = new tourpackageController();
-    $tp->deleteImg($id, $typeid);
+    $tp->deleteImg($id);
     unlink("../images/" . $imgname);
      echo "
              <script>
-             window.location.href = '../view-admin/addPhotos.php?id=$typeid';
+             window.location.href = '../view-admin/addPhotos.php?package_id=$typeid';
                   </script>";
 
 }
+
+
 
 if (isset($_POST['update'])) {
     $name = $_POST['pckgname'];

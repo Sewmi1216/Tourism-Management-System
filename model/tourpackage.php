@@ -19,11 +19,23 @@ class tourpackage extends db_connection
         return $stmt;
     } */
 
+     private function getData($query)
+    {
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            die('Error in query: ' . mysqli_error());
+        }
+        $data = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
     public function inserttourpackage($inputs)
     {
        
     
-        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, max_part , visible	, no_of_days) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 1 , '$inputs[4]')";
+        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, max_part , status, no_of_days) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 1 , '$inputs[4]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -45,10 +57,10 @@ class tourpackage extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourpackage where visible = 1 ";
+        //$query = "SELECT * FROM tourpackage where visible = 1 ";
+        $query = "SELECT * FROM tourpackage ";
      
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        return $this->getData($query);
     }
 
     public function viewtourpkg($id)
@@ -84,12 +96,12 @@ class tourpackage extends db_connection
     }
     
     //adding images
-    public function addtourpackageImg($typeid, $file)
+    public function addtourpackageimg($package_id, $file)
     {
         require_once "../view-admin/addPhotos.php";
 
         // $sql= "INSERT INTO tourpackage_img(tourpackageid, image) VALUES (?, ?)";
-        $sql = "INSERT INTO tourpackage_img(tourpackageid, image) VALUES ('$typeid', '$file')";
+        $sql = "INSERT INTO tourpackage_img(tourpackageId, image) VALUES ('$package_id', '$file')";
         $stmt = $this->conn->prepare($sql);
         // $stmt->bind_param("ib", $typeid, $file);
 
@@ -103,10 +115,16 @@ class tourpackage extends db_connection
 
     public function viewAllImgs($getid)
     {
-        $query = "Select * from tourpackage_img i, roomtype r where i.roomTypeId=r.roomTypeId and r.roomTypeId='$getid'";
+        $query = "Select * from tourpackage_img i, tourpackage t where i.tourpackageId=t.packageID and i.tourpackageId='$getid'";
         // $query = "Select * from roomtype_img";
 
         return $this->getData($query);
 
+    }
+        public function deleteImg($id)
+    {
+        $query = "delete from tourpackage_img where id='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
     }
 }
