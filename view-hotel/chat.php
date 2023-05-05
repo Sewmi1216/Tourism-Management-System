@@ -37,18 +37,20 @@ if (isset($_GET['u']) && isset($_GET['e'])){
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="wrappers1" style="margin-top:-45px;transform: translate(20%, 10%);">
+        <div class="wrappers1" style="margin-top:-45px;transform: translate(10%, 10%);">
             <section class="users">
                 <div class="search">
                     <span class="text">Select an user to start chat</span>
                     <input type="text" placeholder="Enter name to search..." onkeyup="search()" id="find">
                     <button><i class="fas fa-search"></i></button>
                 </div>
-                <div class="users-list">
+                <div class="users-list load_users" style="height:485px;">
+                    <span class="text" style="font-size: 20px;">Administrator</span>
+                    <hr>
                     <?php
 require_once "../controller/messageController.php";
 $hotel = new messageController();
-$results = $hotel->chatUsers();
+$results = $hotel->viewAdmin();
 foreach ($results as $result) {
     ?>
                     <div class="finder">
@@ -66,14 +68,41 @@ foreach ($results as $result) {
                             <div class="status-dot"><i class="fas fa-circle"></i></div>
                         </a>
                     </div>
-                    
+
+                    <?php }
+?>
+
+                    <span class="text" style="font-size: 20px;">Tourists</span>
+                    <hr>
+                    <?php
+require_once "../controller/messageController.php";
+$hotel = new messageController();
+$results = $hotel->viewAllTourists();
+foreach ($results as $result) {
+    ?>
+                    <div class="finder">
+                        <a href="chat.php?u=<?php echo $result['name'] ?>&e=<?php echo $result['email'] ?>">
+                            <div class="content">
+                                <?php echo "<img src='../images/" . $result['profileImg'] . "' style=
+                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    background-repeat: no-repeat;'>"; ?>
+
+                                <div class="details">
+                                    <span><?php echo $result["name"]; ?></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="status-dot"><i class="fas fa-circle"></i></div>
+                        </a>
+                    </div>
+
                     <?php }
 ?>
                 </div>
             </section>
         </div>
 
-        <div class="wrappers2" style="margin-top:-45px;transform: translate(-8%, 10%);">
+        <div class="wrappers2" style="margin-top:-45px;transform: translate(-10%, 10%);">
             <section class="chat-area">
                 <div class="chatTop">
 
@@ -83,7 +112,7 @@ foreach ($results as $result) {
                         <span><?php echo $user; ?></span>
                     </div>
                 </div>
-                <div class="chat-box">
+                <div class="chat-box" id="scroll_messages">
                     <?php
 $msg = new messageController();
 echo $msg->getMessages($_SESSION["email"], $mail);
@@ -104,7 +133,7 @@ echo $msg->getMessages($_SESSION["email"], $mail);
         </div>
     </section>
     <script src="js/chat.js"></script>
-    
+
 </body>
 
 </html>

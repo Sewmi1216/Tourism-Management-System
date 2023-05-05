@@ -12,7 +12,7 @@ class messageController extends db_connection
         $this->conn = $this->connect();
     }
 // hotel chat
-      public function chatUsers()
+    public function chatUsers()
     {
         $hotel = new message();
         $result = $hotel->chatUsers();
@@ -31,7 +31,20 @@ class messageController extends db_connection
         return $result1;
     }
 
-      public function viewAllHotels()
+    public function viewAllTourists()
+    {
+        $hotel = new message();
+        $result = $hotel->viewAllTourists();
+        return $result;
+    }
+    public function viewAllGuides()
+    {
+        $hotel = new message();
+        $result = $hotel->viewAllGuides();
+        return $result;
+
+    }
+    public function viewAllHotels()
     {
         $hotel = new message();
         $result = $hotel->viewAllHotels();

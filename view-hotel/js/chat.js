@@ -11,7 +11,12 @@ searchIcon.onclick = () => {
     searchBar.classList.remove("active");
   }
 };
-
+$(document).ready(function () {
+  if (document.getElementById("scroll_messages")) {
+    let div = document.getElementById("scroll_messages");
+    div.scrollTop = div.scrollHeight;
+  }
+});
 function search() {
   let filter = document.getElementById("find").value.toUpperCase();
   let hotel = document.querySelectorAll(".finder");
