@@ -11,11 +11,11 @@ class messageController extends db_connection
     {
         $this->conn = $this->connect();
     }
-
-      public function viewAllHotels()
+// hotel chat
+      public function chatUsers()
     {
         $hotel = new message();
-        $result = $hotel->viewAllHotels();
+        $result = $hotel->chatUsers();
         return $result;
     }
     public function getMessages($id, $user)
@@ -25,6 +25,31 @@ class messageController extends db_connection
         return $result;
     }
     public function sendMessage($user_to, $userLoggedIn, $body, $date)
+    {
+        $hotel = new message();
+        $result1 = $hotel->sendMessage($user_to, $userLoggedIn, $body, $date);
+        return $result1;
+    }
+
+      public function viewAllHotels()
+    {
+        $hotel = new message();
+        $result = $hotel->viewAllHotels();
+        return $result;
+    }
+    public function viewAdmin()
+    {
+        $hotel = new message();
+        $result = $hotel->viewAdmin();
+        return $result;
+    }
+    public function viewAllEnts()
+    {
+        $hotel = new message();
+        $result = $hotel->viewAllEnts();
+        return $result;
+    }
+    public function tsendMessage($user_to, $userLoggedIn, $body, $date)
     {
         $hotel = new message();
         $result1 = $hotel->sendMessage($user_to, $userLoggedIn, $body, $date);
