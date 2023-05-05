@@ -3,7 +3,7 @@ body{
   align-items: center;
   /* justify-content: center; */
   /* min-height: 100vh; */
-  background: #f7f7f7;
+  background: #dde8f0;
   /* padding: 0 10px; */
 }
 a{
@@ -145,7 +145,7 @@ a{
 }
 .users-list a .status-dot{
   font-size: 12px;
-  color: #468669;
+  color: #0a298d;
   padding-left: 10px;
 }
 .users-list a .status-dot.offline{

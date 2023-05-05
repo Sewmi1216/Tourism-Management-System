@@ -1,14 +1,13 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
-    $id = $_SESSION["hotelID"];
+if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
+    $id = $_SESSION["userID"];
 } else {
-    header("location:login.php");
+    header("location: http://localhost/Tourism-Management-System/view-hotel/login.php");
 }
-if (isset($_GET['u']) && isset($_GET['e'])){
+if (isset($_GET['u'])) {
     $user = $_GET['u'];
-    $mail = $_GET['e'];
 }
 // else {
 //     $user_to = $message_obj->getMostRecentUser();
@@ -48,11 +47,11 @@ if (isset($_GET['u']) && isset($_GET['e'])){
                     <?php
 require_once "../controller/messageController.php";
 $hotel = new messageController();
-$results = $hotel->chatUsers();
+$results = $hotel->viewAllHotels();
 foreach ($results as $result) {
     ?>
                     <div class="finder">
-                        <a href="chat.php?u=<?php echo $result['name'] ?>&e=<?php echo $result['email'] ?>">
+                        <a href="chat.php?u=<?php echo $result['name'] ?>">
                             <div class="content">
                                 <?php echo "<img src='../images/" . $result['profileImg'] . "' style=
                     'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
@@ -86,15 +85,14 @@ foreach ($results as $result) {
                 <div class="chat-box">
                     <?php
 $msg = new messageController();
-echo $msg->getMessages($_SESSION["email"], $mail);
+echo $msg->getMessages($_SESSION["email"], $user);
 
 ?>
                 </div>
                 <form action="../api/chat.php" method="post" class="typing-area">
                     <input type="hidden" class="incoming_id" name="userLoggedIn"
                         value="<?php echo $_SESSION["email"]; ?>">
-                    <input type="hidden" class="incoming_id" name="user_to" value="<?php echo $mail; ?>">
-                    <input type="hidden" name="user" value="<?php echo $user; ?>">
+                    <input type="hidden" class="incoming_id" name="user_to" value="<?php echo $user; ?>">
                     <input type="text" name='message_body' id='message_textarea' class="input-field"
                         placeholder="Type a message here..." autocomplete="off">
                     <input type='submit' name='post_message' class='info' id='message_submit' value='Send'>

@@ -14,10 +14,13 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 </head>
 
 <body>
-   <?php include "header.php"?>
+    <?php include "header.php"?>
     <!-- home -->
     <section class="home" id="home">
         <div class="content">
