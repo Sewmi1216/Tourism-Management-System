@@ -37,8 +37,9 @@ if (isset($_GET['u']) && isset($_GET['e'])) {
                 <button><i class="fas fa-search"></i></button>
             </div>
 
-            <div class="users-list">
-                 
+            <div class="users-list" style="height:485px;">
+                <span class="text" style="font-size: 20px;">Administrator</span>
+                <hr>
                 <?php
 require_once "../controller/messageController.php";
 $hotel = new messageController();
@@ -63,9 +64,8 @@ foreach ($results as $result) {
 
                 <?php }
 ?>
-                <div class="search">
-                    <span class="text">Hotels</span>
-                </div>
+                <span class="text" style="font-size: 20px;">Hotels</span>
+                <hr>
                 <?php
 require_once "../controller/messageController.php";
 $hotel = new messageController();
@@ -91,9 +91,8 @@ foreach ($results as $result) {
                 <?php }
 ?>
 
-                <div class="search">
-                    <span class="text">Local Entrepreneurs</span>
-                </div>
+                <span class="text" style="font-size: 20px;">Local Entrepreneurs</span>
+                <hr>
                 <?php
 require_once "../controller/messageController.php";
 $hotel = new messageController();
@@ -134,24 +133,23 @@ foreach ($results as $result) {
                     <span><?php echo $user; ?></span>
                 </div>
             </div>
-            <div class="chat-box" style="min-height:450px;">
-                    <?php
+            <div class="chat-box" style="max-height:480px;min-height:480px;">
+                <?php
 $msg = new messageController();
 echo $msg->getMessages($_SESSION["email"], $mail);
 
 ?>
-                </div>
-                <form action="../api/chat.php" method="post" class="typing-area">
-                    <input type="hidden" class="incoming_id" name="userLoggedIn"
-                        value="<?php echo $_SESSION["email"]; ?>">
-                    <input type="hidden" class="incoming_id" name="user_to" value="<?php echo $mail; ?>">
-                    <input type="hidden" name="user" value="<?php echo $user; ?>">
-                    <input type="text" name='message_body' id='message_textarea' class="input-field"
-                        placeholder="Type a message here..." autocomplete="off">
-                    <input type='submit' name='post_message' class='info' id='message_submit' value='Send'>
-                    <!-- <button><i class="fab fa-telegram-plane"></i></button> -->
-                </form>
-            </section>
+            </div>
+            <form action="../api/chat.php" method="post" class="typing-area">
+                <input type="hidden" class="incoming_id" name="userLoggedIn" value="<?php echo $_SESSION["email"]; ?>">
+                <input type="hidden" class="incoming_id" name="user_to" value="<?php echo $mail; ?>">
+                <input type="hidden" name="user" value="<?php echo $user; ?>">
+                <input type="text" name='message_body' id='message_textarea' class="input-field"
+                    placeholder="Type a message here..." autocomplete="off">
+                <input type='submit' name='tourist_post_message' class='info' id='message_submit' value='Send'>
+                <!-- <button><i class="fab fa-telegram-plane"></i></button> -->
+            </form>
+        </section>
     </div>
 
 

@@ -25,7 +25,7 @@ class message extends db_connection
 // hotel chat
     public function chatUsers()
     {
-        $sql = "SELECT userID, name, email from tourist union select adminID, email, password from admin";
+        $sql = "SELECT userID, name, email from tourist union select adminID, name, email from admin";
         return $this->getData($sql);
     }
 
@@ -58,14 +58,24 @@ class message extends db_connection
         $sql = "SELECT hotelID, name, email from hotel where status='1'";
         return $this->getData($sql);
     }
+     public function viewAllTourists()
+    {
+        $sql = "SELECT userID, name, email from tourist";
+        return $this->getData($sql);
+    }
     public function viewAdmin()
     {
-        $sql = "SELECT adminID, email from admin";
+        $sql = "SELECT adminID, name, email from admin";
         return $this->getData($sql);
     }
      public function viewAllEnts()
     {
         $sql = "SELECT entID, businessName, email from entrepreneur where status='1'";
+        return $this->getData($sql);
+    }
+     public function viewAllGuides()
+    {
+        $sql = "SELECT tourguideID, name, email from tourguide where status='1'";
         return $this->getData($sql);
     }
     public function tsendMessage($user_to, $userLoggedIn, $body, $date)
