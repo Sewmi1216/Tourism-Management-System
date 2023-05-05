@@ -1,5 +1,5 @@
 <?php
-include '../controller/tourpackageController.php';
+include '../controller/tourpackagecontroller.php';
 
 if (isset($_POST['save'])) {
 $name = $_POST['pckgname'];
@@ -18,7 +18,7 @@ $tourpackagecon-> addtourpackage($inputs);
 }
 
 if (isset($_POST['submitImg'])) {
-    $packageid = $_POST['pid'];
+    $package_id = $_POST['pid'];
 
     $file = $_FILES['file']['name'];
 
@@ -28,22 +28,22 @@ if (isset($_POST['submitImg'])) {
 
     $folder = "../images/" . $filename;
 
-    $typecon = new tourpackageController();
-
-    $typecon->addtourpackageimg($packageid, $file);
+    $pkg = new tourpackageController();
+    $pkg->addtourpackageimg($package_id, $file);
 
     move_uploaded_file($tempname, $folder);
-    if (!$typecon) {
+    if (!$pkg) {
         echo 'There was a error';
     } else {
         echo "
              <script>
-             window.location.href = '../view-admin/addPhotos.php?package_id=$packageid';
+             window.location.href = '../view-admin/addPhotos.php?package_id=$package_id';
 
         </script>";
 
     }
 }
+
 
 if (isset($_POST['deleteimg'])) {
     $id = $_POST['id'];

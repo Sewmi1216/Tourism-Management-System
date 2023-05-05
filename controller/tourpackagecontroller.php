@@ -109,6 +109,7 @@ class tourpackageController extends db_connection
         return $result;
        
     }
+   
 
     public function viewAllImgs($getid)
     {
@@ -116,6 +117,7 @@ class tourpackageController extends db_connection
         $result = $type->viewAllImgs($getid);
         return $result;
     }
+   
 
     public function deleteImg($id)
     {
