@@ -79,7 +79,44 @@
 
         </div>
          
+        <div id="id01" class="modal">
 
+        
+<!-- Delete the tour package -->
+
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
+
+<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
+
+    <div class="imgcontainer" style="background-color:#004581;">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'"  class="cancelbtn close">&times;</button>
+            <label for="room" style="color:white"><b>Permemntly delete Tour Package</b></label>
+    </div> 
+
+<div class="container">
+
+
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the tourpackage permenently ?</p>
+
+        <div class="container" style="padding:10px;">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btns" style="">No</button>
+            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+        </div>
+    </div>
+
+
+</form>
+</div>
+<script>
+function openModal(id) {
+var modal = document.getElementById("id02");
+var modalIdValue = document.getElementById("modalIdValue");
+modalIdValue.value = id;
+modal.style.display = "block";
+}
+</script>
 
 
 
