@@ -188,6 +188,44 @@ class touristController extends db_connection
 }
 
     }
+    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+    {
+        $booking = new tourist();
+        $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
+        
+            require "../libs/PHPMailer/PHPMailerAutoload.php";
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+
+
+            $mail->Username = 'sewmi.rotaract3220@gmail.com';
+            $mail->Password = 'uaqgejykofzquoaf';
+
+
+            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
+
+            $mail->addAddress($email);
+
+
+            // HTML body
+            $mail->isHTML(true);
+            $mail->Subject = "Your have placed a tour booking";
+            $mail->Body = "<b>Dear User</b>
+                    <h3>Your have placed a tour booking</h3>";
+
+            if (!$mail->send()) {?>
+        <script>
+        alert("<?php echo "Error sending email to " . $email ?>");
+        </script>
+        <?php
+}
+
+    }
     public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
@@ -208,5 +246,23 @@ class touristController extends db_connection
         $rs = $res->viewReservation($id);
         return $rs;
 
+    }
+      public function viewAllTourPackages()
+    {
+        $hotel = new tourist();
+        $result = $hotel->viewAllTourPackages();
+        return $result;
+    }
+     public function viewTourPkg($pid)
+    {
+        $tourpkg = new tourist();
+        $result = $tourpkg->viewTourPkg($pid);
+        return $result;
+    }
+    public function viewAllTourImgs($id)
+    {
+        $tour = new tourist();
+        $result = $tour->viewAllTourImgs($id);
+        return $result;
     }
 }

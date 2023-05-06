@@ -2,7 +2,7 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
     header("location:Login.php");

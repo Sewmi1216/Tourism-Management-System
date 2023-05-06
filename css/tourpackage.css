@@ -1,33 +1,31 @@
-*{
-
+* {
   font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-
 }
 
-
-.booked-packages-list{
+.booked-packages-list {
   margin-top: 20px;
 }
 
-
-body{
-  background-color: #beebff;
-  font-style: "helvetica neue", helvetica, tahoma, sans-serif;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
+body {
+  margin: 0;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #dde8f0;
+  color: #000000;
 }
 
-.add{
+.add {
   display: inline;
   margin-top: 1%;
 }
-.add>h3{
-  color: #022535 ;
+.add > h3 {
+  color: #022535;
 }
 
-.add>a{
-  background-color: #123b70;
+
+.add > a {
+  background-color: #e9c242;
   float: right;
   font-style: "helvetica neue", helvetica, tahoma, sans-serif;
   margin-right: 2%;
@@ -39,45 +37,41 @@ body{
   text-decoration: none;
 }
 
-.booked-packages{
+.booked-packages {
   margin-top: 1%;
 
-  
   border-left: 3px solid black;
   padding-left: 20px;
 }
 
-.booked-packages>h3{
+.booked-packages > h3 {
   color: white;
-
 }
 
-.booked-packages-list{
+.booked-packages-list {
   margin-left: 2%;
   margin-top: 1%;
 }
 
-.booked-packages-list>.booked-packages-card{
-  background-color: #022535 ;
+.booked-packages-list > .booked-packages-card {
+  background-color: #022535;
   display: flex;
-  
+
   color: white;
   padding: 5px 5px;
-  width:90%;
+  width: 90%;
   height: 85px;
   margin-bottom: 10px;
   border-radius: 18.2357px;
-  
 }
 
-.booked-packages-list>.booked-packages-card>a > img{
+.booked-packages-list > .booked-packages-card > a > img {
   width: 16%;
   height: 9%;
   border-radius: 18.46px;
-  
 }
 
-.booked-packages-list>.booked-packages-card>.details{
+.booked-packages-list > .booked-packages-card > .details {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,91 +79,188 @@ body{
   margin-top: -20px;
 }
 
-
-
-.active{
+.active {
   background-color: #0789c6;
   color: white;
   cursor: pointer;
 }
 
-.booked-packages-list>.booked-packages-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+.booked-packages-list > .booked-packages-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
-
-
-.btn{
-  
-
+.btn {
   color: white;
   cursor: pointer;
   border-radius: 8px;
   margin-top: -20px;
-  
 }
 
-.editbtn{
-  
+.editbtn {
   position: absolute;
-width: 130px;
-height: 33px;
-left: 70%;
-vertical-align: middle;
+  width: 130px;
+  height: 33px;
+  left: 70%;
+  vertical-align: middle;
 
-background: #D9D9D9;
-border-radius: 8px;
-font-family: 'Days One', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
+  background: #d9d9d9;
+  border-radius: 8px;
+  font-family: "Days One", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
 
-color: #000000;
+  color: #000000;
 }
 
-.viewbtn{
-  
+.viewbtn {
   position: absolute;
-width: 130px;
-height: 33px;
-left: 60%;
-vertical-align: middle;
+  width: 130px;
+  height: 33px;
+  left: 60%;
+  vertical-align: middle;
 
-background: #D9D9D9;
-border-radius: 8px;
+  background: #d9d9d9;
+  border-radius: 8px;
 
-font-style: normal;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
-font-family: 'Days One', sans-serif;
-color: #000000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Days One", sans-serif;
+  color: #000000;
 }
 
-.deletebtn{
+.deletebtn {
   position: absolute;
-width: 130px;
-height: 33px;
-left: 80%;
+  width: 130px;
+  height: 33px;
+  left: 80%;
 
+  background: #e96756;
+  border-radius: 8px;
 
-background: #e96756;
-border-radius: 8px;
-
-font-style: normal;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
-font-family: 'Arvo', serif;
-font-family: 'Days One', sans-serif;
-color: #022535;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Arvo", serif;
+  font-family: "Days One", sans-serif;
+  color: #022535;
 }
-
-
-
-
-
- td{
+td {
   margin-left: 10%;
- }
+}
+
+/* slideshow */
+
+/* Position the image container (needed to position the left and right arrows) */
+.containerimgs {
+  position: inherit;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.prev {
+  margin-left: 123px;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 258px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  width: 80%;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+.tourimg {
+  display: block;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pkg {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  float: left;
+  width: 58%;
+  position: relative;
+}
+.pkg1 {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  float: right;
+  width: 30%;
+}
+.vl {
+  border-left: 4px solid rgb(0, 2, 128);
+  margin-left: 5px;
+  float: left;
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+}
+.price {
+  font-size: 2rem;
+}
+p {
+  margin-left: 30px;
+}
+
+.new {
+  float: right;
+}

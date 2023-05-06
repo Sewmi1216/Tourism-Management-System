@@ -1,3 +1,13 @@
+<?php
+session_start();
+$user = "";
+
+if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
+    $id = $_SESSION["adminID"];
+} else {
+    header("location:../view-hotel/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

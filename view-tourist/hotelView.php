@@ -54,19 +54,18 @@ foreach ($results as $result) {
 
                         <td style="padding:50px;">
                             <div>
-                                <h1 class="hotel"><?php echo $result['name']; ?></h3><br>
+                                <h1 class="hotel"><?php echo $result['name']; ?></h1><br>
+                                <p class="sub"><i class="fa-solid fa-location-dot"></i>
+                                    &nbsp;&nbsp;<?php echo $result['address']; ?></p>
 
-                                    <p class="sub"><i class="fa-solid fa-location-dot"></i>
-                                        &nbsp;&nbsp;<?php echo $result['address']; ?></p>
+                                <p class="sub"><i class="fa-sharp fa-solid fa-envelope"></i>
+                                    &nbsp;&nbsp;<?php echo $result['email']; ?></p>
 
-                                    <p class="sub"><i class="fa-sharp fa-solid fa-envelope"></i>
-                                        &nbsp;&nbsp;<?php echo $result['email']; ?></p>
+                                <p class="sub"><i
+                                        class="fa-solid fa-phone"></i>&nbsp;&nbsp;<?php echo $result['phone']; ?>
+                                </p>
 
-                                    <p class="sub"><i
-                                            class="fa-solid fa-phone"></i>&nbsp;&nbsp;<?php echo $result['phone']; ?>
-                                    </p>
-
-                                    <!-- <p><?php echo $result['address']; ?></p> -->
+                                <!-- <p><?php echo $result['address']; ?></p> -->
                             </div>
                         </td>
                     </tr>
@@ -243,29 +242,15 @@ $outputs = $tp->viewAllImgs($result['typeID']);
     }
     else{ ?>
         <div class="content-container">
-                    No results
-                </div>
- <?php   }}?>
-
-
-
-    </section>
-
-    <section id="contact" style="padding-bottom: 20px">
-        <div style="text-align:center; padding: 10px;">
-            <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
-            <div style="color: #babab3;font-size: 17px;padding-top: 50px">
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
-                <div>+94 -11- 2581245/ 7</div>
-
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
-                <div>+94-11-2237239</div>
-
-                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
-                <div>info@pack2paradise.lk</div>
-            </div>
+            No results
         </div>
+        <?php   }}?>
+
+
+
     </section>
+
+    <?php include "footer.php"?>
 
     <script src="js/home.js">
 

@@ -185,12 +185,15 @@
   left: 250px;
   width: calc(100% - 250px);
 }
+.sidebar.open ~ .home-section .wrappers2{
+  max-width:690px;
+}
 .home-section .text{
   display: inline-block;
   color: #11101d;
   font-size: 25px;
   font-weight: 500;
-  margin: 18px
+  margin: 5px
 }
 @media (max-width: 420px) {
   .sidebar li .tooltip{

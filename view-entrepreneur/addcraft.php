@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+    header("location:../view-hotel/login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,21 @@ if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
                 <td>
                     <div class="content">Category</div>
                 </td>
-                <td> <input type="text" class="subfield" name="pCategory" /></td>
+                
+                <td> 
+                <select name="pCategory" id="pCategory" class="subfield">
+  <option value="handloom">Handloom</option>
+  <option value="traditional">Traditional Drums</option>
+  <option value="Jewellery" selected>Jewellery</option>
+  <option value="Clay">Clay(Pottery)</option>
+  <option value="wood">Wood Carving</option>
+  <option value="Bathik">Bathik</option>
+  <option value="masks">Sri Lankan Masks</option>
+  <option value="lkasha">Sri Lankan Laksha</option>
+</select>
+     
+            
+            </td>
             </tr>
             
             <tr class="row">

@@ -123,29 +123,26 @@ $results = $hotel->viewHotel($id);
 
         <div class="container" style="margin-top:30px;">
             <?php
-require_once("../controller/roomTypeController.php") ;
-$room = new roomTypeController();
-$results = $room->viewAllTypes($id);
-           foreach ($results as $result) {
-               ?>
+    require_once("../controller/roomTypeController.php") ;
+    $room = new roomTypeController();
+    $results = $room->viewAllTypes($id);
+    foreach ($results as $result) {
+        ?>
             <div class="box">
-
-
-
                 <div class="slideshow-container">
-                    <?php
-require_once("../controller/roomTypeController.php") ;
-$tp = new roomTypeController();
-$rows = $tp->viewAllImgs( $result['roomTypeId']);
-           foreach ($rows as $row) {
-               ?>
-                    <div class="mySlides fade">
+                    <!-- <?php
+                require_once("../controller/roomTypeController.php") ;
+                $tp = new roomTypeController();
+                $rows = $tp->viewAllImgs( $result['roomTypeId']);
+                foreach ($rows as $key => $row) {
+                    ?> -->
+                    <div class="mySlides fade type-<?php echo $result['roomTypeId']; ?>">
                         <?php echo "<img src='../images/" . $row['image'] . "' style='width:100%'>";?>
                     </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
                     <?php } ?>
+
+                    <a class="prev" onclick="plusSlides(-1, <?php echo $result['roomTypeId']; ?>)">❮</a>
+                    <a class="next" onclick="plusSlides(1, <?php echo $result['roomTypeId']; ?>)">❯</a>
                 </div>
 
                 <div class="content-container">
@@ -161,7 +158,7 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
                         class="btn">Reserve</a>
                 </div>
             </div>
-            <?php }?>
+            <!-- <?php }?> -->
         </div>
     </section>
 
@@ -193,30 +190,34 @@ $rows = $tp->viewAllImgs( $result['roomTypeId']);
         }
     }
 
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    let slideIndex = {};
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
+    <?php foreach ($results as $result) { ?>
+    slideIndex[<?php echo $result['roomTypeId']; ?>] = 1;
+    showSlides(slideIndex[<?php echo $result['roomTypeId']; ?>], <?php echo $result['roomTypeId']; ?>);
+    <?php } ?>
+
+    function plusSlides(n, typeId) {
+        showSlides(slideIndex[typeId] += n, typeId);
     }
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
+    function currentSlide(n, typeId) {
+        showSlides(slideIndex[typeId] = n, typeId);
     }
 
-    function showSlides(n) {
+    function showSlides(n, typeId) {
         let i;
-        let slides = document.getElementsByClassName("mySlides");
+        let slides = document.getElementsByClassName("type-" + typeId);
         if (n > slides.length) {
-            slideIndex = 1
+            slideIndex[typeId] = 1;
         }
         if (n < 1) {
-            slideIndex = slides.length
+            slideIndex[typeId] = slides.length;
         }
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex[typeId] - 1].style.display = "block";
     }
     </script>
 </body>

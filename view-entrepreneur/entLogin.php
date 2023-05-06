@@ -13,10 +13,10 @@ if (isset($_SESSION["locked"])) {
 
 if (isset($_POST['signIn'])) {
     // session_start();
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $hotelcon = new hotelController();
-    $hotelcon->userLogin($username, $password);
+    $hotelcon->userLogin($email, $password);
 }
 ?>
 
@@ -33,9 +33,9 @@ if (isset($_POST['signIn'])) {
         <h1>LOGIN</h1>
         <h5>Welcome back! Please enter your details.</h3>
             <form class="login-form" method="POST" >
-                <p><label for="fname">Username*</label></p><br>
+                <p><label for="fname">Email</label></p><br>
                 <input type="text" class="field" onfocus="this.placeholder=''" name="username"
-                placeholder="Enter your username" />
+                placeholder="Enter your email" />
                 <p><label for="lname">Password*</label><br></p>
                 <input type="password" class="field" name="password" placeholder="********" onfocus="this.placeholder=''" />
                 <a href="Recover.php" style="float:right;text-decoration:none;margin-bottom:10px;"

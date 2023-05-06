@@ -4,12 +4,13 @@ $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
     $id = $_SESSION["adminID"];
 } else {
-    // header("location:login.php");
+    header("location:../view-hotel/login.php");
 }
-if(isset($_GET['id'])){
-$getid = $_GET['id'];
+if (isset($_GET['package_id'])) {
+    $getid = $_GET['package_id'];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -37,30 +38,33 @@ $getid = $_GET['id'];
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Add Tour package Images</div>
+                <div class="page-title"> Add Tour Package Images</div>
 
             </div>
 
         </div>
         <div class="bg">
-            <form class="" action="../api/addtourpackage.php" method="post" autocomplete="off" enctype="multipart/form-data">
+            <form class="" action="../api/addtourpackage.php" method="post" autocomplete="off"
+                enctype="multipart/form-data">
 
-                <input type="hidden" class="subfield" name="id" value="<?php if (isset($getid)) {echo $getid;}?>" />
+                <input type="hidden" class="subfield" name="pid" value="<?php if (isset($getid)) {echo $getid;}?>" />
 
 
                 <label class="txt" for="image">Upload Image</label>
-                <input type="file" class="subfield" style="width:30%;margin-left:25px;" name="file" accept=".jpg, .jpeg, .png" required />
-                <button class="btnRegister" style="font-size:13px;width:10%;margin-left:20px;" type="submit" name="submitImg">Insert Image</button>
+                <input type="file" class="subfield" style="width:30%;margin-left:25px;" name="file"
+                    accept=".jpg, .jpeg, .png" required />
+                <button class="btnRegister" style="font-size:13px;width:10%;margin-left:20px;" type="submit"
+                    name="submitImg">Insert Image</button>
             </form>
 
 
             <table class="styled-table1" cellspacing=0px cellpadding=5px>
                 <?php
 require_once "../controller/tourpackagecontroller.php";
-$typeimg = new tourpackagecontroller();
+$img = new tourpackagecontroller();
 
 if (isset($getid)) { $id= $getid;}
-$results = $typeimg->viewAllImgs($id);
+$results = $img->viewAllImgs($id);
 foreach ($results as $result) {
     ?>
                 <td>

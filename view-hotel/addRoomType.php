@@ -21,7 +21,7 @@
                          <div class="content">Description</div>
                      </td>
                      <td>
-                         <textarea class="subtextfield" name="desc" rows="8" cols="50"></textarea>
+                         <textarea class="subtextfield" name="desc" style="background-color:#dde8f0;color:black;width:500px;height:150px;" ></textarea>
                      </td>
                  </tr>
                  <!-- <tr class="row">

@@ -1,10 +1,10 @@
 <?php
 session_start();
 $user = "";
-if (isset($_SESSION["username"]) && isset($_SESSION["entID"])) {
+if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     $id = $_SESSION["entID"];
 } else {
-    header("location:Login.php");
+    header("location:../view-hotel/login.php");
 }
 if(isset($_GET['id'])){
 $getid = $_GET['id'];
@@ -45,7 +45,7 @@ $getid = $_GET['id'];
         <div class="bg">
             <form class="" action="../api/productapi.php" method="post" autocomplete="off" enctype="multipart/form-data">
 
-                <input type="hidden" class="subfield" name="id" value="<?php if (isset($getid)) {echo $getid;}?>" />
+                <input type="hidden" class="subfield" name="pid" value="<?php if (isset($getid)) {echo $getid;}?>" />
 
 
                 <label class="txt" for="image">Upload Image</label>
@@ -70,7 +70,7 @@ foreach ($results as $result) {
 
                     <form action="../api/productapi.php" method="post">
 
-                        <input type="hidden" class="subfield" name="typeid"
+                        <input type="hidden" class="subfield" name="productid"
                             value="<?php if (isset($getid)) {echo $getid;}?>" />
 
                         <input type="hidden" name="id" value="<?php echo $result['id']; ?>">

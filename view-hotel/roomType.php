@@ -20,12 +20,13 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
-
+    <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    bkLib.onDomLoaded(nicEditors.allTextAreas);
+    </script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -37,7 +38,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
             <div class="searchSec">
                 <div class="page-title"> Room Types</div>
                 <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for packages" name="search" id="myInput" onkeyup="searchTypes()">
+                    <input class="input-field" type="text" placeholder="Search for packages" name="search" id="myInput"
+                        onkeyup="searchTypes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns" style="margin-left: 1rem;"><a href="roomType.php"
@@ -75,7 +77,7 @@ foreach ($results as $result) {
                             </td> -->
                             <td class="tbld"><?php echo $result["typeName"] ?></td>
                             <td class="tbld"><?php echo $result["description"] ?></td>
-                            
+
                             <td class="tbld">
                                 <?php echo "<a href='addPhotos.php?id=$result[roomTypeId]'>"; ?>
                                 <i class="fa-solid fa-images"></i>
@@ -85,7 +87,8 @@ foreach ($results as $result) {
                                     onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
                                     data-id="<?php echo $result['roomTypeId']; ?>"><i
                                         class="fa-solid fa-pen-to-square art"></i></a></td>
-                            <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i class="fa-solid fa-trash art"></i></a></td>
+                            <td class="tbld"><a onclick="openModal(<?php echo $result['roomTypeId']; ?>)"><i
+                                        class="fa-solid fa-trash art"></i></a></td>
 
                             <?php } ?>
                         </tr>
@@ -116,6 +119,7 @@ foreach ($results as $result) {
         modalIdValue.value = id;
         modal.style.display = "block";
     }
+
     function searchTypes() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
@@ -158,7 +162,6 @@ foreach ($results as $result) {
             }
         });
     }
-
     </script>
 
 
