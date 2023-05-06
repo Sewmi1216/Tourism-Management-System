@@ -41,7 +41,20 @@ $results = $tour->viewAllTourPackages();
 foreach ($results as $result) {
     ?>
             <div class="box">
-                <?php echo "<img src='../images/" . $result['image'] . "'>"; ?>
+                <div class="slideshow-container">
+                    <?php
+        require_once("../controller/tourpackagecontroller.php") ;
+        $tp = new tourpackageController();
+        $rows = $tp->viewAllImgs($result['packageID']);
+        foreach ($rows as $row) {
+      ?>
+                    <div class="mySlides fade <?php echo $result['packageName']; ?>">
+                        <?php echo "<img src='../images/" . $row['image'] . "' style='width:100%'>";?>
+                    </div>
+                    <?php } ?>
+                    <a class="prev" onclick="plusSlides(-1, '<?php echo $result['packageName']; ?>')">❮</a>
+                    <a class="next" onclick="plusSlides(1, '<?php echo $result['packageName']; ?>')">❯</a>
+                </div>
 
                 <div class="content-container">
                     <h3 style="display: inline;"><?php echo $result['packageName']; ?></h3>
@@ -53,6 +66,8 @@ foreach ($results as $result) {
             </div>
             <?php }?>
         </div>
+
+
     </section>
     <?php include "footer.php"?>
 
@@ -82,6 +97,43 @@ foreach ($results as $result) {
             }
         }
     }
+    let slideIndex = {};
+
+    <?php
+    foreach ($results as $result) {
+      echo "slideIndex['" . $result['packageName'] . "'] = 1;\n";
+    }
+  ?>
+
+    function plusSlides(n, packageName) {
+        showSlides(slideIndex[packageName] += n, packageName);
+    }
+
+    function currentSlide(n, packageName) {
+        showSlides(slideIndex[packageName] = n, packageName);
+    }
+
+    function showSlides(n, packageName) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides " + packageName);
+        if (n > slides.length) {
+            slideIndex[packageName] = 1
+        }
+        if (n < 1) {
+            slideIndex[packageName] = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex[packageName] - 1].style.display = "block";
+    }
+
+    // Call the showSlides function for each room type
+    <?php
+    foreach ($results as $result) {
+      echo "showSlides(1, '" . $result['packageName'] . "');\n";
+    }
+  ?>
     </script>
 </body>
 
