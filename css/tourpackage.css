@@ -175,10 +175,10 @@ td {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 30%;
+  top: 20%;
   width: auto;
   padding: 16px;
-  margin-top: -50px;
+  /* margin-top: -50px; */
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -217,6 +217,7 @@ td {
 /* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
+  height:140px;
 }
 
 .active,
@@ -228,6 +229,7 @@ td {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  height:450px;
 }
 .pkg {
   background-color: #fff;
