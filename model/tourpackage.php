@@ -19,11 +19,23 @@ class tourpackage extends db_connection
         return $stmt;
     } */
 
+     private function getData($query)
+    {
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            die('Error in query: ' . mysqli_error());
+        }
+        $data = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
     public function inserttourpackage($inputs)
     {
        
     
-        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, max_part , visible	, no_of_days) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 1 , '$inputs[4]')";
+        $query = "INSERT INTO tourpackage(packageName, price, description, adminID, max_part , status, no_of_days) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 'Available' , '$inputs[4]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -45,10 +57,10 @@ class tourpackage extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourpackage where visible = 1 ";
+        //$query = "SELECT * FROM tourpackage where visible = 1 ";
+        $query = "SELECT * FROM tourpackage where status = 'Available'";
      
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        return $this->getData($query);
     }
 
     public function viewtourpkg($id)
@@ -68,28 +80,31 @@ class tourpackage extends db_connection
        
     
         // $query = "UPDATE tourpackage SET (packageName, price, description, participant_count , adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '$inputs[3]', '1') where packageID = $inputs[4]";
-        $query = "UPDATE tourpackage SET visible = 0 WHERE packageID = $id";
+        $query = "UPDATE tourpackage SET status = 'Unavailable' WHERE packageID = $id";
+        //  print_r($query);
+        // die(); 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
-        
         return $stmt;
     }
 
     public function viewdeletedtourPkg()
     {
-        $query = "SELECT * FROM tourpackage where visible = 0 ";
+        $query = "SELECT * FROM tourpackage where status = 'Unavailable' ";
     
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+
+
     
     //adding images
-    public function addtourpackageImg($typeid, $file)
+    public function addtourpackageimg($package_id, $file)
     {
         require_once "../view-admin/addPhotos.php";
 
         // $sql= "INSERT INTO tourpackage_img(tourpackageid, image) VALUES (?, ?)";
-        $sql = "INSERT INTO tourpackage_img(tourpackageid, image) VALUES ('$typeid', '$file')";
+        $sql = "INSERT INTO tourpackage_img(tourpackageId, image) VALUES ('$package_id', '$file')";
         $stmt = $this->conn->prepare($sql);
         // $stmt->bind_param("ib", $typeid, $file);
 
@@ -103,10 +118,16 @@ class tourpackage extends db_connection
 
     public function viewAllImgs($getid)
     {
-        $query = "Select * from tourpackage_img i, roomtype r where i.roomTypeId=r.roomTypeId and r.roomTypeId='$getid'";
+        $query = "Select * from tourpackage_img i, tourpackage t where i.tourpackageId=t.packageID and i.tourpackageId='$getid'";
         // $query = "Select * from roomtype_img";
 
         return $this->getData($query);
 
+    }
+        public function deleteImg($id)
+    {
+        $query = "delete from tourpackage_img where id='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
     }
 }
