@@ -22,20 +22,18 @@ if (isset($_POST['accept']))
 {
 
     $id = $_POST['id'];
-    // print_r($id);
-    // die();
+  
     $acc_entrepreneur = new entrepreneurController();
     $acc_entrepreneur-> acceptentrepreneurrequest($id);
 
     echo "
     <script>
     window.location.href = '../view-admin/manageusers.php';
-         </script>";
+    </script>";
 }
 
 if (isset($_POST['decline']))
 {
-
     $id = $_POST['id'];
 
     // print_r($id);
@@ -47,20 +45,15 @@ if (isset($_POST['decline']))
     echo "
     <script>
     window.location.href = '../view-admin/manageusers.php';
-         </script>";
+    </script>";
 }
 
 if (isset($_POST['view']))
 {
-
     $id = $_POST['id'];
 
     // print_r($id);
     // die();
-
-   
-
-
 $entrepreneurcon = new entrepreneurController();
 $entrepreneurcon-> viewoneentrepreneur($inputs);
 
