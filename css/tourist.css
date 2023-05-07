@@ -256,3 +256,15 @@ div.search {
   border-radius: 5px;
   width: 40%;
 }
+.addcart {
+  background-color: #004581;
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 15px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 25%;
+}

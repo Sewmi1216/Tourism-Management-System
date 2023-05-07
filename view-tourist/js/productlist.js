@@ -1,48 +1,27 @@
 $(document).ready(function () {
-  var totalRecord = 0;
   var category = getCheckboxValues("category");
-//   var totalData = $("#totalRecords").val();
 
-  $.ajax({
-    type: "POST",
-    url: "../api/load_products.php",
-    dataType: "json",
-    data: {
-      totalRecord: totalRecord,
-      category: category,
-    },
-    success: function (data) {
+  // Move the AJAX request to a separate function
+  function loadProducts() {
+    $.ajax({
+      type: "POST",
+      url: "../api/load_products.php",
+      dataType: "json",
+      data: {
+        category: category,
+      },
+      success: function (data) {
         console.log(data);
-      $("#results").append(data.products);
-      totalRecord++;
-    },
-  });
-  $(window).scroll(function () {
-    scrollHeight = parseInt($(window).scrollTop() + $(window).height());
-    if (scrollHeight == $(document).height()) {
-      if (totalRecord <= totalData) {
-        loading = true;
-        $(".loader").show();
-        $.ajax({
-          type: "POST",
-          url: "../api/load_products.php",
-          dataType: "json",
-          data: {
-            totalRecord: totalRecord,
-            brand: brand,
-            material: material,
-            size: size,
-          },
-          success: function (data) {
-            console.log(data);
-            $("#results").append(data.products);
-            $(".loader").hide();
-            totalRecord++;
-          },
-        });
-      }
-    }
-  });
+        displayProducts(data.products);
+
+        //$("#results").html(data.products); // Use .html() instead of .append() to replace the content
+      },
+    });
+  }
+
+  // Call loadProducts() on page load
+  loadProducts();
+
   function getCheckboxValues(checkboxClass) {
     var values = new Array();
     $("." + checkboxClass + ":checked").each(function () {
@@ -50,10 +29,69 @@ $(document).ready(function () {
     });
     return values;
   }
-  $(".sort_rang").change(function () {
-    $("#search_form").submit();
-    return false;
+
+  function displayProducts(products) {
+    var productHTML = "";
+    if (products.length > 0) {
+      for (var i = 0; i < products.length; i++) {
+        (function (product) {
+          productHTML += '<div class="box">';
+          productHTML += '<div class="slideshow-container">';
+          productHTML +=
+            '<div class="product-images" id="productImages_' +
+            product.productID +
+            '"></div>';
+          productHTML += "</div>";
+          productHTML += '<div class="content-container">';
+          productHTML +=
+            '<h3 style="display: inline;">' + product.productName + "</h3>";
+          productHTML += "</div>";
+          productHTML += '<div class="price">$' + product.price + "</div>";
+          productHTML +=
+            '<div style="display: flex; justify-content: center;">';
+          productHTML +=
+            '<a href="craft.php?productid=' + product.productID + '" class="cart">View</a>';
+          productHTML += "</div>";
+          productHTML += "</div>";
+
+          // Make AJAX request to fetch the product images
+          $.ajax({
+            type: "POST",
+            url: "../api/load_product_images.php",
+            dataType: "json",
+            data: {
+              productID: product.productID,
+            },
+            success: function (data) {
+              displayProductImages(data.images, product.productID);
+            },
+          });
+        })(products[i]);
+      }
+    } else {
+      productHTML = "<p>No products found.</p>";
+    }
+    $("#results").html(productHTML);
+  }
+
+  function displayProductImages(images, productID) {
+    var imagesHTML = "";
+    if (images.length > 0) {
+      var firstImage = images[0]; // Get the first image from the array
+      imagesHTML += '<div class="mySlides fade ' + productID + '">';
+      imagesHTML +=
+        '<img src="../images/' + firstImage + '" style="width:100%">';
+      imagesHTML += "</div>";
+    }
+    $("#productImages_" + productID).html(imagesHTML);
+  }
+
+  $(".sort_rang").change(function (e) {
+    e.preventDefault(); // Prevent the default form submission
+    category = getCheckboxValues("category"); // Update the category value
+    loadProducts(); // Call loadProducts() to load the updated data
   });
+
   $(document).on("click", "label", function () {
     if ($("input:checkbox:checked")) {
       $("input:checkbox:checked", this).closest("label").addClass("active");
