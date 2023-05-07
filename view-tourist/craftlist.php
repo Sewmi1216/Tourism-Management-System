@@ -13,6 +13,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
@@ -25,6 +26,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
 <body>
     <?php include "header.php"?>
     <section class="popular" id="hotel" style="padding: 2rem 9%;">
+        <form method="post" id="search_form"></form>
         <div class="cont">
             <div class="search">
                 <h1>Handicrafts</h1>
@@ -35,44 +37,99 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
 
         <div class="filter">
             <div class="filterbox">
-                <?php echo "<img src='../images/" . $result['image'] . "'>"; ?>
-
-                <div class="content-container">
-                    <h3 style="display: inline;"><?php echo $result['packageName']; ?></h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <a href="tourpackage.php?pid=<?php echo $result['packageID']; ?>" class="btn">More Information</a>
-                </div>
+                <ul class="list">
+                    <label>
+                        <h3>Categories</h3>
+                    </label>
+                    <?php 
+        require_once "../controller/productController.php";
+$pro = new productController();
+$categories = $pro->getCategories();
+foreach ($categories as $key => $category) {
+    if (isset($_POST['category'])) {
+        if (in_array($pro->cleanString($category['categoryId']), $_POST['categoryName'])) {
+            $categoryCheck = 'checked="checked"';
+        } else {
+            $categoryCheck = "";
+        }
+    }
+    ?>
+                    <li class="list">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="<?php echo $category['categoryId']; ?>"
+                                    <?php echo @$categoryCheck; ?> name="category[]" class="sort_rang category">
+                                <?php echo ucfirst($category['categoryName']); ?>
+                            </label>
+                        </div>
+                    </li>
+                    <?php
+}
+?>
+                </ul>
             </div>
 
         </div>
 
         <div class="container">
-            <?php
-require_once "../controller/touristController.php";
-$tour = new touristController();
-$results = $tour->viewAllTourPackages();
-foreach ($results as $result) {
-    ?>
-            <div class="box">
-                <?php echo "<img src='../images/" . $result['image'] . "'>"; ?>
 
-                <div class="content-container">
-                    <h3 style="display: inline;"><?php echo $result['packageName']; ?></h3>
-                </div>
 
-                <div style="display: flex; justify-content: center;">
-                    <a href="tourpackage.php?pid=<?php echo $result['packageID']; ?>" class="btn">More Information</a>
+                <div id="results">
+                    
                 </div>
-            </div>
-            <?php }?>
         </div>
-    </section>
 
+    </section>
+    </form>
+
+    <script>
+   $(document).ready(function() {
+    var category = getCheckboxValues("category");
+
+    // Move the AJAX request to a separate function
+    function loadProducts() {
+        $.ajax({
+            type: "POST",
+            url: "../api/load_products.php",
+            dataType: "json",
+            data: {
+                category: category,
+            },
+            success: function(data) {
+                console.log(data);
+                $("#results").html(data.products); // Use .html() instead of .append() to replace the content
+            },
+        });
+    }
+
+    // Call loadProducts() on page load
+    loadProducts();
+
+    function getCheckboxValues(checkboxClass) {
+        var values = new Array();
+        $("." + checkboxClass + ":checked").each(function() {
+            values.push($(this).val());
+        });
+        return values;
+    }
+
+    $('.sort_rang').change(function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        category = getCheckboxValues("category"); // Update the category value
+        loadProducts(); // Call loadProducts() to load the updated data
+    });
+
+    $(document).on("click", "label", function() {
+        if ($("input:checkbox:checked")) {
+            $("input:checkbox:checked", this).closest("label").addClass("active");
+        }
+    });
+});
+    </script>
 
     <?php include "footer.php"?>
     <script src="js/home.js"></script>
+
     <script type="text/javascript">
     function search() {
         let filter = document.getElementById('find').value.toUpperCase();
