@@ -1,4 +1,4 @@
- /* html {
+/* html {
         font-size: 62.5%;
         overflow-x: hidden;
         scroll-padding-top: 6rem;
@@ -12,7 +12,8 @@
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -34,10 +35,10 @@
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 /* Fading animation */
 .fade {
@@ -46,17 +47,24 @@
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
 }
 
-
-.hotel{
+.hotel {
   text-transform: uppercase;
   color: rgb(0, 0, 0);
   text-align: center;
@@ -66,14 +74,14 @@
   font-family: sans-serif;
   font-weight: bold;
 }
-p.sub{
+p.sub {
   color: rgb(0, 0, 0);
   padding: 0px;
   font-size: 18px;
   font-family: sans-serif;
   font-weight: bold;
 }
-div.search{
+div.search {
   color: rgb(0, 0, 0);
   padding: 0px;
   font-size: 18px;
@@ -91,41 +99,41 @@ div.search{
   margin-top: 5px;
   margin-left: 10px;
 }
-.pay{
+.pay {
   display: block;
-  border:0;
-    position: relative;
-    padding: 0 12px;
-    height: 30px;
-    line-height: 30px;
-    background-image: -webkit-linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4);
-    font-size: 14px;
-    color: #fff;
-    font-weight: bold;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-    border-radius: 4px;
-    cursor: pointer;
+  border: 0;
+  position: relative;
+  padding: 0 12px;
+  height: 30px;
+  line-height: 30px;
+  background-image: -webkit-linear-gradient(#7dc5ee, #008cdd 85%, #30a2e4);
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
 }
 .payhotel {
   display: inline-block;
-   border:0;
-    position: relative;
-    padding: 0 12px;
-    height: 30px;
-    line-height: 30px;
-    background-image: -webkit-linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4);
-    font-size: 14px;
-    color: #fff;
-    font-weight: bold;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-    border-radius: 4px;
-    cursor: pointer;
+  border: 0;
+  position: relative;
+  padding: 0 12px;
+  height: 30px;
+  line-height: 30px;
+  background-image: -webkit-linear-gradient(#7dc5ee, #008cdd 85%, #30a2e4);
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
   text-decoration: none;
 }
-.list{
- display: flex;
+.list {
+  display: flex;
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
@@ -138,7 +146,7 @@ div.search{
   border-color: #0d6efd;
 }
  */
- /* The container */
+/* The container */
 .ckbox {
   display: block;
   position: relative;
@@ -173,7 +181,7 @@ div.search{
 
 /* When the checkbox is checked, add a blue background */
 .ckbox input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -199,4 +207,52 @@ div.search{
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+.productlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+}
+
+.popular .productlist .box .btn {
+  align-items: center;
+}
+
+.popular .productlist .box {
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem sold rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  text-align: center;
+  flex: 1 1 20rem;
+  /* width: 40%; */
+}
+.box {
+  width: 25%;
+  float: left;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+.popular .productlist .box img {
+  height: 15rem;
+  object-fit: cover;
+  /* width: 100%; */
+  border-radius: 0.5rem;
+}
+
+.cart {
+  background-color: #004581;
+  border: none;
+  color: white;
+  padding: 10px 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 5px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 40%;
 }
