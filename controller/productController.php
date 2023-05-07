@@ -33,6 +33,12 @@ class productController extends db_connection
         $result = $product->viewAllImgs($getid);
         return $result;
     }
+
+      public function viewAllProImgs($getid)
+    {
+        $product = new product();
+        return $product->viewAllProImgs($getid);
+    }
     public function deleteImg($id, $productid)
     {
         $dl = new product();
@@ -160,4 +166,5 @@ class productController extends db_connection
         $pro = new product();
         return $pro->getTotalProducts();
     }
+   
 }
