@@ -35,7 +35,16 @@
           <a href="tourbooking.php">
             <span class="b">
                 Tour Bookings
-                <div style="margin-top:60px;font-size:40px;">10</div>
+                <div style="margin-top:60px;font-size:40px;">
+                      <?php
+                      require_once "../controller/tourbookingController.php";
+                      $res1 = new tourbookingController();
+                      $results = $res1->countBooking();
+                      foreach($results as $result){
+                      echo $result['num_bookings'];}
+                      ?>
+                    </div>
+                </div>
             </span>
           </a>
 
