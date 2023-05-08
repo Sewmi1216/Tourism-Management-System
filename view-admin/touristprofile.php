@@ -33,8 +33,8 @@ $rows = $_SESSION['c'];
             <div class="left"> 
 
             <?php
-require_once "../controller/hotelController.php";
-$profile = new hotelController();
+require_once "../controller/touristController.php";
+$profile = new touristController();
 $results = $profile->viewProfile($id);
 foreach ($results as $result) {
     ?>            

@@ -72,4 +72,11 @@ class tourbooking extends db_connection
         return $stmt;
     }
 
+    public function countBooking()
+    {
+        $query1 = "SELECT COUNT(*) as num_bookings FROM tourbooking WHERE DATE(bookingDateTime) = CURDATE();";
+
+        return $this->getData($query1);
+
+    }
 }

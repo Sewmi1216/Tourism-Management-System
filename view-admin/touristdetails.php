@@ -94,7 +94,7 @@ if ($res->num_rows > 0) {
                         <td class="tbld"><?php echo $row["address"] ?></td>
                         <td class="tbld"><?php echo $row["email"] ?></td>
                         <td class="tbld"><?php echo $row["phone"] ?></td>
-                        <td class="tbld">  <a href="touristprofile.php?tourist_id='<?php echo $row["userID"] ?>'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                        <td class="tbld">  <a href="touristprofile.php?id='<?php echo $row["userID"] ?>'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                         <!-- <td class="tbld"><button data-id='<?php echo $row['packageID']; ?>' class="help"> view </button></td> -->
                         <td class="tbld"><a onclick="document.getElementById('id02').style.display='block'"><i
                                     class="fa-solid fa-pen-to-square art"></i></a></td>

@@ -104,18 +104,17 @@ $rows = $_SESSION['c'];
 
             <div id="id04" class="modal">
 
-                <form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"
-                    enctype="multipart/form-data">
+                <form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"  enctype="multipart/form-data">
                     <div class="imgcontainer" style="background-color:#004581;">
                         <button type="button" onclick="document.getElementById('id04').style.display='none'"
                             class="cancelbtn close">&times;</button>
-                        <label for="room" style="color:white"><b>Remove Entrepreneur</b></label>
+                        <label for="room" style="color:white"><b>Remove Entrepreneur Approval</b></label>
                     </div>
 
                     <div class="container">
 
                         <input type="hidden" id="modalIdValue" class="subfield" name="id"
-                            value=" <?php echo $result["entID"] ?>" />
+                            value=" <?php echo $row['entID']; ?>" />
 
 
                         <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
@@ -150,13 +149,12 @@ $rows = $_SESSION['c'];
                     <div class="imgcontainer" style="background-color:#004581;">
                         <button type="button" onclick="document.getElementById('id02').style.display='none'"
                             class="cancelbtn close">&times;</button>
-                        <label for="room" style="color:white"><b>Accept Entrepreneur</b></label>
+                        <label for="room" style="color:white"><b>Accept Entrepreneur Approval</b></label>
                     </div>
 
                     <div class="container">
 
-                        <input type="hidden" id="modalIdValue" class="subfield" name="id"
-                            value="<?php echo $result["entID"] ?>" />
+                        <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $row['entID']; ?>" />
 
 
                         <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to Accept
