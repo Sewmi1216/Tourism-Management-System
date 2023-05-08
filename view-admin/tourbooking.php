@@ -49,6 +49,7 @@
                     <th class="tblh">Total amount</th>
                     <th class="tblh">Check-in</th>
                     <th class="tblh">View Booking</th>
+                    <th class="tblh">Booking Status</th>
                 </tr>
 
                 <?php
@@ -67,7 +68,7 @@
                            <td class="tbld"><?php echo $result["guestName"] ?></td>
                            <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
                            <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
-                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id='.$row['bookingID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                            <td class="tbld">
                                <?php if ($result["bookingStatus"] == "Completed") {?>
                                <button class="status1"><?php echo $result["bookingStatus"]; ?></button>

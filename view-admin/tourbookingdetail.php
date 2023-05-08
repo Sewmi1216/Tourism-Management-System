@@ -41,9 +41,10 @@
    require_once "../controller/tourbookingcontroller.php";
    $res = new tourbookingcontroller();
    $results = $res->viewtourreservationdetails();
-   
    foreach ($results as $result) {
-       ?> <tbody>
+       ?> 
+       
+       <tbody>
                  <tr class="subtext tblrw">
                                 <th class="tblh">Tour booking Detail</th>
                               <th class="tblh">Description</th>
@@ -51,24 +52,29 @@
                          </tr>
                        <tr class="subtext tblrw">
                            <td class="tbld"> Booking ID</td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld"><?php echo $result["bookingID"] ?></td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Booking Time</td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Booking status </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld"><?php echo $result["bookingStatus"] ?></td>
                         </tr>
 
 
 
+                        <?php } ?>
 
 
-
-
-
+<?php                    
+   require_once "../controller/tourbookingcontroller.php";
+   $res = new tourbookingcontroller();
+   $results = $res->viewtourreservationdetails();
+   
+   foreach ($results as $result) {
+?> 
 
 
                              <tr class="subtext tblrw">
@@ -102,14 +108,15 @@
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
                         </tr>
 
+<?php } ?>
 
-
-
-
-
-
-
-
+<?php                    
+   require_once "../controller/tourbookingcontroller.php";
+   $res = new tourbookingcontroller();
+   $results = $res->viewtourreservationdetails();
+   
+   foreach ($results as $result) {
+?> 
                         <tr class="subtext tblrw">
                             <th class="tblh">Tour package Detail</th>
                              <th class="tblh">Description</th>
@@ -134,15 +141,16 @@
                            <td class="tbld"> Travel Locations </td>
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
                         </tr>
+<?php } ?>
 
 
-
-
-
-
-
-
-
+<?php                    
+   require_once "../controller/tourbookingcontroller.php";
+   $res = new tourbookingcontroller();
+   $results = $res->viewtourreservationdetails();
+   
+   foreach ($results as $result) {
+?> 
                         <tr class="subtext tblrw">
                             <th class="tblh">Tour package Detail</th>
                              <th class="tblh">Description</th>
@@ -172,11 +180,7 @@
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
                         </tr>
 
-                           <?php }
-
-                       
-
-?>
+<?php } ?>
                     </tr>
             </table>
         </div>
