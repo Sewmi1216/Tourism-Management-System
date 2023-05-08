@@ -64,11 +64,12 @@ class tourbooking extends db_connection
     
     public function viewtourreservations()
     {
-       
-    
         $query = "SELECT * FROM tourbooking";
         
         $stmt = mysqli_query($this->conn, $query);
+
+        
+
         return $stmt;
     }
 
@@ -84,9 +85,12 @@ class tourbooking extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourbooking where bookingID = bookingID";
-        
+        $query = "SELECT * FROM tourbooking where bookingID = $reservation_id";
+        print_r($query);
+        die();
         $stmt = mysqli_query($this->conn, $query);
+
+        
         return $stmt;
     }
 }

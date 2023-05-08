@@ -62,12 +62,15 @@ class tourbookingcontroller extends db_connection
 
     }
 
-    public function viewtourreservationdetails()
+    public function viewtourreservationdetails($reservation_id)
     {
         
         $pkg = new tourbooking();
 
         $result = $pkg->viewtourreservationdetails();
+
+        // print_r($results);
+        // die();
 
         $_SESSION['c'] = $result;
         return $result;
