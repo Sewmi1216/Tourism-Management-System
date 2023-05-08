@@ -41,7 +41,7 @@
         <div class="bg">
             <table id="tbl">
                 <tr class="subtext tblrw">
-                <th class="tblh">Date</th>
+                     <th class="tblh">Date</th>
                     <th class="tblh">Reservation ID</th>
                     <th class="tblh">Package Name</th>
                     <th class="tblh">Guest ID</th>
@@ -62,19 +62,19 @@
                        <tr class="subtext tblrw">
                            <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
                            <td class="tbld"><?php echo $result["bookingID"] ?></td>
-                           <td class="tbld"><?php echo $result["bookingID"] ?></td>
+                           <td class="tbld"><?php echo $result["tourPkgID"] ?></td>
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
                            <td class="tbld"><?php echo $result["guestName"] ?></td>
                            <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
-                           <td class="tbld"><?php echo $result["passportExpDate"] ?></td>
+                           <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
                            <td class="tbld"> <a href="tourbookingdetail.php?reservation_id='.$row['bookingID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                           <!-- <td class="tbld">
-                               <?php if ($result["typestatus"] == "Completed") {?>
-                               <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
+                           <td class="tbld">
+                               <?php if ($result["bookingStatus"] == "Completed") {?>
+                               <button class="status1"><?php echo $result["bookingStatus"]; ?></button>
                                <?php } else {?>
-                               <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
+                               <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
                                <?php }?>
-                           </td> -->
+                        
    
    
                            <?php }

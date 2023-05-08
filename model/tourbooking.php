@@ -79,4 +79,14 @@ class tourbooking extends db_connection
         return $this->getData($query1);
 
     }
+
+    public function viewtourreservationdetails()
+    {
+       
+    
+        $query = "SELECT * FROM tourbooking where bookingID = bookingID";
+        
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 }

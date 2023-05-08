@@ -30,24 +30,52 @@
                 </form>
             </div>
 
-        </div>
+        </div>  
 
         <div class="bg">
             <table id="tbl">
-                <tr class="subtext tblrw">
-                    <th class="tblh">Guest Detail</th>
-                    <th class="tblh">Description</th>
-                    
-                </tr>
+           
 
                 <?php
    
    require_once "../controller/tourbookingcontroller.php";
    $res = new tourbookingcontroller();
-   $results = $res->viewtourreservations();
+   $results = $res->viewtourreservationdetails();
    
    foreach ($results as $result) {
        ?> <tbody>
+                 <tr class="subtext tblrw">
+                                <th class="tblh">Tour booking Detail</th>
+                              <th class="tblh">Description</th>
+                    
+                         </tr>
+                       <tr class="subtext tblrw">
+                           <td class="tbld"> Booking ID</td>
+                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                        </tr>
+                        <tr class="subtext tblrw">
+                           <td class="tbld"> Booking Time</td>
+                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                        </tr>
+                        <tr class="subtext tblrw">
+                           <td class="tbld"> Booking status </td>
+                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+                             <tr class="subtext tblrw">
+                                <th class="tblh">Guest Detail</th>
+                              <th class="tblh">Description</th>
+                    
+                         </tr>
                        <tr class="subtext tblrw">
                            <td class="tbld"> Guest ID</td>
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
@@ -76,6 +104,12 @@
 
 
 
+
+
+
+
+
+
                         <tr class="subtext tblrw">
                             <th class="tblh">Tour package Detail</th>
                              <th class="tblh">Description</th>
@@ -100,6 +134,14 @@
                            <td class="tbld"> Travel Locations </td>
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
                         </tr>
+
+
+
+
+
+
+
+
 
                         <tr class="subtext tblrw">
                             <th class="tblh">Tour package Detail</th>
