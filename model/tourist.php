@@ -228,4 +228,45 @@ class tourist extends db_connection
         return $this->getData($query);
     }
 
+    public function viewProduct($pId)
+    {
+
+        $query = "Select * from product where productID = '$pId'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+    public function viewCartItems($cart)
+    {
+        if (is_array($cart)) {
+
+            // $array_to_question_marks = implode(',', array_fill(0, count($cart), '?'));
+
+            // $query = "SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND p.productID IN ('$array_to_question_marks')";
+            // return $this->getData($query);
+
+            // $sql = "SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND p.productID IN (";
+            $sql = "SELECT * FROM product WHERE productID IN (";
+            foreach ($cart as $id => $value) {
+                $sql .= $id . ",";
+                $sql = substr($sql, 0, -1) . ") ORDER BY productID ASC";
+                return $this->getData($sql);
+
+            }
+
+            // $placeholders = implode(',', array_keys($cart));
+            // $stmt = $this->conn->prepare('SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND p.productID IN (' . $array_to_question_marks . ')');
+            // $stmt->execute(array_keys($cart));
+            // $result = $stmt->get_result();
+            // $productArray = [];
+            // while ($row = $result->fetch_assoc()) {
+            //     $productArray[] = $row;
+            // }
+            // return $productArray;
+        } else {
+            return "Invalid cart data. Please provide a valid array.";
+
+        }
+    }
+
 }

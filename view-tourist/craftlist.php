@@ -17,9 +17,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
-    <!-- <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
-    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet"> -->
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
 
 </head>
 
