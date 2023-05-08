@@ -35,6 +35,7 @@ class tourpackage extends db_connection
     {
        
     
+
         $query = "INSERT INTO tourpackage(packageName, price, description, adminID, max_part , status, no_of_days) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '1', '$inputs[3]', 'Available' , '$inputs[4]')";
 
         $stmt = $this->conn->prepare($query);
@@ -58,7 +59,9 @@ class tourpackage extends db_connection
        
     
         //$query = "SELECT * FROM tourpackage where visible = 1 ";
+
         $query = "SELECT * FROM tourpackage where status = 'Available'";
+
      
         return $this->getData($query);
     }

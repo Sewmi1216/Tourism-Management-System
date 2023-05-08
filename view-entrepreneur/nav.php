@@ -32,10 +32,10 @@
               </a>
               <span class="tooltip">Payments</span>
           </li>
-          <hr>
+          <hr style="margin-top:250px;">
           <div>
               <a href="../api/logout.php">
-                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <i class="fa-solid fa-right-from-bracket" style:></i>
                   <span class="link">Sign-out</span>
               </a>
               <span class="tooltip">Sign-out</span>

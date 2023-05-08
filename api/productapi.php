@@ -22,7 +22,7 @@ if (isset($_POST['save'])) {
 }
 
 if (isset($_POST['submitImg'])) {
-    $productid = $_POST['id'];
+    $productid = $_POST['pid'];
 
     $file = $_FILES['file']['name'];
 
@@ -36,7 +36,7 @@ if (isset($_POST['submitImg'])) {
     $productcon->addproductImg($productid, $file);
 
     move_uploaded_file($tempname, $folder);
-    if (!$typecon) {
+    if (!$productcon) {
         echo 'There was a error';
     } else {
         echo "
@@ -51,10 +51,10 @@ if (isset($_POST['submitImg'])) {
 if (isset($_POST['deleteimg'])) {
     $id = $_POST['id'];
     $imgname = $_POST['imgname'];
-    $typeid = $_POST['productid'];
+    $productid = $_POST['productid'];
 
     $tp = new productController();
-    $tp->deleteImg($id, $productID);
+    $tp->deleteImg($id, $productid);
     unlink("../images/" . $imgname);
      echo "
              <script>

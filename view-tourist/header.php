@@ -14,13 +14,15 @@ foreach ($results as $result) {
              <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='#' height='40px' width='40px'
                     style='padding-right:0px;border-radius:50%;'>"; ?></a>
          <?php }?>
+         <a href="chat.php" style="margin-left:0px;"><i class="fa-solid fa-message fa-lg"
+                style="font-size:18px;color:white;"></i></a>
 
          <a href="../api/logout.php">Log out</a>
-         <a href="#contact">Contact Us</a>
-         <a href="#about">About</a>
+         <a href="home.php#contact">Contact Us</a>
+         <a href="home.php#about">About</a>
          <a href="accommodation.php">Accommodation</a>
          <a href="craftlist.php">Handicrafts</a>
-         <a href="../view/tourpackagelist.php">Tour Packages</a>
+         <a href="tourpackagelist.php">Tour Packages</a>
          <a href="home.php">Home</a>
      </div>
  </div>

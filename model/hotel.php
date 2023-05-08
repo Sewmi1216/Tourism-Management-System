@@ -64,16 +64,7 @@ class hotel extends db_connection
     //     return $result;
     // }
 
-    //Hotels can only chat with admin and tourists.
-    public function viewAllUsers()
-    {
-        $query = "SELECT * from tourist, admin";
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
-
-    }
-
-    private function getData($query)
+     private function getData($query)
     {
         $result = mysqli_query($this->conn, $query);
         if (!$result) {
@@ -85,6 +76,24 @@ class hotel extends db_connection
         }
         return $data;
     }
+    //Hotels can only chat with admin and tourists.
+    // public function viewAllUsers()
+    // {
+    //     $query = "SELECT * from tourist";
+    //     return $this->getData($query);
+    // }
+     public function viewAllHotels()
+    {
+        $sql = "SELECT userID, name, email from tourist union select adminID, email, password from admin";
+        return $this->getData($sql);
+    }
+    //  public function chatUser()
+    // {
+    //     $sql = "SELECT userID, email from tourist union select adminID, email from admin";
+    //     return $this->getData($sql);
+    // }
+
+   
     public function checkAllEmails($email)
     {
         $query = "SELECT COUNT(*) AS COUNT

@@ -111,7 +111,7 @@ class tourist extends db_connection
 
     public function viewAllHotels()
     {
-        $sql = "SELECT * from hotel";
+        $sql = "SELECT * from hotel where status='1'";
         return $this->getData($sql);
     }
     public function viewHotel($id)
@@ -166,7 +166,23 @@ class tourist extends db_connection
             $query1 = "INSERT INTO hotel_payment (paymentDateTime, type, amount, paymentStatus, reservationID) VALUES (NOW(), 'Card',  '$total_amount', 'Completed','$reslId')";
             $stmt = mysqli_query($this->conn, $query1);
             return $stmt;
+        } else {
+            print("error");
+        }
 
+    }
+    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+    {
+        $query = "INSERT INTO tourbooking (bookingDateTime, bookingStatus, guestName, guestPhone, guestEmail, arrivalDate, departureDate, noOfGuests, tourPkgID, touristID) VALUES (NOW(), 'Pending', '$name', '$phone', '$email', '$aDate', '$dDate','$guests', '$packageId', '$touristID')";
+        $stmt = mysqli_query($this->conn, $query);
+        if ($stmt) {
+            $bookingId = mysqli_insert_id($this->conn); // get the booking ID
+            $query1 = "INSERT INTO tourbooking_payment (paymentDateTime, amount, paymentStatus, tourBookingId) VALUES (NOW(), '$total_amount', 'Completed','$bookingId')";
+            $stmt = mysqli_query($this->conn, $query1);
+            return $stmt;
+        } else {
+            $error = mysqli_error($this->conn);
+            return "Error: $error";
         }
 
     }
@@ -186,12 +202,30 @@ class tourist extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
-     public function viewReservation($id)
+    public function viewReservation($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from guest_reservation where reservationID = '$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
+    }
+
+    // Tour packages
+    public function viewAllTourPackages()
+    {
+        $sql = "SELECT * from tourpackage";
+        return $this->getData($sql);
+    }
+    public function viewTourPkg($pid)
+    {
+        $sql = "SELECT * from tourpackage where packageID='$pid'";
+        $stmt = mysqli_query($this->conn, $sql);
+        return $stmt;
+    }
+    public function viewAllTourImgs($id)
+    {
+        $query = "Select * from tourpackage_img i, tourpackage t where i.tourpackageId=t.packageID and i.tourpackageId='$id'";
+        return $this->getData($query);
     }
 
 }

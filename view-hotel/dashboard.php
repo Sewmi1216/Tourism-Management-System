@@ -33,6 +33,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
 
         <button type="submit" id="create_pdf" class="btns"
             style="margin-left:80rem;margin-top:1rem;background-color:red;">Download pdf</button>
+        <button type="submit" id="click" class="btns">Click</button>
 
         <div id="container">
             <div class="page-title" style="margin-left:3vw;">Dashboard Overview</div>
@@ -113,9 +114,9 @@ foreach ($results as $data) {
 
 }
 ?>
-        <div class="barchart">
-            <canvas id="barchart"></canvas>
-        </div>
+                    <div class="barchart">
+                        <canvas id="barchart"></canvas>
+                    </div>
                 </span>
             </div>
 
@@ -123,7 +124,14 @@ foreach ($results as $data) {
 
 
     </section>
-
+    <script>
+    document.getElementById("click").onclick = function() {
+        window.print()
+        setTimeout(function() {
+            window.close()
+        }, 750)
+    };
+    </script>
 
     <script>
     const ctx = document.getElementById("piechart");
@@ -145,30 +153,27 @@ foreach ($results as $data) {
         },
     });
 
-     const cht = document.getElementById("barchart");
+    const cht = document.getElementById("barchart");
 
- new Chart(cht, {
-   type: "bar",
-   data: {
-     labels: <?php echo json_encode($month) ?>,
+    new Chart(cht, {
+        type: "bar",
+        data: {
+            labels: <?php echo json_encode($month) ?>,
 
-     datasets: [
-       {
-         label: "Revenue",
-         data: <?php echo json_encode($revenue) ?>,
-         borderWidth: 1,
-       },
-     ],
-   },
-   options: {
-     scales: {
-       y: {
-         beginAtZero: true,
-       },
-     },
-   },
- });
-
+            datasets: [{
+                label: "Revenue",
+                data: <?php echo json_encode($revenue) ?>,
+                borderWidth: 1,
+            }, ],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
     </script>
     <script>
     document.getElementById('create_pdf').onclick = function() {
