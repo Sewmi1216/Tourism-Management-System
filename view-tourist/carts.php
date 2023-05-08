@@ -6,7 +6,32 @@ if (isset($_SESSION["email"]) && isset($_SESSION["userID"])) {
 } else {
     header("location:../view-hotel/login.php");
 }
-if (isset($_GET['qty'])) {$qty = $_GET['qty'];}
+if (isset($_POST['remove'])) {
+
+    if (!empty($_SESSION['cart'])) {
+        foreach ($_POST['remove'] as $key) {
+
+            unset($_SESSION['cart'][$key]);
+        }
+        echo "<script>alert('Your Cart has been Updated');</script>";
+        echo "<script type='text/javascript'> document.location ='../view-tourist/carts.php'; </script>";
+
+    }
+}
+if (isset($_POST['submit'])) {
+    if (!empty($_SESSION['cart'])) {
+        foreach ($_POST['quantity'] as $key => $val) {
+            if ($val == 0) {
+                unset($_SESSION['cart'][$key]);
+            } else {
+                $_SESSION['cart'][$key]['quantity'] = $val;
+
+            }
+        }
+        echo "<script>alert('Your Cart hasbeen Updated');</script>";
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -44,101 +69,110 @@ if (isset($_GET['qty'])) {$qty = $_GET['qty'];}
 
     <section class="hotel1" id="hotel" style="">
         <div class="shopping-cart">
-            <?php
+            <form method="post">
+
+                <div class="item">
+                    <div class="description" style="color:blue;  font-weight: bold;">
+                        <span>Common Projects</span>
+                    </div>
+
+                    <div class="image"
+                        style="font-weight: bold;color:blue;padding-top: 10px;width: 220px;margin-right:20px;">
+                        <span>Image</span>
+                    </div>
+
+                    <div class="description" style="color:blue;font-weight: bold;">
+                        <span>Product Description</span>
+                    </div>
+
+                    <div class="quantity" style="color:blue;font-weight: bold;">
+                        <span>Quantity</span>
+                    </div>
+
+                    <div class="total-price" style="width:140px;color:blue;font-weight: bold;"><span>Price</span></div>
+                    <div class="total-price" style="width:140px;color:blue;font-weight: bold;"><span>Total price</span>
+                    </div>
+                </div>
+                <?php
 if (!empty($_SESSION['cart'])) {
 
-    ?>
-    
-            <div class="item">
-                <div class="description" style="color:blue;  font-weight: bold;">
-                    <span>Common Projects</span>
-                </div>
+ $pdtid=array();
+ require_once "../controller/touristController.php";
+$cart = new touristController();
+$products = $cart->viewCartItems($_SESSION['cart']);
+$totalprice=0;
+			$totalqunty=0;
+			if(!empty($products)){
+			while($row = mysqli_fetch_array($products)){
+				$quantity = $_SESSION['cart'][$row['productID']]['quantity'];
+                $subtotal = $row['price']* $quantity;
+                $totalprice += $subtotal;
+                $_SESSION['qnty'] = $totalqunty += $quantity;
+                array_push($pdtid, $row['productID']);
+?>
 
-                <div class="image"
-                    style="font-weight: bold;color:blue;padding-top: 10px;width: 220px;margin-right:20px;">
-                    <span>Image</span>
-                </div>
+                <!-- Product #1 -->
+                <div class="item">
+                    <div class="description">
+                        <!-- <button type="button" name="submit" value="<?php echo $row['productID']?>"
+                            style="margin-left:10px;border:none;">
+                            <a href="carts.php?remove=<?php echo $row['productID']?>">
+                                <i class="fa-solid fa-xmark" style="font-size:18px;color:black;"></i>
+                            </a>
+                        </button> -->
+                        <input type="checkbox" name="remove[]" value="<?php echo htmlentities($row['productID']);?>"/>
+                    </div>
 
-                <div class="description" style="color:blue;font-weight: bold;">
-                    <span>Product Description</span>
-                </div>
+                    <div class="image">
+                        <?php
+require_once "../controller/productController.php";
+$tp = new productController();
+$results = $tp->viewAllImgs($row['productID']);
+foreach ($results as $res) {?>
 
-                <div class="quantity" style="color:blue;font-weight: bold;">
-                    <span>Quantity</span>
-                </div>
+                        <img src="../images/<?php echo $res['image']; ?>" style="height:90px;width:90px;" />
 
-                <div class="total-price" style="width:140px;color:blue;font-weight: bold;"><span>Price</span></div>
-            </div>
-            <?php
-// $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
-if (isset($_SESSION['cart'])) {
-    $products_in_cart = $_SESSION['cart'];
-} else {
-    $products_in_cart = array();
-}
+                        <?php 
+                   break;
+                   }?>
+                    </div>
 
-    $products = array();
-    $subtotal = 0.00;
+                    <div class="description">
+                        <span><?php echo $row['productName']; ?></span>
+                    </div>
 
-    if ($products_in_cart) {
-        require_once "../controller/touristController.php";
-        $cart = new touristController();
-        $products = $cart->viewCartItems($products_in_cart);
-//         echo "<pre>";
-// print_r($products);
-// echo "</pre>";
-
-        // if (is_array($products_in_cart) || is_object($products_in_cart)) {
-            foreach ($products as $product) {
-            // $subtotal += (float) $product['price'] * (int) $products_in_cart[$product['ProductID']];?>
-            <!-- Product #1 -->
-            <div class="item">
-                <div class="description">
-                    <button type="button" name="button" style="margin-left:10px;border:none;">
-                        <i class="fa-solid fa-xmark" style="font-size:18px;color:black;"></i>
-                    </button>
-                </div>
-
-                <div class="image">
-
-                    <!-- <img src="../images/<?php echo $product['image']; ?>" style="height:90px;width:90px;" /> -->
-                </div>
-
-                <div class="description">
-                    <span><?php echo $product['productName']; ?></span>
-                </div>
-
-                <div class="quantity">
-                    <button class="plus-btn" type="button" name="button">
+                    <div class="quantity">
+                        <!-- <button class="plus-btn" type="button" name="button">
                         <i class="fa-solid fa-plus" style="font-size:18px;color:black;"></i>
-                    </button>
-                    <!-- <input type="text" name="name" value="<?php echo $qty; ?>"> -->
-                    <input type="text" value="<?php $products_in_cart[$product['productID']]?>"
-                        name="quantity-<?=$product['productID']?>">
-                    <button class="minus-btn" type="button" name="button">
+                    </button> -->
+                        <!-- <input type="text" name="name" value="<?php echo $qty; ?>"> -->
+                        <input type="text" id="qty"
+                            value="<?php echo $_SESSION['cart'][$row['productID']]['quantity']?>"
+                            name="quantity-<?=$row['productID']?>">
+                        <!-- <button class="minus-btn" type="button" name="button">
                         <i class="fa-solid fa-minus" style="font-size:18px;color:black;"></i>
-                    </button>
+                    </button> -->
+                    </div>
+
+
+                    <div class="total-price" id="price"><?php echo $row['price']; ?></div>
+                    <div class="total-price" id="subtotal"><?php echo '$ '.$subtotal.'.00';?>
+                    </div>
+                    
                 </div>
-
-                <div class="total-price"><?php echo $product['price']; ?></div>
-            </div>
-
-
-
-            <?php
+                
+                <?php
         }
-//  } else {
-//     echo 'Handle the case when is not an array or object';
-// }
+ } 
+$_SESSION['pid']=$pdtid;?>
+<input type="submit" name="submit" value="Update shopping cart">
+<?php 
 
-
-
-}else{
-    echo 'no cart products';
-}
      } else {
-    echo "Your shopping Cart is empty";
+    echo "You have no products added in your Shopping Cart";
 }?>
+
+            </form>
         </div>
         </setion>
 
@@ -146,6 +180,26 @@ if (isset($_SESSION['cart'])) {
         <?php include "footer.php"?>
 
 
+        // <script>
+        //       $(document).ready(function() {
+        //     // Calculate subtotal when the quantity changes
+        //     $('#qty').on('input', function() {
+        //         var quantity = parseFloat($(this).val());
+        //         var price = parseFloat($('#price').text());
+        //         var subtotal = quantity * price;
+
+        //         // Display the subtotal value
+        //         $('#subtotal').text(subtotal.toFixed(2)); // Assuming you want to display the value with two decimal places
+        //     });
+
+        //     // Calculate and display the initial subtotal
+        //     var initialQuantity = parseFloat($('#qty').val());
+        //     var initialPrice = parseFloat($('#price').text());
+        //     var initialSubtotal = initialQuantity * initialPrice;
+        //     $('#subtotal').text(initialSubtotal.toFixed(2));
+        // });
+        //     
+        </script>
         <script src="js/cart.js"></script>
         <script src="../view-hotel/js/home.js"></script>
 

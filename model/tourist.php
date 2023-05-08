@@ -249,20 +249,13 @@ class tourist extends db_connection
             $sql = "SELECT * FROM product WHERE productID IN (";
             foreach ($cart as $id => $value) {
                 $sql .= $id . ",";
-                $sql = substr($sql, 0, -1) . ") ORDER BY productID ASC";
-                return $this->getData($sql);
-
             }
+            $sql = substr($sql, 0, -1) . ") ORDER BY productID ASC";
+            $stmt = mysqli_query($this->conn, $sql);
+            return $stmt;
 
-            // $placeholders = implode(',', array_keys($cart));
-            // $stmt = $this->conn->prepare('SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND p.productID IN (' . $array_to_question_marks . ')');
-            // $stmt->execute(array_keys($cart));
-            // $result = $stmt->get_result();
-            // $productArray = [];
-            // while ($row = $result->fetch_assoc()) {
-            //     $productArray[] = $row;
-            // }
-            // return $productArray;
+            // return $this->getData($sql);
+
         } else {
             return "Invalid cart data. Please provide a valid array.";
 
