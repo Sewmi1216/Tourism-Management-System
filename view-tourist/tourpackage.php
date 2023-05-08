@@ -17,8 +17,7 @@ if (isset($_GET['pid'])) {$pid = $_GET['pid'];}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/craft_list.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
     <link rel="stylesheet" href="../css/hotel.css">
@@ -41,27 +40,40 @@ $results = $tp->viewTourPkg($pid);
             </div>
         </div>
         <div class="containerimgs">
+            <?php
+require_once "../controller/tourpackagecontroller.php";
+$tp = new tourpackageController();
+$rows = $tp->viewAllImgs($result['packageID']);
+foreach ($rows as $row) {
+    ?>
+
             <div class="mySlides">
-                <img src="../images/bg2.jpg" class="tourimg">
+                <?php echo "<img src='../images/" . $row['image'] . "' class='tourimg'>";?>
             </div>
-            <div class="mySlides">
-                <img src="../images/bg4.jpg" class="tourimg">
-            </div>
+            <?php }?>
 
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
 
-            <div class="row" style="margin-left:10%;">
-                <div class="column">
-                    <img class="demo cursor" src="../images/bg2.jpg" style="width:100%" onclick="currentSlide(1)"
-                        alt="The Woods">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="../images/bg4.jpg" style="width:100%" onclick="currentSlide(2)"
-                        alt="The Woods">
-                </div>
-            </div>
 
+            <div class="row" style="margin-left:10%;">
+                <?php
+require_once "../controller/tourpackagecontroller.php";
+$tp = new tourpackageController();
+$rows = $tp->viewAllImgs($result['packageID']);
+$index = 1;
+
+foreach ($rows as $row) {
+    ?>
+                <div class="column">
+                    <?php echo "<img src='../images/" . $row['image'] . "' class='demo cursor' style='width:100%' onclick='currentSlide($index)'>"; ?>
+                </div>
+                <?php
+                $index++;
+
+                 }?>
+
+            </div>
         </div>
 
     </section>
@@ -147,8 +159,6 @@ $results = $tp->viewTourPkg($pid);
     function showSlides(n) {
         let i;
         let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("demo");
-        let captionText = document.getElementById("caption");
         if (n > slides.length) {
             slideIndex = 1
         }
@@ -158,12 +168,8 @@ $results = $tp->viewTourPkg($pid);
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
         slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        captionText.innerHTML = dots[slideIndex - 1].alt;
+
     }
     </script>
 

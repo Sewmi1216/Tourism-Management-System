@@ -109,7 +109,7 @@ class product extends db_connection
 
         return $this->getData($query);
     }
-     public function viewOrderPayments($id)
+    public function viewOrderPayments($id)
     {
         $query = "Select * from craftorder o, craftorder_payment c, product p where o.orderID = c.craftOrderId and o.productID= p.productID and p.entID='$id'";
 
@@ -120,7 +120,7 @@ class product extends db_connection
         $query1 = "SELECT COUNT(orderID) as count FROM craftorder o, product p WHERE DATE(o.orderDateTime) = CURDATE() and o.productID= p.productID and p.entID='$id'";
         return $this->getData($query1);
     }
-     public function cancelledOrders($id)
+    public function cancelledOrders($id)
     {
         $query1 = "SELECT COUNT(orderID) as cancelled FROM craftorder o, product p WHERE DATE(orderDateTime) = CURDATE() and status='Cancelled' and o.productID= p.productID and p.entID='$id'";
         return $this->getData($query1);
@@ -129,5 +129,73 @@ class product extends db_connection
     {
         $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderID = c.craftOrderId and o.productID= p.productID and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";
         return $this->getData($query1);
+    }
+    public function cleanString($str)
+    {
+        return str_replace(' ', '_', $str);
+    }
+    public function getCategories()
+    {
+        $query1 = "SELECT DISTINCT p.categoryId, c.categoryName FROM product p, product_category c where c.product_categoryId=p.categoryId;";
+        return $this->getData($query1);
+    }
+    public function getProducts()
+    {
+        // $totalRecord = strtolower(trim(str_replace("/", "", $_POST['totalRecord'])));
+        $sql = "SELECT * FROM product p, product_category c where c.product_categoryId=p.categoryId and p.quantity != 0";
+        if (isset($_POST['category']) && $_POST['category'] != "") {
+            $sql .= " AND categoryId IN ('" . implode("','", $_POST['category']) . "')";
+        }
+        $sql .= " ORDER BY p.categoryId DESC";
+        // $query ="Select * from product_img i, product p where i.productID=p.productID and i.productID='$getid'";
+
+        $products = $this->getData($sql);
+        // $rowcount = $this->getNumRows($sql);
+        // $productHTML = '';
+        // if (isset($products) && count($products)) {
+        //     foreach ($products as $key => $product) {
+        //         $productHTML .= '<div class="box">';
+        //         // $productHTML .= '<img src="../images/'. $product['image'].'" alt="'.$product['productName'].'" />';
+        //         $productHTML .= '<div class="content-container">';
+        //         $productHTML .= '<h3 style="display: inline;">' . $product['productName'] . '</h3>';
+        //         $productHTML .= '</div>';
+        //         $productHTML .= '<div class="price">$' . $product['price'] . '</div>';
+        //         $productHTML .= '<div style="display: flex; justify-content: center;">';
+        //         $productHTML .= '<a href="tourpackage.php?pid=' .$product['categoryId'] .'" class="btn">More Information</a>';
+        //         $productHTML .= '</div>';
+        //         $productHTML .= '</div>';
+        //     }
+        // }
+        return $products;
+        //return $productHTML;
+    }
+    private function getNumRows($sqlQuery)
+    {
+        $result = mysqli_query($this->conn, $sqlQuery);
+        if (!$result) {
+            die('Error in query: ' . mysqli_error());
+        }
+        $numRows = mysqli_num_rows($result);
+        return $numRows;
+    }
+    public function getTotalProducts()
+    {
+        $sql = "SELECT distinct p.categoryId FROM product p, product_category c where c.product_categoryId=p.categoryId and p.quantity != 0";
+        if (isset($_POST['category']) && $_POST['category'] != "") {
+            $category = $_POST['category'];
+            $sql .= " AND categoryId IN ('" . implode("','", $category) . "')";
+        }
+        // $productPerPage = 9;
+        $rowCount = $this->getNumRows($sql);
+        // $totalData = ceil($rowCount / $productPerPage);
+        return $rowCount;
+    }
+
+    public function viewAllProImgs($getid)
+    {
+        $query = "SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND i.productID='$getid'";
+        $result = mysqli_query($this->conn, $query);
+        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $rows;
     }
 }

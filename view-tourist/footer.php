@@ -1,4 +1,4 @@
-<section id="contact" style="padding-bottom: 20px;bottom:0;">
+<section id="contact" style="padding-bottom: 20px;bottom:0;margin-top:900px;">
     <div style="text-align:center; padding: 10px;">
         <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
         <div style="color: #babab3;font-size: 17px;padding-top: 50px">

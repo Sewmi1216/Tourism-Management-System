@@ -33,6 +33,12 @@ class productController extends db_connection
         $result = $product->viewAllImgs($getid);
         return $result;
     }
+
+      public function viewAllProImgs($getid)
+    {
+        $product = new product();
+        return $product->viewAllProImgs($getid);
+    }
     public function deleteImg($id, $productid)
     {
         $dl = new product();
@@ -125,7 +131,7 @@ class productController extends db_connection
         $result = $order->countOrders($id);
         return $result;
     }
-     public function cancelledOrders($id)
+    public function cancelledOrders($id)
     {
         $order = new product();
         $result = $order->cancelledOrders($id);
@@ -137,6 +143,28 @@ class productController extends db_connection
         $result = $order->todayRevenue($id);
         return $result;
     }
-    
-}
 
+    public function getCategories()
+    {
+        $order = new product();
+        $result = $order->getCategories();
+        return $result;
+    }
+    public function cleanString($str)
+    {
+        $order = new product();
+        $result = $order->cleanString($str);
+        return $result;
+    }
+    public function getProducts()
+    {
+        $pro = new product();
+        return $pro->getProducts();
+    }
+    public function getTotalProducts()
+    {
+        $pro = new product();
+        return $pro->getTotalProducts();
+    }
+   
+}
