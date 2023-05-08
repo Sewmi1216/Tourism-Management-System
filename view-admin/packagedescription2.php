@@ -25,11 +25,52 @@ $rows = $_SESSION['c'];
 </head>
 
 <body>
+
+
+
+
+
+
+
+
+
     <?php include "nav.php"?>
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
     
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img_nature_wide.jpg" style="width:100%">
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img_snow_wide.jpg" style="width:100%">
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img_mountains_wide.jpg" style="width:100%">
+  
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
         <?php
 
 foreach($rows as $row) 
@@ -37,17 +78,8 @@ foreach($rows as $row)
 echo '<table>
 
 
-    <div class="content">
-    <h1 style="color: white; font-family: Montserrat; margin-left: 118px; margin-top: 50px; font-weight: bold;" >'.$row['packageName'].'</h1>
+   
 
-<div>
-<div class="nalloor" >
-    <img src="../images/available packages/jaffna1.png"/>
-</div>
-
-<div class="jaffna">
-    <img src="../images/available packages/jaffna2.png"/>
-  </div>
 </div>
 
 <table class=data>
