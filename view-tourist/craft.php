@@ -15,7 +15,9 @@ if (isset($_GET['productid'])) {$pid = $_GET['productid'];}
 <head>
     <title>Tour Package</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/craft_list.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
@@ -84,16 +86,18 @@ $index++;
 
 
         <div class="pkg1" style="padding:30px;margin-top:30px;">
-            <form action="../api/tourbooking.php" method="post">
+            <form action="" method="post">
 
                 <h2><?php echo $result['productName']?></h2>
-                
+
                 <h2><?php echo '$ '. $result['price']?></h2>
+                <input type="text" class="subfield" name="pid" value="<?php echo $result['productID'];?>" />
                 <div class="content">Only <div style="color:red;display:inline;"><?php echo $result['quantity']; ?>
                     </div> available</div><br>
-                Quantity &nbsp;<input type="number" class="subfield" style="width:50%;" name="tot_amount" />
-                <div style="display: flex;justify-content: space-evenly;">
-                    <a href="cart.php" class="addcart">Add to cart</a>
+                Quantity &nbsp;<input type="number" class="subfield" style="width:50%;" name="qty" id="qty" />
+                <div style="display: flex; justify-content: space-evenly;">
+                    <a href="../api/addcart.php?pid=<?php echo $result['productID']; ?>&qty=" id="add-to-cart"
+                        class="addcart">Add to cart</a>
                 </div>
 
             </form>
@@ -104,7 +108,15 @@ $index++;
 
     <?php include "footer.php"?>
 
-
+    <script>
+    document.getElementById('add-to-cart').addEventListener('click', function(event) {
+        event.preventDefault();
+        var qtyValue = document.getElementById('qty').value;
+        var addToCartUrl = document.getElementById('add-to-cart').getAttribute('href');
+        var updatedUrl = addToCartUrl + qtyValue;
+        window.location.href = updatedUrl;
+    });
+    </script>
     <script src="../view-hotel/js/home.js"></script>
     <script>
     let slideIndex = 1;
