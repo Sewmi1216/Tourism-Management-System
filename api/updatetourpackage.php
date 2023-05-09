@@ -11,6 +11,8 @@ $id = $_POST['packageID'];
 
 $inputs = array($name,$pckgprice,$pckgdesc,$max_part,$no_of_days,$id);
 
+// print_r($inputs);
+// die();
 
 $tourpackagecon = new tourpackageController();
 $tourpackagecon-> updatetourpackage($inputs);

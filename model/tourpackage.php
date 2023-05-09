@@ -45,12 +45,9 @@ class tourpackage extends db_connection
 
     public function updatetourpackage($inputs)
     {
-       
-    
         // $query = "UPDATE tourpackage SET (packageName, price, description, participant_count , adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '$inputs[3]', '1') where packageID = $inputs[4]";
         $query = "UPDATE tourpackage SET packagename = '$inputs[0]', price ='$inputs[1]', description ='$inputs[2]', max_part ='$inputs[3]', no_of_days='$inputs[4]' WHERE packageID ='$inputs[5]'";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
 
@@ -86,9 +83,19 @@ class tourpackage extends db_connection
         $query = "UPDATE tourpackage SET status = 'Unavailable' WHERE packageID = $id";
         //  print_r($query);
         // die(); 
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+
+        $foreign_key_query = "SELECT * FROM `tourbooking` WHERE tourPkgId='$id'";
+
+        $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
+
+        if (mysqli_num_rows($foreign_key_result) > 0) {
+            echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+            echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
+        } else {
+            mysqli_query($this->conn, $query);
+            echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
+        }
+      
     }
 
     public function viewdeletedtourPkg()

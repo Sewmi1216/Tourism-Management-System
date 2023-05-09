@@ -80,4 +80,23 @@ class adminController extends db_connection
 
     }
 
+    public function viewpendingusers()
+    {
+        $pen = new admin();
+
+        $result = $pen -> viewpendingusers();
+
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
+    public function viewtourguidecount()
+    {
+        $pen = new admin();
+
+        $result = $pen -> viewtourguidecount();
+
+        $_SESSION['c'] = $result;
+        return $result;
+    }
 }

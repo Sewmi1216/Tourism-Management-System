@@ -62,6 +62,18 @@ class tourbookingcontroller extends db_connection
 
     }
 
+    public function viewtourreservationdetails($inputs)
+    {
+        
+        $pkg = new tourbooking();
+
+        $result = $pkg->viewtourreservationdetails($inputs);
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
+
     public function viewAllbookings()
     {
         
@@ -73,6 +85,7 @@ class tourbookingcontroller extends db_connection
         return $result;
 
     }
+
 
     public function viewPkg($inputs)
     {
@@ -91,7 +104,7 @@ class tourbookingcontroller extends db_connection
     {
         $booking = new tourbooking();
         $results = $booking->countBooking();
-        $_SESSION['c'] = $result;
-        return $result;
+        $_SESSION['c'] = $results;
+        return $results;
     }
 }

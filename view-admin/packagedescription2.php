@@ -25,30 +25,37 @@ $rows = $_SESSION['c'];
 </head>
 
 <body>
+
+
+
+
+
+
+
+
+
     <?php include "nav.php"?>
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
     
+
+        <div class="slideshow-container">
+  <div class="slide"><img src="../images/koneshwaram.jpg" alt="k"></div>
+  <div class="slide"><img src="../images/marblebeach.jpg" alt="k"></div>
+  <div class="slide"><img src="../images/deer.jpeg" alt="k"></div>
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+</div>
+
+
         <?php
 
 foreach($rows as $row) 
 
 echo '<table>
 
-
-    <div class="content">
-    <h1 style="color: white; font-family: Montserrat; margin-left: 118px; margin-top: 50px; font-weight: bold;" >'.$row['packageName'].'</h1>
-
-<div>
-<div class="nalloor" >
-    <img src="../images/available packages/jaffna1.png"/>
-</div>
-
-<div class="jaffna">
-    <img src="../images/available packages/jaffna2.png"/>
-  </div>
-</div>
+<div>  </div>
 
 <table class=data>
   
@@ -82,6 +89,32 @@ echo '<table>
 </div>
 </section>
 ' ?>
+
+<script>
+var slideIndex = 0;
+var slides = document.getElementsByClassName("slide");
+
+function changeSlide(n) {
+  slideIndex += n;
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  } else if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+  showSlide(slideIndex);
+}
+
+function showSlide(n) {
+  for (var i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  slides[n].classList.add("active");
+}
+
+showSlide(slideIndex);
+
+</script>
+
 
 </body>
 

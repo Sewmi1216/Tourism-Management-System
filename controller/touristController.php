@@ -268,4 +268,17 @@ class touristController extends db_connection
         $result = $tour->viewAllTourImgs($id);
         return $result;
     }
+  
+     public function viewProduct($id)
+    {
+        $tour = new tourist();
+        $result = $tour->viewProduct($id);
+        return $result;
+    }
+    public function viewCartItems($id)
+    {
+        $tour = new tourist();
+        $result = $tour->viewCartItems($id);
+        return $result;
+    }
 }

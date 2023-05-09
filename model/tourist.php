@@ -228,4 +228,38 @@ class tourist extends db_connection
         return $this->getData($query);
     }
 
+    public function viewProduct($pId)
+    {
+
+        $query = "Select * from product where productID = '$pId'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
+    }
+    public function viewCartItems($cart)
+    {
+        if (is_array($cart)) {
+
+            // $array_to_question_marks = implode(',', array_fill(0, count($cart), '?'));
+
+            // $query = "SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND p.productID IN ('$array_to_question_marks')";
+            // return $this->getData($query);
+
+            // $sql = "SELECT * FROM product_img i, product p WHERE i.productID=p.productID AND p.productID IN (";
+            $sql = "SELECT * FROM product WHERE productID IN (";
+            foreach ($cart as $id => $value) {
+                $sql .= $id . ",";
+            }
+            $sql = substr($sql, 0, -1) . ") ORDER BY productID ASC";
+            $stmt = mysqli_query($this->conn, $sql);
+            return $stmt;
+
+            // return $this->getData($sql);
+
+        } else {
+            return "Invalid cart data. Please provide a valid array.";
+
+        }
+    }
+
 }

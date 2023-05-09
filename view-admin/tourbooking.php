@@ -37,11 +37,11 @@
             </div>
 
         </div>
-
+        <form action="" method="post">
         <div class="bg">
             <table id="tbl">
                 <tr class="subtext tblrw">
-                <th class="tblh">Date</th>
+                     <th class="tblh">Date</th>
                     <th class="tblh">Reservation ID</th>
                     <th class="tblh">Package Name</th>
                     <th class="tblh">Guest ID</th>
@@ -49,10 +49,11 @@
                     <th class="tblh">Total amount</th>
                     <th class="tblh">Check-in</th>
                     <th class="tblh">View Booking</th>
+                    <th class="tblh">Booking Status</th>
                 </tr>
 
                 <?php
-   
+  
    require_once "../controller/tourbookingcontroller.php";
    $res = new tourbookingcontroller();
    $results = $res->viewtourreservations();
@@ -62,19 +63,33 @@
                        <tr class="subtext tblrw">
                            <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
                            <td class="tbld"><?php echo $result["bookingID"] ?></td>
-                           <td class="tbld"><?php echo $result["bookingID"] ?></td>
+                           <td class="tbld"><?php echo $result["tourPkgID"] ?></td>
                            <td class="tbld"><?php echo $result["touristID"] ?></td>
                            <td class="tbld"><?php echo $result["guestName"] ?></td>
                            <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
-                           <td class="tbld"><?php echo $result["passportExpDate"] ?></td>
-                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id='.$row['bookingID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                           <!-- <td class="tbld">
-                               <?php if ($result["typestatus"] == "Completed") {?>
-                               <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
-                               <?php } else {?>
-                               <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
-                               <?php }?>
-                           </td> -->
+                           <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
+                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                           <td class="tbld">
+                                <!-- <?php if ($result["bookingStatus"] == "Confirmed") {?>
+                            <button class="status1"><?php echo $result["bookingStatuss"]; ?></button>
+                            <?php } else {?>
+                            <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
+                            <?php }?> -->
+                                <select class="subfield" name="bookingStatus">
+                                    <option value="Pending"
+                                        <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
+                                        Pending</option>
+                                    <option value="Confirmed"
+                                        <?php if ($result["bookingStatus"] == "Confirmed") {echo "selected";}?>>
+                                        Confirmed</option>
+                                    <option value="Checkedin"
+                                        <?php if ($result["bookingStatus"] == "Checkedin") {echo "selected";}?>>
+                                        Checkedin</option>
+                                    <option value="Cancelled"
+                                        <?php if ($result["bookingStatus"] == "Cancelled") {echo "selected";}?>>
+                                        Cancelled</option>
+                                </select>
+                            </td>
    
    
                            <?php }
@@ -84,6 +99,7 @@
 ?>
                     </tr>
             </table>
+            </form>
         </div>
 
 
