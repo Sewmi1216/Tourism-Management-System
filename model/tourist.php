@@ -186,6 +186,29 @@ class tourist extends db_connection
         }
 
     }
+    public function insertCraftOrder($touristID, $productId, $qty, $name, $phone, $address)
+    {
+
+       // $query = "INSERT INTO craftorder(`orderID`, `orderDateTime`, `status`, `touristID`, `productID`, `orderQuantity`, `customerName`, `customerPhone`, `customerAddress`) VALUES (, NOW(),'Confirmed', '$touristID', '$productId', '$qty', '$name', '$phone', '$address')";
+         $query = "INSERT INTO craftorder (orderDateTime, status, touristID, productID, orderQuantity, customerName, customerPhone, customerAddress,orderPaymentID) VALUES (NOW(), 'Pending', '$touristID', '$productId', '$qty','$name','$phone','$address',NULL)";
+        $stmt = mysqli_query($this->conn, $query);
+        if (!$stmt) {
+            echo "Error: " . mysqli_error($this->conn);
+            return false; // or handle the error in an appropriate way
+        }
+        return $stmt;
+    }
+    public function insertOrderPayment($total)
+    {
+       $query = "INSERT INTO craftorder_payment(paymentDateTime, amount, paymentStatus) VALUES (NOW(), '$total','Completed')";
+        $stmt = mysqli_query($this->conn, $query);
+        if (!$stmt) {
+            echo "Error: " . mysqli_error($this->conn);
+            return false; // or handle the error in an appropriate way
+        }
+        return $stmt;
+    }
+
     public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $query = "INSERT INTO guest_reservation (bookingDateTime, guestName, guestPhone, guestEmail, status, total_amount, checkInDate, checkOutDate,touristID, roomID,hotelId) VALUES (NOW(), '$guestName', '$guestPhone', '$guestEmail', 'Pending', '$total_amount', '$checkInDate', '$checkOutDate', '$touristID', '$roomno', '$hotelId')";
@@ -195,6 +218,7 @@ class tourist extends db_connection
         // $stmt->execute();
         return $stmt;
     }
+    
     public function viewProfile($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
@@ -202,7 +226,7 @@ class tourist extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
-     public function viewTouristProfile($id)
+    public function viewTouristProfile($id)
     {
         $query = "Select * from tourist where userID = '$id'";
         return $this->getData($query);

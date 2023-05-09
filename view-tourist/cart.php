@@ -150,9 +150,10 @@ foreach ($results as $res) {?>
                         <i class="fa-solid fa-plus" style="font-size:18px;color:black;"></i>
                     </button> -->
                         <!-- <input type="text" name="name" value="<?php echo $qty; ?>"> -->
-                        <input type="text" id="qty"
+                        <input type="number" id="qty"
                             value="<?php echo $_SESSION['cart'][$row['productID']]['quantity']?>"
-                            name="quantity-<?=$row['productID']?>">
+                            name="quantity<?php echo $row['productID'];?>">
+
                         <!-- <button class="minus-btn" type="button" name="button">
                         <i class="fa-solid fa-minus" style="font-size:18px;color:black;"></i>
                     </button> -->
@@ -168,7 +169,14 @@ foreach ($results as $res) {?>
                 <?php
         }
  } 
-$_SESSION['pid']=$pdtid;?>
+$_SESSION['pid']=$pdtid;
+// echo "<pre>";
+// print_r($pdtid);
+// echo "</pre>";
+?>
+
+
+
                 <!-- <input type="submit" name="submit" value="Update shopping cart"> -->
                 <?php 
 
@@ -197,22 +205,45 @@ $_SESSION['pid']=$pdtid;?>
         </form> -->
 
         </setion>
-        <form action="../api/craftorder.php" method="post">
+        <form action="../api/craftorder.php" method="post" id="secondForm">
             <div class="pkg1"
                 style="float:left;padding:30px;margin-top:30px;margin-bottom:20px;margin-left:150px;width:740px;height:auto;">
                 <div class="subtotal">
+                    <input type="hidden" name="subtotalInput" id="subtotalInput" value="" readonly>
+                    <input type="hidden" value="<?php echo $id;?>" class="subfield" name="tid" style="width:60%" /></br>
+                    <input type="hidden" value="<?php if (isset($subtotal)) {echo $grossTotal;}?>" name="total" /></br>
                     <span class="text" style="font-size:23px;font-weight:bold;">Order Details
                         &nbsp;&nbsp;&nbsp;</span>
+
+
+                    <?php
+                    if (!empty($_SESSION['cart'])) {
+// Loop through the products to create hidden input fields for each quantity value
+$cart = new touristController();
+$products = $cart->viewCartItems($_SESSION['cart']);
+if (!empty($products)) {
+    while ($row = mysqli_fetch_array($products)) {
+        $quantity = $_SESSION['cart'][$row['productID']]['quantity'];
+        ?>
+                    <input type="hidden" id="hiddenQty<?php echo $row['productID']; ?>"
+                        name="hiddenQty<?php echo $row['productID']; ?>" value="<?php echo $quantity; ?>">
+                    <?php
+}
+}
+                    }
+?>
+
                     <hr>
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Name
                         &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="cname" class="subfield" name="pid" style="width:60%" /></br>
+                    <input type="text" name="cname" class="subfield" style="width:60%" /></br>
+
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Phone
                         &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="cphone" class="subfield" name="pid" style="width:60%" /></br>
+                    <input type="text" name="cphone" class="subfield" style="width:60%" /></br>
                     <span class="text" style="font-size:18px;font-weight:bold;">Billing Address
                         &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="caddress"class="subfield" name="pid" style="width:60%" />
+                    <input type="text" name="caddress" class="subfield" style="width:60%" />
                 </div>
             </div>
             <div class="pkg1" style="padding:30px;margin-top:30px;margin-right:150px;">
@@ -232,6 +263,36 @@ $_SESSION['pid']=$pdtid;?>
             </div>
         </form>
         <?php include "footer.php"?>
+        <script>
+        // JavaScript code
+        <?php
+  // Loop through the products to add event listeners for each quantity input field
+  if (!empty($products)) {
+    while ($row = mysqli_fetch_array($products)) {
+      ?>
+        const qtyInput<?php echo $row['productID']; ?> = document.getElementById('qty<?php echo $row['productID']; ?>');
+        const hiddenQtyInput<?php echo $row['productID']; ?> = document.getElementById(
+            'hiddenQty<?php echo $row['productID']; ?>');
+
+        qtyInput<?php echo $row['productID']; ?>.addEventListener('change', function() {
+            hiddenQtyInput<?php echo $row['productID']; ?>.value = qtyInput<?php echo $row['productID']; ?>
+                .value;
+        });
+        <?php
+    }
+  }
+  ?>
+        </script>
+        <script>
+        // Retrieve the subtotal value from the <div> element
+        var subtotal = document.getElementById('subtotal').innerText;
+
+        // Remove the '$ ' and '.00' from the subtotal value
+        subtotal = subtotal.replace('$ ', '').replace('.00', '');
+
+        // Set the value of the input field in the second form
+        document.getElementById('subtotalInput').value = subtotal;
+        </script>
         <script src="js/cart.js"></script>
         <script src="../view-hotel/js/home.js"></script>
 </body>
