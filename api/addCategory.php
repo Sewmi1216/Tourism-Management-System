@@ -19,7 +19,7 @@ if (isset($_POST['save'])) {
         </script>";
     }
 
-    //  move_uploaded_file($tempname, $folder);
+    //  move_uploaded_file($tempname, $folder);zz
 }
 
 if (isset($_POST['submitImg'])) {
@@ -34,7 +34,7 @@ if (isset($_POST['submitImg'])) {
     $folder = "../images/" . $filename;
 
     $categorycon = new productCategoryController();
-    $categorycon->addProductCategory($categoryid, $file);
+    $categorycon->addProductCategoryImg($categoryid, $file);
 
     move_uploaded_file($tempname, $folder);
     if (!$categorycon) {
@@ -72,14 +72,14 @@ if (isset($_POST['update'])) {
     $desc = $_POST['desc'];
     // $status = $_POST['status'];
 
-    $pk = new productCategoryController();
-    $pk->updateCategory($id, $ctgName, $desc);
+    $ct = new productCategoryController();
+    $ct->updateCategory($id, $ctgName, $desc);
 
 }
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
-    $pk = new productCategoryController();
-    $pk->deleteCategory($id);
+    $ct = new productCategoryController();
+    $ct->deleteCategory($id);
 }
 
 if (isset($_POST["get_data"])) {

@@ -128,8 +128,21 @@ class productController extends db_connection
     public function countOrders($id)
     {
         $order = new product();
-        $result = $order->countOrders($id);
+        $result = $order-> countOrders($id);
         return $result;
+    }
+    
+    public function countProductOrders()
+    {
+        $order  = new product ();
+        $res = $order->countProductOrders();
+        return $res;
+    }
+    public function revenue()
+    {
+        $order = new product();
+        $res = $order->revenue();
+        return $res;
     }
     public function cancelledOrders($id)
     {

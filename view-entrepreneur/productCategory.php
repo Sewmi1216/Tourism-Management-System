@@ -44,7 +44,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                         onkeyup="searchTypes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns" style="margin-left: 1rem;"><a href="roomType.php"
+                <button type="submit" class="btns" style="margin-left: 1rem;"><a href="productCategory.php"
                         style="color:white;text-decoration:none;">View
                         All</a></button>
                 <span style="margin-left: 8px;">
@@ -59,7 +59,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
             <div id="result" style="overflow-x:auto;">
                 <table id="myTable">
                     <tr class="subtext tblrw">
-                        <!-- <th class="tblh">Image</th> -->
                         <th class="tblh">Product Category</th>
                         <th class="tblh">Description</th>
                         <th class="tblh">Add photos</th>
@@ -72,11 +71,7 @@ $results = $ctg->viewAllCategories($id);
 foreach ($results as $result) {
     ?><tbody>
                         <tr class="subtext tblrw">
-                            <!-- <td class="tbld">
-                                <?php echo "<img src='../images/" . $result['img'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
-                            </td> -->
+                            
                             <td class="tbld"><?php echo $result["categoryName"] ?></td>
                             <td class="tbld"><?php echo $result["description"] ?></td>
 
@@ -144,7 +139,7 @@ foreach ($results as $result) {
 
     function loadData(id) {
         $.ajax({
-            url: "../api/addcategory.php",
+            url: "../api/addCategory.php",
             method: "POST",
             data: {
                 get_data: 1,

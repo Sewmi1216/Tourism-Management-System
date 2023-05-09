@@ -377,6 +377,7 @@ span.b {
   background-color: white; 
   margin-top: 10px;
   font-size: 20px;
+  margin-left: 100px;
 }
 span.c {
   display: inline-block;

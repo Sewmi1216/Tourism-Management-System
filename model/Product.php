@@ -125,6 +125,16 @@ class product extends db_connection
         $query1 = "SELECT COUNT(orderID) as cancelled FROM craftorder o, product p WHERE DATE(orderDateTime) = CURDATE() and status='Cancelled' and o.productID= p.productID and p.entID='$id'";
         return $this->getData($query1);
     }
+    public function countProductOrders()
+    {
+        $query1 = "SELECT pc.categoryName as product_category, COUNT(*) as num_orders FROM craftorder co INNER JOIN product p ON co.productID = p.productID INNER JOIN product_category pc ON p.productID = pc.product_categoryId GROUP BY pc.categoryName;";
+        return $this->getData($query1);
+    }
+    public function revenue()
+    {
+        $query1 = "SELECT YEAR(paymentDateTime) AS year, MONTHNAME(paymentDateTime) AS month, SUM(amount) AS revenue FROM craftorder_payment GROUP BY YEAR(paymentDateTime), MONTH(paymentDateTime);";
+        return $this->getData($query1);
+    }
     public function todayRevenue($id)
     {
         $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderID = c.craftOrderId and o.productID= p.productID and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";

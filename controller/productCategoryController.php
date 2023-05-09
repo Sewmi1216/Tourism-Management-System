@@ -19,7 +19,7 @@ class productCategoryController extends db_connection
         return $res;
 
     }
-    public function addRoomTypeImg($categoryid, $file)
+    public function addProductCategoryImg($categoryid, $file)
     {
         $categoryImg = new productCategory();
 

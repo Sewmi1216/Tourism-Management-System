@@ -1,12 +1,6 @@
 <?php
 require_once "../db/db_connection.php";
-// session_start();
-// $user = "";
-// if (isset($_SESSION["username"]) && isset($_SESSION["hotelID"])) {
-//     $id = $_SESSION["hotelID"];
-// } else {
-//     header("location:login.php");
-// }
+
 
 class productCategory extends db_connection
 {
@@ -40,14 +34,7 @@ class productCategory extends db_connection
         $stmt->execute();
         return $stmt;
     }
-    // public function viewAllPkgs()
-    // {
-    //   $query = "Select * from hotelpackage p, hotel h where p.hotelID=h.hotelID";
-
-    //     $stmt = mysqli_query($this->conn, $query);
-    //     return $stmt;
-
-    // }
+   
     public function viewCategpry($cId)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
@@ -100,7 +87,7 @@ class productCategory extends db_connection
     public function deleteCategory($id)
     {
         $query = "delete from product_category where product_categoryId='$id'";
-        $foreign_key_query = "SELECT * FROM `product` WHERE productID='$id'";
+        $foreign_key_query = "SELECT * FROM `ent` WHERE entID='$id'";
 
         $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
 
