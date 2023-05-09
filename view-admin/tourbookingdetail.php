@@ -1,4 +1,7 @@
-
+<?php 
+require('../api/viewtourbooking-admin.php');
+$rows = $_SESSION['c'];
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -22,7 +25,7 @@
 
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> TOUR PACKAGE BOOKINGS - RESERVATION ID </div>
+                <div class="page-title"> TOUR PACKAGE BOOKINGS </div>
              
                <form method="post" action="../api/reserve.php">
                     <button type="submit" name="create_rpdf" class="btns"
@@ -36,13 +39,8 @@
             <table id="tbl">
            
 
-                <?php
+                \
    
-   require_once "../controller/tourbookingcontroller.php";
-   $res = new tourbookingcontroller();
-   $results = $res->viewtourreservationdetails();
-   foreach ($results as $result) {
-       ?> 
        
        <tbody>
                  <tr class="subtext tblrw">
@@ -62,12 +60,6 @@
                            <td class="tbld"> Booking status </td>
                            <td class="tbld"><?php echo $result["bookingStatus"] ?></td>
                         </tr>
-
-
-
-                        <?php } ?>
-
-
 <?php                    
    require_once "../controller/tourbookingcontroller.php";
    $res = new tourbookingcontroller();

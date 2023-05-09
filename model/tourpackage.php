@@ -45,12 +45,9 @@ class tourpackage extends db_connection
 
     public function updatetourpackage($inputs)
     {
-       
-    
         // $query = "UPDATE tourpackage SET (packageName, price, description, participant_count , adminID) VALUES ('$inputs[0]','$inputs[1]','$inputs[2]', '$inputs[3]', '1') where packageID = $inputs[4]";
         $query = "UPDATE tourpackage SET packagename = '$inputs[0]', price ='$inputs[1]', description ='$inputs[2]', max_part ='$inputs[3]', no_of_days='$inputs[4]' WHERE packageID ='$inputs[5]'";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+        $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
 

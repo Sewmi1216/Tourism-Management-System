@@ -81,11 +81,12 @@ class tourbooking extends db_connection
 
     }
 
-    public function viewtourreservationdetails()
+    public function viewtourreservationdetails($inputs)
     {
        
     
-        $query = "SELECT * FROM tourbooking where bookingID = $reservation_id";
+        $query = "SELECT * FROM tourbooking where bookingID = $inputs[0] UNION SELECT * FROM tourist where userID = $inputs[1] UNION SELECT * FROM tourpackage where packageID = $inputs[2]";
+       
         print_r($query);
         die();
         $stmt = mysqli_query($this->conn, $query);
