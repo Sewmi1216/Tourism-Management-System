@@ -71,26 +71,26 @@ foreach ($results as $result) {
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p><?php echo $result['managerName'];?></p>
+                            <p><?php echo $result['name'];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
-                            <p><?php echo $result['managerNic'];?></p>
+                            <p><?php echo $result['nic'];?></p>
                         </div>
                         <div class="data">
                             <h4>Email</h4>
-                            <p><?php echo $result['managerEmail'];?></p>
+                            <p><?php echo $result['email'];?></p>
                         </div>
                         <div class="data">
                             <h4>Phone</h4>
-                            <p><?php echo $result['managerPhone'];?></p>
+                            <p><?php echo $result['phone'];?></p>
                         </div>
 
                     </div>
 
                 </div>
                 <br>
-                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entrepreneurNic'];?>'" class="button">Update profile</a>
+                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['nic'];?>'" class="button">Update profile</a>
                 <a href="editmanager.php" class="button">Delete profile</a>
 
 

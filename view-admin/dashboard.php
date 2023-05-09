@@ -38,7 +38,13 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
         <div style="margin-top:20px;margin-left:14px; margin-right:20px;" class="dashheading">
           <a href="manageusers.php"> <span class="b">
                 User Requests
-                <div style="margin-top:60px;font-size:40px;">20</div>
+                <div style="margin-top:60px;font-size:40px;">     <?php
+                      require_once "../controller/adminController.php";
+                      $res1 = new adminController();
+                      $results = $res1->viewpendingusers();
+                      foreach($results as $result){
+                      echo $result['num_pen_requests1'] ;}
+                      ?></div>
             </span>
           </a> 
 
@@ -61,7 +67,13 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
           <a href="view-tourguides.php">
             <span class="b">
                 Tour guides
-                <div style="margin-top:60px;font-size:40px;">35</div>
+                <div style="margin-top:60px;font-size:40px;"> <?php
+                      require_once "../controller/adminController.php";
+                      $res1 = new adminController();
+                      $results = $res1->viewtourguidecount();
+                      foreach($results as $result){
+                      echo $result['tourguide_count'];}
+                      ?></div>
             </span>
           </a>
 

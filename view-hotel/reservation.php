@@ -189,16 +189,16 @@ foreach ($results as $result) {
     }
     document.getElementById('create_rpdf').onclick = function() {
         var element = document.getElementById('cont');
-        var opt = {
-            margin: 0.2,
-            filename: 'reservation.pdf',
+        var opilename: 'reservation.pdf',
             image: {
                 type: 'jpeg',
                 quality: 0.98
             },
             html2canvas: {
-                scale: 1
-            },
+  t = {
+            m              scale: 1
+  argin: 0.2,
+            f          },
             jsPDF: {
                 unit: 'in',
                 format: 'letter',

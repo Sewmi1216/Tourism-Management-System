@@ -8,7 +8,7 @@ $results = $_SESSION['c'];
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/tourbookingtable.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -65,7 +65,7 @@ echo '
                            <td class="tbld">'.$result["bookingStatus"].'</td>
                         </tr>
 
-
+</table><table id="tbl">
 
                              <tr class="subtext tblrw">
                                 <th class="tblh">Guest Detail</th>
@@ -97,6 +97,10 @@ echo '
                            <td class="tbld"> No of Guests </td>
                            <td class="tbld">'.$result["noOfGuests"] .'</td>
                         </tr>
+
+ </table>
+ <table id="tbl">
+
                         <tr class="subtext tblrw">
                             <th class="tblh">Tour package Detail</th>
                              <th class="tblh">Description</th>
@@ -152,7 +156,7 @@ echo '
                         </tr>
 
 '  ?>
-                    </tr>
+                    
             </table>
         </div>
 
@@ -161,3 +165,70 @@ echo '
 </body>
 
 </html>
+
+
+
+<script>
+
+document.getElementById('create_rpdf').onclick = function() {
+        var element = document.getElementById('cont');
+        var opilename: 'tourbooking.pdf',
+            image: {
+                type: 'jpeg',
+                quality: 0.98
+            },
+            html2canvas: {
+  t = {
+            m              scale: 1
+  argin: 0.2,
+            f          },
+            jsPDF: {
+                unit: 'in',
+                format: 'letter',
+                orientation: 'landscape'
+            }
+        };
+        html2pdf(element, opt);
+    };
+    </script>
+
+    <script>
+    $('.subfield').on('change', function() {
+        var newStatus = $(this).val();
+        var reservationId = $(this).closest('tr').find('.tbld:nth-child(2)').text();
+        $.ajax({
+            url: '../api/update_status.php',
+            type: 'POST',
+            data: {
+                reservationid: reservationId,
+                newstatus: newStatus
+            },
+            success: function(response) {
+                console.log(response);
+                alert('Status update is successful');
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+            }
+        });
+    });
+
+    function searchRes() {
+        console.log(print);
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searcher");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tbl");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
