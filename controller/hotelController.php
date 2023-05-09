@@ -124,13 +124,13 @@ class hotelController extends db_connection
         }
 
     }
-    // public function checkEmail($email)
-    // {
-    //     $user = new hotel();
-    //     $rlt = $user->checkEmail($email);
-    //     return $rlt;
+    public function checkEmail($email)
+    {
+        $user = new hotel();
+        $rlt = $user->checkEmail($email);
+        return $rlt;
 
-    // }
+    }
     public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
         $user = new hotel();
