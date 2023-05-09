@@ -71,14 +71,14 @@ class tourist extends db_connection
 
     }
 
-    // public function checkmail($email)
-    // {
-    //     $query = "SELECT * FROM tourist where email='$email'";
+    public function checkmail($email)
+    {
+        $query = "SELECT * FROM tourist where email='$email'";
 
-    //     $stmt = mysqli_query($this->conn, $query);
-    //     $rows = mysqli_fetch_array($stmt);
-    //     return $rows;
-    // }
+        $stmt = mysqli_query($this->conn, $query);
+        $rows = mysqli_fetch_array($stmt);
+        return $rows;
+    }
 
     public function checkproid($id)
     {

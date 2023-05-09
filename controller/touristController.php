@@ -44,26 +44,33 @@ class touristController extends db_connection
 
     }
 
-    // public function userSignup($inputs)
-    // {
-    //     $tourist = new tourist();
-    //     $mailcheck = $tourist->checkmail($inputs[2]);
+     public function checkmail($email)
+    {
+        $user = new hotel();
+        $rlt = $user->checkmail($email);
+        return $rlt;
 
-    //     if ($mailcheck > 0) {
-    //         $_SESSION['error'] = "Email is already registered";
-    //         // header("Location: ../view/sign.php");
-    //     } else {
-    //         $res = $tourist->insertTourist($inputs);
-    //         if (!$res) {
-    //             echo 'Error Occured';
-    //         } else {
-    //             echo 'Successfully Added';
-    //             header("Location: ../view-hotel/login.php");
+    }
+    public function userSignup($inputs)
+    {
+        $tourist = new tourist();
+        $mailcheck = $tourist->checkmail($inputs[2]);
 
-    //         }
-    //     }
+        if ($mailcheck > 0) {
+            $_SESSION['error'] = "Email is already registered";
+            // header("Location: ../view/sign.php");
+        } else {
+            $res = $tourist->insertTourist($inputs);
+            if (!$res) {
+                echo 'Error Occured';
+            } else {
+                echo 'Successfully Added';
+                header("Location: ../view-hotel/login.php");
 
-    // }
+            }
+        }
+
+    }
     public function userLogout()
     {
         session_unset();

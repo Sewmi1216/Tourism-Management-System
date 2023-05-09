@@ -46,6 +46,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourpackage.css">
+    <link rel="stylesheet" href="../css/hotel.css">
 
 </head>
 
@@ -67,8 +68,8 @@ if (isset($_POST['submit'])) {
         <span>t</span>
     </h1>
 
-    <section class="hotel1" id="hotel" style="">
-        <div class="shopping-cart">
+    <section class="hotel1" id="hotel" style="margin-bottom: 50px;">
+        <div class="shopping-cart containerimgs">
             <form method="post">
 
                 <div class="item">
@@ -176,48 +177,63 @@ $_SESSION['pid']=$pdtid;?>
                 <?php
 }?>
 
-                <div class="subtotal">
-                    <span class="text">Subtotal</span>
-                    <span class="price">
-                        <?php if (isset($subtotal)) { echo '$ ' . $grossTotal . '.00';}?>
-                    </span>
-                </div>
+
                 <div class="buttons">
-                    <input type="submit" style="margin-right:725px;" value="Continue Shopping" name="submit">
+                    <input type="submit" style="margin-right:10px;" value="Continue Shopping" name="submit">
                     <input type="submit" value="Update" name="submit">
-                    <input type="submit" value="Place Order" name="placeorder">
                 </div>
             </form>
         </div>
+
+
+
+
+        <!-- <form action="../api/craftorder.php" method="post">
+            <div style="margin-top:-65px;margin-right:-0px;">
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" style="background: #004581"
+                    data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">
+                </script>
+            </div>
+        </form> -->
+
         </setion>
-
+        <form action="../api/craftorder.php" method="post">
+            <div class="pkg1"
+                style="float:left;padding:30px;margin-top:30px;margin-bottom:20px;margin-left:150px;width:740px;height:auto;">
+                <div class="subtotal">
+                    <span class="text" style="font-size:23px;font-weight:bold;">Order Details
+                        &nbsp;&nbsp;&nbsp;</span>
+                    <hr>
+                    <span class="text" style="font-size:18px;font-weight:bold;">Customer Name
+                        &nbsp;&nbsp;&nbsp;</span>
+                    <input type="text" name="cname" class="subfield" name="pid" style="width:60%" /></br>
+                    <span class="text" style="font-size:18px;font-weight:bold;">Customer Phone
+                        &nbsp;&nbsp;&nbsp;</span>
+                    <input type="text" name="cphone" class="subfield" name="pid" style="width:60%" /></br>
+                    <span class="text" style="font-size:18px;font-weight:bold;">Billing Address
+                        &nbsp;&nbsp;&nbsp;</span>
+                    <input type="text" name="caddress"class="subfield" name="pid" style="width:60%" />
+                </div>
+            </div>
+            <div class="pkg1" style="padding:30px;margin-top:30px;margin-right:150px;">
+                <div class="subtotal">
+                    <span class="text" style="font-size:20px;color:red;font-weight:bold;">GRAND TOTAL
+                        &nbsp;&nbsp;&nbsp;</span>
+                    <span class="price">
+                        <?php if (isset($subtotal)) { echo '$ ' . $grossTotal . '.00';}?>
+                    </span>
+                    <div style="margin-top:35px;margin-left:100px;">
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            style="background: #004581"
+                            data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </form>
         <?php include "footer.php"?>
-
-
-        // <script>
-        //       $(document).ready(function() {
-        //     // Calculate subtotal when the quantity changes
-        //     $('#qty').on('input', function() {
-        //         var quantity = parseFloat($(this).val());
-        //         var price = parseFloat($('#price').text());
-        //         var subtotal = quantity * price;
-
-        //         // Display the subtotal value
-        //         $('#subtotal').text(subtotal.toFixed(2)); // Assuming you want to display the value with two decimal places
-        //     });
-
-        //     // Calculate and display the initial subtotal
-        //     var initialQuantity = parseFloat($('#qty').val());
-        //     var initialPrice = parseFloat($('#price').text());
-        //     var initialSubtotal = initialQuantity * initialPrice;
-        //     $('#subtotal').text(initialSubtotal.toFixed(2));
-        // });
-        //     
-        </script>
         <script src="js/cart.js"></script>
         <script src="../view-hotel/js/home.js"></script>
-
-
 </body>
 
 </html>
