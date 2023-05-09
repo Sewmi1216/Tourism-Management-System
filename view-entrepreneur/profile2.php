@@ -30,7 +30,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
         
-        <div class="container">
+        <div class="containers">
         <div class="profile">
 
             <div class="left">
@@ -50,13 +50,13 @@ $conn = mysqli_connect('localhost','root','','pack2paradise') or die('connection
          if($fetch['profileImg'] == ''){
             echo '<img src="../images/default-avatar.png">';
          }else{
-            echo '<img src="uploaded_img/'.$fetch['profileImg'].'">';
+            echo '<img src="../uploaded_img/'.$fetch['profileImg'].'">';
          }
       ?>    
                 <h3><?php echo $fetch['businessName'];?></h3>
                 
             </div>
-            <div class="left">
+            <div class="flex">
 
                 <div class="info">
                     <h3>Bussiness Details</h3>
@@ -79,8 +79,10 @@ $conn = mysqli_connect('localhost','root','','pack2paradise') or die('connection
                     </div>
 
                 </div>
-                <div class="right">
-                <div class="projects">
+                <br>
+                
+                
+                <div class="info">
                     <h3>Contact Person Details</h3>
                     <div class="projects_data">
                         <div class="data">
@@ -110,10 +112,10 @@ $conn = mysqli_connect('localhost','root','','pack2paradise') or die('connection
                 <!-- <button
                     onclick="document.location='proedit.php?id=<?php echo $fetch['entID']; ?> &name=<?php echo $fetch['name']; ?> &address=<?php echo $fetch['address']; ?> &email=<?php echo $fetch['email']; ?> &phone=<?php echo $fetch['phone']; ?> &username=<?php echo $fetch['username']; ?> &password=<?php echo $fetch['password']; ?> &managerName=<?php echo $fetch['managerName']; ?> &managerPhone=<?php echo $fetch['managerPhone']; ?> &managerEmail=<?php echo $fetch['managerEmail']; ?> &managerNic=<?php echo $fetch['managerNic']; ?>'"
                     type="submit" name="update" class="button" href="">Edit Profile</button> -->
-                    <button
+                    <!-- <button
                     onclick="document.location='update_profile.php?id=<?php echo $fetch['entID']; ?> &businessName=<?php echo $fetch['businessName']; ?> &address=<?php echo $fetch['address']; ?> &email=<?php echo $fetch['email']; ?> &phone=<?php echo $fetch['phone']; ?> &username=<?php echo $fetch['username']; ?> &password=<?php echo $fetch['password']; ?> &entrepreneurName=<?php echo $fetch['entrepreneurName']; ?> &entrepreneurPhone=<?php echo $fetch['entrepreneurPhone']; ?> &entrepreneurEmail=<?php echo $fetch['entrepreneurEmail']; ?> &entrepreneurNic=<?php echo $fetch['entrepreneurNic']; ?>'"
-                    type="submit" name="update" class="btn" href="">Edit Profile</button>
-
+                    type="submit" name="update" class="btnsss" href="">Edit Profile</button> -->
+                   <a href="update_profile.php" class="btnsss">update profile</a>
                     
             </div>
 </section>

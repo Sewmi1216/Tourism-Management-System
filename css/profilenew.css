@@ -31,8 +31,8 @@
    background-color: var(--blue);
 }
 
-.btn,
-.delete-btn{
+.btnsss,
+.delete-btnsss{
    width: 100%;
    border-radius: 5px;
    padding:10px 30px;
@@ -44,15 +44,15 @@
    margin-top: 10px;
 }
 
-.btn{
+.btnsss{
    background-color: var(--blue);
 }
 
-.btn:hover{
+.btnsss:hover{
    background-color: var(--dark-blue);
 }
 
-.delete-btn{
+.delete-btnsss{
    background-color: var(--red);
 }
 
@@ -120,7 +120,7 @@
    text-decoration: underline;
 }
 
-.container{
+.containers{
    min-height: 100vh;
    background-color: var(--light-bg);
    display: flex;
@@ -129,7 +129,7 @@
    padding:20px;
 }
 
-.container .profile{
+.containers .profile{
    padding:20px;
    background-color: var(--white);
    box-shadow: var(--box-shadow);
