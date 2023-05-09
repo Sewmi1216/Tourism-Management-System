@@ -83,7 +83,7 @@
 
 <div id="id01" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
 
 <input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
 
@@ -101,7 +101,7 @@
 
         <div class="container" style="padding:10px;">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="submit" class="cancelbtn" style="margin-left:75px;" name="restore" >Yes</button>
         </div>
     </div>
 
@@ -127,7 +127,7 @@ modal.style.display = "block";
 
  <div id="id02" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
 
 <input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
 
@@ -142,7 +142,7 @@ modal.style.display = "block";
 
         <div class="container" style="padding:10px;">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="submit" class="cancelbtn" style="margin-left:75px;" name="remove">Yes</button>
         </div>
     </div>
 </form>
@@ -220,75 +220,89 @@ foreach ($results as $result) {
        </table>
 
 <!-- Delete hotel popup -->
-       <div id="id03" class="modal">
+<div id="id04" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
+                <form class="modal-content animate" style="width:45%;" method="post" action="../api/manager.php"
+                    enctype="multipart/form-data">
+                    <div class="imgcontainer" style="background-color:#004581;">
+                        <button type="button" onclick="document.getElementById('id04').style.display='none'"
+                            class="cancelbtn close">&times;</button>
+                        <label for="room" style="color:white"><b>Remove Hotel request</b></label>
+                    </div>
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
+                    <div class="container">
 
+                        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+                            value=" <?php echo $result["hotelID"] ?>" />
+
+
+                        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
+                            the Hotel permenently ?</p>
+
+                        <div class="container" style="padding:10px;">
+                            <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                                class="btns" style="">No</button>
+                            <button type="submit" class="cancelbtn" value="Save" name="remove"
+                                style="margin-left:75px;">Yes</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <script>
+            function opendeleteModal(id) {
+                var modal = document.getElementById("id04");
+                var modalIdValue = document.getElementById("modalIdValue");
+                modalIdValue.value = id;
+                modal.style.display = "block";
+            }
+            </script>
+
+ </div>  
+
+ <!-- Restore hotel popup -->
+
+ <div id="id03" class="modal">
+
+<form class="modal-content animate" style="width:45%;" method="post" action="../api/manager.php"
+    enctype="multipart/form-data">
     <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id03').style.display='none'"  class="cancelbtn close">&times;</button>
-            <label for="room" style="color:white"><b>Restore Hotel</b></label>
-    </div> 
+        <button type="button" onclick="document.getElementById('id03').style.display='none'"
+            class="cancelbtn close">&times;</button>
+        <label for="room" style="color:white"><b>Restore Hotel Request</b></label>
+    </div>
 
-<div class="container">
+    <div class="container">
 
-        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to restore the hotel ?</p>
+        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+            value="<?php echo $result["hotelID"] ?>" />
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to restore the Hotel ?</p>
 
         <div class="container" style="padding:10px;">
-            <button type="button" onclick="document.getElementById('id03').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="button" onclick="document.getElementById('id06').style.display='none'"
+                class="btns" style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="restore"
+                style="margin-left:75px;">Yes</button>
         </div>
     </div>
+
+
 </form>
 </div>
+
 <script>
-function openModal(id) {
+function openacceptModal(id) {
 var modal = document.getElementById("id03");
 var modalIdValue = document.getElementById("modalIdValue");
 modalIdValue.value = id;
 modal.style.display = "block";
 }
 </script>
-
- </div>  
-
- <!-- Restore hotel popup -->
-
- <div id="id04" class="modal">
-
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
-
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
-
-    <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id04').style.display='none'"  class="cancelbtn close">&times;</button>
-            <label for="room" style="color:white"><b>Delete Registered Hotel</b></label>
-    </div> 
-
-<div class="container">
-
-        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the Hotel permemnently ?</p>
-
-        <div class="container" style="padding:10px;">
-            <button type="button" onclick="document.getElementById('id04').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
-        </div>
-    </div>
-</form>
 </div>
-
-
-
-
-<script>
-function openModal(id) {
-var modal = document.getElementById("id04");
-var modalIdValue = document.getElementById("modalIdValue");
-modalIdValue.value = id;
-modal.style.display = "block";
-}
-</script>
 
  </div>  
          
@@ -368,7 +382,7 @@ foreach ($results as $result) {
 
         <div class="container" style="padding:10px;">
             <button type="button" onclick="document.getElementById('id05').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="submit" class="cancelbtn" style="margin-left:75px;" name="restore">Yes</button>
         </div>
     </div>
 </form>
@@ -388,29 +402,35 @@ modal.style.display = "block";
  <!-- Delete the Tour guide permenently -->
  <div id="id06" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
-
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
-
+<form class="modal-content animate" style="width:45%;" method="post" action="../api/tourguide.php"
+    enctype="multipart/form-data">
     <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id06').style.display='none'"  class="cancelbtn close">&times;</button>
-            <label for="room" style="color:white"><b>Delete Tour guide</b></label>
-    </div> 
+        <button type="button" onclick="document.getElementById('id06').style.display='none'"
+            class="cancelbtn close">&times;</button>
+        <label for="room" style="color:white"><b>Remove Entrepreneur permenently</b></label>
+    </div>
 
-<div class="container">
+    <div class="container">
 
-        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the Tour guide permemnently ?</p>
+        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+            value="<?php echo $result["tourguideID"] ?>" />
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the tourguide permenently ?</p>
 
         <div class="container" style="padding:10px;">
-            <button type="button" onclick="document.getElementById('id06').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="button" onclick="document.getElementById('id08').style.display='none'"
+                class="btns" style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="remove" style="margin-left:75px;">Yes</button>
         </div>
     </div>
+
+
 </form>
 </div>
 
 <script>
-function openModal(id) {
+function openaddModal(id) {
 var modal = document.getElementById("id06");
 var modalIdValue = document.getElementById("modalIdValue");
 modalIdValue.value = id;
@@ -490,70 +510,85 @@ foreach ($results as $result) {
 
             <div id="id07" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
-
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
-
+<form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"
+    enctype="multipart/form-data">
     <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id07').style.display='none'"  class="cancelbtn close">&times;</button>
-            <label for="room" style="color:white"><b>Delete Entrepreneur</b></label>
-    </div> 
+        <button type="button" onclick="document.getElementById('id07').style.display='none'"
+            class="cancelbtn close">&times;</button>
+        <label for="room" style="color:white"><b>Restore Entrepreneur</b></label>
+    </div>
 
-<div class="container">
+    <div class="container">
 
-        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the entrepreneur permemnently ?</p>
+        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+            value="<?php echo $result["entID"] ?>" />
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to Restore
+            the deleted entrepreneur ?</p>
 
         <div class="container" style="padding:10px;">
-            <button type="button" onclick="document.getElementById('id07').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                class="btns" style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="restore"
+                style="margin-left:75px;">Yes</button>
         </div>
     </div>
+
+
 </form>
 </div>
 
 <script>
-function openModal(id) {
+function openaModal(id) {
 var modal = document.getElementById("id07");
 var modalIdValue = document.getElementById("modalIdValue");
 modalIdValue.value = id;
 modal.style.display = "block";
 }
 </script>
-
- </div>  
-
- <!-- Delete entrepreneur permenently -->
- <div id="id08" class="modal">
-
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
-
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
-
-    <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id08').style.display='none'"  class="cancelbtn close">&times;</button>
-            <label for="room" style="color:white"><b>Delete Entrepreneur</b></label>
-    </div> 
-
-<div class="container">
-
-        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the entrepreneur permemnently ?</p>
-
-        <div class="container" style="padding:10px;">
-            <button type="button" onclick="document.getElementById('id08').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
-        </div>
-    </div>
-</form>
 </div>
 
-<script>
-function openModal(id) {
-var modal = document.getElementById("id08");
-var modalIdValue = document.getElementById("modalIdValue");
-modalIdValue.value = id;
-modal.style.display = "block";
-}
-</script>
+ <!-- Delete entrepreneur permenently -->
+            <div id="id08" class="modal">
+
+                <form class="modal-content animate" style="width:45%;" method="post" action="../api/entrepreneur.php"
+                    enctype="multipart/form-data">
+                    <div class="imgcontainer" style="background-color:#004581;">
+                        <button type="button" onclick="document.getElementById('id08').style.display='none'"
+                            class="cancelbtn close">&times;</button>
+                        <label for="room" style="color:white"><b>Remove Entrepreneur</b></label>
+                    </div>
+
+                    <div class="container">
+
+                        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+                            value=" <?php echo $result["entID"] ?>" />
+
+
+                        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
+                            the entrepreneur permenently?</p>
+
+                        <div class="container" style="padding:10px;">
+                            <button type="button" onclick="document.getElementById('id08').style.display='none'"
+                                class="btns" style="">No</button>
+                            <button type="submit" class="cancelbtn" value="Save" name="remove"
+                                style="margin-left:75px;">Yes</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <script>
+            function opendModal(id) {
+                var modal = document.getElementById("id08");
+                var modalIdValue = document.getElementById("modalIdValue");
+                modalIdValue.value = id;
+                modal.style.display = "block";
+            }
+            </script>
 
  </div>  
 </body>

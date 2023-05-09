@@ -75,6 +75,17 @@ class tourpackage extends db_connection
         return $stmt;
     }
 
+    public function deletePkg_permenent($id)
+    {
+       
+    
+        $query = "DELETE FROM tourpackage where packageid = $id ";
+        
+        $stmt = mysqli_query($this->conn, $query);
+ 
+ 
+        return $stmt;
+    }
     public function deletetourPkg($id)
     {
        

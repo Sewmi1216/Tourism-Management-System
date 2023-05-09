@@ -32,6 +32,20 @@ if (isset($_POST['accept']))
          </script>";
 }
 
+if (isset($_POST['restore']))
+{
+
+    $id = $_POST['id'];
+
+    $acc_tourguide = new tourguidecontroller();
+    $acc_tourguide-> accepttourguiderequest($id);
+
+    echo "
+    <script>
+    window.location.href = '../view-admin/manageusers.php';
+         </script>";
+}
+
 if (isset($_POST['decline']))
 {
 
@@ -46,6 +60,23 @@ if (isset($_POST['decline']))
     echo "
     <script>
     window.location.href = '../view-admin/manageusers.php';
+         </script>";
+}
+
+if (isset($_POST['remove']))
+{
+
+    $id = $_POST['id'];
+
+    // print_r($id);
+    // die();
+
+    $rem_tourguide = new tourguidecontroller();
+    $rem_tourguide->removetourguiderequest($id);
+
+    echo "
+    <script>
+    window.location.href = '../view-admin/trash.php';
          </script>";
 }
 
