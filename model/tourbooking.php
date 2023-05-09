@@ -85,13 +85,14 @@ class tourbooking extends db_connection
     {
        
     
-        $query = "SELECT * FROM tourbooking where bookingID = $inputs[0] UNION SELECT * FROM tourist where userID = $inputs[1] UNION SELECT * FROM tourpackage where packageID = $inputs[2]";
-       
-        print_r($query);
-        die();
+        $query = "SELECT * from tourbooking b, tourist t, tourpackage p, tourguide g where p.packageID=b.tourPkgID and b.touristID=t.userID and b.tourGuideId=g.tourguideID and b.tourPkgID= $inputs[2] and b.touristID= $inputs[1] and b.bookingID= $inputs[0]";
+
         $stmt = mysqli_query($this->conn, $query);
 
         
         return $stmt;
     }
+
+   
+
 }

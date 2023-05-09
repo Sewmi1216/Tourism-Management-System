@@ -2,8 +2,8 @@
 include '../controller/tourbookingController.php';
 
 $reservation_id= $_GET['reservation_id'];
-$tourist_id = $_GET['touristID']
-$package_id = $_GET['packageID']
+$tourist_id = $_GET['touristId'];
+$package_id = $_GET['packageID'];
 
 // Http request hit this page first.
 // If there are data in http request we get them using post or get array.
@@ -11,12 +11,13 @@ $package_id = $_GET['packageID']
 // We create required controller object.
 // We call the required function.
 
-$inputs = ($reservation_id,$tourist_id,$package_id);
+$inputs= array($reservation_id, $tourist_id, $package_id);
+
 // print_r($inputs);
 // die();
 
 $tourbookingcon = new tourbookingController();
-$tourbookingcon-> viewtourbooking($inputs);
+$tourbookingcon-> viewtourreservationdetails($inputs);
 
 
 // if (isset($_POST['delete'])) 

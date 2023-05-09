@@ -69,9 +69,6 @@ class tourbookingcontroller extends db_connection
 
         $result = $pkg->viewtourreservationdetails($inputs);
 
-        // print_r($results);
-        // die();
-
         $_SESSION['c'] = $result;
         return $result;
 

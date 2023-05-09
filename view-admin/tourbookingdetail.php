@@ -1,6 +1,6 @@
 <?php 
 require('../api/viewtourbooking-admin.php');
-$rows = $_SESSION['c'];
+$results = $_SESSION['c'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -39,7 +39,11 @@ $rows = $_SESSION['c'];
             <table id="tbl">
            
 
-                \
+            <?php
+
+foreach($results as $result) 
+
+echo '
    
        
        <tbody>
@@ -50,23 +54,17 @@ $rows = $_SESSION['c'];
                          </tr>
                        <tr class="subtext tblrw">
                            <td class="tbld"> Booking ID</td>
-                           <td class="tbld"><?php echo $result["bookingID"] ?></td>
+                           <td class="tbld">'.$result["bookingID"].'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Booking Time</td>
-                           <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                           <td class="tbld">'.$result["bookingDateTime"],'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Booking status </td>
-                           <td class="tbld"><?php echo $result["bookingStatus"] ?></td>
+                           <td class="tbld">'.$result["bookingStatus"].'</td>
                         </tr>
-<?php                    
-   require_once "../controller/tourbookingcontroller.php";
-   $res = new tourbookingcontroller();
-   $results = $res->viewtourreservationdetails();
-   
-   foreach ($results as $result) {
-?> 
+
 
 
                              <tr class="subtext tblrw">
@@ -76,39 +74,29 @@ $rows = $_SESSION['c'];
                          </tr>
                        <tr class="subtext tblrw">
                            <td class="tbld"> Guest ID</td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Guest Name</td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["guestName"] .'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Nationality </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["country"] .'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Contact Number </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["guestPhone"] .'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> Passport/NIC Number </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["nic"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> No of Guests </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["noOfGuests"] .'</td>
                         </tr>
-
-<?php } ?>
-
-<?php                    
-   require_once "../controller/tourbookingcontroller.php";
-   $res = new tourbookingcontroller();
-   $results = $res->viewtourreservationdetails();
-   
-   foreach ($results as $result) {
-?> 
                         <tr class="subtext tblrw">
                             <th class="tblh">Tour package Detail</th>
                              <th class="tblh">Description</th>
@@ -116,63 +104,54 @@ $rows = $_SESSION['c'];
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Tour package ID </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["packageID"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Tour package Name </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["packageName"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Total Days </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["no_of_days"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Travel Locations </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
-<?php } ?>
 
-
-<?php                    
-   require_once "../controller/tourbookingcontroller.php";
-   $res = new tourbookingcontroller();
-   $results = $res->viewtourreservationdetails();
-   
-   foreach ($results as $result) {
-?> 
                         <tr class="subtext tblrw">
-                            <th class="tblh">Tour package Detail</th>
+                            <th class="tblh">Tour Guide Detail</th>
                              <th class="tblh">Description</th>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Tour Guide ID </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Tour Guide Name </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
                         <tr class="subtext tblrw">
                            <td class="tbld"> NIC Number </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Contact Number </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
 
                         <tr class="subtext tblrw">
                            <td class="tbld"> Vehicle type </td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
+                           <td class="tbld">'.$result["touristID"] .'</td>
                         </tr>
 
-<?php } ?>
+'  ?>
                     </tr>
             </table>
         </div>

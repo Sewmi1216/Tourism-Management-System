@@ -79,11 +79,6 @@ foreach ($results as $result) {
                             <td class="tbld"><?php echo $result["checkInDate"] ?></td>
                             <td class="tbld"><?php echo $result["checkOutDate"] ?></td>
                             <td class="tbld">
-                                <!-- <?php if ($result["status"] == "Confirmed") {?>
-                            <button class="status1"><?php echo $result["status"]; ?></button>
-                            <?php } else {?>
-                            <button class="status2"><?php echo $result["status"]; ?></button>
-                            <?php }?> -->
                                 <select class="subfield" name="status">
                                     <option value="Pending"
                                         <?php if ($result["status"] == "Pending") {echo "selected";}?>>
@@ -92,7 +87,7 @@ foreach ($results as $result) {
                                         <?php if ($result["status"] == "Confirmed") {echo "selected";}?>>
                                         Confirmed</option>
                                     <option value="Checkedin"
-                                        <?php if ($result["status"] == "Checkedin") {echo "selected";}?>>
+                                        <?php if ($result["status"] == "Completed") {echo "selected";}?>>
                                         Checkedin</option>
                                     <option value="Cancelled"
                                         <?php if ($result["status"] == "Cancelled") {echo "selected";}?>>
