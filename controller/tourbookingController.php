@@ -104,7 +104,7 @@ class tourbookingcontroller extends db_connection
     {
         $booking = new tourbooking();
         $results = $booking->countBooking();
-        $_SESSION['c'] = $result;
-        return $result;
+        $_SESSION['c'] = $results;
+        return $results;
     }
 }
