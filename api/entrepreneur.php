@@ -32,6 +32,19 @@ if (isset($_POST['accept']))
     </script>";
 }
 
+if (isset($_POST['restore']))
+{
+
+    $id = $_POST['id'];
+  
+    $acc_entrepreneur = new entrepreneurController();
+    $acc_entrepreneur-> acceptentrepreneurrequest($id);
+
+    echo "
+    <script>
+    window.location.href = '../view-admin/trash.php';
+    </script>";
+}
 if (isset($_POST['decline']))
 {
     $id = $_POST['id'];
@@ -45,6 +58,22 @@ if (isset($_POST['decline']))
     echo "
     <script>
     window.location.href = '../view-admin/manageusers.php';
+    </script>";
+}
+
+if (isset($_POST['remove']))
+{
+    $id = $_POST['id'];
+
+    // print_r($id);
+    // die();
+
+    $rem_entrepreneur = new entrepreneurController();
+    $rem_entrepreneur->removeentrepreneurrequest($id);
+
+    echo "
+    <script>
+    window.location.href = '../view-admin/trash.php';
     </script>";
 }
 

@@ -120,7 +120,7 @@ class entrepreneur extends db_connection
         // print_r($id);
         // die();
 
-        $query = "UPDATE entrepreneur SET status = 3 where entID= $id ";
+        $query = "DELETE from entrepreneur  where entID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
