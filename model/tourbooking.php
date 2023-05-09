@@ -19,6 +19,18 @@ class tourbooking extends db_connection
         return $stmt;
     } */
 
+    private function getData($query)
+    {
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            die('Error in query: ' . mysqli_error());
+        }
+        $data = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
     public function inserttourbooking($inputs)
     {
        
@@ -78,19 +90,22 @@ class tourbooking extends db_connection
         $query1 = "SELECT COUNT(*) as num_bookings FROM tourbooking WHERE DATE(bookingDateTime) = CURDATE();";
 
         return $this->getData($query1);
+    
 
     }
 
-    public function viewtourreservationdetails()
+    public function viewtourreservationdetails($inputs)
     {
        
     
-        $query = "SELECT * FROM tourbooking where bookingID = $reservation_id";
-        print_r($query);
-        die();
+        $query = "SELECT * from tourbooking b, tourist t, tourpackage p, tourguide g where p.packageID=b.tourPkgID and b.touristID=t.userID and b.tourGuideId=g.tourguideID and b.tourPkgID= $inputs[2] and b.touristID= $inputs[1] and b.bookingID= $inputs[0]";
+
         $stmt = mysqli_query($this->conn, $query);
 
         
         return $stmt;
     }
+
+   
+
 }

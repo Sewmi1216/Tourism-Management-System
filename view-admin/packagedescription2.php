@@ -39,37 +39,15 @@ $rows = $_SESSION['c'];
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
     
-<div class="slideshow-container">
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="img_nature_wide.jpg" style="width:100%">
-
+        <div class="slideshow-container">
+  <div class="slide"><img src="../images/koneshwaram.jpg" alt="k"></div>
+  <div class="slide"><img src="../images/marblebeach.jpg" alt="k"></div>
+  <div class="slide"><img src="../images/deer.jpeg" alt="k"></div>
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
 </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="img_snow_wide.jpg" style="width:100%">
-  
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="img_mountains_wide.jpg" style="width:100%">
-  
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
 
         <?php
 
@@ -77,10 +55,7 @@ foreach($rows as $row)
 
 echo '<table>
 
-
-   
-
-</div>
+<div>  </div>
 
 <table class=data>
   
@@ -114,6 +89,32 @@ echo '<table>
 </div>
 </section>
 ' ?>
+
+<script>
+var slideIndex = 0;
+var slides = document.getElementsByClassName("slide");
+
+function changeSlide(n) {
+  slideIndex += n;
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  } else if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+  showSlide(slideIndex);
+}
+
+function showSlide(n) {
+  for (var i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  slides[n].classList.add("active");
+}
+
+showSlide(slideIndex);
+
+</script>
+
 
 </body>
 

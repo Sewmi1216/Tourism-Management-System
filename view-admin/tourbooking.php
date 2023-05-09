@@ -37,7 +37,7 @@
             </div>
 
         </div>
-
+        <form action="" method="post">
         <div class="bg">
             <table id="tbl">
                 <tr class="subtext tblrw">
@@ -53,7 +53,7 @@
                 </tr>
 
                 <?php
-   
+  
    require_once "../controller/tourbookingcontroller.php";
    $res = new tourbookingcontroller();
    $results = $res->viewtourreservations();
@@ -68,14 +68,28 @@
                            <td class="tbld"><?php echo $result["guestName"] ?></td>
                            <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
                            <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
-                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                            <td class="tbld">
-                               <?php if ($result["bookingStatus"] == "Completed") {?>
-                               <button class="status1"><?php echo $result["bookingStatus"]; ?></button>
-                               <?php } else {?>
-                               <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
-                               <?php }?>
-                        
+                                <!-- <?php if ($result["bookingStatus"] == "Confirmed") {?>
+                            <button class="status1"><?php echo $result["bookingStatuss"]; ?></button>
+                            <?php } else {?>
+                            <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
+                            <?php }?> -->
+                                <select class="subfield" name="bookingStatus">
+                                    <option value="Pending"
+                                        <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
+                                        Pending</option>
+                                    <option value="Confirmed"
+                                        <?php if ($result["bookingStatus"] == "Confirmed") {echo "selected";}?>>
+                                        Confirmed</option>
+                                    <option value="Checkedin"
+                                        <?php if ($result["bookingStatus"] == "Checkedin") {echo "selected";}?>>
+                                        Checkedin</option>
+                                    <option value="Cancelled"
+                                        <?php if ($result["bookingStatus"] == "Cancelled") {echo "selected";}?>>
+                                        Cancelled</option>
+                                </select>
+                            </td>
    
    
                            <?php }
@@ -85,6 +99,7 @@
 ?>
                     </tr>
             </table>
+            </form>
         </div>
 
 
