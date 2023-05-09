@@ -83,9 +83,19 @@ class tourpackage extends db_connection
         $query = "UPDATE tourpackage SET status = 'Unavailable' WHERE packageID = $id";
         //  print_r($query);
         // die(); 
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+
+        $foreign_key_query = "SELECT * FROM `tourbooking` WHERE tourPkgId='$id'";
+
+        $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
+
+        if (mysqli_num_rows($foreign_key_result) > 0) {
+            echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+            echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
+        } else {
+            mysqli_query($this->conn, $query);
+            echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
+        }
+      
     }
 
     public function viewdeletedtourPkg()
