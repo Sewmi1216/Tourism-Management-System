@@ -7,7 +7,7 @@
          <?php
 require_once "../controller/touristController.php";
 $profile = new touristController();
-$results = $profile->viewProfile($id);
+$results = $profile->viewTouristProfile($id);
 foreach ($results as $result) {
     ?>
          <a href="profile.php" style="margin-top:-8px;">
