@@ -124,13 +124,13 @@ class hotelController extends db_connection
         }
 
     }
-    // public function checkEmail($email)
-    // {
-    //     $user = new hotel();
-    //     $rlt = $user->checkEmail($email);
-    //     return $rlt;
+    public function checkEmail($email)
+    {
+        $user = new hotel();
+        $rlt = $user->checkEmail($email);
+        return $rlt;
 
-    // }
+    }
     public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
         $user = new hotel();
@@ -144,7 +144,7 @@ class hotelController extends db_connection
             if (!$result) {
                 echo 'There was a error';
             } else {
-                echo "<script>alert('Your form was successfully submitted');
+                echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
         window.location.href = '../view-hotel/login.php';
         </script>";
             }
@@ -157,18 +157,17 @@ class hotelController extends db_connection
         return $rs;
 
     }
-    public function UpdateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
+    public function updateProfile($id, $name, $address, $email, $phone, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
 
         $hp = new hotel();
-        $hp->updateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
+        $hp->updateProfile($id, $name, $address, $email, $phone, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
 
         if (!$hp) {
             echo 'There was a error';
             // echo "<script>console.log(res)</script>";
         } else {
-
-            echo "<script>
+            echo "<script><script>alert('Profile updated successfully');
         window.location.href = '../view-hotel/profile.php';
         </script>";
 
@@ -275,23 +274,23 @@ window.location.href = '../view-hotel/recoverPwd.php';
         }
 
     }
-    public function countReservations()
+    public function countReservations($id)
     {
         $hoteluser = new hotel();
-        $res = $hoteluser->countReservations();
+        $res = $hoteluser->countReservations($id);
         return $res;
     }
-    public function countRoomTypeReservations()
+    public function countRoomTypeReservations($id)
     {
         $hoteluser = new hotel();
-        $res = $hoteluser->countRoomTypeReservations();
+        $res = $hoteluser->countRoomTypeReservations($id);
         return $res;
     }
 
-     public function revenue()
+     public function revenue($id)
     {
         $hoteluser = new hotel();
-        $res = $hoteluser->revenue();
+        $res = $hoteluser->revenue($id);
         return $res;
     }
     public function viewAllmanagers()
@@ -303,22 +302,22 @@ window.location.href = '../view-hotel/recoverPwd.php';
         return $result;
     }
 
-    public function canceledReservations()
+    public function canceledReservations($id)
     {
         $hoteluser2 = new hotel();
-        $res2 = $hoteluser2->canceledReservations();
+        $res2 = $hoteluser2->canceledReservations($id);
         return $res2;
     }
-     public function todayRevenue()
+     public function todayRevenue($id)
     {
         $hoteluser3= new hotel();
-        $res3 = $hoteluser3->todayRevenue();
+        $res3 = $hoteluser3->todayRevenue($id);
         return $res3;
     }
-     public function pendingPayments()
+     public function pendingPayments($id)
     {
         $hoteluser3= new hotel();
-        $res3 = $hoteluser3->pendingPayments();
+        $res3 = $hoteluser3->pendingPayments($id);
         return $res3;
     }
 

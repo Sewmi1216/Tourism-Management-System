@@ -73,12 +73,13 @@ foreach ($results2 as $r) {
             <span class="c">
                 Craft Ordering Chart
                 <br>
+                 <!-- pie chart -->
                 <?php
 $pie = new productController();
 $results= $pie->countProductOrders();
 foreach ($results as $data) {
-    $type[]=$data['product'];
-    $reservations[]=$data['num_orders'];
+    $category[]=$data['product_category'];
+    $orders[]=$data['num_orders'];
 
 }
 ?>
@@ -87,8 +88,9 @@ foreach ($results as $data) {
                     </div>   
             </span>
             <span class="c">
-                Sales Revenue
+                Total Revenue
                 <br>
+                <!-- bar chart -->
                 <?php
 $pie = new productController();
 $results= $pie->revenue();
@@ -105,6 +107,14 @@ foreach ($results as $data) {
         </div>
 </div>
 </section>
+<script>
+    document.getElementById("click").onclick = function() {
+        window.print()
+        setTimeout(function() {
+            window.close()
+        }, 750)
+    };
+    </script>
 <script>
     const ctx = document.getElementById("piechart");
     new Chart(ctx, {

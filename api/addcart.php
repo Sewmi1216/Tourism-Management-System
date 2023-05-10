@@ -2,34 +2,43 @@
 
 include '../controller/touristController.php';
 
-$productID = $_GET['product'];
-$quantity = $_POST['quantity'];
-$touristcon = new touristController();
-if(isset($_POST['cart'])){
-    $touristcon->addcart($quantity, $productID, $_SESSION['touristID']);
-    print_r($_POST);
+// if (isset($_POST['submit'])) {
+
+//     if (!empty($_SESSION['cart'])) {
+//         foreach ($_POST['submit'] as $key) {
+
+//             unset($_SESSION['cart'][$key]);
+//         }
+//         echo "<script>alert('Your Cart has been Updated');</script>";
+//         echo "<script type='text/javascript'> document.location ='../view-tourist/carts.php'; </script>";
+//     }
+// }
+
+// $id = ($_GET['pid']);
+$id = intval($_GET['pid']);
+$qty = ($_GET['qty']);
+session_start();
+
+if (isset($_SESSION['cart'][$id])) {
+    $_SESSION['cart'][$id]['quantity']++;
+} else {
+    $product = new touristController();
+    $query_p = $product->viewproduct($id);
+    if (mysqli_num_rows($query_p) != 0) {
+        $row_p = mysqli_fetch_array($query_p);
+        $_SESSION['cart'][$row_p['productID']] = array("quantity" => $qty, "price" => $row_p['price']);
+        // echo "<pre>";
+        // print_r($row_p);
+        // echo "</pre>";
+
+    } else {
+        $message = "Product ID is invalid";
+    }
 }
+echo "<script>alert('Product has been added to the cart')</script>";
+echo "<script type='text/javascript'> document.location ='../view-tourist/cart.php'; </script>";
+//     echo "<pre>";
+// print_r($query_p);
+// echo "</pre>";
 
 ?>
-
-
-<table style="margin:-30px;">
-                <tr>
-                    <td ><?php echo "<img src='../images/" . $row['productImg'] . "' style=
-                    'width:500px;height: 300px;margin-left:45px;padding-right:0px;'>"; ?></td>
-                    <td>
-                        
-                        <ul style="margin-left:23px;">
-                            <li>Product Name:
-                            </li>
-                            <li>Category: 
-                            </li>
-                            <li>Quantity:
-                            </li>
-                            <li>Price:
-                            </li>
-                            
-                        </ul>
-                    </td>
-                </tr>
-            </table>

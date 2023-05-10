@@ -87,6 +87,11 @@ body {
   font-size: 4rem;
   color: #000000;
 }
+.filterbox h3 {
+  font-size: 1rem;
+  color: #000000;
+  padding-left:10px;
+}
 .home .content h2 {
   padding-top: 7rem;
   font-size: 20px;
@@ -147,7 +152,7 @@ section#contact {
 .popular .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
 }
@@ -229,7 +234,7 @@ section#contact {
   float: right;
 }
 .popular .container .box img {
-  height: 28rem;
+  height: 20rem;
   object-fit: cover;
   width: 100%;
   border-radius: 0.5rem;

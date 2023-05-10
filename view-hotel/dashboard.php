@@ -30,10 +30,12 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-
-        <button type="submit" id="create_pdf" class="btns"
-            style="margin-left:80rem;margin-top:1rem;background-color:red;">Download pdf</button>
-        <button type="submit" id="click" class="btns">Click</button>
+        <div style="margin-top:20px;">
+        
+            <a href="printDashboard.php" class="btns" target="_blank"
+                style="margin-left:80rem;margin-top:1rem;background-color:red;">Download pdf</a>
+        </div>
+        <!-- <button type="submit" id="click" class="btns">Click</button> -->
 
         <div id="container">
             <div class="page-title" style="margin-left:3vw;">Dashboard Overview</div>
@@ -44,9 +46,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                     <div style="margin-top:60px;font-size:40px;"><?php
 require_once "../controller/hotelController.php";
 $res1 = new hotelController();
-$results = $res1->countReservations();
-foreach($results as $result){
-echo $result['num_reservations'];}
+$results = $res1->countReservations($id);
+foreach ($results as $result) {
+    echo $result['num_reservations'];}
 ?>
                     </div>
                 </span>
@@ -54,7 +56,7 @@ echo $result['num_reservations'];}
                     Cancelled Reservations
                     <div style="margin-top:60px;font-size:40px;"><?php
 $res2 = new hotelController();
-$results2 = $res2->canceledReservations();
+$results2 = $res2->canceledReservations($id);
 foreach ($results2 as $r) {
     echo $r['num_reservations'];}?>
                     </div>
@@ -62,8 +64,8 @@ foreach ($results2 as $r) {
                 <span class="b">
                     Today's Pending Payments
                     <div style="margin-top:60px;font-size:40px;">
-                        <?php  $res2 = new hotelController();
-$results2 = $res2->pendingPayments();
+                        <?php $res2 = new hotelController();
+$results2 = $res2->pendingPayments($id);
 foreach ($results2 as $r) {
     echo $r['pending_payments'];}
 ?>
@@ -73,11 +75,11 @@ foreach ($results2 as $r) {
                     Today's Revenue
                     <div style="margin-top:60px;font-size:40px;">
                         <?php
-            $res2 = new hotelController();
-$results2 = $res2->todayRevenue();
+$res2 = new hotelController();
+$results2 = $res2->todayRevenue($id);
 foreach ($results2 as $r) {
-    echo '$'. $r['today_revenue'];}
- ?>
+    echo '$' . $r['today_revenue'];}
+?>
                     </div>
 
                 </span>
@@ -90,10 +92,10 @@ foreach ($results2 as $r) {
                     <!-- pie chart -->
                     <?php
 $pie = new hotelController();
-$results= $pie->countRoomTypeReservations();
+$results = $pie->countRoomTypeReservations($id);
 foreach ($results as $data) {
-    $type[]=$data['room_type'];
-    $reservations[]=$data['num_reservations'];
+    $type[] = $data['room_type'];
+    $reservations[] = $data['num_reservations'];
 
 }
 ?>
@@ -107,10 +109,10 @@ foreach ($results as $data) {
                     <!-- bar chart -->
                     <?php
 $pie = new hotelController();
-$results= $pie->revenue();
+$results = $pie->revenue($id);
 foreach ($results as $data) {
-    $month[]=$data['month'];
-    $revenue[]=$data['revenue'];
+    $month[] = $data['month'];
+    $revenue[] = $data['revenue'];
 
 }
 ?>
@@ -124,14 +126,14 @@ foreach ($results as $data) {
 
 
     </section>
-    <script>
+    <!-- <script>
     document.getElementById("click").onclick = function() {
         window.print()
         setTimeout(function() {
             window.close()
         }, 750)
     };
-    </script>
+    </script> -->
 
     <script>
     const ctx = document.getElementById("piechart");
