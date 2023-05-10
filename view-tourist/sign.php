@@ -100,6 +100,16 @@ if (!isset($_SESSION["error"])) {
             </div>
 
             <div class="f">
+             <label for="NIC/Passport"><b>NIC/Passport No</b></label><br>
+            </div>
+
+            <div class="b">
+                <input type="text" placeholder=" Enter your NIC/Passport Number" name="NIC/Passport" required><br>
+            </div>
+
+
+
+            <div class="f">
                 <label for="address"><b>City</b></label><br>
             </div>
 
@@ -125,9 +135,16 @@ if (!isset($_SESSION["error"])) {
 
 
             <div class="submit">
-                <button type="submit" class="signupbtn" name="signup">Sign Up</button>
+                <button type="submit" class="signupbtn" name="signup"
+                 onclick="document.location.href='../view-tourist/index.php'">Sign Up</button>
             </div>
+
+            
+
+
         </form>
+
+
 
         <div class="log">
             <p style="color:rgb(255, 255, 255);"> Already have an account? <a href="../view-hotel/login.php"
@@ -137,6 +154,14 @@ if (!isset($_SESSION["error"])) {
     </div>
 
     </form>
+
+  <script> 
+  
+  if (!preg_match('/^[0-9]{10}$/', $_POST['phone'])) {
+    $errors[] = "Mobile number is invalid";
+}
+
+</script>
 
 </body>
 
