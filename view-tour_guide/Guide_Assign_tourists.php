@@ -45,7 +45,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
                     <tr class="header">
                     
                     <th class="tblh">Date</th>
-                    
+                   
                     <th class="tblh">Phone</th>
                     
                     <th class="tblh">Number of Passengers</th>
@@ -53,7 +53,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
                     </tr><?php
                     require_once "../controller/tourguideController.php";
                     $guide = new tourguideController();
-                    $results = $guide->viewAllTourguides();
+                    $results = $guide->viewAssignedBookings($id);
                     foreach ($results as $result) {
                         ?>
 

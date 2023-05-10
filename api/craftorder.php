@@ -1,6 +1,8 @@
 <?php
 include "stripeconfig.php";
+include '../controller/orderController.php';
 include '../controller/touristController.php';
+
 
 session_start();
 $touristID = $_POST['tid'];
@@ -28,38 +30,48 @@ foreach ($_POST as $key => $value) {
 $pdd = $_SESSION['pid'];
 $value = array_combine($pdd, $quantities);
 
-foreach ($value as $proId => $val) {
-    $order = new touristController();
-    $order->insertCraftOrder($touristID, $proId, $val, $cname, $cphone, $caddress);
-}
-// if ($order) {
-//     echo "
-//              <script>alert('Your order is successful');
-
-//         </script>";
+// foreach ($value as $proId => $val) {
+//     $order = new orderController();
+//     $order->insertCraftOrder($touristID, $proId, $val, $cname, $cphone, $caddress);
 // }
+$craftOrder = new orderController();
+$orderItems = [];
 
-$token = $_POST["stripeToken"];
-$token_card_type = $_POST["stripeTokenType"];
+foreach ($value as $proId => $val) {
+    $orderItems[] = [
+        'productId' => $proId,
+        'quantity' => $val,
+    ];
+}
 
-$charge = \Stripe\Charge::create([
-    "amount" => str_replace(",", "", $total) * 100,
-    "currency" => 'usd',
-    "description" => 'CraftOrder',
-    "source" => $token,
-]);
-if ($charge) {
-   $payment = new touristController();
-$order->insertOrderPayment($total);
-unset($_SESSION['cart']);
+$craftOrder->insertCraftOrder($touristID, $orderItems, $cname, $cphone, $caddress);
 
-if ($order) {
-    echo "
-             <script>alert('Your order is placed successfully');
-              window.location.href = '../view-tourist/cart.php';
+if ($craftOrder) {
+    echo "<script>alert('Your order is successful');
         </script>";
 }
-}
+
+// $token = $_POST["stripeToken"];
+// $token_card_type = $_POST["stripeTokenType"];
+
+// $charge = \Stripe\Charge::create([
+//     "amount" => str_replace(",", "", $total) * 100,
+//     "currency" => 'usd',
+//     "description" => 'CraftOrder',
+//     "source" => $token,
+// ]);
+// if ($charge) {
+//    $payment = new touristController();
+// $order->insertOrderPayment($total);
+// unset($_SESSION['cart']);
+
+// if ($order) {
+//     echo "
+//              <script>alert('Your order is placed successfully');
+//               window.location.href = '../view-tourist/cart.php';
+//         </script>";
+// }
+// }
 
 // $booking = new touristController();
 // $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);

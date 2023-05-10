@@ -86,49 +86,39 @@ $index++;
 
 
         <div class="pkg1" style="padding:30px;margin-top:30px;">
-            <form action="" method="post">
-
-                <h2><?php echo $result['productName']?></h2>
-
-                <h2><?php echo '$ '. $result['price']?></h2>
-                <input type="text" class="subfield" name="pid" value="<?php echo $result['productID'];?>" />
-                <div class="content">Only <div style="color:red;display:inline;"><?php echo $result['quantity']; ?>
-                    </div> available</div><br>
-                Quantity &nbsp;<input type="number" class="subfield" style="width:50%;" name="qty" id="qty" />
+            <form action="../api/addcart.php" method="get">
+                <h2><?php echo $result['productName'] ?></h2>
+                <h2><?php echo '$ ' . $result['price'] ?></h2>
+                <input type="hidden" class="subfield" name="pid" value="<?php echo $result['productID']; ?>" />
+                <div class="content">
+                    Only <div style="color:red;display:inline;"><?php echo $result['quantity']; ?></div> available
+                </div><br>
+                Quantity &nbsp;
+                <input type="number" class="subfield" style="width:50%;" name="qty" id="qty" min="1"
+                    max="<?php echo $result['quantity'];?>" required />
                 <div style="display: flex; justify-content: space-evenly;">
-                    <a href="../api/addcart.php?pid=<?php echo $result['productID']; ?>&qty=" id="add-to-cart"
-                        class="addcart">Add to cart</a>
+                    <button type="submit" class="addcart">Add to cart</button>
                 </div>
-
             </form>
         </div>
-        <?php }?>
+
     </section>
 
-   <section id="contact" style="padding-bottom: 20px;bottom:0;margin-top:450px;">
-    <div style="text-align:center; padding: 10px;">
-        <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
-        <div style="color: #babab3;font-size: 17px;padding-top: 50px">
-            <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
-            <div>+94 -11- 2581245/ 7</div>
+    <section id="contact" style="padding-bottom: 20px;bottom:0;margin-top:650px;">
+        <div style="text-align:center; padding: 10px;">
+            <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
+            <div style="color: #babab3;font-size: 17px;padding-top: 50px">
+                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
+                <div>+94 -11- 2581245/ 7</div>
 
-            <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
-            <div>+94-11-2237239</div>
+                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
+                <div>+94-11-2237239</div>
 
-            <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
-            <div>info@pack2paradise.lk</div>
+                <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
+                <div>info@pack2paradise.lk</div>
+            </div>
         </div>
-    </div>
-</section>
-    <script>
-    document.getElementById('add-to-cart').addEventListener('click', function(event) {
-        event.preventDefault();
-        var qtyValue = document.getElementById('qty').value;
-        var addToCartUrl = document.getElementById('add-to-cart').getAttribute('href');
-        var updatedUrl = addToCartUrl + qtyValue;
-        window.location.href = updatedUrl;
-    });
-    </script>
+    </section>
     <script src="../view-hotel/js/home.js"></script>
     <script>
     let slideIndex = 1;
@@ -158,7 +148,7 @@ $index++;
 
     }
     </script>
-
+    <?php }?>
 </body>
 
 </html>

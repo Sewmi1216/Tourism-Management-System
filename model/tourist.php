@@ -186,18 +186,7 @@ class tourist extends db_connection
         }
 
     }
-    public function insertCraftOrder($touristID, $productId, $qty, $name, $phone, $address)
-    {
-
-       // $query = "INSERT INTO craftorder(`orderID`, `orderDateTime`, `status`, `touristID`, `productID`, `orderQuantity`, `customerName`, `customerPhone`, `customerAddress`) VALUES (, NOW(),'Confirmed', '$touristID', '$productId', '$qty', '$name', '$phone', '$address')";
-         $query = "INSERT INTO craftorder (orderDateTime, status, touristID, productID, orderQuantity, customerName, customerPhone, customerAddress,orderPaymentID) VALUES (NOW(), 'Pending', '$touristID', '$productId', '$qty','$name','$phone','$address',NULL)";
-        $stmt = mysqli_query($this->conn, $query);
-        if (!$stmt) {
-            echo "Error: " . mysqli_error($this->conn);
-            return false; // or handle the error in an appropriate way
-        }
-        return $stmt;
-    }
+  
     public function insertOrderPayment($total)
     {
        $query = "INSERT INTO craftorder_payment(paymentDateTime, amount, paymentStatus) VALUES (NOW(), '$total','Completed')";
