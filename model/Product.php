@@ -109,9 +109,15 @@ class product extends db_connection
 
         return $this->getData($query);
     }
-    public function viewOrderPayments($id)
+    // public function viewOrderPayments($id)
+    // {
+    //     $query = "Select * from craftorder o, craftorder_payment c, product p where o.orderPaymentID = c.craftOrderId and o.productID= p.productID and p.entID='$id'";
+
+    //     return $this->getData($query);
+    // }
+     public function viewOrderPayments($id)
     {
-        $query = "Select * from craftorder o, craftorder_payment c, product p where o.orderID = c.craftOrderId and o.productID= p.productID and p.entID='$id'";
+        $query = "Select * from craftorder o, craftorder_payment c, product p where o.orderPaymentID = c.orderPaymentID and o.productID= p.productID and p.entID='$id'";
 
         return $this->getData($query);
     }
@@ -135,9 +141,14 @@ class product extends db_connection
         $query1 = "SELECT YEAR(paymentDateTime) AS year, MONTHNAME(paymentDateTime) AS month, SUM(amount) AS revenue FROM craftorder_payment GROUP BY YEAR(paymentDateTime), MONTH(paymentDateTime);";
         return $this->getData($query1);
     }
+    // public function todayRevenue($id)
+    // {
+    //     $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderID = c.craftOrderId and o.productID= p.productID and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";
+    //     return $this->getData($query1);
+    // }
     public function todayRevenue($id)
     {
-        $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderID = c.craftOrderId and o.productID= p.productID and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";
+        $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderPaymentID = c.orderPaymentID and o.productID= p.productID and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";
         return $this->getData($query1);
     }
     public function cleanString($str)

@@ -25,7 +25,7 @@ $pfolder = "../images/" . $fileImgname;
 // $img =$_POST['proImg'];
 // echo 'print';
 
-$inputs = array($name,$address,$email,$mno,$fileImgname,$password,$dob,$country);
+$inputs = array($name,$address,$email,$mno,$fileImgname,$apassword,$dob,$country);
 $touristcon = new touristController();
 $touristcon->userSignup($inputs);
 move_uploaded_file($ptempname, $pfolder);
