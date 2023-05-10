@@ -46,7 +46,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                 <tr class="subtext tblrw">
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
-                    <th class="tblh">Type</th>
+                    
                     <th class="tblh">Order ID</th>
                     <th class="tblh">Price</th>
                     <th class="tblh">Status</th>
@@ -62,10 +62,10 @@ foreach ($results as $result) {
              
  
            <tr class="subtext tblrw">
-                    <th class="tblh"><?php echo $result["paymentID"] ?></th>
-                    <th class="tblh"><?php echo $result["date"] ?></th>
-                    <th class="tblh"><?php echo $result["orderID"] ?></th>
-                    <th class="tblh"><?php echo $result["type"] ?></th>
+                    <th class="tblh"><?php echo $result["orderPaymentId"] ?></th>
+                    <th class="tblh"><?php echo $result["paymentDateTime"] ?></th>
+                    <th class="tblh"><?php echo $result["craftOrderId"] ?></th>
+                    
                     <th class="tblh"><?php echo $result["amount"] ?></th>
                     <td class="tbld">
                         <?php if ($result["status"] == "Completed") {?>

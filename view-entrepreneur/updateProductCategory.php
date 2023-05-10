@@ -13,20 +13,20 @@
         <div class="container">
             <table>
                 <tr class="row">
-                    <input type="hidden" class="subfield" name="id" id="categoryid" value="" ?>
+                    <input type="hidden" class="subfield" name="id" id="categoryid" value="<?php echo $result["product_categoryId"] ?>" ?>
                 </tr>
                 <tr class="row">
                     <td>
                         <div class="content">Product Category</div>
                     </td>
-                    <td> <input type="text" class="subfield" id="categoryname" name="cName" value="" /></td>
+                    <td> <input type="text" class="subfield" id="categoryname" name="cName" value="<?php echo $result["categoryName"] ?>" /></td>
                 </tr>
                 <tr class="row">
                     <td>
                         <div class="content">Description</div>
                     </td>
                     <td>
-                        <textarea class="subtextfield" id="desc" name="desc" rows="8" cols="50"></textarea>
+                    <input type="text" class="subfield" id="categoryname" name="desc" value="<?php echo $result["description"] ?>" /></td> 
                     </td>
                 </tr>
                
