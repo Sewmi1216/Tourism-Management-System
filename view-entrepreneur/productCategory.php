@@ -151,10 +151,7 @@ foreach ($results as $result) {
                 $("#categoryid").val(type.product_categoryId);
                 $("#categoryname").val(type.categoryName);
                 $("#desc").val(type.description);
-                // $("#status").val(type.typestatus);
-                $("#price").val(type.price);
-                // $("#img").attr("src", "../images/" + type.img);
-                $('#status').val(type.typestatus);
+               
 
             }
         });

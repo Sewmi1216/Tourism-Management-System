@@ -36,6 +36,24 @@ class tourguide extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    
+    private function getData($query)
+    {
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            die('Error in query: ' . mysqli_error());
+        }
+        $data = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    public function viewAssignedBookings($id)
+    {
+        $query = "SELECT * FROM tourbooking where tourGuideId= '$id'";    
+        return $this->getData($query);
+    }
 
     
     public function viewonetourguide($id)
