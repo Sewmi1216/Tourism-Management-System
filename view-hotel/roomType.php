@@ -20,10 +20,10 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
-    <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <!-- <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">
     bkLib.onDomLoaded(nicEditors.allTextAreas);
-    </script>
+    </script> -->
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -153,7 +153,7 @@ foreach ($results as $result) {
                 var type = JSON.parse(response);
                 $("#typeid").val(type.roomTypeId);
                 $("#typename").val(type.typeName);
-                $("#desc").val(type.description);
+                $("#desc").text(type.description);
                 // $("#status").val(type.typestatus);
                 $("#price").val(type.price);
                 // $("#img").attr("src", "../images/" + type.img);

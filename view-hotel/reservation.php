@@ -32,15 +32,15 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
 
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="input-container" style="margin-left:730px;">
+                <div class="input-container" style="margin-left:880px;">
                     <input class="input-field" type="text" placeholder="Search for reservations" name="search"
                         id="searcher" onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
                 <!-- <form method="post" action="../api/reserve.php"> -->
-                <button type="submit" name="create_rpdf" id="create_rpdf" class="btns"
-                    style="margin-left:1rem;background-color:red;">Download pdf</button>
+                <!-- <button type="submit" name="create_rpdf" id="create_rpdf" class="btns"
+                    style="margin-left:1rem;background-color:red;">Download pdf</button> -->
                 <!-- </form> -->
             </div>
         </div>
@@ -151,6 +151,18 @@ foreach ($results as $result) {
                         </td>
                         <td><div id="guestemail"></div></td>
                     </tr>
+                    <tr class="row">
+                        <td>
+                            <div class="content">Check-in Date</div>
+                        </td>
+                        <td><div id="checkin"></div></td>
+                    </tr>
+                    <tr class="row">
+                        <td>
+                            <div class="content">Check-out Date</div>
+                        </td>
+                        <td><div id="checkout"></div></td>
+                    </tr>
                 </table>
 
             </div>
@@ -182,31 +194,14 @@ foreach ($results as $result) {
                 $("#date").text(res.bookingDateTime);
                 $("#guestname").text(res.guestName);
                 $("#guestphone").text(res.guestPhone);
-                $("#guestemail").text(res.guestEmail);
+                $("#guestemail").text(res.guestEmail);   
+                $("#checkin").text(res.checkInDate);
+                $("#checkout").text(res.checkInDate);
 
             }
         });
     }
-    document.getElementById('create_rpdf').onclick = function() {
-        var element = document.getElementById('cont');
-        var opilename: 'reservation.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 0.98
-            },
-            html2canvas: {
-  t = {
-            m              scale: 1
-  argin: 0.2,
-            f          },
-            jsPDF: {
-                unit: 'in',
-                format: 'letter',
-                orientation: 'landscape'
-            }
-        };
-        html2pdf(element, opt);
-    };
+    
     </script>
 
     <script>

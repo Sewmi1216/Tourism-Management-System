@@ -26,7 +26,12 @@
                         <div class="content">Description</div>
                     </td>
                     <td>
-                        <textarea class="subtextfield" id="desc" name="desc" rows="8" cols="50"></textarea>
+                        <!-- <input type="text" class="subfield" id="desc" rows="8" cols="50" name="desc" value="" /> -->
+                        <textarea class="subtextfield" id="desc" name="desc" rows="8" cols="50"> </textarea>
+                        <!-- <div style="margin-right:-130px;margin-left:22px;margin-top:20px;">
+                             <textarea class="subtextfield" name="desc" id="desc"
+                                 style="background-color:#dde8f0;color:black;width:500px;height:150px;"></textarea>
+                         </div> -->
                     </td>
                 </tr>
                 <!-- <tr class="row">
