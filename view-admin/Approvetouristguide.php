@@ -11,6 +11,7 @@ $rows = $_SESSION['c'];
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/managerprofile.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/manageusers.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -81,17 +82,19 @@ $rows = $_SESSION['c'];
                         </div>
 
 
-
+  ' ; ?>
                     </div>
 
-                </div>
+                
                 <br>  
-                <a href="#" class="button">Approve Regitration</a>
-                <a href="#" class="button">Decline</a>
-                ' ; ?>
+                
+              </div>
             </div>
         
+
     </section>
+
+    
 </body>
 
 </html>

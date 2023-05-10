@@ -25,7 +25,14 @@ class admin extends db_connection
 
     public function viewpendingusers()
     {
-        $query = "SELECT COUNT(*) as num_pen_requests1 FROM entrepreneur WHERE status = 0";
+        $query = "SELECT COUNT(*) AS total_count
+        FROM (
+            SELECT status FROM entrepreneur WHERE status = 0
+            UNION ALL
+            SELECT status FROM hotel WHERE status = 0
+            UNION ALL
+            SELECT status FROM tourguide WHERE status=0
+        ) AS tbl;";
      
         
         $stmt = mysqli_query($this->conn, $query);

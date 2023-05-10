@@ -29,10 +29,7 @@ $rows = $_SESSION['c'];
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> Tour packages </div>
-                <div class="input-container">
-                    <input class="input-field" type="text" placeholder="Search for Tour packages" name="search">
-                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
-                </div>
+                
                 
                 <span style="margin-left: 8px;">
                     <a href="addpackage2.php"><i
@@ -122,6 +119,7 @@ echo '
 </div>
 
 
+<script>
 
 
 <script>
@@ -134,7 +132,6 @@ modal.style.display = "block";
 </script>
 
  
-
 
         </div>
         </div>

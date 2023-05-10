@@ -107,4 +107,12 @@ class tourbookingcontroller extends db_connection
         $_SESSION['c'] = $results;
         return $results;
     }
+
+    public function viewtourbookingPayments($id)
+    {
+        $res = new tourbooking();
+        $result3 = $res->viewtourbookingPayments($id);
+
+        return $result3;
+    }
 }

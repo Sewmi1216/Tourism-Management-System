@@ -42,7 +42,7 @@
             <table id="tbl">
                 <tr class="subtext tblrw">
                      <th class="tblh">Date</th>
-                    <th class="tblh">Reservation ID</th>
+                    <th class="tblh">Booking ID</th>
                     <th class="tblh">Package Name</th>
                     <th class="tblh">Guest ID</th>
                     <th class="tblh">Guest Name</th>
