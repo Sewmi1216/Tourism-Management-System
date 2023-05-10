@@ -32,15 +32,15 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
 
-                <div class="input-container" style="margin-left:730px;">
+                <div class="input-container" style="margin-left:880px;">
                     <input class="input-field" type="text" placeholder="Search for rooms" name="search" id="searcher"
                         onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
 
-                <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
-                    style="margin-left:1rem;background-color:red;">Download pdf</button>
+                <!-- <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
+                    style="margin-left:1rem;background-color:red;">Download pdf</button> -->
 
                 <!-- <span style="margin-left: 8px;">
                     <a href="addCashPayment.php"><i

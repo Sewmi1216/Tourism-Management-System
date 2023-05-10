@@ -248,7 +248,7 @@ foreach ($results as $result) {
                     <div class="imgcontainer" style="background-color:#004581;">
                         <button type="button" onclick="document.getElementById('id05').style.display='none'"
                             class="cancelbtn close">&times;</button>
-                        <label for="room" style="color:white"><b>Remove Entrepreneur</b></label>
+                        <label for="room" style="color:white"><b>Remove Hotel request</b></label>
                     </div>
 
                     <div class="container">

@@ -36,7 +36,7 @@ if (isset($_SESSION['cart'][$id])) {
     }
 }
 echo "<script>alert('Product has been added to the cart')</script>";
-echo "<script type='text/javascript'> document.location ='../view-tourist/carts.php'; </script>";
+echo "<script type='text/javascript'> document.location ='../view-tourist/cart.php'; </script>";
 //     echo "<pre>";
 // print_r($query_p);
 // echo "</pre>";

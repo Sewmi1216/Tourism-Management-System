@@ -43,7 +43,7 @@ body {
 .buttons {
   position: relative;
   padding-top: 30px;
-  margin-right: 60px;
+  margin-right: 900px;
 }
 .delete-btn{
   display: inline-block;
@@ -129,10 +129,40 @@ input:focus {
 .total-price {
   width: 83px;
   padding-top: 10px;
-  text-align: center;
   font-size: 16px;
   color: #43484D;
   font-weight: 300;
+}
+.shopping-cart .subtotal {
+	text-align: right;
+	padding: 40px 0;
+}
+.shopping-cart .subtotal .text {
+	padding-right: 35px;
+	font-size: 18px;
+}
+.shopping-cart .subtotal .price {
+  padding-right: 100px;
+	font-size: 18px;
+	color: #004581;
+}
+.shopping-cart .buttons {
+	text-align: right;
+	padding-bottom: 40px;
+}
+.shopping-cart .buttons input[type="submit"] {
+	margin-left: 5px;
+	padding: 12px 20px;
+	border: 0;
+	background:#004581;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.shopping-cart .buttons input[type="submit"]:hover {
+	background: #02006b;
 }
 @media (max-width: 800px) {
   .shopping-cart {

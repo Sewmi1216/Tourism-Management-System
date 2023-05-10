@@ -90,6 +90,21 @@ class tourpackageController extends db_connection
 
     }
 
+    
+    public function deletePkg_permenent($id)
+    {
+        
+        $pkg = new tourpackage();
+        
+
+        $result = $pkg->deletePkg_permenent($id);
+        
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
+
     public function viewdeletedtourPkg()
     {
         $pkg = new tourpackage();
