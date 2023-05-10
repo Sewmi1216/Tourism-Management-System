@@ -228,50 +228,10 @@ class touristController extends db_connection
         </script>
         <?php
 }
-
-// public function insertCraftOrder($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
-//     {
-//         $order = new tourist();
-//         $res = $order->insertCraftOrder($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
-
-//         require "../libs/PHPMailer/PHPMailerAutoload.php";
-//         $mail = new PHPMailer;
-
-//         $mail->isSMTP();
-//         $mail->Host = 'smtp.gmail.com';
-//         $mail->Port = 587;
-//         $mail->SMTPAuth = true;
-//         $mail->SMTPSecure = 'tls';
-
-//         $mail->Username = 'sewmi.rotaract3220@gmail.com';
-//         $mail->Password = 'uaqgejykofzquoaf';
-
-//         $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
-
-//         $mail->addAddress($email);
-
-//         // HTML body
-//         $mail->isHTML(true);
-//         $mail->Subject = "Your have placed a tour booking";
-//         $mail->Body = "<b>Dear User</b>
-//                     <h3>Your have placed a tour booking</h3>";
-
-//         if (!$mail->send()) {?>
-//         <script>
-//         alert("<?php echo "Error sending email to " . $email ?>");
-//         </script>
-//         <?php
-// }
-
     }
 
 
-     public function insertCraftOrder($touristID,$productId, $qty, $name, $phone,$address)
-    {
-        $reservation = new tourist();
-        return $reservation->insertCraftOrder($touristID,$productId, $qty, $name, $phone,$address);
-        // return $res;
-    }
+   
        public function insertOrderPayment($total)
     {
         $pay = new tourist();
