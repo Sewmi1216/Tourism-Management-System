@@ -45,11 +45,12 @@ class touristController extends db_connection
     }
 
 
-    public function userSignup($inputs)
-    {
-        $tourist = new tourist();
-        // $mailcheck = $tourist->checkmail($inputs);
-=======
+    // public function userSignup($inputs)
+    // {
+    //     $tourist = new tourist();
+    //     // $mailcheck = $tourist->checkmail($inputs);
+
+    // }
     public function checkmail($email)
     {
         $user = new hotel();
