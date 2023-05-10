@@ -63,7 +63,7 @@ if ($craftOrder) {
 // if ($charge) {
 //    $payment = new touristController();
 // $order->insertOrderPayment($total);
-// unset($_SESSION['cart']);
+unset($_SESSION['cart']);
 
 // if ($order) {
 //     echo "
