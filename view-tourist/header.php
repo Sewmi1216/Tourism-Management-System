@@ -7,13 +7,14 @@
          <?php
 require_once "../controller/touristController.php";
 $profile = new touristController();
-$results = $profile->viewProfile($id);
+$results = $profile->viewTouristProfile($id);
 foreach ($results as $result) {
     ?>
          <a href="profile.php" style="margin-top:-8px;">
              <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='#' height='40px' width='40px'
                     style='padding-right:0px;border-radius:50%;'>"; ?></a>
          <?php }?>
+          <a href="cart.php" style="margin-left:0px;"><i class="fa-solid fa-cart-shopping"></i></a>
          <a href="chat.php" style="margin-left:0px;"><i class="fa-solid fa-message fa-lg"
                 style="font-size:18px;color:white;"></i></a>
 

@@ -10,8 +10,6 @@ if (isset($_GET['u']) && isset($_GET['e'])) {
     $user = $_GET['u'];
     $mail = $_GET['e'];
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +45,7 @@ $results = $hotel->viewAdmin();
 foreach ($results as $result) {
     ?>
                 <div class="finder">
-                    <a href="chat.php?u=<?php echo $result['email'] ?>">
+                    <a href="chat.php?u=<?php echo $result['name'] ?>&e=<?php echo $result['email'] ?>">
                         <div class="content">
                             <?php echo "<img src='../images/" . $result['profileImg'] . "' style=
                     'border-radius: 50%;width:50px;height: 50px;background-size: 100%;

@@ -34,24 +34,32 @@ class hotel extends db_connection
 
     public function insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
     {
-        //  $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES ('$hotelName', '$address', '$email', '$phone', '$fileImg', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc')";
-        //$query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) SELECT '$hotelName', '$address', '$email', '$phone', '$fileImg', '$password', '$mName', '$mPhone', '$mEmail', '$mNic', 0, '$fileDoc' WHERE NOT EXISTS (SELECT hotelID FROM hotel WHERE email = '$email')";
+        $status = 0; // Set status as 0
 
-        // $stmt = mysqli_query($this->conn, $query);
-        // $stmt = $this->conn->prepare($query);
-        // $stmt->execute();
-        //  return $stmt;
-
-        $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, document) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("sssssssssss", $hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+        $stmt->bind_param("ssssssssssis", $hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $status, $fileDoc);
         $stmt->execute();
         return $stmt;
-
     }
     public function checkEmail($email)
     {
-        $query = "select hotelID from hotel where email='$email'";
+        $query = "SELECT h.hotelID, NULL AS tourguideID, NULL AS entID, NULL AS userID
+                FROM hotel h
+                WHERE h.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, g.tourguideID, NULL AS entID, NULL AS userID
+                FROM tourguide g
+                WHERE g.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, NULL AS tourguideID, e.entID, NULL AS userID
+                FROM entrepreneur e
+                WHERE e.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, NULL AS tourguideID, NULL AS entID, t.userID
+                FROM tourist t
+                WHERE t.email = '$email'";
+        // $query = "select hotelID from hotel where email='$email'";
         $stmt = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_array($stmt);
         return $row;
@@ -64,7 +72,7 @@ class hotel extends db_connection
     //     return $result;
     // }
 
-     private function getData($query)
+    private function getData($query)
     {
         $result = mysqli_query($this->conn, $query);
         if (!$result) {
@@ -82,7 +90,7 @@ class hotel extends db_connection
     //     $query = "SELECT * from tourist";
     //     return $this->getData($query);
     // }
-     public function viewAllHotels()
+    public function viewAllHotels()
     {
         $sql = "SELECT userID, name, email from tourist union select adminID, email, password from admin";
         return $this->getData($sql);
@@ -93,7 +101,6 @@ class hotel extends db_connection
     //     return $this->getData($sql);
     // }
 
-   
     public function checkAllEmails($email)
     {
         $query = "SELECT COUNT(*) AS COUNT
@@ -117,9 +124,9 @@ class hotel extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
-    public function updateprofile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
+    public function updateprofile($id, $name, $address, $email, $phone, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
-        $query = "update hotel set name='$name', address='$address', email='$email', phone='$phone',username='$username', password='$password',managerName='$managerName', managerPhone='$managerPhone', managerEmail='$managerEmail', managerNic='$managerNic' where hotelID='$id'";
+        $query = "update hotel set name='$name', address='$address', email='$email', phone='$phone', password='$password',managerName='$managerName', managerPhone='$managerPhone', managerEmail='$managerEmail', managerNic='$managerNic' where hotelID='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -148,38 +155,38 @@ class hotel extends db_connection
         return $stmt;
     }
 
-    public function countReservations()
+    public function countReservations($id)
     {
-        $query1 = "SELECT COUNT(*) as num_reservations FROM guest_reservation WHERE DATE(bookingDateTime) = CURDATE();";
+        $query1 = "SELECT COUNT(*) as num_reservations FROM guest_reservation WHERE DATE(bookingDateTime) = CURDATE() and hotelID='$id';";
         $query2 = "SELECT count(*) FROM admin_reservation where DATE(bookingDateTime ) = CURRENT_DATE()";
 
         return $this->getData($query1);
 
     }
-    public function canceledReservations()
+    public function canceledReservations($id)
     {
-        $query1 = "SELECT COUNT(*) as num_reservations FROM guest_reservation WHERE status ='Cancelled' and DATE(bookingDateTime) = CURDATE();";
+        $query1 = "SELECT COUNT(*) as num_reservations FROM guest_reservation WHERE status ='Cancelled' and DATE(bookingDateTime) = CURDATE() and hotelID='$id';";
         return $this->getData($query1);
 
     }
-      public function countRoomTypeReservations()
+    public function countRoomTypeReservations($id)
     {
-        $query1 = "SELECT rt.typeName as room_type, COUNT(*) as num_reservations FROM guest_reservation gr INNER JOIN room r ON gr.roomID = r.roomNo INNER JOIN roomtype rt ON r.typeID = rt.roomTypeId GROUP BY rt.typeName;";
+        $query1 = "SELECT rt.typeName as room_type, COUNT(*) as num_reservations FROM guest_reservation gr INNER JOIN room r ON gr.roomID = r.roomNo INNER JOIN roomtype rt ON r.typeID = rt.roomTypeId where gr.hotelId='$id' GROUP BY rt.typeName;";
         return $this->getData($query1);
     }
-    public function revenue()
+    public function revenue($id)
     {
-        $query1 = "SELECT YEAR(paymentDateTime) AS year, MONTHNAME(paymentDateTime) AS month, SUM(amount) AS revenue FROM hotel_payment GROUP BY YEAR(paymentDateTime), MONTH(paymentDateTime);";
+        $query1 = "SELECT YEAR(paymentDateTime) AS year, MONTHNAME(paymentDateTime) AS month, SUM(amount) AS revenue FROM hotel_payment where hotelId='$id' GROUP BY YEAR(paymentDateTime), MONTH(paymentDateTime);";
         return $this->getData($query1);
     }
-    public function todayRevenue()
+    public function todayRevenue($id)
     {
         $query1 = "SELECT SUM(amount) as today_revenue FROM hotel_payment WHERE DATE(paymentDateTime) = CURDATE() AND paymentStatus = 'Completed';";
         return $this->getData($query1);
     }
-     public function pendingPayments()
+    public function pendingPayments($id)
     {
-        $query1 = "SELECT COUNT(*) as pending_payments FROM hotel_payment WHERE DATE(paymentDateTime) = CURDATE() AND paymentStatus = 'Pending';";
+        $query1 = "SELECT COUNT(*) as pending_payments FROM hotel_payment WHERE DATE(paymentDateTime) = CURDATE() AND paymentStatus = 'Pending' and hotelID='$id';";
         return $this->getData($query1);
     }
 

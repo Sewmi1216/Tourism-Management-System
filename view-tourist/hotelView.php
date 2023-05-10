@@ -157,7 +157,7 @@ foreach ($results as $result) {
                 </table>
 
                 <button type="submit" class="btns" style="margin-left: 1rem;margin-top:20px;"
-                    name="search">Search</button>
+                    name="search">Check Availability</button>
             </div>
 
 

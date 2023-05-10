@@ -2,6 +2,7 @@
 include '../controller/touristController.php';
 
 if (isset($_POST['signup'])) {
+
     $name = $_POST['name'];
     $mno = $_POST['mno'];
     $email = $_POST['email'];
@@ -31,7 +32,5 @@ if (isset($_POST['signup'])) {
     move_uploaded_file($ptempname, $pfolder);
     
     
-
-
 }
 ?>

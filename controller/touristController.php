@@ -44,10 +44,24 @@ class touristController extends db_connection
 
     }
 
+
     public function userSignup($inputs)
     {
         $tourist = new tourist();
         // $mailcheck = $tourist->checkmail($inputs);
+=======
+    public function checkmail($email)
+    {
+        $user = new hotel();
+        $rlt = $user->checkmail($email);
+        return $rlt;
+
+    }
+    public function userSignup($inputs)
+    {
+        $tourist = new tourist();
+        $mailcheck = $tourist->checkmail($inputs[2]);
+
 
         if ($mailcheck > 0) {
             $_SESSION['error'] = "Email is already registered";
@@ -64,6 +78,7 @@ class touristController extends db_connection
         }
 
     }
+
 
     // public function userSignup($inputs)
     // {
@@ -170,38 +185,38 @@ class touristController extends db_connection
         //}
 
     }
-
+  
     public function insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
         $res = $reservation->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
-        
-            require "../libs/PHPMailer/PHPMailerAutoload.php";
-            $mail = new PHPMailer;
 
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->Port = 587;
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'tls';
+        require "../libs/PHPMailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
 
-            // h-hotel account
-            $mail->Username = 'sewmi.rotaract3220@gmail.com';
-            $mail->Password = 'uaqgejykofzquoaf';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
 
-            // send by h-hotel email
-            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Reservation');
-            // get email from input
-            $mail->addAddress($email);
-            //$mail->addReplyTo('lamkaizhe16@gmail.com');
+        // h-hotel account
+        $mail->Username = 'sewmi.rotaract3220@gmail.com';
+        $mail->Password = 'uaqgejykofzquoaf';
 
-            // HTML body
-            $mail->isHTML(true);
-            $mail->Subject = "Your have placed a reservation";
-            $mail->Body = "<b>Dear User</b>
+        // send by h-hotel email
+        $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Reservation');
+        // get email from input
+        $mail->addAddress($email);
+        //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject = "Your have placed a reservation";
+        $mail->Body = "<b>Dear User</b>
                     <h3>Your have placed a reservation</h3>";
 
-            if (!$mail->send()) {?>
+        if (!$mail->send()) {?>
         <script>
         alert("<?php echo "Error sending email to " . $email ?>");
         </script>
@@ -213,55 +228,105 @@ class touristController extends db_connection
     {
         $booking = new tourist();
         $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
-        
-            require "../libs/PHPMailer/PHPMailerAutoload.php";
-            $mail = new PHPMailer;
 
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->Port = 587;
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'tls';
+        require "../libs/PHPMailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
 
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
 
-            $mail->Username = 'sewmi.rotaract3220@gmail.com';
-            $mail->Password = 'uaqgejykofzquoaf';
+        $mail->Username = 'sewmi.rotaract3220@gmail.com';
+        $mail->Password = 'uaqgejykofzquoaf';
 
+        $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
 
-            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
+        $mail->addAddress($email);
 
-            $mail->addAddress($email);
-
-
-            // HTML body
-            $mail->isHTML(true);
-            $mail->Subject = "Your have placed a tour booking";
-            $mail->Body = "<b>Dear User</b>
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject = "Your have placed a tour booking";
+        $mail->Body = "<b>Dear User</b>
                     <h3>Your have placed a tour booking</h3>";
 
-            if (!$mail->send()) {?>
+        if (!$mail->send()) {?>
         <script>
         alert("<?php echo "Error sending email to " . $email ?>");
         </script>
         <?php
 }
 
+// public function insertCraftOrder($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+//     {
+//         $order = new tourist();
+//         $res = $order->insertCraftOrder($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
+
+//         require "../libs/PHPMailer/PHPMailerAutoload.php";
+//         $mail = new PHPMailer;
+
+//         $mail->isSMTP();
+//         $mail->Host = 'smtp.gmail.com';
+//         $mail->Port = 587;
+//         $mail->SMTPAuth = true;
+//         $mail->SMTPSecure = 'tls';
+
+//         $mail->Username = 'sewmi.rotaract3220@gmail.com';
+//         $mail->Password = 'uaqgejykofzquoaf';
+
+//         $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Tour Booking');
+
+//         $mail->addAddress($email);
+
+//         // HTML body
+//         $mail->isHTML(true);
+//         $mail->Subject = "Your have placed a tour booking";
+//         $mail->Body = "<b>Dear User</b>
+//                     <h3>Your have placed a tour booking</h3>";
+
+//         if (!$mail->send()) {?>
+//         <script>
+//         alert("<?php echo "Error sending email to " . $email ?>");
+//         </script>
+//         <?php
+// }
+
     }
-    public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
+
+
+     public function insertCraftOrder($touristID,$productId, $qty, $name, $phone,$address)
+    {
+        $reservation = new tourist();
+        return $reservation->insertCraftOrder($touristID,$productId, $qty, $name, $phone,$address);
+        // return $res;
+    }
+       public function insertOrderPayment($total)
+    {
+        $pay = new tourist();
+        return $pay->insertOrderPayment($total);
+        // return $res;
+    }
+     public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
     {
         $reservation = new tourist();
         $res = $reservation->insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
         // return $res;
-
     }
     public function viewProfile($id)
     {
-        print_r($id);
-        die();
-        
+        // print_r($id);
+        // die();
+
         $profile = new tourist();
         $rs = $profile->viewProfile($id);
         return $rs;
+
+    }
+    public function viewTouristProfile($id)
+    {
+        $profile = new tourist();
+        return $profile->viewTouristProfile($id);
 
     }
     public function viewReservation($id)
@@ -271,13 +336,13 @@ class touristController extends db_connection
         return $rs;
 
     }
-      public function viewAllTourPackages()
+    public function viewAllTourPackages()
     {
         $hotel = new tourist();
         $result = $hotel->viewAllTourPackages();
         return $result;
     }
-     public function viewTourPkg($pid)
+    public function viewTourPkg($pid)
     {
         $tourpkg = new tourist();
         $result = $tourpkg->viewTourPkg($pid);
@@ -287,6 +352,19 @@ class touristController extends db_connection
     {
         $tour = new tourist();
         $result = $tour->viewAllTourImgs($id);
+        return $result;
+    }
+
+    public function viewProduct($id)
+    {
+        $tour = new tourist();
+        $result = $tour->viewProduct($id);
+        return $result;
+    }
+    public function viewCartItems($id)
+    {
+        $tour = new tourist();
+        $result = $tour->viewCartItems($id);
         return $result;
     }
 }

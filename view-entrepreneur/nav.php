@@ -12,6 +12,13 @@
               <span class="tooltip">Dashboard</span>
           </li>
           <li>
+              <a href="productCategory.php">
+              <i class="fa-solid fa-list"></i>
+                  <span class="links_name">Product Categories</span>
+              </a>
+              <span class="tooltip">Product Categories</span>
+          </li>
+          <li>
               <a href="product.php">
                   <i class="fa-solid fa-star"></i>
                   <span class="links_name">Craft Products</span>

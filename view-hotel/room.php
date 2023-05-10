@@ -53,7 +53,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                     <th class="tblh">Room No</th>
                     <th class="tblh">Room Type</th>
                     <th class="tblh">No.of Persons</th>
-                    <th class="tblh">Status</th>
+                    <!-- <th class="tblh">Status</th> -->
                     <th class="tblh">Price</th>
                     <th class="tblh">View</th>
                     <th class="tblh">Edit</th>
@@ -76,9 +76,9 @@ foreach ($results as $result) {
                     <td class="tbld">
                         <?php echo $result["noOfPersons"] ?>
                     </td>
-                    <td class="tbld">
+                    <!-- <td class="tbld">
                         <?php echo $result["roomStatus"] ?>
-                    </td>
+                    </td> -->
                     <td class="tbld">
                         <?php echo $result["price"] ?>
                     </td>

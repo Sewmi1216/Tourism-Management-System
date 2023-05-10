@@ -27,7 +27,7 @@ if (isset($_POST['signup'])) {
 
     // $id = rand(time(), 100000000);
     $hotelconnection = new hotelController();
-    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $password, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
+    $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $hpassword, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
    
     move_uploaded_file($ptempname, $pfolder);
     move_uploaded_file($dtempname, $pfolder);
@@ -59,14 +59,20 @@ if (isset($_GET['update'])) {
     $address = $_GET['address'];
     $email = $_GET['email'];
     $phone = $_GET['phone'];
-    $username = $_GET['username'];
+    // $username = $_GET['username'];
     $password = $_GET['password'];
+    $hpassword = md5($password);
     $managerName = $_GET['managerName'];
     $managerPhone = $_GET['managerPhone'];
     $managerEmail = $_GET['managerEmail'];
     $managerNic = $_GET['managerNic'];
 
     $profile = new hotelController();
-    $profile->updateProfile($id, $name, $address, $email, $phone, $username, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
+    $profile->updateProfile($id, $name, $address, $email, $phone, $hpassword, $managerName, $managerPhone, $managerEmail, $managerNic);
+    if($profile){
+         echo "<script>alert('Profile updated successfully');
+         window.location.href = '../view-hotel/profile.php';</script>";
+         
 
+    }
 }
