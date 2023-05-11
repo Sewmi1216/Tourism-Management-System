@@ -80,7 +80,7 @@
                             <?php } else {?>
                             <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
                             <?php }?> -->
-                                <select class="subfield" name="bookingStatus">
+                                <select class="subfield" name="Status">
                                     <option value="Pending"
                                         <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
                                         Pending</option>
@@ -117,7 +117,7 @@
             },
             success: function(response) {
                 console.log(response);
-                alert('Status update is successful');
+             alert('Status update is successful');
             },
             error: function(xhr, status, error) {
                 console.log(xhr.responseText);
