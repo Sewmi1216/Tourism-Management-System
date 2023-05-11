@@ -106,6 +106,24 @@ class tourbooking extends db_connection
         return $stmt;
     }
 
-   
+    public function viewtourbookingPayments($id)
+    {
+        $query = "SELECT * FROM tourbooking_payment a, tourbooking b WHERE a.tourBookingId = b.bookingID AND b.bookingID = $id";
+
+        return $this->getData($query);
+    }
+
+    public function updateStatus($bookingid, $newStatus)
+    {
+        $query = "UPDATE tourbooking SET status='$newStatus' WHERE bookingID='$bookingid'";
+        $stmt = mysqli_query($this->conn, $query);
+        if ($stmt) {
+            return $stmt;
+
+           
+        } else {
+            die('Error in query1: ' . mysqli_error($this->conn));
+        }
+    }
 
 }

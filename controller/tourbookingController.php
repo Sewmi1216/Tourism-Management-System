@@ -107,4 +107,23 @@ class tourbookingcontroller extends db_connection
         $_SESSION['c'] = $results;
         return $results;
     }
+
+    public function viewtourbookingPayments($id)
+    {
+        $res = new tourbooking();
+        $result3 = $res->viewtourbookingPayments($id);
+
+        return $result3;
+    }
+
+    public function updateStatus($bookingid, $newStatus)
+    {
+        $user = new tourbooking();
+
+        $result = $user->updateStatus($bookingid, $newStatus);
+        if($result)
+        {
+            echo "<script>alert('status update is sucessful'); </script>";
+        }
+    }
 }

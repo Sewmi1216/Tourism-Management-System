@@ -35,28 +35,35 @@
                     <th class="tblh">Payment ID</th>
                     <th class="tblh">Date</th>
                     <th class="tblh">Booking ID</th>
+                    <th class="tblh">Tour package ID</th>
                     <th class="tblh">Guest Name</th>
                     <th class="tblh">Guest Phone number</th>
                    
                     <th class="tblh">Total amount</th>
                     <th class="tblh">Status</th>
                 </tr>
-
+                <?php
+require_once "../controller/tourbookingController.php";
+$pay = new tourbookingController();
+$results = $pay->viewtourbookingPayments($id);
+foreach ($results as $result) {
+    
+    ?><tbody>
                 <tbody>
                     <tr class="subtext tblrw">
 
-                        <td class="tbld"> 0054</td>
-                        <td class="tbld"> 13.02.2023</td>
-                        <td class="tbld"> 005</td>
-                        <td class="tbld"> Jasi</td>
-                        <td class="tbld"> 0763572139</td>
-                      
-                        <td class="tbld"> 1200000</td>
+                        <td class="tbld"> <?php echo $result["paymentID"] ?></td>
+                        <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                        <td class="tbld"><?php echo $result["reservationID"] ?></td>
+                        <td class="tbld"><?php echo $result[""] ?></td>
+                        <td class="tbld"> <?php echo $result["guestName"] ?></td>
+                        <td class="tbld"><?php echo $result["guestPhone"] ?></td>
+                        <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
                         <td class="tbld">
                                Completed
                             </td>
 
-
+<?php } ?>
                        
 
 

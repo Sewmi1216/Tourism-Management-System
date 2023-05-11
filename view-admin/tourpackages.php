@@ -7,6 +7,10 @@ $rows = $_SESSION['c'];
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
@@ -29,10 +33,10 @@ $rows = $_SESSION['c'];
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> Tour packages </div>
-                <div class="input-container">
+                <!-- <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for Tour packages" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
-                </div>
+                </div> -->
                 
                 <span style="margin-left: 8px;">
                     <a href="addpackage2.php"><i
@@ -141,7 +145,26 @@ modal.style.display = "block";
         </div>
 
        
-
+        <!-- <script>
+function searchTypes() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script> -->
 
 
     </section>
