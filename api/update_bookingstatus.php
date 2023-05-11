@@ -1,10 +1,10 @@
 <?php 
 include '../controller/tourbookingController.php';
 
-$bookingid = $_POST['bookingid'];
+$bookingId = $_POST['bookingid'];
 $newStatus = $_POST['newstatus'];
 
 $update = new tourbookingController();
-$update->updateStatus($bookingid, $newStatus);
+$update->updateStatus($bookingId, $newStatus);
 
 ?>

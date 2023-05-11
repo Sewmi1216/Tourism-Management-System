@@ -116,11 +116,11 @@ class tourbookingcontroller extends db_connection
         return $result3;
     }
 
-    public function updateStatus($bookingid, $newStatus)
+    public function updateStatus($bookingId, $newStatus)
     {
         $user = new tourbooking();
 
-        $result = $user->updateStatus($bookingid, $newStatus);
+        $result = $user->updateStatus($bookingId, $newStatus);
         if($result)
         {
             echo "<script>alert('status update is sucessful'); </script>";
