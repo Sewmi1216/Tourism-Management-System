@@ -14,9 +14,10 @@ if (isset($_SESSION["locked"])) {
 if (isset($_POST['signIn'])) {
     // session_start();
     $email = $_POST['email'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password'];
+    $hpassword =md5($password);
     $hotelcon = new hotelController();
-    $hotelcon->userLogin($email, $password);
+    $hotelcon->userLogin($email, $hpassword);
 }
 ?>
 
