@@ -1,5 +1,5 @@
 <?php
-include '../controller/hotelController.php';
+include '../controller/userController.php';
 session_start();
 //if(isset($_SESSION["attempts"])){
 if (isset($_SESSION["locked"])) {
@@ -15,9 +15,9 @@ if (isset($_POST['signIn'])) {
     // session_start();
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $hpassword =md5($password);
-    $hotelcon = new hotelController();
-    $hotelcon->userLogin($email, $hpassword);
+    $password =md5($password);
+    $hotelcon = new userController();
+    $hotelcon->userLogin($email, $password);
 }
 ?>
 

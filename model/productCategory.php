@@ -87,7 +87,8 @@ class productCategory extends db_connection
     public function deleteCategory($id)
     {
         $query = "delete from product_category where product_categoryId='$id'";
-        $foreign_key_query = "SELECT * FROM `ent` WHERE entID='$id'";
+        $foreign_key_query = "SELECT * FROM `product` WHERE categoryId='$id'";
+
 
         $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
 
@@ -99,6 +100,7 @@ class productCategory extends db_connection
             echo "<script> window.location.href = '../view-entrepreneur/productCategory.php'; </script>";
         }
     }
+  
    
 
 }
