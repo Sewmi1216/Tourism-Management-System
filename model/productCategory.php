@@ -35,7 +35,7 @@ class productCategory extends db_connection
         return $stmt;
     }
    
-    public function viewCategpry($cId)
+    public function viewCategory($cId)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from product_category where product_categoryId = '$cId'";
@@ -47,7 +47,7 @@ class productCategory extends db_connection
     public function viewAllCategories($id)
     {
 
-        $query = "Select * from product_category p, entrepreneur e where p.entID=e.entID and e.entID='$id'";
+        $query = "Select * from product_category c, entrepreneur e where c.entID=e.entID and e.entID='$id'";
         return $this->getData($query,$this->conn);
     }
 

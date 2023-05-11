@@ -50,24 +50,15 @@ class productCategoryController extends db_connection
       
 
     }
-    public function viewCategory($pId)
+    public function viewCategory($cId)
     {
         $productctg = new productCategory();
 
-        $results = $productctg->viewCategory($pId);
+        $results = $productctg->viewCategory($cId);
         return $results;
 
     }
-    //  public function search($input)
-    // {
-    //     $hpkg = new hotelPkg();
-
-    //     $results = $hpkg->searchPkg($input);
-
-    //     // include "../view/room.php";
-    //     return $results;
-
-    // }
+   
 
     public function updateCategory($id, $ctgName, $desc)
     {

@@ -97,13 +97,13 @@ foreach ($results as $result) {
         </div>
         </div>
 
-        <!-- add room type -->
+        <!-- add product category-->
         <?php require_once 'addProductCategory.php';?>
 
-        <!-- update room type -->
+        <!-- update product category -->
         <?php require_once 'updateProductCategory.php';?>
 
-        <!-- delete room type -->
+        <!-- delete product category -->
         <?php require_once 'deleteProductCategory.php';?>
 
     </section>

@@ -95,8 +95,7 @@ $rows = $_SESSION['c'];
                 <br>  
                 '; ?>
 
-                <a onclick="openaModal('<?php echo $row['entID'] ?>')" class="button"> Approve Registration</a>
-                <a onclick="opendModal('<?php echo $row['entID'] ?>')" class="button"> Decline</a>
+               
                 
             </div>
             </div>

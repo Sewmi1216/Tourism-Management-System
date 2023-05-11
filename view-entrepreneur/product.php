@@ -151,7 +151,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     </div>
 
        
-        <!-- delete pkg -->
+        <!-- delete product -->
         <div id="id04" class="modal">
 
 
@@ -225,7 +225,6 @@ function searchTypes() {
                 $("#productid").val(type.productID);
                 $("#productname").val(type.productName);
                 $("#category").val(type.category);
-                // $("#status").val(type.typestatus);
                 $("#quantity").val(type.quantity);
                 $("#price").val(type.price);
                 $("#img").attr("src", "../images/" + type.productImg);

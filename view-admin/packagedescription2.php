@@ -1,6 +1,7 @@
 <?php 
 require('../api/viewonetourpackage.php');
 $rows = $_SESSION['c'];
+$results = $_SESSION['c']
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +42,18 @@ $rows = $_SESSION['c'];
     
 
         <div class="slideshow-container">
-  <div class="slide"><img src="../images/koneshwaram.jpg" alt="k"></div>
-  <div class="slide"><img src="../images/marblebeach.jpg" alt="k"></div>
-  <div class="slide"><img src="../images/deer.jpeg" alt="k"></div>
+
+        <?php
+require_once "../controller/tourpackagecontroller.php";
+$tp = new tourpackageController();
+$results = $tp->viewAllImgs($_GET['package_id']);
+foreach ($results as $result) {
+    ?>
+<div class="slide">
+                <?php echo "<img src='../images/" . $result['image'] . "' class='tourimg'>";?>
+            </div>
+            <?php }?>
+
   <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
   <a class="next" onclick="changeSlide(1)">&#10095;</a>
 </div>

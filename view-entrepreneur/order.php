@@ -94,7 +94,7 @@ foreach ($results as $result) {
                 </div>
                 <table>
                 <tr class="row">
-                    <input type="hidden" class="subfield" name="id" id="orderid" value="<?php echo $result["orderID"] ?>" ?>
+                    <input type="hidden" class="subfield" name="id" id="productid" value="<?php echo $result["orderID"] ?>" ?>
                 </tr>
             <tr class="row">
                 <td>
@@ -108,7 +108,7 @@ foreach ($results as $result) {
                 <td>
                     <div class="content">Category:</div>
                 </td>
-                <td> <input type="text" class="subfield" id="pcategory"  name="pCategory" value="<?php echo $result["category"] ?>"/></td>
+                <td> <input type="text" class="subfield" id="category"  name="pCategory" value="<?php echo $result["category"] ?>"/></td>
             </tr>
             <tr class="row">
                 <td>
@@ -159,7 +159,6 @@ foreach ($results as $result) {
                 $("#productid").val(type.productID);
                 $("#productname").val(type.productName);
                 $("#category").val(type.category);
-                // $("#status").val(type.typestatus);
                 $("#quantity").val(type.quantity);
                 $("#price").val(type.price);
                 
