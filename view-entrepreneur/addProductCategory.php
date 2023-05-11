@@ -14,14 +14,14 @@
                      <td>
                          <div class="content">Product Category Name</div>
                      </td>
-                     <td> <input type="text" class="subfield" name="pName" /></td>
+                     <td> <input type="text" class="subfield" name="cName" value=""/></td>
                  </tr>
                  <tr class="row">
                      <td>
                          <div class="content">Description</div>
                      </td>
                      <td>
-                         <textarea class="subtextfield" name="desc" style="background-color:#dde8f0;color:black;width:500px;height:150px;" ></textarea>
+                     <input type="text" class="subfield" name="desc" value=""/></td> 
                      </td>
                  </tr>
                  
