@@ -65,10 +65,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                     <div class="content">Price</div>
                 </td>
                 <td><input type="text" class="subfield" name="price" /></td>
-                 <!-- <td> <select class="subfield" name="status" form="carform">
-                                    <option value="Available">Available</option>
-                                    <option value="Unavailable">Unavailable</option>
-                                </select></td>  -->
+                
             </tr>
             <tr class="row">
                 <td>

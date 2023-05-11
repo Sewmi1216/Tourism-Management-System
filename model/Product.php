@@ -123,12 +123,12 @@ class product extends db_connection
     }
     public function countOrders($id)
     {
-        $query1 = "SELECT COUNT(orderID) as count FROM craftorder o, product p WHERE DATE(o.orderDateTime) = CURDATE() and o.productID= p.productID and p.entID='$id'";
+        $query1 = "SELECT COUNT(o.orderID) as count FROM craftorder o, product p, craftorder_items s WHERE DATE(o.orderDateTime) = CURDATE() and s.productID= p.productID and o.orderID=s.orderId and p.entID='$id'";
         return $this->getData($query1);
     }
     public function cancelledOrders($id)
     {
-        $query1 = "SELECT COUNT(orderID) as cancelled FROM craftorder o, product p WHERE DATE(orderDateTime) = CURDATE() and status='Cancelled' and o.productID= p.productID and p.entID='$id'";
+        $query1 = "SELECT COUNT(o.orderID) as cancelled FROM craftorder o, product p, craftorder_items s WHERE DATE(orderDateTime) = CURDATE() and status='Cancelled' and s.productID= p.productID and o.orderID=s.orderId and p.entID='$id'";
         return $this->getData($query1);
     }
     public function countProductOrders()

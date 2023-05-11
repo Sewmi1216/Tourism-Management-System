@@ -90,10 +90,10 @@ if (isset($_POST["get_data"])) {
     $result = $category->viewCategory($id);
     $row = mysqli_fetch_object($result);
 
-    // Important to echo the record in JSON format
+    
     echo json_encode($row);
 
-    // Important to stop further executing the script on AJAX by following line
+   
     exit();
 }
 
