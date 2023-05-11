@@ -132,6 +132,14 @@ class tourpackageController extends db_connection
         $result = $type->viewAllImgs($getid);
         return $result;
     }
+
+    
+    public function viewAllpckgImgs($getid)
+    {
+        $type = new tourpackage();
+        $result = $type->viewAllImgs($getid);
+        return $result;
+    }
     
    
 

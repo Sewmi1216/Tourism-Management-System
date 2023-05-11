@@ -92,9 +92,7 @@ $rows = $_SESSION['c'];
 
                 </div> '; ?>
                 <br>  
-                <a href="editmanager.php" class="button">Approve Registration</a>
-                <a href="editmanager.php62l" class="button">Decline</a>
-
+                
             </div>
 
                 
