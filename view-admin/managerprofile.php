@@ -16,6 +16,7 @@ $rows = $_SESSION['c'];
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+ 
 </head>
 
 <body>
@@ -95,6 +96,40 @@ foreach ($results as $result) {
 
 
                 <?php } ?>
+
+                <div class="bg">
+            <div id="result" style="overflow-x:auto;">
+                <table id="myTable">
+                    <tr class="subtext tblrw">
+                        <!-- <th class="tblh">Image</th> -->
+                        <th class="tblh">Room Type</th>
+                        <th class="tblh">Desciption</th>
+                  
+                    </tr> <?php
+require_once "../controller/roomTypeController.php";
+$pkg = new roomTypeController();
+$results = $pkg->viewAllTypes($id);
+foreach ($results as $result) {
+    ?><tbody>
+                        <tr class="subtext tblrw">
+                            <!-- <td class="tbld">
+                                <?php echo "<img src='../images/" . $result['img'] . "' style=
+                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
+                    background-repeat: no-repeat;'>"; ?>
+                            </td> -->
+                            <td class="tbld"><?php echo $result["typeName"] ?></td>
+                            <td class="tbld"><?php echo $result["description"] ?></td>
+
+                        
+
+                            <?php } ?>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
             </div>
     </section>
 </body>

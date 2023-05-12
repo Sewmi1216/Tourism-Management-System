@@ -8,9 +8,7 @@
 
 body {
   margin: 0;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-style: "helvetica neue", helvetica, tahoma, sans-serif;
   background-color: #dde8f0;
   color: #000000;
 }
