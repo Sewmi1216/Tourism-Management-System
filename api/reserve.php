@@ -1,12 +1,7 @@
 <?php
 include '../controller/touristController.php';
-include '../controller/hotelController.php';
+include '../controller/reservationController.php';
 
-// $reservationid = $_POST['reservationid'];
-// $newStatus = $_POST['newstatus'];
-
-// $update = new hotelController();
-// $update->updateStatus($reservationid, $newStatus);
 
 if (isset($_POST['search'])) {
     $id = $_POST['hotel'];
@@ -18,48 +13,13 @@ if (isset($_POST['search'])) {
     $search = new touristController();
     $result = $search->availability($id, $checkin, $checkout, $person, $room);
 
-//     //echo $result;
-//      $row = mysqli_fetch_object($result);
-
-// // Important to echo the record in JSON format
-//     echo json_encode($row);
-//     //echo 'print';
-
-// // Important to stop further executing the script on AJAX by following line
-// exit();
-
 }
-// if (isset($_POST['reserve'])) {
-//     $touristID = $_POST['tid'];
-//     $hotelId = $_POST['hid'];
-//     $roomno = $_POST['roomno'];
 
-//     $total_amount =$_POST['totalamount'];
-//     $guestName = $_POST['guestName'];
-//     $guestPhone = $_POST['guestPhone'];
-//     $guestEmail = $_POST['guestEmail'];
-
-//     // $bookingDateTime='2023-03-13 23:12:11.000000';
-//     // $bookingDateTime=$_POST[]
-//     // $total_amount = 1500;
-//     $checkInDate = $_POST['checkInDate'];
-//     $checkOutDate = $_POST['checkOutDate'];
-//     $reserve = new touristController();
-//     $reserve->insertReservation($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
-//     if (!$reserve) {
-//         echo 'There was a error';
-//     } else {
-//         echo "
-//              <script>alert('Your reservation is placed.Can pay at the hotel');
-//         window.location.href = '../view-tourist/hotelView.php';
-//         </script>";
-//     }
-// }
 if (isset($_POST["get_data"])) {
     // Get the ID of customer user has selected
     $rid = $_POST["id"];
 
-    $type = new touristController();
+    $type = new reservationController();
     $result = $type->viewReservation($rid);
 
     $row = mysqli_fetch_object($result);

@@ -262,13 +262,7 @@ class touristController extends db_connection
         return $profile->viewTouristProfile($id);
 
     }
-    public function viewReservation($id)
-    {
-        $res = new tourist();
-        $rs = $res->viewReservation($id);
-        return $rs;
-
-    }
+    
     public function viewAllTourPackages()
     {
         $hotel = new tourist();

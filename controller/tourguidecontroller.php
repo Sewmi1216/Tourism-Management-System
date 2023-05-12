@@ -12,38 +12,7 @@ class tourguideController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function userLogin($username, $password)
-    {
-        $tourguideuser = new tourguide();
-        $res = $tourguideuser->validate($username);
-
-        if (mysqli_num_rows($res) > 0) {
-           
-
-            $result1 = mysqli_fetch_assoc($res);
-
-            if ($result1['password'] == $password) {
-                if ($result1['status'] == 1) {
-                    $_SESSION['username'] = $result1['username'];
-                    $_SESSION['tourguideID'] = $result1['tourguideID'];
-
-                    header("Location: ../view-tour_guide/Guide_Assign_tourists.php");
-                    exit();
-                } else {
-                    echo "<script type='text/javascript'>alert('Try again shortly');</script>";
-
-                }
-            } else {
-                // $_SESSION["error"] = "Password does not match";
-                $_SESSION["pwderror"] = "Password does not match";
-                $_SESSION["attempts"]+= 1;
-               
-
-            }
-        }
-        
-
-    }
+    
 
     public function addguide($name, $email,$phone,$nic, $fileImg, $username, $password, $availability,$language,$fileDoc,$vehicle,$type,$passenger)
     {
@@ -85,6 +54,31 @@ class tourguideController extends db_connection
 
     }
 
+
+     public function viewAvailability($id)
+    {
+        $tourguide = new tourguide();
+
+        return $tourguide->viewAvailability($id);
+    }
+     public function updateAvailability($from, $to, $id)
+    {
+        $tourguide = new tourguide();
+        $rs =$tourguide->updateAvailability($from, $to, $id);
+        
+if ($rs) {
+    echo "<script>alert('Availability updated successfully');
+        window.location.href = '../view-tour_guide/availability.php';
+        </script>";
+
+} else {
+    echo "<script>alert('Availability update failed');
+        window.location.href = '../view-tour_guide/availability.php';
+        </script>";
+}
+
+        
+    }
     
     public function viewoneguide($id)
     {
@@ -101,20 +95,20 @@ class tourguideController extends db_connection
 
     }
 
-    public function viewAllpendingguides()
-    {
+    // public function viewAllpendingguides()
+    // {
         
-        $pkg = new tourguide();
+    //     $pkg = new tourguide();
         
 
-        $result = $pkg->viewAllpendingguides($inputs[0]);
-        // print_r($result);
-        // die();
+    //     $result = $pkg->viewAllpendingguides($inputs[0]);
+    //     // print_r($result);
+    //     // die();
 
-        $_SESSION['c'] = $result;
-        return $result;
+    //     $_SESSION['c'] = $result;
+    //     return $result;
 
-    }
+    // }
 
     public function removetourguide($id)
     {
@@ -149,18 +143,18 @@ class tourguideController extends db_connection
         return $result;
     }
 
-    public function viewdeletedguides()
-    {
+    // public function viewdeletedguides()
+    // {
         
-        $pkg = new tourguide();
+    //     $pkg = new tourguide();
         
 
-        $result = $pkg->viewdeletedguides($inputs[0]);
-        // print_r($result);
-        // die();
+    //     $result = $pkg->viewdeletedguides($inputs[0]);
+    //     // print_r($result);
+    //     // die();
 
-        $_SESSION['c'] = $result;
-        return $result;
+    //     $_SESSION['c'] = $result;
+    //     return $result;
 
-    }
+    // }
 }
