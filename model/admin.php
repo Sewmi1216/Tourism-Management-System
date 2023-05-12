@@ -54,4 +54,40 @@ class admin extends db_connection
     
     }
 
+    public function viewhotelcount()
+    {
+        $query = "SELECT COUNT(*) as hotel_count FROM hotel WHERE status = 1";
+     
+        
+        $stmt = mysqli_query($this->conn, $query);
+      
+
+        return $stmt;
+    
+    }
+
+    public function viewentrepreneurcount()
+    {
+        $query = "SELECT COUNT(*) as entrepreneur_count FROM entrepreneur WHERE status = 1";
+     
+        
+        $stmt = mysqli_query($this->conn, $query);
+      
+
+        return $stmt;
+    
+    }
+
+    public function viewtouristcount()
+    {
+        $query = "SELECT COUNT(*) as tourist_count FROM tourist ";
+     
+        
+        $stmt = mysqli_query($this->conn, $query);
+      
+
+        return $stmt;
+    
+    }
+
 }

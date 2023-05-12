@@ -213,6 +213,8 @@ class tourist extends db_connection
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from tourist where userID = '$id'";
         $stmt = mysqli_query($this->conn, $query);
+
+     
         return $stmt;
     }
     public function viewTouristProfile($id)

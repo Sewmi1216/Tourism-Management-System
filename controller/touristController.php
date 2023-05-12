@@ -271,8 +271,8 @@ class touristController extends db_connection
     }
     public function viewProfile($id)
     {
-        // print_r($id);
-        // die();
+        print_r($id);
+        die();
 
         $profile = new tourist();
         $rs = $profile->viewProfile($id);

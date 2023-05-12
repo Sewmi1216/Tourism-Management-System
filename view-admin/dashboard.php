@@ -56,19 +56,26 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
                 </span>
                 <span class="b">
                 User Requests
-                    <div style="margin-top:40px;font-size:40px;"><?php
-require_once "../controller/adminController.php";
-$res1 = new adminController();
-$results = $res1->viewpendingusers();
-foreach($results as $result){
-echo $result['total_count'] ;}
-?>
+                    <div style="margin-top:40px;font-size:40px;">
+                                            <?php
+                        require_once "../controller/adminController.php";
+                        $res1 = new adminController();
+                        $results = $res1->viewpendingusers();
+                        foreach($results as $result){
+                        echo $result['total_count'] ;}
+                        ?>
                     </div>
                 </span>
                 <span class="b">
                    Tourist
                     <div style="margin-top:40px;font-size:40px;">
-                       20
+                    <?php
+require_once "../controller/adminController.php";
+$res1 = new adminController();
+$results = $res1->viewtouristcount();
+foreach($results as $result){
+echo $result['tourist_count'];}
+?>
                     </div>
                 </span>
                 <span class="b">
@@ -88,25 +95,27 @@ echo $result['tourguide_count'];}
 
                 <span class="b">
                    Hotels
-                    <div style="margin-top:40px;font-size:40px;"><?php
-require_once "../controller/hotelController.php";
-$res1 = new hotelController();
-$results = $res1->countReservations($id);
-foreach ($results as $result) {
-    echo $result['num_reservations'];}
-?>
+                    <div style="margin-top:40px;font-size:40px;">
+                                        <?php
+                    require_once "../controller/adminController.php";
+                    $res1 = new adminController();
+                    $results = $res1->viewhotelcount();
+                    foreach($results as $result){
+                    echo $result['hotel_count'];}
+                    ?>
                     </div>
                 </span>
 
                 <span class="b">
                     entrepreneurs
-                    <div style="margin-top:40px;font-size:40px;"><?php
-require_once "../controller/hotelController.php";
-$res1 = new hotelController();
-$results = $res1->countReservations($id);
-foreach ($results as $result) {
-    echo $result['num_reservations'];}
-?>
+                    <div style="margin-top:40px;font-size:40px;">
+                                        <?php
+                    require_once "../controller/adminController.php";
+                    $res1 = new adminController();
+                    $results = $res1->viewentrepreneurcount();
+                    foreach($results as $result){
+                    echo $result['entrepreneur_count'];}
+                    ?>
                     </div>
                 </span>
             </div>
@@ -133,11 +142,7 @@ echo $result['total_count'] ;}
                 <span class="b">
                     Today's Pending Payments
                     <div style="margin-top:40px;font-size:40px;">
-                        <?php $res2 = new hotelController();
-$results2 = $res2->pendingPayments($id);
-foreach ($results2 as $r) {
-    echo $r['pending_payments'];}
-?>
+                 20
                     </div>
                 </span>
                 <span class="b">
@@ -156,7 +161,7 @@ echo $result['tourguide_count'];}
                 </span>
 
                 <span class="b">
-                Tour guides
+               Available Tour guides
                     <div style="margin-top:40px;font-size:40px;">
                         <?php
 require_once "../controller/adminController.php";
@@ -198,7 +203,7 @@ echo $result['tourguide_count'];}
                     <br>
                     <!-- bar chart -->
                     <?php
-$pie = new hotelController();
+$pie = new adminController();
 $results = $pie->revenue($id);
 foreach ($results as $data) {
     $month[] = $data['month'];
