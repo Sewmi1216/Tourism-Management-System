@@ -10,7 +10,7 @@ class order extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertCraftOrder($touristID, $orderItems, $name, $phone, $address)
+    public function insertCraftOrder($touristID, $orderItems, $name, $phone, $address, $total)
     {
         $query = "INSERT INTO craftorder (orderDateTime, status, touristID, customerName, customerPhone, customerAddress) VALUES (NOW(), 'Pending', '$touristID', '$name','$phone','$address')";
         $stmt = mysqli_query($this->conn, $query);
@@ -26,16 +26,18 @@ class order extends db_connection
                 $stmt = mysqli_query($this->conn, $query1);
 
                 if (!$stmt) {
-                    $error = mysqli_error($this->conn);
-                    return "Error2: $error";
+                    $error1 = mysqli_error($this->conn);
+                    return "Error2: $error1";
                 }
             }
-
-            return true;
+            $query2 = "INSERT INTO craftorder_payment(orderId, paymentDateTime, amount, paymentStatus) VALUES ('$orderId', NOW(), '$total', 'Completed')";
+            $rst = mysqli_query($this->conn, $query2);
+            return $rst;
         } else {
-            $error = mysqli_error($this->conn);
-            return "Error1: $error";
+            $error2 = mysqli_error($this->conn);
+            return "Error1: $error2";
         }
     }
 
 }
+  

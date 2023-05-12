@@ -172,14 +172,6 @@ class touristController extends db_connection
         $search = new tourist();
         $rs = $search->availability($checkin, $checkout, $room);
         return $rs;
-        //  if (mysqli_num_rows($rs) > 0) {
-        //     return $rs;
-        // }
-        // else{
-        //     echo " no print";
-
-        //}
-
     }
   
     public function insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
@@ -255,20 +247,6 @@ class touristController extends db_connection
 }
     }
 
-
-   
-       public function insertOrderPayment($total)
-    {
-        $pay = new tourist();
-        return $pay->insertOrderPayment($total);
-        // return $res;
-    }
-     public function insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId)
-    {
-        $reservation = new tourist();
-        $res = $reservation->insertReservationatSite($guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
-        // return $res;
-    }
     public function viewProfile($id)
     {
         // print_r($id);

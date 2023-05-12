@@ -1,10 +1,11 @@
 <?php
 include "stripeconfig.php";
 include '../controller/orderController.php';
-include '../controller/touristController.php';
 
 
 session_start();
+$email = $_POST['email'];
+
 $touristID = $_POST['tid'];
 // $productId = $_POST['pid'];
 $total = $_POST['total'];
@@ -43,42 +44,24 @@ foreach ($value as $proId => $val) {
         'quantity' => $val,
     ];
 }
+$token = $_POST["stripeToken"];
+$token_card_type = $_POST["stripeTokenType"];
 
-$craftOrder->insertCraftOrder($touristID, $orderItems, $cname, $cphone, $caddress);
+$charge = \Stripe\Charge::create([
+    "amount" => str_replace(",", "", $total) * 100,
+    "currency" => 'usd',
+    "description" => 'CraftOrder',
+    "source" => $token,
+]);
 
-if ($craftOrder) {
-    echo "<script>alert('Your order is successful');
+unset($_SESSION['cart']);
+$craftOrder->insertCraftOrder($touristID, $orderItems, $cname, $cphone, $caddress, $total, $email);
+
+if ($charge && $craftOrder) {
+    echo "
+             <script>alert('Your order is successful');
+        window.location.href = '../view-tourist/cart.php';
         </script>";
 }
 
-// $token = $_POST["stripeToken"];
-// $token_card_type = $_POST["stripeTokenType"];
 
-// $charge = \Stripe\Charge::create([
-//     "amount" => str_replace(",", "", $total) * 100,
-//     "currency" => 'usd',
-//     "description" => 'CraftOrder',
-//     "source" => $token,
-// ]);
-// if ($charge) {
-//    $payment = new touristController();
-// $order->insertOrderPayment($total);
-unset($_SESSION['cart']);
-
-// if ($order) {
-//     echo "
-//              <script>alert('Your order is placed successfully');
-//               window.location.href = '../view-tourist/cart.php';
-//         </script>";
-// }
-// }
-
-// $booking = new touristController();
-// $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
-
-// if ($charge && $booking) {
-//     echo "
-//              <script>alert('Your tourbooking is successful');
-//         window.location.href = '../view-tourist/tourpackagelist.php';
-//         </script>";
-// }

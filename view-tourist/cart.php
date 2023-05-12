@@ -159,9 +159,6 @@ break;
 // echo "</pre>";
     ?>
 
-
-
-                <!-- <input type="submit" name="submit" value="Update shopping cart"> -->
                 <?php
 
 } else {?>
@@ -172,22 +169,11 @@ break;
 
                 <div class="buttons">
                     <a href="craftlist.php" style="margin-right:10px;">Continue Shopping</a>
-                    <!-- <input type="submit" style="margin-right:10px;" value="Continue Shopping" name="submit"> -->
                     <input type="submit" value="Update" name="submit">
                 </div>
             </form>
         </div>
 
-
-
-
-        <!-- <form action="../api/craftorder.php" method="post">
-            <div style="margin-top:-65px;margin-right:-0px;">
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" style="background: #004581"
-                    data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">
-                </script>
-            </div>
-        </form> -->
 
         </setion>
         <form action="../api/craftorder.php" method="post" id="secondForm">
@@ -195,15 +181,16 @@ break;
                 style="float:left;padding:30px;margin-top:30px;margin-bottom:20px;margin-left:150px;width:740px;height:auto;">
                 <div class="subtotal">
                     <input type="hidden" name="subtotalInput" id="subtotalInput" value="" readonly>
-                    <input type="hidden" value="<?php echo $id; ?>" class="subfield" name="tid" style="width:60%" /></br>
+                    
+                    <input type="text" value="<?php echo $_SESSION["email"]; ?>" class="subfield" name="email"
+                        style="width:60%" /></br>
+                    <input type="hidden" value="<?php echo $id; ?>" class="subfield" name="tid"
+                        style="width:60%" /></br>
                     <input type="hidden" value="<?php if (isset($subtotal)) {echo $grossTotal;}?>" name="total" /></br>
                     <span class="text" style="font-size:23px;font-weight:bold;">Order Details
                         &nbsp;&nbsp;&nbsp;</span>
-
-
                     <?php
 if (!empty($_SESSION['cart'])) {
-// Loop through the products to create hidden input fields for each quantity value
     $cart = new touristController();
     $products = $cart->viewCartItems($_SESSION['cart']);
     if (!empty($products)) {
@@ -217,7 +204,6 @@ if (!empty($_SESSION['cart'])) {
     }
 }
 ?>
-
                     <hr>
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Name
                         &nbsp;&nbsp;&nbsp;</span>
@@ -248,9 +234,7 @@ if (!empty($_SESSION['cart'])) {
         </form>
         <?php include "footer.php"?>
         <script>
-        // JavaScript code
         <?php
-// Loop through the products to add event listeners for each quantity input field
 if (!empty($products)) {
     while ($row = mysqli_fetch_array($products)) {
         ?>
@@ -268,13 +252,8 @@ if (!empty($products)) {
 ?>
         </script>
         <script>
-        // Retrieve the subtotal value from the <div> element
         var subtotal = document.getElementById('subtotal').innerText;
-
-        // Remove the '$ ' and '.00' from the subtotal value
         subtotal = subtotal.replace('$ ', '').replace('.00', '');
-
-        // Set the value of the input field in the second form
         document.getElementById('subtotalInput').value = subtotal;
         </script>
         <script src="js/cart.js"></script>
