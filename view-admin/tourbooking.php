@@ -92,7 +92,11 @@
                                         Cancelled</option>
                                 </select>
                             </td>
-   
+                            <td class="tbld"><a
+                                    onclick="document.getElementById('id05').style.display='block';loadData(this.getAttribute('data-id'));"
+                                    data-id="<?php echo $result['bookingID']?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"><i
+                                        class="fa-solid fa-bars"></i></a>
+                            </td>
    
                            <?php }
 
@@ -103,7 +107,112 @@
             </table>
             </form>
         </div>
+ <!-- view Reservation-->
 
+
+
+<div id="id05" class="modal">
+
+<form class="modal-content animate" method="post" action="../api/">
+    <div class="imgcontainer" style="background-color:#004581;">
+        <button type="button" onclick="document.getElementById('id05').style.display='none'"
+            class="cancelbtn close">&times;</button>
+        <label for="room" style="color:white"><b>View Reservation</b></label>
+    </div>
+    <hr>
+    <div class="container">
+        <table>
+
+<?php 
+require('../api/viewtourbooking-admin.php');
+$results = $_SESSION['c'];
+?>
+
+<?php
+
+foreach($results as $result) 
+
+echo '
+            <tr class="row">
+                <td>
+                    <div class="content">Booking Number Number</div>
+                </td>
+                <td><div>'.$result["bookingID"].'</div></td>
+            </tr>
+
+            <tr class="row">
+                <td>
+                    <div class="content">Booking Date/ Time</div>
+                </td>
+                <td><div id="date"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Guest Name</div>
+                </td>
+                <td><div id="guestname"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Guest Phone Number</div>
+                </td>
+                <td><div id="guestphone"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Guest Email Addres</div>
+                </td>
+                <td><div id="guestemail"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Check-in Date</div>
+                </td>
+                <td><div id="checkin"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Check-out Date</div>
+                </td>
+                <td><div id="checkout"></div></td>
+            </tr>
+            ' ?>
+        </table>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1; padding:10px;">
+        <button type="button" onclick="document.getElementById('id05').style.display='none'"
+            class="cancelbtn">Ok</button>
+    </div>
+</form>
+</div>
+
+<script type="text/javascript">
+    function loadData(id) {
+        $.ajax({
+            url: "../api/viewtourbooking-admin.php",
+            method: "POST",
+            data: {
+                get_data: 1,
+                id: id,
+            },
+            success: function(response) {
+                console.log(response);
+                var res = JSON.parse(response);
+                $("#resid").text(res.bookingID);
+                $("#date").text(res.bookingDateTime);
+                $("#guestname").text(res.guestName);
+                $("#guestphone").text(res.guestPhone);
+                $("#guestemail").text(res.guestEmail);   
+                $("#checkin").text(res.checkInDate);
+                $("#checkout").text(res.checkInDate);
+
+            }
+        });
+    }
+    
+    </script>
         <script>
     $('.subfield').on('change', function() {
         var newStatus = $(this).val();
