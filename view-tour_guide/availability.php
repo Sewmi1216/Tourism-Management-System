@@ -35,7 +35,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
 
         <div style="margin-top:20px;margin-left:10px;" class="chart">
             <form action="" method="post">
-                <span class="c">
+                <span class="c" style="background-color:white;">
                     <?php
 require_once "../controller/tourguidecontroller.php";
 $guide = new tourguideController();

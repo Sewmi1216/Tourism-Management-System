@@ -53,14 +53,25 @@ class message extends db_connection
             return $stmt;
         }
     }
-   public function viewAllHotels()
+    public function viewAllHotels()
     {
         $sql = "SELECT hotelID, name, email from hotel where status='1'";
         return $this->getData($sql);
     }
-     public function viewAllTourists()
+    public function viewAllTourists()
     {
         $sql = "SELECT userID, name, email from tourist";
+        return $this->getData($sql);
+    }
+
+    public function viewAllAssignedTourists($id)
+    {
+        $sql = "SELECT t.name AS tourist_name,t.email AS tourist_email
+FROM tourist t
+WHERE t.userID IN (
+  SELECT b.touristID
+  FROM tourbooking b
+  WHERE b.tourGuideId = '$id');";
         return $this->getData($sql);
     }
     public function viewAdmin()
@@ -68,12 +79,12 @@ class message extends db_connection
         $sql = "SELECT adminID, name, email from admin";
         return $this->getData($sql);
     }
-     public function viewAllEnts()
+    public function viewAllEnts()
     {
         $sql = "SELECT entID, businessName, email from entrepreneur where status='1'";
         return $this->getData($sql);
     }
-     public function viewAllGuides()
+    public function viewAllGuides()
     {
         $sql = "SELECT tourguideID, name, email from tourguide where status='1'";
         return $this->getData($sql);

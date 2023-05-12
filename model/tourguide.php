@@ -50,8 +50,15 @@ class tourguide extends db_connection
     }
     public function viewAssignedBookings($id)
     {
-        $query = "SELECT * FROM tourbooking where tourGuideId= '$id'";
+        $query = "SELECT * FROM tourbooking b, tourpackage t where b.tourPkgId=t.packageID and b.tourGuideId= '$id'";
         return $this->getData($query);
+    }
+    public function viewAssignedBookingDetails($id, $guideid)
+    {
+        $query = "SELECT * FROM tourbooking b, tourpackage t where b.tourPkgId=t.packageID and b.bookingID='$id' and b.tourGuideId= '$guideid'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+
     }
 
     public function viewAvailability($id)

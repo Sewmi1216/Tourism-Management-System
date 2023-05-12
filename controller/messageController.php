@@ -37,6 +37,12 @@ class messageController extends db_connection
         $result = $hotel->viewAllTourists();
         return $result;
     }
+    public function viewAllAssignedTourists($id)
+    {
+        $hotel = new message();
+        $result = $hotel->viewAllAssignedTourists($id);
+        return $result;
+    }
     public function viewAllGuides()
     {
         $hotel = new message();
