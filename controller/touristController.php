@@ -145,8 +145,7 @@ class touristController extends db_connection
     public function viewAllHotels()
     {
         $hotel = new tourist();
-        $result = $hotel->viewAllHotels();
-        return $result;
+        return $hotel->viewAllHotels();
     }
     public function viewHotel($id)
     {

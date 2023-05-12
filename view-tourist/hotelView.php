@@ -233,9 +233,7 @@ $outputs = $tp->viewAllImgs($result['typeID']);
                     <h1>$<?php echo $result['price'];?>/Night</h1>
                 </div>
                 <?php echo $btn; ?>
-
             </div>
-
         </div>
 
         <?php }

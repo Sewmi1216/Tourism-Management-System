@@ -18,6 +18,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/tourist.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
@@ -25,76 +26,130 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
 </head>
 
 <body>
+    <style>
+    HTML,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    </style>
     <?php include "nav.php"?>
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="se" style="margin-top: 20px;">
-            <div class="searchSec">
 
-                <div class="input-container" style="margin-left:880px;">
-                    <input class="input-field" type="text" placeholder="Search for rooms" name="search" id="searcher"
-                        onkeyup="searchRes()">
-                    <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+        <div class="page-title" style="margin-left:30px;margin-top: 20px;">Monthly Sales Report</div>
+        <div id="cont" style="margin-top: 20px;">
+
+            <form action="" method="post">
+                <div class="searchSec" style="margin-left:520px;margin-top:20px;width:200px;">
+                    <table>
+                        <tr>
+                            <th>
+                                <div class="search">From</div>
+                            </th>
+                            <th>
+                                <div class="search">To</div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <input type="hidden" value="<?php echo $hid ?>" name="hotel">
+                            <td>
+                                <div class="input-container" style="margin-left: 1rem;">
+                                    <input class="input-field" type="date" id="from" placeholder="from" name="from">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-container" style="margin-left: 1rem;">
+                                    <input class="input-field" type="date" id="to" placeholder="to" name="to">
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <button type="submit" class="btns" style="margin-left: 1rem;margin-top:20px;"
+                        name="submit">Submit</button>
                 </div>
-                <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
+            </form>
 
-                <!-- <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
-                    style="margin-left:1rem;background-color:red;">Download pdf</button> -->
 
-                <!-- <span style="margin-left: 8px;">
-                    <a href="addCashPayment.php"><i
-                            class="fa-regular fa-square-plus" style="font-size:35px;color:#004581
-;"></i></a>
-                </span> -->
-            </div>
-
-        </div>
-        <div id="cont">
-            <div class="page-title" style="margin-left:30px;"> Payments</div>
             <div class="bg">
                 <table id="tbl">
                     <tr class="subtext tblrw">
                         <th class="tblh">Payment ID</th>
-                        <th class="tblh">Date</th>
+                        <th class="tblh">Payment Date/Time</th>
                         <th class="tblh">Reservation ID</th>
-                        <!-- <th class="tblh">Guest Name</th> -->
-                        <th class="tblh">Guest Phone number</th>
-                        <th class="tblh">Type</th>
                         <th class="tblh">Total amount</th>
-                        <th class="tblh">Status</th>
                     </tr>
 
                     <?php
-require_once "../controller/reservationController.php";
-$pay = new reservationController();
+ if (isset($_POST['submit'])) {
+    $from = $_POST['from'];
+    $to = $_POST['to'];
 
-$results = $pay->viewhotelPayments($id);
-foreach ($results as $result) {
-    ?><tbody>
+    include_once '../controller/reservationController.php';
+    $report = new reservationController();
+    $total=0;
+    $rs=$report->searchForReport($from, $to, $id);
+    if ($rs) {
+        foreach ($rs as $result) { ?>
+                    <tbody>
                         <tr class="subtext tblrw">
-
                             <td class="tbld"><?php echo $result["paymentID"] ?></td>
-                            <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                            <td class="tbld"><?php echo $result["paymentDateTime"] ?></td>
                             <td class="tbld"><?php echo $result["reservationID"] ?></td>
-                            <!-- <td class="tbld"><?php echo $result["guestName"] ?></td> -->
-                            <td class="tbld"><?php echo $result["guestPhone"] ?></td>
-                            <td class="tbld"><?php echo $result["type"] ?></td>
-                            <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
-                            <td class="tbld">
-                                <?php if ($result["typestatus"] == "Completed") {?>
-                                <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
-                                <?php } else {?>
-                                <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
-                                <?php }?>
+                            <td class="tbld"><?php echo '$' . $result["amount"] ?></td>
+                        </tr>
+
+                        <?php  
+                        $total +=  $result["amount"]; }
+    } else {?>
+                        <tr class="subtext tblrw">
+                            <td class="tbld" colspan="4" align="center">
+                                <h2 style="font-size:15px;"> No results have found for this time period</h2>
                             </td>
 
-
-                            <?php }
-
-?>
                         </tr>
+                    </tbody>
+                    <?php
+}}
+?>
+
                 </table>
+                <div style="">
+                    <p style="margin-left:720px;font-size: 25px;margin-bottom: 20px;font-weight: 200;line-height: 1.4;">
+                        Total Amount</p>
+
+                    <table style="margin-bottom: 20px;margin-left:415px;">
+                        <tr style="border-top: 1px solid #ddd;">
+                            <hr width="100%" style="margin-bottom:30px;">
+                            <th style="width:50%;">Total:</th>
+                            <td style="font-size:25px;font-weight: 200;">$<?php echo $total ; ?></td>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+                    <form action="printreport.php" method="POST" target="_blank">
+                        <input type="hidden" name="txt_to"
+                            value="<?php echo (isset($_POST['to'])) ? $_POST['to'] : ''; ?>">
+                        <input type="hidden" name="txt_from"
+                            value="<?php echo (isset($_POST['from'])) ? $_POST['from'] : ''; ?>">
+                        <input type="hidden" name="hotelid" value="<?php echo (isset($id)) ? $id : '';?>">
+                        <button type="submit" class="btns"
+                            style="margin-left: 80rem;margin-top:20px;margin-bottom:20px;" name="submit">Print</button>
+                    </form>
+
+
+
+
+
+
+                </div>
             </div>
         </div>
 
@@ -169,49 +224,7 @@ foreach ($results as $result) {
 
 
     </section>
-    <script type="text/javascript">
-    document.getElementById('create_ppdf').onclick = function() {
-        var element = document.getElementById('cont');
-        var opt = {
-            margin: 0.2,
-            filename: 'payments.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 0.98
-            },
-            html2canvas: {
-                scale: 1
-            },
-            jsPDF: {
-                unit: 'in',
-                format: 'letter',
-                orientation: 'landscape'
-            }
-        };
-        html2pdf(element, opt);
-    };
-    </script>
-    <script>
-    function searchRes() {
-        console.log(print);
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searcher");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("tbl");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-    </script>
+
 </body>
 
 </html>
