@@ -7,9 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -94,7 +94,7 @@
                             </td>
                             <td class="tbld"><a
                                     onclick="document.getElementById('id05').style.display='block';loadData(this.getAttribute('data-id'));"
-                                    data-id="<?php echo $result['bookingID']?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"><i
+                                    data-id="<?php echo $result['bookingID']?>"><i
                                         class="fa-solid fa-bars"></i></a>
                             </td>
    
@@ -113,7 +113,7 @@
 
 <div id="id05" class="modal">
 
-<form class="modal-content animate" method="post" action="../api/">
+<form class="modal-content animate" method="post" action="">
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id05').style.display='none'"
             class="cancelbtn close">&times;</button>

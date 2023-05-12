@@ -40,7 +40,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
         <div id="container">
             <div class="page-title" style="margin-left:3vw;">Dashboard Overview</div>
             <div style="margin-top:20px;margin-left:10px;" class="dashheading">
-
                 <span class="b">
                     Today's Reservations
                     <div style="margin-top:60px;font-size:40px;"><?php
@@ -126,14 +125,7 @@ foreach ($results as $data) {
 
 
     </section>
-    <!-- <script>
-    document.getElementById("click").onclick = function() {
-        window.print()
-        setTimeout(function() {
-            window.close()
-        }, 750)
-    };
-    </script> -->
+    
 
     <script>
     const ctx = document.getElementById("piechart");

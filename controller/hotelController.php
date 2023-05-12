@@ -232,13 +232,7 @@ class hotelController extends db_connection
         return $res3;
     }
 
-    public function viewhotelPayments($id)
-    {
-        $hoteluser3 = new hotel();
-        $result3 = $hoteluser3->viewhotelPayments($id);
-
-        return $result3;
-    }
+   
     public function get_payments($id)
     {
         $hoteluser4 = new hotel();
