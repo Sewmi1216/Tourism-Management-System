@@ -90,13 +90,45 @@ foreach ($results as $result) {
 
                 </div>
                 <br>
-                <a href="editentrepreneur.php?entrepreneur_id='<?php echo $result['entID'];?>'" class="button">Update profile</a>
-                <a href="editmanager.php" class="button">Delete profile</a>
-
-
                 <?php } ?>
             </div>
+
+
+            
     </section>
+
+    <div class="bg" style="overflow-x:auto;">
+                <table id="myTable">
+                    <tr class="header">
+                         <th class="tblh">Product Name</th>
+                        <th class="tblh">Category</th>
+                        <th class="tblh">Available Quantity</th>
+                        <th class="tblh">Price</th>
+
+                    </tr><?php
+                    require_once "../controller/productController.php";
+                    $product = new productController();
+                    $results = $product->viewAll($id);
+                    foreach ($results as $result) {
+                        ?>
+
+                    <tr class="header">
+                    
+                    <!-- <td class="tbld"><?php echo "<img src='../images/" . $result['productImg'] . "' style=
+                    'border-radius: 10%;width:70px;height: 70px;background-size: 100%;
+                    background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td> -->
+                    <td class="tbld"><?php echo $result["productName"] ?></td>
+                        <td class="tbld"><?php echo $result["category"] ?></td>
+                        <td class="tbld"><?php echo $result["quantity"] ?></td>
+                        <td class="tbld"><?php echo $result["price"] ?></td>
+                       
+                    </tr>
+
+                    <?php }
+
+?>
+                </table>
+            </div>
 </body>
 
 </html>
