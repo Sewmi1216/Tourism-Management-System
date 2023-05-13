@@ -34,8 +34,9 @@
         
         <div class="searchSec">
                 <div class="page-title"> Recently Deleted Tour Packages </div>
+                       <button type="submit" class="btns"><a href="tourpackages.php" style="color:white;text-decoration:none;">View all Tour packages</a></button>
+     
             </div>
-            <button type="submit" class="btns"><a href="tourpackages.php" style="color:white;text-decoration:none;">View all Tour packages</a></button>
 
 
         <div class="bg">
@@ -162,11 +163,13 @@ modal.style.display = "block";
 
  </div>  
 
+ <hr> <hr>
 
           <div class="searchSec">
                 <div class="page-title"> Recently deleted Hotel Managers </div>
+                 <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotel Managers</a></button>
             </div>
-            <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotel Managers</a></button>
+           
 
           <div class="bg">
        
@@ -308,13 +311,15 @@ modal.style.display = "block";
          
  
 
+ <hr> <hr>
  <!-- Recently deleted tour guides -->
    </div>
 
      <div class="searchSec">
                 <div class="page-title"> Recently deleted Tour guides</div>
+                   <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
+         
             </div>
-            <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
 
      <div class="bg">
        
@@ -447,15 +452,16 @@ modal.style.display = "block";
 
 
 
-   
+   <hr> <hr>
 
  <!-- Recently deleted entrepreneurs -->
         <div class="searchSec">
                 <div class="page-title"> Recently deleted entrepreneurs </div>
+                        <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
+    
             </div>
 
             <!-- viewing all the verified Entrepreneurs Button -->
-            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
 
 
         <div class="bg">
