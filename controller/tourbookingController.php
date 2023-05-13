@@ -134,4 +134,15 @@ class tourbookingcontroller extends db_connection
             echo "<script>alert('status update is sucessful'); </script>";
         }
     }
+
+    public function updateGuide($bookingId, $newGuide)
+    {
+        $user = new tourbooking();
+
+        $result = $user->updateGuide($bookingId, $newGuide);
+        if($result)
+        {
+            echo "<script>alert('Assigning Tour guide is sucessful'); </script>";
+        }
+    }
 }
