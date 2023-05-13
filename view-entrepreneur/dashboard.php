@@ -76,10 +76,10 @@ foreach ($results2 as $r) {
                  <!-- pie chart -->
                 <?php
 $pie = new productController();
-$results= $pie->countProductOrders();
+$results= $pie->countProductOrders($id);
 foreach ($results as $data) {
-    $category[]=$data['product_category'];
-    $orders[]=$data['num_orders'];
+    $category[]=$data['categoryName'];
+    $orders[]=$data['orderCount'];
 
 }
 ?>
@@ -120,7 +120,7 @@ foreach ($results as $data) {
     new Chart(ctx, {
         type: "pie",
         data: {
-            labels: <?php echo json_encode($type) ?>,
+            labels: <?php echo json_encode($category) ?>,
             datasets: [{
                 label: "No of Orders",
                 data: <?php echo json_encode($orders) ?>,

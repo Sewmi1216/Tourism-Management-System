@@ -45,7 +45,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                 </td>
                 
                 <td> 
-                <select name="pCategory" id="pCategory" class="subfield">
+                <select name="categoryID" id="pCategory" class="subfield">
   
                 <?php
 require_once("../controller/productController.php") ;
