@@ -27,7 +27,7 @@ $rows = $_SESSION['c'];
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
 
-        <div class="text">Profile</div>
+        <div class="text">Tourist - Profile</div>
         
         <div class="wrapper">
             <div class="left"> 
@@ -45,32 +45,11 @@ foreach ($results as $result) {
             </div>
             <div class="right">
 
-                <div class="info">
-                    <h3>Tourist Details</h3>
-                    <div class="info_data">
-                        <div class="data">
-                            <h4>Email</h4>
-                            <p><?php echo $result['name'];?></p>
-                        </div>
-                        <div class="data">
-                            <h4>Phone</h4>
-                            <p><?php echo $result['name'];?></p>
-                        </div>
-                        <div class="data">
-                            <h4>Address</h4>
-                            <p><?php echo $result['name'];?></p>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                <div class="projects">
+            <div class="projects">
                     <div class="projects_data">
                         <div class="data">
                             <h4>Name</h4>
-                            <p><?php echo $result['name'];?></p>
+                            <p><?php echo $result[''];?></p>
                         </div>
                         <div class="data">
                             <h4>NIC</h4>
@@ -90,6 +69,28 @@ foreach ($results as $result) {
                     </div>
 
                 </div>
+                <div class="info">
+                    <h3>Tourist Details</h3>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Email</h4>
+                            <p><?php echo $result['email'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>Phone</h4>
+                            <p><?php echo $result['phone'];?></p>
+                        </div>
+                        <div class="data">
+                            <h4>Address</h4>
+                            <p><?php echo $result['address'];?></p>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
                 <br>  
                 <a href="editmanager.php" class="button">Update profile</a>
                 <a href="editmanager.php" class="button">Delete profile</a>

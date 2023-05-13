@@ -62,12 +62,13 @@ span.b {
 }
 span.c {
   display: inline-block;
-  width: 530px;
+  width: 600px;
   height: 400px;
   padding: 5px;
   border: 1px solid rgba(37, 53, 81, 1);
-  background-color: rgba(37, 53, 81, 1);
+  background-color: rgb(227 246 255);
   margin-bottom: 10px;
+  color: black;
 }
 .dashheading {
   font-style: "helvetica neue", helvetica, tahoma, sans-serif;
@@ -506,14 +507,17 @@ p{
   padding:10px;
 }
 .piechart{
+  margin: auto;
   height:350px;
   width: 350px;
   padding: 10px;
+
 }
 .barchart{
-  height:450px;
-  width: 550px;
+  height:500px;
+  width: 600px;
   padding: 10px;
+  margin: auto;
 }
 
 

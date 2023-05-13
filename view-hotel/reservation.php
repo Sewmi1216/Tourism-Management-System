@@ -108,75 +108,105 @@ foreach ($results as $result) {
             </div>
         </div>
 
- <!-- view Reservation-->
-    <div id="id05" class="modal">
+        <!-- view Reservation-->
+        <div id="id05" class="modal">
 
-        <form class="modal-content animate" method="post" action="../api/">
-            <div class="imgcontainer" style="background-color:#004581;">
-                <button type="button" onclick="document.getElementById('id05').style.display='none'"
-                    class="cancelbtn close">&times;</button>
-                <label for="room" style="color:white"><b>View Reservation</b></label>
-            </div>
-            <hr>
-            <div class="container">
-                <table>
-                    <tr class="row">
-                        <td>
-                            <div class="content">Reservation Number</div>
-                        </td>
-                        <td><div id="resid"></div></td>
-                    </tr>
+            <form class="modal-content animate" method="post" action="../api/">
+                <div class="imgcontainer" style="background-color:#004581;">
+                    <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                        class="cancelbtn close">&times;</button>
+                    <label for="room" style="color:white"><b>View Reservation</b></label>
+                </div>
+                <hr>
+                <div class="container">
+                    <table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Reservation Number</div>
+                            </td>
+                            <td>
+                                <div id="resid"></div>
+                            </td>
+                        </tr>
 
-                    <tr class="row">
-                        <td>
-                            <div class="content">Booking Date/ Time</div>
-                        </td>
-                        <td><div id="date"></div></td>
-                    </tr>
-                    <tr class="row">
-                        <td>
-                            <div class="content">Guest Name</div>
-                        </td>
-                        <td><div id="guestname"></div></td>
-                    </tr>
-                    <tr class="row">
-                        <td>
-                            <div class="content">Guest Phone Number</div>
-                        </td>
-                        <td><div id="guestphone"></div></td>
-                    </tr>
-                    <tr class="row">
-                        <td>
-                            <div class="content">Guest Email Addres</div>
-                        </td>
-                        <td><div id="guestemail"></div></td>
-                    </tr>
-                    <tr class="row">
-                        <td>
-                            <div class="content">Check-in Date</div>
-                        </td>
-                        <td><div id="checkin"></div></td>
-                    </tr>
-                    <tr class="row">
-                        <td>
-                            <div class="content">Check-out Date</div>
-                        </td>
-                        <td><div id="checkout"></div></td>
-                    </tr>
-                </table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Booking Date/ Time</div>
+                            </td>
+                            <td>
+                                <div id="date"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Guest Name</div>
+                            </td>
+                            <td>
+                                <div id="guestname"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Guest Phone Number</div>
+                            </td>
+                            <td>
+                                <div id="guestphone"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Guest Email Addres</div>
+                            </td>
+                            <td>
+                                <div id="guestemail"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Check-in Date</div>
+                            </td>
+                            <td>
+                                <div id="checkin"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Check-out Date</div>
+                            </td>
+                            <td>
+                                <div id="checkout"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Total Amount</div>
+                            </td>
+                            <td>
+                                <div id="total_amount"> </div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Room ID</div>
+                            </td>
+                            <td>
+                                <div id="roomID"></div>
+                            </td>
+                        </tr>
+                    </table>
 
-            </div>
+                </div>
 
-            <div class="container" style="background-color:#f1f1f1; padding:10px;">
-                <button type="button" onclick="document.getElementById('id05').style.display='none'"
-                    class="cancelbtn">Ok</button>
-            </div>
-        </form>
-    </div>
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                    <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                        class="cancelbtn">Ok</button>
+                </div>
+            </form>
+        </div>
 
     </section>
 
-   
+
 
     <script type="text/javascript">
     function loadData(id) {
@@ -194,14 +224,15 @@ foreach ($results as $result) {
                 $("#date").text(res.bookingDateTime);
                 $("#guestname").text(res.guestName);
                 $("#guestphone").text(res.guestPhone);
-                $("#guestemail").text(res.guestEmail);   
+                $("#guestemail").text(res.guestEmail);
                 $("#checkin").text(res.checkInDate);
                 $("#checkout").text(res.checkInDate);
+                $("#total_amount").text('$' + res.total_amount);
+                $("#roomID").text(res.roomID);
 
             }
         });
     }
-    
     </script>
 
     <script>
@@ -244,8 +275,6 @@ foreach ($results as $result) {
             }
         }
     }
-
-   
     </script>
 </body>
 

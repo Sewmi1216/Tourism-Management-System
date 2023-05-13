@@ -7,9 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -75,11 +75,7 @@
                            <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
                            <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                            <td class="tbld">
-                                <!-- <?php if ($result["bookingStatus"] == "Confirmed") {?>
-                            <button class="status1"><?php echo $result["bookingStatuss"]; ?></button>
-                            <?php } else {?>
-                            <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
-                            <?php }?> -->
+                               
                                 <select class="subfield" name="Status">
                                     <option value="Pending"
                                         <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
@@ -92,7 +88,12 @@
                                         Cancelled</option>
                                 </select>
                             </td>
-   
+                            <td class="tbld"><a
+                                    onclick="document.getElementById('id05').style.display='block';loadData(this.getAttribute('data-id'));"
+                                    data-id="<?php echo $result['bookingID']?>"><i
+                                        class="fa-solid fa-bars"></i></a>
+                            </td>
+                            
    
                            <?php }
 
@@ -103,7 +104,111 @@
             </table>
             </form>
         </div>
+ <!-- view Reservation-->
 
+
+
+<div id="id05" class="modal">
+
+<form class="modal-content animate" method="post" action="">
+    <div class="imgcontainer" style="background-color:#004581;">
+        <button type="button" onclick="document.getElementById('id05').style.display='none'"
+            class="cancelbtn close">&times;</button>
+        <label for="room" style="color:white"><b>View Booking</b></label>
+    </div>
+    <hr>
+    <div class="container">
+        <table>
+
+<?php 
+// require('../api/viewtourbooking-admin.php');
+// $results = $_SESSION['c'];
+?>
+
+
+
+
+
+            <tr class="row">
+                <td>
+                    <div class="content">Booking Number Number</div>
+                </td>
+                <td><div id="resid"></div></td>
+            </tr>
+
+            <tr class="row">
+                <td>
+                    <div class="content">Booking Date/ Time</div>
+                </td>
+                <td><div id="date"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Guest Name</div>
+                </td>
+                <td><div id="guestname"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Guest Phone Number</div>
+                </td>
+                <td><div id="guestphone"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Guest Email Addres</div>
+                </td>
+                <td><div id="guestemail"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Check-in Date</div>
+                </td>
+                <td><div id="checkin"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Check-out Date</div>
+                </td>
+                <td><div id="checkout"></div></td>
+            </tr>
+     
+        </table>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1; padding:10px;">
+        <button type="button" onclick="document.getElementById('id05').style.display='none'"
+            class="cancelbtn">Ok</button>
+    </div>
+</form>
+</div>
+
+<script type="text/javascript">
+    function loadData(id) {
+        $.ajax({
+            url: "../api/viewtourbooking-admin.php",
+            method: "POST",
+            data: {
+                get_data: 1,
+                id: id,
+            },
+            success: function(response) {
+                console.log(response);
+                var res = JSON.parse(response);
+                $("#resid").text(res.bookingID);
+                $("#date").text(res.bookingDateTime);
+                $("#guestname").text(res.guestName);
+                $("#guestphone").text(res.guestPhone);
+                $("#guestemail").text(res.guestEmail);   
+                $("#checkin").text(res.checkInDate);
+                $("#checkout").text(res.checkInDate);
+
+            }
+        });
+    }
+    
+    </script>
         <script>
     $('.subfield').on('change', function() {
         var newStatus = $(this).val();
@@ -112,8 +217,8 @@
             url: '../api/update_bookingstatus.php',
             type: 'POST',
             data: {
-                bookingid: bookingId,
-                newstatus: newStatus
+                bookingId: bookingId,
+                newStatus: newStatus
             },
             success: function(response) {
                 console.log(response);

@@ -94,13 +94,13 @@ echo '
                         <input type="text" class="subfield" name="phone" pattern="[0-9]{10}" value="'.$row['phone'].'" required />
                     </td>
                     <td>
-                        <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
+                        <div class="content">Update Profile Image</div><input type="file" style="padding-bottom:25px;"
                             class="subfield" name="proImg" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="content">Business Certificate</div>
+                        <div class="content">Update Business Certificate</div>
                         <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" value="'.$row['document'].'"/>
                     </td>
                 </tr>

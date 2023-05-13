@@ -40,7 +40,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
         <div id="container">
             <div class="page-title" style="margin-left:3vw;">Dashboard Overview</div>
             <div style="margin-top:20px;margin-left:10px;" class="dashheading">
-
                 <span class="b">
                     Today's Reservations
                     <div style="margin-top:60px;font-size:40px;"><?php
@@ -84,7 +83,7 @@ foreach ($results2 as $r) {
 
                 </span>
             </div>
-            <div class="html2pdf__page-break"></div>
+            
             <div style="margin-top:20px;margin-left:10px;" class="chart">
                 <span class="c">
                     Room Booking Chart
@@ -126,14 +125,7 @@ foreach ($results as $data) {
 
 
     </section>
-    <!-- <script>
-    document.getElementById("click").onclick = function() {
-        window.print()
-        setTimeout(function() {
-            window.close()
-        }, 750)
-    };
-    </script> -->
+    
 
     <script>
     const ctx = document.getElementById("piechart");
@@ -177,28 +169,7 @@ foreach ($results as $data) {
         },
     });
     </script>
-    <script>
-    document.getElementById('create_pdf').onclick = function() {
-        var element = document.getElementById('container');
-        var opt = {
-            margin: 0.2,
-            filename: 'dashboard.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 1
-            },
-            html2canvas: {
-                scale: 1
-            },
-            jsPDF: {
-                unit: 'mm',
-                format: 'letter',
-                orientation: 'portrait'
-            }
-        };
-        html2pdf(element, opt);
-    };
-    </script>
+   
 </body>
 
 </html>

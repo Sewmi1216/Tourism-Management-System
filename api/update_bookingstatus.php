@@ -1,8 +1,8 @@
 <?php 
 include '../controller/tourbookingController.php';
 
-$bookingId = $_POST['bookingid'];
-$newStatus = $_POST['newstatus'];
+$bookingId = $_POST['bookingId'];
+$newStatus = $_POST['newStatus'];
 
 $update = new tourbookingController();
 $update->updateStatus($bookingId, $newStatus);

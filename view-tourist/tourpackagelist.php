@@ -67,7 +67,6 @@ foreach ($results as $result) {
             <?php }?>
         </div>
 
-
     </section>
     <?php include "footer.php"?>
 

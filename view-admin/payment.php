@@ -45,20 +45,20 @@
                 <?php
 require_once "../controller/tourbookingController.php";
 $pay = new tourbookingController();
-$results = $pay->viewtourbookingPayments($id);
+$results = $pay->viewalltourbookingPayments();
 foreach ($results as $result) {
     
     ?><tbody>
                 <tbody>
-                    <tr class="subtext tblrw">
+                     <tr class="subtext tblrw">
 
-                        <td class="tbld"> <?php echo $result["paymentID"] ?></td>
-                        <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
-                        <td class="tbld"><?php echo $result["reservationID"] ?></td>
-                        <td class="tbld"><?php echo $result[""] ?></td>
+                        <td class="tbld"><?php echo $result["tourPaymentId"] ?></td>
+                        <td class="tbld"><?php echo $result["paymentDateTime"] ?></td>
+                        <td class="tbld"><?php echo $result["bookingID"] ?></td>
+                        <td class="tbld"><?php echo $result["tourPkgID"] ?></td>
                         <td class="tbld"> <?php echo $result["guestName"] ?></td>
                         <td class="tbld"><?php echo $result["guestPhone"] ?></td>
-                        <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
+                        <td class="tbld"><?php echo '$' .$result["amount"] ?></td>
                         <td class="tbld">
                                Completed
                             </td>
@@ -70,44 +70,8 @@ foreach ($results as $result) {
                     </tr>
             </table>
 
-
-
-
-
-<!-- 
-                <?php
-require_once "../controller/tourbookinController.php";
-$pay = new hotelController();
-
-$results = $pay->viewhotelPayments($id);
-foreach ($results as $result) {
-    ?>
-     -->
-    
-    
-    
     <tbody>
-                    <tr class="subtext tblrw">
-
-                        <td class="tbld"><?php echo $result["paymentID"] ?></td>
-                        <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
-                        <td class="tbld"><?php echo $result["reservationID"] ?></td>
-                        <td class="tbld"><?php echo $result["guestName"] ?></td>
-                        <td class="tbld"><?php echo $result["guestPhone"] ?></td>
-                        <td class="tbld"><?php echo $result["type"] ?></td>
-                        <td class="tbld"><?php echo '$' .$result["total_amount"] ?></td>
-                        <td class="tbld">
-                                <?php if ($result["typestatus"] == "Completed") {?>
-                                <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
-                                <?php } else {?>
-                                <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
-                                <?php }?>
-                            </td>
-
-
-                        <?php }
-
-?>
+    
                     </tr>
             </table>
         </div>

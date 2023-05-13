@@ -99,4 +99,41 @@ class adminController extends db_connection
         $_SESSION['c'] = $result;
         return $result;
     }
+
+    public function viewtouristcount()
+    {
+        $pen = new admin();
+
+        $result = $pen -> viewtouristcount();
+
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
+    public function viewhotelcount()
+    {
+        $pen = new admin();
+
+        $result = $pen -> viewhotelcount();
+
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
+    public function viewentrepreneurcount()
+    {
+        $pen = new admin();
+
+        $result = $pen -> viewentrepreneurcount();
+
+        $_SESSION['c'] = $result;
+        return $result;
+    }
+
+    public function countpackageReservations($id)
+    {
+        $pckg = new admin();
+        $res = $pckg->countpackageReservations($id);
+        return $res;
+    }
 }

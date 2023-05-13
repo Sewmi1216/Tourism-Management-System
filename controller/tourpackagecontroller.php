@@ -105,6 +105,20 @@ class tourpackageController extends db_connection
 
     }
 
+    public function restorepackage($id)
+    {
+        
+        $pkg = new tourpackage();
+        
+
+        $result = $pkg->restorepackage($id);
+        
+
+        $_SESSION['c'] = $result;
+        return $result;
+
+    }
+
     public function viewdeletedtourPkg()
     {
         $pkg = new tourpackage();

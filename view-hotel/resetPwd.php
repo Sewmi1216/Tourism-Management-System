@@ -1,7 +1,10 @@
 <?php
-session_start();
+// session_start();
 
 include_once '../api/addhotel.php';
+if(isset($_GET['email'])){
+    $email =$_GET['email'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +23,7 @@ include_once '../api/addhotel.php';
         <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">Reset Password</div>
         <form class="login-form" name="resetPasswordForm" method="POST" onSubmit="return validateResetPassword()">
 
+         <input type="email" class="field" name="email" value="<?php echo $email;?>"/>
             <label style="font-size:15px;padding:10px;" class="text">New password &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp;

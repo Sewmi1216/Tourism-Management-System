@@ -13,19 +13,18 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/admindashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <!-- <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>"> -->
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Days+One&display=swap" rel="stylesheet">
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Days+One&family=Montserrat:wght@500&display=swap');
-</style>
-
 </head>
 
 <body>
@@ -33,72 +32,168 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <div class="text">DASHBOARD OVERVIEW</div>
-
-        <div style="margin-top:20px;margin-left:14px; margin-right:20px;" class="dashheading">
-          <a href="manageusers.php"> <span class="b">
-                User Requests
-                <div style="margin-top:60px;font-size:40px;">     <?php
-                      require_once "../controller/adminController.php";
-                      $res1 = new adminController();
-                      $results = $res1->viewpendingusers();
-                      foreach($results as $result){
-                      echo $result['total_count'] ;}
-                      ?></div>
-            </span>
-          </a> 
-
-          <a href="tourbooking.php">
-            <span class="b">
-                Tour Bookings
-                <div style="margin-top:60px;font-size:40px;">
-                      <?php
-                      require_once "../controller/tourbookingController.php";
-                      $res1 = new tourbookingController();
-                      $results = $res1->countBooking();
-                      foreach($results as $result){
-                      echo $result['num_bookings'];}
-                      ?>
-                    </div>
-                </div>
-            </span>
-          </a>
-
-          <a href="view-tourguides.php">
-            <span class="b">
-                Tour guides
-                <div style="margin-top:60px;font-size:40px;"> <?php
-                      require_once "../controller/adminController.php";
-                      $res1 = new adminController();
-                      $results = $res1->viewtourguidecount();
-                      foreach($results as $result){
-                      echo $result['tourguide_count'];}
-                      ?></div>
-            </span>
-          </a>
-
-          <a href="payment.php">
-            <span class="b">
-                Monthly Revenue
-                <div style="margin-top:60px;font-size:40px;">$18,130</div>
-            </span>
-          </a>
+        <div style="margin-top:20px;">
+         <div class="page-title" style="margin-left:3vw;">Dashboard Overview</div>
+            <a href="printadminDashboard.php" class="btns" target="_blank"
+                style="margin-left:100rem;margin-top:0.5rem;background-color:red;">Download pdf</a>
         </div>
+        <!-- <button type="submit" id="click" class="btns">Click</button> -->
 
-        <div style="margin-top:20px;margin-left:40px;" class="chart">
-            <span class="c">
-                <br>
-                Tour package Booking Chart
-                <br>
-                                    <?php
-$pie = new hotelController();
-$results= $pie->countRoomTypeReservations();
-foreach ($results as $data) {
-    $type[]=$data['room_type'];
-    $reservations[]=$data['num_reservations'];
+        <div id="container">
+           
+            <div style="margin-top:20px;margin-left:10px;" class="dashheading">
 
-}
+                <span class="b">
+                    Tour bookings
+                    <div style="margin-top:40px;font-size:40px;"><?php
+                        require_once "../controller/tourbookingController.php";
+                        $res1 = new tourbookingController();
+                        $results = $res1->countBooking();
+                        foreach($results as $result){
+                        echo $result['num_bookings'];}
 ?>
+                    </div>
+                </span>
+                <span class="b">
+                User Requests
+                    <div style="margin-top:40px;font-size:40px;">
+                                            <?php
+                        require_once "../controller/adminController.php";
+                        $res1 = new adminController();
+                        $results = $res1->viewpendingusers();
+                        foreach($results as $result){
+                        echo $result['total_count'] ;}
+                        ?>
+                    </div>
+                </span>
+                <span class="b">
+                   Tourist
+                    <div style="margin-top:40px;font-size:40px;">
+                    <?php
+require_once "../controller/adminController.php";
+$res1 = new adminController();
+$results = $res1->viewtouristcount();
+foreach($results as $result){
+echo $result['tourist_count'];}
+?>
+                    </div>
+                </span>
+                <span class="b">
+                Tour guides
+                    <div style="margin-top:40px;font-size:40px;">
+                        <?php
+require_once "../controller/adminController.php";
+$res1 = new adminController();
+$results = $res1->viewtourguidecount();
+foreach($results as $result){
+echo $result['tourguide_count'];}
+?>
+                    </div>
+
+                    
+                </span>
+
+                <span class="b">
+                   Hotels
+                    <div style="margin-top:40px;font-size:40px;">
+                                        <?php
+                    require_once "../controller/adminController.php";
+                    $res1 = new adminController();
+                    $results = $res1->viewhotelcount();
+                    foreach($results as $result){
+                    echo $result['hotel_count'];}
+                    ?>
+                    </div>
+                </span>
+
+                <span class="b">
+                    entrepreneurs
+                    <div style="margin-top:40px;font-size:40px;">
+                                        <?php
+                    require_once "../controller/adminController.php";
+                    $res1 = new adminController();
+                    $results = $res1->viewentrepreneurcount();
+                    foreach($results as $result){
+                    echo $result['entrepreneur_count'];}
+                    ?>
+                    </div>
+                </span>
+            </div>
+
+<!-- 
+            2nd row  -->
+
+            <div id="container">
+           
+            <div style="margin-top:20px;margin-left:10px;" class="dashheading">
+
+                
+                <span class="b">
+              Tour Packages
+                    <div style="margin-top:40px;font-size:40px;"><?php
+require_once "../controller/adminController.php";
+$res1 = new adminController();
+$results = $res1->viewpendingusers();
+foreach($results as $result){
+echo $result['total_count'] ;}
+?>
+                    </div>
+                </span>
+                <span class="b">
+                    Today's Pending Payments
+                    <div style="margin-top:40px;font-size:40px;">
+                 20
+                    </div>
+                </span>
+                <span class="b">
+                Tour guides
+                    <div style="margin-top:40px;font-size:40px;">
+                        <?php
+require_once "../controller/adminController.php";
+$res1 = new adminController();
+$results = $res1->viewtourguidecount();
+foreach($results as $result){
+echo $result['tourguide_count'];}
+?>
+                    </div>
+
+                    
+                </span>
+
+                <span class="b">
+               Available Tour guides
+                    <div style="margin-top:40px;font-size:40px;">
+                        <?php
+require_once "../controller/adminController.php";
+$res1 = new adminController();
+$results = $res1->viewtourguidecount();
+foreach($results as $result){
+echo $result['tourguide_count'];}
+?>
+                    </div>
+
+                    
+                </span>
+            </div>
+
+
+            <div class="html2pdf__page-break"></div>
+            <div style="margin-top:20px;margin-left:10px;" class="chart">
+                <span class="c">
+
+                    Room Booking Chart
+                    <br>
+                    <!-- pie chart -->
+                        <?php
+                        $pie = new adminController();
+                        $results = $pie->countpackageReservations($id);
+                        foreach ($results as $data) 
+                        {
+                            $type[] = $data['room_type'];
+                            $reservations[] = $data['num_reservations'];
+
+                        } ?>
+
                     <div class="piechart">
                         <canvas id="piechart"></canvas>
                     </div>
@@ -108,109 +203,97 @@ foreach ($results as $data) {
                     <br>
                     <!-- bar chart -->
                     <?php
-$pie = new hotelController();
-$results= $pie->revenue();
+$pie = new adminController();
+$results = $pie->revenue($id);
 foreach ($results as $data) {
-    $month[]=$data['month'];
-    $revenue[]=$data['revenue'];
+    $month[] = $data['month'];
+    $revenue[] = $data['revenue'];
 
 }
 ?>
                     <div class="barchart">
                         <canvas id="barchart"></canvas>
                     </div>
-            </span>
-            <span class="c">
-                <br>
-                Sales Revenue
-                <br>
-                <img src="../images/dashboard/piechart.png" alt="" style="width: 300px; height: auto">
-            </span>
+                </span>
+            </div>
+
         </div>
+
+
     </section>
+    <!-- <script>
+    document.getElementById("click").onclick = function() {
+        window.print()
+        setTimeout(function() {
+            window.close()
+        }, 750)
+    };
+    </script> -->
 
-
-    <section>
-
-    <div class="todo">
-
-  
-    <div id="myDIV" class="header">
-                <h2 style="margin:5px">My To Do List</h2>
-                <input type="text" id="myInput" placeholder="Title...">
-                <span onclick="newElement()" class="addBtn">Add</span>
-    </div>
-
-        <ul id="myUL">
-                <li>Contact the drivers</li>
-                <li class="checked">Meeting with Tourism Bureu</li>
-                <li>Meet George</li>
-                <li>Camping tent set purchase </li>
-                <li>Read a book</li>
-                <li>Organize Tour packages to Galle</li>
-        </ul>
-  </div>
-
-
-  
     <script>
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName(",todo LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+    const ctx = document.getElementById("piechart");
+    new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: <?php echo json_encode($type) ?>,
+            datasets: [{
+                label: "No of Reservations",
+                data: <?php echo json_encode($reservations) ?>,
+                backgroundColor: [
+                    "rgb(255, 99, 132)",
+                    "rgb(54, 162, 235)",
+                    "rgb(255, 205, 86)",
+                    "rgb(34, 100, 50)",
+                ],
+                hoverOffset: 4,
+            }, ],
+        },
+    });
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
+    const cht = document.getElementById("barchart");
 
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('.todo ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+    new Chart(cht, {
+        type: "bar",
+        data: {
+            labels: <?php echo json_encode($month) ?>,
 
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement(".todo li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById(".todo myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-</script>
-  
-    </section>
+            datasets: [{
+                label: "Revenue",
+                data: <?php echo json_encode($revenue) ?>,
+                borderWidth: 1,
+            }, ],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
+    </script>
+    <script>
+    document.getElementById('create_pdf').onclick = function() {
+        var element = document.getElementById('container');
+        var opt = {
+            margin: 0.2,
+            filename: 'dashboard.pdf',
+            image: {
+                type: 'jpeg',
+                quality: 1
+            },
+            html2canvas: {
+                scale: 1
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'letter',
+                orientation: 'portrait'
+            }
+        };
+        html2pdf(element, opt);
+    };
+    </script>
 </body>
+
 </html>

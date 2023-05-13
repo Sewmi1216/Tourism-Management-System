@@ -1,5 +1,7 @@
 <?php
 include '../controller/hotelController.php';
+include '../controller/userController.php';
+
 if (isset($_POST['signup'])) {
     $hotelName = $_POST['hotelName'];
     $mName = $_POST['mName'];
@@ -26,7 +28,7 @@ if (isset($_POST['signup'])) {
     // $id ='T'. date('his');
 
     // $id = rand(time(), 100000000);
-    $hotelconnection = new hotelController();
+    $hotelconnection = new userController();
     $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $hpassword, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
    
     move_uploaded_file($ptempname, $pfolder);
@@ -36,7 +38,7 @@ if (isset($_POST['signup'])) {
 
 if (isset($_POST['recover'])) {
     $email = $_POST['email'];
-    $recover = new hotelController();
+    $recover = new userController();
     $recover->recoverPwd($email);
 
     // echo "<script>
@@ -46,8 +48,11 @@ if (isset($_POST['recover'])) {
 }
 if (isset($_POST['reset'])) {
     $password = $_POST['cpwd'];
-    $email = $_SESSION['email'];
-    $reset = new hotelController();
+    $email = $_POST['email'];
+
+    // $email = $_SESSION['email'];
+
+    $reset = new userController();
     $reset->resetPwd($email,$password);
 
 }

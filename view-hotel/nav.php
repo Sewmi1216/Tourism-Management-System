@@ -46,6 +46,13 @@
               </a>
               <span class="desc">Payments</span>
           </li>
+           <li>
+              <a href="report.php">
+                  <i class="fa-sharp fa-solid fa-file"></i>
+                  <span class="link">Reports</span>
+              </a>
+              <span class="desc">Reports</span>
+          </li>
 
           <hr style="margin-top:200px;">
           <div>

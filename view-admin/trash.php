@@ -34,8 +34,9 @@
         
         <div class="searchSec">
                 <div class="page-title"> Recently Deleted Tour Packages </div>
+                       <button type="submit" class="btns"><a href="tourpackages.php" style="color:white;text-decoration:none;">View all Tour packages</a></button>
+     
             </div>
-            <button type="submit" class="btns"><a href="tourpackages.php" style="color:white;text-decoration:none;">View all Tour packages</a></button>
 
 
         <div class="bg">
@@ -85,7 +86,7 @@
 
 <form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
+<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $row['packageID']; ?>"/>
 
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id01').style.display='none'"  class="cancelbtn close">&times;</button>
@@ -129,7 +130,7 @@ modal.style.display = "block";
 
 <form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
+<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $row['packageID']; ?>"/>
 
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id02').style.display='none'"  class="cancelbtn close">&times;</button>
@@ -162,11 +163,13 @@ modal.style.display = "block";
 
  </div>  
 
+ <hr> <hr>
 
           <div class="searchSec">
                 <div class="page-title"> Recently deleted Hotel Managers </div>
+                 <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotel Managers</a></button>
             </div>
-            <button type="submit" class="btns"><a href="view-hotelmanager.php" style="color:white;text-decoration:none;">View All Verified Hotel Managers</a></button>
+           
 
           <div class="bg">
        
@@ -308,13 +311,15 @@ modal.style.display = "block";
          
  
 
+ <hr> <hr>
  <!-- Recently deleted tour guides -->
    </div>
 
      <div class="searchSec">
                 <div class="page-title"> Recently deleted Tour guides</div>
+                   <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
+         
             </div>
-            <button type="submit" class="btns"><a href="view-tourguides.php" style="color:white;text-decoration:none;">View All Verified Tourguides</a></button>
 
      <div class="bg">
        
@@ -447,15 +452,16 @@ modal.style.display = "block";
 
 
 
-   
+   <hr> <hr>
 
  <!-- Recently deleted entrepreneurs -->
         <div class="searchSec">
                 <div class="page-title"> Recently deleted entrepreneurs </div>
+                        <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
+    
             </div>
 
             <!-- viewing all the verified Entrepreneurs Button -->
-            <button type="submit" class="btns"><a href="view-entrepreneur.php" style="color:white;text-decoration:none;">View all Verified Entrepreneur</a></button>
 
 
         <div class="bg">

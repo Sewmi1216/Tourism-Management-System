@@ -80,7 +80,7 @@ foreach ($results as $result) {
                         <?php echo $result["roomStatus"] ?>
                     </td> -->
                     <td class="tbld">
-                        <?php echo $result["price"] ?>
+                        <?php echo '$' .$result["price"] ?>
                     </td>
                     <td class="tbld">
                         <?php if ($result["view"] == "Ocean View") {?>
@@ -164,7 +164,7 @@ $results = $pkg->viewAllTypes($id);
                         </tr>
                         <tr class="row">
                             <td>
-                                <div class="content">Price</div>
+                                <div class="content">Price($)</div>
                             </td>
                             <td> <input type="number" min="0" class="subfield" name="price" /></td>
                         </tr>
@@ -241,7 +241,7 @@ $results = $pkg->viewAllTypes($id);
                         </tr>
                         <tr class="row">
                             <td>
-                                <div class="content">Price</div>
+                                <div class="content">Price($)</div>
                             </td>
                             <td> <input type="number" min="0" class="subfield" value="" name="price" id="price" /></td>
                         </tr>
