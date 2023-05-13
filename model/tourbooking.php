@@ -127,7 +127,18 @@ return $stmt;
         if ($stmt) {
             return $stmt;
         } else {
-            die('Error in query1: ' . mysqli_error($this->conn));
+            die('Error in query: ' . mysqli_error($this->conn));
+        }
+    }
+
+    public function updateGuide($bookingId, $newGuide)
+    {
+        $query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
+        $stmt = mysqli_query($this->conn, $query);
+        if ($stmt) {
+            return $stmt;
+        } else {
+            die('Error in query: ' . mysqli_error($this->conn));
         }
     }
 

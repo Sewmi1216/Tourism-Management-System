@@ -78,16 +78,16 @@
                            <!-- <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td> -->
                            <td class="tbld">
                                
-                               <select class="tourguide" name="Status">
-
+                               <select class="tourguide" name="tourguide">
+                              
                                                             <?php 
                                 require_once("../controller/tourguidecontroller.php");
                                 $penguide= new tourguidecontroller();
                                 $results= $penguide->viewAllTourguides();
                                 foreach ($results as $result) { ?>
                                
-                                   <option value="Pending">
-                                       <?php echo $result["name"] ?> </option>
+                                   <option value="">
+                                       <?php echo $result["tourguideID"] ?> </option>
                                   <?php } ?>
                                </select>
                            </td>
@@ -279,14 +279,14 @@
 
 <script>
     $('.tourguide').on('change', function() {
-        var newStatus = $(this).val();
+        var newTourguide = $(this).val();
         var bookingId = $(this).closest('tr').find('.tbld:nth-child(2)').text();
         $.ajax({
             url: '../api/assigntourguide.php',
             type: 'POST',
             data: {
                 bookingId: bookingId,
-                newStatus: newStatus
+                newTourguide: newTourguide
             },
             success: function(response) {
                 console.log(response);
