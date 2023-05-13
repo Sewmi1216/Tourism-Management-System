@@ -94,16 +94,15 @@ class tourbooking extends db_connection
 
     }
 
-    public function viewtourreservationdetails($inputs)
+    public function viewtourreservationdetails($id)
     {
        
     
-        $query = "SELECT * from tourbooking b, tourist t, tourpackage p, tourguide g where p.packageID=b.tourPkgID and b.touristID=t.userID and b.tourGuideId=g.tourguideID and b.tourPkgID= $inputs[2] and b.touristID= $inputs[1] and b.bookingID= $inputs[0]";
+        $query = "SELECT * from tourbooking where bookingID='$id'";
+$stmt = mysqli_query($this->conn, $query);
 
-        $stmt = mysqli_query($this->conn, $query);
+return $stmt;
 
-        
-        return $stmt;
     }
 
     public function viewtourbookingPayments($id)
@@ -115,7 +114,7 @@ class tourbooking extends db_connection
 
     public function updateStatus($bookingId, $newStatus)
     {
-        $query = "UPDATE tourbooking SET status='$newStatus' WHERE bookingID='$bookingId'";
+        $query = "UPDATE tourbooking SET bookingStatus='$newStatus' WHERE bookingID='$bookingId'";
         $stmt = mysqli_query($this->conn, $query);
         if ($stmt) {
             return $stmt;
