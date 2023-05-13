@@ -35,5 +35,12 @@ class reservation extends db_connection
         $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
         return $results;
     }
+    public function viewReservation($id)
+    {
+        //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
+        $query = "Select * from guest_reservation where reservationID = '$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
 }

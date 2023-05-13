@@ -59,6 +59,21 @@ if (isset($_POST['admin_post_message'])) {
         exit();
     }
 }
+if (isset($_POST['guide_post_message'])) {
+    if (isset($_POST['message_body'])) {
+        $body = $_POST['message_body'];
+        $user_to = $_POST['user_to'];
+        $user = $_POST['user'];
+        $userLoggedIn = $_POST['userLoggedIn'];
+        $date = date("Y-m-d H:i:s");
+        $chat = new messageController();
+        $chat->tsendMessage($user_to, $userLoggedIn, $body, $date);
+
+        header("Location: ../view-tour_guide/chat.php?u=$user&e=$user_to");
+        exit();
+    }
+}
+
 
 
 

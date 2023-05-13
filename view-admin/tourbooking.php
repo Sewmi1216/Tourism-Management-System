@@ -75,11 +75,7 @@
                            <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
                            <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                            <td class="tbld">
-                                <!-- <?php if ($result["bookingStatus"] == "Confirmed") {?>
-                            <button class="status1"><?php echo $result["bookingStatuss"]; ?></button>
-                            <?php } else {?>
-                            <button class="status2"><?php echo $result["bookingStatus"]; ?></button>
-                            <?php }?> -->
+                               
                                 <select class="subfield" name="Status">
                                     <option value="Pending"
                                         <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
@@ -97,6 +93,7 @@
                                     data-id="<?php echo $result['bookingID']?>"><i
                                         class="fa-solid fa-bars"></i></a>
                             </td>
+                            
    
                            <?php }
 
@@ -117,27 +114,26 @@
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id05').style.display='none'"
             class="cancelbtn close">&times;</button>
-        <label for="room" style="color:white"><b>View Reservation</b></label>
+        <label for="room" style="color:white"><b>View Booking</b></label>
     </div>
     <hr>
     <div class="container">
         <table>
 
 <?php 
-require('../api/viewtourbooking-admin.php');
-$results = $_SESSION['c'];
+// require('../api/viewtourbooking-admin.php');
+// $results = $_SESSION['c'];
 ?>
 
-<?php
 
-foreach($results as $result) 
 
-echo '
+
+
             <tr class="row">
                 <td>
                     <div class="content">Booking Number Number</div>
                 </td>
-                <td><div>'.$result["bookingID"].'</div></td>
+                <td><div id="resid"></div></td>
             </tr>
 
             <tr class="row">
@@ -176,7 +172,7 @@ echo '
                 </td>
                 <td><div id="checkout"></div></td>
             </tr>
-            ' ?>
+     
         </table>
 
     </div>
@@ -221,8 +217,8 @@ echo '
             url: '../api/update_bookingstatus.php',
             type: 'POST',
             data: {
-                bookingid: bookingId,
-                newstatus: newStatus
+                bookingId: bookingId,
+                newStatus: newStatus
             },
             success: function(response) {
                 console.log(response);

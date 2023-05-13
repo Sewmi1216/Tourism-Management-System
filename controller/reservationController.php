@@ -58,5 +58,12 @@ class reservationController extends db_connection
         $hoteluser3 = new reservation();
         return $hoteluser3->viewhotelPayments($id);
     }
+    public function viewReservation($id)
+    {
+        $res = new reservation();
+        $rs = $res->viewReservation($id);
+        return $rs;
+
+    }
 
 }

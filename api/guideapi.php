@@ -32,18 +32,20 @@ if (isset($_POST['signup'])) {
     move_uploaded_file($dtempname, $dfolder);
 }
 
-// if (isset($_POST["get_data"])) {
-//     // Get the ID of customer user has selected
-//     $id = $_POST["id"];
+if (isset($_POST["get_data"])) {
+    // Get the ID of customer user has selected
+    $id = $_POST["id"];
+    $guideid = $_POST["tourGuideId"];
 
-//     $profile = new entrepreneurController();
-//     $result = $profile->viewentrepreneur($id);
-//     $row = mysqli_fetch_object($result);
 
-//     // Important to echo the record in JSON format
-//     echo json_encode($row);
+    $profile = new tourguideController();
+    $result = $profile->viewAssignedBookingDetails($id, $guideid);
+    $row = mysqli_fetch_object($result);
 
-//     // Important to stop further executing the script on AJAX by following line
-//     exit();
-// }
+    // Important to echo the record in JSON format
+    echo json_encode($row);
+
+    // Important to stop further executing the script on AJAX by following line
+    exit();
+}
 
