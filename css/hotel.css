@@ -159,6 +159,18 @@ body {
   border: 2px solid rgba(34, 50, 194, 0.25);
   border-radius: 10px;
 }
+.tourguide {
+  font-family: sans-serif;
+  background: #dde8f0;
+  width: 90%;
+  height: 30px;
+  margin: 10px 0 0;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 2px solid rgba(34, 50, 194, 0.25);
+  border-radius: 10px;
+}
 .subtextfield {
   font-family: sans-serif;
   background: #dde8f0;

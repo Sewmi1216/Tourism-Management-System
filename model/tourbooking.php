@@ -98,7 +98,7 @@ class tourbooking extends db_connection
     {
        
     
-        $query = "SELECT * from tourbooking where bookingID='$id'";
+        $query = "SELECT * from tourbooking a, tourpackage b, tourist c, tourguide d WHERE a.tourPkgID = b.packageID AND a.tourGuideId = d.tourguideID and a.touristID = c.userID and a.bookingID ='$id'";
 $stmt = mysqli_query($this->conn, $query);
 
 return $stmt;

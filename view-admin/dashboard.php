@@ -140,7 +140,7 @@ echo $result['total_count'] ;}
                     </div>
                 </span>
                 <span class="b">
-                    Today's Pending Payments
+                    Pending Bookings
                     <div style="margin-top:40px;font-size:40px;">
                  20
                     </div>
