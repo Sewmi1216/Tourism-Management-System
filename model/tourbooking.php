@@ -113,6 +113,14 @@ class tourbooking extends db_connection
         return $this->getData($query);
     }
 
+    public function viewalltourbookingPayments()
+    {
+        $query = "SELECT * FROM tourbooking_payment a , tourbooking b WHERE a.tourBookingId = b.bookingID";
+
+        return $this->getData($query);
+    }
+
+
     public function updateStatus($bookingId, $newStatus)
     {
         $query = "UPDATE tourbooking SET status='$newStatus' WHERE bookingID='$bookingId'";
