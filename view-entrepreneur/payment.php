@@ -29,12 +29,14 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title">Payments </div>
+            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="order.php"
+                        style="color:white;text-decoration:none;">BACK</a></button>
+                <div class="page-title" style="margin-left:50px;">Payments </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for products" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <a href="payment.php"><button type="submit" class="btns">View All</button></a>
                 <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
                     style="margin-left:2rem;background-color:red;">Download pdf</button>
                 
@@ -64,22 +66,18 @@ foreach ($results as $result) {
  
            <tr class="subtext tblrw">
                     <th class="tblh"><?php echo $result["orderPaymentId"] ?></th>
-                    <th class="tblh"><?php echo $result["paymentDateTime"] ?></th>
-
-                    <th class="tblh"><?php echo $result["craftOrderId"] ?></th>
-                    
-
-
                     <th class="tblh"><?php echo $result["amount"] ?></th>
                     
-                    <th class="tblh"><?php echo $result["orderID"] ?></th>
+                    <th class="tblh"><?php echo $result["orderId"] ?></th>
+
+                  
                     <td class="tbld">
-                        <?php if ($result["status"] == "Completed") {?>
+                        <?php if ($result["paymentStatus"] == "Completed") {?>
                         <button class="status3"><?php echo $result["paymentStatus"]; ?></button>
-                        <?php } else if($result["status"] == "Pending") {?>
-                        <button class="status1"><?php echo $result["status"]; ?></button>
+                        <?php } else if($result["paymentStatus"] == "Pending") {?>
+                        <button class="status1"><?php echo $result["paymentStatus"]; ?></button>
                         <?php } else{?>
-                        <button class="status2"><?php echo $result["status"]; ?></button>
+                        <button class="status2"><?php echo $result["paymentStatus"]; ?></button>
                         <?php }?>
                     </td>
                     

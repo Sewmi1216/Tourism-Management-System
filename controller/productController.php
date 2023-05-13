@@ -11,11 +11,11 @@ class productController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addproduct($pName, $pCategory, $avaquantity, $price, $id)
+    public function addproduct($pName, $avaquantity, $price,$productID, $id)
     {
         $product = new product();
 
-        $result = $product->insertproduct($pName, $pCategory, $avaquantity, $price, $id);
+        $result = $product->insertproduct($pName,$avaquantity, $price,$productID, $id);
 
     }
     public function addproductImg($productid, $file)
@@ -55,6 +55,16 @@ class productController extends db_connection
         // }
 
     }
+    public function viewCategories($id)
+    {
+        $product = new product();
+
+        $results = $product->viewCategories($id);
+
+        // include "../view/product.php";
+        return $results;
+
+    }
     public function viewAll($id)
     {
         $product = new product();
@@ -82,10 +92,10 @@ class productController extends db_connection
 
     }
 
-    public function updateproduct($id, $pName, $pCategory, $avaquantity, $price)
+    public function updateproduct($id,$categoryID,$pName, $avaquantity, $price)
     {
         $result = new product();
-        $result->updateproduct($id, $pName, $pCategory, $avaquantity, $price);
+        $result->updateproduct($id, $categoryID,$pName, $avaquantity, $price);
 
         if (!$result) {
             echo 'There was a error';

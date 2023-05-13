@@ -160,27 +160,7 @@ foreach ($results as $data) {
  });
 
     </script>
-    <script>
-    document.getElementById('create_pdf').onclick = function() {
-        var element = document.getElementById('container');
-        var opt = {
-            margin: 0.2,
-            filename: 'dashboard.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 1
-            },
-            html2canvas: {
-                scale: 1
-            },
-            jsPDF: {
-                unit: 'mm',
-                format: 'letter',
-                orientation: 'portrait'
-            }
-        };
-        html2pdf(element, opt);
-    };
+    
     </script>
 
 

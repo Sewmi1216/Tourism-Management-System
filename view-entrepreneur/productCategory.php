@@ -38,7 +38,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Product Categories</div>
+            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="dashboard.php"
+                        style="color:white;text-decoration:none;">BACK</a></button>
+                <div class="page-title" style="margin-left:50px;"> Product Categories</div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for categories" name="search" id="myInput"
                         onkeyup="searchTypes()">
@@ -61,7 +63,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                     <tr class="subtext tblrw">
                         <th class="tblh">Product Category</th>
                         <th class="tblh">Description</th>
-                        <th class="tblh">Add photos</th>
+                       
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr> <?php
@@ -75,11 +77,7 @@ foreach ($results as $result) {
                             <td class="tbld"><?php echo $result["categoryName"] ?></td>
                             <td class="tbld"><?php echo $result["description"] ?></td>
 
-                            <td class="tbld">
-                                <?php echo "<a href='addPhotos.php?id=$result[product_categoryId]'>"; ?>
-                                <i class="fa-solid fa-images"></i>
-                                <?php echo "</a>" ?>
-                            </td>
+                            
                             <td class="tbld"><a
                                     onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
                                     data-id="<?php echo $result['product_categoryId']; ?>"><i

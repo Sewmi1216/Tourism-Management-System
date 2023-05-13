@@ -46,14 +46,21 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                 
                 <td> 
                 <select name="pCategory" id="pCategory" class="subfield">
-  <option value="handloom">Handloom</option>
-  <option value="traditional">Traditional Drums</option>
-  <option value="Jewellery" selected>Jewellery</option>
-  <option value="Clay">Clay(Pottery)</option>
-  <option value="wood">Wood Carving</option>
-  <option value="Bathik">Bathik</option>
-  <option value="masks">Sri Lankan Masks</option>
-  <option value="lkasha">Sri Lankan Laksha</option>
+  
+                <?php
+require_once("../controller/productController.php") ;
+$ctg = new productController();
+$results = $ctg->viewCategories($id);
+           foreach ($results as $result) {
+               ?>
+                                    <option value="<?php echo $result["product_categoryId"];
+                ?>">
+                                        <?php echo $result["categoryName"];
+                    ?>
+                                    </option>
+                                    <?php
+           }
+            ?>
 </select>
      
             
@@ -62,12 +69,12 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
             
             <tr class="row">
                 <td>
-                    <div class="content">Price</div>
+                    <div class="content">Unit Price</div>
                 </td>
                 <td><input type="text" class="subfield" name="price" /></td>
                 
             </tr>
-            <tr class="row">
+            <tr class="row">                                            
                 <td>
                     <div class="content">Available Quantity</div>
                 </td>

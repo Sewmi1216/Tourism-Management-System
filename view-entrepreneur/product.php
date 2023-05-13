@@ -27,7 +27,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Craft Products </div>
+            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="productCategory.php"
+                        style="color:white;text-decoration:none;">BACK</a></button>
+                <div class="page-title" style="margin-left:50px;"> Craft Products </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for packages" name="search" id="myInput" onkeyup="searchTypes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
@@ -65,7 +67,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                     'border-radius: 10%;width:70px;height: 70px;background-size: 100%;
                     background-repeat: no-repeat;margin: 20px auto 15px;'>";?></td> -->
                     <td class="tbld"><?php echo $result["productName"] ?></td>
-                        <td class="tbld"><?php echo $result["category"] ?></td>
+                        <td class="tbld"><?php echo $result["categoryName"] ?></td>
                         <td class="tbld"><?php echo $result["quantity"] ?></td>
                         <td class="tbld"><?php echo $result["price"] ?></td>
                         <td class="tbld">
@@ -119,7 +121,22 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                 <td>
                     <div class="content">Category</div>
                 </td>
-                <td> <input type="text" class="subfield" id="category"  name="pCategory" value=""/></td>
+                <td> 
+                <select class="subfield" name="category" id="category">
+                                    <?php
+require_once("../controller/productController.php") ;
+$ctg = new productController();
+$results = $ctg->viewAll($id);
+           foreach ($results as $result) {
+               ?>
+                                    <option value="<?php echo $result["product_categoryId"];?>">
+                                        <?php echo $result["categoryName"];?>
+                                    </option>
+                                    <?php
+           }
+            ?>
+                                </select>
+                </td>
             </tr>
             <tr class="row">
                 <td>
