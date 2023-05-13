@@ -92,10 +92,9 @@ class productController extends db_connection
 
     }
 
-    public function updateproduct($id,$categoryID,$pName, $avaquantity, $price)
-    {
+    public function updateproduct($id,$pName,$categoryID,$avaquantity,$price){
         $result = new product();
-        $result->updateproduct($id, $categoryID,$pName, $avaquantity, $price);
+        $result->updateproduct($id,$pName,$categoryID,$avaquantity,$price);
 
         if (!$result) {
             echo 'There was a error';
@@ -142,10 +141,10 @@ class productController extends db_connection
         return $result;
     }
     
-    public function countProductOrders()
+    public function countProductOrders($id)
     {
         $order  = new product ();
-        $res = $order->countProductOrders();
+        $res = $order->countProductOrders($id);
         return $res;
     }
     public function revenue()

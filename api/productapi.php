@@ -7,7 +7,7 @@ if (isset($_POST['save'])) {
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
     
-    $id =$_POST['entID'];
+    $id =$_POST['id'];
     $productcon = new productController();
     $productcon->addproduct($pName,$avaquantity,$price,$categoryID,$id);
     if (!$productcon) {
@@ -86,7 +86,9 @@ if (isset($_POST["get_data"])) {
 
 
 if (isset($_POST['update'])) {
-    $categoryID = $_POST['categoryID'];
+    $id = $_POST['id'];
+
+    $categoryID = $_POST['category'];
     $pName = $_POST['pName'];
    
     $avaquantity = $_POST['avaquantity'];
@@ -94,9 +96,7 @@ if (isset($_POST['update'])) {
     
 
     $result = new productController();
-    $result->updateproduct($pName,$categoryID,$avaquantity,$price,$filename);
-   
-    
+    $result->updateproduct($id,$pName,$categoryID,$avaquantity,$price);
 
 }
 ?>
