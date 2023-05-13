@@ -17,11 +17,11 @@ class roomType extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertRoomType($pkgName, $desc, $id)
+    public function insertRoomType($pkgName, $desc, $id, $price, $beds)
     {
         require_once "../view-hotel/roomType.php";
 
-        $sql = "INSERT INTO roomtype(typeName, description, hotelID) VALUES ('$pkgName', '$desc', '$id')";
+        $sql = "INSERT INTO roomtype(typeName, description, hotelID, price, noOfPersons) VALUES ('$pkgName', '$desc', '$id','$price', '$beds')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmts = $this->conn->prepare($sql);
@@ -114,7 +114,7 @@ class roomType extends db_connection
     }
      public function viewPersons($id)
     {
-        $query = "SELECT distinct(noOfPersons) as 'NumberPerson' FROM room where hotelId='$id'";
+        $query = "SELECT distinct(noOfPersons) as 'NumberPerson' FROM roomtype where hotelId='$id'";
         return $this->getData($query);
     }
 

@@ -128,10 +128,10 @@ class tourist extends db_connection
     }
     public function searchRoom($id, $person, $room)
     {
-        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
+        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND t.noOfPersons='$person'";
         $stmt = mysqli_query($this->conn, $query);
-        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
-        return $results;
+        // $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+        return $stmt;
 
     }
     public function availability($checkin, $checkout, $room)

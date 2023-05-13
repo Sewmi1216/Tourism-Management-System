@@ -32,45 +32,46 @@
     </section>
 
 
+  
     <!-- tour packages -->
     <section class="popular" id="tour" style="padding: 2rem 9%;">
         <h1 class="heading" style="text-align:center;">Explore Sri Lankan tour packages</h1>
         <hr>
         <div class="container">
+            <?php
+require_once "../controller/touristController.php";
+$tour = new touristController();
+$results = $tour->viewAllTourPackages();
+$counter = 0;
+foreach ($results as $result) {
+     if ($counter >= 3) {
+            break; // Break the loop after displaying the first 3 tour packages
+        }
+    ?>
             <div class="box">
-                <img src="../images/available packages/package1.png" alt="">
+                <?php
+require_once "../controller/tourpackagecontroller.php";
+    $tp = new tourpackageController();
+    $rows = $tp->viewAllImgs($result['packageID']);
+   foreach ($rows as $index => $row) {
+        
+                if ($index == 0) { // Only display the first image
+    ?>
+                <?php echo "<img src='../images/" . $row['image'] . "'>"; ?>
+
+                <?php }}?>
 
                 <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
+                    <h3 style="display: inline;"><?php echo $result['packageName'];?></h3>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                    <a href="tourpackage.php?pid=<?php echo $result['packageID']; ?>" class="btn">View</a>
                 </div>
             </div>
 
-            <div class="box">
-                <img src="../images/available packages/package3.png" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-            <div class="box">
-                <img src="../images/available packages/package4.png" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Jungle Jaunt</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
+            <?php $counter++;
+}?>
 
         </div>
     </section>
@@ -79,42 +80,30 @@
     <section class="popular" id="hotel" style="padding: 2rem 9%;">
         <h1 class="heading" style="text-align:center;">Explore Sri Lankan hotels</h1>
         <hr>
+
         <div class="container">
+            <?php
+require_once("../controller/touristController.php") ;
+$hotel = new touristController();
+$results = $hotel->viewAllHotels();
+$count = 0;
+           foreach ($results as $result) {
+            if ($count >= 3) {
+            break; // Break the loop after displaying the first 3 tour packages
+        }
+               ?>
             <div class="box">
-                <img src="../images/h2.jpg" alt="">
+                <?php echo "<img src='../images/" . $result['profileImg'] . "'>";?>
 
                 <div class="content-container">
-                    <h3 style="display: inline;">Marino Beach</h3>
+                    <h3 style="display: inline;"><?php echo $result['name'];?></h3>
                 </div>
-
                 <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
+                    <a href="hotelView.php?hid=<?php echo $result['hotelID']; ?>" class="btn">Select</a>
                 </div>
             </div>
-
-            <div class="box">
-                <img src="../images/h3.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Wonder Hotel</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-            <div class="box">
-                <img src="../images/h3.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">The Kingsbury Hotel</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Book Now" name="signIn">
-                </div>
-            </div>
-
+            <?php $count++;
+}?>
         </div>
     </section>
 
@@ -123,40 +112,27 @@
         <h1 class="heading" style="text-align:center;">Explore Sri Lankan handicrafts</h1>
         <hr>
         <div class="container">
+            <?php
+require_once("../controller/productController.php") ;
+$hotel = new productController();
+$results = $hotel->getProducts();
+$cnt= 0;
+           foreach ($results as $result) {
+            if ($cnt >= 3) {
+            break; // Break the loop after displaying the first 3 tour packages
+        }
+               ?>
             <div class="box">
                 <img src="../images/bathik saree.jpg" alt="">
-
                 <div class="content-container">
-                    <h3 style="display: inline;">Mask</h3>
+                    <h3 style="display: inline;"><?php echo $result['productName'];?> </h3>
                 </div>
-
                 <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Order Now" name="signIn">
+                    <a href="craft.php?productid=<?php echo $result['productID']; ?>" class="btn">View</a>
                 </div>
             </div>
-
-            <div class="box">
-                <img src="../images/c1.jpg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Crane products</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Order Now" name="signIn">
-                </div>
-            </div>
-            <div class="box">
-                <img src="../images/Bathik.jpeg" alt="">
-
-                <div class="content-container">
-                    <h3 style="display: inline;">Bathik dresses</h3>
-                </div>
-
-                <div style="display: flex; justify-content: center;">
-                    <input type="submit" class="btn" value="Order Now" name="signIn">
-                </div>
-            </div>
+             <?php $cnt++;
+}?>
 
         </div>
     </section>

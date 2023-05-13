@@ -11,11 +11,11 @@ class roomTypeController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addRoomType($pkgName, $desc, $id)
+    public function addRoomType($pkgName, $desc, $id, $price, $beds)
     {
         $hpkgs = new roomType();
 
-        $res = $hpkgs->insertRoomType($pkgName,$desc, $id);
+        $res = $hpkgs->insertRoomType($pkgName, $desc, $id, $price, $beds);
         return $res;
 
     }

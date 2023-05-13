@@ -6,12 +6,12 @@ if (isset($_POST['add'])) {
     $id= $_POST['hotelId'];
     $typeId = $_POST['typeId'];
     $roomNo = $_POST['roomNo'];
-    $beds = $_POST['beds'];
-    $price = $_POST['price'];
+    // $beds = $_POST['beds'];
+    // $price = $_POST['price'];
     $view = $_POST['view'];
 
     $roomcon = new roomController();
-    $roomcon->addRoom($roomNo, $beds, $price, $view, $typeId,$id);
+    $roomcon->addRoom($roomNo, $view, $typeId,$id);
 
     echo "window.location.href = '../view-hotel/room.php';
         </script>";
@@ -36,13 +36,13 @@ if (isset($_POST['update'])) {
 
     $roomno = $_POST['roomNo'];
     $typeId = $_POST['typeId'];
-    $beds = $_POST['beds'];
-    $price = $_POST['price'];
+    // $beds = $_POST['beds'];
+    // $price = $_POST['price'];
     $view = $_POST['view'];
    // print $typeId;
 
     $rm = new roomController();
-    $rm->updateRoom($roomno, $typeId, $beds, $price, $view);
+    $rm->updateRoom($roomno, $typeId, $view);
 
 }
 if (isset($_POST['delete'])) {

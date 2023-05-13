@@ -37,12 +37,19 @@
                              <option value="Unavailable">Unavailable</option>
                          </select></td>
                  </tr> -->
-                 <!-- <tr class="row">
+                 <tr class="row">
+                     <td>
+                         <div class="content">No.of Persons</div>
+                     </td>
+                     <td> <input type="number" min="0" class="subfield" value="" name="beds" id="beds" /></td>
+                 </tr>
+
+                 <tr class="row">
                      <td>
                          <div class="content">Price</div>
                      </td>
-                     <td> <input type="number" min="10" class="subfield" name="price" required /></td>
-                 </tr> -->
+                     <td> <input type="number" min="0" class="subfield" value="" name="price" id="price" /></td>
+                 </tr>
              </table>
          </div>
          <div class="container" style="padding:10px;">
