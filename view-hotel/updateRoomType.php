@@ -34,27 +34,18 @@
                          </div> -->
                     </td>
                 </tr>
-                <!-- <tr class="row">
+                <tr class="row">
                     <td>
-                        <div class="content">Status</div>
+                        <div class="content">No.of Persons</div>
                     </td>
-                  
-                    <td> <select class="subfield" name="status" id="status">
-                            <option value="Available">
-                                Available
-                            </option>
-                            <option value="Unavailable">
-                                Unavailable</option>
-                        </select></td>
+                    <td> <input type="number" class="subfield" id="bedss" name="beds"/></td>
                 </tr>
                 <tr class="row">
                     <td>
-                        <div class="content">Price</div>
+                        <div class="content">Price($)</div>
                     </td>
-                    <td> <input type="number" id="price" min="10" class="subfield" name="price"
-                            value="" /></td>
-                </tr> -->
-
+                    <td> <input type="number" min="0" class="subfield" name="price" id="prices"/></td>
+                </tr>
             </table>
 
         </div>
