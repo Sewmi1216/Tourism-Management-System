@@ -53,8 +53,10 @@
                     <th class="tblh">Guest Name</th>
                     <th class="tblh">Total amount</th>
                     <th class="tblh">Check-in</th>
-                    <th class="tblh">View Booking</th>
+                    <th class="tblh">Assign Guide</th>
+                    <!-- <th class="tblh">View Booking</th> -->
                     <th class="tblh">Booking Status</th>
+                    <th class="tblh">Quick View</th>
                 </tr>
 
                 <?php
@@ -73,10 +75,29 @@
                            <td class="tbld"><?php echo $result["guestName"] ?></td>
                            <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
                            <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
-                           <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                           <!-- <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td> -->
+                           <td class="tbld">
+                               
+                               <select class="tourguide" name="Status">
+
+                                                            <?php 
+                                require_once("../controller/tourguidecontroller.php");
+                                $penguide= new tourguidecontroller();
+                                $results= $penguide->viewAllTourguides();
+                                foreach ($results as $result) { ?>
+                               
+                                   <option value="Pending">
+                                       <?php echo $result["name"] ?> </option>
+                                  <?php } ?>
+                               </select>
+                           </td>
+                           
+                           
                            <td class="tbld">
                                
                                 <select class="subfield" name="Status">
+
+                                
                                     <option value="Pending"
                                         <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
                                         Pending</option>
@@ -88,10 +109,12 @@
                                         Cancelled</option>
                                 </select>
                             </td>
+
+                            
                             <td class="tbld"><a
                                     onclick="document.getElementById('id05').style.display='block';loadData(this.getAttribute('data-id'));"
-                                    data-id="<?php echo $result['bookingID']?>"><i
-                                        class="fa-solid fa-bars"></i></a>
+                                    data-id="<?php echo $result['bookingID']?>">
+                                    <i class="fa-solid fa-bars"></i> </a>
                             </td>
                             
    
@@ -131,9 +154,9 @@
 
             <tr class="row">
                 <td>
-                    <div class="content">Booking Number Number</div>
+                    <div class="content">Booking Number</div>
                 </td>
-                <td><div id="resid"></div></td>
+                <td><div id="bookingid"></div></td>
             </tr>
 
             <tr class="row">
@@ -141,6 +164,12 @@
                     <div class="content">Booking Date/ Time</div>
                 </td>
                 <td><div id="date"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Tour Package Name</div>
+                </td>
+                <td><div id="packagename"></div></td>
             </tr>
             <tr class="row">
                 <td>
@@ -162,13 +191,25 @@
             </tr>
             <tr class="row">
                 <td>
-                    <div class="content">Check-in Date</div>
+                    <div class="content">Tour Guide Name</div>
+                </td>
+                <td><div id="guidename"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Tour Guide Contact Number</div>
+                </td>
+                <td><div id="guidephone"></div></td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <div class="content">Start Date</div>
                 </td>
                 <td><div id="checkin"></div></td>
             </tr>
             <tr class="row">
                 <td>
-                    <div class="content">Check-out Date</div>
+                    <div class="content">End Date</div>
                 </td>
                 <td><div id="checkout"></div></td>
             </tr>
@@ -196,13 +237,17 @@
             success: function(response) {
                 console.log(response);
                 var res = JSON.parse(response);
-                $("#resid").text(res.bookingID);
+                $("#bookingid").text(res.bookingID);
                 $("#date").text(res.bookingDateTime);
                 $("#guestname").text(res.guestName);
                 $("#guestphone").text(res.guestPhone);
                 $("#guestemail").text(res.guestEmail);   
-                $("#checkin").text(res.checkInDate);
-                $("#checkout").text(res.checkInDate);
+                $("#checkin").text(res.arrivalDate);
+                $("#checkout").text(res.departureDate);
+                $("#packagename").text(res.packageName);
+                $("#guidename").text(res.name);
+                $("#guidephone").text(res.phone);
+
 
             }
         });
@@ -223,6 +268,29 @@
             success: function(response) {
                 console.log(response);
              alert('Status update is successful');
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+            }
+        });
+    });
+
+    </script>
+
+<script>
+    $('.tourguide').on('change', function() {
+        var newStatus = $(this).val();
+        var bookingId = $(this).closest('tr').find('.tbld:nth-child(2)').text();
+        $.ajax({
+            url: '../api/assigntourguide.php',
+            type: 'POST',
+            data: {
+                bookingId: bookingId,
+                newStatus: newStatus
+            },
+            success: function(response) {
+                console.log(response);
+             alert('Assigned Tourgide successfully');
             },
             error: function(xhr, status, error) {
                 console.log(xhr.responseText);

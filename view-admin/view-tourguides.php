@@ -47,10 +47,10 @@
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> Registered Tour Guides </div>
-                <div class="input-container">
+                <!-- <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for guides" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
-                </div>
+                </div> -->
                 
                 </span>
             </div>
