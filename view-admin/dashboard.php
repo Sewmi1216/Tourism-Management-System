@@ -185,8 +185,8 @@ echo $result['tourguide_count'];}
                     <br>
                     <!-- pie chart -->
                         <?php
-                        $pie = new hotelController();
-                        $results = $pie->countRoomTypeReservations($id);
+                        $pie = new adminController();
+                        $results = $pie->countpackageReservations($id);
                         foreach ($results as $data) 
                         {
                             $type[] = $data['room_type'];

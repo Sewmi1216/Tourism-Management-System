@@ -23,6 +23,18 @@ class admin extends db_connection
         return $stmt;
     }
 
+    private function getData($query)
+    {
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            die('Error in query: ' . mysqli_error());
+        }
+        $data = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
     public function viewpendingusers()
     {
         $query = "SELECT COUNT(*) AS total_count
@@ -88,6 +100,12 @@ class admin extends db_connection
 
         return $stmt;
     
+    }
+
+    public function countpackageReservations($id)
+    {
+        $query1 = "SELECT rt.typeName as room_type, COUNT(*) as num_reservations FROM guest_reservation gr INNER JOIN room r ON gr.roomID = r.roomNo INNER JOIN roomtype rt ON r.typeID = rt.roomTypeId where gr.hotelId='$id' GROUP BY rt.typeName;";
+        return $this->getData($query1);
     }
 
 }

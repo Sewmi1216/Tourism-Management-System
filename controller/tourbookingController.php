@@ -116,6 +116,14 @@ class tourbookingcontroller extends db_connection
         return $result3;
     }
 
+    public function viewalltourbookingPayments()
+    {
+        $res = new tourbooking();
+        $result3 = $res->viewalltourbookingPayments();
+
+        return $result3;
+    }
+
     public function updateStatus($bookingId, $newStatus)
     {
         $user = new tourbooking();

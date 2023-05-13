@@ -129,4 +129,11 @@ class adminController extends db_connection
         $_SESSION['c'] = $result;
         return $result;
     }
+
+    public function countpackageReservations($id)
+    {
+        $pckg = new admin();
+        $res = $pckg->countpackageReservations($id);
+        return $res;
+    }
 }
