@@ -86,6 +86,19 @@ class tourpackage extends db_connection
  
         return $stmt;
     }
+
+
+    public function restorepackage($id)
+    {
+       
+        $query = "UPDATE tourpackage SET status = 'Available' WHERE packageID = $id";
+        //  print_r($query);
+        // die(); 
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+        }
+      
+    
     public function deletetourPkg($id)
     {
        

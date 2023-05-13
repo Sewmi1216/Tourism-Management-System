@@ -86,7 +86,7 @@
 
 <form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
+<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $row['packageID']; ?>"/>
 
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id01').style.display='none'"  class="cancelbtn close">&times;</button>
@@ -130,7 +130,7 @@ modal.style.display = "block";
 
 <form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
+<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $row['packageID']; ?>"/>
 
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id02').style.display='none'"  class="cancelbtn close">&times;</button>
