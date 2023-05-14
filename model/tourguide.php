@@ -140,5 +140,51 @@ class tourguide extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
+    public function updateGuide($bookingId, $newGuide)
+    {
+       $bookingId = mysqli_real_escape_string($this->conn, $bookingId);
+$newGuide = mysqli_real_escape_string($this->conn, $newGuide);
 
+$query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
+$stmt = mysqli_query($this->conn, $query);
+
+if ($stmt) {
+    return $stmt;
+} else {
+    die('Error in query: ' . mysqli_error($this->conn));
+}
+
+    }
+
+
+    public function assignguide($assignguide, $bookingID)
+    {
+
+$query = "UPDATE tourbooking SET tourGuideId='$$assignguide' WHERE bookingID='$bookingID'";
+$stmt = mysqli_query($this->conn, $query);
+
+
+if ($stmt) {
+    return $stmt;
+} else {
+    die('Error in query: ' . mysqli_error($this->conn));
+}
+
+    }
+
+    public function updateGuide($bookingId, $newGuide)
+    {
+       $bookingId = mysqli_real_escape_string($this->conn, $bookingId);
+$newGuide = mysqli_real_escape_string($this->conn, $newGuide);
+
+$query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
+$stmt = mysqli_query($this->conn, $query);
+
+if ($stmt) {
+    return $stmt;
+} else {
+    die('Error in query: ' . mysqli_error($this->conn));
+}
+
+    }
 }

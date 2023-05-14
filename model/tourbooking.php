@@ -147,7 +147,10 @@ if ($stmt) {
 
     }
 
-    
+
+
+
+
     public function countpendingBooking()
     {
         $query1 = "SELECT COUNT(*) as num_bookings FROM tourbooking WHERE bookingStatus = 'Pending'";

@@ -54,6 +54,9 @@
                         <th class="tblh">Total amount</th>
                         <th class="tblh">Check-in</th>
                         <th class="tblh">Assign Guide</th>
+
+                        <th class="tblh">Assigned Guide</th>
+
                         <!-- <th class="tblh">View Booking</th> -->
                         <th class="tblh">Booking Status</th>
                         <th class="tblh">Quick View</th>
@@ -75,30 +78,12 @@
                             <td class="tbld"><?php echo $result["guestName"] ?></td>
                             <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
                             <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
+
+                            <td class="tbld"> <a href="assignguide.php?reservation_id=<?php echo $result["bookingID"] ?>&guideID=<?php echo $result["tourGuideId"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                            
                             <td class="tbld"><?php echo $result["tourGuideId"] ?></td>
-                            <!-- <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td> -->
-                            <td class="tbld">
-                                <select class="tourguide" name="tourGuideId">
-                                    <?php 
-        require_once("../controller/tourguidecontroller.php");
-        $penguide = new tourguidecontroller();
-        $results = $penguide->viewAllTourguides();
-        
-        foreach ($results as $result) {
-            $tourguideID = $result["tourguideID"];
-            $selectedValue = "";
-if ($tourguideID == $result["tourguideID"]) {
-    $selectedValue = "selected"; 
-}
-?>
-                                    <option value="<?php echo $tourguideID; ?>" <?php echo $selectedValue; ?>>
-                                        <?php echo $tourguideID; ?>
-                                    </option>
+                           
 
-
-                                    <?php } ?>
-                                </select>
-                            </td>
 
 
 
@@ -319,10 +304,11 @@ if ($tourguideID == $result["tourguideID"]) {
                     console.log(xhr.responseText);
                 }
             });
+
         });
         </script>
 
-        <script>
+        <!-- <script>
         $('.tourguide').on('change', function() {
             var newTourguide = $(this).val();
             var bookingID = $(this).closest('tr').find('.tbld:nth-child(2)').text();
@@ -342,7 +328,8 @@ if ($tourguideID == $result["tourguideID"]) {
                 }
             });
         });
-        </script>
+        </script> -->
+
 
 </body>
 
