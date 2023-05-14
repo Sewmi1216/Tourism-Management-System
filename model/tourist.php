@@ -186,10 +186,10 @@ class tourist extends db_connection
         }
 
     }
-  
+
     public function insertOrderPayment($total)
     {
-       $query = "INSERT INTO craftorder_payment(paymentDateTime, amount, paymentStatus) VALUES (NOW(), '$total','Completed')";
+        $query = "INSERT INTO craftorder_payment(paymentDateTime, amount, paymentStatus) VALUES (NOW(), '$total','Completed')";
         $stmt = mysqli_query($this->conn, $query);
         if (!$stmt) {
             echo "Error: " . mysqli_error($this->conn);
@@ -207,15 +207,12 @@ class tourist extends db_connection
         // $stmt->execute();
         return $stmt;
     }
-    
+
     public function viewProfile($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from tourist where userID = '$id'";
-        $stmt = mysqli_query($this->conn, $query);
-
-     
-        return $stmt;
+        return $this->getData($query);
     }
     public function viewTouristProfile($id)
     {
@@ -223,8 +220,19 @@ class tourist extends db_connection
         return $this->getData($query);
 
     }
-    
+    public function updateProfile($id, $name, $address, $phone, $nic, $dob, $country)
+    {
+        $query = "update tourist set name='$name', nic_passportNo='$nic', address='$address', phone='$phone', dob='$dob', country='$country' where userID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
+    public function updateProfileImg($fileImg, $id)
+    {
+        $query = "UPDATE tourist SET profileImg='$fileImg' WHERE userID ='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
     // Tour packages
     public function viewAllTourPackages()
     {

@@ -35,7 +35,7 @@
                         id="searcher" onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div> -->
-               <form method="post" action="../api/reserve.php">
+                <form method="post" action="../api/reserve.php">
                     <button type="submit" name="create_rpdf" class="btns"
                         style="margin-left:1rem;background-color:red;">Download pdf</button>
                 </form>
@@ -43,23 +43,23 @@
 
         </div>
         <form action="" method="post">
-        <div class="bg">
-            <table id="tbl">
-                <tr class="subtext tblrw">
-                     <th class="tblh">Date</th>
-                    <th class="tblh">Booking ID</th>
-                    <th class="tblh">Package Name</th>
-                    <th class="tblh">Guest ID</th>
-                    <th class="tblh">Guest Name</th>
-                    <th class="tblh">Total amount</th>
-                    <th class="tblh">Check-in</th>
-                    <th class="tblh">Assign Guide</th>
-                    <!-- <th class="tblh">View Booking</th> -->
-                    <th class="tblh">Booking Status</th>
-                    <th class="tblh">Quick View</th>
-                </tr>
+            <div class="bg">
+                <table id="tbl">
+                    <tr class="subtext tblrw">
+                        <th class="tblh">Date</th>
+                        <th class="tblh">Booking ID</th>
+                        <th class="tblh">Package Name</th>
+                        <th class="tblh">Guest ID</th>
+                        <th class="tblh">Guest Name</th>
+                        <th class="tblh">Total amount</th>
+                        <th class="tblh">Check-in</th>
+                        <th class="tblh">Assign Guide</th>
+                        <!-- <th class="tblh">View Booking</th> -->
+                        <th class="tblh">Booking Status</th>
+                        <th class="tblh">Quick View</th>
+                    </tr>
 
-                <?php
+                    <?php
   
    require_once "../controller/tourbookingcontroller.php";
    $res = new tourbookingcontroller();
@@ -67,37 +67,64 @@
    
    foreach ($results as $result) {
        ?> <tbody>
-                       <tr class="subtext tblrw">
-                           <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
-                           <td class="tbld"><?php echo $result["bookingID"] ?></td>
-                           <td class="tbld"><?php echo $result["tourPkgID"] ?></td>
-                           <td class="tbld"><?php echo $result["touristID"] ?></td>
-                           <td class="tbld"><?php echo $result["guestName"] ?></td>
-                           <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
-                           <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
-                           <!-- <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td> -->
-                           <td class="tbld">
-                               
-                               <select class="tourguide" name="tourguide">
-                              
-                                                            <?php 
-                                require_once("../controller/tourguidecontroller.php");
-                                $penguide= new tourguidecontroller();
-                                $results= $penguide->viewAllTourguides();
-                                foreach ($results as $result) { ?>
-                               
-                                   <option value="">
-                                       <?php echo $result["tourguideID"] ?> </option>
-                                  <?php } ?>
-                               </select>
-                           </td>
-                           
-                           
-                           <td class="tbld">
-                               
+                        <tr class="subtext tblrw">
+                            <td class="tbld"><?php echo $result["bookingDateTime"] ?></td>
+                            <td class="tbld"><?php echo $result["bookingID"] ?></td>
+                            <td class="tbld"><?php echo $result["tourPkgID"] ?></td>
+                            <td class="tbld"><?php echo $result["touristID"] ?></td>
+                            <td class="tbld"><?php echo $result["guestName"] ?></td>
+                            <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
+                            <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
+                            <td class="tbld"><?php echo $result["tourGuideId"] ?></td>
+                            <!-- <td class="tbld"> <a href="tourbookingdetail.php?reservation_id=<?php echo $result["bookingID"] ?>&touristId=<?php echo $result["touristID"] ?>&packageID=<?php echo $result["tourPkgID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td> -->
+                            <td class="tbld">
+                                <select class="tourguide" name="tourGuideId">
+                                    <?php 
+        require_once("../controller/tourguidecontroller.php");
+        $penguide = new tourguidecontroller();
+        $results = $penguide->viewAllTourguides();
+        
+        foreach ($results as $result) {
+            $tourguideID = $result["tourguideID"];
+            $selectedValue = "";
+if ($tourguideID == $result["tourguideID"]) {
+    $selectedValue = "selected"; 
+}
+?>
+                                    <option value="<?php echo $tourguideID; ?>" <?php echo $selectedValue; ?>>
+                                        <?php echo $tourguideID; ?>
+                                    </option>
+
+
+                                    <?php } ?>
+                                </select>
+                            </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <td class="tbld">
+
                                 <select class="subfield" name="Status">
 
-                                
+
                                     <option value="Pending"
                                         <?php if ($result["bookingStatus"] == "Pending") {echo "selected";}?>>
                                         Pending</option>
@@ -110,40 +137,40 @@
                                 </select>
                             </td>
 
-                            
+
                             <td class="tbld"><a
                                     onclick="document.getElementById('id05').style.display='block';loadData(this.getAttribute('data-id'));"
                                     data-id="<?php echo $result['bookingID']?>">
                                     <i class="fa-solid fa-bars"></i> </a>
                             </td>
-                            
-   
-                           <?php }
+
+
+                            <?php }
 
                        
 
 ?>
-                    </tr>
-            </table>
-            </form>
+                        </tr>
+                </table>
+        </form>
         </div>
- <!-- view Reservation-->
+        <!-- view Reservation-->
 
 
 
-<div id="id05" class="modal">
+        <div id="id05" class="modal">
 
-<form class="modal-content animate" method="post" action="">
-    <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id05').style.display='none'"
-            class="cancelbtn close">&times;</button>
-        <label for="room" style="color:white"><b>View Booking</b></label>
-    </div>
-    <hr>
-    <div class="container">
-        <table>
+            <form class="modal-content animate" method="post" action="">
+                <div class="imgcontainer" style="background-color:#004581;">
+                    <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                        class="cancelbtn close">&times;</button>
+                    <label for="room" style="color:white"><b>View Booking</b></label>
+                </div>
+                <hr>
+                <div class="container">
+                    <table>
 
-<?php 
+                        <?php 
 // require('../api/viewtourbooking-admin.php');
 // $results = $_SESSION['c'];
 ?>
@@ -152,153 +179,170 @@
 
 
 
-            <tr class="row">
-                <td>
-                    <div class="content">Booking Number</div>
-                </td>
-                <td><div id="bookingid"></div></td>
-            </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Booking Number</div>
+                            </td>
+                            <td>
+                                <div id="bookingid"></div>
+                            </td>
+                        </tr>
 
-            <tr class="row">
-                <td>
-                    <div class="content">Booking Date/ Time</div>
-                </td>
-                <td><div id="date"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Tour Package Name</div>
-                </td>
-                <td><div id="packagename"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Guest Name</div>
-                </td>
-                <td><div id="guestname"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Guest Phone Number</div>
-                </td>
-                <td><div id="guestphone"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Guest Email Addres</div>
-                </td>
-                <td><div id="guestemail"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Tour Guide Name</div>
-                </td>
-                <td><div id="guidename"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Tour Guide Contact Number</div>
-                </td>
-                <td><div id="guidephone"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">Start Date</div>
-                </td>
-                <td><div id="checkin"></div></td>
-            </tr>
-            <tr class="row">
-                <td>
-                    <div class="content">End Date</div>
-                </td>
-                <td><div id="checkout"></div></td>
-            </tr>
-     
-        </table>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Booking Date/ Time</div>
+                            </td>
+                            <td>
+                                <div id="date"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Tour Package Name</div>
+                            </td>
+                            <td>
+                                <div id="packagename"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Guest Name</div>
+                            </td>
+                            <td>
+                                <div id="guestname"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Guest Phone Number</div>
+                            </td>
+                            <td>
+                                <div id="guestphone"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Guest Email Addres</div>
+                            </td>
+                            <td>
+                                <div id="guestemail"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Tour Guide Name</div>
+                            </td>
+                            <td>
+                                <div id="guidename"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Tour Guide Contact Number</div>
+                            </td>
+                            <td>
+                                <div id="guidephone"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">Start Date</div>
+                            </td>
+                            <td>
+                                <div id="checkin"></div>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td>
+                                <div class="content">End Date</div>
+                            </td>
+                            <td>
+                                <div id="checkout"></div>
+                            </td>
+                        </tr>
 
-    </div>
+                    </table>
 
-    <div class="container" style="background-color:#f1f1f1; padding:10px;">
-        <button type="button" onclick="document.getElementById('id05').style.display='none'"
-            class="cancelbtn">Ok</button>
-    </div>
-</form>
-</div>
+                </div>
 
-<script type="text/javascript">
-    function loadData(id) {
-        $.ajax({
-            url: "../api/viewtourbooking-admin.php",
-            method: "POST",
-            data: {
-                get_data: 1,
-                id: id,
-            },
-            success: function(response) {
-                console.log(response);
-                var res = JSON.parse(response);
-                $("#bookingid").text(res.bookingID);
-                $("#date").text(res.bookingDateTime);
-                $("#guestname").text(res.guestName);
-                $("#guestphone").text(res.guestPhone);
-                $("#guestemail").text(res.guestEmail);   
-                $("#checkin").text(res.arrivalDate);
-                $("#checkout").text(res.departureDate);
-                $("#packagename").text(res.packageName);
-                $("#guidename").text(res.name);
-                $("#guidephone").text(res.phone);
+                <div class="container" style="background-color:#f1f1f1; padding:10px;">
+                    <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                        class="cancelbtn">Ok</button>
+                </div>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+        function loadData(id) {
+            $.ajax({
+                url: "../api/viewtourbooking-admin.php",
+                method: "POST",
+                data: {
+                    get_data: 1,
+                    id: id,
+                },
+                success: function(response) {
+                    console.log(response);
+                    var res = JSON.parse(response);
+                    $("#bookingid").text(res.bookingID);
+                    $("#date").text(res.bookingDateTime);
+                    $("#guestname").text(res.guestName);
+                    $("#guestphone").text(res.guestPhone);
+                    $("#guestemail").text(res.guestEmail);
+                    $("#checkin").text(res.arrivalDate);
+                    $("#checkout").text(res.departureDate);
+                    $("#packagename").text(res.packageName);
+                    $("#guidename").text(res.name);
+                    $("#guidephone").text(res.phone);
 
 
-            }
-        });
-    }
-    
-    </script>
+                }
+            });
+        }
+        </script>
         <script>
-    $('.subfield').on('change', function() {
-        var newStatus = $(this).val();
-        var bookingId = $(this).closest('tr').find('.tbld:nth-child(2)').text();
-        $.ajax({
-            url: '../api/update_bookingstatus.php',
-            type: 'POST',
-            data: {
-                bookingId: bookingId,
-                newStatus: newStatus
-            },
-            success: function(response) {
-                console.log(response);
-             alert('Status update is successful');
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-            }
+        $('.subfield').on('change', function() {
+            var newStatus = $(this).val();
+            var bookingId = $(this).closest('tr').find('.tbld:nth-child(2)').text();
+            $.ajax({
+                url: '../api/update_bookingstatus.php',
+                type: 'POST',
+                data: {
+                    bookingId: bookingId,
+                    newStatus: newStatus
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert('Status update is successful');
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
         });
-    });
+        </script>
 
-    </script>
-
-<script>
-    $('.tourguide').on('change', function() {
-        var newTourguide = $(this).val();
-        var bookingId = $(this).closest('tr').find('.tbld:nth-child(2)').text();
-        $.ajax({
-            url: '../api/assigntourguide.php',
-            type: 'POST',
-            data: {
-                bookingId: bookingId,
-                newTourguide: newTourguide
-            },
-            success: function(response) {
-                console.log(response);
-             alert('Assigned Tourgide successfully');
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-            }
+        <script>
+        $('.tourguide').on('change', function() {
+            var newTourguide = $(this).val();
+            var bookingID = $(this).closest('tr').find('.tbld:nth-child(2)').text();
+            $.ajax({
+                url: '../api/assigntourguide.php',
+                type: 'POST',
+                data: {
+                    bookingId: bookingID,
+                    newTourguide: newTourguide
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert('Assigned Tourgide successfully');
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
         });
-    });
-
-    </script>
+        </script>
 
 </body>
 
