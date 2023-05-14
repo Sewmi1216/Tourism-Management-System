@@ -10,13 +10,17 @@ class product extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertproduct($pName, $pCategory, $avaquantity, $price, $id)
+    public function insertproduct($pName, $avaquantity, $price, $categoryID, $id)
     {
-        $query = "INSERT INTO product (productName,category,quantity,price,entID) VALUES ('$pName','$pCategory','$avaquantity','$price','$id')";
+        $query = "INSERT INTO product (productName,quantity,price,categoryId,entID) VALUES (?,?,?,?,?)";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("siiii", $pName, $avaquantity, $price, $categoryID, $id);
         $stmt->execute();
+        if (!$stmt) {
+            die('Error in query: ' . mysqli_error($this->conn));
+        }
         return $stmt;
     }
     public function addproductImg($productid, $file)
@@ -61,7 +65,14 @@ class product extends db_connection
     public function viewAll($id)
     {
 
-        $query = "SELECT * FROM product p, entrepreneur e where p.entID=e.entID and e.entID='$id'";
+        $query = "SELECT * FROM product p, entrepreneur e, product_category c where p.entID=e.entID and p.categoryId=c.product_categoryId and e.entID='$id'";
+        return $this->getData($query);
+
+    }
+    public function viewCategories($id)
+    {
+
+        $query = "SELECT * FROM product_category where entID='$id'";
         return $this->getData($query);
 
     }
@@ -77,17 +88,27 @@ class product extends db_connection
         }
         return $data;
     }
-
+ 
     public function deleteproduct($id)
     {
         $query = "delete from product where productID='$id'";
-        $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        $foreign_key_query = "SELECT * FROM `craftorder_items` WHERE productId='$id'";
+
+        $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
+
+        if (mysqli_num_rows($foreign_key_result) > 0) {
+            echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+            echo "<script> window.location.href = '../view-entrepreneur/product.php'; </script>";
+        } else {
+            mysqli_query($this->conn, $query);
+            echo "<script> window.location.href = '../view-entrepreneur/product.php'; </script>";
+        }
+
     }
 
-    public function updateproduct($id, $pName, $pCategory, $avaquantity, $price)
+    public function updateproduct($id,$pName,$categoryID,$avaquantity,$price)
     {
-        $query = "UPDATE product SET productName='$pName', category='$pCategory', quantity='$avaquantity', price='$price' WHERE productID='$id'";
+        $query = "UPDATE product SET categoryId='$categoryID',productName='$pName',  quantity='$avaquantity', price='$price' WHERE productID='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -103,8 +124,14 @@ class product extends db_connection
     }
     public function viewAllOrders($id)
     {
+        //    $query= "SELECT o.orderID, o.orderDateTime AS 'Order Date', o.customerName AS 'Cutomer Name', o.customerAddress AS 'Cutomer Address', o.status,
+        //     GROUP_CONCAT(CONCAT(p.productName, ' x', i.quantity) SEPARATOR '<br>') AS 'View'
+        // FROM craftorder o
+        // JOIN craftorder_items i ON o.orderID = i.orderID
+        // JOIN product p ON i.productID = p.productID
+        // GROUP BY o.orderID";
 
-        $query = "SELECT * FROM craftorder o, product p where p.productID=o.productID and p.entID='$id'";
+        $query = "SELECT * FROM craftorder o, product p, craftorder_items i where i.productId=p.productID and p.productID=i.productID and p.entID='$id'";
         // $query = "SELECT * FROM craftorder o, entrepreneur e where o.entID=e.entID and e.entID='$id'";
 
         return $this->getData($query);
@@ -115,9 +142,18 @@ class product extends db_connection
 
     //     return $this->getData($query);
     // }
-     public function viewOrderPayments($id)
+    public function viewOrderPayments($id)
     {
-        $query = "Select * from craftorder o, craftorder_payment c, product p where o.orderPaymentID = c.orderPaymentID and o.productID= p.productID and p.entID='$id'";
+        // $query = "Select * from craftorder o, craftorder_payment c, product p where o.orderPaymentID = c.orderPaymentID and o.productID= p.productID and p.entID='$id'";
+        //    $query= "SELECT craftorder.orderID,
+        //    craftorder_items.itemId,
+        //    craftorder_payment.orderPaymentId,
+        //    product.productID
+        //    FROM craftorder
+        //    INNER JOIN craftorder_items ON craftorder.orderID = craftorder_items.orderId
+        //    INNER JOIN craftorder_payment ON craftorder_items.itemId = craftorder_payment.itemId
+        //    INNER JOIN product ON craftorder_payment.orderPaymentId = product.orderPaymentId;";
+        $query = "Select * from craftorder_payment";
 
         return $this->getData($query);
     }
@@ -131,9 +167,14 @@ class product extends db_connection
         $query1 = "SELECT COUNT(o.orderID) as cancelled FROM craftorder o, product p, craftorder_items s WHERE DATE(orderDateTime) = CURDATE() and status='Cancelled' and s.productID= p.productID and o.orderID=s.orderId and p.entID='$id'";
         return $this->getData($query1);
     }
-    public function countProductOrders()
+    public function countProductOrders($id)
     {
-        $query1 = "SELECT pc.categoryName as product_category, COUNT(*) as num_orders FROM craftorder co INNER JOIN product p ON co.productID = p.productID INNER JOIN product_category pc ON p.productID = pc.product_categoryId GROUP BY pc.categoryName;";
+        $query1 = "SELECT pc.categoryName as categoryName, COUNT(co.orderID) AS orderCount
+FROM craftorder co
+JOIN craftorder_items coi ON co.orderID = coi.orderId
+JOIN product p ON coi.productId = p.productID
+JOIN product_category pc ON p.categoryId = pc.product_categoryId
+WHERE p.entID = '$id' GROUP BY pc.categoryName";
         return $this->getData($query1);
     }
     public function revenue()
@@ -148,7 +189,7 @@ class product extends db_connection
     // }
     public function todayRevenue($id)
     {
-        $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderPaymentID = c.orderPaymentID and o.productID= p.productID and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";
+        $query1 = "SELECT SUM(amount) as amount FROM craftorder o, craftorder_payment c, product p where o.orderID = c.orderId and p.entID='$id' and DATE(c.paymentDateTime) = CURDATE() and c.paymentStatus = 'Completed'";
         return $this->getData($query1);
     }
     public function cleanString($str)

@@ -13,7 +13,7 @@ $businessName = $_GET['businessName'];
 $address = $_GET['address'];
 $email = $_GET['email'];
 $phone = $_GET['phone'];
-$username = $_GET['username'];
+
 $password = $_GET['password'];
 $entrepreneurName = $_GET['entrepreneurName'];
 $entrepreneurPhone = $_GET['entrepreneurPhone'];
@@ -46,7 +46,7 @@ $entrepreneurNic = $_GET['entrepreneurNic'];
             <form method="get" action="../api/addentreapi.php" enctype="multipart/form-data">
                 <div class="heading" style="margin-top:0px;">Update Entrepreneur Profile</div>
                 <div class="subheading" style="margin-top:15px;">Business Name*</div>
-                <input type="text" class="field" style=";margin-top:12px;" name="name" value="<?php echo $username;?>" />
+                <input type="text" class="field" style=";margin-top:12px;" name="name" value="<?php echo $businessName;?>" />
                 <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
                 <input type="hidden" class="subfield" name="id" value="<?php echo $id;?>"/>
                 <table>
@@ -73,10 +73,7 @@ $entrepreneurNic = $_GET['entrepreneurNic'];
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <div class="content">Username</div>
-                            <input type="text" class="subfield" name="username" value="<?php echo $username;?>" required />
-                        </td>
+                        
                         <td>
                             <div class="content">Password</div>
                             <input type="password" class="subfield" name="password" id="password"

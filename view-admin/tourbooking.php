@@ -54,7 +54,9 @@
                         <th class="tblh">Total amount</th>
                         <th class="tblh">Check-in</th>
                         <th class="tblh">Assign Guide</th>
+
                         <th class="tblh">Assigned Guide</th>
+
                         <!-- <th class="tblh">View Booking</th> -->
                         <th class="tblh">Booking Status</th>
                         <th class="tblh">Quick View</th>
@@ -76,10 +78,12 @@
                             <td class="tbld"><?php echo $result["guestName"] ?></td>
                             <td class="tbld"><?php echo '$' . $result["noOfGuests"] ?></td>
                             <td class="tbld"><?php echo $result["arrivalDate"] ?></td>
+
                             <td class="tbld"> <a href="assignguide.php?reservation_id=<?php echo $result["bookingID"] ?>&guideID=<?php echo $result["tourGuideId"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                             
                             <td class="tbld"><?php echo $result["tourGuideId"] ?></td>
                            
+
 
 
 
@@ -300,6 +304,7 @@
                     console.log(xhr.responseText);
                 }
             });
+
         });
         </script>
 
@@ -324,6 +329,7 @@
             });
         });
         </script> -->
+
 
 </body>
 

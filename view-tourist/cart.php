@@ -182,7 +182,7 @@ break;
                 <div class="subtotal">
                     <input type="hidden" name="subtotalInput" id="subtotalInput" value="" readonly>
                     
-                    <input type="text" value="<?php echo $_SESSION["email"]; ?>" class="subfield" name="email"
+                    <input type="hidden" value="<?php echo $_SESSION["email"]; ?>" class="subfield" name="email"
                         style="width:60%" /></br>
                     <input type="hidden" value="<?php echo $id; ?>" class="subfield" name="tid"
                         style="width:60%" /></br>

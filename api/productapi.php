@@ -1,15 +1,15 @@
 <?php
 include '../controller/productController.php';
 if (isset($_POST['save'])) {
-    
+    $categoryID = $_POST['categoryID'];
     $pName = $_POST['pName'];
-    $pCategory = $_POST['pCategory'];
+   
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
     
     $id =$_POST['id'];
     $productcon = new productController();
-    $productcon->addproduct($pName,$pCategory,$avaquantity,$price,$id);
+    $productcon->addproduct($pName,$avaquantity,$price,$categoryID,$id);
     if (!$productcon) {
         echo 'There was a error';
     } else {
@@ -87,16 +87,16 @@ if (isset($_POST["get_data"])) {
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
+
+    $categoryID = $_POST['category'];
     $pName = $_POST['pName'];
-    $pCategory = $_POST['pCategory'];
+   
     $avaquantity = $_POST['avaquantity'];
     $price = $_POST['price'];
     
 
     $result = new productController();
-    $result->updateproduct($id,$pName,$pCategory,$avaquantity,$price,$filename);
-   
-    
+    $result->updateproduct($id,$pName,$categoryID,$avaquantity,$price);
 
 }
 ?>

@@ -60,6 +60,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                         <!-- <th class="tblh">Image</th> -->
                         <th class="tblh">Room Type</th>
                         <th class="tblh">Desciption</th>
+                        <th class="tblh">Room price</th>
+                        <th class="tblh">No of persons</th>
                         <th class="tblh">Add photos</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
@@ -77,6 +79,9 @@ foreach ($results as $result) {
                             </td> -->
                             <td class="tbld"><?php echo $result["typeName"] ?></td>
                             <td class="tbld"><?php echo $result["description"] ?></td>
+                            <td class="tbld"><?php echo '$ '.$result["price"] ?></td>
+                            <td class="tbld"><?php echo $result["noOfPersons"] ?></td>
+
 
                             <td class="tbld">
                                 <?php echo "<a href='addPhotos.php?id=$result[roomTypeId]'>"; ?>
@@ -154,11 +159,8 @@ foreach ($results as $result) {
                 $("#typeid").val(type.roomTypeId);
                 $("#typename").val(type.typeName);
                 $("#desc").text(type.description);
-                // $("#status").val(type.typestatus);
-                $("#price").val(type.price);
-                // $("#img").attr("src", "../images/" + type.img);
-                $('#status').val(type.typestatus);
-
+                $("#bedss").val(type.noOfPersons);
+                $("#prices").val(type.price);
             }
         });
     }

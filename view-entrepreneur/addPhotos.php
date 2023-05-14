@@ -37,7 +37,9 @@ $getid = $_GET['id'];
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Add Product Images</div>
+            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="product.php"
+                        style="color:white;text-decoration:none;">BACK</a></button>
+                <div class="page-title" style="margin-left:50px;"> Add Product Images</div>
 
             </div>
 

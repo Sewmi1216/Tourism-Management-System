@@ -267,22 +267,25 @@ table {
     border-bottom: 1px solid #ddd;
 } */
 .status1 {
-  background-color: rgb(121, 9, 9);
+  background-color: red;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
+  width: 145px;
 }
 .status2 {
-  background-color: rgb(17, 88, 17);
+  background-color: green;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
+   width: 145px;
 }
 .status3{
-  background-color: rgb(93, 125, 150);
+  background-color: blue;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
+   width: 145px;
 }
 .art {
   font-size: 17px;

@@ -28,12 +28,14 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title">Craft Orders </div>
+            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="product.php"
+                        style="color:white;text-decoration:none;">BACK</a></button>
+                <div class="page-title" style="margin-left:50px;">Craft Orders </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for products" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
-                <button type="submit" class="btns">View All</button>
+                <a href="order.php"><button type="submit" class="btns">View All</button></a>
                 <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
                     style="margin-left:2rem;background-color:red;">Download pdf</button> 
             </div>
@@ -65,14 +67,21 @@ foreach ($results as $result) {
     <th class="tbld"><?php echo $result["customerName"] ?></td>
     <th class="tbld"><?php echo $result["customerAddress"] ?></td>
     <td class="tbld">
-                        <?php if ($result["status"] == "Completed") {?>
-                        <button class="status2"><?php echo $result["status"]; ?></button>
-                        <?php } else if($result["status"] == "Pending") {?>
-                        <button class="status1"><?php echo $result["status"]; ?></button>
-                        <?php } else{?>
-                        <button class="status3"><?php echo $result["status"]; ?></button>
-                        <?php }?>
-                    </td>
+                                <select class="subfield" name="status">
+                                    <option value="Pending"
+                                        <?php if ($result["status"] == "Pending") {echo "selected";}?>>
+                                        Pending</option>
+                                    <option value="Confirmed"
+                                        <?php if ($result["status"] == "Confirmed") {echo "selected";}?>>
+                                        Confirmed</option>
+                                    <option value="Checkedin"
+                                        <?php if ($result["status"] == "Completed") {echo "selected";}?>>
+                                        Checkedin</option>
+                                    <option value="Cancelled"
+                                        <?php if ($result["status"] == "Cancelled") {echo "selected";}?>>
+                                        Cancelled</option>
+                                </select>
+                            </td>
     <td class="tbld"><a onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-ID'));" data-ID="<?php echo $result['orderID']; ?>"><i class="fa-solid fa-bars"></i></a></td>
     
     </tr>
@@ -114,13 +123,13 @@ foreach ($results as $result) {
                 <td>
                     <div class="content">Quantity : </div>
                 </td>
-                <td> <input type="number" id="qunatity" min="10" class="subfield" name="avaquantity" value="<?php echo $result["quantity"] ?>"/></td>
+                <td> <input type="number" id="quantity" min="10" class="subfield" name="avaquantity" value="<?php echo $result["quantity"] ?>"/></td>
             </tr>
 
             
             <tr class="row">
                 <td>
-                    <div class="content">Price :</div>
+                    <div class="content">Total Price :</div>
                 </td>
                 <td><input type="number" id="price" min="10" class="subfield" name="price" value="<?php echo $result["price"] ?>"></td>
                 
