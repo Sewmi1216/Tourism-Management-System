@@ -306,4 +306,11 @@ class touristController extends db_connection
         $result = $tour->viewCartItems($id);
         return $result;
     }
+
+    public function counttouristnationality($id)
+    {
+        $user = new tourist();
+        $res = $user->counttouristnationality($id);
+        return $res;
+    }
 }

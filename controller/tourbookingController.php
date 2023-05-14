@@ -147,4 +147,11 @@ class tourbookingcontroller extends db_connection
             echo "<script>alert('Assigning Tour guide is sucessful'); </script>";
         }
     }
+
+    public function countpendingBooking()
+    {
+        $pckg = new tourbooking();
+        $res = $pckg->countpendingBooking();
+        return $res;
+    }
 }

@@ -18,6 +18,10 @@ $rows = $_SESSION['c'];
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/manageusers.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -175,10 +179,10 @@ span.psw {
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> Registered Hotel Managers </div>
-                <div class="input-container">
+                <!-- <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for Hotels" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
-                </div>
+                </div> -->
                 <!-- <button type="submit" class="btns">View All</button> -->
                 <span style="margin-left: 8px;">
                     <a onclick="document.getElementById('id01').style.display='block'"><i
@@ -224,11 +228,14 @@ echo ' <tr class="subtext tblrw">
                          <td class="tbld">   <a href="managerprofile.php?hotel_id='.$row['hotelID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                      <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
-                        <td class="tbld"><i class="fa-solid fa-trash art"></i></td>
-        </tr> ' ;
+                     <td class="tbld"><a onclick="opendeleteModal('.$row['hotelID'].')"><i class="fa-solid fa-trash art"></i></a></td>
+                     </tr> ' ;
 }
 
 ?>  
+
+
+
             </table>
             </div>
 
@@ -237,7 +244,45 @@ echo ' <tr class="subtext tblrw">
         </div>
 
 
+        <div id="id05" class="modal">
 
+<form class="modal-content animate" style="width:45%;" method="post" action="../api/manager.php"
+    enctype="multipart/form-data">
+    <div class="imgcontainer" style="background-color:#004581;">
+        <button type="button" onclick="document.getElementById('id05').style.display='none'"
+            class="cancelbtn close">&times;</button>
+        <label for="room" style="color:white"><b>Remove Hotel request</b></label>
+    </div>
+
+    <div class="container">
+
+        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+            value=" <?php echo $result["hotelID"] ?>" />
+
+
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
+            the Hotel request?</p>
+
+        <div class="container" style="padding:10px;">
+            <button type="button" onclick="document.getElementById('id05').style.display='none'"
+                class="btns" style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="delete"
+                style="margin-left:75px;">Yes</button>
+        </div>
+    </div>
+
+
+</form>
+</div>
+
+<script>
+function opendeleteModal(id) {
+var modal = document.getElementById("id05");
+var modalIdValue = document.getElementById("modalIdValue");
+modalIdValue.value = id;
+modal.style.display = "block";
+}
+</script>
 
 
 

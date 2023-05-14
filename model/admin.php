@@ -108,4 +108,5 @@ class admin extends db_connection
         return $this->getData($query1);
     }
 
+    
 }
