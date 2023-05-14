@@ -76,7 +76,7 @@ foreach ($results as $result) {
     </section>
 
 
-    <section class="popular" id="hotel" style="padding: 2rem 9%;margin-bottom:1300px;">
+    <section class="popular" id="hotel" style="padding: 2rem 9%;">
         <form action="" method="post">
             <div class="searchSec" style="margin-top:20px;">
                 <table>
@@ -174,95 +174,81 @@ if (isset($_POST['search'])) {
     $room = $_POST['room'];
     $search = new touristController();
     $rs = $search->searchRoom($hid, $person, $room);
-    if($rs){
-        foreach ($rs as $result) { 
-           // echo $result['roomNo'];
+    if ($rs) {
+        foreach ($rs as $result) {
+            // echo $result['roomNo'];
             $av = new touristController();
-            $rows= $av->availability($checkin, $checkout, (int)$result['roomNo']);
-            if($rows){
-            foreach ($rows as $row) {    
-                $status = $row['status'];?>
+            $rows = $av->availability($checkin, $checkout, (int) $result['roomNo']);
+            if ($rows) {
+                foreach ($rows as $row) {
+                    $status = $row['status'];?>
 
         <input class="input-field" type="hidden" value="<?php echo $row['status'] ?>">
 
         <?php
-                    if($status=='Confirmed'){
-                        $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Reserve!</strong></div>';
-                    }else if($status=='Checkedin'){
-                        $btn =  '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Book!</strong></div>';
-                    }else{
-                $btn =  '<div style="display: flex; justify-content: center;">
-                  <a href="reserve.php?hid=' . $hid .'&roomno=' . $result['roomNo'] .'&typeID=' .$result['typeID'].'&price='.$result['price'].'&checkin=' .$checkin.'&checkout='.$checkout.'"
+if ($status == 'Confirmed') {
+                        $btn = '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Reserve!</strong></div>';
+                    } else if ($status == 'Checkedin') {
+                        $btn = '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Book!</strong></div>';
+                    } else {
+                        $btn = '<div style="display: flex; justify-content: center;">
+                  <a href="reserve.php?hid=' . $hid . '&roomno=' . $result['roomNo'] . '&typeID=' . $result['typeID'] . '&price=' . $result['price'] . '&checkin=' . $checkin . '&checkout=' . $checkout . '"
         class="btn" target="_blank">Reserve</a>
         </div>';}
-        }}else{
-        $btn = '<div style="display: flex; justify-content: center;">
-             <a href="reserve.php?hid=' . $hid .'&roomno=' . $result['roomNo'] .'&typeID=' .$result['typeID'].'&price='.$result['price'].'&checkin=' .$checkin.'&checkout='.$checkout.'"
+                }} else {
+                $btn = '<div style="display: flex; justify-content: center;">
+             <a href="reserve.php?hid=' . $hid . '&roomno=' . $result['roomNo'] . '&typeID=' . $result['typeID'] . '&price=' . $result['price'] . '&checkin=' . $checkin . '&checkout=' . $checkout . '"
         class="btn" target="_blank">Reserve</a>
         </div>';
 
-        }
+            }
 
-
-        ?>
+            ?>
         <div class="container" style="margin-top:30px;">
 
             <div class="box">
                 <div class="slideshow-container">
                     <?php
-require_once("../controller/roomTypeController.php") ;
-$tp = new roomTypeController();
-$outputs = $tp->viewAllImgs($result['typeID']);
-           foreach ($outputs as $output) {
-               ?>
+require_once "../controller/roomTypeController.php";
+            $tp = new roomTypeController();
+            $outputs = $tp->viewAllImgs($result['typeID']);
+            foreach ($outputs as $output) {
+                ?>
                     <div class="slider">
-                        <?php echo "<img src='../images/" . $output['image'] . "' style='width:100%'>";?>
+                        <?php echo "<img src='../images/" . $output['image'] . "' style='width:100%'>"; ?>
                     </div>
-                    <?php break;} ?>
+                    <?php break;}?>
                 </div>
 
                 <div class="content-container">
                     <input type="hidden" value="<?php echo $result['typeID'] ?>" name="type">
                     <input type="hidden" value="<?php echo $result['roomNo'] ?>" name="room">
-                    <h3 style="display: inline;"><?php echo $result['typeName'];?></h3>
+                    <h3 style="display: inline;"><?php echo $result['typeName']; ?></h3>
                     <br>
-                    <h2><?php echo $result['description'];?></h2>
+                    <h2><?php echo $result['description']; ?></h2>
                     <br>
-                    <h2><?php echo $result['view'];?></h2>
+                    <h2><?php echo $result['view']; ?></h2>
                     <br>
-                    <h1>$<?php echo $result['price'];?>/Night</h1>
+                    <h1>$<?php echo $result['price']; ?>/Night</h1>
                 </div>
                 <?php echo $btn; ?>
+
             </div>
+
         </div>
 
         <?php }
-    }
-    else{ ?>
-        <div class="content-container"  style="padding-bottom: 1000px;">
+    } else {?>
+        <div class="content-container">
             No results
         </div>
-        <?php   }}?>
+        <?php }}?>
 
 
 
     </section>
 
-    <section id="contact" style="padding-bottom: 20px;bottom:0;">
-    <div style="text-align:center; padding: 10px;">
-        <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
-        <div style="color: #babab3;font-size: 17px;padding-top: 50px">
-            <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
-            <div>+94 -11- 2581245/ 7</div>
-
-            <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
-            <div>+94-11-2237239</div>
-
-            <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
-            <div>info@pack2paradise.lk</div>
-        </div>
-    </div>
-</section>
+    <?php include "footer.php"?>
 
     <script src="js/home.js">
 

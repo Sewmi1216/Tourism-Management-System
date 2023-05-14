@@ -149,4 +149,31 @@ class tourguideController extends db_connection
         return $result;
 
     }
+
+    
+    public function assignguide($assignguide, $bookingID)
+    {
+        $user = new tourguide();
+
+        
+        $result = $user->assignguide($assignguide, $bookingID);
+       // return $result;
+        if($result)
+        {
+            echo "<script>alert('Assigning Tour guide is sucessful'); </script>";
+        }
+    }
+
+    public function updateGuide($bookingId, $newGuide)
+    {
+        $user = new tourbooking();
+
+        echo $bookingId;
+        $result = $user->updateGuide($bookingId, $newGuide);
+       // return $result;
+        if($result)
+        {
+            echo "<script>alert('Assigning Tour guide is sucessful'); </script>";
+        }
+    }
 }

@@ -1,5 +1,9 @@
 <?php 
 require('../api/viewtourpackage.php');
+
+if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
+    $id = $_SESSION["adminID"];
+}
 $rows = $_SESSION['c'];
 ?>
 <!DOCTYPE html>
@@ -99,7 +103,7 @@ echo '
             
             <div id="id04" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/tourpackgae.php" enctype="multipart/form-data">
 
 <input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
 
@@ -117,7 +121,7 @@ echo '
 
         <div class="container" style="padding:10px;">
             <button type="button" onclick="document.getElementById('id04').style.display='none'" class="btns" style="">No</button>
-            <button type="submit" class="cancelbtn" style="margin-left:75px;">Yes</button>
+            <button type="submit" class="cancelbtn" style="margin-left:75px;" name="delete">Yes</button>
         </div>
     </div>
 

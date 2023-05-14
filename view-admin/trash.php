@@ -67,7 +67,7 @@
                     <?php echo $result["packageName"] ?>
                     </td>
                     
-                    <td class="tbld">   <a href="packagedescription2.php? <?php echo $result["packageID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
+                    <td class="tbld">   <a href="packagedescription2.php?package_id=<?php echo $result["packageID"] ?>"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
 
                     <td class="tbld"><a onclick="document.getElementById('id01').style.display='block'"><i
                            class="fa-solid fa-circle-check"></i></a></td>
@@ -84,9 +84,9 @@
 
 <div id="id01" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/tourpackage.php" enctype="multipart/form-data">
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $row['packageID']; ?>"/>
+<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $result["packageID"] ?>"/>
 
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id01').style.display='none'"  class="cancelbtn close">&times;</button>
@@ -128,9 +128,9 @@ modal.style.display = "block";
 
  <div id="id02" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/viewtourpackage.php" enctype="multipart/form-data">
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/tourpackage.php" enctype="multipart/form-data">
 
-<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $row['packageID']; ?>"/>
+<input type="hidden" id="modalIdValue" class="subfield"  name = "id" value="<?php echo $result["packageID"] ?>"/>
 
     <div class="imgcontainer" style="background-color:#004581;">
         <button type="button" onclick="document.getElementById('id02').style.display='none'"  class="cancelbtn close">&times;</button>

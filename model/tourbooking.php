@@ -87,7 +87,7 @@ class tourbooking extends db_connection
 
     public function countBooking()
     {
-        $query1 = "SELECT COUNT(*) as num_bookings FROM tourbooking WHERE bookingStatus = 'Pending'";
+        $query1 = "SELECT COUNT(*) as num_bookings FROM tourbooking";
 
         return $this->getData($query1);
     
@@ -133,13 +133,31 @@ return $stmt;
 
     public function updateGuide($bookingId, $newGuide)
     {
-        $query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
-        $stmt = mysqli_query($this->conn, $query);
-        if ($stmt) {
-            return $stmt;
-        } else {
-            die('Error in query: ' . mysqli_error($this->conn));
-        }
+       $bookingId = mysqli_real_escape_string($this->conn, $bookingId);
+$newGuide = mysqli_real_escape_string($this->conn, $newGuide);
+
+$query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
+$stmt = mysqli_query($this->conn, $query);
+
+if ($stmt) {
+    return $stmt;
+} else {
+    die('Error in query: ' . mysqli_error($this->conn));
+}
+
+    }
+
+
+
+
+
+    public function countpendingBooking()
+    {
+        $query1 = "SELECT COUNT(*) as num_bookings FROM tourbooking WHERE bookingStatus = 'Pending'";
+
+        return $this->getData($query1);
+    
+
     }
 
 }

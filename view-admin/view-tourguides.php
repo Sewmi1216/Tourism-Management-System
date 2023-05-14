@@ -5,12 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/tourguide.css?v=<?php echo time(); ?>">
+    <!-- <link rel="stylesheet" href="../css/tourguide.css?v=<?php echo time(); ?>"> -->
+    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/manageusers.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -104,7 +109,7 @@ if ($res->num_rows > 0) {
 
                         <a href="tourguideprofile.php?tourguideID='<?php echo $row['tourguideID']; ?>'"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
                         <td class="tbld">  <a href="edittouristguide.php?tourguideID='<?php echo $row['tourguideID']; ?>'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
-                        <td class="tbld"><a onclick="openModal('.$row['tourguideID'].')"><i class="fa-solid fa-trash art"></i></a></td>
+                        <td class="tbld"><a onclick="opendeclineModal('<?php echo $row['tourguideID']; ?>')"><i class="fa-solid fa-trash art"></i></a></td>
                  <?php   } } ?>
 
                     </tr>
@@ -118,28 +123,30 @@ if ($res->num_rows > 0) {
         </div>
     </section>
 
-    <!-- Delete Package  -->
-    <div id="id04" class="modal">
+    <!-- Delete Tourguide  -->
+    <div id="id07" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="post" action="deleteentrepreneur.php"
+<form class="modal-content animate" style="width:45%;" method="post" action="../api/tourguide.php"
     enctype="multipart/form-data">
     <div class="imgcontainer" style="background-color:#004581;">
-        <button type="button" onclick="document.getElementById('id04').style.display='none'"
+        <button type="button" onclick="document.getElementById('id07').style.display='none'"
             class="cancelbtn close">&times;</button>
-            <label for="room" style="color:white"><b>Remove Tourist Guide</b></label>
+        <label for="room" style="color:white"><b>Remove Tourguide Request</b></label>
     </div>
 
     <div class="container">
 
-        <input type="hidden" id="modalIdValue" class="subfield" name="id" value="<?php echo $entID ;?>" />
+        <input type="hidden" id="modalIdValue" class="subfield" name="id"
+            value=" <?php echo $result["tourguideID"] ?>" />
 
 
-        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete the Tourist Guide ?</p>
+        <p class="text" style="font-size:20px;text-align:center;margin-left:10px;">Do you want to delete
+            the tour guide ?</p>
 
         <div class="container" style="padding:10px;">
-            <button type="button" onclick="document.getElementById('id04').style.display='none'" class="btns"
-                style="">No</button>
-            <button type="submit" class="cancelbtn" value="Save" name="delete"
+            <button type="button" onclick="document.getElementById('id07').style.display='none'"
+                class="btns" style="">No</button>
+            <button type="submit" class="cancelbtn" value="Save" name="decline"
                 style="margin-left:75px;">Yes</button>
         </div>
     </div>
@@ -148,12 +155,9 @@ if ($res->num_rows > 0) {
 </form>
 </div>
 
-
-
-
 <script>
-function openModal(id) {
-var modal = document.getElementById("id04");
+function opendeclineModal(id) {
+var modal = document.getElementById("id07");
 var modalIdValue = document.getElementById("modalIdValue");
 modalIdValue.value = id;
 modal.style.display = "block";
