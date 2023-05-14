@@ -35,20 +35,18 @@ class tourpackageController extends db_connection
 
     public function updatetourpackage($inputs)
     {
-        $tourpackage = new tourpackage();
         
-
-        $res = $tourpackage-> updatetourpackage($inputs);
+        $updtourpackage = new tourpackage();
         
-        if (!$res) {
-            echo 'Error Occured';
-        }else{
-            echo 'Successfully updated';
-            header("Location: ../view-admin/tourpackages.php");
+        $result = $updtourpackage-> updatetourpackage($inputs);
+        
+         $_SESSION['c'] = $result;
+        return $result; 
+            
             
         }
 
-    }
+    
 
     public function viewAllPkgs()
     {
@@ -87,6 +85,14 @@ class tourpackageController extends db_connection
 
         $_SESSION['c'] = $result;
         return $result;
+
+        if (!$result) {
+            echo 'Error Occured';
+        }else{
+            echo 'Successfully Added';
+            header("Location: ../view-admin/tourpackages.php");
+            
+        }
 
     }
 

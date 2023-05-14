@@ -277,4 +277,10 @@ class tourist extends db_connection
         }
     }
 
+    public function counttouristnationality($id)
+    {
+        $query1 = "SELECT rt.typeName as room_type, COUNT(*) as num_reservations FROM guest_reservation gr INNER JOIN room r ON gr.roomID = r.roomNo INNER JOIN roomtype rt ON r.typeID = rt.roomTypeId where gr.hotelId='$id' GROUP BY rt.typeName;";
+        return $this->getData($query1);
+    }
+
 }

@@ -128,21 +128,28 @@ echo $result['tourguide_count'];}
             <div style="margin-top:20px;margin-left:10px;" class="dashheading">
 
                 
-                <span class="b">
+              <a href="tourbooking.php" >   <span class="b">
               Tour Packages
-                    <div style="margin-top:40px;font-size:40px;"><?php
-require_once "../controller/adminController.php";
-$res1 = new adminController();
-$results = $res1->viewpendingusers();
-foreach($results as $result){
-echo $result['total_count'] ;}
-?>
+                    <div style="margin-top:40px;font-size:40px;">
+                               <?php
+                                require_once "../controller/adminController.php";
+                                $res1 = new adminController();
+                                $results = $res1->viewpendingusers();
+                                foreach($results as $result){
+                                echo $result['total_count'] ;}
+                                ?>
                     </div>
-                </span>
+                </span></a> 
                 <span class="b">
                     Pending Bookings
                     <div style="margin-top:40px;font-size:40px;">
-                 20
+                        <?php
+                        require_once "../controller/tourbookingController.php";
+                        $res1 = new tourbookingController();
+                        $results = $res1->countpendingBooking();
+                        foreach($results as $result){
+                        echo $result['num_bookings'];  }?>
+                    
                     </div>
                 </span>
                 <span class="b">
@@ -185,12 +192,12 @@ echo $result['tourguide_count'];}
                     <br>
                     <!-- pie chart -->
                         <?php
-                        $pie = new adminController();
-                        $results = $pie->countpackageReservations($id);
+                        $pie = new touristController();
+                        $results = $pie->counttouristnationality($id);
                         foreach ($results as $data) 
                         {
-                            $type[] = $data['room_type'];
-                            $reservations[] = $data['num_reservations'];
+                            $type[] = $data['nationality_type'];
+                            $number[] = $data['num_tourist'];
 
                         } ?>
 
@@ -237,13 +244,12 @@ foreach ($results as $data) {
         data: {
             labels: <?php echo json_encode($type) ?>,
             datasets: [{
-                label: "No of Reservations",
-                data: <?php echo json_encode($reservations) ?>,
+                label: "Type of Tourist",
+                data: <?php echo json_encode($tourist) ?>,
                 backgroundColor: [
                     "rgb(255, 99, 132)",
                     "rgb(54, 162, 235)",
-                    "rgb(255, 205, 86)",
-                    "rgb(34, 100, 50)",
+             
                 ],
                 hoverOffset: 4,
             }, ],
