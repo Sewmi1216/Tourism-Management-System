@@ -139,12 +139,16 @@ class tourbookingcontroller extends db_connection
     {
         $user = new tourbooking();
 
+        echo $bookingId;
         $result = $user->updateGuide($bookingId, $newGuide);
+       // return $result;
         if($result)
         {
             echo "<script>alert('Assigning Tour guide is sucessful'); </script>";
         }
     }
+
+
 
     public function countpendingBooking()
     {
