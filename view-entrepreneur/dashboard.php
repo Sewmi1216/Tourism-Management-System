@@ -29,8 +29,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <button type="submit" id="create_pdf" class="btns"
-            style="margin-left:80rem;margin-top:1rem;background-color:red;">Download pdf</button>
+        
         <div class="text">Dashboard Overview</div>
 
         <div style="margin-top:20px;margin-left:10px;" class="dashheading">
@@ -84,7 +83,7 @@ foreach ($results as $data) {
 }
 ?>
                     <div class="piechart">
-                        <canvas id="piechart"></canvas>
+                        <canvas id="piechart" ></canvas>
                     </div>   
             </span>
             <span class="c">

@@ -27,9 +27,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <button type="submit" class="btns" style="margin-left: -1rem;"><a href="productCategory.php"
-                        style="color:white;text-decoration:none;">BACK</a></button>
-                <div class="page-title" style="margin-left:50px;"> Craft Products </div>
+               
+                <div class="page-title" > Craft Products </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for packages" name="search" id="myInput"
                         onkeyup="searchTypes()">

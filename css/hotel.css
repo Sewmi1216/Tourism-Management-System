@@ -524,8 +524,9 @@ p{
 .piechart{
   margin: auto;
   height:350px;
-  width: 350px;
+  width: 300px;
   padding: 10px;
+  margin-top: 20px;
 
 }
 .barchart{

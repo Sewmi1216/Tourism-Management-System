@@ -38,9 +38,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="dashboard.php"
-                        style="color:white;text-decoration:none;">BACK</a></button>
-                <div class="page-title" style="margin-left:50px;"> Product Categories</div>
+            
+                <div class="page-title" > Product Categories</div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for categories" name="search" id="myInput"
                         onkeyup="searchTypes()">
@@ -62,7 +61,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                 <table id="myTable">
                     <tr class="subtext tblrw">
                         <th class="tblh">Product Category</th>
-                        <th class="tblh">Description</th>
+                        <th class="tblh" style="marging-left:50px;">Description</th>
                        
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>

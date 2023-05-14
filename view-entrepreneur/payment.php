@@ -29,16 +29,13 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="order.php"
-                        style="color:white;text-decoration:none;">BACK</a></button>
-                <div class="page-title" style="margin-left:50px;">Payments </div>
+           
+                <div class="page-title" >Payments </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for products" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <a href="payment.php"><button type="submit" class="btns">View All</button></a>
-                <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
-                    style="margin-left:2rem;background-color:red;">Download pdf</button>
                 
             </div>
 

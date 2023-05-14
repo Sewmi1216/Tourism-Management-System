@@ -28,16 +28,14 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="product.php"
-                        style="color:white;text-decoration:none;">BACK</a></button>
-                <div class="page-title" style="margin-left:50px;">Craft Orders </div>
+            
+                <div class="page-title" >Craft Orders </div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for products" name="search">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
                 <a href="order.php"><button type="submit" class="btns">View All</button></a>
-                <button type="submit" id="create_ppdf" name="create_ppdf" class="btns"
-                    style="margin-left:2rem;background-color:red;">Download pdf</button> 
+                 
             </div>
 
         </div>
@@ -74,9 +72,7 @@ foreach ($results as $result) {
                                     <option value="Confirmed"
                                         <?php if ($result["status"] == "Confirmed") {echo "selected";}?>>
                                         Confirmed</option>
-                                    <option value="Checkedin"
-                                        <?php if ($result["status"] == "Completed") {echo "selected";}?>>
-                                        Checkedin</option>
+                                    
                                     <option value="Cancelled"
                                         <?php if ($result["status"] == "Cancelled") {echo "selected";}?>>
                                         Cancelled</option>
