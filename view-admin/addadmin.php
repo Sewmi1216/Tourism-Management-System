@@ -2,6 +2,7 @@
 <head>
    <link rel="stylesheet" href="../css/addadmin.css">
     <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
 </head>
 <body>
     <div class="add"> <h2>ADD NEW ADMIN</h2> </div>

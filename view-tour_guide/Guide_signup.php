@@ -2,6 +2,7 @@
 
 <head>
     <title>Pack2Paradise</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
 </head>
 
@@ -31,6 +32,10 @@
                         <input type="text" class="subfield" name="email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
+                    
+
+                    
+
                     <td>
                         <div class="content">NIC</div>
                         <input type="text" class="subfield" id="nic" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}"
@@ -38,41 +43,37 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <div class="content">Username</div>
-                        <input type="text" class="subfield" name="username" required />
-                    </td>
+                   
                     <td>
                         <div class="content">Password</div>
                         <input type="password" class="subfield" name="password" id="password"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
                         <div id="msg" style="color:red;"></div>
                     </td>
-                </tr>
-
-                <tr>
                     <td>
                         <div class="content">Languages</div>
                         <input type="text" class="subfield" name="language" />
                     </td>
-                    <td>
+                </tr>
+
+                <tr>
+                    
+                    <!-- <td>
                         <div class="content">Availability</div>
                         <input type="text" class="subfield" name="availability"
                             required />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </td> -->
+                     <td>
                         <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
                             class="subfield" name="proImg" />
                     </td>
-                </tr>
-                <tr>
-                    <td>
+                     <td>
                         <div class="content">Legal Document</div>
                         <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
                     </td>
                 </tr>
+                
+               
 </table>
 
                 <div class="subheading" style="margin-top:15px;">Vehicle Details</div>
@@ -92,7 +93,7 @@
                 <tr>
                 <td>
                         <div class="content">Number of passengers that can be carried</div>
-                        <input type="number" class="subfield" name="passengers" required />
+                        <input type="number" class="subfield" min="0" name="passengers" required />
                     </td>
 </tr>
             </table>

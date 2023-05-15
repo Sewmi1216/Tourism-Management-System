@@ -12,6 +12,7 @@ $rows = $_SESSION['c'];
     <link rel="stylesheet" href="../css/tourguide.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">

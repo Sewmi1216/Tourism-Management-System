@@ -13,8 +13,8 @@ $name = $_GET['name'];
 $address = $_GET['address'];
 $email = $_GET['email'];
 $phone = $_GET['phone'];
-$username = $_GET['username'];
-$password = $_GET['password'];
+// $username = $_GET['username'];
+// $password = $_GET['password'];
 $managerName = $_GET['managerName'];
 $managerPhone = $_GET['managerPhone'];
 $managerEmail = $_GET['managerEmail'];
@@ -27,6 +27,7 @@ $managerNic = $_GET['managerNic'];
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
@@ -56,29 +57,29 @@ $managerNic = $_GET['managerNic'];
                         </td>
                         <td>
                             <div class="content">Contact Number</div>
-                            <input type="text" class="subfield" name="managerPhone" value="<?php echo $managerPhone;?>" required />
+                            <input type="text" class="subfield" pattern="[0-9]{10}" name="managerPhone" value="<?php echo $managerPhone;?>" required />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="content">Email Address</div>
-                            <input type="text" class="subfield" name="managerEmail"
+                            <input type="text" class="subfield" name="managerEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                                 value="<?php echo $managerEmail;?>" required />
                         </td>
                         <td>
                             <div class="content">NIC</div>
-                            <input type="text" class="subfield" id="nic" name="managerNic" value="<?php echo $managerNic;?>"
+                            <input type="text" class="subfield" id="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" name="managerNic" value="<?php echo $managerNic;?>"
                                 required />
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             <div class="content">Password</div>
                             <input type="password" class="subfield" name="password" id="password"
                                 value="<?php echo $password;?>" required />
                             <div id="msg" style="color:red;"></div>
                         </td>
-                    </tr>
+                    </tr> -->
 
                 </table>
                 <div class="subheading" style="margin-top:15px;">Hotel Details</div>
@@ -91,14 +92,14 @@ $managerNic = $_GET['managerNic'];
                         </td>
                         <td>
                             <div class="content">Email address</div>
-                            <input type="text" class="subfield" name="email"
-                                 value="<?php echo $email;?>" required />
+                            <input type="text" class="subfield" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                 value="<?php echo $email;?>" readonly />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="content">Contact Number</div>
-                            <input type="text" class="subfield" name="phone" value="<?php echo $phone;?>" required />
+                            <input type="text" class="subfield" pattern="[0-9]{10}" name="phone" value="<?php echo $phone;?>" required />
                         </td>
                         <!-- <td>
                             <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"

@@ -7,7 +7,8 @@ $results = $_SESSION['c'];
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/hna
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">v.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/tourbookingtable.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/pkg.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">

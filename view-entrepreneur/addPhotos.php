@@ -17,6 +17,7 @@ $getid = $_GET['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -37,7 +38,9 @@ $getid = $_GET['id'];
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Add Product Images</div>
+            <button type="submit" class="btns" style="margin-left: -1rem;"><a href="product.php"
+                        style="color:white;text-decoration:none;">BACK</a></button>
+                <div class="page-title" style="margin-left:50px;"> Add Product Images</div>
 
             </div>
 

@@ -11,12 +11,12 @@ class roomController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addRoom($roomNo,$beds, $price, $view,$typeId,$id)
+    public function addRoom($roomNo, $view,$typeId,$id)
     {
         $room = new room();
 
 
-        $res = $room->insertRoom($roomNo,$beds,$price,$view,$typeId,$id);
+        $res = $room->insertRoom($roomNo,$view,$typeId,$id);
 
         if (!$res) {
             echo 'There was a error';
@@ -50,18 +50,15 @@ class roomController extends db_connection
     }
 
 
-    public function updateRoom($roomno, $typeId, $beds, $price, $view)
+    public function updateRoom($roomno, $typeId, $view)
     {
         $room = new room();
-        $room->updateRoom($roomno, $typeId, $beds, $price, $view);
-
+        $room->updateRoom($roomno, $typeId, $view);
 
         if (!$room) {
             echo 'There was a error';
           
         } else {
-
-
             echo "<script>
         window.location.href = '../view-hotel/room.php';
         </script>";

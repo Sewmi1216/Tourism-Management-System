@@ -962,6 +962,40 @@ span.psw {
 hr{
   border: 2px solid rgb(89, 52, 175);
 }
+  .piechart{
+    margin: auto;
+    height:350px;
+    width: 350px;
+    padding: 10px;
+  
+  }
+  .barchart{
+    height:500px;
+    width: 600px;
+    padding: 10px;
+    margin: auto;
+  }
+  span.b {
+    display: inline-block;
+    width: 333px;
+    height: 225px;
+    padding: 5px;
+    border: 1px solid rgba(37, 53, 81, 1);
+    background-color: white;
+    margin-top: 10px;
+  }
+  span.c {
+    display: inline-block;
+    width: 550px;
+    height: 400px;
+    padding: 5px;
+    border: 1px solid rgba(37, 53, 81, 1);
+    background-color: rgb(227 246 255);
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+
 
 
 

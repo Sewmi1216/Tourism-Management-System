@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <!-- <link rel="stylesheet" href="../css/tourguide.css?v=<?php echo time(); ?>"> -->
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">

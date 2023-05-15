@@ -2,6 +2,7 @@
 
 <head>
     <title>Pack2Paradise</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
 </head>
 
@@ -85,18 +86,14 @@ if (!isset($_SESSION["error"])) {
                             required />
                     </td>
                 </tr>
-                <!-- <tr>
-                    <td>
-                        <div class="content">Username</div>
-                        <input type="text" class="subfield" name="username" required />
-                    </td>
+                <tr>
                     <td>
                         <div class="content">Password</div>
                         <input type="password" class="subfield" name="password" id="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+                            pattern="^[a-zA-Z0-9]{8}$" required />
                         <div id="msg" style="color:red;"></div>
                     </td>
-                </tr> -->
+                </tr>
 
             </table>
            
@@ -135,7 +132,7 @@ if (!isset($_SESSION["error"])) {
             pwd.setCustomValidity('Enter password!');
         } else {
             pwd.setCustomValidity(
-                'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
+                'Must contain at least 8 characters'
             );
         }
     });

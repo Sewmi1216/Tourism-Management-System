@@ -25,6 +25,7 @@ if (isset($_POST['signIn'])) {
 
 <head>
     <title>Pack2Paradise</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/login.css?v=<?php echo time(); ?>">
 </head>
 

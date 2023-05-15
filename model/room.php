@@ -9,12 +9,12 @@ class room extends db_connection
     {
         $this->conn = $this->connect();
     }
-    public function insertRoom($roomNo, $beds, $price, $view, $typeId, $id)
+    public function insertRoom($roomNo, $view, $typeId, $id)
     {
-        $query = "INSERT INTO room (roomNo, noOfPersons, price, view, typeID, hotelId) VALUES (?,?,?,?,?,?)";
+        $query = "INSERT INTO room (roomNo, view, typeID, hotelId) VALUES (?,?,?,?)";
         //$stmt = mysqli_query($this->conn, $query);
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("iiisii", $roomNo, $beds, $price, $view, $typeId, $id);
+        $stmt->bind_param("isii", $roomNo, $view, $typeId, $id);
         $stmt->execute();
         return $stmt;
     }
@@ -49,8 +49,8 @@ class room extends db_connection
         $query = "Select * from room where status='Available' and hotelId='$id'";
         return $this->getData($query);
     }
-    public function updateRoom($roomno, $typeId, $beds, $price, $view){
-        $query = "update room set typeID='$typeId', noOfPersons='$beds', price='$price', view='$view' where roomNo='$roomno'";
+    public function updateRoom($roomno, $typeId, $view){
+        $query = "update room set typeID='$typeId', view='$view' where roomNo='$roomno'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }

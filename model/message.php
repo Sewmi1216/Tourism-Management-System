@@ -47,7 +47,7 @@ class message extends db_connection
     public function sendMessage($user_to, $userLoggedIn, $body, $date)
     {
         if ($body != "") {
-            $query = "INSERT INTO message VALUES('', '$user_to','$userLoggedIn', '$body', '$date', 'no', 'no', 'no')";
+            $query = "INSERT INTO message VALUES('', '$user_to','$userLoggedIn', '$body', NOW())";
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
             return $stmt;

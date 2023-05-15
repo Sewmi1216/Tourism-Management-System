@@ -15,6 +15,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["touristID"])) {
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/user2.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
 
 
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>

@@ -3,6 +3,7 @@
 <head>
   <title> Place Craft Order</title>
   <link rel="stylesheet" href="./css/order.css">
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 

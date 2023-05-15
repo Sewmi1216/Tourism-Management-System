@@ -15,6 +15,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -38,7 +39,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         <?php include "dashboardHeader.php"?>
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
-                <div class="page-title"> Product Categories</div>
+            
+                <div class="page-title" > Product Categories</div>
                 <div class="input-container">
                     <input class="input-field" type="text" placeholder="Search for categories" name="search" id="myInput"
                         onkeyup="searchTypes()">
@@ -60,8 +62,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
                 <table id="myTable">
                     <tr class="subtext tblrw">
                         <th class="tblh">Product Category</th>
-                        <th class="tblh">Description</th>
-                        <th class="tblh">Add photos</th>
+                        <th class="tblh" style="marging-left:50px;">Description</th>
+                       
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr> <?php
@@ -75,11 +77,7 @@ foreach ($results as $result) {
                             <td class="tbld"><?php echo $result["categoryName"] ?></td>
                             <td class="tbld"><?php echo $result["description"] ?></td>
 
-                            <td class="tbld">
-                                <?php echo "<a href='addPhotos.php?id=$result[product_categoryId]'>"; ?>
-                                <i class="fa-solid fa-images"></i>
-                                <?php echo "</a>" ?>
-                            </td>
+                            
                             <td class="tbld"><a
                                     onclick="document.getElementById('id02').style.display='block';loadData(this.getAttribute('data-id'));"
                                     data-id="<?php echo $result['product_categoryId']; ?>"><i

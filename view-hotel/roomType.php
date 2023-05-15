@@ -15,6 +15,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -60,6 +61,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                         <!-- <th class="tblh">Image</th> -->
                         <th class="tblh">Room Type</th>
                         <th class="tblh">Desciption</th>
+                        <th class="tblh">Room price</th>
+                        <th class="tblh">No of persons</th>
                         <th class="tblh">Add photos</th>
                         <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
@@ -77,6 +80,9 @@ foreach ($results as $result) {
                             </td> -->
                             <td class="tbld"><?php echo $result["typeName"] ?></td>
                             <td class="tbld"><?php echo $result["description"] ?></td>
+                            <td class="tbld"><?php echo '$ '.$result["price"] ?></td>
+                            <td class="tbld"><?php echo $result["noOfPersons"] ?></td>
+
 
                             <td class="tbld">
                                 <?php echo "<a href='addPhotos.php?id=$result[roomTypeId]'>"; ?>
@@ -154,11 +160,8 @@ foreach ($results as $result) {
                 $("#typeid").val(type.roomTypeId);
                 $("#typename").val(type.typeName);
                 $("#desc").text(type.description);
-                // $("#status").val(type.typestatus);
-                $("#price").val(type.price);
-                // $("#img").attr("src", "../images/" + type.img);
-                $('#status').val(type.typestatus);
-
+                $("#bedss").val(type.noOfPersons);
+                $("#prices").val(type.price);
             }
         });
     }

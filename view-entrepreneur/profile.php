@@ -13,6 +13,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <script src="../libs/jquery.min.js"></script>
@@ -41,7 +42,7 @@ foreach ($results as $result) {
                     <?php echo "<img src='../images/" . $result['profileImg'] . "'alt='logo' height='150px' width='150px'
                     style='padding-right:0px;border-radius:50%;'>";?>
                 <h3><?php echo $result['businessName'];?></h3>
-                <p><?php echo $result['username'];?></p>
+              
             </div>
             <div class="right">
 
@@ -94,10 +95,10 @@ foreach ($results as $result) {
                 <br>
                 
                 <!-- <button
-                    onclick="document.location='proedit.php?id=<?php echo $result['entID']; ?> &name=<?php echo $result['name']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?> &username=<?php echo $result['username']; ?> &password=<?php echo $result['password']; ?> &managerName=<?php echo $result['managerName']; ?> &managerPhone=<?php echo $result['managerPhone']; ?> &managerEmail=<?php echo $result['managerEmail']; ?> &managerNic=<?php echo $result['managerNic']; ?>'"
+                    onclick="document.location='proedit.php?id=<?php echo $result['entID']; ?> &name=<?php echo $result['name']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?> &username=<?php echo $result['username']; ?> &password=<?php echo $result['password']; ?> &managerName=<?php echo $result['Name']; ?> &managerPhone=<?php echo $result['managerPhone']; ?> &managerEmail=<?php echo $result['managerEmail']; ?> &managerNic=<?php echo $result['managerNic']; ?>'"
                     type="submit" name="update" class="button" href="">Edit Profile</button> -->
                     <button
-                    onclick="document.location='proedit.php?id=<?php echo $result['entID']; ?> &businessName=<?php echo $result['businessName']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?> &username=<?php echo $result['username']; ?> &password=<?php echo $result['password']; ?> &entrepreneurName=<?php echo $result['entrepreneurName']; ?> &entrepreneurPhone=<?php echo $result['entrepreneurPhone']; ?> &entrepreneurEmail=<?php echo $result['entrepreneurEmail']; ?> &entrepreneurNic=<?php echo $result['entrepreneurNic']; ?>'"
+                    onclick="document.location='proedit.php?id=<?php echo $result['entID']; ?> &businessName=<?php echo $result['businessName']; ?> &address=<?php echo $result['address']; ?> &email=<?php echo $result['email']; ?> &phone=<?php echo $result['phone']; ?>  &password=<?php echo $result['password']; ?> &entrepreneurName=<?php echo $result['entrepreneurName']; ?> &entrepreneurPhone=<?php echo $result['entrepreneurPhone']; ?> &entrepreneurEmail=<?php echo $result['entrepreneurEmail']; ?> &entrepreneurNic=<?php echo $result['entrepreneurNic']; ?>'"
                     type="submit" name="update" class="button" href="">Edit Profile</button>
 
                     <?php } ?>

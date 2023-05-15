@@ -18,16 +18,37 @@ class tourguide extends db_connection
     return $stmt;
     } */
 
-    public function inserttourguide($name, $email, $phone, $nic, $fileImg, $username, $password, $availability, $language, $fileDoc, $vehicle, $type, $passenger)
+    public function inserttourguide($name, $email, $phone, $nic, $fileImg, $password, $language, $fileDoc, $vehicle, $type, $passenger)
     {
 
-        $query = "INSERT INTO tourguide(name,email,phone,nic,profileImg,username,password,availability,languages,document,vehicleNumber,vehicleType,passenger,status) VALUES ('$name', '$email','$phone','$nic', '$fileImg', '$username', '$password', '$availability','$language','$fileDoc','$vehicle','$type','$passenger',0)";
+        $query = "INSERT INTO tourguide(name,email,phone,nic,profileImg,password,languages,document,vehicleNumber,vehicleType,passenger,status) VALUES ('$name', '$email','$phone','$nic', '$fileImg', '$password','$language','$fileDoc','$vehicle','$type','$passenger',0)";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
-
+ public function checkEmail($email)
+    {
+        $query = "SELECT h.hotelID, NULL AS tourguideID, NULL AS entID, NULL AS userID
+                FROM hotel h
+                WHERE h.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, g.tourguideID, NULL AS entID, NULL AS userID
+                FROM tourguide g
+                WHERE g.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, NULL AS tourguideID, e.entID, NULL AS userID
+                FROM entrepreneur e
+                WHERE e.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, NULL AS tourguideID, NULL AS entID, t.userID
+                FROM tourist t
+                WHERE t.email = '$email'";
+        //  $query = "select hotelID from hotel where email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_array($stmt);
+        return $row;
+    }
     public function viewAllTourguides()
     {
 
@@ -200,6 +221,7 @@ if ($stmt) {
 
 
 
+
 //     public function updateGuide($bookingId, $newGuide)
 //     {
 //        $bookingId = mysqli_real_escape_string($this->conn, $bookingId);
@@ -208,11 +230,22 @@ if ($stmt) {
 // $query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
 // $stmt = mysqli_query($this->conn, $query);
 
+
+//     public function updateGuide($bookingId, $newGuide)
+//     {
+//        $bookingId = mysqli_real_escape_string($this->conn, $bookingId);
+// $newGuide = mysqli_real_escape_string($this->conn, $newGuide);
+
+// $query = "UPDATE tourbooking SET tourGuideId='$newGuide' WHERE bookingID='$bookingId'";
+// $stmt = mysqli_query($this->conn, $query);
+
+
 // if ($stmt) {
 //     return $stmt;
 // } else {
 //     die('Error in query: ' . mysqli_error($this->conn));
 // }
+
 
 //     }
 
@@ -267,5 +300,9 @@ public function viewavailableTourguide()
  
     return $stmt;
 }
+
+
+
+//     }
 
 }

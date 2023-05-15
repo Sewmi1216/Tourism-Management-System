@@ -20,6 +20,7 @@ $checkout = $_GET['checkout'];
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
@@ -68,8 +69,6 @@ $checkout = $_GET['checkout'];
                     <div class="content">Total Amount ($)</div>
                     <input type="text" class="subfield" id="totalamount" name="totalamount" value=" " readonly />
 
-                    <!-- <input type="submit" value="Pay at Hotel" class="pay" style="margin-top:50px;"/> -->
-                    <!-- <?php echo '<a href="reserve.php?id= class="payhotel" style="margin-top:50px;">Pay</a>'?> -->
                     <div style="margin-top:20px;margin-left:240px;">
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="pk_test_51MlRwNLkwnMeV4KrakhfHzMSWe8uOGMTgdxT6UBukJUP0AJB9memAAlcnkBEShf1HWwMH3wFaBV1XROZ7TQidM5y00OM0lgTax">

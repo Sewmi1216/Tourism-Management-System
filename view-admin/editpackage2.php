@@ -19,6 +19,7 @@ $rows = $_SESSION['c'];
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/package.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">

@@ -72,16 +72,6 @@ class user extends db_connection
         return $stmt;
     }
 
-     public function insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
-    {
-        $status = 0; // Set status as 0
-
-        $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssssssssssis", $hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $status, $fileDoc);
-        $stmt->execute();
-        return $stmt;
-    }
     public function checkEmail($email)
     {
         $query = "SELECT h.hotelID, NULL AS tourguideID, NULL AS entID, NULL AS userID

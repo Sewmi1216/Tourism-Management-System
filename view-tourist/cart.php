@@ -38,6 +38,7 @@ if (isset($_POST['submit'])) {
 <head>
     <title>Tour Package</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">
@@ -181,8 +182,8 @@ break;
                 style="float:left;padding:30px;margin-top:30px;margin-bottom:20px;margin-left:150px;width:740px;height:auto;">
                 <div class="subtotal">
                     <input type="hidden" name="subtotalInput" id="subtotalInput" value="" readonly>
-                    
-                    <input type="text" value="<?php echo $_SESSION["email"]; ?>" class="subfield" name="email"
+
+                    <input type="hidden" value="<?php echo $_SESSION["email"]; ?>" class="subfield" name="email"
                         style="width:60%" /></br>
                     <input type="hidden" value="<?php echo $id; ?>" class="subfield" name="tid"
                         style="width:60%" /></br>
@@ -207,13 +208,14 @@ if (!empty($_SESSION['cart'])) {
                     <hr>
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Name
                         &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="cname" class="subfield" style="width:60%" /></br>
+                    <input type="text" name="cname" class="subfield" id="cname" style="width:60%" required /></br>
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Phone
-                        &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="cphone" class="subfield" style="width:60%" /></br>
+                        &nbsp;&nbsp;</span>
+                    <input type="text" name="cphone" pattern="[0-9]{10}" id="cphone" class="subfield" style="width:60%"
+                        required /></br>
                     <span class="text" style="font-size:18px;font-weight:bold;">Billing Address
-                        &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="caddress" class="subfield" style="width:60%" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <input type="text" name="caddress" id="caddress" class="subfield" style="width:60%" required />
                 </div>
             </div>
             <div class="pkg1" style="padding:30px;margin-top:30px;margin-right:150px;">
@@ -232,7 +234,21 @@ if (!empty($_SESSION['cart'])) {
                 </div>
             </div>
         </form>
-        <?php include "footer.php"?>
+        <section id="contact" style="padding-bottom: 20px;bottom:0;margin-top:700px;">
+            <div style="text-align:center; padding: 10px;">
+                <h2 class="" style="color: #70706c;font-size:30px;">CONTACT US</h2>
+                <div style="color: #babab3;font-size: 17px;padding-top: 50px">
+                    <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Telephone</div>
+                    <div>+94 -11- 2581245/ 7</div>
+
+                    <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Fax</div>
+                    <div>+94-11-2237239</div>
+
+                    <div style="padding: 10px;font-weight: bold;color: white;padding-top: 30px">Email</div>
+                    <div>info@pack2paradise.lk</div>
+                </div>
+            </div>
+        </section>
         <script>
         <?php
 if (!empty($products)) {
@@ -258,6 +274,8 @@ if (!empty($products)) {
         </script>
         <script src="js/cart.js"></script>
         <script src="../view-hotel/js/home.js"></script>
+        
+
 </body>
 
 </html>

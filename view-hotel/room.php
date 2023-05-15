@@ -13,6 +13,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
@@ -52,9 +53,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
                 <tr class="subtext tblrw">
                     <th class="tblh">Room No</th>
                     <th class="tblh">Room Type</th>
-                    <th class="tblh">No.of Persons</th>
+                    <!-- <th class="tblh">No.of Persons</th> -->
                     <!-- <th class="tblh">Status</th> -->
-                    <th class="tblh">Price</th>
+                    <!-- <th class="tblh">Price</th> -->
                     <th class="tblh">View</th>
                     <th class="tblh">Edit</th>
                     <th class="tblh">Delete</th>
@@ -73,22 +74,24 @@ foreach ($results as $result) {
                     <td class="tbld">
                         <?php echo $result["typeName"] ?>
                     </td>
-                    <td class="tbld">
+                    <!-- <td class="tbld">
                         <?php echo $result["noOfPersons"] ?>
-                    </td>
+                    </td> -->
                     <!-- <td class="tbld">
                         <?php echo $result["roomStatus"] ?>
                     </td> -->
-                    <td class="tbld">
+                    <!-- <td class="tbld">
                         <?php echo '$' .$result["price"] ?>
-                    </td>
+                    </td> -->
                     <td class="tbld">
                         <?php if ($result["view"] == "Ocean View") {?>
                         <button class="status1"><?php echo $result["view"]; ?></button>
                         <?php } else if($result["view"] == "City View") {?>
                         <button class="status2"><?php echo $result["view"]; ?></button>
-                        <?php } else{?>
+                         <?php } else if($result["view"] == "Pool View") {?>
                         <button class="status3"><?php echo $result["view"]; ?></button>
+                        <?php } else{?>
+                        <button class="status4"><?php echo $result["view"]; ?></button>
                         <?php }?>
                     </td>
                     <td class="tbld"><a
@@ -156,7 +159,7 @@ $results = $pkg->viewAllTypes($id);
                             <td> <input type="text" class="subfield" name="roomNo" /></td>
                         </tr>
 
-                        <tr class="row">
+                        <!-- <tr class="row">
                             <td>
                                 <div class="content">No.of Persons</div>
                             </td>
@@ -167,7 +170,7 @@ $results = $pkg->viewAllTypes($id);
                                 <div class="content">Price($)</div>
                             </td>
                             <td> <input type="number" min="0" class="subfield" name="price" /></td>
-                        </tr>
+                        </tr> -->
                         <tr class="row">
                             <td>
                                 <div class="content">View</div>
@@ -233,7 +236,7 @@ $results = $pkg->viewAllTypes($id);
                                 </select></td>
                         </tr>
 
-                        <tr class="row">
+                        <!-- <tr class="row">
                             <td>
                                 <div class="content">No.of Persons</div>
                             </td>
@@ -244,7 +247,7 @@ $results = $pkg->viewAllTypes($id);
                                 <div class="content">Price($)</div>
                             </td>
                             <td> <input type="number" min="0" class="subfield" value="" name="price" id="price" /></td>
-                        </tr>
+                        </tr> -->
                         <tr class="row">
                             <td>
                                 <div class="content">View</div>

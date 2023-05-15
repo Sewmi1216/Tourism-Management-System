@@ -17,11 +17,11 @@ class roomType extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function insertRoomType($pkgName, $desc, $id)
+    public function insertRoomType($pkgName, $desc, $id, $price, $beds)
     {
         require_once "../view-hotel/roomType.php";
 
-        $sql = "INSERT INTO roomtype(typeName, description, hotelID) VALUES ('$pkgName', '$desc', '$id')";
+        $sql = "INSERT INTO roomtype(typeName, description, hotelID, price, noOfPersons) VALUES ('$pkgName', '$desc', '$id','$price', '$beds')";
 
         //$stmt = mysqli_query($this->conn, $query);
         $stmts = $this->conn->prepare($sql);
@@ -91,9 +91,9 @@ class roomType extends db_connection
         }
         return $data;
     }
-    public function updateType($id, $pkgName, $desc, )
+    public function updateType($id, $pkgName, $desc, $beds, $price)
     {
-        $query = "update roomtype set typeName='$pkgName', description='$desc' where roomTypeId='$id'";
+        $query = "update roomtype set typeName='$pkgName', description='$desc', price='$price', noOfPersons='$beds' where roomTypeId='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -105,16 +105,17 @@ class roomType extends db_connection
         $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
 
         if (mysqli_num_rows($foreign_key_result) > 0) {
-            echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+            echo '<script>alert("You cannot delete this room type due to the existing room reservations")</script>';
             echo "<script> window.location.href = '../view-hotel/roomType.php'; </script>";
         } else {
             mysqli_query($this->conn, $query);
+            echo '<script>alert("Room type is successfully deleted")</script>';
             echo "<script> window.location.href = '../view-hotel/roomType.php'; </script>";
         }
     }
      public function viewPersons($id)
     {
-        $query = "SELECT distinct(noOfPersons) as 'NumberPerson' FROM room where hotelId='$id'";
+        $query = "SELECT distinct(noOfPersons) as 'NumberPerson' FROM roomtype where hotelId='$id'";
         return $this->getData($query);
     }
 

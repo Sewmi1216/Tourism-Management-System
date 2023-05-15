@@ -5,6 +5,7 @@ include_once '../api/addhotel.php';?>
 <head>
     <title>Pack2Paradise</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
 </head>
 
@@ -23,7 +24,7 @@ include_once '../api/addhotel.php';?>
             <div class="heading" style="margin-top:0px;">Hotel Registration</div>
             <hr>
             <div class="subheading" style="margin-top:15px;">Hotel Name*</div>
-            <input type="text" class="field" style=";margin-top:12px;" name="hotelName" />
+            <input type="text" class="field" style=";margin-top:12px;" name="hotelName" required/>
             <!--
             <div class="subheading" style="margin-top:15px;">Hotel Details</div> -->
 
@@ -31,7 +32,7 @@ include_once '../api/addhotel.php';?>
                 <tr>
                     <td>
                         <div class="content">Address</div>
-                        <input type="text" class="subfield" name="address" />
+                        <input type="text" class="subfield" name="address" required/>
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
@@ -42,11 +43,11 @@ include_once '../api/addhotel.php';?>
                 <tr>
                     <td>
                         <div class="content">Business Certificate</div>
-                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" />
+                        <input type="file" class="subfield" name="doc" style="padding-bottom:25px;" required/>
                     </td>
                     <td>
                         <div class="content">Profile Image</div><input type="file" style="padding-bottom:25px;"
-                            class="subfield" name="proImg" />
+                            class="subfield" name="proImg" required/>
                     </td>
                 </tr>
                 <tr>
@@ -56,32 +57,33 @@ include_once '../api/addhotel.php';?>
                         <input type="text" class="subfield" name="email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
-                    
+ <?php
+if (!isset($_SESSION["error"])) {
+    $_SESSION["error"] = null;
+} else {
+    echo "<div class='s' style='color:red;'>";
+    echo $_SESSION["error"];
+    echo "</div>";
+    unset($_SESSION["error"]);
+}?>
+
                     <td>
                         <div class="content">Password</div>
-                        <input type="password" class="subfield" name="password" id="password" required />
-                        <!-- <input type="password" class="subfield" name="password" id="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required /> -->
+                       
+                        <input type="password" class="subfield" name="password" id="password"
+                            pattern="^[a-zA-Z0-9]{8}$" required />
                         <div id="msg" style="color:red;"></div>
                     </td>
                 </tr>
             </table>
-                <?php
-if (!isset($_SESSION["error"])) {
-    $_SESSION["error"] = null;
-} else {
-    echo "<p class='text' style='color:red;margin-left:3px;padding:13px;'>";
-    echo $_SESSION["error"];
-    echo "</p>";
-    unset($_SESSION["error"]);
-}?>
+        
             <div class="subheading" style="margin-top:15px;">Contact Person Details</div>
 
             <table>
                 <tr>
                     <td>
                         <div class="content">Name</div>
-                        <input type="text" class="subfield" name="mName" />
+                        <input type="text" class="subfield" name="mName" requied/>
                     </td>
                     <td>
                         <div class="content">Contact Number</div>
@@ -110,10 +112,10 @@ if (!isset($_SESSION["error"])) {
                     </td>
                     <td>
                         <div class="content">Password</div>
-                        <input type="password" class="subfield" name="password" id="password" required /> -->
-                <!-- <input type="password" class="subfield" name="password" id="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required /> -->
-                <!-- <div id="msg" style="color:red;"></div>
+                        <input type="password" class="subfield" name="password" id="password" required />
+                        <input type="password" class="subfield" name="password" id="password"
+                            pattern="^[a-zA-Z0-9]{1,12}$" required />
+                        <div id="msg" style="color:red;"></div>
                     </td>
                 </tr> -->
 
@@ -166,7 +168,7 @@ if (!isset($_SESSION["error"])) {
             pwd.setCustomValidity('Enter password!');
         } else {
             pwd.setCustomValidity(
-                'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
+                'Must contain at least 8 characters'
             );
         }
     });

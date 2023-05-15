@@ -17,6 +17,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -29,8 +30,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
 
     <section class="home-section">
         <?php include "dashboardHeader.php"?>
-        <button type="submit" id="create_pdf" class="btns"
-            style="margin-left:80rem;margin-top:1rem;background-color:red;">Download pdf</button>
+        
         <div class="text">Dashboard Overview</div>
 
         <div style="margin-top:20px;margin-left:10px;" class="dashheading">
@@ -76,15 +76,15 @@ foreach ($results2 as $r) {
                  <!-- pie chart -->
                 <?php
 $pie = new productController();
-$results= $pie->countProductOrders();
+$results= $pie->countProductOrders($id);
 foreach ($results as $data) {
-    $category[]=$data['product_category'];
-    $orders[]=$data['num_orders'];
+    $category[]=$data['categoryName'];
+    $orders[]=$data['orderCount'];
 
 }
 ?>
                     <div class="piechart">
-                        <canvas id="piechart"></canvas>
+                        <canvas id="piechart" ></canvas>
                     </div>   
             </span>
             <span class="c">
@@ -120,7 +120,7 @@ foreach ($results as $data) {
     new Chart(ctx, {
         type: "pie",
         data: {
-            labels: <?php echo json_encode($type) ?>,
+            labels: <?php echo json_encode($category) ?>,
             datasets: [{
                 label: "No of Orders",
                 data: <?php echo json_encode($orders) ?>,
@@ -160,27 +160,7 @@ foreach ($results as $data) {
  });
 
     </script>
-    <script>
-    document.getElementById('create_pdf').onclick = function() {
-        var element = document.getElementById('container');
-        var opt = {
-            margin: 0.2,
-            filename: 'dashboard.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 1
-            },
-            html2canvas: {
-                scale: 1
-            },
-            jsPDF: {
-                unit: 'mm',
-                format: 'letter',
-                orientation: 'portrait'
-            }
-        };
-        html2pdf(element, opt);
-    };
+    
     </script>
 
 

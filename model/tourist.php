@@ -33,7 +33,7 @@ class tourist extends db_connection
     public function insertTourist($inputs)
     {
 
-        $query = "INSERT INTO tourist (name, address, email, phone, profileImg,  password, dob, country) VALUES ('$inputs[0]', '$inputs[1]', '$inputs[2]', '$inputs[3]', '$inputs[4]', '$inputs[5]', '$inputs[6]','$inputs[7]')";
+        $query = "INSERT INTO tourist (name, address, email, phone, profileImg,  password, dob, country,nic_passportNo) VALUES ('$inputs[0]', '$inputs[1]', '$inputs[2]', '$inputs[3]', '$inputs[4]', '$inputs[5]', '$inputs[6]','$inputs[7]','$inputs[8]')";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -128,10 +128,9 @@ class tourist extends db_connection
     }
     public function searchRoom($id, $person, $room)
     {
-        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND r.noOfPersons='$person'";
-        $stmt = mysqli_query($this->conn, $query);
-        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
-        return $results;
+        $query = "SELECT * FROM room r, roomtype t, hotel h WHERE r.typeID=t.roomTypeId AND r.hotelID=h.hotelID AND h.hotelID='$id' AND t.typeName='$room' AND t.noOfPersons='$person'";
+       return $this->getData($query);
+
 
     }
     public function availability($checkin, $checkout, $room)
@@ -171,9 +170,9 @@ class tourist extends db_connection
         }
 
     }
-    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId,$vehicle)
     {
-        $query = "INSERT INTO tourbooking (bookingDateTime, bookingStatus, guestName, guestPhone, guestEmail, arrivalDate, departureDate, noOfGuests, tourPkgID, touristID) VALUES (NOW(), 'Pending', '$name', '$phone', '$email', '$aDate', '$dDate','$guests', '$packageId', '$touristID')";
+        $query = "INSERT INTO tourbooking (bookingDateTime, bookingStatus, guestName, guestPhone, guestEmail, arrivalDate, departureDate, noOfGuests, tourPkgID, touristID,preferredVehicleType) VALUES (NOW(), 'Pending', '$name', '$phone', '$email', '$aDate', '$dDate','$guests', '$packageId', '$touristID', '$vehicle')";
         $stmt = mysqli_query($this->conn, $query);
         if ($stmt) {
             $bookingId = mysqli_insert_id($this->conn); // get the booking ID
@@ -186,10 +185,10 @@ class tourist extends db_connection
         }
 
     }
-  
+
     public function insertOrderPayment($total)
     {
-       $query = "INSERT INTO craftorder_payment(paymentDateTime, amount, paymentStatus) VALUES (NOW(), '$total','Completed')";
+        $query = "INSERT INTO craftorder_payment(paymentDateTime, amount, paymentStatus) VALUES (NOW(), '$total','Completed')";
         $stmt = mysqli_query($this->conn, $query);
         if (!$stmt) {
             echo "Error: " . mysqli_error($this->conn);
@@ -207,15 +206,12 @@ class tourist extends db_connection
         // $stmt->execute();
         return $stmt;
     }
-    
+
     public function viewProfile($id)
     {
         //    $query = "Select * from roomtype p, hotel h where p.hotelID=h.hotelID and roomTypeId = '$pId'";
         $query = "Select * from tourist where userID = '$id'";
-        $stmt = mysqli_query($this->conn, $query);
-
-     
-        return $stmt;
+        return $this->getData($query);
     }
     public function viewTouristProfile($id)
     {
@@ -223,8 +219,19 @@ class tourist extends db_connection
         return $this->getData($query);
 
     }
-    
+    public function updateProfile($id, $name, $address, $phone, $nic, $dob, $country)
+    {
+        $query = "update tourist set name='$name', nic_passportNo='$nic', address='$address', phone='$phone', dob='$dob', country='$country' where userID='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
+    public function updateProfileImg($fileImg, $id)
+    {
+        $query = "UPDATE tourist SET profileImg='$fileImg' WHERE userID ='$id'";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
     // Tour packages
     public function viewAllTourPackages()
     {

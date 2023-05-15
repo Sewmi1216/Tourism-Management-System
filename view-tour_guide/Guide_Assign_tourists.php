@@ -13,6 +13,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
 <head>
     <meta charset="UTF-8">
     <script src="../libs/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
@@ -36,7 +37,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
                 <div class="page-title"> Assign Tourists </div>
                 <div class="input-container">
                     <!-- <input class="input-field" type="text" placeholder="Search for products" name="search"> -->
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products.."
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for tourpackages.."
                         title="Type in a productname">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>

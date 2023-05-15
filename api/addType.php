@@ -5,11 +5,14 @@ if (isset($_POST['save'])) {
     $pkgName = $_POST['pName'];
     // $price = $_POST['price'];
     $desc = $_POST['desc'];
+    $beds = $_POST['beds'];
+    $price = $_POST['price'];
+
 
     $id = $_POST['id'];
 
     $pkgcon = new roomTypeController();
-    $pkgcon->addRoomType($pkgName, $desc, $id);
+    $pkgcon->addRoomType($pkgName, $desc, $id, $price, $beds);
     if (!$pkgcon) {
         echo 'There was a error';
     } else {
@@ -68,12 +71,12 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
 
     $pkgName = $_POST['pName'];
-    // $price = $_POST['price'];
+    $price = $_POST['price'];
     $desc = $_POST['desc'];
-    // $status = $_POST['status'];
+    $beds = $_POST['beds'];
 
     $pk = new roomTypeController();
-    $pk->updateType($id, $pkgName, $desc);
+    $pk->updateType($id, $pkgName, $desc, $beds, $price);
 
 }
 if (isset($_POST['delete'])) {

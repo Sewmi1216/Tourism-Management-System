@@ -44,19 +44,23 @@ class entrepreneurController extends db_connection
 
     }
     
-public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
+public function addentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc)
 {
 	$user = new entrepreneur();
 
-	$result = $user->insertentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $username, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
-
+	$result = $user->insertentrepreneur($bsinessName, $address, $email,$phone, $fileImg, $password, $eName,$eNic,$ePhone, $eEmail,  $fileDoc);
 	if (!$result) {
-		echo 'There was a error';
-	} else {
-		echo "<script>alert('Your form was successfully submitted');
-	window.location.href = '../view-hotel/hotelLogin.php';
+    echo "<script>alert('Entrepreneur account creation is unsuccessful.');
+	window.location.href = '../view-hotel/login.php';
 	</script>";
-	}
+
+} else {
+    echo "<script>alert('Tourist account is created successfully.Wait for the administrator to approve your account');
+	window.location.href = '../view-hotel/login.php';
+	</script>";
+
+}
+
 }
 public function viewProfile($id)
     {

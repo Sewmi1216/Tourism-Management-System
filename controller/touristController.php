@@ -65,10 +65,14 @@ class touristController extends db_connection
         } else {
             $res = $tourist->insertTourist($inputs);
             if (!$res) {
-                echo 'Error Occured';
+               echo "<script>alert('Tourist account creation is unsuccessful.');
+	window.location.href = '../view-hotel/login.php';
+	</script>";
+
             } else {
-                echo 'Successfully Added';
-                header("Location: ../view-hotel/login.php");
+                echo "<script>alert('Tourist account is created successfully');
+	window.location.href = '../view-hotel/login.php';
+	</script>";
 
             }
         }
@@ -194,7 +198,7 @@ class touristController extends db_connection
         // send by h-hotel email
         $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Reservation');
         // get email from input
-        $mail->addAddress($email);
+        $mail->addAddress( $guestEmail);
         //$mail->addReplyTo('lamkaizhe16@gmail.com');
 
         // HTML body
@@ -205,16 +209,16 @@ class touristController extends db_connection
 
         if (!$mail->send()) {?>
         <script>
-        alert("<?php echo "Error sending email to " . $email ?>");
+        alert("<?php echo "Error sending email to " .  $guestEmail ?>");
         </script>
         <?php
 }
 
     }
-    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId,$vehicle)
     {
         $booking = new tourist();
-        $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
+        $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId, $vehicle);
 
         require "../libs/PHPMailer/PHPMailerAutoload.php";
         $mail = new PHPMailer;
@@ -248,11 +252,23 @@ class touristController extends db_connection
 
     public function viewProfile($id)
     {
-        print_r($id);
-        die();
-
         $profile = new tourist();
         $rs = $profile->viewProfile($id);
+        return $rs;
+
+    }
+     public function updateProfile($id, $name, $address, $phone, $nic, $dob, $country)
+    {
+        $profile = new tourist();
+        $rs = $profile->updateProfile($id, $name, $address, $phone, $nic, $dob, $country);
+        return $rs;
+
+    }
+    
+     public function updateProfileImg($fileImg, $id)
+    {
+        $profile = new tourist();
+        $rs = $profile->updateProfileImg($fileImg,$id);
         return $rs;
 
     }
