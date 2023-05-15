@@ -57,7 +57,24 @@ $rows = $_SESSION['c'];
                 </td>
                 <td> <input type="text" placeholder="Package Price" value='.$row['price'].' name="pckgprice" required> </td>
             </tr>
-
+            <tr class="row">
+            <div class="col-25">
+              <label for="participants">No of Days</label>
+            </div>
+            <div class="col-75">
+              <select id="days" name="days" onchange="showInputTables()">
+                <option value="1"> 1 </option>
+                <option value="2">2 </option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+          </div>
             <tr class="row">
                 <td>
                     <div class="content">Package Description</div>

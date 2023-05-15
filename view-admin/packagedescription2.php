@@ -84,6 +84,12 @@ echo '<table>
     <td> '.$row['description'].'</td>
     
   </tr>
+
+  <tr>
+  <td>No of Days</td>
+  <td> '.$row['no_of_days'].'</td>
+  
+</tr>
   <tr>
     <td>Price</td>
     <td>'.$row['price'].'</td>

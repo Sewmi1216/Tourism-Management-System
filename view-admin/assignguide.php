@@ -2,9 +2,27 @@
 session_start();
 $user = "";
 if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
-    $id = $_SESSION["adminID"];
 } else {
     header("location:login.php");
+}
+
+
+?>
+
+<?php 
+        require_once("../controller/tourguidecontroller.php");
+        $penguide = new tourguidecontroller();
+        $results = $penguide->viewavailableTourguide();
+        print_r($results);
+        die();
+        // echo "Hi";
+        // die();
+
+        foreach ($results as $result) {
+            $tourguideID = $result["tourguideID"];
+            $selectedValue = "";
+        if ($tourguideID == $result["tourguideID"]) {
+    $selectedValue = "selected"; }
 }
 ?>
 <!DOCTYPE html>
@@ -30,6 +48,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
         <div class="se" style="margin-top: 20px;">
             <div class="searchSec">
                 <div class="page-title"> Assign Tour Guide </div>
+
+
             </div>
         </div>
 
@@ -48,6 +68,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
                     <tr>
                             <td>
                                 <div class="content"> Booking Id</div>
+                                
+
 
                             </td>
                             <td>
@@ -60,27 +82,14 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
                                 <div class="content">Assign Guide</div>
                             </td>
                             <td style="margin:auto;margin-top:80px;">
-                            <select class="tourguide" name="tourGuideId">
-                                    <?php 
-        require_once("../controller/tourguidecontroller.php");
-        $penguide = new tourguidecontroller();
-        $results = $penguide->viewAllTourguides();
-        
-        foreach ($results as $result) {
-            $tourguideID = $result["tourguideID"];
-            $selectedValue = "";
-if ($tourguideID == $result["tourguideID"]) {
-    $selectedValue = "selected"; 
-}
-?>
-                                    <option name="guideid" value="<?php echo $result["tourGuideId"];
-                ?>">
-                                        <?php echo $tourguideID; ?>
 
+                            <select class="tourguide" name="tourGuideId">
+                                    <option name="guideid" value="<?php echo $result["tourGuideId"]; ?>">
+                                        <?php echo $tourguideID; ?>
                                     </option>
 
 
-                                    <?php } ?>
+
                             </td> 
                         </tr>
                         
@@ -98,12 +107,15 @@ if ($tourguideID == $result["tourguideID"]) {
    // }?> -->
 
 <?php
- if (isset($_POST['update'])) {
+ if (isset($_POST['update'])) 
+    {
     $newGuide = $_POST['tourGuideId'];
     $bookingID = $_GET["reservation_id"];
     $guide = new tourguideController();
     $guide->updateGuide($bookingId, $newGuide);
-    }?>
+    }
+?>
+
                 </span>
         </div>
         </form>

@@ -76,6 +76,7 @@
             <div id="result">
                 <table>
                     <tr class="subtext tblrw">
+                    <th class="tblh">Tour Guide ID</th>
                         <th class="tblh">Guide Name</th>
                         <th class="tblh">NIC</th>
                         <th class="tblh">E-Mail Address</th>
@@ -96,7 +97,7 @@ if ($res->num_rows > 0) {
         ?>
 
                     <tr class="subtext tblrw">
-                        
+                    <td class="tbld"><?php echo $row["tourguideID"] ?></td>
                         <td class="tbld"><?php echo $row["name"] ?></td>
                         <td class="tbld"><?php echo $row["nic"] ?></td>
                         <td class="tbld"><?php echo $row["email"] ?></td>
