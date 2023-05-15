@@ -10,8 +10,8 @@ $tourpackagecon = new tourpackageController();
 $tourpackagecon-> deletePkg($id);
 
 echo "
-    <script>
-    window.location.href = '../view-admin/tourpackages.php';
-         </script>";
+             <script>alert('Tour package deletation is successful');
+        window.location.href = '../view-admin/tourpackages.php';
+        </script>";
 
 ?>

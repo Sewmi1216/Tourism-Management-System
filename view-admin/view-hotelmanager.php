@@ -214,7 +214,7 @@ span.psw {
                    <th class="tblh">Phone Number</th>
                     <th class="tblh">Manager Name</th>
                         <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
+                      
                         <th class="tblh">Delete</th>
                     </tr>
   <?php                   
@@ -227,7 +227,6 @@ echo ' <tr class="subtext tblrw">
                         <td class="tbld">'.$row['phone'].'</td>
                         <td class="tbld">'.$row['managerName'].'</td>
                          <td class="tbld">   <a href="managerprofile.php?hotel_id='.$row['hotelID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                     <td class="tbld">  <a href="editmanager.php?hotel_id='.$row['hotelID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
                      <td class="tbld"><a onclick="opendeleteModal('.$row['hotelID'].')"><i class="fa-solid fa-trash art"></i></a></td>
                      </tr> ' ;

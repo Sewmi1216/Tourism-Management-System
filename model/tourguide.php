@@ -128,8 +128,19 @@ class tourguide extends db_connection
         $query = "UPDATE tourguide SET status = 1 where tourguideID= $id ";
 
         $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        if ($stmt) {
+            $query1 = "select email from tourguide where tourguideID= $id ";
+            $stmt = mysqli_query($this->conn, $query1);
+            $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+            if ($results) {
+                return $results;
+            } else {
+                die('Error in query2: ' . mysqli_error($this->conn));
 
+            }
+        } else {
+            die('Error in query1: ' . mysqli_error($this->conn));
+        }
     }
 
     public function viewdeletedguides()

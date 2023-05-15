@@ -108,5 +108,15 @@ class admin extends db_connection
         return $this->getData($query1);
     }
 
+    public function countusers()
+    {
+        $query = "SELECT COUNT(*) as tourist_count FROM tourist ";
+     
+        
+        $stmt = mysqli_query($this->conn, $query);
+      
+
+        return $stmt;
     
+    }
 }

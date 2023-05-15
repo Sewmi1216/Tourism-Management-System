@@ -104,7 +104,7 @@ echo '
             
             <div id="id04" class="modal">
 
-<form class="modal-content animate" style="width:45%;" method="GET" action="../api/tourpackgae.php" enctype="multipart/form-data">
+<form class="modal-content animate" style="width:45%;" method="GET" action="../api/deletetourpackage.php" enctype="multipart/form-data">
 
 <input type="hidden" id="modalIdValue" class="subfield"  name = "packageID" value="<?php echo $row['packageID']; ?>"/>
 

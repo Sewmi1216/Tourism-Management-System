@@ -132,8 +132,63 @@ class tourguideController extends db_connection
 
         $result = $user->accepttourguiderequest($id);
 
-        $_SESSION['c'] = $result;
-        return $result;
+        // $_SESSION['c'] = $result;
+        // return $result;
+
+        foreach ($results as $result) {
+            $hemail = $result['email'];
+            require "../libs/PHPMailer/PHPMailerAutoload.php";
+            $mail = new PHPMailer;
+    
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+    
+            // h-hotel account
+            $mail->Username = 'sewmi.rotaract3220@gmail.com';
+            $mail->Password = 'uaqgejykofzquoaf';
+    
+            // send by h-hotel email
+            $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Approve account');
+            // get email from input
+            $mail->addAddress($hemail);
+    
+            // HTML body
+            $mail->isHTML(true);
+            $mail->Subject = "Congratulations! You Have Been Approved as a Pack2Paradise Tour Guide";
+            $mail->Body = "<b>Dear User</b>
+                    <h3>I am pleased to inform you that your tour guide account on Pack2Paradise has been approved by our system administrator. Congratulations on becoming a part of our team of expert tour guides!
+
+                    You are now authorized to be appointed for tours with tourists on our platform and start showcasing your skills and knowledge. We are excited to have you on board and we wish you the best of luck in your new role.
+                    
+                    As a tour guide on Pack2Paradise, you will have the opportunity to work with a diverse group of tourists from all around the world. You will be responsible for providing them with a memorable and enjoyable experience while exploring the beauty of our paradise island.
+                    
+                    We have no doubt that you will excel in your new role and provide our customers with the highest level of service. Our team is always available to assist you with any questions or concerns that you may have.
+                    
+                    Thank you for choosing Pack2Paradise as your platform to showcase your skills as a tour guide. We look forward to working with you and providing our customers with an unforgettable experience.
+                    
+                    Best regards,
+                    Pack2Paradise Team
+                    
+                    
+                    
+                    
+                    
+                    </h3>";
+    
+            if (!$mail->send()) {?>
+                <script>alert("<?php echo "Error sending email to " . $hemail ?>");
+            </script>
+    <?php
+    } else {
+                ?>
+    <script>
+    alert("<?php echo "Email sent to " . $hemail ?>");
+    </script>
+    <?php
+    }}
     }
 
     public function viewdeletedguides()

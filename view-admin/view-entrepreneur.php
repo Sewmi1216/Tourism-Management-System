@@ -208,7 +208,7 @@ span.psw {
                         <th class="tblh">E-Mail Address</th>
                         <th class="tblh">Phone Number</th>
                         <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
+                       
                         <th class="tblh">Delete</th>
                     </tr>
                     <tr class="subtext tblrw">
@@ -225,7 +225,6 @@ echo ' <tr class="subtext tblrw">
                         <td class="tbld">'.$row['entrepreneurEmail'].'</td>
                         <td class="tbld">'.$row['entrepreneurPhone'].'</td>
                         <td class="tbld">   <a href="entrepreneurprofile2.php?entrepreneur_id='.$row['entID'].'"> <i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                     <td class="tbld">  <a href="editentrepreneur.php?entrepreneur_id='.$row['entID'].'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                       
                      <td class="tbld"><a onclick="openModal('.$row['entID'].')"><i class="fa-solid fa-trash art"></i></a></td>
         </tr>

@@ -137,5 +137,10 @@ class adminController extends db_connection
         return $res;
     }
 
-
+    public function countusers($id)
+    {
+        $pckg = new admin();
+        $res = $pckg->countusers($id);
+        return $res;
+    }
 }

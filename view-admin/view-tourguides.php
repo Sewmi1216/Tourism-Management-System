@@ -82,7 +82,6 @@
                         <th class="tblh">E-Mail Address</th>
                         <th class="tblh">Phone Number</th>
                         <th class="tblh">View</th>
-                        <th class="tblh">Edit</th>
                         <th class="tblh">Delete</th>
                     </tr>
 
@@ -109,7 +108,6 @@ if ($res->num_rows > 0) {
                   
 
                         <a href="tourguideprofile.php?tourguideID='<?php echo $row['tourguideID']; ?>'"><i class="fa-sharp fa-solid fa-bars art"></i></a></td>
-                        <td class="tbld">  <a href="edittouristguide.php?tourguideID='<?php echo $row['tourguideID']; ?>'"> <i class="fa-solid fa-pen-to-square art"> </i></a></td>
                         <td class="tbld"><a onclick="opendeclineModal('<?php echo $row['tourguideID']; ?>')"><i class="fa-solid fa-trash art"></i></a></td>
                  <?php   } } ?>
 
