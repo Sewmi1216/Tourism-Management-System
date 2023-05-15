@@ -208,16 +208,14 @@ if (!empty($_SESSION['cart'])) {
                     <hr>
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Name
                         &nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="cname" class="subfield" id="cname" style="width:60%"
-                        required /></br>
+                    <input type="text" name="cname" class="subfield" id="cname" style="width:60%" required /></br>
                     <span class="text" style="font-size:18px;font-weight:bold;">Customer Phone
                         &nbsp;&nbsp;</span>
                     <input type="text" name="cphone" pattern="[0-9]{10}" id="cphone" class="subfield" style="width:60%"
-                         required /></br>
+                        required /></br>
                     <span class="text" style="font-size:18px;font-weight:bold;">Billing Address
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <input type="text" name="caddress" id="caddress" class="subfield" style="width:60%"
-                        required />
+                    <input type="text" name="caddress" id="caddress" class="subfield" style="width:60%" required />
                 </div>
             </div>
             <div class="pkg1" style="padding:30px;margin-top:30px;margin-right:150px;">
@@ -276,17 +274,7 @@ if (!empty($products)) {
         </script>
         <script src="js/cart.js"></script>
         <script src="../view-hotel/js/home.js"></script>
-        <script>
-        function checkInput() {
-            var inputValue = document.getElementById("cname").value;
-            var inputValue = document.getElementById("cphone").value;
-            var inputValue = document.getElementById("caddress").value;
-
-            if (inputValue === "") {
-                alert("Input field is empty!");
-            }
-        }
-        </script>
+        
 
 </body>
 

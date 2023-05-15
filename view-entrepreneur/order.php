@@ -100,27 +100,27 @@ foreach ($results as $result) {
                 </div>
                 <table>
                 <tr class="row">
-                    <input type="hidden" class="subfield" name="id" id="productid" value="<?php echo $result["orderID"] ?>" ?>
+                    <input type="hidden" class="subfield" name="id" id="productid" value="<?php echo $result["orderID"] ?>" readonly/>
                 </tr>
             <tr class="row">
                 <td>
                     <div class="content">Product Name :</div>
                     
                 </td>
-                <td> <input type="text" class="subfield" id ="productname" name="pName" value="<?php echo $result["productName"] ?>"  /></td>
+                <td> <input type="text" class="subfield" id ="productname" name="pName" value="<?php echo $result["productName"] ?>" readonly/></td>
                 
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Category:</div>
                 </td>
-                <td> <input type="text" class="subfield" id="category"  name="pCategory" value="<?php echo $result["category"] ?>"/></td>
+                <td> <input type="text" class="subfield" id="category"  name="pCategory" value="<?php echo $result["categoryName"] ?>"readonly/></td>
             </tr>
             <tr class="row">
                 <td>
                     <div class="content">Quantity : </div>
                 </td>
-                <td> <input type="number" id="quantity" min="10" class="subfield" name="avaquantity" value="<?php echo $result["quantity"] ?>"/></td>
+                <td> <input type="number" id="quantity" min="10" class="subfield" name="avaquantity" value="<?php echo $result["quantity"] ?>"readonly/></td>
             </tr>
 
             
@@ -128,7 +128,7 @@ foreach ($results as $result) {
                 <td>
                     <div class="content">Total Price :</div>
                 </td>
-                <td><input type="number" id="price" min="10" class="subfield" name="price" value="<?php echo $result["price"] ?>"></td>
+                <td><input type="number" id="price" min="10" class="subfield" name="price" value="<?php echo $result["price"] ?>" readonly></td>
                 
             </tr>
             
@@ -164,7 +164,7 @@ foreach ($results as $result) {
                 var type = JSON.parse(response);
                 $("#productid").val(type.productID);
                 $("#productname").val(type.productName);
-                $("#category").val(type.category);
+                $("#category").val(type.categoryName);
                 $("#quantity").val(type.quantity);
                 $("#price").val(type.price);
                 

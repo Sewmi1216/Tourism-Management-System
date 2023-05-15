@@ -131,7 +131,7 @@ class product extends db_connection
         // JOIN product p ON i.productID = p.productID
         // GROUP BY o.orderID";
 
-        $query = "SELECT * FROM craftorder o, product p, craftorder_items i where i.productId=p.productID and p.productID=i.productID and p.entID='$id'";
+        $query = "SELECT * FROM craftorder o, product p, product_category c, craftorder_items i where i.productId=p.productID and c.product_categoryId=p.categoryId and p.productID=i.productID and p.entID='$id'";
         // $query = "SELECT * FROM craftorder o, entrepreneur e where o.entID=e.entID and e.entID='$id'";
 
         return $this->getData($query);
