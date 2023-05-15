@@ -74,7 +74,12 @@ $reserve->insertReservation($email, $guestName, $guestPhone, $guestEmail, $total
 if ($charge) {
     echo "
              <script>alert('Your reservation is successful');
-        window.location.href = '../view-tourist/hotelView.php';
+        window.location.href = '../view-tourist/accommodation.php';
+        </script>";
+}else{
+    echo "
+             <script>alert('Your reservation is unsuccessful');
+        window.location.href = '../view-tourist/accommodation.php';
         </script>";
 }
 

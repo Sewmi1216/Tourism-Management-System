@@ -15,6 +15,7 @@ if (isset($_GET['productid'])) {$pid = $_GET['productid'];}
 <head>
     <title>Tour Package</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/../libs/fontawesome/css/brands.css" rel="stylesheet">
     <link href="../libs/fontawesome/css/solid.css" rel="stylesheet">

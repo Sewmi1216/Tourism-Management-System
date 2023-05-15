@@ -13,7 +13,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["tourguideID"])) {
 <head>
     <meta charset="UTF-8">
     <script src="../libs/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="../css/entrepreneur.css?v=<?php echo time(); ?>"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -49,7 +50,7 @@ foreach ($results as $result) {
 
                             </td>
                             <td style="margin:auto;margin-top:80px;">
-                                <input type="date" class="subfield" name="from"
+                                <input type="date" class="subfield" name="from" id="from"
                                     value="<?php echo $result['unavailable_from']?>" required />
                             </td>
                         </tr>
@@ -59,7 +60,7 @@ foreach ($results as $result) {
 
                             </td>
                             <td>
-                                <input type="date" class="subfield" name="to"
+                                <input type="date" class="subfield" name="to" id="to"
                                     value="<?php echo $result['unavailable_to']?>" required />
                             </td>
                         </tr>
@@ -82,7 +83,17 @@ foreach ($results as $result) {
         </div>
         </form>
     </section>
+    <script>
+    $("#to").change(function() {
+        var startDate = document.getElementById("from").value;
+        var endDate = document.getElementById("to").value;
 
+        if ((Date.parse(startDate) >= Date.parse(endDate))) {
+            alert("End date should be greater than Start date");
+            document.getElementById("to").value = "";
+        }
+    });
+    </script>
 </body>
 
 </html>

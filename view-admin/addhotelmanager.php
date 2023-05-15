@@ -2,6 +2,7 @@
 
 <head>
     <title>Pack2Paradise</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/addentrepreneur.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">

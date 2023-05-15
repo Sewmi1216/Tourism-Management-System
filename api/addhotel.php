@@ -8,7 +8,6 @@ if (isset($_POST['signup'])) {
     $mPhone = $_POST['mPhone'];
     $mEmail = $_POST['mEmail'];
     $mNic = $_POST['mNic'];
-    $username = $_POST['username'];
     $password = $_POST['password'];
     $hpassword = md5($password);
     $address = $_POST['address'];
@@ -24,11 +23,7 @@ if (isset($_POST['signup'])) {
     $dtempname = $_FILES["doc"]["tmp_name"];
 
     $pfolder = "../images/" . $fileImgname;
-    //$id = 'T' . time();
-    // $id ='T'. date('his');
-
-    // $id = rand(time(), 100000000);
-    $hotelconnection = new userController();
+    $hotelconnection = new hotelController();
     $hotelconnection->addHotel($hotelName, $address, $email, $phone, $fileImgname, $hpassword, $mName, $mPhone, $mEmail, $mNic, $fileDocname);
    
     move_uploaded_file($ptempname, $pfolder);
@@ -50,10 +45,12 @@ if (isset($_POST['reset'])) {
     $password = $_POST['cpwd'];
     $email = $_POST['email'];
 
+    $hpassword = md5($password);
+
     // $email = $_SESSION['email'];
 
     $reset = new userController();
-    $reset->resetPwd($email,$password);
+    $reset->resetPwd($email,$hpassword);
 
 }
 
@@ -62,22 +59,25 @@ if (isset($_GET['update'])) {
 
     $name = $_GET['name'];
     $address = $_GET['address'];
-    $email = $_GET['email'];
+    // $email = $_GET['email'];
     $phone = $_GET['phone'];
     // $username = $_GET['username'];
-    $password = $_GET['password'];
-    $hpassword = md5($password);
+    // $password = $_GET['password'];
+    // $hpassword = md5($password);
     $managerName = $_GET['managerName'];
     $managerPhone = $_GET['managerPhone'];
     $managerEmail = $_GET['managerEmail'];
     $managerNic = $_GET['managerNic'];
 
     $profile = new hotelController();
-    $profile->updateProfile($id, $name, $address, $email, $phone, $hpassword, $managerName, $managerPhone, $managerEmail, $managerNic);
+    $profile->updateProfile($id, $name, $address, $phone, $managerName, $managerPhone, $managerEmail, $managerNic);
     if($profile){
          echo "<script>alert('Profile updated successfully');
          window.location.href = '../view-hotel/profile.php';</script>";
          
-
+    }
+    else{
+        echo "<script>alert('Profile update unsuccessful');
+         window.location.href = '../view-hotel/profile.php';</script>";
     }
 }

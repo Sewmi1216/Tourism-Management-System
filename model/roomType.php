@@ -91,9 +91,9 @@ class roomType extends db_connection
         }
         return $data;
     }
-    public function updateType($id, $pkgName, $desc, )
+    public function updateType($id, $pkgName, $desc, $beds, $price)
     {
-        $query = "update roomtype set typeName='$pkgName', description='$desc' where roomTypeId='$id'";
+        $query = "update roomtype set typeName='$pkgName', description='$desc', price='$price', noOfPersons='$beds' where roomTypeId='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
@@ -105,10 +105,11 @@ class roomType extends db_connection
         $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
 
         if (mysqli_num_rows($foreign_key_result) > 0) {
-            echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+            echo '<script>alert("You cannot delete this room type due to the existing room reservations")</script>';
             echo "<script> window.location.href = '../view-hotel/roomType.php'; </script>";
         } else {
             mysqli_query($this->conn, $query);
+            echo '<script>alert("Room type is successfully deleted")</script>';
             echo "<script> window.location.href = '../view-hotel/roomType.php'; </script>";
         }
     }

@@ -7,6 +7,7 @@ include_once '../api/signupapi.php';?>
 <head>
     <title> Sign Up</title>
     <link rel="stylesheet" href="../css/sign.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
@@ -53,30 +54,22 @@ include_once '../api/signupapi.php';?>
             </div>
 
             <div class="b">
-                <input type="text" placeholder=" Enter your mobile  number" name="mno" required><br>
+                <input type="text" placeholder=" Enter your mobile  number" pattern="[0-9]{10}" name="mno" required><br>
             </div>
 
 
             <div class="h">
                 <label for="dob"><b>Date of Birth</b></label><br>
             </div>
-
+            <?php $currentDate = date("Y-m-d");?>
             <div class="b">
-                <input type="date" placeholder="Please enter your DOB" name="dob" required><br>
+                <input type="date" placeholder="Please enter your DOB" name="dob" max="<?php echo $currentDate;?>"
+                    required><br>
             </div>
-
-            <!-- <div class="d">
-                <label for="psw"><b>Username</b></label><br>
-            </div>
-
-            <div class="b">
-                <input type="text" placeholder="Please enter a username" name="username" required><br><br>
-            </div> -->
-
             <div class="e">
                 <label for="email"><b>Email</b> </label> <br>
             </div>
-                  <?php
+            <?php
 if (!isset($_SESSION["error"])) {
     $_SESSION["error"] = null;
 } else {
@@ -88,7 +81,7 @@ if (!isset($_SESSION["error"])) {
 
 
             <div class="b">
-                <input type="email" placeholder="Please enter your email address" name="email" required><br>
+                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Please enter your email address" name="email" required><br>
             </div>
 
             <div class="d">
@@ -99,22 +92,22 @@ if (!isset($_SESSION["error"])) {
                 <input type="password" placeholder="Please  enter a password" name="psw" required><br><br>
             </div>
 
-            <div class="f">
-             <label for="NIC/Passport"><b>NIC/Passport No</b></label><br>
+            <div class="f" style="margin-right:437px;">
+                <label for="NIC/Passport"><b>NIC/Passport No</b></label><br>
             </div>
 
             <div class="b">
-                <input type="text" placeholder=" Enter your NIC/Passport Number" name="NIC/Passport" required><br>
+                <input type="text" placeholder="Enter your NIC/Passport Number" name="nic" pattern="^[a-zA-Z0-9]{1,12}$" required><br>
             </div>
 
 
 
-            <div class="f">
-                <label for="address"><b>City</b></label><br>
+            <div class="f" style="margin-right:517px;">
+                <label for="address"><b>Address</b></label><br>
             </div>
 
             <div class="b">
-                <input type="text" placeholder=" Enter your City" name="address" required><br>
+                <input type="text" placeholder="Enter your address" name="address" required><br>
             </div>
 
             <div class="g">
@@ -135,11 +128,10 @@ if (!isset($_SESSION["error"])) {
 
 
             <div class="submit">
-                <button type="submit" class="signupbtn" name="signup"
-                 onclick="document.location.href='../view-tourist/index.php'">Sign Up</button>
+                <button type="submit" class="signupbtn" name="signup">Sign Up</button>
             </div>
 
-            
+
 
 
         </form>
@@ -155,13 +147,11 @@ if (!isset($_SESSION["error"])) {
 
     </form>
 
-  <script> 
-  
-  if (!preg_match('/^[0-9]{10}$/', $_POST['phone'])) {
-    $errors[] = "Mobile number is invalid";
-}
-
-</script>
+    <script>
+    if (!preg_match('/^[0-9]{10}$/', $_POST['phone'])) {
+        $errors[] = "Mobile number is invalid";
+    }
+    </script>
 
 </body>
 
