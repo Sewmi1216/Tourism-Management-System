@@ -12,20 +12,61 @@ class tourguideController extends db_connection
         $this->conn = $this->connect();
     }
 
-    public function addguide($name, $email, $phone, $nic, $fileImg, $username, $password, $availability, $language, $fileDoc, $vehicle, $type, $passenger)
+    public function addguide($name, $email, $phone, $nic, $fileImg, $password, $language, $fileDoc, $vehicle, $type, $passenger)
     {
         $tourguide = new tourguide();
 
-        $res = $tourguide->inserttourguide($name, $email, $phone, $nic, $fileImg, $username, $password, $availability, $language, $fileDoc, $vehicle, $type, $passenger);
+        $res = $tourguide->inserttourguide($name, $email, $phone, $nic, $fileImg, $password, $language, $fileDoc, $vehicle, $type, $passenger);
 
         if (!$res) {
             echo 'There was a error';
         } else {
-            echo "<script>alert('Your form was successfully submitted');
+            echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
         window.location.href = '../view-hotel/hotelLogin.php';
         </script>";
         }
 
+    }
+//       public function addguide($name, $email, $phone, $nic, $fileImg, $password, $language, $fileDoc, $vehicle, $type, $passenger)
+//     {
+//         $tourguide = new tourguide();
+//         $mailcheck = $tourguide->checkEmail($email);
+//  if ($mailcheck > 0) {
+//             $_SESSION['error'] = "Email is already registered";
+
+//         } else {
+//         $res = $tourguide->inserttourguide($name, $email, $phone, $nic, $fileImg, $password, $language, $fileDoc, $vehicle, $type, $passenger);
+
+//         if (!$res) {
+//             echo 'There was a error';
+//         } else {
+//             echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
+//         window.location.href = '../view-hotel/hotelLogin.php';
+//         </script>";
+//         }
+
+//     }
+// }
+     public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    {
+        $user = new hotel();
+        $mailcheck = $user->checkEmail($email);
+
+
+        if ($mailcheck > 0) {
+            $_SESSION['error'] = "Email is already registered";
+
+        } else {
+            $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+
+            if (!$result) {
+                echo 'There was a error';
+            } else {
+                echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
+        window.location.href = '../view-hotel/login.php';
+        </script>";
+            }
+        }
     }
 
     public function viewAllTourguides()
@@ -89,19 +130,19 @@ class tourguideController extends db_connection
 
     }
 
-    public function viewAllpendingguides()
-    {
+    // public function viewAllpendingguides()
+    // {
 
-        $pkg = new tourguide();
+    //     $pkg = new tourguide();
 
-        $result = $pkg->viewAllpendingguides($inputs[0]);
-        // print_r($result);
-        // die();
+    //     $result = $pkg->viewAllpendingguides($inputs[0]);
+    //     // print_r($result);
+    //     // die();
 
-        $_SESSION['c'] = $result;
-        return $result;
+    //     $_SESSION['c'] = $result;
+    //     return $result;
 
-    }
+    // }
 
     public function removetourguide($id)
     {
@@ -191,19 +232,19 @@ class tourguideController extends db_connection
     }}
     }
 
-    public function viewdeletedguides()
-    {
+    // public function viewdeletedguides()
+    // {
 
-        $pkg = new tourguide();
+    //     $pkg = new tourguide();
 
-        $result = $pkg->viewdeletedguides($inputs[0]);
-        // print_r($result);
-        // die();
+    //     $result = $pkg->viewdeletedguides($inputs[0]);
+    //     // print_r($result);
+    //     // die();
 
-        $_SESSION['c'] = $result;
-        return $result;
+    //     $_SESSION['c'] = $result;
+    //     return $result;
 
-    }
+    // }
 
     
     public function assignguide($assignguide, $bookingID)

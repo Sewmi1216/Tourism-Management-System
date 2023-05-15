@@ -54,7 +54,7 @@ $desc = $_POST["roomno"];
 $charge = \Stripe\Charge::create([
     "amount" => str_replace(",", "", $amount) * 100,
     "currency" => 'usd',
-    "description" => $desc,
+    "description" => 'HotelReservation',
     "source" => $token,
 ]);
 
@@ -71,7 +71,7 @@ $charge = \Stripe\Charge::create([
 $reserve = new touristController();
 $reserve->insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
 
-if ($charge) {
+if ($reserve && $charge) {
     echo "
              <script>alert('Your reservation is successful');
         window.location.href = '../view-tourist/accommodation.php';

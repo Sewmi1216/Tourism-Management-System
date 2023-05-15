@@ -198,7 +198,7 @@ class touristController extends db_connection
         // send by h-hotel email
         $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Reservation');
         // get email from input
-        $mail->addAddress($email);
+        $mail->addAddress( $guestEmail);
         //$mail->addReplyTo('lamkaizhe16@gmail.com');
 
         // HTML body
@@ -209,7 +209,7 @@ class touristController extends db_connection
 
         if (!$mail->send()) {?>
         <script>
-        alert("<?php echo "Error sending email to " . $email ?>");
+        alert("<?php echo "Error sending email to " .  $guestEmail ?>");
         </script>
         <?php
 }

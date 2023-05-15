@@ -97,15 +97,15 @@ foreach ($results as $result) {
                     </tr>
                     <tr>
                         <input type="hidden" value="<?php echo $hid ?>" name="hotel">
-                        <td>
+                        <td> <?php $currentDate = date("Y-m-d");?>
                             <div class="input-container" style="margin-left: 1rem;">
-                                <input class="input-field" type="date" id="checkin" placeholder="check-In"
+                                <input class="input-field" type="date" id="checkin" placeholder="check-In" min="<?php echo $currentDate;?>"
                                     name="checkin">
                             </div>
                         </td>
                         <td>
                             <div class="input-container" style="margin-left: 1rem;">
-                                <input class="input-field" type="date" id="checkout" placeholder="check-Out"
+                                <input class="input-field" type="date" id="checkout" placeholder="check-Out" min="<?php echo $currentDate;?>"
                                     name="checkout">
                             </div>
                         </td>
