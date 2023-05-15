@@ -130,19 +130,19 @@ class tourguideController extends db_connection
 
     }
 
-    // public function viewAllpendingguides()
-    // {
+    public function viewAllpendingguides()
+    {
 
-    //     $pkg = new tourguide();
+        $pkg = new tourguide();
 
-    //     $result = $pkg->viewAllpendingguides($inputs[0]);
-    //     // print_r($result);
-    //     // die();
+        $result = $pkg->viewAllpendingguides($inputs[0]);
+        // print_r($result);
+        // die();
 
-    //     $_SESSION['c'] = $result;
-    //     return $result;
+        $_SESSION['c'] = $result;
+        return $result;
 
-    // }
+    }
 
     public function removetourguide($id)
     {
@@ -232,19 +232,19 @@ class tourguideController extends db_connection
     }}
     }
 
-    // public function viewdeletedguides()
-    // {
+    public function viewdeletedguides()
+    {
 
-    //     $pkg = new tourguide();
+        $pkg = new tourguide();
 
-    //     $result = $pkg->viewdeletedguides($inputs[0]);
-    //     // print_r($result);
-    //     // die();
+        $result = $pkg->viewdeletedguides($inputs[0]);
+        // print_r($result);
+        // die();
 
-    //     $_SESSION['c'] = $result;
-    //     return $result;
+        $_SESSION['c'] = $result;
+        return $result;
 
-    // }
+    }
 
     
     public function assignguide($assignguide, $bookingID)
