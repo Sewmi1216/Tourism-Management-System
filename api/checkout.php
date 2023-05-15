@@ -71,14 +71,9 @@ $charge = \Stripe\Charge::create([
 $reserve = new touristController();
 $reserve->insertReservation($email, $guestName, $guestPhone, $guestEmail, $total_amount, $checkInDate, $checkOutDate, $touristID, $roomno, $hotelId);
 
-if ($reserve && $charge) {
+if ($reserve) {
     echo "
              <script>alert('Your reservation is successful');
-        window.location.href = '../view-tourist/accommodation.php';
-        </script>";
-}else{
-    echo "
-             <script>alert('Your reservation is unsuccessful');
         window.location.href = '../view-tourist/accommodation.php';
         </script>";
 }

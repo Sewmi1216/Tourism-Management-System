@@ -48,10 +48,7 @@ foreach ($results as $result) {
                 <div class="finder">
                     <a href="chat.php?u=<?php echo $result['name'] ?>&e=<?php echo $result['email'] ?>">
                         <div class="content">
-                            <?php echo "<img src='../images/" . $result['profileImg'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
-
+                           
                             <div class="details">
                                 <span><?php echo $result["email"]; ?></span>
                                 <span></span>
@@ -74,9 +71,7 @@ foreach ($results as $result) {
                 <div class="finder">
                     <a href="chat.php?u=<?php echo $result['name'] ?>&e=<?php echo $result['email'] ?>">
                         <div class="content">
-                            <?php echo "<img src='../images/" . $result['profileImg'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
+                          
 
                             <div class="details">
                                 <span><?php echo $result["name"]; ?></span>
@@ -101,9 +96,7 @@ foreach ($results as $result) {
                 <div class="finder">
                     <a href="chat.php?u=<?php echo $result['businessName'] ?>&e=<?php echo $result['email'] ?>">
                         <div class="content">
-                            <?php echo "<img src='../images/" . $result['profileImg'] . "' style=
-                    'border-radius: 50%;width:50px;height: 50px;background-size: 100%;
-                    background-repeat: no-repeat;'>"; ?>
+                            
 
                             <div class="details">
                                 <span><?php echo $result["businessName"]; ?></span>
