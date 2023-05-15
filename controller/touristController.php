@@ -65,10 +65,14 @@ class touristController extends db_connection
         } else {
             $res = $tourist->insertTourist($inputs);
             if (!$res) {
-                echo 'Error Occured';
+               echo "<script>alert('Tourist account creation is unsuccessful.');
+	window.location.href = '../view-hotel/login.php';
+	</script>";
+
             } else {
-                echo 'Successfully Added';
-                header("Location: ../view-hotel/login.php");
+                echo "<script>alert('Tourist account is created successfully');
+	window.location.href = '../view-hotel/login.php';
+	</script>";
 
             }
         }
@@ -211,10 +215,10 @@ class touristController extends db_connection
 }
 
     }
-    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId)
+    public function insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId,$vehicle)
     {
         $booking = new tourist();
-        $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId);
+        $res = $booking->insertTourBooking($name, $phone, $email, $total_amount, $aDate, $dDate, $guests, $touristID, $packageId, $vehicle);
 
         require "../libs/PHPMailer/PHPMailerAutoload.php";
         $mail = new PHPMailer;

@@ -17,6 +17,7 @@ if (isset($_GET['hid'])) {$hid = $_GET['hid'];
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hindex.css">
     <link rel="stylesheet" href="../css/tourist.css">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -187,9 +188,9 @@ if (isset($_POST['search'])) {
 
         <?php
 if ($status == 'Confirmed') {
-                        $btn = '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Reserve!</strong></div>';
+                        $btn = '<div style="margin-top:10px; color: red; font-size:16px;"><strong>Fully Reserve!</strong></div>';
                     } else if ($status == 'Checkedin') {
-                        $btn = '<div style="margin-top:10px; color: rgba(0,0,0,1); font-size:16px;"><strong>Fully Book!</strong></div>';
+                        $btn = '<div style="margin-top:10px; color: red; font-size:16px;"><strong>Fully Book!</strong></div>';
                     } else {
                         $btn = '<div style="display: flex; justify-content: center;">
                   <a href="reserve.php?hid=' . $hid . '&roomno=' . $result['roomNo'] . '&typeID=' . $result['typeID'] . '&price=' . $result['price'] . '&checkin=' . $checkin . '&checkout=' . $checkout . '"
@@ -204,7 +205,7 @@ if ($status == 'Confirmed') {
             }
 
             ?>
-        <div class="container" style="margin-top:30px;">
+        <div class="container" style="margin-top:30px;display:block;">
 
             <div class="box">
                 <div class="slideshow-container">
@@ -239,7 +240,7 @@ require_once "../controller/roomTypeController.php";
 
         <?php }
     } else {?>
-        <div class="content-container">
+        <div class="content-container" style="font-size:20px;text-align:center;">
             No results
         </div>
         <?php }}?>
@@ -248,10 +249,20 @@ require_once "../controller/roomTypeController.php";
 
     </section>
 
-    <?php include "footer.php"?>
+    <!-- <?php include "footer.php"?> -->
 
     <script src="js/home.js">
+    </script>
+    <script>
+    $("#checkout").change(function() {
+        var startDate = document.getElementById("checkin").value;
+        var endDate = document.getElementById("checkout").value;
 
+        if ((Date.parse(startDate) >= Date.parse(endDate))) {
+            alert("Checkout date should be greater than Checkin date");
+            document.getElementById("checkout").value = "";
+        }
+    });
     </script>
 </body>
 

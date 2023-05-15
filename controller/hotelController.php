@@ -131,25 +131,27 @@ class hotelController extends db_connection
         return $rlt;
 
     }
-    // public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
-    // {
-    //     $user = new hotel();
-    //     $mailcheck = $user->checkEmail($email);
+       public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    {
+        $user = new hotel();
+        $mailcheck = $user->checkEmail($email);
 
-    //     if ($mailcheck > 0) {
-    //         $_SESSION['error'] = "Email is already registered";
-    //     } else {
-    //         $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
 
-    //         if (!$result) {
-    //             echo 'There was a error';
-    //         } else {
-    //             echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
-    //     window.location.href = '../view-hotel/login.php';
-    //     </script>";
-    //         }
-    //     }
-    // }
+        if ($mailcheck > 0) {
+            $_SESSION['error'] = "Email is already registered";
+
+        } else {
+            $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+
+            if (!$result) {
+                echo 'There was a error';
+            } else {
+                echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
+        window.location.href = '../view-hotel/login.php';
+        </script>";
+            }
+        }
+    }
     public function viewProfile($id)
     {
         $profile = new hotel();
@@ -157,21 +159,20 @@ class hotelController extends db_connection
         return $rs;
 
     }
-    public function updateProfile($id, $name, $address, $email, $phone, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
+    public function updateProfile($id, $name, $address, $phone, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
 
         $hp = new hotel();
-        $hp->updateProfile($id, $name, $address, $email, $phone, $password, $managerName, $managerPhone, $managerEmail, $managerNic);
-
-        if (!$hp) {
-            echo 'There was a error';
-            // echo "<script>console.log(res)</script>";
-        } else {
-            echo "<script><script>alert('Profile updated successfully');
-        window.location.href = '../view-hotel/profile.php';
-        </script>";
-
-        }
+        $hp->updateProfile($id, $name, $address, $phone, $managerName, $managerPhone, $managerEmail, $managerNic);
+        return $hp;
+        // if (!$hp) {
+        //     echo 'There was a error';
+        //     // echo "<script>console.log(res)</script>";
+        // } else {
+        //     echo "<script><script>alert('Profile updated successfully');
+        // window.location.href = '../view-hotel/profile.php';
+        // </script>";
+        // }
 
     }
     

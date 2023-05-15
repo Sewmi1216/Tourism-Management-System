@@ -11,6 +11,7 @@ if(isset($_GET['email'])){
 
 <head>
     <title>Pack2Paradise</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <!-- <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>"> -->
     <link rel="stylesheet" href="../css/login.css?v=<?php echo time(); ?>">
     <link href="../libs/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -23,7 +24,7 @@ if(isset($_GET['email'])){
         <div class="text" style="text-align:center;font-size:30px;margin-bottom:35px;">Reset Password</div>
         <form class="login-form" name="resetPasswordForm" method="POST" onSubmit="return validateResetPassword()">
 
-         <input type="email" class="field" name="email" value="<?php echo $email;?>"/>
+         <input type="email" class="field" name="email" value="<?php echo $email;?>" required/>
             <label style="font-size:15px;padding:10px;" class="text">New password &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp;
@@ -35,7 +36,7 @@ if(isset($_GET['email'])){
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i class="fa-sharp fa-solid fa-eye-slash" id="togglePasswordR"></i></label>
-            <input type="password" class="field" name="cpwd" id="cpwd" />
+            <input type="password" class="field" name="cpwd" id="cpwd" required/>
             <input type="submit" class="btn" value="Reset" style="margin-top:42px;" name="reset">
 
         </form>

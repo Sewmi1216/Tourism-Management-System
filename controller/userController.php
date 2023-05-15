@@ -137,7 +137,6 @@ class userController extends db_connection
               window.location.href = '../view-hotel/recoverPwd.php';
               </script>";
         } else {
-
             $_SESSION['email'] = $email;
             require "../libs/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
@@ -224,23 +223,23 @@ window.location.href = '../view-hotel/recoverPwd.php';
         }
 
     }
-        public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
-    {
-        $user = new user();
-        $mailcheck = $user->checkAllEmails($email);
+    //     public function addHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    // {
+    //     $user = new user();
+    //     $mailcheck = $user->checkAllEmails($email);
 
-        if ($mailcheck > 0) {
-            $_SESSION['error'] = "Email is already registered";
-        } else {
-            $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
+    //     if ($mailcheck > 0) {
+    //         $_SESSION['error'] = "Email is already registered";
+    //     } else {
+    //         $result = $user->insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc);
 
-            if (!$result) {
-                echo 'There was a error';
-            } else {
-                echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
-        window.location.href = '../view-hotel/login.php';
-        </script>";
-            }
-        }
-    }
+    //         if (!$result) {
+    //             echo 'There was a error';
+    //         } else {
+    //             echo "<script>alert('Your form was successfully submitted. Wait for admin approval');
+    //     window.location.href = '../view-hotel/login.php';
+    //     </script>";
+    //         }
+    //     }
+    // }
 }

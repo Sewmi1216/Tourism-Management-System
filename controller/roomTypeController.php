@@ -77,10 +77,10 @@ class roomTypeController extends db_connection
 
     // }
 
-    public function updateType($id, $pkgName, $desc)
+    public function updateType($id, $pkgName, $desc, $beds, $price)
     {
         $hp = new roomType();
-        $hp->updateType($id, $pkgName, $desc);
+        $hp->updateType($id, $pkgName, $desc, $beds, $price);
 
         if (!$hp) {
             echo 'There was a error';
@@ -99,10 +99,15 @@ class roomTypeController extends db_connection
         $hp = new roomType();
         $hp->deleteType($id);
 
-        // if (!$hp) {
-        //     echo 'There was a error';
-        //     // echo "<script>console.log(res)</script>";
-        // } else {
+        if ($hp) {
+            echo 'There was a error';
+            // echo "<script>console.log(res)</script>";
+        }
+    //     echo "<script>alert('Room type is successfully deleted');
+	// window.location.href = '../view-hotel/roomType.php';
+	// </script>";
+
+        //  else {
         //     echo "<script>
         // window.location.href = '../view-hotel/roomType.php';
         // </script>";

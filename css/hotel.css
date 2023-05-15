@@ -287,6 +287,13 @@ table {
   color: white;
    width: 145px;
 }
+.status4{
+  background-color: rgb(0, 183, 255);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+   width: 145px;
+}
 .art {
   font-size: 17px;
   color: rgb(0, 0, 0);

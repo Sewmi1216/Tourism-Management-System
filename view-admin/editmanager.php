@@ -18,6 +18,7 @@ $rows = $_SESSION['c'];
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">

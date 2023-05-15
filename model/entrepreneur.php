@@ -19,9 +19,9 @@ class entrepreneur extends db_connection
         return $stmt;
     }
 
-    public function insertentrepreneur($id, $businessName, $address, $email, $phone, $fileImg, $username, $password, $eName, $eNic, $ePhone, $eEmail, $fileDoc)
+    public function insertentrepreneur($businessName, $address, $email, $phone, $fileImg, $password, $eName, $eNic, $ePhone, $eEmail, $fileDoc)
     {
-        $query = "INSERT INTO entrepreneur (businessName, address, email, phone, profileImg, username, password, entrepreneurName, entrepreneurNic,  entrepreneurPhone, entrepreneurEmail, document, status) VALUES ('$businessName', '$address','$email','$phone', '$fileImg', '$username', '$password', '$eName', '$eNic','$ePhone', '$eEmail',  '$fileDoc', 0)";
+        $query = "INSERT INTO entrepreneur (businessName, address, email, phone, profileImg, password, entrepreneurName, entrepreneurNic,  entrepreneurPhone, entrepreneurEmail, document, status) VALUES ('$businessName', '$address','$email','$phone', '$fileImg', '$password', '$eName', '$eNic','$ePhone', '$eEmail',  '$fileDoc', 0)";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

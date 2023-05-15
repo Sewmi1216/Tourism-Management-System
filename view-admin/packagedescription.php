@@ -4,6 +4,7 @@ $rows = $_SESSION['c'];
 ?>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/tourpackage.css">
     <link rel="stylesheet" href="../css/packagedescription.css">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">

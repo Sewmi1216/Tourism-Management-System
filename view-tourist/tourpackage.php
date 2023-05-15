@@ -15,6 +15,7 @@ if (isset($_GET['pid'])) {$pid = $_GET['pid'];}
 <head>
     <title>Tour Package</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/craft_list.css">
 
@@ -99,25 +100,28 @@ foreach ($rows as $row) {
                     <input type="hidden" class="subfield" style="width:100%;" name="tid" value="<?php echo $id ?>" />
                     <input type="hidden" class="subfield" style="width:100%;" name="pid" value="<?php echo $pid ?>" />
                     <div class="content">Name*</div>
-                    <input type="text" class="subfield" style="width:100%;" name="name" />
+                    <input type="text" class="subfield" style="width:100%;" name="name" required/>
 
                     <div class="content">Email Address*</div>
-                    <input type="text" class="subfield" style="width:100%;" name="email" />
+                    <input type="text" class="subfield"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" style="width:100%;" name="email" required/>
 
                     <div class="content">Mobile Number*</div>
-                    <input type="text" class="subfield" style="width:100%;" name="phone" />
+                    <input type="text" class="subfield" pattern="[0-9]{10}" style="width:100%;" name="phone" required/>
 
                     <div class="content">Number of travelers*</div>
-                    <input type="number" class="subfield" style="width:100%;" name="traverler" />
+                    <input type="number" class="subfield" style="width:100%;" min="0" name="traverler" required/>
 
                     <div class="content">Arrival Date*</div>
-                    <input type="date" class="subfield" style="width:100%;" name="adate" />
+                    <input type="date" class="subfield" style="width:100%;" id="start" name="adate" required/>
 
                     <div class="content">Departure Date*</div>
-                    <input type="date" class="subfield" style="width:100%;" name="ddate" />
+                    <input type="date" class="subfield" style="width:100%;" id="end" name="ddate" required/>
+
+                    <div class="content">Prefered Vehicle Type*</div>
+                    <input type="text" class="subfield" style="width:100%;" name="vehicle" required/>
 
                     <div class="content">Total amount</div>
-                    <input type="text" class="subfield" style="width:100%;" name="tot_amount" />
+                    <input type="text" class="subfield" style="width:100%;" name="tot_amount" readonly/>
 
                     <div style="margin-top:20px;margin-left:120px;">
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -187,6 +191,17 @@ foreach ($rows as $row) {
     }
     </script>
 
+ <script>
+    $("#end").change(function() {
+        var startDate = document.getElementById("start").value;
+        var endDate = document.getElementById("end").value;
+
+        if ((Date.parse(startDate) >= Date.parse(endDate))) {
+            alert("End date should be greater than Start date");
+            document.getElementById("end").value = "";
+        }
+    });
+    </script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
                      <td>
                          <div class="content">Room Type Name</div>
                      </td>
-                     <td> <input type="text" class="subfield" name="pName" /></td>
+                     <td> <input type="text" class="subfield" name="pName" required/></td>
                  </tr>
                  <tr class="row">
                      <td>
@@ -23,7 +23,7 @@
                      <td>
                          <div style="margin-right:20px;margin-left:22px;margin-top:20px;">
                              <textarea class="subtextfield" name="desc"
-                                 style="background-color:#dde8f0;color:black;width:500px;height:150px;"></textarea>
+                                 style="background-color:#dde8f0;color:black;width:500px;height:150px;" required></textarea>
                          </div>
                      </td>
                  </tr>
@@ -41,14 +41,14 @@
                      <td>
                          <div class="content">No.of Persons</div>
                      </td>
-                     <td> <input type="number" min="0" class="subfield" value="" name="beds" id="beds" /></td>
+                     <td> <input type="number" min="0" class="subfield" value=""  name="beds" id="beds" required/></td>
                  </tr>
 
                  <tr class="row">
                      <td>
-                         <div class="content">Price</div>
+                         <div class="content">Price($)</div>
                      </td>
-                     <td> <input type="number" min="0" class="subfield" value="" name="price" id="price" /></td>
+                     <td> <input type="number" min="0" class="subfield" value="" name="price" id="price" required/></td>
                  </tr>
              </table>
          </div>

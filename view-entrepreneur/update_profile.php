@@ -44,7 +44,7 @@ if(isset($_POST['update_profile'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>update profile</title>
-
+<link rel="icon" type="image/x-icon" href="../images/logo.png">
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/profilenew.css">
    <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">

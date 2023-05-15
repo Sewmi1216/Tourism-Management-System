@@ -18,6 +18,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["entID"])) {
    <title>home</title>
 
     <!-- custom css file link  -->
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/profilenew.css?v=<?php echo time(); ?>">
 
 </head>

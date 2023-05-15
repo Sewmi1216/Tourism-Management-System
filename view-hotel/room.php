@@ -13,6 +13,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/chat.css?v=<?php echo time(); ?>">
@@ -87,8 +88,10 @@ foreach ($results as $result) {
                         <button class="status1"><?php echo $result["view"]; ?></button>
                         <?php } else if($result["view"] == "City View") {?>
                         <button class="status2"><?php echo $result["view"]; ?></button>
-                        <?php } else{?>
+                         <?php } else if($result["view"] == "Pool View") {?>
                         <button class="status3"><?php echo $result["view"]; ?></button>
+                        <?php } else{?>
+                        <button class="status4"><?php echo $result["view"]; ?></button>
                         <?php }?>
                     </td>
                     <td class="tbld"><a

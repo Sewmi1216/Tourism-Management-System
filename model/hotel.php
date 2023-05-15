@@ -32,38 +32,39 @@ class hotel extends db_connection
     //     return $stmt;
     // }
 
-    // public function insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
-    // {
-    //     $status = 0; // Set status as 0
+    public function insertHotel($hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $fileDoc)
+    {
+        $status = 0; // Set status as 0
 
-    //     $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->bind_param("ssssssssssis", $hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $status, $fileDoc);
-    //     $stmt->execute();
-    //     return $stmt;
-    // }
-    // public function checkEmail($email)
-    // {
-    //     $query = "SELECT h.hotelID, NULL AS tourguideID, NULL AS entID, NULL AS userID
-    //             FROM hotel h
-    //             WHERE h.email = '$email'
-    //             UNION
-    //             SELECT NULL AS hotelID, g.tourguideID, NULL AS entID, NULL AS userID
-    //             FROM tourguide g
-    //             WHERE g.email = '$email'
-    //             UNION
-    //             SELECT NULL AS hotelID, NULL AS tourguideID, e.entID, NULL AS userID
-    //             FROM entrepreneur e
-    //             WHERE e.email = '$email'
-    //             UNION
-    //             SELECT NULL AS hotelID, NULL AS tourguideID, NULL AS entID, t.userID
-    //             FROM tourist t
-    //             WHERE t.email = '$email'";
-    //     // $query = "select hotelID from hotel where email='$email'";
-    //     $stmt = mysqli_query($this->conn, $query);
-    //     $row = mysqli_fetch_array($stmt);
-    //     return $row;
-    // }
+        $query = "INSERT INTO hotel (name, address, email, phone, profileImg, password, managerName, managerPhone, managerEmail, managerNic, status, document) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssssssssssis", $hotelName, $address, $email, $phone, $fileImg, $password, $mName, $mPhone, $mEmail, $mNic, $status, $fileDoc);
+        $stmt->execute();
+        
+      return $stmt;
+}
+    public function checkEmail($email)
+    {
+        $query = "SELECT h.hotelID, NULL AS tourguideID, NULL AS entID, NULL AS userID
+                FROM hotel h
+                WHERE h.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, g.tourguideID, NULL AS entID, NULL AS userID
+                FROM tourguide g
+                WHERE g.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, NULL AS tourguideID, e.entID, NULL AS userID
+                FROM entrepreneur e
+                WHERE e.email = '$email'
+                UNION
+                SELECT NULL AS hotelID, NULL AS tourguideID, NULL AS entID, t.userID
+                FROM tourist t
+                WHERE t.email = '$email'";
+        //  $query = "select hotelID from hotel where email='$email'";
+        $stmt = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_array($stmt);
+        return $row;
+    }
 
     // //Hotels can only chat with admin and tourists.
     // public function viewAllUsers(){
@@ -101,21 +102,21 @@ class hotel extends db_connection
     //     return $this->getData($sql);
     // }
 
-    // public function checkAllEmails($email)
-    // {
-    //     $query = "SELECT COUNT(*) AS COUNT
-    //                 FROM (
-    //                 SELECT email FROM hotel WHERE email = '$email'
-    //                 UNION
-    //                 SELECT email FROM tourist WHERE email = '$email'
-    //                     UNION
-    //                 SELECT email FROM entrepreneur WHERE email = '$email'
-    //                     UNION
-    //                 SELECT email FROM tourguide WHERE email = '$email'
-    //                 ) AS emails;";
-    //     $stmt = mysqli_query($this->conn, $query);
-    //     return $stmt;
-    // }
+    public function checkAllEmails($email)
+    {
+        $query = "SELECT COUNT(*) AS COUNT
+                    FROM (
+                    SELECT email FROM hotel WHERE email = '$email'
+                    UNION
+                    SELECT email FROM tourist WHERE email = '$email'
+                        UNION
+                    SELECT email FROM entrepreneur WHERE email = '$email'
+                        UNION
+                    SELECT email FROM tourguide WHERE email = '$email'
+                    ) AS emails;";
+        $stmt = mysqli_query($this->conn, $query);
+        return $stmt;
+    }
 
     public function viewProfile($id)
     {
@@ -124,9 +125,9 @@ class hotel extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }
-    public function updateprofile($id, $name, $address, $email, $phone, $password, $managerName, $managerPhone, $managerEmail, $managerNic)
+    public function updateprofile($id, $name, $address, $phone, $managerName, $managerPhone, $managerEmail, $managerNic)
     {
-        $query = "update hotel set name='$name', address='$address', email='$email', phone='$phone', password='$password',managerName='$managerName', managerPhone='$managerPhone', managerEmail='$managerEmail', managerNic='$managerNic' where hotelID='$id'";
+        $query = "update hotel set name='$name', address='$address', phone='$phone', managerName='$managerName', managerPhone='$managerPhone', managerEmail='$managerEmail', managerNic='$managerNic' where hotelID='$id'";
         $stmt = mysqli_query($this->conn, $query);
         return $stmt;
     }

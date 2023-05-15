@@ -11,7 +11,7 @@ if (isset($_POST['signup'])) {
     $address = $_POST['address'];
     $country = $_POST['country'];
     $dob = $_POST['dob'];
-    // $username =$_POST['email'];
+    $nic =$_POST['nic'];
     
     
     
@@ -26,7 +26,7 @@ if (isset($_POST['signup'])) {
     // $img =$_POST['proImg'];
     // echo 'print';
     
-    $inputs = array($name,$address,$email,$mno,$fileImgname,$password,$dob,$country);
+    $inputs = array($name,$address,$email,$mno,$fileImgname,$apassword,$dob,$country,$nic);
     $touristcon = new touristController();
     $touristcon->userSignup($inputs);
     move_uploaded_file($ptempname, $pfolder);

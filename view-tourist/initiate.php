@@ -2,6 +2,7 @@
 <html>
 <head>
   <title> Sign Up Initiate</title>
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
   <link rel="stylesheet" href="../css/initiate.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   

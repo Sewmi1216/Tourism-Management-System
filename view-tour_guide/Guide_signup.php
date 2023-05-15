@@ -2,6 +2,7 @@
 
 <head>
     <title>Pack2Paradise</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
 </head>
 
