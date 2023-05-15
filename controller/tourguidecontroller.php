@@ -2,6 +2,7 @@
 // session_start();
 
 include '../model/tourguide.php';
+include '../model/tourbooking.php';
 
 class tourguideController extends db_connection
 {
@@ -41,11 +42,12 @@ class tourguideController extends db_connection
     }
 
 
-    public function viewavailableTourguide()
+    public function viewavailableTourguides()
     {
         $tourguide = new tourguide();
 
-        $results = $tourguide->viewavailableTourguide();
+        $results = $tourguide->viewavailableTourguides();
+       
 
         // include "../view-tour_guide/Guide_Assign_tourists.php";
         $_SESSION['c'] = $results;
@@ -237,12 +239,13 @@ class tourguideController extends db_connection
     {
         $user = new tourbooking();
 
-        echo $bookingId;
+        // echo $bookingId;
         $result = $user->updateGuide($bookingId, $newGuide);
        // return $result;
         if($result)
         {
             echo "<script>alert('Assigning Tour guide is sucessful'); </script>";
+            // header('Location: ./tourbooking.php')
         }
     }
 }

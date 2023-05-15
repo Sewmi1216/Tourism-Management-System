@@ -97,10 +97,11 @@ class tourguide extends db_connection
     public function viewavailableTourguides()
     {
 
-        $query = "SELECT * FROM tourguide where status = 0 ";
+        $query = "SELECT * FROM tourguide where status = 1 ";
 
         $stmt = mysqli_query($this->conn, $query);
-        return $stmt;
+        $results = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+        return $results;
     }
 
     public function removetourguide($id)
@@ -216,56 +217,56 @@ if ($stmt) {
 
 //     }
 
-public function viewavailableTourguide()
-{
+// public function viewavailableTourguide()
+// {
 
-    $query1 = "SELECT * from tourbooking where bookingID = 224";
+//     $query1 = "SELECT * from tourbooking where bookingID = 224";
 
 
-    $stmt1 = mysqli_query($this->conn, $query1);
-    $results = mysqli_fetch_all($stmt1, MYSQLI_ASSOC);
+//     $stmt1 = mysqli_query($this->conn, $query1);
+//     $results = mysqli_fetch_all($stmt1, MYSQLI_ASSOC);
 
-    $arrivalDate =  $results[0]["arrivalDate"];
-    $departuredate = $results[0]["departureDate"];
+//     $arrivalDate =  $results[0]["arrivalDate"];
+//     $departuredate = $results[0]["departureDate"];
 
     
 
 
-    // print_r($results);
-    // die();
+//     // print_r($results);
+//     // die();
 
-    $query2 = "SELECT * from tourguide where status = 1 and (unavailable_to < '$arrivalDate'  OR unavailable_from > '$departuredate');"
+//     $query2 = "SELECT * from tourguide where status = 1 and (unavailable_to < '$arrivalDate'  OR unavailable_from > '$departuredate');"
 
-    $x = mysqli_query($this->conn, $query2);
-    $results2 = mysqli_fetch_all($x, MYSQLI_ASSOC);
+//     $x = mysqli_query($this->conn, $query2);
+//     $results2 = mysqli_fetch_all($stmt2, MYSQLI_ASSOC);
 
-    print_r($x);
-    die();
-    // $results1 = mysqli_fetch_all($stmt1, MYSQLI_ASSOC);
+//     print_r($stmt2);
+//     die();
+//     // $results1 = mysqli_fetch_all($stmt1, MYSQLI_ASSOC);
 
-    // $query = "SELECT t2.*
-    // FROM tourbooking t1
-    // JOIN tourguide t2 ON tourbooking.id = tourguide.foreign_key_id
-    // WHERE t1.bookingID = 224
-    //   AND tourguide.unavailable_from >= tourbooking.arrivalDate
-    //   AND tourguide.unavailable_to <= tourbooking.departureDate;
-    // "
-    // $query = "SELECT * FROM tourguide where status = 1  ";
+//     // $query = "SELECT t2.*
+//     // FROM tourbooking t1
+//     // JOIN tourguide t2 ON tourbooking.id = tourguide.foreign_key_id
+//     // WHERE t1.bookingID = 224
+//     //   AND tourguide.unavailable_from >= tourbooking.arrivalDate
+//     //   AND tourguide.unavailable_to <= tourbooking.departureDate;
+//     // "
+//     // $query = "SELECT * FROM tourguide where status = 1  ";
 
-    // $foreign_key_query = "SELECT * FROM `tourbooking` WHERE tourPkgId='$id'";
+//     // $foreign_key_query = "SELECT * FROM `tourbooking` WHERE tourPkgId='$id'";
 
-    // $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
+//     // $foreign_key_result = mysqli_query($this->conn, $foreign_key_query);
 
-    // if (mysqli_num_rows($foreign_key_result) > 0) {
-    //     echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
-    //     echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
-    // } else {
-    //     mysqli_query($this->conn, $query);
-    //     echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
-    // }
-    $stmt = mysqli_query($this->conn, $query);
+//     // if (mysqli_num_rows($foreign_key_result) > 0) {
+//     //     echo '<script>alert("Deletion prevented due to foreign key constraints")</script>';
+//     //     echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
+//     // } else {
+//     //     mysqli_query($this->conn, $query);
+//     //     echo "<script> window.location.href = '../view-admin/tourpackage.php'; </script>";
+//     // }
+//     $stmt = mysqli_query($this->conn, $query);
  
-    return $stmt;
-}
+//     return $stmt;
+// }
 
 }
