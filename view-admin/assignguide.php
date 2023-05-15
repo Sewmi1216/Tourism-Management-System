@@ -8,23 +8,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
 
 
 ?>
-
-<?php 
-        require_once("../controller/tourguidecontroller.php");
-        $penguide = new tourguidecontroller();
-        $results = $penguide->viewavailableTourguide();
-        print_r($results);
-        die();
-        // echo "Hi";
-        // die();
-
-        foreach ($results as $result) {
-            $tourguideID = $result["tourguideID"];
-            $selectedValue = "";
-        if ($tourguideID == $result["tourguideID"]) {
-    $selectedValue = "selected"; }
-}
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -84,10 +67,28 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
                             <td style="margin:auto;margin-top:80px;">
 
                             <select class="tourguide" name="tourGuideId">
-                                    <option name="guideid" value="<?php echo $result["tourGuideId"]; ?>">
-                                        <?php echo $tourguideID; ?>
-                                    </option>
+                                 
 
+                                 
+                                 <?php 
+        require_once("../controller/tourguidecontroller.php");
+        $penguide = new tourguidecontroller();
+        $results = $penguide->viewavailableTourguides();
+       
+        // die();
+        // echo "Hi";
+        // die();
+
+        foreach ($results as $result) { ?>
+            <!-- print_r($result['tourguideID']); die(); -->
+            <option name="guideid" value="<?php echo $result["tourguideID"]; ?>">
+            <?php echo $result["tourguideID"]; ?>
+        </option>
+<?php }
+?>
+                                   
+
+                                   
 
 
                             </td> 
@@ -97,22 +98,18 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
                     <input type="submit" class="btnRegister" style="width:20%;margin-top:80px;" value="Update" name="update" />
                 
 
-                    <!-- <?php
-//  if (isset($_POST['update'])) {
-//     $from = $_POST['from'];
-//     $to = $_POST['to'];
+                    
 
-//     $guide = new tourguideController();
-//     $guide->updateAvailability($from, $to, $id);
-   // }?> -->
 
 <?php
- if (isset($_POST['update'])) 
+ if (isset($_GET['update'])) 
     {
-    $newGuide = $_POST['tourGuideId'];
+    $newGuide = $_GET['guideID'];
     $bookingID = $_GET["reservation_id"];
     $guide = new tourguideController();
-    $guide->updateGuide($bookingId, $newGuide);
+    $guide->updateGuide($bookingID, $newGuide);
+    echo'<script>windows.location.href="./tourbooking.php"</script>';
+    // header('Location: ./tourbooking.php');
     }
 ?>
 
