@@ -184,39 +184,39 @@ echo $result['tourguide_count'];}
             </div>
 
 
-            <div class="html2pdf__page-break"></div>
+            <!-- <div class="html2pdf__page-break"></div>
             <div style="margin-top:20px;margin-left:10px;" class="chart">
                 <span class="c">
 
                     Room Booking Chart
-                    <br>
+                    <br> -->
                     <!-- pie chart -->
                         <?php
-                        $pie = new adminController();
-                        $results = $pie->countusers($id);
-                        foreach ($results as $data) 
-                        {
-                            $type[] = $data['user_type'];
-                            $number[] = $data['num_users'];
+                        // $pie = new adminController();
+                        // $results = $pie->countusers($id);
+                        // foreach ($results as $data) 
+                        // {
+                        //     $type[] = $data['user_type'];
+                        //     $number[] = $data['num_users'];
 
-                        } ?>
-
+                        // } ?>
+<!-- 
                     <div class="piechart">
                         <canvas id="piechart"></canvas>
                     </div>
                 </span>
                 <span class="c">
                     Total Revenue
-                    <br>
+                    <br> -->
                     <!-- bar chart -->
                     <?php
-$pie = new adminController();
-$results = $pie->revenue($id);
-foreach ($results as $data) {
-    $month[] = $data['month'];
-    $revenue[] = $data['revenue'];
+// $pie = new adminController();
+// $results = $pie->revenue($id);
+// foreach ($results as $data) {
+//     $month[] = $data['month'];
+//     $revenue[] = $data['revenue'];
 
-}
+//}
 ?>
                     <div class="barchart">
                         <canvas id="barchart"></canvas>
