@@ -32,13 +32,7 @@
               </a>
               <span class="desc">Manage Users</span>
           </li>
-          <li>
-              <a href="view-tourguides.php">
-                  <i class="fa-sharp fa-solid fa-address-book"></i>
-                  <span class="link">Tourist Guides</span>
-              </a>
-              <span class="desc">Tourist Guides</span>
-          </li>
+          
             <li>
               <a href="touristdetails.php">
                   <i class="fa-solid fa-globe"></i>
@@ -47,13 +41,6 @@
               <span class="desc">Tourist Details</span>
           </li>
           
-          <li>
-              <a href="admins.php">
-                  <i class="fa-solid fa-receipt"></i>
-                  <span class="link">Administration</span>
-              </a>
-              <span class="desc">Administration</s=pan>
-          </li>
           <li>
               <a href="payment.php">
                   <i class="fa-solid fa-file-invoice-dollar"></i>

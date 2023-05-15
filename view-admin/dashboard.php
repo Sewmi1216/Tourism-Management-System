@@ -192,12 +192,12 @@ echo $result['tourguide_count'];}
                     <br>
                     <!-- pie chart -->
                         <?php
-                        $pie = new touristController();
-                        $results = $pie->counttouristnationality($id);
+                        $pie = new adminController();
+                        $results = $pie->countusers($id);
                         foreach ($results as $data) 
                         {
-                            $type[] = $data['nationality_type'];
-                            $number[] = $data['num_tourist'];
+                            $type[] = $data['user_type'];
+                            $number[] = $data['num_users'];
 
                         } ?>
 
@@ -244,11 +244,12 @@ foreach ($results as $data) {
         data: {
             labels: <?php echo json_encode($type) ?>,
             datasets: [{
-                label: "Type of Tourist",
-                data: <?php echo json_encode($tourist) ?>,
+                label: "Type of Users",
+                data: <?php echo json_encode($number) ?>,
                 backgroundColor: [
                     "rgb(255, 99, 132)",
                     "rgb(54, 162, 235)",
+                    "rgb(54, 100, 235)",
              
                 ],
                 hoverOffset: 4,

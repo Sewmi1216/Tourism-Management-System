@@ -138,8 +138,52 @@ public function acceptentrepreneurrequest($id)
 
     $result = $user-> acceptentrepreneurrequest($id);
 
-    $_SESSION['c'] = $result;
-    return $result;
+    // $_SESSION['c'] = $result;
+    // return $result;
+
+    foreach ($results as $result) {
+        $hemail = $result['email'];
+        require "../libs/PHPMailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
+
+        // h-hotel account
+        $mail->Username = 'sewmi.rotaract3220@gmail.com';
+        $mail->Password = 'uaqgejykofzquoaf';
+
+        // send by h-hotel email
+        $mail->setFrom('sewmi.rotaract3220@gmail.com', 'Approve account');
+        // get email from input
+        $mail->addAddress($hemail);
+
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject = "Congratulations! Your Pack2Paradise Entrepreneur Account Has Been Approved";
+        $mail->Body = "<b>Dear User</b>
+                <h3>I am writing to inform you that your seller account on Pack2Paradise has been approved by our system administrator. Congratulations on becoming a member of our community of successful entrepreneurs!
+
+                You are now authorized to sell your products on our platform and start building your brand. We are excited to have you on board and we wish you the best of luck in your entrepreneurial journey.
+                
+                As a seller on Pack2Paradise, you will have access to a wide range of tools and resources that will help you to manage your business effectively. Our team of experts is always available to assist you with any questions or concerns that you may have.
+                
+                We are confident that your products will be a great addition to our platform, and we are looking forward to seeing your success on Pack2Paradise. Thank you for choosing us as your business partner.</h3>";
+
+        if (!$mail->send()) {?>
+            <script>alert("<?php echo "Error sending email to " . $hemail ?>");
+        </script>
+<?php
+} else {
+            ?>
+<script>
+alert("<?php echo "Email sent to " . $hemail ?>");
+</script>
+<?php
+}}
 }
 
 public function viewdeletedentrepreneurs(){
