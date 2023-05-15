@@ -57,6 +57,15 @@ include_once '../api/addhotel.php';?>
                         <input type="text" class="subfield" name="email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                     </td>
+ <?php
+if (!isset($_SESSION["error"])) {
+    $_SESSION["error"] = null;
+} else {
+    echo "<div class='s' style='color:red;'>";
+    echo $_SESSION["error"];
+    echo "</div>";
+    unset($_SESSION["error"]);
+}?>
 
                     <td>
                         <div class="content">Password</div>

@@ -7,9 +7,12 @@ if (isset($_POST['signup'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $nic = $_POST['nic'];
-    $username = $_POST['username'];
+    // $username = $_POST['username'];
     $password = $_POST['password'];
-    $availability = $_POST['availability'];
+    $hpassword = md5($password);
+
+
+    // $availability = $_POST['availability'];
     $language = $_POST['language'];
     $vehicle = $_POST['vehicle'];
     $type = $_POST['type'];
@@ -27,9 +30,9 @@ if (isset($_POST['signup'])) {
     $folderDoc = "../Images/doc" . $fileDoc;
 
     $guidecon = new tourguideController();
-    $guidecon->addguide($name, $email,$phone,$nic, $fileImg, $username, $password, $availability,$language,$fileDoc,$vehicle,$type,$passenger);
-    move_uploaded_file($ptempname, $pfolder);
-    move_uploaded_file($dtempname, $dfolder);
+    $guidecon->addguide($name, $email,$phone,$nic, $fileImg, $epassword, $language,$fileDoc,$vehicle,$type,$passenger);
+    move_uploaded_file($ptempname, $folderImg);
+    move_uploaded_file($dtempname, $folderImg);
 }
 
 if (isset($_POST["get_data"])) {
