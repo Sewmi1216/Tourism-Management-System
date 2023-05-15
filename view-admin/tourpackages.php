@@ -59,6 +59,7 @@ $rows = $_SESSION['c'];
                     <th class="tblh">Package ID</th>
                     <th class="tblh">Package Name</th>
                     <th class="tblh"> No of Participant</th>
+                    <th class="tblh"> No of Days</th>
                     <th class="tblh"> Package price</th>
                     <th class="tblh">Add photos</th>
                     <th class="tblh">View</th>
@@ -83,9 +84,11 @@ echo '
                     '.$row['max_part'].'  
                     </td>
                     <td class="tbld">
+                    '.$row['no_of_days'].'  
+                    </td>
+                    <td class="tbld">
                     '.$row['price'].'  
                     </td>
-                  
                     
                     <td class="tbld">  <a href="addPhotos.php?package_id='.$row['packageID'].'"> <i class="fa-sharp fa-solid fa-images"></i></a></td>
 

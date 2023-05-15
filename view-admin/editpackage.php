@@ -143,6 +143,25 @@ echo '
       <input type="text" placeholder="Maximum number of participants" name="nooftourist" value='.$row['max_part'].' required> 
       </div>
     </div>
+
+    <div class="row">
+    <div class="col-25">
+      <label for="participants">No of Days</label>
+    </div>
+    <div class="col-75">
+      <select id="days" name="days" onchange="showInputTables() value='.$row['no_of_days'].'">
+        <option value="1"> 1 </option>
+        <option value="2">2 </option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+    </div>
+  </div>
   
 
     <div class="row">

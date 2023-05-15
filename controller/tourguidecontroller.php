@@ -76,9 +76,23 @@ class tourguideController extends db_connection
         $results = $tourguide->viewAllTourguides();
 
         // include "../view-tour_guide/Guide_Assign_tourists.php";
+        $_SESSION['c'] = $results;
         return $results;
 
     }
+
+
+    public function viewavailableTourguide()
+    {
+        $tourguide = new tourguide();
+
+        $results = $tourguide->viewavailableTourguide();
+
+        // include "../view-tour_guide/Guide_Assign_tourists.php";
+        $_SESSION['c'] = $results;
+        return $results;
+    }
+    
     public function viewAssignedBookings($id)
     {
         $tourguide = new tourguide();
