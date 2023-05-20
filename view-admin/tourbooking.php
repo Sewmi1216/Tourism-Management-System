@@ -36,10 +36,7 @@
                         id="searcher" onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div> -->
-                <form method="post" action="../api/reserve.php">
-                    <button type="submit" name="create_rpdf" class="btns"
-                        style="margin-left:1rem;background-color:red;">Download pdf</button>
-                </form>
+               
             </div>
 
         </div>

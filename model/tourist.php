@@ -162,7 +162,8 @@ class tourist extends db_connection
         $stmt = mysqli_query($this->conn, $query);
         if ($stmt) {
             $reslId = mysqli_insert_id($this->conn); // get the reservation ID
-            $query1 = "INSERT INTO hotel_payment (paymentDateTime, type, amount, paymentStatus, reservationID) VALUES (NOW(), 'Card',  '$total_amount', 'Completed','$reslId')";
+            // print($reslId);
+            $query1 = "INSERT INTO hotel_payment (paymentDateTime, type, amount, paymentStatus, reservationID, hotelID) VALUES (NOW(), 'Card',  '$total_amount', 'Completed','$reslId','$hotelId')";
             $stmt = mysqli_query($this->conn, $query1);
             return $stmt;
         } else {

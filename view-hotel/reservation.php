@@ -16,7 +16,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="icon" type="image/x-icon" href="../images/logo.png">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/hnav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/hotel.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/modelbox.css?v=<?php echo time(); ?>">
@@ -32,18 +32,25 @@ if (isset($_SESSION["email"]) && isset($_SESSION["hotelID"])) {
         <?php include "dashboardHeader.php"?>
 
         <div class="se" style="margin-top: 20px;">
+            <div class="input-container" style="margin-left:200px;">
+                <input class="input-field" type="text" placeholder="Search for a date" name="search" id="searchdate"
+                    onkeyup="searchDate()">
+                <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
+            </div>
             <div class="searchSec">
                 <div class="input-container" style="margin-left:880px;">
                     <input class="input-field" type="text" placeholder="Search for reservations" name="search"
                         id="searcher" onkeyup="searchRes()">
                     <a href="" class="searchimg"><i class="fa fa-search icon"></i></a>
                 </div>
+
                 <button type="submit" class="btns" style="margin-left:1rem;">View All</button>
                 <!-- <form method="post" action="../api/reserve.php"> -->
                 <!-- <button type="submit" name="create_rpdf" id="create_rpdf" class="btns"
                     style="margin-left:1rem;background-color:red;">Download pdf</button> -->
                 <!-- </form> -->
             </div>
+
         </div>
         <div id="cont">
             <div class="page-title" style="margin-left:30px;"> Guest Reservations</div>
@@ -276,6 +283,49 @@ foreach ($results as $result) {
             }
         }
     }
+    function searchDate() {
+        console.log(print);
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchdate");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tbl");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td1 = tr[i].getElementsByTagName("td")[6];
+            td2 = tr[i].getElementsByTagName("td")[7];
+            if (td1 || td2) {
+                txtValue1 = td1.textContent || td1.innerText;
+                txtValue2 =td2.textContent || td2.innerText;
+                if (txtValue1.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+               
+            }
+        }
+    }
+
+    // function searchDate() {
+    //     console.log(print);
+    //     var input, filter, table, tr, td, i, txtValue;
+    //     input = document.getElementById("searchdate");
+    //     filter = input.value.toUpperCase();
+    //     table = document.getElementById("tbl");
+    //     tr = table.getElementsByTagName("tr");
+    //     for (i = 0; i < tr.length; i++) {
+    //         td1= tr[i].getElementsByTagName("td")[6];
+    //         td2= tr[i].getElementsByTagName("td")[6];
+    //         if (td) {
+    //             txtValue = td.textContent || td.innerText;
+    //             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //                 tr[i].style.display = "";
+    //             } else {
+    //                 tr[i].style.display = "none";
+    //             }
+    //         }
+    //     }
+    // }
     </script>
 </body>
 

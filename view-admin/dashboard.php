@@ -35,8 +35,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["adminID"])) {
         <?php include "dashboardHeader.php"?>
         <div style="margin-top:20px;">
          <div class="page-title" style="margin-left:3vw;">Dashboard Overview</div>
-            <a href="printadminDashboard.php" class="btns" target="_blank"
-                style="margin-left:100rem;margin-top:0.5rem;background-color:red;">Download pdf</a>
+            
         </div>
         <!-- <button type="submit" id="click" class="btns">Click</button> -->
 
