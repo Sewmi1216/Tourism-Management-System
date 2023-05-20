@@ -86,7 +86,7 @@ class tourpackageController extends db_connection
         $_SESSION['c'] = $result;
         return $result;
 
-        if (!$result) {
+        if ($result) {
             echo 'Error Occured';
         }else{
             echo 'Successfully Added';
